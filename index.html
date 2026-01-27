@@ -1272,6 +1272,10 @@
     🧠 72er-Regel Quiz
     <span>→</span>
 </button>
+                    <button onclick="downloadPDF('anlagefragebogen')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📄 Anlagefragebogen PDF
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🏠</span>
@@ -1281,15 +1285,19 @@
     🏡 Finanzierungs-Rechner
     <span>→</span>
 </button>
+                  <button onclick="downloadPDF('finanzierung')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📄 Finanzierungsfragebogen PDF
+    <span>→</span>
+</button> 
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🔍</span>
                     <h3>Versicherungsanalyse</h3>
                     <p>Professionelle Analyse Ihrer Lebens- und fondsgebundenen Versicherungen. Ich decke versteckte Kosten auf und zeige Ihnen transparente Alternativen – ohne selbst Versicherungen zu verkaufen.</p>
-                    <a href="#kontakt" class="service-link">
-                        Mehr erfahren
-                        <span>→</span>
-                    </a>
+                    <button onclick="downloadPDF('versicherung')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    📄 Analyse-Fragebogen PDF
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">💳</span>
@@ -1299,15 +1307,19 @@
     💰 Kredit-Rechner
     <span>→</span>
 </button>
+                    <button onclick="downloadPDF('kredit')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📄 Kreditanfrage PDF
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">💼</span>
                     <h3>Wertpapierberatung</h3>
                     <p>Professionelle Depotanalyse und evidenzbasierte Anlagestrategien. Keine spekulativen Tipps, sondern wissenschaftlich fundierte Strategien für langfristigen Erfolg.</p>
-                    <a href="#kontakt" class="service-link">
-                        Mehr erfahren
-                        <span>→</span>
-                    </a>
+                    <button onclick="downloadPDF('depot')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    📄 Depot-Analyse PDF
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🎯</span>
@@ -1901,6 +1913,20 @@ function calculateKredit() {
 
 // === HELPER FUNKTION ===
 function formatCurrency(amount) {
+    // === PDF DOWNLOAD FUNKTION ===
+function downloadPDF(type) {
+    const pdfUrls = {
+        'anlagefragebogen': 'https://drive.google.com/file/d/1qXwsLTD656V6vNE5BdFkbE1Ew1pCWHDX/view?usp=drive_link,
+        'finanzierung': 'https://drive.google.com/file/d/1BHXb9WxF3avLkC9qGNMbnTC_dhV33xQX/view?usp=drive_link',
+        'versicherung': 'https://drive.google.com/file/d/1zBLN2lDJXNVDZujXBasvOFMCPRLnDflD/view?usp=drive_link',
+        'kredit': 'https://drive.google.com/file/d/1n68bCYQyn3d9JBjJqQz08uLqKd_ooHFw/view?usp=drive_link',
+        'depot': 'https://drive.google.com/file/d/1MUyIZoAkaZnyIIiQoNzRPCbpEgTSkIw1/view?usp=drive_link'
+    };
+    
+    if (pdfUrls[type]) {
+        window.open(pdfUrls[type], '_blank');
+    }
+}
     return new Intl.NumberFormat('de-AT', {
         style: 'currency',
         currency: 'EUR',
