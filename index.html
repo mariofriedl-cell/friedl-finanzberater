@@ -1129,6 +1129,42 @@
     }
 } 
     </style>
+    /* Quiz Styles */
+.quiz-option {
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border: 2px solid var(--gray-light);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1rem;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.quiz-option:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+}
+
+.quiz-option.correct {
+    border-color: var(--success);
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--success);
+}
+
+.quiz-option.wrong {
+    border-color: #DC2626;
+    background: rgba(220, 38, 38, 0.1);
+    color: #DC2626;
+}
+
+.quiz-option:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 </head>
 <body>
     <!-- Navigation -->
@@ -1230,6 +1266,10 @@
 <p>Evidenzbasierte Anlagestrategien...</p>
 <button onclick="openModal('sparplanModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
     📊 Sparplan-Rechner
+    <span>→</span>
+</button>
+                    <button onclick="openModal('quizModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    🧠 72er-Regel Quiz
     <span>→</span>
 </button>
                 </div>
@@ -1871,6 +1911,45 @@ function formatCurrency(amount) {
 
 
         console.log('✅ Rechner-Funktionen geladen!');
+        // === QUIZ FUNKTION ===
+function checkAnswer(questionNumber, isCorrect, answer) {
+    // Alle Buttons dieser Frage deaktivieren
+    const buttons = document.querySelectorAll(`#q${questionNumber}-a, #q${questionNumber}-b, #q${questionNumber}-c, #q${questionNumber}-d`);
+    buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = 'not-allowed';
+    });
+    
+    const feedback = document.getElementById(`quiz-feedback-${questionNumber}`);
+    
+    if (isCorrect) {
+        event.target.classList.add('correct');
+        feedback.style.display = 'block';
+        feedback.style.borderLeft = '4px solid var(--success)';
+        
+        if (questionNumber === 1) {
+            feedback.innerHTML = `
+                <strong style="color: #059669; font-size: 1.1rem;">✓ Richtig!</strong><br><br>
+                Nach der <strong>72er-Regel</strong>: 72 ÷ 1 = <strong>72 Jahre</strong><br>
+                Bei nur 1% Zinsen dauert es 72 Jahre, bis sich Ihr Geld verdoppelt!
+            `;
+        } else {
+            feedback.innerHTML = `
+                <strong style="color: #059669; font-size: 1.1rem;">✓ Genau!</strong><br><br>
+                72 ÷ 0,5 = <strong>144 Jahre!</strong><br><br>
+                Beim Sparbuch würde es 144 Jahre dauern. Bei 6% Investment nur <strong style="color: var(--gold);">12 Jahre – 12x schneller!</strong>
+            `;
+        }
+    } else {
+        event.target.classList.add('wrong');
+        feedback.style.display = 'block';
+        feedback.style.borderLeft = '4px solid #DC2626';
+        feedback.innerHTML = `
+            <strong style="color: #DC2626; font-size: 1.1rem;">✗ Nicht ganz richtig.</strong><br><br>
+            <strong>Tipp:</strong> Nutzen Sie die 72er-Regel: 72 ÷ Zinssatz = Jahre
+        `;
+    }
+}
 </script>
 
 <!-- SPARPLAN-RECHNER MODAL -->
@@ -1983,3 +2062,67 @@ function formatCurrency(amount) {
 
 </body>
 </html>
+<!-- 72ER-REGEL QUIZ MODAL -->
+<div id="quizModal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('quizModal')">&times;</button>
+        <h3>🧠 Die 72er-Regel Quiz</h3>
+        <p style="color: var(--gray); margin-bottom: 1.5rem;">
+            <strong>Die 72er-Regel:</strong> Teilen Sie 72 durch den Zinssatz, um zu erfahren, wie viele Jahre es dauert, bis sich Ihr Geld verdoppelt.
+        </p>
+        
+        <div style="background: var(--cream); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+            <div style="font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 1.5rem;">
+                Frage 1: Wie lange dauert es bei 1% Zinsen, bis aus 1€ → 2€ werden?
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <button onclick="checkAnswer(1, false, 'A) 36 Jahre')" class="quiz-option" id="q1-a">
+                    A) 36 Jahre
+                </button>
+                <button onclick="checkAnswer(1, true, 'B) 72 Jahre')" class="quiz-option" id="q1-b">
+                    B) 72 Jahre ✓
+                </button>
+                <button onclick="checkAnswer(1, false, 'C) 50 Jahre')" class="quiz-option" id="q1-c">
+                    C) 50 Jahre
+                </button>
+                <button onclick="checkAnswer(1, false, 'D) 100 Jahre')" class="quiz-option" id="q1-d">
+                    D) 100 Jahre
+                </button>
+            </div>
+            <div id="quiz-feedback-1" style="margin-top: 1rem; padding: 1rem; border-radius: 6px; background: var(--white); display: none;"></div>
+        </div>
+
+        <div style="background: var(--cream); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+            <div style="font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 1.5rem;">
+                Frage 2: Wie lange bei 0,5% Zinsen (typisches Sparbuch)?
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <button onclick="checkAnswer(2, false, 'A) 72 Jahre')" class="quiz-option" id="q2-a">
+                    A) 72 Jahre
+                </button>
+                <button onclick="checkAnswer(2, false, 'B) 100 Jahre')" class="quiz-option" id="q2-b">
+                    B) 100 Jahre
+                </button>
+                <button onclick="checkAnswer(2, true, 'C) 144 Jahre')" class="quiz-option" id="q2-c">
+                    C) 144 Jahre ✓
+                </button>
+                <button onclick="checkAnswer(2, false, 'D) 50 Jahre')" class="quiz-option" id="q2-d">
+                    D) 50 Jahre
+                </button>
+            </div>
+            <div id="quiz-feedback-2" style="margin-top: 1rem; padding: 1rem; border-radius: 6px; background: var(--white); display: none;"></div>
+        </div>
+
+        <div style="background: rgba(197, 165, 114, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+            <strong style="color: var(--navy); font-size: 1.1rem;">💡 Die Erkenntnis:</strong>
+            <p style="color: var(--gray); margin-top: 0.5rem; line-height: 1.7;">
+                Bei Sparbuchzinsen von 0,5% würde es 144 Jahre dauern! Bei 6% Investment nur 12 Jahre. 
+                <strong style="color: var(--gold);">12x schneller!</strong> Lassen Sie uns über bessere Alternativen sprechen!
+            </p>
+            <a href="#kontakt" class="btn btn-primary" style="margin-top: 1rem; display: inline-flex;">
+                Jetzt Beratung anfragen
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</div>
