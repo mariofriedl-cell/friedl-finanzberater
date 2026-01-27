@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1226,21 +1226,21 @@
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <span class="service-icon">📈</span>
-                    <h3>Investment & Vermögensaufbau</h3>
-                    <p>Evidenzbasierte Anlagestrategien mit ETFs und Fonds – ohne Agio! 100% Ihres Geldes arbeitet von Tag 1. Eigener Online-Zugang, keine Bindung, jährliche Depotbesprechung inklusive.</p>
-                    <a href="#kontakt" class="service-link">
-                        Mehr erfahren
-                        <span>→</span>
-                    </a>
+                  <h3>Investment & Vermögensaufbau</h3>
+<p>Evidenzbasierte Anlagestrategien...</p>
+<button onclick="openModal('sparplanModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    📊 Sparplan-Rechner
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🏠</span>
-                    <h3>Immobilienfinanzierung</h3>
-                    <p>Optimale Finanzierungskonzepte für Ihr Eigenheim. Bankunabhängig vergleiche ich 15 österreichische Banken und finde die besten Konditionen für Sie – transparent und unabhängig.</p>
-                    <a href="#kontakt" class="service-link">
-                        Mehr erfahren
-                        <span>→</span>
-                    </a>
+                   <h3>Immobilienfinanzierung</h3>
+<p>Optimale Finanzierungskonzepte...</p>
+<button onclick="openModal('finanzierungModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    🏡 Finanzierungs-Rechner
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🔍</span>
@@ -1253,12 +1253,12 @@
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">💳</span>
-                    <h3>Konsumkredite</h3>
-                    <p>Faire Kreditlösungen für Ihre Anschaffungen. Transparente Konditionen, Marktvergleich und ehrliche Beratung – ohne versteckte Kosten.</p>
-                    <a href="#kontakt" class="service-link">
-                        Mehr erfahren
-                        <span>→</span>
-                    </a>
+                   <h3>Konsumkredite</h3>
+<p>Faire Kreditlösungen...</p>
+<button onclick="openModal('kreditModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    💰 Kredit-Rechner
+    <span>→</span>
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">💼</span>
@@ -1869,7 +1869,10 @@ function formatCurrency(amount) {
     }).format(amount);
 }
 
-console.log('✅ Rechner-Funktionen geladen!');
+
+        console.log('✅ Rechner-Funktionen geladen!');
+</script>
+
 <!-- SPARPLAN-RECHNER MODAL -->
 <div id="sparplanModal" class="modal">
     <div class="modal-content">
@@ -1977,6 +1980,6 @@ console.log('✅ Rechner-Funktionen geladen!');
         </div>
     </div>
 </div>
-</script>
+
 </body>
 </html>
