@@ -1223,7 +1223,22 @@
     appearance: none;
     padding-right: 2.5rem;
 }
+/* File Upload Styling */
+.web-form input[type="file"] {
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 2px dashed var(--gray-light);
+    background: var(--cream);
+}
 
+.web-form input[type="file"]:hover {
+    border-color: var(--gold);
+    background: var(--white);
+}
+
+.web-form input[type="file"]:focus {
+    border-style: solid;
+}
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .form-row {
@@ -2371,12 +2386,18 @@ function checkAnswer(questionNumber, isCorrect, answer) {
         <h3>🔍 Versicherungsanalyse</h3>
         <p>Lassen Sie Ihre Versicherung professionell analysieren</p>
         
-        <form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form">
-            <div class="form-row">
+<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data">            
                 <div class="form-group">
                     <label for="vers-name">Name, Vorname *</label>
                     <input type="text" id="vers-name" name="name" required>
                 </div>
+                <div class="form-group">
+                <label for="vers-upload">📎 Versicherungspolice hochladen (optional)</label>
+                <input type="file" id="vers-upload" name="versicherungsdokument" accept=".pdf,.jpg,.jpeg,.png" multiple style="padding: 0.5rem;">
+                <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.5rem;">
+                    Unterstützte Formate: PDF, JPG, PNG (max. 10 MB pro Datei)<br>
+                    Sie können mehrere Dateien auswählen.
+                </p>
             </div>
             
             <div class="form-row">
