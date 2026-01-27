@@ -1700,7 +1700,7 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form action="#" method="post">
+                    <form action="https://formspree.io/f/maqovzkd" method="POST">
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -1839,12 +1839,15 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Form handling (connect to your backend/Typeform)
-        const contactForm = document.querySelector('.contact-form form');
-        contactForm?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Vielen Dank für Ihre Nachricht! Ich melde mich in Kürze bei Ihnen.');
+
+       // Form handling - Formspree übernimmt das Senden
+const contactForm = document.querySelector('.contact-form form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        // Formspree verarbeitet das Formular
+        console.log('Formular wird gesendet...');
+    });
+}
         });
     </script>
     <script>
