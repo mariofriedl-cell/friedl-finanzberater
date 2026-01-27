@@ -1272,8 +1272,8 @@
     🧠 72er-Regel Quiz
     <span>→</span>
 </button>
-                    <button onclick="downloadPDF('anlagefragebogen')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
-    📄 Anlagefragebogen PDF
+                    <button onclick="openModal('anlageFormModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📋 Anlagefragebogen ausfüllen
     <span>→</span>
 </button>
                 </div>
@@ -1285,17 +1285,17 @@
     🏡 Finanzierungs-Rechner
     <span>→</span>
 </button>
-                  <button onclick="downloadPDF('finanzierung')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
-    📄 Finanzierungsfragebogen PDF
+                  <button onclick="openModal('finanzierungFormModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📋 Finanzierungsfragebogen ausfüllen
     <span>→</span>
-</button> 
+</button>
                 </div>
                 <div class="service-card fade-in">
                     <span class="service-icon">🔍</span>
                     <h3>Versicherungsanalyse</h3>
                     <p>Professionelle Analyse Ihrer Lebens- und fondsgebundenen Versicherungen. Ich decke versteckte Kosten auf und zeige Ihnen transparente Alternativen – ohne selbst Versicherungen zu verkaufen.</p>
-                    <button onclick="downloadPDF('versicherung')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
-    📄 Analyse-Fragebogen PDF
+                    <button onclick="openModal('versicherungFormModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    📋 Analyse-Fragebogen ausfüllen
     <span>→</span>
 </button>
                 </div>
@@ -1307,8 +1307,8 @@
     💰 Kredit-Rechner
     <span>→</span>
 </button>
-                    <button onclick="downloadPDF('kredit')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
-    📄 Kreditanfrage PDF
+                    <button onclick="openModal('kreditFormModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif; margin-top: 1rem;">
+    📋 Kreditanfrage ausfüllen
     <span>→</span>
 </button>
                 </div>
@@ -1316,8 +1316,8 @@
                     <span class="service-icon">💼</span>
                     <h3>Wertpapierberatung</h3>
                     <p>Professionelle Depotanalyse und evidenzbasierte Anlagestrategien. Keine spekulativen Tipps, sondern wissenschaftlich fundierte Strategien für langfristigen Erfolg.</p>
-                    <button onclick="downloadPDF('depot')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
-    📄 Depot-Analyse PDF
+                    <button onclick="openModal('depotFormModal')" class="service-link" style="border:none; background:none; cursor:pointer; font-family: 'Inter', sans-serif;">
+    📋 Depot-Analyse anfragen
     <span>→</span>
 </button>
                 </div>
@@ -2086,7 +2086,475 @@ function checkAnswer(questionNumber, isCorrect, answer) {
     </div>
 </div>
 
-</body>
+</body> <!-- ============================================ -->
+<!-- FORMULAR-MODALS -->
+<!-- ============================================ -->
+
+<!-- ANLAGEFRAGEBOGEN MODAL -->
+<div id="anlageFormModal" class="modal">
+    <div class="modal-content" style="max-width: 700px;">
+        <button class="modal-close" onclick="closeModal('anlageFormModal')">&times;</button>
+        <h3>📋 Anlagefragebogen</h3>
+        <p>Füllen Sie den Fragebogen aus und ich melde mich in Kürze bei Ihnen!</p>
+        
+        <form action="https://formspree.io/f/xdagywlo" method="POST" class="web-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="anlage-name">Name, Vorname *</label>
+                    <input type="text" id="anlage-name" name="name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="anlage-email">Email *</label>
+                    <input type="email" id="anlage-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="anlage-phone">Telefon</label>
+                    <input type="tel" id="anlage-phone" name="telefon">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Anlageziel *</label>
+                <select name="anlageziel" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Vermögensaufbau">Vermögensaufbau (langfristig)</option>
+                    <option value="Altersvorsorge">Altersvorsorge / Pension</option>
+                    <option value="Ausbildung">Ausbildung der Kinder</option>
+                    <option value="Immobilie">Immobilienkauf (Anzahlung)</option>
+                    <option value="Unabhängigkeit">Finanzielle Unabhängigkeit</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Anlagehorizont *</label>
+                <select name="anlagehorizont" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="unter-5">Unter 5 Jahre (kurzfristig)</option>
+                    <option value="5-10">5-10 Jahre (mittelfristig)</option>
+                    <option value="10-20">10-20 Jahre (langfristig)</option>
+                    <option value="über-20">Über 20 Jahre (sehr langfristig)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Risikobereitschaft *</label>
+                <select name="risiko" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="sicher">Sehr sicherheitsorientiert (1-3)</option>
+                    <option value="ausgewogen">Ausgewogen (4-6)</option>
+                    <option value="rendite">Renditeorientiert (7-10)</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="anlage-monatlich">Monatliche Sparrate (EUR)</label>
+                    <input type="number" id="anlage-monatlich" name="monatlich" min="0" step="50">
+                </div>
+                <div class="form-group">
+                    <label for="anlage-einmalig">Einmalanlage (EUR)</label>
+                    <input type="number" id="anlage-einmalig" name="einmalig" min="0" step="1000">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="anlage-nachricht">Weitere Anmerkungen</label>
+                <textarea id="anlage-nachricht" name="nachricht" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Absenden
+                <span>→</span>
+            </button>
+            
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1rem;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- FINANZIERUNGS-MODAL -->
+<div id="finanzierungFormModal" class="modal">
+    <div class="modal-content" style="max-width: 700px;">
+        <button class="modal-close" onclick="closeModal('finanzierungFormModal')">&times;</button>
+        <h3>🏡 Finanzierungsfragebogen</h3>
+        <p>Ihre Anfrage für eine Immobilienfinanzierung</p>
+        
+        <form action="https://formspree.io/f/xdagywyq" method="POST" class="web-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fin-name">Name, Vorname *</label>
+                    <input type="text" id="fin-name" name="name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fin-email">Email *</label>
+                    <input type="email" id="fin-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="fin-phone">Telefon *</label>
+                    <input type="tel" id="fin-phone" name="telefon" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fin-kaufpreis">Kaufpreis / Baukosten (EUR) *</label>
+                    <input type="number" id="fin-kaufpreis" name="kaufpreis" required min="0" step="10000">
+                </div>
+                <div class="form-group">
+                    <label for="fin-eigenkapital">Eigenkapital (EUR) *</label>
+                    <input type="number" id="fin-eigenkapital" name="eigenkapital" required min="0" step="5000">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="fin-objekt">Objektart *</label>
+                <select id="fin-objekt" name="objektart" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Eigentumswohnung">Eigentumswohnung</option>
+                    <option value="Haus">Haus</option>
+                    <option value="Grundstück">Grundstück</option>
+                    <option value="Bauvorhaben">Bauvorhaben</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="fin-ort">Lage / Ort der Immobilie</label>
+                <input type="text" id="fin-ort" name="ort" placeholder="z.B. Graz, Steiermark">
+            </div>
+            
+            <div class="form-group">
+                <label>Verwendungszweck *</label>
+                <select name="verwendung" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Eigennutzung">Eigennutzung (Hauptwohnsitz)</option>
+                    <option value="Kapitalanlage">Kapitalanlage / Vermietung</option>
+                    <option value="Zweitwohnsitz">Zweitwohnsitz / Ferienhaus</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fin-einkommen">Netto-Einkommen (monatlich, EUR)</label>
+                    <input type="number" id="fin-einkommen" name="einkommen" min="0" step="100">
+                </div>
+                <div class="form-group">
+                    <label>Gewünschte Laufzeit</label>
+                    <select name="laufzeit">
+                        <option value="">Bitte wählen...</option>
+                        <option value="15">15 Jahre</option>
+                        <option value="20">20 Jahre</option>
+                        <option value="25">25 Jahre</option>
+                        <option value="30+">30+ Jahre</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="fin-nachricht">Weitere Anmerkungen</label>
+                <textarea id="fin-nachricht" name="nachricht" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Absenden
+                <span>→</span>
+            </button>
+            
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1rem;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- VERSICHERUNGSANALYSE-MODAL -->
+<div id="versicherungFormModal" class="modal">
+    <div class="modal-content" style="max-width: 700px;">
+        <button class="modal-close" onclick="closeModal('versicherungFormModal')">&times;</button>
+        <h3>🔍 Versicherungsanalyse</h3>
+        <p>Lassen Sie Ihre Versicherung professionell analysieren</p>
+        
+        <form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vers-name">Name, Vorname *</label>
+                    <input type="text" id="vers-name" name="name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vers-email">Email *</label>
+                    <input type="email" id="vers-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="vers-phone">Telefon</label>
+                    <input type="tel" id="vers-phone" name="telefon">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="vers-unternehmen">Versicherungsunternehmen *</label>
+                <input type="text" id="vers-unternehmen" name="unternehmen" required placeholder="z.B. Wüstenrot, Uniqa, etc.">
+            </div>
+            
+            <div class="form-group">
+                <label>Versicherungstyp *</label>
+                <select name="typ" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Lebensversicherung">Lebensversicherung</option>
+                    <option value="Fondsgebundene LV">Fondsgebundene Lebensversicherung</option>
+                    <option value="Rentenversicherung">Rentenversicherung</option>
+                    <option value="Andere">Andere</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vers-abschluss">Abschlussjahr</label>
+                    <input type="number" id="vers-abschluss" name="abschlussjahr" min="1980" max="2026" placeholder="z.B. 2015">
+                </div>
+                <div class="form-group">
+                    <label for="vers-praemie">Monatliche Prämie (EUR)</label>
+                    <input type="number" id="vers-praemie" name="praemie" min="0" step="10">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Was möchten Sie analysiert haben? *</label>
+                <select name="analyse" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Kostenstruktur">Kostenstruktur & versteckte Gebühren</option>
+                    <option value="Renditeprognose">Renditeprognose</option>
+                    <option value="Alternativen">Alternativen finden</option>
+                    <option value="Komplettanalyse">Komplette Analyse</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Zufriedenheit mit aktueller Versicherung</label>
+                <select name="zufriedenheit">
+                    <option value="">Bitte wählen...</option>
+                    <option value="zufrieden">Sehr zufrieden</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="unzufrieden">Unzufrieden</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="vers-nachricht">Weitere Anmerkungen</label>
+                <textarea id="vers-nachricht" name="nachricht" rows="3" placeholder="z.B. bekannte Probleme, spezifische Fragen..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Absenden
+                <span>→</span>
+            </button>
+            
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1rem;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- KREDIT-MODAL -->
+<div id="kreditFormModal" class="modal">
+    <div class="modal-content" style="max-width: 700px;">
+        <button class="modal-close" onclick="closeModal('kreditFormModal')">&times;</button>
+        <h3>💳 Kreditanfrage</h3>
+        <p>Ihre Anfrage für einen Konsumkredit</p>
+        
+        <form action="https://formspree.io/f/mykwlnok" method="POST" class="web-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="kred-name">Name, Vorname *</label>
+                    <input type="text" id="kred-name" name="name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="kred-email">Email *</label>
+                    <input type="email" id="kred-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="kred-phone">Telefon *</label>
+                    <input type="tel" id="kred-phone" name="telefon" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="kred-betrag">Gewünschter Kreditbetrag (EUR) *</label>
+                    <input type="number" id="kred-betrag" name="kreditbetrag" required min="1000" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="kred-laufzeit">Gewünschte Laufzeit (Monate) *</label>
+                    <input type="number" id="kred-laufzeit" name="laufzeit" required min="6" max="120" step="6" placeholder="z.B. 48">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Verwendungszweck *</label>
+                <select name="verwendung" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="PKW">PKW / Fahrzeug</option>
+                    <option value="Möbel">Wohnungseinrichtung / Möbel</option>
+                    <option value="Elektronik">Elektronik / Haushaltsgeräte</option>
+                    <option value="Urlaub">Urlaub / Reise</option>
+                    <option value="Umschuldung">Umschuldung bestehender Kredite</option>
+                    <option value="Renovierung">Renovierung / Sanierung</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="kred-einkommen">Netto-Einkommen (monatlich, EUR) *</label>
+                <input type="number" id="kred-einkommen" name="einkommen" required min="0" step="100">
+            </div>
+            
+            <div class="form-group">
+                <label>Beschäftigungsverhältnis</label>
+                <select name="beschaeftigung">
+                    <option value="">Bitte wählen...</option>
+                    <option value="Unbefristet">Unbefristet angestellt</option>
+                    <option value="Befristet">Befristet angestellt</option>
+                    <option value="Selbständig">Selbständig</option>
+                    <option value="Pensionist">Pensionist</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Haben Sie derzeit laufende Kredite?</label>
+                <select name="bestehende_kredite">
+                    <option value="">Bitte wählen...</option>
+                    <option value="Nein">Nein, keine laufenden Kredite</option>
+                    <option value="Ja">Ja, laufende Kredite vorhanden</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="kred-nachricht">Weitere Anmerkungen</label>
+                <textarea id="kred-nachricht" name="nachricht" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Absenden
+                <span>→</span>
+            </button>
+            
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1rem;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- DEPOT-ANALYSE-MODAL -->
+<div id="depotFormModal" class="modal">
+    <div class="modal-content" style="max-width: 700px;">
+        <button class="modal-close" onclick="closeModal('depotFormModal')">&times;</button>
+        <h3>💼 Depot-Analyse</h3>
+        <p>Lassen Sie Ihr Wertpapierdepot professionell analysieren</p>
+        
+        <form action="https://formspree.io/f/mzdryjoe" method="POST" class="web-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="depot-name">Name, Vorname *</label>
+                    <input type="text" id="depot-name" name="name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="depot-email">Email *</label>
+                    <input type="email" id="depot-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="depot-phone">Telefon</label>
+                    <input type="tel" id="depot-phone" name="telefon">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="depot-bank">Depotbank / Broker *</label>
+                <input type="text" id="depot-bank" name="depotbank" required placeholder="z.B. Flatex, Hello Bank, etc.">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="depot-volumen">Ungefähres Depotvolumen (EUR)</label>
+                    <input type="number" id="depot-volumen" name="volumen" min="0" step="5000" placeholder="z.B. 50000">
+                </div>
+                <div class="form-group">
+                    <label for="depot-positionen">Anzahl der Positionen (ca.)</label>
+                    <input type="number" id="depot-positionen" name="positionen" min="1" placeholder="z.B. 10">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Was befindet sich hauptsächlich in Ihrem Depot? *</label>
+                <select name="asset_klassen" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Aktien">Einzelaktien</option>
+                    <option value="ETFs">ETFs (Exchange Traded Funds)</option>
+                    <option value="Fonds">Aktive Fonds</option>
+                    <option value="Mix">Mix aus mehreren Anlageklassen</option>
+                    <option value="Andere">Andere</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Was möchten Sie analysiert haben? *</label>
+                <select name="analyseziel" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="Kosten">Kostenanalyse (TER, Gebühren)</option>
+                    <option value="Diversifikation">Diversifikation / Risikostreuung</option>
+                    <option value="Performance">Performance-Check</option>
+                    <option value="Optimierung">Optimierungsvorschläge</option>
+                    <option value="Komplett">Komplette Analyse</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Zufriedenheit mit aktuellem Depot</label>
+                <select name="zufriedenheit">
+                    <option value="">Bitte wählen...</option>
+                    <option value="zufrieden">Sehr zufrieden</option>
+                    <option value="neutral">Neutral - möchte Zweitmeinung</option>
+                    <option value="unzufrieden">Unzufrieden - suche bessere Strategie</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="depot-probleme">Bekannte Probleme / Fragen</label>
+                <textarea id="depot-probleme" name="probleme" rows="3" placeholder="z.B. hohe Kosten, schlechte Performance, keine klare Strategie..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="depot-nachricht">Weitere Anmerkungen</label>
+                <textarea id="depot-nachricht" name="nachricht" rows="2"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Absenden
+                <span>→</span>
+            </button>
+            
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1rem;">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.
+            </p>
+        </form>
+    </div>
+</div>
 </html>
 <!-- 72ER-REGEL QUIZ MODAL -->
 <div id="quizModal" class="modal">
