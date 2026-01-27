@@ -1128,7 +1128,6 @@
         font-size: 2rem;
     }
 } 
-    </style>
     /* Quiz Styles */
 .quiz-option {
     background: var(--white);
@@ -1165,6 +1164,74 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* === WEB-FORMULAR STYLES === */
+.web-form {
+    margin-top: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.web-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.web-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.web-form input,
+.web-form select,
+.web-form textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+}
+
+.web-form input:focus,
+.web-form select:focus,
+.web-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+}
+
+.web-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.web-form select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A5568' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    appearance: none;
+    padding-right: 2.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1913,20 +1980,6 @@ function calculateKredit() {
 
 // === HELPER FUNKTION ===
 function formatCurrency(amount) {
-    // === PDF DOWNLOAD FUNKTION ===
-function downloadPDF(type) {
-    const pdfUrls = {
-        'anlagefragebogen': 'https://drive.google.com/file/d/1qXwsLTD656V6vNE5BdFkbE1Ew1pCWHDX/view?usp=drive_link,
-        'finanzierung': 'https://drive.google.com/file/d/1BHXb9WxF3avLkC9qGNMbnTC_dhV33xQX/view?usp=drive_link',
-        'versicherung': 'https://drive.google.com/file/d/1zBLN2lDJXNVDZujXBasvOFMCPRLnDflD/view?usp=drive_link',
-        'kredit': 'https://drive.google.com/file/d/1n68bCYQyn3d9JBjJqQz08uLqKd_ooHFw/view?usp=drive_link',
-        'depot': 'https://drive.google.com/file/d/1MUyIZoAkaZnyIIiQoNzRPCbpEgTSkIw1/view?usp=drive_link'
-    };
-    
-    if (pdfUrls[type]) {
-        window.open(pdfUrls[type], '_blank');
-    }
-}
     return new Intl.NumberFormat('de-AT', {
         style: 'currency',
         currency: 'EUR',
@@ -1935,8 +1988,45 @@ function downloadPDF(type) {
     }).format(amount);
 }
 
-
-        console.log('✅ Rechner-Funktionen geladen!');
+console.log('✅ Rechner-Funktionen geladen!');
+        // === QUIZ FUNKTION ===
+function checkAnswer(questionNumber, isCorrect, answer) {
+    const buttons = document.querySelectorAll(`#q${questionNumber}-a, #q${questionNumber}-b, #q${questionNumber}-c, #q${questionNumber}-d`);
+    buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = 'not-allowed';
+    });
+    
+    const feedback = document.getElementById(`quiz-feedback-${questionNumber}`);
+    
+    if (isCorrect) {
+        event.target.classList.add('correct');
+        feedback.style.display = 'block';
+        feedback.style.borderLeft = '4px solid var(--success)';
+        
+        if (questionNumber === 1) {
+            feedback.innerHTML = `
+                <strong style="color: #059669; font-size: 1.1rem;">✓ Richtig!</strong><br><br>
+                Nach der <strong>72er-Regel</strong>: 72 ÷ 1 = <strong>72 Jahre</strong><br>
+                Bei nur 1% Zinsen dauert es 72 Jahre, bis sich Ihr Geld verdoppelt!
+            `;
+        } else {
+            feedback.innerHTML = `
+                <strong style="color: #059669; font-size: 1.1rem;">✓ Genau!</strong><br><br>
+                72 ÷ 0,5 = <strong>144 Jahre!</strong><br><br>
+                Beim Sparbuch würde es 144 Jahre dauern. Bei 6% Investment nur <strong style="color: var(--gold);">12 Jahre – 12x schneller!</strong>
+            `;
+        }
+    } else {
+        event.target.classList.add('wrong');
+        feedback.style.display = 'block';
+        feedback.style.borderLeft = '4px solid #DC2626';
+        feedback.innerHTML = `
+            <strong style="color: #DC2626; font-size: 1.1rem;">✗ Nicht ganz richtig.</strong><br><br>
+            <strong>Tipp:</strong> Nutzen Sie die 72er-Regel: 72 ÷ Zinssatz = Jahre
+        `;
+    }
+}
         // === QUIZ FUNKTION ===
 function checkAnswer(questionNumber, isCorrect, answer) {
     // Alle Buttons dieser Frage deaktivieren
