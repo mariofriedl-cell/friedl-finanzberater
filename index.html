@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Friedl - Unabhängige Finanzberatung Steiermark | Bankunabhängig & Transparent</title>
+    <meta name="description" content="Unabhängige Finanzberatung in der Steiermark. Investments, Vorsorge & Finanzierungen ohne Bankinteressen. Kostenlose Erstberatung. Transparente Honorarberatung. Karrierechancen im größten bankunabhängigen Netzwerk Österreichs.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0A1128;
+            --navy-light: #1C2541;
+            --gold: #C5A572;
+            --gold-dark: #A68B5B;
+            --cream: #FAF9F6;
+            --white: #FFFFFF;
+            --gray: #4A5568;
+            --gray-light: #E2E8F0;
+            --success: #059669;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--navy);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-light);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        nav .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-highlight {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-cta {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--navy);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            padding-bottom: 4rem;
+        }
+        
+        .hero .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(197, 165, 114, 0.1);
+            color: var(--gold-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(197, 165, 114, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        /* Hero Visual - Placeholder for video/image */
+        .hero-visual {
+            position: relative;
+            background: var(--gray-light);
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .hero-visual-placeholder {
+            text-align: center;
+            color: var(--gray);
+            padding: 2rem;
+        }
+        
+        .hero-visual-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+        
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .trust-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--success);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 4rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stats-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .section-label {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .service-link:hover {
+            color: var(--gold-dark);
+            gap: 0.75rem;
+        }
+        
+        /* Why Section */
+        .why-section {
+            background: var(--navy);
+            color: var(--white);
+        }
+        
+        .why-section .section-title {
+            color: var(--white);
+        }
+        
+        .why-section .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .why-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .why-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+        }
+        
+        .why-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .why-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .why-item p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        /* Process Section */
+        .process-section {
+            background: var(--white);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .process-step p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Pricing Transparency Section */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pricing-type {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        
+        .pricing-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* Career Section */
+        .career-section {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .career-section .section-label {
+            color: var(--navy);
+            opacity: 0.9;
+        }
+        
+        .career-section .section-title {
+            color: var(--navy);
+        }
+        
+        .career-section .section-description {
+            color: var(--navy);
+            opacity: 0.9;
+        }
+        
+        .career-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(10, 17, 40, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-4px);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
+        }
+        
+        .benefit-item p {
+            color: var(--navy);
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .testimonial-text {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--cream);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(197, 165, 114, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        
+        .contact-details strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details a,
+        .contact-details span {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            color: var(--gold);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-privacy {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-visual {
+                order: -1;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                Mario <span class="logo-highlight">Friedl</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#prozess">Prozess</a></li>
+                <li><a href="#kosten">Kosten</a></li>
+                <li><a href="#karriere">Karriere</a></li>
+                <li><a href="#kontakt" class="nav-cta">Termin vereinbaren</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menü öffnen">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="trust-badge">
+                    ✓ 100% Bankunabhängig
+                </div>
+                <h1>Finanzberatung, die wirklich für Sie arbeitet</h1>
+                <p class="hero-subtitle">Mit über 150 Beratern in ganz Österreich und mehr als 13.000 zufriedenen Kunden biete ich Ihnen 100% unabhängige Beratung. Transparente Kosten, Zugang zu 15+ Partnerbanken und internationale Investmentmöglichkeiten – für Ihre finanzielle Zukunft.</p>
+                <div class="cta-group">
+                    <a href="#kontakt" class="btn btn-primary">
+                        Kostenlose Erstberatung
+                        <span>→</span>
+                    </a>
+                    <a href="#kosten" class="btn btn-secondary">
+                        Kosten & Transparenz
+                    </a>
+                </div>
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>FMA-konzessioniert</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Keine versteckten Kosten</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Österreichweit tätig</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-placeholder">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p><strong>Hier kommt Ihr Video:</strong><br>Persönliche Vorstellung & Beratungsansatz<br>(erhöht Conversion um bis zu 86%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Berater in ganz Österreich</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">13.000+</span>
+                <span class="stat-label">Betreute Kunden</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">€170 Mio</span>
+                <span class="stat-label">Investmentvermögen</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Partnerbanken</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="leistungen">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Meine Leistungen</span>
+                <h2 class="section-title">Ganzheitliche Beratung für alle Lebensphasen</h2>
+                <p class="section-description">Von der ersten Analyse bis zur langfristigen Betreuung – ich begleite Sie auf Ihrem Weg zur finanziellen Sicherheit mit objektiven Empfehlungen aus dem gesamten österreichischen Markt.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-icon">📈</span>
+                    <h3>Investment & Vermögensaufbau</h3>
+                    <p>Evidenzbasierte Anlagestrategien mit ETFs und Fonds – ohne Agio! 100% Ihres Geldes arbeitet von Tag 1. Eigener Online-Zugang, keine Bindung, jährliche Depotbesprechung inklusive.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🏠</span>
+                    <h3>Immobilienfinanzierung</h3>
+                    <p>Optimale Finanzierungskonzepte für Ihr Eigenheim. Bankunabhängig vergleiche ich 15 österreichische Banken und finde die besten Konditionen für Sie – transparent und unabhängig.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔍</span>
+                    <h3>Versicherungsanalyse</h3>
+                    <p>Professionelle Analyse Ihrer Lebens- und fondsgebundenen Versicherungen. Ich decke versteckte Kosten auf und zeige Ihnen transparente Alternativen – ohne selbst Versicherungen zu verkaufen.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">💳</span>
+                    <h3>Konsumkredite</h3>
+                    <p>Faire Kreditlösungen für Ihre Anschaffungen. Transparente Konditionen, Marktvergleich und ehrliche Beratung – ohne versteckte Kosten.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">💼</span>
+                    <h3>Wertpapierberatung</h3>
+                    <p>Professionelle Depotanalyse und evidenzbasierte Anlagestrategien. Keine spekulativen Tipps, sondern wissenschaftlich fundierte Strategien für langfristigen Erfolg.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🎯</span>
+                    <h3>Ganzheitliche Finanzplanung</h3>
+                    <p>Von der Ist-Analyse über Zielsetzung bis zur Umsetzung. Alle Finanzthemen koordiniert aus einer Hand – für echte finanzielle Freiheit.</p>
+                    <a href="#kontakt" class="service-link">
+                        Mehr erfahren
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="vorteile" class="why-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Warum bankunabhängig?</span>
+                <h2 class="section-title">100% unabhängig, 100% für Sie</h2>
+                <p class="section-description">Als Teil eines Netzwerks mit 150+ Beratern in ganz Österreich biete ich Ihnen die Stärke eines großen Teams und die Flexibilität eines unabhängigen Beraters. Kein Bankinteresse, keine Produktquoten – nur Ihre Ziele zählen.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item fade-in">
+                    <div class="why-icon">🌍</div>
+                    <h3>Internationaler Marktzugang</h3>
+                    <p>Zugang zum gesamten internationalen Finanzmarkt. Mit über 15 Partnerbanken und weltweiten Investmentmöglichkeiten finde ich für Sie die besten Lösungen – nicht nur in Österreich, sondern global.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">💎</div>
+                    <h3>Transparente Kosten</h3>
+                    <p>Klare Aufklärung über alle Kosten und Gebühren. Sie wissen genau, was Sie zahlen – keine versteckten Bankspesen oder überraschenden Produktkosten. Vergleichen Sie die laufenden Kosten bei Fonds!</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">🤝</div>
+                    <h3>Faire Vergütung, große Vorteile</h3>
+                    <p>Kostenlose Beratung mit einmaliger Provision bei Abschluss. Sie sparen sich das Agio, sind zu 100% investiert von Anfang an und haben keine laufenden Beratungskosten – mehr Rendite für Sie!</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">🏆</div>
+                    <h3>Starkes Netzwerk</h3>
+                    <p>Teil eines Netzwerks mit über 150 Beratern in ganz Österreich und mehr als 13.000 betreuten Kunden. FMA-konzessioniert mit €170 Millionen Investmentvermögen und Zugang zu 15+ Partnerbanken.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">🎯</div>
+                    <h3>Individuelle Lösungen</h3>
+                    <p>Keine Standardprodukte von der Stange. Jede Strategie wird auf Ihre persönliche Situation, Ihre Ziele und Ihre Risikobereitschaft zugeschnitten – mit ETFs, wenn sinnvoll.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="why-icon">🔄</div>
+                    <h3>Kontinuierliche Betreuung</h3>
+                    <p>Regelmäßige Überprüfung und Anpassung Ihrer Strategie. Märkte und Lebensumstände ändern sich – Ihre Beratung sollte das auch tun. Jahresgespräche inklusive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="prozess" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Mein Prozess</span>
+                <h2 class="section-title">So arbeiten wir zusammen</h2>
+                <p class="section-description">Transparenz beginnt mit einem klaren Prozess. So läuft unsere Zusammenarbeit ab – von der ersten Kontaktaufnahme bis zur langfristigen Betreuung.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Kostenlose Erstberatung</h3>
+                    <p>30-minütiges Kennenlerngespräch ohne Verpflichtung. Wir besprechen Ihre Situation und klären, ob die Zusammenarbeit für beide Seiten passt.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Analyse & Zielsetzung</h3>
+                    <p>Gemeinsame Bestandsaufnahme Ihrer aktuellen Finanzsituation. Wir definieren klare, messbare Ziele für Ihre finanzielle Zukunft.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Strategieentwicklung</h3>
+                    <p>Ich erstelle einen individuellen Finanzplan mit konkreten Handlungsempfehlungen – objektiv und marktunabhängig.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Umsetzung</h3>
+                    <p>Gemeinsame Implementierung der Strategie. Ich übernehme die Kommunikation mit Banken, Versicherungen und anderen Partnern.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Laufende Betreuung</h3>
+                    <p>Regelmäßige Überprüfung und Anpassung. Jahresgespräche, fortlaufende Optimierung und Erreichbarkeit bei Fragen.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#kontakt" class="btn btn-primary">
+                    Jetzt Erstgespräch vereinbaren
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Transparency Section -->
+    <section id="kosten" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Kosten & Transparenz</span>
+                <h2 class="section-title">Kostenlose Beratung, faire Vergütung</h2>
+                <p class="section-description">Transparenz bei den Kosten ist mir wichtig. Ich biete kostenlose Beratung und erhalte nach Abschluss eine einmalige Provision – das bringt Ihnen entscheidende Vorteile.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-type">Ihre Vorteile</div>
+                    <h3>100% Agio-Ersparnis</h3>
+                    <p class="pricing-description">Kein Ausgabeaufschlag bei Fonds</p>
+                    <ul class="pricing-features">
+                        <li>Volle Investition von Anfang an</li>
+                        <li>Kein Agio (0% statt oft 3-5%)</li>
+                        <li>Mehr Anteile für Ihr Geld</li>
+                        <li>Sofortiger Vermögensaufbau</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <div class="pricing-type">Empfohlen</div>
+                    <h3>Keine laufenden Kosten</h3>
+                    <p class="pricing-description">Transparente Gebührenstruktur</p>
+                    <ul class="pricing-features">
+                        <li>Kostenlose Beratung & Analyse</li>
+                        <li>Einmalige Provision bei Abschluss</li>
+                        <li>Keine versteckten Gebühren</li>
+                        <li>Keine laufenden Beratungskosten</li>
+                        <li>Volle Kostenkontrolle</li>
+                    </ul>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="pricing-type">Flexibilität</div>
+                    <h3>Maximale Kontrolle</h3>
+                    <p class="pricing-description">Ihr Geld, Ihre Entscheidung</p>
+                    <ul class="pricing-features">
+                        <li>Keine Bindung oder Sperrfristen</li>
+                        <li>Jederzeit Zugriff auf Ihr Depot</li>
+                        <li>Eigener Online-Zugang 24/7</li>
+                        <li>Jährliche Depotbesprechung inklusive</li>
+                        <li>Transparente Kostenübersicht</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(197, 165, 114, 0.1); border-radius: 12px;">
+                <h4 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.3rem;">💡 Weitere Vorteile für Sie</h4>
+                <p style="color: var(--gray); line-height: 1.7; max-width: 800px; margin: 0 auto;">
+                    <strong>Depotbank in Österreich:</strong> Ihre Wertpapiere werden bei einer österreichischen Depotbank verwahrt – höchste Sicherheit und Einlagensicherung nach österreichischem Recht.<br><br>
+                    <strong>Automatische Steuerabführung:</strong> Alle Steuern (KESt) werden automatisch abgeführt – kein Aufwand für Sie bei der Steuererklärung. Ihre Depotbank übernimmt die gesamte steuerliche Abwicklung.<br><br>
+                    <strong>Volle Transparenz:</strong> Online-Zugang, jederzeit verfügbar, jährliche Depotbesprechung inklusive.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Kundenstimmen</span>
+                <h2 class="section-title">Was Kunden sagen</h2>
+                <p class="section-description">Vertrauen entsteht durch Ergebnisse. Lesen Sie, was Kunden über die Zusammenarbeit berichten.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"Endlich jemand, der mir ehrlich sagt, was ich brauche und was nicht. Die Kostenersparnis bei meiner Immobilienfinanzierung hat sich sofort ausgezahlt."</p>
+                    <div class="testimonial-author">Familie M.</div>
+                    <div class="testimonial-role">Immobilienfinanzierung</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"Der Unterschied zur Bankberatung ist wie Tag und Nacht. Mario hat mir gezeigt, wie viel ich bei meiner Altersvorsorge an Kosten spare. Endlich Klarheit!"</p>
+                    <div class="testimonial-author">Thomas K.</div>
+                    <div class="testimonial-role">Vermögensaufbau</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"Transparente Beratung ohne Verkaufsdruck. Mario nimmt sich Zeit, erklärt verständlich und findet wirklich die beste Lösung. Absolute Empfehlung!"</p>
+                    <div class="testimonial-author">Sarah L.</div>
+                    <div class="testimonial-role">Finanzplanung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="karriere" class="career-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Karriere im Team</span>
+                <h2 class="section-title">Werden Sie Teil unseres Erfolgs</h2>
+                <p class="section-description">Ich suche motivierte Persönlichkeiten für die Finanzberatung. Profitieren Sie von bewährten Systemen, professioneller Ausbildung und echten Verdienstmöglichkeiten in Österreichs größtem bankunabhängigen Netzwerk.</p>
+            </div>
+            <div class="career-benefits">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Leistungsgerechte Vergütung</h4>
+                    <p>Einheiten-basiertes Provisionsmodell mit unbegrenztem Verdienstpotenzial. Ihr Erfolg bestimmt Ihr Einkommen – ohne Deckelung nach oben.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🎓</div>
+                    <h4>Professionelle Ausbildung</h4>
+                    <p>Strukturiertes Onboarding, FMA-Konzessionsvorbereitung, kontinuierliche Weiterbildung und Zugang zu Expertenwissen im gesamten Netzwerk.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Teamaufbau-Möglichkeit</h4>
+                    <p>Bauen Sie Ihr eigenes Team auf und profitieren Sie von deren Erfolg. Klare Karrierestufen von Level 1 bis 6 mit steigenden Beteiligungen.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">⏰</div>
+                    <h4>Flexibilität & Freiheit</h4>
+                    <p>Selbstständige Zeiteinteilung, Home-Office-Möglichkeiten. Vereinbaren Sie Familie, Hobbys und Karriere nach Ihren Vorstellungen.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🛠️</div>
+                    <h4>Bewährtes System</h4>
+                    <p>Erprobte Prozesse, professionelle Marketing-Materialien, CRM-System und Vertriebsstrategien. Sie starten nicht bei Null.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Persönliches Coaching</h4>
+                    <p>Individuelles Mentoring, wöchentliche Strategie-Meetings und direkter Support bei allen Herausforderungen. Sie sind nie allein.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#kontakt" class="btn btn-primary">
+                    Karrieregespräch vereinbaren
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Kontakt</span>
+                <h2 class="section-title">Lassen Sie uns sprechen</h2>
+                <p class="section-description">Bereit für eine unabhängige Finanzberatung? Vereinbaren Sie Ihr kostenloses Erstgespräch – unverbindlich und ohne Verpflichtung.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Schneller Kontakt</h3>
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>E-Mail</strong>
+                                <a href="mailto:kontakt@finanzberater-friedl.info">kontakt@finanzberater-friedl.info</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Telefon</strong>
+                                <a href="tel:+43">+43 XXX XXX XXX</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Standort</strong>
+                                <span>Steiermark, Österreich</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Verfügbarkeit</strong>
+                                <span>Mo-Fr: 9:00 - 18:00 Uhr<br>Termine nach Vereinbarung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Interesse an *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="beratung">Finanzberatung</option>
+                                <option value="investment">Investment & Vermögensaufbau</option>
+                                <option value="immobilien">Immobilienfinanzierung</option>
+                                <option value="vorsorge">Vorsorge & Pension</option>
+                                <option value="karriere">Karrieremöglichkeiten</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Nachricht senden
+                            <span>→</span>
+                        </button>
+                        
+                        <p class="form-privacy">
+                            Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer <a href="#" style="color: var(--gold);">Datenschutzerklärung</a> zu.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Mario Friedl</h3>
+                <p>Unabhängige Finanzberatung in der Steiermark. Teil eines Netzwerks mit 150+ Beratern, 13.000+ Kunden und €170 Mio Investmentvermögen. 100% unabhängig, objektiv und transparent.</p>
+                <p style="font-size: 0.9rem;">FMA-konzessionierter Finanzberater<br>15+ Partnerbanken • Internationaler Marktzugang</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <ul class="footer-links">
+                    <li><a href="#leistungen">Investment & Vermögen</a></li>
+                    <li><a href="#leistungen">Immobilienfinanzierung</a></li>
+                    <li><a href="#leistungen">Versicherungsanalyse</a></li>
+                    <li><a href="#leistungen">Wertpapierberatung</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <ul class="footer-links">
+                    <li><a href="#vorteile">Warum unabhängig?</a></li>
+                    <li><a href="#prozess">Unser Prozess</a></li>
+                    <li><a href="#karriere">Karriere</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB</a></li>
+                    <li><a href="#">FMA-Konzession</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mario Friedl - Unabhängige Finanzberatung. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Hinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden. Der Wert einer Veranlagung kann sowohl steigen als auch fallen.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 80;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (implement as needed)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn?.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Form handling (connect to your backend/Typeform)
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Vielen Dank für Ihre Nachricht! Ich melde mich in Kürze bei Ihnen.');
+        });
+    </script>
+</body>
+</html>
