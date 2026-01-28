@@ -158,13 +158,16 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 .web-form input[type="file"]{padding:.5rem;cursor:pointer;border:2px dashed var(--gray-light);background:var(--cream)}
 .web-form input[type="file"]:hover{border-color:var(--gold);background:var(--white)}
 @media (max-width:1024px){.hero .container{grid-template-columns:1fr}.hero-visual{order:-1}.contact-grid{grid-template-columns:1fr}.footer-content{grid-template-columns:1fr 1fr}}
-@media (max-width:768px){.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-subtitle{font-size:1.1rem}.cta-group{flex-direction:column}.btn{width:100%;text-align:center;justify-content:center}.trust-indicators{flex-direction:column;gap:1rem}section{padding:4rem 0}.footer-content{grid-template-columns:1fr}.modal-content{padding:1.5rem;margin:1rem}.result-value{font-size:2rem}.form-row{grid-template-columns:1fr;gap:0}}
+@media (max-width:768px){.contact-grid{grid-template-columns:1fr !important}.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-subtitle{font-size:1.1rem}.cta-group{flex-direction:column}.btn{width:100%;text-align:center;justify-content:center}.trust-indicators{flex-direction:column;gap:1rem}section{padding:4rem 0}.footer-content{grid-template-columns:1fr}.modal-content{padding:1.5rem;margin:1rem}.result-value{font-size:2rem}.form-row{grid-template-columns:1fr;gap:0}}
 </style>
 </head>
 <body>
 <nav>
 <div class="container">
-<a href="#" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
+<a href="#" class="logo" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none">
+<img src="logo.png" alt="Finanzberatung Friedl Logo" style="height:45px;width:auto;background:white;padding:0.4rem;border-radius:8px">
+<span style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--navy)">Mario <span style="color:var(--gold)">Friedl</span></span>
+</a>
 <ul class="nav-links">
 <li><a href="#leistungen">Leistungen</a></li>
 <li><a href="#prozess">Prozess</a></li>
@@ -479,8 +482,20 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <h2 class="section-title">Lassen Sie uns sprechen</h2>
 <p class="section-description">Bereit für eine unabhängige Finanzberatung? Vereinbaren Sie Ihr kostenloses Erstgespräch – unverbindlich und ohne Verpflichtung.</p>
 </div>
-<div class="contact-grid">
-<div class="contact-info">
+<div class="contact-grid" style="grid-template-columns:400px 1fr;align-items:start">
+
+<!-- PROFILBILD CARD -->
+<div style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);padding:2rem;border-radius:16px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.15)">
+<div style="width:250px;height:250px;margin:0 auto 1.5rem;border-radius:50%;overflow:hidden;border:5px solid white;box-shadow:0 8px 20px rgba(0,0,0,.2)">
+<img src="mario-profilbild.jpg" alt="Mario Friedl" style="width:100%;height:100%;object-fit:cover">
+</div>
+<h3 style="font-size:1.8rem;margin-bottom:0.5rem;color:var(--navy)">Mario Friedl</h3>
+<p style="font-size:1.1rem;color:rgba(10,17,40,.85);margin-bottom:1rem">Unabhängiger Finanzberater</p>
+<p style="color:rgba(10,17,40,.75);font-size:0.95rem;line-height:1.6">FMA-konzessioniert<br>150+ Partnernetzwerk<br>Steiermark, Österreich</p>
+</div>
+
+<!-- KONTAKT-INFOS (bestehend) -->
+<div class="contact-info" style="background:white;padding:2.5rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)"><div class="contact-info">
 <h3>Schneller Kontakt</h3>
 <div class="contact-methods">
 <div class="contact-item">
