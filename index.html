@@ -688,7 +688,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <div style="margin:2rem 0">
 <p style="margin-bottom:1rem;font-weight:600">Frage 1: Wie lange dauert es bei 1% Zinsen, bis aus 1€ → 2€ werden?</p>
 <button class="quiz-option" onclick="checkAnswer(this, false)">A) 36 Jahre</button>
-<button class="quiz-option" onclick="checkAnswer(this, true)">B) 72 Jahre ✓</button>
+<button class="quiz-option" onclick="checkAnswer(this, true)">B) 72 Jahre </button>
 <button class="quiz-option" onclick="checkAnswer(this, false)">C) 50 Jahre</button>
 <button class="quiz-option" onclick="checkAnswer(this, false)">D) 100 Jahre</button>
 </div>
@@ -696,7 +696,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <p style="margin-bottom:1rem;font-weight:600">Frage 2: Wie lange bei 0,5% Zinsen (typisches Sparbuch)?</p>
 <button class="quiz-option" onclick="checkAnswer(this, false)">A) 72 Jahre</button>
 <button class="quiz-option" onclick="checkAnswer(this, false)">B) 100 Jahre</button>
-<button class="quiz-option" onclick="checkAnswer(this, true)">C) 144 Jahre ✓</button>
+<button class="quiz-option" onclick="checkAnswer(this, true)">C) 144 Jahre </button>
 <button class="quiz-option" onclick="checkAnswer(this, false)">D) 50 Jahre</button>
 </div>
 <div style="background:var(--cream);padding:1.5rem;border-radius:8px;margin-top:2rem;border-left:4px solid var(--gold)">
@@ -1204,6 +1204,32 @@ function checkAnswer(button, isCorrect) {
         }
     });
 }
+    // Mobile Menu Function
+document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'white';
+        navLinks.style.padding = '1rem';
+        navLinks.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+        navLinks.style.gap = '0.5rem';
+    }
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            document.querySelector('.nav-links').style.display = 'none';
+        }
+    });
+});
 </script>
 </body>
 </html>
