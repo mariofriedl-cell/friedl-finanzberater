@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kostenloser Info-Abend - Mario Friedl | EQUALITY EH GmbH</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1128;--gold:#C5A572;--gold-dark:#A68B5B;--cream:#FAF9F6;--white:#FFF;--gray:#4A5568;--gray-light:#E2E8F0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--cream);line-height:1.6}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid var(--gray-light);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:700;color:var(--navy);text-decoration:none;font-family:'Cormorant Garamond',serif}
+.logo-highlight{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--navy);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--white);padding:.75rem 1.5rem;border-radius:6px}
+.hero-section{min-height:70vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:var(--navy);padding:120px 2rem 4rem}
+.hero-content{max-width:900px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-block;background:rgba(10,17,40,.2);color:var(--navy);padding:.5rem 1.5rem;border-radius:30px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(10,17,40,.3)}
+.hero-section h1{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:1.5rem;color:var(--navy)}
+.hero-section .hero-subtitle{font-size:1.4rem;color:rgba(10,17,40,.8);margin-bottom:2rem;font-weight:500}
+.free-badge{display:inline-block;background:var(--navy);color:var(--gold);padding:1rem 2rem;border-radius:12px;font-size:1.5rem;font-weight:700;margin-top:1rem;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.section{padding:6rem 0}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;text-align:center}
+.section-subtitle{font-size:1.1rem;color:var(--gray);text-align:center;max-width:700px;margin:0 auto 3rem}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin:3rem 0}
+.info-card{background:var(--white);padding:2.5rem;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--gray-light);transition:all .3s}
+.info-card:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--gold)}
+.info-icon{font-size:2.5rem;margin-bottom:1rem}
+.info-card h3{font-size:1.4rem;margin-bottom:1rem;color:var(--gold)}
+.info-card ul{margin-left:1.5rem;color:var(--gray)}
+.info-card ul li{margin-bottom:.5rem}
+.highlight-section{background:var(--navy);color:var(--white)}
+.highlight-section .section-title{color:var(--white)}
+.highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin:3rem 0}
+.highlight-item{background:rgba(255,255,255,.05);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,.1);text-align:center}
+.highlight-item .icon{font-size:3rem;margin-bottom:1rem}
+.highlight-item h3{color:var(--gold);margin-bottom:.5rem}
+.highlight-item p{color:rgba(255,255,255,.8)}
+.event-details{max-width:800px;margin:3rem auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.detail-row{display:flex;align-items:center;gap:1.5rem;padding:1.5rem;border-bottom:1px solid var(--gray-light)}
+.detail-row:last-child{border:none}
+.detail-icon{font-size:2rem;color:var(--gold);min-width:40px}
+.detail-content h4{font-size:1.1rem;color:var(--navy);margin-bottom:.3rem}
+.detail-content p{color:var(--gray);margin:0}
+.cta-box{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:var(--navy);padding:3rem;border-radius:16px;text-align:center;margin:3rem 0;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.cta-box h3{font-size:2rem;margin-bottom:1rem}
+.cta-box p{font-size:1.2rem;margin-bottom:2rem}
+.form-section{background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%)}
+.registration-form{max-width:600px;margin:0 auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;margin-bottom:.5rem;color:var(--navy);font-weight:600;font-size:.95rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.875rem;border:2px solid var(--gray-light);border-radius:8px;font-size:1rem;font-family:'Inter',sans-serif;transition:all .3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,165,114,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{width:100%;padding:1.25rem 2rem;background:var(--gold);color:white;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:1rem}
+.btn-submit:hover{background:var(--gold-dark);transform:translateY(-2px)}
+footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:center}
+@media (max-width:768px){.form-row{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="index.html" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="business-seminar.html">Business Seminar</a></li>
+<li><a href="info-abend.html">Info-Abend</a></li>
+<li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero-section">
+<div class="hero-content">
+<div class="hero-badge">🎓 Kostenloser Info-Abend</div>
+<h1>Ihr erster Schritt zur finanziellen Freiheit</h1>
+<p class="hero-subtitle">90 Minuten kompaktes Finanzwissen + Networking bei Wein & Brötchen</p>
+<div class="free-badge">✨ 100% KOSTENLOS ✨</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2 class="section-title">Neugierig auf mehr?</h2>
+<p class="section-subtitle">Entdecken Sie in 90 Minuten, was die meisten Menschen ihr Leben lang nicht erfahren – die wahren Mechanismen des Vermögensaufbaus.</p>
+
+<div class="info-grid">
+<div class="info-card">
+<div class="info-icon">💰</div>
+<h3>Geld vs. Sachwerte</h3>
+<ul>
+<li>Der fundamentale Unterschied erklärt</li>
+<li>Warum Ihr Sparbuch Sie ärmer macht</li>
+<li>Die 72er-Regel live erlebt</li>
+<li>Inflation verstehen & nutzen</li>
+</ul>
+</div>
+
+<div class="info-card">
+<div class="info-icon">📊</div>
+<h3>Die Welt der Investmentfonds</h3>
+<ul>
+<li>200+ Jahre Erfolgsgeschichte</li>
+<li>Wie funktionieren Fonds wirklich?</li>
+<li>ETFs einfach erklärt</li>
+<li>Kostenfallen erkennen & vermeiden</li>
+</ul>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🏠</div>
+<h3>Vorsorge-Immobilien</h3>
+<ul>
+<li>Massive Steuervorteile nutzen</li>
+<li>Passives Einkommen aufbauen</li>
+<li>Die richtige Finanzierung</li>
+<li>Rendite vs. Eigennutzung</li>
+</ul>
+</div>
+
+<div class="info-card">
+<div class="info-icon">⚠️</div>
+<h3>Die Pensionslücke</h3>
+<ul>
+<li>Schockierende Fakten & Zahlen</li>
+<li>Wie groß ist IHRE Lücke?</li>
+<li>3 Wege sie zu schließen</li>
+<li>Je früher, desto besser</li>
+</ul>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🚀</div>
+<h3>Karriere bei EQUALITY</h3>
+<ul>
+<li>Finanzberatung als Berufung</li>
+<li>Die 13 Erfolgsfaktoren</li>
+<li>Verdienstmöglichkeiten</li>
+<li>Netzwerk von 150+ Beratern</li>
+</ul>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🍷</div>
+<h3>Networking & Genuss</h3>
+<ul>
+<li>Entspannte Atmosphäre</li>
+<li>Wein & köstliche Brötchen</li>
+<li>Austausch mit Gleichgesinnten</li>
+<li>Persönliche Gespräche</li>
+</ul>
+</div>
+</div>
+
+<div class="cta-box">
+<h3>🎯 Ihr Mehrwert an diesem Abend</h3>
+<p>Sie verlassen den Raum mit mehr Wissen als 95% der Bevölkerung über Geld, Investitionen und Vermögensaufbau – und das völlig kostenlos!</p>
+</div>
+</div>
+</section>
+
+<section class="section highlight-section">
+<div class="container">
+<h2 class="section-title">Warum dieser Info-Abend?</h2>
+<p class="section-subtitle" style="color:rgba(255,255,255,.8)">Unser Ziel: Mehr Menschen für finanzielle Bildung begeistern</p>
+
+<div class="highlight-grid">
+<div class="highlight-item">
+<div class="icon">🎓</div>
+<h3>Bildung first</h3>
+<p>Keine Verkaufspräsentation – nur echtes Wissen</p>
+</div>
+
+<div class="highlight-item">
+<div class="icon">🤝</div>
+<h3>Kennenlernen</h3>
+<p>Unverbindlich & ohne Druck</p>
+</div>
+
+<div class="highlight-item">
+<div class="icon">💡</div>
+<h3>Aha-Momente</h3>
+<p>Garantiert neue Perspektiven</p>
+</div>
+
+<div class="highlight-item">
+<div class="icon">🎯</div>
+<h3>Seminar-Vorbereitung</h3>
+<p>Perfekte Vorbereitung für unser 2-Tages Business Seminar</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2 class="section-title">Event-Details</h2>
+<div class="event-details">
+<div class="detail-row">
+<div class="detail-icon">📍</div>
+<div class="detail-content">
+<h4>Standort</h4>
+<p>EQUALITY EH GmbH, Herrgottwiesgasse 119/1, 8020 Graz</p>
+</div>
+</div>
+
+<div class="detail-row">
+<div class="detail-icon">📅</div>
+<div class="detail-content">
+<h4>Termine</h4>
+<p>Jeden ersten Dienstag im Monat – Nächster Termin wird bei Anmeldung bekannt gegeben</p>
+</div>
+</div>
+
+<div class="detail-row">
+<div class="detail-icon">⏰</div>
+<div class="detail-content">
+<h4>Dauer</h4>
+<p>19:00 - 20:30 Uhr (90 Minuten)<br>+ gemütlicher Ausklang bei Wein & Brötchen</p>
+</div>
+</div>
+
+<div class="detail-row">
+<div class="detail-icon">💰</div>
+<div class="detail-content">
+<h4>Investition</h4>
+<p style="color:var(--gold);font-weight:700;font-size:1.2rem">€ 0,00 – Völlig kostenlos!</p>
+</div>
+</div>
+
+<div class="detail-row">
+<div class="detail-icon">👔</div>
+<div class="detail-content">
+<h4>Dresscode</h4>
+<p>Smart Casual – kommen Sie wie Sie sind!</p>
+</div>
+</div>
+
+<div class="detail-row">
+<div class="detail-icon">🍷</div>
+<div class="detail-content">
+<h4>Verpflegung</h4>
+<p>Wein, alkoholfreie Getränke & köstliche Brötchen inklusive</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section form-section">
+<div class="container">
+<h2 class="section-title">Jetzt kostenlos anmelden!</h2>
+<p class="section-subtitle">⚠️ Begrenzte Plätze pro Termin – Sichern Sie sich jetzt Ihren Platz!</p>
+
+<form action="https://formspree.io/f/IHR_FORMSPREE_LINK" method="POST" class="registration-form">
+<h3 style="margin-bottom:2rem;text-align:center;color:var(--gold)">Ihre kostenlose Anmeldung</h3>
+
+<div class="form-row">
+<div class="form-group">
+<label for="vorname">Vorname *</label>
+<input type="text" id="vorname" name="vorname" required>
+</div>
+<div class="form-group">
+<label for="nachname">Nachname *</label>
+<input type="text" id="nachname" name="nachname" required>
+</div>
+</div>
+
+<div class="form-group">
+<label for="email">E-Mail *</label>
+<input type="email" id="email" name="email" required>
+</div>
+
+<div class="form-group">
+<label for="telefon">Telefon *</label>
+<input type="tel" id="telefon" name="telefon" required>
+</div>
+
+<div class="form-group">
+<label for="wunschtermin">Gewünschter Monat</label>
+<select id="wunschtermin" name="wunschtermin">
+<option value="">Nächster verfügbarer Termin</option>
+<option value="februar">Februar 2026</option>
+<option value="maerz">März 2026</option>
+<option value="april">April 2026</option>
+<option value="mai">Mai 2026</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="begleitpersonen">Anzahl Begleitpersonen</label>
+<input type="number" id="begleitpersonen" name="begleitpersonen" min="0" max="3" value="0">
+<p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Bringen Sie gerne Freunde oder Familie mit!</p>
+</div>
+
+<div class="form-group">
+<label for="interesse">Was interessiert Sie besonders?</label>
+<select id="interesse" name="hauptinteresse">
+<option value="">Bitte wählen (optional)</option>
+<option value="vermogensaufbau">Vermögensaufbau & ETFs</option>
+<option value="immobilien">Vorsorge-Immobilien</option>
+<option value="pension">Pensionsvorsorge</option>
+<option value="karriere">Karriere bei EQUALITY</option>
+<option value="alles">Alle Themen gleichermaßen</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="anmerkungen">Anmerkungen / Fragen</label>
+<textarea id="anmerkungen" name="anmerkungen" rows="3" placeholder="Haben Sie spezielle Fragen oder Wünsche?"></textarea>
+</div>
+
+<div class="form-group">
+<label style="display:flex;align-items:center;gap:0.5rem">
+<input type="checkbox" required style="width:auto">
+<span>Ich akzeptiere die <a href="datenschutz.html" style="color:var(--gold)">Datenschutzerklärung</a> *</span>
+</label>
+</div>
+
+<button type="submit" class="btn-submit">🎓 Kostenlos anmelden</button>
+
+<p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-size:0.9rem">
+Sie erhalten eine Bestätigungs-E-Mail mit dem genauen Datum und allen Details.
+</p>
+</form>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="cta-box">
+<h3>🚀 Bereit für mehr?</h3>
+<p>Nach dem Info-Abend laden wir Sie gerne zu unserem intensiven 2-Tages Business Seminar ein!</p>
+<a href="business-seminar.html" style="display:inline-block;background:var(--navy);color:var(--gold);padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;margin-top:1rem">Mehr über das Business Seminar erfahren →</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>&copy; 2026 Mario Friedl – EQUALITY EH GmbH</p>
+<p style="margin-top:1rem"><a href="index.html" style="color:var(--gold)">Zurück zur Startseite</a></p>
+</div>
+</footer>
+
+</body>
+</html>
