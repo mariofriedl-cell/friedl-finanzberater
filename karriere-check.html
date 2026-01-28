@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karriere-Check - Mario Friedl | EQUALITY EH GmbH</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1128;--gold:#C5A572;--gold-dark:#A68B5B;--cream:#FAF9F6;--white:#FFF;--gray:#4A5568;--gray-light:#E2E8F0;--success:#059669}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--cream);line-height:1.6}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid var(--gray-light);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:700;color:var(--navy);text-decoration:none;font-family:'Cormorant Garamond',serif}
+.logo-highlight{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--navy);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--white);padding:.75rem 1.5rem;border-radius:6px}
+.hero-section{min-height:70vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:var(--navy);padding:120px 2rem 4rem}
+.hero-content{max-width:900px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-block;background:rgba(10,17,40,.2);color:var(--navy);padding:.5rem 1.5rem;border-radius:30px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(10,17,40,.3)}
+.hero-section h1{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:1.5rem}
+.hero-section .hero-subtitle{font-size:1.4rem;color:rgba(10,17,40,.85);margin-bottom:2rem;font-weight:500}
+.section{padding:6rem 0}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;text-align:center}
+.section-subtitle{font-size:1.1rem;color:var(--gray);text-align:center;max-width:700px;margin:0 auto 3rem}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:3rem 0}
+.pain-card{background:var(--white);padding:2.5rem;border-radius:12px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--gray-light);transition:all .3s}
+.pain-card:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.pain-icon{font-size:3.5rem;margin-bottom:1rem}
+.pain-card h3{font-size:1.4rem;margin-bottom:.8rem;color:var(--gold)}
+.pain-card p{color:var(--gray);line-height:1.7}
+.transform-section{background:linear-gradient(135deg,var(--navy) 0%,#1a2847 100%);color:var(--white)}
+.transform-section .section-title{color:var(--white)}
+.transform-section .section-subtitle{color:rgba(255,255,255,.8)}
+.transform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin:3rem 0}
+.transform-item{background:rgba(255,255,255,.05);padding:2.5rem;border-radius:12px;text-align:center;border:1px solid rgba(255,255,255,.1);transition:all .3s}
+.transform-item:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.transform-item .icon{font-size:3.5rem;margin-bottom:1rem}
+.transform-item h3{color:var(--gold);margin-bottom:.8rem;font-size:1.3rem}
+.transform-item p{color:rgba(255,255,255,.85);line-height:1.6}
+.steps-section{background:var(--white)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin:4rem 0}
+.step-card{background:var(--cream);padding:2.5rem;border-radius:12px;border:2px solid var(--gold);position:relative;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:all .3s}
+.step-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.step-card.optional{border-color:rgba(197,165,114,.4);background:rgba(250,249,246,.6)}
+.step-number{position:absolute;top:-25px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;box-shadow:0 4px 12px rgba(197,165,114,.4)}
+.step-card.optional .step-number{background:rgba(197,165,114,.7)}
+.step-card h3{font-size:1.5rem;margin:1.5rem 0 1rem;color:var(--navy)}
+.step-card p{color:var(--gray);line-height:1.7;margin-bottom:1rem}
+.step-highlight{padding:1rem;background:rgba(197,165,114,.1);border-radius:8px;margin-top:1rem}
+.step-highlight p{color:var(--gold-dark);font-weight:600;margin:0;font-size:.95rem}
+.form-section{background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%)}
+.quiz-form{max-width:800px;margin:0 auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;margin-bottom:.5rem;color:var(--navy);font-weight:600;font-size:.95rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.875rem;border:2px solid var(--gray-light);border-radius:8px;font-size:1rem;font-family:'Inter',sans-serif;transition:all .3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,165,114,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{width:100%;padding:1.25rem 2rem;background:var(--gold);color:white;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:1rem}
+.btn-submit:hover{background:var(--gold-dark);transform:translateY(-2px)}
+.faq-section{background:var(--white)}
+.faq-container{max-width:900px;margin:0 auto}
+.faq-item{background:var(--cream);padding:2rem;border-radius:12px;margin-bottom:1.5rem;border-left:4px solid var(--gold);cursor:pointer;transition:all .3s}
+.faq-item:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.faq-question{font-size:1.2rem;color:var(--navy);font-weight:600;display:flex;justify-content:space-between;align-items:center;margin:0}
+.faq-question span{font-size:1.5rem;transition:transform .3s}
+.faq-answer{display:none;color:var(--gray);line-height:1.8;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gray-light)}
+.faq-item.active .faq-answer{display:block}
+.faq-item.active .faq-question span{transform:rotate(45deg)}
+.cta-box{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);padding:3rem;border-radius:16px;text-align:center;color:var(--navy);margin:3rem 0;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.cta-box h3{font-size:2rem;margin-bottom:1rem}
+.cta-box p{font-size:1.2rem;margin-bottom:2rem}
+footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:center}
+@media (max-width:768px){.form-row{grid-template-columns:1fr}.pain-grid,.transform-grid,.steps-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<div class="container">
+<a href="index.html" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="business-seminar.html">Business Seminar</a></li>
+<li><a href="info-abend.html">Info-Abend</a></li>
+<li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero-section">
+<div class="hero-content">
+<div class="hero-badge">🎯 Kostenloser Karriere-Check</div>
+<h1>Ist Finanzberatung Ihre Berufung?</h1>
+<p class="hero-subtitle">Finden Sie in 10 Minuten heraus, ob Sie das Zeug zum erfolgreichen Finanzberater haben – ehrlich, direkt, ohne Verkaufsgespräch.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2 class="section-title">Kennen Sie das auch?</h2>
+<p class="section-subtitle">Die typischen Schmerzpunkte, die Menschen zu uns führen</p>
+
+<div class="pain-grid">
+<div class="pain-card">
+<div class="pain-icon">😓</div>
+<h3>Festgefahren im Job</h3>
+<p>Ihr Einkommen ist gedeckelt. Egal wie hart Sie arbeiten, wie viel Mehrwert Sie schaffen – mehr als das festgelegte Gehalt gibt's einfach nicht. Das Hamsterrad dreht sich, aber Sie kommen nicht voran.</p>
+</div>
+
+<div class="pain-card">
+<div class="pain-icon">⏰</div>
+<h3>Keine Flexibilität</h3>
+<p>Fixe Arbeitszeiten von 9 bis 5, begrenzter Urlaub, keine Zeit für Familie, Hobbys oder das, was wirklich zählt im Leben. Ihr Leben richtet sich nach dem Job – nicht umgekehrt.</p>
+</div>
+
+<div class="pain-card">
+<div class="pain-icon">💔</div>
+<h3>Keine Erfüllung</h3>
+<p>Sie arbeiten hart, jeden Tag. Aber fühlen Sie einen echten Sinn? Einen Impact? Die meisten Jobs fühlen sich an wie Zeitverschwendung – nur um Rechnungen zu bezahlen.</p>
+</div>
+
+<div class="pain-card">
+<div class="pain-icon">📉</div>
+<h3>Angst vor der Zukunft</h3>
+<p>Pensionslücke, steigende Lebenshaltungskosten, Inflation. Wie soll das jemals reichen? Die Sorgen um die finanzielle Zukunft rauben Ihnen den Schlaf.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section transform-section">
+<div class="container">
+<h2 class="section-title">Stellen Sie sich vor, wenn...</h2>
+<p class="section-subtitle">So könnte Ihr Leben als unabhängiger Finanzberater aussehen</p>
+
+<div class="transform-grid">
+<div class="transform-item">
+<div class="icon">💰</div>
+<h3>Unbegrenztes Einkommen</h3>
+<p>Ihr Verdienst wächst mit Ihrem Erfolg. Keine Gehaltsober grenze, kein "Das ist das Maximum". Je mehr Sie leisten, desto mehr verdienen Sie – ohne Deckel.</p>
+</div>
+
+<div class="transform-item">
+<div class="icon">🌴</div>
+<h3>Totale Flexibilität</h3>
+<p>Sie bestimmen wann, wo und wie viel Sie arbeiten. Home-Office? Selbstverständlich! Urlaub wann Sie wollen? Kein Problem. Ihr Leben, Ihre Regeln.</p>
+</div>
+
+<div class="transform-item">
+<div class="icon">❤️</div>
+<h3>Sinnvolle Arbeit</h3>
+<p>Sie verändern Leben. Jeden einzelnen Tag. Familien erreichen ihre Träume, Menschen bauen Vermögen auf, Existenzen werden gesichert – durch IHRE Beratung.</p>
+</div>
+
+<div class="transform-item">
+<div class="icon">🚀</div>
+<h3>Team aufbauen</h3>
+<p>Werden Sie nicht nur Berater – werden Sie Leader. Bauen Sie Ihr eigenes Team auf und profitieren Sie vom Erfolg jedes einzelnen Mitglieds. Passives Einkommen inklusive.</p>
+</div>
+
+<div class="transform-item">
+<div class="icon">🎓</div>
+<h3>Ständige Weiterbildung</h3>
+<p>Persönliche Entwicklung ist Teil des Jobs. Sie wachsen jeden Tag – fachlich, persönlich, finanziell. Zugang zu den besten Trainings und Experten der Branche.</p>
+</div>
+
+<div class="transform-item">
+<div class="icon">🤝</div>
+<h3>Starkes Netzwerk</h3>
+<p>Teil eines Netzwerks von 150+ Beratern in ganz Österreich. Erfahrungsaustausch, Unterstützung, gemeinsame Events. Sie sind nie allein.</p>
+</div>
+</div>
+
+<div class="cta-box" style="margin-top:4rem">
+<h3>Klingt zu gut, um wahr zu sein?</h3>
+<p>Ist es nicht. Über 150 Berater in Österreich leben bereits dieses Leben. Die Frage ist: Haben SIE das Zeug dazu?</p>
+</div>
+</div>
+</section>
+
+<section class="section steps-section">
+<div class="container">
+<h2 class="section-title">Ihr Weg zu uns – In 4 einfachen Schritten</h2>
+<p class="section-subtitle">Transparent, unverbindlich und perfekt auf Sie zugeschnitten</p>
+
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-number">1</div>
+<h3>📋 Karriere-Check</h3>
+<p>10 ehrliche Fragen, 5 Minuten Ihrer Zeit. Wir zeigen Ihnen direkt, ob Sie das Profil haben, das in der unabhängigen Finanzberatung erfolgreich ist.</p>
+<div class="step-highlight">
+<p>✓ 100% kostenlos & unverbindlich</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-number">2</div>
+<h3>☕ Persönliches Erstgespräch</h3>
+<p>30 Minuten mit mir persönlich. Wir besprechen Ihre aktuelle Situation, Ihre Ziele und klären alle Ihre Fragen – offen, ehrlich und ohne Druck.</p>
+<div class="step-highlight">
+<p>✓ Per Telefon, Video oder vor Ort</p>
+</div>
+</div>
+
+<div class="step-card optional">
+<div class="step-number">3</div>
+<h3>👀 Schnuppertag</h3>
+<p>Begleiten Sie mich einen Tag lang. Erleben Sie live, wie Beratungsgespräche ablaufen, wie der Alltag aussieht und was wirklich auf Sie zukommt. Kein Marketing – pure Realität.</p>
+<div class="step-highlight">
+<p>✓ Völlig optional (nur wenn Sie möchten)</p>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-number">4</div>
+<h3>🚀 Onboarding & Start</h3>
+<p>Strukturiertes Onboarding-Programm, FMA-Konzessionsvorbereitung, WKO-Zertifizierung (Wirtschaftskammer Österreich), Zugang zu allen Tools und persönliches Mentoring von Tag 1.</p>
+<div class="step-highlight">
+<p>✓ Sie sind nie allein – 150+ Kollegen unterstützen Sie!</p>
+</div>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:3rem;padding:2rem;background:rgba(197,165,114,.15);border-radius:12px;border:2px dashed var(--gold)">
+<p style="font-size:1.2rem;color:var(--navy);margin-bottom:1.5rem;font-weight:600">Bereit für Schritt 1?</p>
+<p style="font-size:1rem;color:var(--gray);margin-bottom:1.5rem">Scrollen Sie nach unten und füllen Sie den Karriere-Check aus!</p>
+</div>
+</div>
+</section>
+
+<section class="section form-section">
+<div class="container">
+<h2 class="section-title">🎯 Ihr Karriere-Check</h2>
+<p class="section-subtitle">Beantworten Sie 10 ehrliche Fragen und erfahren Sie, ob die Finanzberatung zu Ihnen passt</p>
+
+<form action="https://formspree.io/f/IHR_KARRIERE_CHECK_FORMSPREE" method="POST" class="quiz-form">
+<input type="hidden" name="_subject" value="Neuer Karriere-Check ausgefüllt">
+
+<h3 style="margin-bottom:2rem;color:var(--gold);text-align:center">Die 10 Fragen:</h3>
+
+<div class="form-group">
+<label>1. Wie wichtig ist Ihnen finanzielle Freiheit? *</label>
+<select name="frage_1_finanzielle_freiheit" required>
+<option value="">Bitte wählen...</option>
+<option value="sehr">Sehr wichtig – ich will raus aus dem Hamsterrad</option>
+<option value="wichtig">Wichtig – ich will definitiv mehr verdienen</option>
+<option value="neutral">Neutral – ich bin grundsätzlich zufrieden</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>2. Können Sie sich vorstellen, selbstständig zu arbeiten? *</label>
+<select name="frage_2_selbststaendig" required>
+<option value="">Bitte wählen...</option>
+<option value="ja_traum">Ja, das ist mein Traum!</option>
+<option value="ja_rahmen">Ja, wenn die Rahmenbedingungen stimmen</option>
+<option value="nein">Nein, ich bevorzuge feste Anstellung</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>3. Wie stehen Sie zu Menschen und Kommunikation? *</label>
+<select name="frage_3_kommunikation" required>
+<option value="">Bitte wählen...</option>
+<option value="liebe">Ich liebe es, mit Menschen zu arbeiten</option>
+<option value="okay">Geht so, ich komme zurecht</option>
+<option value="ungern">Eher ungern, ich arbeite lieber allein</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>4. Interessieren Sie sich für Finanzen, Investments und Wirtschaft? *</label>
+<select name="frage_4_interesse_finanzen" required>
+<option value="">Bitte wählen...</option>
+<option value="sehr">Sehr – ich lese regelmäßig darüber</option>
+<option value="mittel">Mittel – interessant, aber kein Experte</option>
+<option value="wenig">Wenig – kenne mich kaum aus</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>5. Wie motiviert sind Sie, Neues zu lernen? *</label>
+<select name="frage_5_lernbereitschaft" required>
+<option value="">Bitte wählen...</option>
+<option value="sehr">Sehr – ich liebe persönliche Weiterentwicklung</option>
+<option value="mittel">Mittel – wenn es sein muss, lerne ich</option>
+<option value="wenig">Wenig – ich bleibe lieber in meiner Komfortzone</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>6. Wie wichtig ist Ihnen flexible Zeiteinteilung? *</label>
+<select name="frage_6_flexibilitaet" required>
+<option value="">Bitte wählen...</option>
+<option value="sehr">Sehr – ich will meine Zeit selbst bestimmen</option>
+<option value="wichtig">Wichtig – mehr Flexibilität wäre toll</option>
+<option value="egal">Egal – fixe Zeiten sind mir lieber</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>7. Können Sie mit schwankenden Einkommen umgehen? *</label>
+<select name="frage_7_risiko_einkommen" required>
+<option value="">Bitte wählen...</option>
+<option value="ja">Ja, ich habe Rücklagen und bin risikobereit</option>
+<option value="vielleicht">Vielleicht, mit Unterstützung am Anfang</option>
+<option value="nein">Nein, ich brauche ein fixes Gehalt</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>8. Wie wichtig ist Ihnen Sinnhaftigkeit in Ihrer Arbeit? *</label>
+<select name="frage_8_sinn" required>
+<option value="">Bitte wählen...</option>
+<option value="sehr">Sehr – ich will Menschen wirklich helfen</option>
+<option value="wichtig">Wichtig – aber Geld verdienen ist auch wichtig</option>
+<option value="egal">Egal – Hauptsache es zahlt gut</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>9. Haben Sie ein Netzwerk oder sind Sie gut im Networken? *</label>
+<select name="frage_9_netzwerk" required>
+<option value="">Bitte wählen...</option>
+<option value="ja">Ja, ich kenne viele Menschen</option>
+<option value="geht">Geht so, aber ich kann es lernen</option>
+<option value="nein">Nein, ich bin eher zurückhaltend</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>10. Sind Sie bereit, mindestens 10-20 Stunden pro Woche zu investieren? *</label>
+<select name="frage_10_zeit" required>
+<option value="">Bitte wählen...</option>
+<option value="vollzeit">Ja, sogar mehr – Vollzeit ist möglich</option>
+<option value="neben">Ja, 10-20h neben meinem aktuellen Job</option>
+<option value="weniger">Nur 5-10h maximal</option>
+<option value="nein">Nein, aktuell keine Zeit verfügbar</option>
+</select>
+</div>
+
+<hr style="margin:2.5rem 0;border:none;border-top:2px solid var(--gray-light)">
+
+<h3 style="margin-bottom:1.5rem;font-size:1.3rem;color:var(--navy)">Ihre Kontaktdaten:</h3>
+
+<div class="form-row">
+<div class="form-group">
+<label>Vorname *</label>
+<input type="text" name="vorname" required>
+</div>
+<div class="form-group">
+<label>Nachname *</label>
+<input type="text" name="nachname" required>
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label>E-Mail *</label>
+<input type="email" name="email" required>
+</div>
+<div class="form-group">
+<label>Telefon *</label>
+<input type="tel" name="telefon" required>
+</div>
+</div>
+
+<div class="form-group">
+<label>Ihre aktuelle berufliche Situation</label>
+<select name="aktuelle_situation">
+<option value="">Optional</option>
+<option value="angestellt_vollzeit">Angestellt (Vollzeit)</option>
+<option value="angestellt_teilzeit">Angestellt (Teilzeit)</option>
+<option value="selbststaendig">Selbstständig</option>
+<option value="arbeitssuchend">Arbeitssuchend</option>
+<option value="student">Student/in oder in Ausbildung</option>
+<option value="anderes">Anderes</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Was reizt Sie am meisten an der Finanzberatung?</label>
+<textarea name="motivation" rows="3" placeholder="Optional: Ihre Motivation, Ihre Beweggründe, Ihre Ziele..."></textarea>
+</div>
+
+<div class="form-group">
+<label style="display:flex;align-items:center;gap:0.5rem">
+<input type="checkbox" required style="width:auto">
+<span>Ich akzeptiere die <a href="datenschutz.html" target="_blank" style="color:var(--gold);text-decoration:underline">Datenschutzerklärung</a> *</span>
+</label>
+</div>
+
+<button type="submit" class="btn-submit">
+✅ Auswertung erhalten & Erstgespräch vereinbaren
+</button>
+
+<p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-size:.95rem;line-height:1.6">
+Nach dem Absenden erhalten Sie eine persönliche Auswertung per E-Mail und wir melden uns zeitnah bei Ihnen für ein unverbindliches Erstgespräch.
+</p>
+</form>
+</div>
+</section>
+
+<section class="section faq-section">
+<div class="container">
+<h2 class="section-title">Häufig gestellte Fragen</h2>
+<p class="section-subtitle">Ehrliche Antworten auf die wichtigsten Fragen zur Karriere als Finanzberater</p>
+
+<div class="faq-container">
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Brauche ich eine spezielle Ausbildung oder Vorerfahrung?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p>Nein! Was zählt ist Ihre Persönlichkeit, Ihre Lernbereitschaft und Ihr Wille, Menschen wirklich zu helfen. Wir bilden Sie von Grund auf aus – strukturiert, praxisnah und mit bewährten Methoden. Die FMA-Konzession und WKO-Zertifizierung erarbeiten wir gemeinsam Schritt für Schritt.</p>
+<p style="margin-top:0.5rem">Viele unserer erfolgreichsten Berater kamen aus komplett anderen Branchen: Einzelhandel, Handwerk, Bürojobs, sogar Gastronomie. Entscheidend ist nicht woher Sie kommen, sondern wohin Sie wollen.</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Wie viel kann ich realistisch verdienen?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Erstes Jahr (Vollzeit):</strong> €30.000-€50.000 sind realistisch mit vollem Einsatz.</p>
+<p><strong>Ab zweitem Jahr:</strong> €60.000-€100.000+ sind keine Seltenheit bei guter Performance.</p>
+<p><strong>Top-Performer:</strong> Verdienen deutlich sechsstellig, manche sogar siebenstellig.</p>
+<p style="margin-top:0.5rem"><strong>Wichtig:</strong> Es gibt keine Deckelung nach oben. Je mehr Wert Sie schaffen, je mehr Menschen Sie helfen, desto mehr verdienen Sie. Plus: Wenn Sie später ein Team aufbauen, kommen Teamprovisionen dazu – passives Einkommen!</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Bin ich wirklich selbstständig oder ist das Scheinselbstständigkeit?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p>Sie sind <strong>echte:r selbstständige:r Gewerbetreibende:r</strong> mit eigener FMA-Konzession und WKO-Mitgliedschaft. Keine Scheinselbstständigkeit!</p>
+<p style="margin-top:0.5rem">Das bedeutet konkret:</p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Sie bestimmen Ihre Arbeitszeiten komplett selbst</li>
+<li>Sie wählen Ihren Standort (Home-Office, Büro, unterwegs)</li>
+<li>Sie entscheiden welche Kunden Sie annehmen</li>
+<li>Sie können auch für andere Dienstleister arbeiten</li>
+<li>Sie führen Ihr eigenes Gewerbe</li>
+</ul>
+<p style="margin-top:0.5rem">Wir bieten Ihnen die Infrastruktur (CRM, Marketing, Back-Office, Schulungen), aber Sie sind Ihr eigener Chef.</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Muss ich Kunden akquirieren oder "verkaufen"?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Keine Kaltakquise! Keine Drückerkolonne!</strong></p>
+<p>Unser Ansatz ist fundamental anders: Marketing zieht die richtigen Menschen an (Business-Seminare, Info-Abende, Online-Marketing, Empfehlungen). Sie beraten dann Menschen, die <strong>proaktiv zu Ihnen kommen</strong>, weil sie echte Hilfe suchen.</p>
+<p style="margin-top:0.5rem">Natürlich müssen Sie auf Menschen zugehen können und kommunikativ sein. Aber mit dem guten Gewissen, dass Sie wirklich helfen und nicht "verkaufen". Die besten Verkäufe sind jene, bei denen der Kunde nicht merkt, dass er "verkauft" wird – weil er echten Mehrwert bekommt.</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Was kostet mich der Einstieg?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Investitionen für den Start:</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>FMA-Konzessionskurs: ca. €1.500</li>
+<li>Gewerbeanmeldung: ca. €150</li>
+<li>Marketing-Material (optional): ca. €300-500</li>
+<li><strong>Gesamt: Unter €2.500</strong></li>
+</ul>
+<p style="margin-top:0.5rem"><strong>Wichtig:</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Die Ausbildung selbst ist kostenlos</li>
+<li>Keine versteckten Kosten</li>
+<li>Keine monatlichen Fixkosten für Tools oder Lizenzen</li>
+<li>Manche Arbeitgeber übernehmen sogar die Kurskosten!</li>
+</ul>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Kann ich das neben meinem Hauptjob starten?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Ja, absolut!</strong> Viele starten nebenberuflich mit 10-15 Stunden pro Woche und wechseln später in Vollzeit, wenn das Einkommen passt.</p>
+<p style="margin-top:0.5rem"><strong>Typischer Ablauf:</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Monate 1-3: Ausbildung & Konzession (ca. 10h/Woche)</li>
+<li>Monate 4-12: Erste Kunden (ca. 15h/Woche)</li>
+<li>Ab Monat 12: Entscheidung Vollzeit oder weiter nebenberuflich</li>
+</ul>
+<p style="margin-top:0.5rem"><strong>Wichtig:</strong> Nehmen Sie sich Zeit für die Ausbildung und erste Kundengespräche. Halbherzig funktioniert nicht – aber mit 10-15h/Woche konsequent kommen Sie gut voran!</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Was ist, wenn ich merke, dass es nichts für mich ist?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Dann haben Sie nichts verloren!</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Der Karriere-Check: <strong>kostenlos</strong></li>
+<li>Das Erstgespräch: <strong>kostenlos</strong></li>
+<li>Der Schnuppertag: <strong>kostenlos</strong></li>
+</ul>
+<p style="margin-top:0.5rem">Erst wenn Sie sich für den Konzessionskurs anmelden (Schritt 4), entstehen Kosten. Und selbst dann können Sie jederzeit sagen "Passt nicht für mich" – ohne Verpflichtungen, ohne Druck.</p>
+<p style="margin-top:0.5rem"><strong>Unser Ziel:</strong> Dass Sie mit absoluter Sicherheit wissen, dass das der richtige Schritt für Sie ist. Nicht überzeugte Berater sind weder für uns noch für unsere Kunden gut.</p>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+<h4 class="faq-question">
+Wie unterscheidet ihr euch von Banken oder anderen Finanzdienstleistern?
+<span>+</span>
+</h4>
+<div class="faq-answer">
+<p><strong>Der fundamentale Unterschied: 100% Unabhängigkeit</strong></p>
+<p style="margin-top:0.5rem"><strong>Bei Banken:</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Sie verkaufen nur Bankprodukte</li>
+<li>Produktquoten und Verkaufsdruck</li>
+<li>Arbeiten FÜR die Bank, nicht für den Kunden</li>
+<li>Gedeckeltes Gehalt</li>
+</ul>
+<p style="margin-top:0.5rem"><strong>Bei uns:</strong></p>
+<ul style="margin-left:1.5rem;margin-top:0.5rem">
+<li>Objektive Beratung aus dem gesamten Markt</li>
+<li>15+ Partnerbanken, internationale Investments</li>
+<li>Keine Produktquoten, kein Verkaufszwang</li>
+<li>Sie arbeiten FÜR den Kunden</li>
+<li>Unbegrenztes Verdienstpotenzial</li>
+</ul>
+<p style="margin-top:0.5rem">Die Kunden merken das – und bleiben ein Leben lang. Genau das macht den Job so erfüllend und finanziell attraktiv!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:var(--cream)">
+<div class="container">
+<div class="cta-box">
+<h3>🎯 Bereit für den ersten Schritt?</h3>
+<p>Füllen Sie den Karriere-Check aus und finden Sie heraus, ob die Finanzberatung Ihre Zukunft sein könnte!</p>
+<a href="#" onclick="window.scrollTo({top: document.querySelector('.form-section').offsetTop - 100, behavior: 'smooth'}); return false;" style="display:inline-block;background:var(--navy);color:var(--gold);padding:1.25rem 3rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:1.1rem;transition:all .3s">
+Nach oben zum Karriere-Check ↑
+</a>
+<p style="margin-top:1rem;font-size:0.9rem">Oder zurück zur <a href="index.html#karriere" style="color:var(--navy);text-decoration:underline">Karriere-Übersicht</a></p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>&copy; 2026 Mario Friedl – EQUALITY EH GmbH</p>
+<p style="margin-top:1rem"><a href="index.html" style="color:var(--gold)">Zurück zur Startseite</a></p>
+</div>
+</footer>
+
+<script>
+function toggleFaq(element) {
+    element.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
