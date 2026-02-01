@@ -661,8 +661,7 @@ function evaluateCareerCheck(event) {
     else if (q10 === 'weniger') points += 1;
     
     showResultPopup(points);
-    setTimeout(() => event.target.submit(), 3000);
-}
+    setTimeout(() => event.target.submit(), 15000);
 
 function showResultPopup(points) {
     let emoji, title, message, color;
@@ -944,7 +943,7 @@ an, was möglich ist. Sie haben nichts zu verlieren – außer vielleicht der Ch
         <div style="background:white;padding:3rem;border-radius:20px;max-width:600px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center;animation:slideUp 0.5s ease">
             <div style="font-size:5rem;margin-bottom:1rem">${emoji}</div>
             <h2 style="font-size:2.5rem;color:${color};margin-bottom:1.5rem;font-family:'Cormorant Garamond',serif">${title}</h2>
-            <div style="text-align:left;color:#4A5568">${message}</div>
+            <div style="text-align:left;color:#4A5568;max-height:400px;overflow-y:auto;padding-right:1rem">${message}</div>
             <button onclick="closeResultPopup()" style="margin-top:2rem;background:${color};color:white;border:none;padding:1rem 3rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                 Verstanden – Ich freue mich!
             </button>
