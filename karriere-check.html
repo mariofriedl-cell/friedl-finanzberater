@@ -601,49 +601,58 @@ Nach oben zum Karriere-Check ↑
 function toggleFaq(element) {
     element.classList.toggle('active');
 }
-</script>
 <script>
 function evaluateCareerCheck(event) {
     event.preventDefault();
     let points = 0;
     
+    // Frage 1: Finanzielle Freiheit
     const q1 = document.querySelector('select[name="frage_1_finanzielle_freiheit"]').value;
     if (q1 === 'sehr') points += 5;
     else if (q1 === 'wichtig') points += 3;
     
+    // Frage 2: Selbstständig
     const q2 = document.querySelector('select[name="frage_2_selbststaendig"]').value;
     if (q2 === 'ja_traum') points += 5;
     else if (q2 === 'ja_rahmen') points += 3;
     
+    // Frage 3: Kommunikation
     const q3 = document.querySelector('select[name="frage_3_kommunikation"]').value;
     if (q3 === 'liebe') points += 5;
     else if (q3 === 'okay') points += 3;
     
+    // Frage 4: Interesse Finanzen
     const q4 = document.querySelector('select[name="frage_4_interesse_finanzen"]').value;
     if (q4 === 'sehr') points += 5;
     else if (q4 === 'mittel') points += 3;
     else if (q4 === 'wenig') points += 1;
     
+    // Frage 5: Lernbereitschaft
     const q5 = document.querySelector('select[name="frage_5_lernbereitschaft"]').value;
     if (q5 === 'sehr') points += 5;
     else if (q5 === 'mittel') points += 2;
     
+    // Frage 6: Flexibilität
     const q6 = document.querySelector('select[name="frage_6_flexibilitaet"]').value;
     if (q6 === 'sehr') points += 4;
     else if (q6 === 'wichtig') points += 2;
     
+    // Frage 7: Risiko Einkommen
     const q7 = document.querySelector('select[name="frage_7_risiko_einkommen"]').value;
     if (q7 === 'ja') points += 4;
     else if (q7 === 'vielleicht') points += 2;
     
+    // Frage 8: Sinnhaftigkeit
     const q8 = document.querySelector('select[name="frage_8_sinn"]').value;
     if (q8 === 'sehr') points += 4;
     else if (q8 === 'wichtig') points += 2;
     
+    // Frage 9: Netzwerk
     const q9 = document.querySelector('select[name="frage_9_netzwerk"]').value;
     if (q9 === 'ja') points += 3;
     else if (q9 === 'geht') points += 2;
     
+    // Frage 10: Zeit
     const q10 = document.querySelector('select[name="frage_10_zeit"]').value;
     if (q10 === 'vollzeit') points += 5;
     else if (q10 === 'neben') points += 3;
@@ -934,13 +943,6 @@ an, was möglich ist. Sie haben nichts zu verlieren – außer vielleicht der Ch
             <div style="font-size:5rem;margin-bottom:1rem">${emoji}</div>
             <h2 style="font-size:2.5rem;color:${color};margin-bottom:1.5rem;font-family:'Cormorant Garamond',serif">${title}</h2>
             <div style="text-align:left;color:#4A5568">${message}</div>
-            <div style="margin-top:2rem;padding:1.5rem;background:rgba(197,165,114,0.1);border-radius:12px;border-left:4px solid ${color}">
-                <p style="margin:0;font-size:0.9rem;color:#666">
-                    ✅ Ihre Daten wurden übermittelt<br>
-                    ✅ Bestätigung per E-Mail folgt<br>
-                    ✅ Wir melden uns zeitnah
-                </p>
-            </div>
             <button onclick="closeResultPopup()" style="margin-top:2rem;background:${color};color:white;border:none;padding:1rem 3rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                 Verstanden – Ich freue mich!
             </button>
