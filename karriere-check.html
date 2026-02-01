@@ -283,6 +283,7 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
 <p class="section-subtitle">Beantworten Sie 10 ehrliche Fragen und erfahren Sie, ob die Finanzberatung zu Ihnen passt</p>
 
 <form action="https://formspree.io/f/xlgnrven" method="POST" class="quiz-form">
+onsubmit="evaluateCareerCheck(event)">
 <input type="hidden" name="_subject" value="Neuer Karriere-Check ausgefüllt">
 
 <h3 style="margin-bottom:2rem;color:var(--gold);text-align:center">Die 10 Fragen:</h3>
@@ -601,6 +602,369 @@ function toggleFaq(element) {
     element.classList.toggle('active');
 }
 </script>
+<script>
+function evaluateCareerCheck(event) {
+    event.preventDefault();
+    let points = 0;
+    
+    const q1 = document.querySelector('select[name="frage_1_finanzielle_freiheit"]').value;
+    if (q1 === 'sehr') points += 5;
+    else if (q1 === 'wichtig') points += 3;
+    
+    const q2 = document.querySelector('select[name="frage_2_selbststaendig"]').value;
+    if (q2 === 'ja_traum') points += 5;
+    else if (q2 === 'ja_rahmen') points += 3;
+    
+    const q3 = document.querySelector('select[name="frage_3_kommunikation"]').value;
+    if (q3 === 'liebe') points += 5;
+    else if (q3 === 'okay') points += 3;
+    
+    const q4 = document.querySelector('select[name="frage_4_interesse_finanzen"]').value;
+    if (q4 === 'sehr') points += 5;
+    else if (q4 === 'mittel') points += 3;
+    else if (q4 === 'wenig') points += 1;
+    
+    const q5 = document.querySelector('select[name="frage_5_lernbereitschaft"]').value;
+    if (q5 === 'sehr') points += 5;
+    else if (q5 === 'mittel') points += 2;
+    
+    const q6 = document.querySelector('select[name="frage_6_flexibilitaet"]').value;
+    if (q6 === 'sehr') points += 4;
+    else if (q6 === 'wichtig') points += 2;
+    
+    const q7 = document.querySelector('select[name="frage_7_risiko_einkommen"]').value;
+    if (q7 === 'ja') points += 4;
+    else if (q7 === 'vielleicht') points += 2;
+    
+    const q8 = document.querySelector('select[name="frage_8_sinn"]').value;
+    if (q8 === 'sehr') points += 4;
+    else if (q8 === 'wichtig') points += 2;
+    
+    const q9 = document.querySelector('select[name="frage_9_netzwerk"]').value;
+    if (q9 === 'ja') points += 3;
+    else if (q9 === 'geht') points += 2;
+    
+    const q10 = document.querySelector('select[name="frage_10_zeit"]').value;
+    if (q10 === 'vollzeit') points += 5;
+    else if (q10 === 'neben') points += 3;
+    else if (q10 === 'weniger') points += 1;
+    
+    showResultPopup(points);
+    setTimeout(() => event.target.submit(), 3000);
+}
 
+function showResultPopup(points) {
+    let emoji, title, message, color;
+    
+    if (points >= 35) {
+        emoji = '🚀';
+        title = 'PERFEKTES MATCH!';
+        color = '#059669';
+        message = `
+            <p style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;color:#059669">
+Sie haben ${points} von 40 Punkten erreicht!
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:1.2rem">
+<strong>Herzlichen Glückwunsch – Sie haben GENAU DAS PROFIL, das erfolgreiche 
+Vermögensberater auszeichnet!</strong>
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Ihre Antworten zeigen es deutlich: Sie sind <strong>motiviert, kommunikativ, risikobereit 
+und bereit für Veränderung</strong>. Genau diese Kombination macht den Unterschied zwischen 
+„funktioniert" und „explodiert"!
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Stellen Sie sich vor: In 12 Monaten sitzen Sie nicht mehr im Büro, sondern arbeiten von 
+wo Sie wollen. <strong>Ihr Einkommen? Das Doppelte oder Dreifache von heute.</strong> Ihre Zeit? 
+Endlich selbstbestimmt. Ihre Arbeit? Menschen helfen, finanzielle Freiheit zu erreichen – 
+während Sie selbst diese Freiheit leben.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem;font-weight:600;color:#059669">
+Das ist nicht übertrieben. Das ist die Realität für Berater mit Ihrem Profil.
+</p>
+
+<div style="background:rgba(5,150,105,.1);padding:1.5rem;border-radius:12px;margin:1.5rem 0;border-left:5px solid #059669">
+<p style="margin:0 0 0.8rem 0;font-size:1.1rem;font-weight:700;color:#059669">
+🎯 Ihr konkreter Fahrplan:
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:1rem">
+<strong>Monat 1-2:</strong> Erstgespräch → Schnuppertag → Entscheidung
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:1rem">
+<strong>Monat 3-9:</strong> WKO-Meisterprüfung (neben Job möglich!)
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:1rem">
+<strong>Monat 10:</strong> FMA-Konzession → Start als Vermögensberater
+</p>
+<p style="margin:0 0 0 0;font-size:1rem">
+<strong>Monat 12:</strong> Erste Erfolge → Aufbau Ihres eigenen Teams
+</p>
+</div>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+<strong>Durchschnittliches Einkommen nach 2 Jahren bei Beratern mit Ihrem Profil: 
+€80.000-120.000 pro Jahr.</strong> Manche verdienen deutlich mehr. Der Unterschied? 
+Sie haben den ersten Schritt gemacht – genau wie Sie es gerade tun.
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:0;font-weight:700;color:#059669">
+Die Frage ist nicht OB, sondern WANN Sie starten. Und die beste Zeit ist JETZT.
+</p>
+
+<div style="margin-top:1.8rem;padding:1.2rem;background:rgba(197,165,114,0.15);border-radius:10px;border:2px solid #059669">
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Ihre Daten wurden übermittelt
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Sie erhalten in Kürze eine Bestätigungs-E-Mail
+</p>
+<p style="margin:0;font-size:0.95rem;font-weight:600">
+✅ Wir melden uns <u>innerhalb der nächsten 24 Stunden</u> für Ihr Erstgespräch
+</p>
+</div>
+
+<p style="font-size:0.9rem;margin-top:1.5rem;color:#666;font-style:italic">
+PS: Menschen mit Ihrem Profil bereuen nur eines – dass sie nicht früher angefangen haben.
+</p>
+            
+        `;
+        
+    } else if (points >= 25) {
+        emoji = '💪';
+        title = 'GROSSARTIGES POTENZIAL!';
+        color = '#C5A572';
+        message = `
+            <p style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;color:#C5A572">
+Sie haben ${points} von 40 Punkten erreicht!
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:1.2rem">
+<strong>Ihre Auswertung zeigt: Sie haben das Zeug dazu – Sie brauchen nur noch 
+den richtigen Plan und etwas Vorbereitung!</strong>
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Wissen Sie, was die erfolgreichsten Vermögensberater gemeinsam haben? <strong>Sie waren 
+am Anfang NICHT die Draufgänger.</strong> Sie waren die Durchdachten. Die Planer. Die, 
+die erst verstehen wollten, bevor sie den Sprung wagen.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Genau wie Sie.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Ihr Profil zeigt: Sie gehen Dinge strukturiert an. Sie wollen Sicherheit, aber auch 
+Chancen. <strong>Diese Herangehensweise ist GOLD wert</strong> – denn Sie bauen auf einem 
+soliden Fundament auf, während andere blind ins Risiko rennen.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Stellen Sie sich vor: <strong>In 18 Monaten verdienen Sie neben Ihrem Hauptjob bereits 
+€2.000-3.000 extra pro Monat.</strong> Nach 2-3 Jahren können Sie entscheiden: Vollzeit 
+wechseln und €60.000-80.000+ verdienen? Oder nebenberuflich weitermachen mit deutlich 
+mehr finanzieller Freiheit?
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem;font-weight:600;color:#C5A572">
+Sie haben die Kontrolle. Das ist der Unterschied.
+</p>
+
+<div style="background:rgba(197,165,114,.15);padding:1.5rem;border-radius:12px;margin:1.5rem 0;border-left:5px solid #C5A572">
+<p style="margin:0 0 0.8rem 0;font-size:1.1rem;font-weight:700;color:#C5A572">
+💡 Ihr individueller Weg:
+</p>
+<p style="margin:0 0 0.8rem 0;font-size:1rem">
+<strong>Phase 1 – Klarheit schaffen (Monat 1-2):</strong><br>
+Erstgespräch → Schnuppertag → Persönlicher Entwicklungsplan<br>
+<em style="color:#666;font-size:0.9rem">Sie sehen genau, was auf Sie zukommt</em>
+</p>
+<p style="margin:0 0 0.8rem 0;font-size:1rem">
+<strong>Phase 2 – Nebenberuflicher Start (Monat 3-12):</strong><br>
+WKO-Meisterprüfung → FMA-Konzession → Erste Kunden<br>
+<em style="color:#666;font-size:0.9rem">Parallel zu Ihrem Job, ohne Risiko</em>
+</p>
+<p style="margin:0;font-size:1rem">
+<strong>Phase 3 – Entscheidung (Monat 12-18):</strong><br>
+Vollzeit oder weiter nebenberuflich? Sie entscheiden.<br>
+<em style="color:#666;font-size:0.9rem">Basierend auf echten Zahlen, nicht auf Hoffnung</em>
+</p>
+</div>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+<strong>Das Schöne an Ihrem Profil:</strong> Sie gehen kein Blind-Risiko ein. Sie bauen sich 
+Schritt für Schritt ein zweites Standbein auf. Und wenn Sie dann wechseln, tun Sie es mit 
+einem Kundenstamm, Erfahrung und der Sicherheit, dass es funktioniert.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Viele unserer Top-Verdiener (€100.000+ pro Jahr) haben <strong>genau so</strong> angefangen. 
+Vorsichtig. Durchdacht. Strukturiert. Und genau deshalb sind sie heute dort, wo sie sind.
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:0;font-weight:700;color:#C5A572">
+Sie müssen nicht der Draufgänger sein. Sie müssen nur anfangen.
+</p>
+
+<div style="margin-top:1.8rem;padding:1.2rem;background:rgba(197,165,114,0.15);border-radius:10px;border:2px solid #C5A572">
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Ihre Daten wurden übermittelt
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Sie erhalten eine persönliche Bestätigung per E-Mail
+</p>
+<p style="margin:0;font-size:0.95rem;font-weight:600">
+✅ Wir melden uns <u>innerhalb von 24 Stunden</u> mit Ihrem individuellen Plan
+</p>
+</div>
+
+<p style="font-size:0.9rem;margin-top:1.5rem;color:#666;font-style:italic">
+PS: Die Berater, die heute am erfolgreichsten sind, waren am Anfang oft die Vorsichtigsten. 
+Denn sie haben eins verstanden: Nachhaltiger Erfolg braucht ein solides Fundament.
+</p>
+            
+        `;
+        
+    } else {
+        emoji = '🌱';
+        title = 'SPANNENDER START!';
+        color = '#0A1128';
+        message = `
+            <p style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;color:#0A1128">
+Sie haben ${points} von 40 Punkten erreicht!
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:1.2rem">
+<strong>Danke für Ihre Ehrlichkeit! Ihre Auswertung zeigt: Sie sind interessiert, 
+aber noch unsicher – und das ist völlig in Ordnung.</strong>
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Wissen Sie was? <strong>Genau diese Ehrlichkeit ist bereits ein Erfolgsindikator.</strong> 
+Denn die größten Fehler machen Menschen, die sich selbst überschätzen und blind in etwas 
+hineinstürzen. Sie hingegen wollen erst verstehen, ob es passt.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Das ist klug.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Ihre Auswertung zeigt auch: <strong>Die Finanzberatung könnte für Sie funktionieren – 
+aber Sie müssen erst selbst davon überzeugt sein.</strong> Und dafür brauchen Sie keine 
+Verkaufsargumente, sondern echte Einblicke.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem;font-weight:600;color:#0A1128">
+Deshalb machen wir es anders.
+</p>
+
+<div style="background:rgba(10,17,40,.08);padding:1.5rem;border-radius:12px;margin:1.5rem 0;border-left:5px solid #0A1128">
+<p style="margin:0 0 0.8rem 0;font-size:1.1rem;font-weight:700;color:#0A1128">
+💡 Ihr Weg zur Klarheit:
+</p>
+<p style="margin:0 0 0.8rem 0;font-size:1rem">
+<strong>Schritt 1 – Offenes Gespräch (30 Min, kostenlos):</strong><br>
+Keine Verkaufspräsentation. Keine Überredung. Nur ehrliche Antworten auf Ihre Fragen.<br>
+<em style="color:#666;font-size:0.9rem">Sie sagen, was Sie denken. Ich sage, was Sache ist.</em>
+</p>
+<p style="margin:0 0 0.8rem 0;font-size:1rem">
+<strong>Schritt 2 – Schnuppertag (optional):</strong><br>
+Begleiten Sie mich einen Tag. Sehen Sie die Realität – keine Instagram-Traumwelt.<br>
+<em style="color:#666;font-size:0.9rem">Wie sieht der Alltag WIRKLICH aus? Sie erleben es live.</em>
+</p>
+<p style="margin:0;font-size:1rem">
+<strong>Schritt 3 – Ehrliche Einschätzung:</strong><br>
+Danach sagen wir Ihnen beide ehrlich: Passt es oder nicht?<br>
+<em style="color:#666;font-size:0.9rem">Kein Druck. Keine Verpflichtung. Nur Klarheit.</em>
+</p>
+</div>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+<strong>Hier ist die Wahrheit:</strong> Diese Karriere ist NICHT für jeden. Sie braucht 
+Durchhaltevermögen, Lernbereitschaft und den Willen, aus der Komfortzone zu kommen.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+ABER: Viele unserer heute erfolgreichsten Berater (€80.000+ pro Jahr) hatten am Anfang 
+<strong>genau die gleichen Zweifel wie Sie.</strong> Der Unterschied? Sie haben sich getraut, 
+einen Blick hinter die Kulissen zu werfen.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.8;margin-bottom:1rem">
+Manche haben danach „Nein" gesagt – und das war gut so. Andere haben „Ja" gesagt – und 
+bereuen keine Sekunde.
+</p>
+
+<p style="font-size:1.15rem;line-height:1.8;margin-bottom:0;font-weight:700;color:#0A1128">
+Die Frage ist: Wollen Sie es herausfinden? Oder wollen Sie in 5 Jahren zurückblicken 
+und sich fragen: „Was wäre gewesen, wenn...?"
+</p>
+
+<div style="margin-top:1.8rem;padding:1.2rem;background:rgba(197,165,114,0.15);border-radius:10px;border:2px solid #0A1128">
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Ihre Daten wurden übermittelt
+</p>
+<p style="margin:0 0 0.5rem 0;font-size:0.95rem;font-weight:600">
+✅ Sie erhalten eine Bestätigung per E-Mail
+</p>
+<p style="margin:0;font-size:0.95rem;font-weight:600">
+✅ Wir melden uns <u>innerhalb von 48 Stunden</u> für ein unverbindliches Gespräch
+</p>
+</div>
+
+<p style="font-size:0.9rem;margin-top:1.5rem;color:#666;font-style:italic">
+PS: Niemand erwartet von Ihnen, dass Sie jetzt schon „Ja" sagen. Aber schauen Sie sich 
+an, was möglich ist. Sie haben nichts zu verlieren – außer vielleicht der Chance Ihres Lebens.
+</p>
+            
+        `;
+    }
+    
+    const popup = document.createElement('div');
+    popup.id = 'resultPopup';
+    popup.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:10000;animation:fadeIn 0.3s ease';
+    
+    popup.innerHTML = `
+        <div style="background:white;padding:3rem;border-radius:20px;max-width:600px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center;animation:slideUp 0.5s ease">
+            <div style="font-size:5rem;margin-bottom:1rem">${emoji}</div>
+            <h2 style="font-size:2.5rem;color:${color};margin-bottom:1.5rem;font-family:'Cormorant Garamond',serif">${title}</h2>
+            <div style="text-align:left;color:#4A5568">${message}</div>
+            <div style="margin-top:2rem;padding:1.5rem;background:rgba(197,165,114,0.1);border-radius:12px;border-left:4px solid ${color}">
+                <p style="margin:0;font-size:0.9rem;color:#666">
+                    ✅ Ihre Daten wurden übermittelt<br>
+                    ✅ Bestätigung per E-Mail folgt<br>
+                    ✅ Wir melden uns zeitnah
+                </p>
+            </div>
+            <button onclick="closeResultPopup()" style="margin-top:2rem;background:${color};color:white;border:none;padding:1rem 3rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                Verstanden – Ich freue mich!
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+}
+
+function closeResultPopup() {
+    const popup = document.getElementById('resultPopup');
+    if (popup) {
+        popup.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => popup.remove(), 300);
+    }
+}
+
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+    @keyframes fadeOut { from {opacity:1} to {opacity:0} }
+    @keyframes slideUp { from {transform:translateY(50px);opacity:0} to {transform:translateY(0);opacity:1} }
+`;
+document.head.appendChild(style);
+</script>
 </body>
 </html>
