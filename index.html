@@ -170,20 +170,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 .web-form input[type="file"]:hover{border-color:var(--gold);background:var(--white)}
 @media (max-width:1024px){.hero .container{grid-template-columns:1fr}.hero-visual{order:-1}.contact-grid{grid-template-columns:1fr}.footer-content{grid-template-columns:1fr 1fr}}
 @media (max-width:768px){.contact-grid{grid-template-columns:1fr !important}.nav-links{display:none}.mobile-menu-btn{display:block}.hero h1{font-size:2.5rem}.hero-subtitle{font-size:1.1rem}.cta-group{flex-direction:column}.btn{width:100%;text-align:center;justify-content:center}.trust-indicators{flex-direction:column;gap:1rem}section{padding:4rem 0}.footer-content{grid-template-columns:1fr}.modal-content{padding:1.5rem;margin:1rem}.result-value{font-size:2rem}.form-row{grid-template-columns:1fr;gap:0}}
-/* Upload Styling */
-input[type="file"] {
-    padding: 1rem;
-    border: 2px dashed #C5A572;
-    border-radius: 8px;
-    background: #f9f9f9;
-    cursor: pointer;
-    width: 100%;
-}
-
-input[type="file"]:hover {
-    border-color: #A68B5B;
-    background: #fff;
-}</style>
+</style>
 </head>
 <body>
 <nav>
@@ -839,7 +826,7 @@ input[type="file"]:hover {
 <button class="modal-close" onclick="closeModal('finanzierungFormModal')">×</button>
 <h3>🏡 Finanzierungsfragebogen</h3>
 <p>Ihre Anfrage für eine Immobilienfinanzierung</p>
-<form action="https://formspree.io/f/xdagywyq" method="POST" class="web-form" enctype="multipart/form-data">
+<form action="https://formspree.io/f/xdagywyq" method="POST" class="web-form">
 <div class="form-row">
 <div class="form-group">
 <label for="fin-name">Name, Vorname *</label>
@@ -863,16 +850,6 @@ input[type="file"]:hover {
 <label for="fin-eigenkapital">Eigenkapital (EUR) *</label>
 <input type="number" id="fin-eigenkapital" name="eigenkapital" required min="0">
 </div>
- <!-- Umschuldung -->
-<div class="form-group">
-    <label for="umschuldung">
-        Geht es um eine Umschuldung?
-    </label>
-    <select name="umschuldung" id="umschuldung" required>
-        <option value="">Bitte wählen</option>
-        <option value="ja">Ja, ich möchte umschulden</option>
-        <option value="nein">Nein, neue Finanzierung</option>
-    </select>
 </div>
 <div class="form-group">
 <label for="fin-objektart">Objektart *</label>
@@ -915,21 +892,83 @@ input[type="file"]:hover {
 <label for="fin-anmerkungen">Weitere Anmerkungen</label>
 <textarea id="fin-anmerkungen" name="anmerkungen"></textarea>
 </div>
-<!-- Upload -->
+<button type="submit" class="btn-calculate">Absenden →</button>
+<p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
+</form>
+</div>
+</div>
+
+<div id="versicherungFormModal" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('versicherungFormModal')">×</button>
+<h3>🔍 Versicherungsanalyse</h3>
+<p>Lassen Sie Ihre Versicherung professionell analysieren</p>
+<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data">
+<div class="form-row">
 <div class="form-group">
-    <label for="dok_finanz">
-        Dokumente hochladen (optional)
-    </label>
-    <p style="font-size:0.9rem;color:#666;">
-        PDF, JPG, PNG | Max. 10MB
-    </p>
-    <input 
-        type="file" 
-        name="dokumente_finanzierung" 
-        id="dok_finanz" 
-        accept=".pdf,.jpg,.jpeg,.png"
-        multiple
-    >
+<label for="vers-name">Name, Vorname *</label>
+<input type="text" id="vers-name" name="name" required>
+</div>
+<div class="form-group">
+<label for="vers-email">Email *</label>
+<input type="email" id="vers-email" name="email" required>
+</div>
+</div>
+<div class="form-group">
+<label for="vers-telefon">Telefon</label>
+<input type="tel" id="vers-telefon" name="telefon">
+</div>
+<div class="form-group">
+<label for="vers-unternehmen">Versicherungsunternehmen *</label>
+<input type="text" id="vers-unternehmen" name="versicherungsunternehmen" required>
+</div>
+<div class="form-group">
+<label for="vers-typ">Versicherungstyp *</label>
+<select id="vers-typ" name="versicherungstyp" required>
+<option value="">Bitte wählen...</option>
+<option value="leben">Lebensversicherung</option>
+<option value="fonds">Fondsgebundene Lebensversicherung</option>
+<option value="rente">Rentenversicherung</option>
+<option value="andere">Andere</option>
+</select>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="vers-jahr">Abschlussjahr</label>
+<input type="number" id="vers-jahr" name="abschlussjahr" min="1980" max="2026">
+</div>
+<div class="form-group">
+<label for="vers-praemie">Monatliche Prämie (EUR)</label>
+<input type="number" id="vers-praemie" name="praemie" min="0">
+</div>
+</div>
+<div class="form-group">
+<label for="vers-analyse">Was möchten Sie analysiert haben? *</label>
+<select id="vers-analyse" name="analysewunsch" required>
+<option value="">Bitte wählen...</option>
+<option value="kosten">Kostenstruktur & versteckte Gebühren</option>
+<option value="rendite">Renditeprognose</option>
+<option value="alternativen">Alternativen finden</option>
+<option value="komplett">Komplette Analyse</option>
+</select>
+</div>
+<div class="form-group">
+<label for="vers-zufriedenheit">Zufriedenheit mit aktueller Versicherung</label>
+<select id="vers-zufriedenheit" name="zufriedenheit">
+<option value="">Bitte wählen...</option>
+<option value="zufrieden">Sehr zufrieden</option>
+<option value="neutral">Neutral</option>
+<option value="unzufrieden">Unzufrieden</option>
+</select>
+</div>
+<div class="form-group">
+<label for="vers-anmerkungen">Weitere Anmerkungen</label>
+<textarea id="vers-anmerkungen" name="anmerkungen" rows="3"></textarea>
+</div>
+<div class="form-group">
+<label for="vers-upload">📎 Versicherungspolice hochladen (optional)</label>
+<input type="file" id="vers-upload" name="versicherungsdokument" accept=".pdf,.jpg,.jpeg,.png" multiple>
+<p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Unterstützte Formate: PDF, JPG, PNG (max. 10 MB pro Datei)<br>Sie können mehrere Dateien auswählen.</p>
 </div>
 <button type="submit" class="btn-calculate">Absenden →</button>
 <p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
@@ -937,200 +976,81 @@ input[type="file"]:hover {
 </div>
 </div>
 
-<!-- Versicherungsanalyse Modal -->
-<div id="versicherungFormModal" class="modal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('versicherungFormModal')">×</button>
-        <h3>📋 Versicherungsanalyse</h3>
-        <p>Ihre Anfrage für eine kostenlose Versicherungsanalyse</p>
-        
-        <form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data">
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="vers-name">Name, Vorname *</label>
-                    <input type="text" id="vers-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="vers-email">Email *</label>
-                    <input type="email" id="vers-email" name="email" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-telefon">Telefon</label>
-                <input type="tel" id="vers-telefon" name="telefon">
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-unternehmen">Versicherungsunternehmen *</label>
-                <input type="text" id="vers-unternehmen" name="versicherungsunternehmen" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-typ">Versicherungstyp *</label>
-                <select id="vers-typ" name="versicherungstyp" required>
-                    <option value="">Bitte wählen...</option>
-                    <option value="leben">Lebensversicherung</option>
-                    <option value="fonds">Fondsgebundene Lebensversicherung</option>
-                    <option value="rente">Rentenversicherung</option>
-                    <option value="andere">Andere</option>
-                </select>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="vers-jahr">Abschlussjahr</label>
-                    <input type="number" id="vers-jahr" name="abschlussjahr" min="1980" max="2026">
-                </div>
-                <div class="form-group">
-                    <label for="vers-praemie">Monatliche Prämie (EUR)</label>
-                    <input type="number" id="vers-praemie" name="praemie" min="0">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-analyse">Was möchten Sie analysiert haben? *</label>
-                <select id="vers-analyse" name="analysewunsch" required>
-                    <option value="">Bitte wählen...</option>
-                    <option value="kosten">Kostenstruktur & versteckte Gebühren</option>
-                    <option value="rendite">Renditeprognose</option>
-                    <option value="alternativen">Alternativen finden</option>
-                    <option value="komplett">Komplette Analyse</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-zufriedenheit">Zufriedenheit mit aktueller Versicherung</label>
-                <select id="vers-zufriedenheit" name="zufriedenheit">
-                    <option value="">Bitte wählen...</option>
-                    <option value="zufrieden">Sehr zufrieden</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="unzufrieden">Unzufrieden</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-anmerkungen">Weitere Anmerkungen</label>
-                <textarea id="vers-anmerkungen" name="anmerkungen" rows="3"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="vers-upload">📎 Versicherungspolice hochladen (optional)</label>
-                <input type="file" id="vers-upload" name="versicherungsdokument" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                <p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Unterstützte Formate: PDF, JPG, PNG (max. 10 MB pro Datei)<br>Sie können mehrere Dateien auswählen.</p>
-            </div>
-            
-            <button type="submit" class="btn-calculate">Absenden →</button>
-            <p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
-            
-        </form>
-    </div>
+<div id="kreditFormModal" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('kreditFormModal')">×</button>
+<h3>💳 Kreditanfrage</h3>
+<p>Ihre Anfrage für einen Konsumkredit</p>
+<form action="https://formspree.io/f/mykwlnok" method="POST" class="web-form">
+<div class="form-row">
+<div class="form-group">
+<label for="kred-name">Name, Vorname *</label>
+<input type="text" id="kred-name" name="name" required>
+</div>
+<div class="form-group">
+<label for="kred-email">Email *</label>
+<input type="email" id="kred-email" name="email" required>
+</div>
+</div>
+<div class="form-group">
+<label for="kred-telefon">Telefon *</label>
+<input type="tel" id="kred-telefon" name="telefon" required>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="kred-betrag">Gewünschter Kreditbetrag (EUR) *</label>
+<input type="number" id="kred-betrag" name="kreditbetrag" required min="1000">
+</div>
+<div class="form-group">
+<label for="kred-laufzeit">Gewünschte Laufzeit (Monate) *</label>
+<input type="number" id="kred-laufzeit" name="laufzeit" required min="12" max="120">
+</div>
+</div>
+<div class="form-group">
+<label for="kred-verwendung">Verwendungszweck *</label>
+<select id="kred-verwendung" name="verwendungszweck" required>
+<option value="">Bitte wählen...</option>
+<option value="pkw">PKW / Fahrzeug</option>
+<option value="moebel">Wohnungseinrichtung / Möbel</option>
+<option value="elektronik">Elektronik / Haushaltsgeräte</option>
+<option value="urlaub">Urlaub / Reise</option>
+<option value="umschuldung">Umschuldung bestehender Kredite</option>
+<option value="renovierung">Renovierung / Sanierung</option>
+<option value="sonstiges">Sonstiges</option>
+</select>
+</div>
+<div class="form-group">
+<label for="kred-einkommen">Netto-Einkommen (monatlich, EUR) *</label>
+<input type="number" id="kred-einkommen" name="einkommen" required min="0">
+</div>
+<div class="form-group">
+<label for="kred-beschaeftigung">Beschäftigungsverhältnis</label>
+<select id="kred-beschaeftigung" name="beschaeftigung">
+<option value="">Bitte wählen...</option>
+<option value="unbefristet">Unbefristet angestellt</option>
+<option value="befristet">Befristet angestellt</option>
+<option value="selbstaendig">Selbständig</option>
+<option value="pensionist">Pensionist</option>
+</select>
+</div>
+<div class="form-group">
+<label for="kred-kredite">Haben Sie derzeit laufende Kredite?</label>
+<select id="kred-kredite" name="laufendekredite">
+<option value="">Bitte wählen...</option>
+<option value="nein">Nein, keine laufenden Kredite</option>
+<option value="ja">Ja, laufende Kredite vorhanden</option>
+</select>
+</div>
+<div class="form-group">
+<label for="kred-anmerkungen">Weitere Anmerkungen</label>
+<textarea id="kred-anmerkungen" name="anmerkungen"></textarea>
+</div>
+<button type="submit" class="btn-calculate">Absenden →</button>
+<p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
+</form>
+</div>
 </div>
 
-<!-- Kreditanfrage Modal -->
-<div id="kreditFormModal" class="modal">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('kreditFormModal')">×</button>
-        <h3>💳 Kreditanfrage</h3>
-        <p>Ihre Anfrage für einen Konsumkredit</p>
-        
-        <form action="https://formspree.io/f/mykwlnok" method="POST" class="web-form" enctype="multipart/form-data">
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="kred-name">Name, Vorname *</label>
-                    <input type="text" id="kred-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="kred-email">Email *</label>
-                    <input type="email" id="kred-email" name="email" required>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-telefon">Telefon *</label>
-                <input type="tel" id="kred-telefon" name="telefon" required>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="kred-betrag">Gewünschter Kreditbetrag (EUR) *</label>
-                    <input type="number" id="kred-betrag" name="kreditbetrag" required min="1000">
-                </div>
-                <div class="form-group">
-                    <label for="kred-laufzeit">Gewünschte Laufzeit (Monate) *</label>
-                    <input type="number" id="kred-laufzeit" name="laufzeit" required min="12" max="120">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-verwendung">Verwendungszweck *</label>
-                <select id="kred-verwendung" name="verwendungszweck" required>
-                    <option value="">Bitte wählen...</option>
-                    <option value="pkw">PKW / Fahrzeug</option>
-                    <option value="moebel">Wohnungseinrichtung / Möbel</option>
-                    <option value="elektronik">Elektronik / Haushaltsgeräte</option>
-                    <option value="urlaub">Urlaub / Reise</option>
-                    <option value="umschuldung">Umschuldung bestehender Kredite</option>
-                    <option value="renovierung">Renovierung / Sanierung</option>
-                    <option value="sonstiges">Sonstiges</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-einkommen">Netto-Einkommen (monatlich, EUR) *</label>
-                <input type="number" id="kred-einkommen" name="einkommen" required min="0">
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-beschaeftigung">Beschäftigungsverhältnis</label>
-                <select id="kred-beschaeftigung" name="beschaeftigung">
-                    <option value="">Bitte wählen...</option>
-                    <option value="unbefristet">Unbefristet angestellt</option>
-                    <option value="befristet">Befristet angestellt</option>
-                    <option value="selbstaendig">Selbständig</option>
-                    <option value="pensionist">Pensionist</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-kredite">Haben Sie derzeit laufende Kredite?</label>
-                <select id="kred-kredite" name="laufendekredite">
-                    <option value="">Bitte wählen...</option>
-                    <option value="nein">Nein, keine laufenden Kredite</option>
-                    <option value="ja">Ja, laufende Kredite vorhanden</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="kred-anmerkungen">Weitere Anmerkungen</label>
-                <textarea id="kred-anmerkungen" name="anmerkungen"></textarea>
-            </div>
-            
-            <!-- Upload Kredite -->
-            <div class="form-group">
-                <label for="dok_kredit">
-                    Bestehende Kreditverträge hochladen (optional)
-                </label>
-                <p style="font-size:0.9rem;color:#666;">
-                    PDF, JPG, PNG | Max. 10MB
-                </p>
-                <input 
-                    type="file" 
-                    name="kredite_bestehend" 
-                    id="dok_kredit" 
-                    accept=".pdf,.jpg,.jpeg,.png"
-                    multiple
-                >
-            </div>
-            
-            <button type="submit" class="btn-calculate">Absenden →</button>
-            <p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
-            
-        </form>
-    </div>
-</div>
 <div id="depotFormModal" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal('depotFormModal')">×</button>
@@ -1250,20 +1170,20 @@ function calculateSparplan() {
     const rate = parseFloat(document.getElementById('sparrate').value) || 0;
     const jahre = parseInt(document.getElementById('sparjahre').value) || 0;
     const rendite = parseFloat(document.getElementById('sparrendite').value) / 100 || 0;
-    
+
     const monate = jahre * 12;
     const monatsZins = rendite / 12;
-    
+
     let endwert = 0;
     if (monatsZins > 0) {
         endwert = rate * ((Math.pow(1 + monatsZins, monate) - 1) / monatsZins);
     } else {
         endwert = rate * monate;
     }
-    
+
     const einzahlung = rate * monate;
     const zinsen = endwert - einzahlung;
-    
+
     document.getElementById('sparplanValue').textContent = formatCurrency(endwert);
     document.getElementById('sparplanEinzahlung').textContent = formatCurrency(einzahlung);
     document.getElementById('sparplanZinsen').textContent = formatCurrency(zinsen);
@@ -1274,20 +1194,20 @@ function calculateFinanzierung() {
     const summe = parseFloat(document.getElementById('darlehenssumme').value) || 0;
     const zins = parseFloat(document.getElementById('zinssatz').value) / 100 || 0;
     const jahre = parseInt(document.getElementById('laufzeit').value) || 0;
-    
+
     const monate = jahre * 12;
     const monatsZins = zins / 12;
-    
+
     let rate = 0;
     if (monatsZins > 0) {
         rate = summe * (monatsZins * Math.pow(1 + monatsZins, monate)) / (Math.pow(1 + monatsZins, monate) - 1);
     } else {
         rate = summe / monate;
     }
-    
+
     const gesamt = rate * monate;
     const zinsen = gesamt - summe;
-    
+
     document.getElementById('finanzierungRate').textContent = formatCurrency(rate);
     document.getElementById('finanzierungGesamt').textContent = formatCurrency(gesamt);
     document.getElementById('finanzierungZinsen').textContent = formatCurrency(zinsen);
@@ -1298,19 +1218,19 @@ function calculateKredit() {
     const betrag = parseFloat(document.getElementById('kreditbetrag').value) || 0;
     const zins = parseFloat(document.getElementById('kreditzins').value) / 100 || 0;
     const monate = parseInt(document.getElementById('kreditmonate').value) || 0;
-    
+
     const monatsZins = zins / 12;
-    
+
     let rate = 0;
     if (monatsZins > 0) {
         rate = betrag * (monatsZins * Math.pow(1 + monatsZins, monate)) / (Math.pow(1 + monatsZins, monate) - 1);
     } else {
         rate = betrag / monate;
     }
-    
+
     const gesamt = rate * monate;
     const zinsen = gesamt - betrag;
-    
+
     document.getElementById('kreditRate').textContent = formatCurrency(rate);
     document.getElementById('kreditGesamt').textContent = formatCurrency(gesamt);
     document.getElementById('kreditZinsen').textContent = formatCurrency(zinsen);
