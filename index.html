@@ -981,7 +981,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <button class="modal-close" onclick="closeModal('kreditFormModal')">×</button>
 <h3>💳 Kreditanfrage</h3>
 <p>Ihre Anfrage für einen Konsumkredit</p>
-<form action="https://formspree.io/f/mykwlnok" method="POST" class="web-form">
+<form action="https://formspree.io/f/mykwlnok" method="POST" class="web-form"> enctype="multipart/form-data">
 <div class="form-row">
 <div class="form-group">
 <label for="kred-name">Name, Vorname *</label>
@@ -1045,6 +1045,14 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <label for="kred-anmerkungen">Weitere Anmerkungen</label>
 <textarea id="kred-anmerkungen" name="anmerkungen"></textarea>
 </div>
+    
+    <!-- Upload Kredite -->
+<div class="form-group">
+    <label for="kred-upload">📎 Bestehende Kreditverträge hochladen (optional)</label>
+    <input type="file" id="kred-upload" name="kredite_bestehend" accept=".pdf,.jpg,.jpeg,.png" multiple>
+    <p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Unterstützte Formate: PDF, JPG, PNG (max. 10 MB pro Datei)</p>
+</div>
+    
 <button type="submit" class="btn-calculate">Absenden →</button>
 <p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
 </form>
