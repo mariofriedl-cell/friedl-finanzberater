@@ -826,7 +826,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <button class="modal-close" onclick="closeModal('finanzierungFormModal')">×</button>
 <h3>🏡 Finanzierungsfragebogen</h3>
 <p>Ihre Anfrage für eine Immobilienfinanzierung</p>
-<form action="https://formspree.io/f/xdagywyq" method="POST" class="web-form">
+<form action="https://formspree.io/f/xdagywyq" method="POST" class="web-form"> enctype="multipart/form-data">
 <div class="form-row">
 <div class="form-group">
 <label for="fin-name">Name, Vorname *</label>
@@ -861,6 +861,16 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <option value="bau">Bauvorhaben</option>
 </select>
 </div>
+    <div class="form-group">
+    <label for="umschuldung">
+        Geht es um eine Umschuldung?
+    </label>
+    <select name="umschuldung" id="umschuldung" required>
+        <option value="">Bitte wählen</option>
+        <option value="ja">Ja, ich möchte umschulden</option>
+        <option value="nein">Nein, neue Finanzierung</option>
+    </select>
+</div>
 <div class="form-group">
 <label for="fin-ort">Lage / Ort der Immobilie</label>
 <input type="text" id="fin-ort" name="ort">
@@ -891,6 +901,23 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <div class="form-group">
 <label for="fin-anmerkungen">Weitere Anmerkungen</label>
 <textarea id="fin-anmerkungen" name="anmerkungen"></textarea>
+</div>
+    
+    <!-- Upload -->
+<div class="form-group">
+    <label for="dok_finanz">
+        Dokumente hochladen (optional)
+    </label>
+    <p style="font-size:0.9rem;color:#666;">
+        PDF, JPG, PNG | Max. 10MB
+    </p>
+    <input 
+        type="file" 
+        name="dokumente_finanzierung" 
+        id="dok_finanz" 
+        accept=".pdf,.jpg,.jpeg,.png"
+        multiple
+    >
 </div>
 <button type="submit" class="btn-calculate">Absenden →</button>
 <p style="font-size:0.85rem;color:var(--gray);margin-top:1rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
