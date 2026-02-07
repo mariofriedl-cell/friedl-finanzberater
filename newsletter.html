@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Newsletter Februar 2026 - Aktuelle Entwicklungen zu Gold, Silber, Investmentfonds und Immobilienzinsen in Österreich">
+    <title>Newsletter Februar 2026 | Finanzberater Friedl</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -3rem auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .content-box {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .content-box h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #f39c12;
+        }
+
+        .content-box h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .price-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .price-card .change {
+            font-size: 0.9rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table .highlight {
+            background: #fff3cd;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .calculation-box {
+            background: #f0f4ff;
+            border: 2px solid #667eea;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .calculation-box .result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 1rem;
+        }
+
+        ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #f39c12;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-box {
+                padding: 1.5rem;
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links a {
+                margin: 0.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Mario Friedl</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="business-seminar.html">Business Seminar</a>
+                <a href="info-abend.html">Info-Abend</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>📰 Newsletter Februar 2026</h1>
+        <p>Aktuelle Entwicklungen am Finanzmarkt: Gold, Silber, Investmentfonds und Immobilienzinsen in Österreich</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="content-box">
+            <h2>💰 Gold und Silber: Erholung nach historischem Crash</h2>
+            
+            <p>Ende Januar 2026 erlebten die Edelmetallmärkte den größten Preissturz seit Jahrzehnten. Die Ernennung eines neuen US-Notenbankchefs sorgte für Panik - doch die Erholung läuft bereits.</p>
+
+            <div class="price-cards">
+                <div class="price-card">
+                    <div class="label">Gold aktuell</div>
+                    <div class="price">5.020 USD</div>
+                    <div class="change">Erholung nach Crash</div>
+                </div>
+                <div class="price-card">
+                    <div class="label">Silber aktuell</div>
+                    <div class="price">89 USD</div>
+                    <div class="change">+29% seit Tiefpunkt</div>
+                </div>
+            </div>
+
+            <h3>Was war passiert?</h3>
+            <p><strong>Gold:</strong> Sturz von 5.500 USD auf 4.546 USD (-9,4% an einem Tag!)<br>
+               <strong>Silber:</strong> Sturz von 93 USD auf 69 USD (-26% an einem Tag!)</p>
+
+            <h3>Warum steigen Gold und Silber trotzdem langfristig?</h3>
+            <ul>
+                <li><strong>Geopolitische Unsicherheit:</strong> Konflikte weltweit treiben die Nachfrage nach "sicheren Häfen"</li>
+                <li><strong>Notenbanken kaufen massiv:</strong> Zentralbanken kauften 2025 über 1.000 Tonnen Gold</li>
+                <li><strong>Industrie braucht Silber:</strong> Solaranlagen und Elektroautos brauchen immer mehr Silber</li>
+                <li><strong>Angebot ist knapp:</strong> Es wird weniger gefördert als verbraucht</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Die Entwicklung 2025:</strong><br>
+                • Gold: +64% (beste Performance seit 1979!)<br>
+                • Silber: +147% (beste Performance seit über 45 Jahren!)
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Wichtig zu wissen:</strong> Gold und Silber schwanken stark! Sie sind für langfristige Anleger gedacht, die auch mal 20-30% Verluste aushalten können.<br><br>
+                <strong>Empfehlung:</strong> 5-10% des Vermögens in Edelmetalle macht Sinn - als Versicherung, nicht als Hauptanlage.
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>📉 Sparbuch vs. Investmentfonds: Der große Vergleich</h2>
+
+            <h3>Aktuelle Sparzinsen in Österreich</h3>
+            <p><strong>Tagesgeld (beste Angebote):</strong></p>
+            <ul>
+                <li>Santander: 2,25% für 4 Monate, dann nur noch 1,50%</li>
+                <li>DADAT: 2,25% für 3 Monate, dann nur noch 1,50%</li>
+                <li>Trade Republic: 2,00% dauerhaft</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Die Wahrheit: Inflation frisst Ihre Zinsen auf!</strong><br><br>
+                Inflation in Österreich (Januar 2026): <strong>2,0%</strong><br><br>
+                Wenn Sie 2,25% Zinsen bekommen, aber die Preise um 2,0% steigen, haben Sie real nur 0,25% Gewinn!<br><br>
+                Nach der Neukundenaktion:<br>
+                • Zinsen: 1,50%<br>
+                • Inflation: 2,0%<br>
+                • <strong>Ihr Verlust: -0,5% pro Jahr!</strong>
+            </div>
+
+            <h3>📊 Rechenbeispiel: 30 Jahre Sparbuch = Kaufkraftverlust</h3>
+            
+            <div class="calculation-box">
+                <p><strong>Ausgangssituation:</strong> Sie haben 10.000 Euro und legen sie 30 Jahre an.</p>
+                
+                <p><strong>SPARBUCH (durchschnittlich 2% Zinsen):</strong><br>
+                Nach 30 Jahren: <strong>18.114 Euro</strong> (nominal)<br>
+                <span style="color: #e74c3c;">ABER: Durch Inflation = nur <strong>8.610 Euro</strong> Kaufkraft</span></p>
+                
+                <p style="margin-top: 1.5rem;"><strong>INVESTMENTFONDS (durchschnittlich 7% pro Jahr):</strong><br>
+                Nach 30 Jahren: <strong>76.123 Euro</strong><br>
+                <span style="color: #27ae60;">Nach Inflation = <strong>36.230 Euro</strong> Kaufkraft</span></p>
+                
+                <div class="result">
+                    💰 DER UNTERSCHIED: 35.840 EURO! 💰
+                </div>
+                
+                <p style="margin-top: 1rem; text-align: center; font-style: italic;">Das ist der Preis, den Sie für die vermeintliche "Sicherheit" des Sparbuchs zahlen.</p>
+            </div>
+
+            <h3>Vergleich: Wie sich 10.000 Euro über 30 Jahre entwickeln</h3>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Anlage</th>
+                        <th>Nach 30 Jahren</th>
+                        <th>Kaufkraftbereinigt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td>Sparbuch (2%)</td>
+                        <td>18.114 €</td>
+                        <td style="color: #e74c3c; font-weight: bold;">8.610 €</td>
+                    </tr>
+                    <tr>
+                        <td>Anleihen (4%)</td>
+                        <td>32.434 €</td>
+                        <td>15.433 €</td>
+                    </tr>
+                    <tr>
+                        <td>Weltaktien-Fonds (7%)</td>
+                        <td>76.123 €</td>
+                        <td style="color: #27ae60; font-weight: bold;">36.230 €</td>
+                    </tr>
+                    <tr>
+                        <td>Technologie-Fonds (10%)</td>
+                        <td>174.494 €</td>
+                        <td style="color: #27ae60; font-weight: bold;">83.028 €</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <strong>✅ Unsere Empfehlung:</strong><br>
+                60% Weltaktien-Fonds + 30% Europa/Österreich + 10% Tagesgeld
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h2>🏠 Immobilienfinanzierung: Jetzt noch günstige Zinsen sichern</h2>
+
+            <h3>Aktuelle Kreditzinsen in Österreich (Februar 2026)</h3>
+            
+            <p><strong>EZB-Leitzins:</strong> 2,00% (stabil seit Mitte 2025)<br>
+               <strong>3-Monats-EURIBOR:</strong> 2,02% (Referenzzins für variable Kredite)</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kreditart</th>
+                        <th>Zinssatz</th>
+                        <th>Vorteil</th>
+                        <th>Nachteil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Variable Wohnkredite</td>
+                        <td>2,9% - 3,6%</td>
+                        <td>Niedrigere Startzinsen</td>
+                        <td>Können steigen</td>
+                    </tr>
+                    <tr>
+                        <td>Fixzins (10 Jahre)</td>
+                        <td>2,9% - 3,1%</td>
+                        <td>Sicherheit für 10 Jahre</td>
+                        <td>Minimal teurer</td>
+                    </tr>
+                    <tr>
+                        <td>Fixzins (20 Jahre)</td>
+                        <td>3,5% - 3,75%</td>
+                        <td>Langfristige Sicherheit</td>
+                        <td>Höhere Zinsen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="calculation-box">
+                <p><strong>Beispiel: Wohnkredit über 300.000 Euro, 25 Jahre Laufzeit</strong></p>
+                
+                <p><strong>Bei 2,9% Zinsen (variabel):</strong><br>
+                • Monatliche Rate: 1.412 Euro<br>
+                • Gesamtkosten: 423.600 Euro</p>
+                
+                <p style="margin-top: 1rem;"><strong>Bei 3,5% Zinsen (20 Jahre fix):</strong><br>
+                • Monatliche Rate: 1.502 Euro<br>
+                • Gesamtkosten: 450.600 Euro</p>
+                
+                <div class="result">
+                    Unterschied: 90 Euro/Monat bzw. 27.000 Euro über 25 Jahre
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>✅ Unsere Empfehlung:</strong><br>
+                Derzeit sind die Unterschiede minimal! Fixzinsen (10 Jahre) bieten Sicherheit für nur ~0,2% Mehrkosten. Das ist es wert!<br><br>
+                <strong>Wichtig:</strong> Wir vergleichen für Sie 15+ österreichische Banken kostenlos!<br>
+                Unterschiede von 0,5% Zinsen = 15.000 Euro über 25 Jahre!
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>📞 Ihr nächster Schritt</h2>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">Sie möchten Ihre Geldanlage optimieren? Ihren Immobilienkredit prüfen lassen? Edelmetalle ins Portfolio aufnehmen?</p>
+            
+            <p><strong>Ich analysiere Ihre Situation kostenlos und unverbindlich!</strong></p>
+            
+            <p style="margin: 1.5rem 0;">Als unabhängiger Finanzberater habe ich Zugang zu:<br>
+            • 15+ Banken für Immobilienfinanzierung<br>
+            • Hunderte Investmentfonds aller Anbieter<br>
+            • Internationale Edelmetallhändler</p>
+            
+            <a href="index.html#kontakt" class="cta-button">Jetzt kostenloses Erstgespräch vereinbaren</a>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem;">
+                📧 mario.friedl@equality-co.at<br>
+                📞 +43 660 5256328<br>
+                🌐 finanzberater-friedl.info
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 1rem;"><strong>⚠️ Rechtlicher Hinweis</strong></p>
+        <p style="font-size: 0.9rem; max-width: 800px; margin: 0 auto; line-height: 1.5;">
+            Dieser Newsletter dient ausschließlich zu Informationszwecken und stellt keine Anlageberatung dar. 
+            Investitionen in Wertpapiere und Edelmetalle sind mit Risiken verbunden und können zu Verlusten führen. 
+            Die Wertentwicklung der Vergangenheit ist kein verlässlicher Indikator für zukünftige Ergebnisse.
+        </p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem;">
+            Stand: 5. Februar 2026 | Quellen: EZB, Statistik Austria, MSCI, Morningstar, sparzinsen.at
+        </p>
+        <p style="margin-top: 1.5rem;">
+            &copy; 2026 <a href="index.html">Finanzberater Mario Friedl</a> | Alle Rechte vorbehalten
+        </p>
+    </footer>
+
+</body>
+</html>
