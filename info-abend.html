@@ -278,6 +278,58 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
         font-size: 1rem;
     }
 }
+   /* Social Proof Bar */
+.social-proof-bar {
+    background: #f8f9fa;
+    padding: 2rem 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.proof-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.proof-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.proof-icon {
+    font-size: 3rem;
+}
+
+.proof-text {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.proof-text strong {
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .proof-items {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .proof-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .proof-text {
+        text-align: center;
+    }
+}
 </style>
 </head>
 <body>
