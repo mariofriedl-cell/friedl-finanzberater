@@ -581,35 +581,31 @@ setInterval(updateCountdown, 1000);
     #countdown-sticky { gap: 0.4rem; }
     #countdown-sticky > div { padding: 0.4rem 0.5rem; min-width: 45px; }
 }
-   /* Mobile Optimierung */
+   /* Mobile Optimierung - KORRIGIERT */
 @media (max-width: 768px) {
-    .hero {
+    /* Hero MIT Padding! */
+    .hero,
+    section.hero {
         padding: 1rem 1rem 2rem 1rem !important;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem !important;
-        line-height: 1.1 !important;
-    }
-}
-    
-    /* Hero ganz oben */
-    .hero {
-        padding-top: 1rem !important;
-        margin-top: 0 !important;
     }
     
     /* Überschrift kleiner */
     .hero h1 {
         font-size: 1.8rem !important;
-        margin: 0.5rem auto !important;
         line-height: 1.1 !important;
+        margin: 0.5rem auto !important;
     }
     
-    /* Badge sichtbar */
+    /* Untertitel */
+    .hero p {
+        font-size: 1.1rem !important;
+        margin: 1rem auto !important;
+    }
+    
+    /* Badge */
     .hero > div:first-child > div:first-child {
-        font-size: 1rem !important;
-        margin: 0.3rem 0 0.5rem 0 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.8rem !important;
     }
 }
 </style>
