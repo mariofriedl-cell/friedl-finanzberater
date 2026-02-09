@@ -77,11 +77,13 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
 </div>
 </nav>
 
-<section class="hero" style="text-align: center; padding: 1rem 1rem 3rem 1rem;">
+<section class="hero" style="text-align: center; padding: 0 1rem 3rem 1rem;">
     <div style="max-width: 1200px; margin: 0 auto;">
-<div class="hero-badge">🎓 Kostenloser Info-Abend</div>
-<h1 style="font-size: 2.8rem; color: #e74c3c; font-weight: bold; line-height: 1.2;">
-    ⚠️ Während Sie das lesen, verliert Ihr Sparbuch gerade wieder an Wert...
+<div style="font-size: 1.3rem; color: #2c3e50; margin: 0.3rem 0 1rem 0;">
+    🎓 Kostenloser Info-Abend
+</div>
+<h1 style="font-size: 2.8rem; color: #e74c3c; font-weight: bold; line-height: 1.2; margin: 1rem auto; max-width: 1000px;">
+    ❌ Ihr größter Finanz-Fehler läuft JETZT!
 </h1>
 
 <p style="font-size: 1.4rem; color: #2c3e50; margin: 2rem 0; font-weight: 600;">
@@ -573,6 +575,32 @@ setInterval(updateCountdown, 1000);
     #sticky-countdown { padding: 0.6rem 0.5rem; }
     #countdown-sticky { gap: 0.4rem; }
     #countdown-sticky > div { padding: 0.4rem 0.5rem; min-width: 45px; }
+}
+    /* Mobile Optimierung */
+@media (max-width: 768px) {
+    /* Header kleiner */
+    header {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Hero ganz oben */
+    .hero {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Überschrift kleiner */
+    .hero h1 {
+        font-size: 1.8rem !important;
+        margin: 0.5rem auto !important;
+        line-height: 1.1 !important;
+    }
+    
+    /* Badge sichtbar */
+    .hero > div:first-child > div:first-child {
+        font-size: 1rem !important;
+        margin: 0.3rem 0 0.5rem 0 !important;
+    }
 }
 </style>
 
