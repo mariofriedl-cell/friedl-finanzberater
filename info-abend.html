@@ -107,38 +107,6 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
         <div style="background: rgba(0,0,0,0.2); height: 25px; border-radius: 12px; overflow: hidden; margin: 0.5rem 0;">
             <div style="background: #f39c12; height: 100%; width: 68%;"></div>
         </div>
-       <!-- Countdown Timer - Mobile Optimiert -->
-<div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 1.5rem; border-radius: 12px; margin: 2rem auto; max-width: 600px; text-align: center;">
-    
-    <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: #f39c12;">
-        ⏰ NÄCHSTER INFO-ABEND STARTET IN:
-    </div>
-    
-    <div id="countdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 0.8rem; max-width: 400px; margin: 1.5rem auto;">
-        <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 0.5rem; border-radius: 8px;">
-            <div id="days" style="font-size: 2rem; font-weight: bold; color: #f39c12;">--</div>
-            <div style="font-size: 0.75rem; opacity: 0.8;">Tage</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 0.5rem; border-radius: 8px;">
-            <div id="hours" style="font-size: 2rem; font-weight: bold; color: #f39c12;">--</div>
-            <div style="font-size: 0.75rem; opacity: 0.8;">Std.</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 0.5rem; border-radius: 8px;">
-            <div id="minutes" style="font-size: 2rem; font-weight: bold; color: #f39c12;">--</div>
-            <div style="font-size: 0.75rem; opacity: 0.8;">Min.</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 0.8rem 0.5rem; border-radius: 8px;">
-            <div id="seconds" style="font-size: 2rem; font-weight: bold; color: #f39c12;">--</div>
-            <div style="font-size: 0.75rem; opacity: 0.8;">Sek.</div>
-        </div>
-    </div>
-    
-    <div style="font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;">
-        📅 Di., 16. Feb. 2026<br>
-        🕕 18:30 Uhr • 📍 Graz
-    </div>
-    
-</div>
     
 </div>
         <div style="font-size: 1.3rem; font-weight: bold;">17 von 25 Plätzen vergeben</div>
@@ -567,6 +535,104 @@ function updateCountdown() {
 // Update every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
+</script>
+    <!-- Sticky Countdown Bar -->
+<div id="sticky-countdown" style="position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 0.8rem 1rem; box-shadow: 0 -4px 15px rgba(0,0,0,0.3); z-index: 10000; transform: translateY(100%); animation: slideUpCountdown 0.5s forwards 1s;">
+    
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+        
+        <!-- Links: Text -->
+        <div style="flex: 1; min-width: 180px;">
+            <div style="font-size: 0.75rem; color: #f39c12; font-weight: bold; margin-bottom: 0.2rem;">⏰ INFO-ABEND IN:</div>
+        </div>
+        
+        <!-- Mitte: Countdown -->
+        <div id="countdown-sticky" style="display: flex; gap: 0.5rem;">
+            <div style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.6rem; border-radius: 6px; text-align: center; min-width: 45px;">
+                <div id="days-sticky" style="font-size: 1.2rem; font-weight: bold; color: #f39c12; line-height: 1;">--</div>
+                <div style="font-size: 0.6rem; opacity: 0.8; margin-top: 0.1rem;">Tage</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.6rem; border-radius: 6px; text-align: center; min-width: 45px;">
+                <div id="hours-sticky" style="font-size: 1.2rem; font-weight: bold; color: #f39c12; line-height: 1;">--</div>
+                <div style="font-size: 0.6rem; opacity: 0.8; margin-top: 0.1rem;">Std</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.6rem; border-radius: 6px; text-align: center; min-width: 45px;">
+                <div id="minutes-sticky" style="font-size: 1.2rem; font-weight: bold; color: #f39c12; line-height: 1;">--</div>
+                <div style="font-size: 0.6rem; opacity: 0.8; margin-top: 0.1rem;">Min</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 0.4rem 0.6rem; border-radius: 6px; text-align: center; min-width: 45px;">
+                <div id="seconds-sticky" style="font-size: 1.2rem; font-weight: bold; color: #f39c12; line-height: 1;">--</div>
+                <div style="font-size: 0.6rem; opacity: 0.8; margin-top: 0.1rem;">Sek</div>
+            </div>
+        </div>
+        
+        <!-- Rechts: Button -->
+        <div style="flex: 1; min-width: 180px; text-align: right;">
+            <a href="javascript:void(0);" onclick="document.querySelector('form').scrollIntoView({behavior:'smooth'});" style="display: inline-block; background: #e74c3c; color: white; padding: 0.5rem 1.2rem; text-decoration: none; border-radius: 20px; font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+                Jetzt anmelden
+            </a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<style>
+@keyframes slideUpCountdown {
+    to { transform: translateY(0); }
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 768px) {
+    #sticky-countdown > div {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    #sticky-countdown > div > div:first-child,
+    #sticky-countdown > div > div:last-child {
+        min-width: 100%;
+        text-align: center;
+    }
+    
+    #countdown-sticky {
+        justify-content: center;
+    }
+}
+</style>
+    <script>
+// Sticky Countdown Timer
+const eventDate = new Date('2026-02-16T18:30:00').getTime();
+
+function updateStickyCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    
+    if (distance < 0) {
+        document.getElementById('sticky-countdown').style.display = 'none';
+        return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    const daysEl = document.getElementById('days-sticky');
+    const hoursEl = document.getElementById('hours-sticky');
+    const minutesEl = document.getElementById('minutes-sticky');
+    const secondsEl = document.getElementById('seconds-sticky');
+    
+    if (daysEl) daysEl.textContent = days;
+    if (hoursEl) hoursEl.textContent = hours;
+    if (minutesEl) minutesEl.textContent = minutes;
+    if (secondsEl) secondsEl.textContent = seconds;
+}
+
+// Update every second
+updateStickyCountdown();
+setInterval(updateStickyCountdown, 1000);
 </script>
 </body>
 </html>
