@@ -107,6 +107,39 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
         <div style="background: rgba(0,0,0,0.2); height: 25px; border-radius: 12px; overflow: hidden; margin: 0.5rem 0;">
             <div style="background: #f39c12; height: 100%; width: 68%;"></div>
         </div>
+        <!-- Countdown Timer -->
+<div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 2rem; border-radius: 12px; margin: 3rem auto; max-width: 700px; text-align: center;">
+    
+    <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: #f39c12;">
+        ⏰ NÄCHSTER INFO-ABEND STARTET IN:
+    </div>
+    
+    <div id="countdown" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0;">
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; min-width: 80px;">
+            <div id="days" style="font-size: 2.5rem; font-weight: bold; color: #f39c12;">--</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Tage</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; min-width: 80px;">
+            <div id="hours" style="font-size: 2.5rem; font-weight: bold; color: #f39c12;">--</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Stunden</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; min-width: 80px;">
+            <div id="minutes" style="font-size: 2.5rem; font-weight: bold; color: #f39c12;">--</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Minuten</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; min-width: 80px;">
+            <div id="seconds" style="font-size: 2.5rem; font-weight: bold; color: #f39c12;">--</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Sekunden</div>
+        </div>
+    </div>
+    
+    <div style="font-size: 1.2rem; margin-top: 1rem;">
+        📅 Dienstag, 16. Februar 2026<br>
+        🕕 Start: 18:30 Uhr<br>
+        📍 EQUALITY EH GmbH, Graz
+    </div>
+    
+</div>
         <div style="font-size: 1.3rem; font-weight: bold;">17 von 25 Plätzen vergeben</div>
     </div>
     
@@ -505,13 +538,34 @@ setTimeout(updateActivity, 3000);
 setInterval(updateActivity, 8000);
 </script>
 
-4.4 CSS für Live-Aktivität (optional)
-─────────────────────────────────────────────────────────────────
+<script>
+// Countdown Timer
+const eventDate = new Date('2026-02-16T18:30:00').getTime();
 
-Wenn Sie möchten, fügen Sie im <style> Bereich (VOR </style>) ein:
-
-#activityText {
-    transition: opacity 0.3s ease;
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    
+    if (distance < 0) {
+        document.getElementById('countdown').innerHTML = 
+            '<div style="font-size: 2rem; color: #f39c12;">Der Info-Abend läuft gerade!</div>';
+        return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
 }
+
+// Update every second
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
