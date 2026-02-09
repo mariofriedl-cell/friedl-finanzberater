@@ -576,16 +576,21 @@ setInterval(updateCountdown, 1000);
     #countdown-sticky { gap: 0.4rem; }
     #countdown-sticky > div { padding: 0.4rem 0.5rem; min-width: 45px; }
 }
-    /* Mobile Optimierung */
+   /* Mobile Optimierung */
 @media (max-width: 768px) {
-    /* Header kleiner */
-    header {
-        padding: 0.5rem 1rem;
+    .hero {
+        padding: 1rem 1rem 2rem 1rem !important;
     }
+    
+    .hero h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
+    }
+}
     
     /* Hero ganz oben */
     .hero {
-        padding-top: 1rem !important;
+        padding-top: 0 !important;
         margin-top: 0 !important;
     }
     
