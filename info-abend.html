@@ -94,18 +94,21 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
         <p style="font-size: 1.4rem; color: #2c3e50; margin: 2rem auto; font-weight: 600; max-width: 900px;">
             In nur 90 Minuten erfahren Sie, was Banken Ihnen niemals erzählen werden.
         </p>
-
-<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-radius: 8px;">
-    <p style="margin: 0; font-size: 1.1rem; color: #856404;">
-        <strong>💰 Der Unterschied nach 30 Jahren?</strong><br>
-        Sparbuch: 8.610€ Kaufkraft (Verlust: -1.390€)<br>
-        Investment: 36.230€ Kaufkraft (Gewinn: +26.230€)<br>
-        <strong style="color: #e74c3c; font-size: 1.3rem;">= 35.840€ Unterschied!</strong>
-    </p>
-</div>
-<p style="font-size: 1.2rem; color: #34495e; margin: 2rem 0;">
-    <strong>Kostenlos + Wein & Brötchen inklusive</strong>
-</p>
+        
+        <!-- Gelbe Box -->
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-radius: 8px; text-align: left;">
+            <p style="margin: 0; font-size: 1.1rem; color: #856404;">
+                <strong>💰 Der Unterschied nach 30 Jahren?</strong><br>
+                Sparbuch: 8.610€ Kaufkraft (Verlust: -1.390€)<br>
+                Investment: 36.230€ Kaufkraft (Gewinn: +26.230€)<br>
+                <strong style="color: #e74c3c; font-size: 1.3rem;">= 35.840€ Unterschied!</strong>
+            </p>
+        </div>
+        
+        <!-- Kostenlos Text -->
+        <p style="font-size: 1.2rem; color: #34495e; margin: 2rem auto; text-align: center;">
+            <strong>Kostenlos + Wein & Brötchen inklusive</strong>
+        </p>
   <!-- Knappheits-Box -->
 <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 2rem; border-radius: 12px; margin: 2rem auto; max-width: 600px; text-align: center; box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);">
     
@@ -575,15 +578,14 @@ setInterval(updateCountdown, 1000);
     </div>
 </div>
 
+</div>
+
+</div>
+
 <style>
+/* Mobile Optimierung - Alle Regeln zusammengefasst */
 @media (max-width: 768px) {
-    #sticky-countdown { padding: 0.6rem 0.5rem; }
-    #countdown-sticky { gap: 0.4rem; }
-    #countdown-sticky > div { padding: 0.4rem 0.5rem; min-width: 45px; }
-}
-   /* Mobile Optimierung - KORRIGIERT */
-@media (max-width: 768px) {
-    /* Hero MIT Padding! */
+    /* Hero MIT Padding */
     .hero,
     section.hero {
         padding: 1rem 1rem 2rem 1rem !important;
@@ -603,9 +605,23 @@ setInterval(updateCountdown, 1000);
     }
     
     /* Badge */
-    .hero > div:first-child > div:first-child {
+    .hero > div:first-child {
         font-size: 1.1rem !important;
         margin-bottom: 0.8rem !important;
+    }
+    
+    /* Sticky Countdown */
+    #sticky-countdown { 
+        padding: 0.6rem 0.5rem; 
+    }
+    
+    #countdown-sticky { 
+        gap: 0.4rem; 
+    }
+    
+    #countdown-sticky > div { 
+        padding: 0.4rem 0.5rem; 
+        min-width: 45px; 
     }
 }
 </style>
@@ -613,30 +629,37 @@ setInterval(updateCountdown, 1000);
 <script>
 (function() {
     const eventDate = new Date('2026-02-16T18:30:00').getTime();
+    
     function updateStickyCountdown() {
         const now = new Date().getTime();
         const distance = eventDate - now;
+        
         if (distance < 0) {
             const stickyBar = document.getElementById('sticky-countdown');
             if (stickyBar) stickyBar.style.display = 'none';
             return;
         }
+        
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
         const daysEl = document.getElementById('days-sticky');
         const hoursEl = document.getElementById('hours-sticky');
         const minutesEl = document.getElementById('minutes-sticky');
         const secondsEl = document.getElementById('seconds-sticky');
+        
         if (daysEl) daysEl.textContent = days;
         if (hoursEl) hoursEl.textContent = hours;
         if (minutesEl) minutesEl.textContent = minutes;
         if (secondsEl) secondsEl.textContent = seconds;
     }
+    
     updateStickyCountdown();
     setInterval(updateStickyCountdown, 1000);
 })();
 </script>
+
 </body>
 </html>
