@@ -107,7 +107,7 @@ footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:cente
         
         <!-- Kostenlos Text -->
         <p style="font-size: 1.2rem; color: #34495e; margin: 2rem auto; text-align: center;">
-            <strong>Warum Ihr Sparbuch Sie ärmer macht</strong>
+            <strong>Warum Ihr Sparbuch Sie ärmer macht?</strong>
         </p>
   <!-- Knappheits-Box -->
 <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 2rem; border-radius: 12px; margin: 2rem auto; max-width: 600px; text-align: center; box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);">
