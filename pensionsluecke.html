@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO & Social Media Meta Tags -->
+<title>Pensionslücke berechnen – Wie groß ist Ihre? | Mario Friedl</title>
+<meta name="description" content="Berechnen Sie Ihre persönliche Pensionslücke in 2 Minuten. Kostenloser Rechner + Info-Abend mit konkreten Lösungen. EQUALITY EH GmbH – Ihr Finanzberater in Graz.">
+
+<!-- Facebook Meta Tags (Open Graph) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://finanzberater-friedl.info/pensionsluecke.html">
+<meta property="og:title" content="🚨 Ihre Pensionslücke: Bis zu 168.000€ weniger im Alter?">
+<meta property="og:description" content="Berechnen Sie JETZT Ihre persönliche Pensionslücke. Kostenloser Rechner + gratis Info-Abend. Erfahren Sie, wie Sie gegensteuern können!">
+<meta property="og:image" content="https://finanzberater-friedl.info/images/pension-og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🚨 Ihre Pensionslücke: Bis zu 168.000€ weniger im Alter?">
+<meta name="twitter:description" content="Berechnen Sie JETZT Ihre Pensionslücke. Kostenloser Rechner + Info-Abend!">
+<meta name="twitter:image" content="https://finanzberater-friedl.info/images/pension-og-image.jpg">
+
+<!-- LinkedIn Meta Tags -->
+<meta property="og:site_name" content="EQUALITY EH GmbH – Mario Friedl">
+<meta property="article:author" content="Mario Friedl">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://finanzberater-friedl.info/pensionsluecke.html">
+
+<!-- Structured Data (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "EQUALITY EH GmbH",
+  "description": "Finanzberatung mit Fokus auf Pensionsvorsorge und Vermögensaufbau",
+  "url": "https://finanzberater-friedl.info",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Herrgottwiesgasse 119/1",
+    "addressLocality": "Graz",
+    "postalCode": "8020",
+    "addressCountry": "AT"
+  },
+  "telephone": "+43-XXX-XXXXXXX",
+  "priceRange": "€€",
+  "areaServed": "Österreich"
+}
+</script>
+
+<style>
+  :root {
+    --dark: #0d1117;
+    --darker: #080c11;
+    --gold: #C5A572;
+    --gold-light: #e8c97a;
+    --gold-dark: #A68B5B;
+    --red: #e63946;
+    --green: #2d9e5f;
+    --text: #e8e8e8;
+    --text-muted: #8a8fa8;
+    --surface: #131820;
+    --surface2: #1a2030;
+    --border: rgba(197,165,114,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--darker);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { color: var(--gold-light); }
+
+  /* ─── STICKY NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,12,17,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--darker);
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); color: var(--darker); transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 70% 30%, rgba(197,165,114,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(230,57,70,0.06) 0%, transparent 60%),
+      var(--darker);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(197,165,114,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(197,165,114,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(197,165,114,0.12);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 .highlight {
+    color: var(--gold);
+    position: relative;
+  }
+
+  .hero h1 .danger { color: var(--red); }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 1.5rem 0 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-number-bar {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-stat {
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .hero-stat .val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .hero-stat .val.red { color: var(--red); }
+
+  .hero-stat .lbl {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--darker);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(197,165,114,0.3); color: var(--darker); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 5rem 2rem;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── CALCULATOR ─── */
+  .calc-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+  }
+
+  .calc-row {
+    margin-bottom: 2.5rem;
+  }
+
+  .calc-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calc-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .calc-slider {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    position: relative;
+    --pct: 50%;
+  }
+
+  .calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .calc-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(197,165,114,0.6);
+  }
+
+  .calc-result {
+    background: rgba(197,165,114,0.08);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .calc-result-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .calc-result-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--red);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .calc-result-sub {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+  }
+
+  footer a { color: var(--gold); }
+  footer a:hover { color: var(--gold-light); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 1rem 3rem; }
+    .calc-wrapper { padding: 1.5rem; }
+    .calc-result-value { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Mario <span style="color: var(--text-muted); font-weight: 400;">Friedl</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="business-seminar.html">Business Seminar</a></li>
+      <li><a href="info-abend.html">Info-Abend</a></li>
+      <li><a href="pensionsluecke.html" style="color: var(--gold);">Pensionslücke</a></li>
+      <li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">📊 Kostenloser Pensionsrechner</div>
+    <h1>
+      Ihre <span class="highlight">Pensionslücke</span>:<br>
+      <span class="danger">Bis zu 168.000€</span> weniger im Alter?
+    </h1>
+    <p class="hero-sub">
+      Berechnen Sie in 2 Minuten, wie viel Geld Ihnen im Ruhestand fehlen wird – und erfahren Sie im kostenlosen Info-Abend, wie Sie gegensteuern.
+    </p>
+    
+    <div class="hero-number-bar">
+      <div class="hero-stat">
+        <div class="val red">1.527 €</div>
+        <div class="lbl">Ø Frauenpension</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">2.535 €</div>
+        <div class="lbl">Ø Männerpension</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val red">-35,6%</div>
+        <div class="lbl">Gender Pension Gap</div>
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="#rechner" class="btn-primary">Jetzt berechnen</a>
+      <a href="info-abend.html" class="btn-outline">Zum Info-Abend</a>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator Section -->
+<section id="rechner">
+  <div class="section-inner">
+    <h2 class="section-title">Berechnen Sie Ihre Pensionslücke</h2>
+    <p class="section-subtitle">Wie viel Geld fehlt Ihnen im Ruhestand?</p>
+
+    <div class="calc-wrapper">
+      <div class="calc-row">
+        <div class="calc-label">
+          <span>Ihr aktuelles Nettoeinkommen</span>
+          <span class="calc-value" id="income-val">3.000 €</span>
+        </div>
+        <input type="range" class="calc-slider" id="income" min="1500" max="6000" value="3000" step="100" oninput="updateCalc()">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-label">
+          <span>Erwartete Pensionshöhe (% vom Einkommen)</span>
+          <span class="calc-value" id="pct-val">55 %</span>
+        </div>
+        <input type="range" class="calc-slider" id="pct" min="30" max="70" value="55" step="1" oninput="updateCalc()">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-label">
+          <span>Jahre in Pension</span>
+          <span class="calc-value" id="years-val">20 Jahre</span>
+        </div>
+        <input type="range" class="calc-slider" id="years" min="10" max="35" value="20" step="1" oninput="updateCalc()">
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-title">Ihre Pensionslücke gesamt:</div>
+        <div class="calc-result-value" id="total-gap">108.000 €</div>
+        <div class="calc-result-sub" id="result-sub-text">bei 450 € monatlicher Lücke über 20 Jahre</div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="info-abend.html" class="btn-primary">Lösungen im kostenlosen Info-Abend</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section style="background: var(--surface);">
+  <div class="section-inner" style="text-align: center;">
+    <h2 class="section-title">Was jetzt tun?</h2>
+    <p class="section-subtitle">
+      Kommen Sie zu unserem <strong style="color: var(--gold);">kostenlosen Info-Abend</strong> und erfahren Sie:
+    </p>
+    
+    <div style="max-width: 600px; margin: 2rem auto; text-align: left; font-size: 1.1rem; line-height: 2;">
+      ✓ Wie Sie die Pensionslücke systematisch schließen<br>
+      ✓ Die 72er-Regel – so vermehrt sich Ihr Geld wirklich<br>
+      ✓ ETFs, Fonds & Vorsorge-Immobilien einfach erklärt<br>
+      ✓ Konkrete Zahlen & individuelle Strategien<br>
+      ✓ Kostenlos + Wein & Brötchen inklusive
+    </div>
+
+    <a href="info-abend.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
+      Jetzt zum Info-Abend anmelden →
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div style="max-width: 900px; margin: 0 auto;">
+    <p style="margin-bottom: 1rem;">
+      <strong style="color: var(--gold);">EQUALITY EH GmbH</strong><br>
+      Herrgottwiesgasse 119/1, 8020 Graz
+    </p>
+    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">
+      <a href="index.html">Home</a> &nbsp;|&nbsp;
+      <a href="business-seminar.html">Business Seminar</a> &nbsp;|&nbsp;
+      <a href="info-abend.html">Info-Abend</a> &nbsp;|&nbsp;
+      <a href="index.html#kontakt">Kontakt</a>
+    </p>
+    <p style="font-size: 0.85rem; color: var(--text-muted);">
+      © 2026 Mario Friedl – EQUALITY EH GmbH. Alle Rechte vorbehalten.
+    </p>
+  </div>
+</footer>
+
+<script>
+// ─── CALCULATOR ───
+function updateCalc() {
+  const income = parseInt(document.getElementById('income').value);
+  const pct = parseInt(document.getElementById('pct').value);
+  const years = parseInt(document.getElementById('years').value);
+
+  document.getElementById('income-val').textContent = income.toLocaleString('de-AT') + ' €';
+  document.getElementById('pct-val').textContent = pct + ' %';
+  document.getElementById('years-val').textContent = years + ' Jahre';
+
+  const pension = Math.round(income * pct / 100);
+  const gap = income - pension;
+  const total = gap * 12 * years;
+
+  document.getElementById('total-gap').textContent = total.toLocaleString('de-AT') + ' €';
+  document.getElementById('result-sub-text').textContent = `bei ${gap.toLocaleString('de-AT')} € monatlicher Lücke über ${years} Jahre`;
+
+  // Update slider track fill
+  updateSliderFill('income', 1500, 6000);
+  updateSliderFill('pct', 30, 70);
+  updateSliderFill('years', 10, 35);
+}
+
+function updateSliderFill(id, min, max) {
+  const slider = document.getElementById(id);
+  const pct = ((slider.value - min) / (max - min)) * 100;
+  slider.style.setProperty('--pct', pct + '%');
+}
+
+// Initialize on load
+updateCalc();
+</script>
+
+</body>
+</html>
