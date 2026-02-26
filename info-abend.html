@@ -3,683 +3,896 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kostenloser Info-Abend - Mario Friedl | EQUALITY EH GmbH</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Kostenloser Info-Abend – Mario Friedl | Finanzielle Freiheit erleben</title>
+<meta name="description" content="Erlebe einen unvergesslichen Abend voller Aha-Momente. Kostenlos. Unverbindlich. Mit Wein & echten Antworten auf deine Finanzfragen.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0A1128;--gold:#C5A572;--gold-dark:#A68B5B;--cream:#FAF9F6;--white:#FFF;--gray:#4A5568;--gray-light:#E2E8F0}
+:root {
+  --ink: #1a1209;
+  --gold: #c8973b;
+  --gold2: #f0c060;
+  --gold-light: #fdf3e0;
+  --warm: #2d1f0e;
+  --cream: #faf7f2;
+  --white: #fff;
+  --muted: #7a6a55;
+  --red: #c0392b;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--cream);line-height:1.6}
-h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
-.container{max-width:1280px;margin:0 auto;padding:0 2rem}
-nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid var(--gray-light);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.5rem;font-weight:700;color:var(--navy);text-decoration:none;font-family:'Cormorant Garamond',serif}
-.logo-highlight{color:var(--gold)}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-links a{color:var(--navy);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--white);padding:.75rem 1.5rem;border-radius:6px}
-.hero-section{min-height:70vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:var(--navy);padding:120px 2rem 4rem}
-.hero-content{max-width:900px;margin:0 auto;text-align:center}
-.hero-badge{display:inline-block;background:rgba(10,17,40,.2);color:var(--navy);padding:.5rem 1.5rem;border-radius:30px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(10,17,40,.3)}
-.hero-section h1{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:1.5rem;color:var(--navy)}
-.hero-section .hero-subtitle{font-size:1.4rem;color:rgba(10,17,40,.8);margin-bottom:2rem;font-weight:500}
-.free-badge{display:inline-block;background:var(--navy);color:var(--gold);padding:1rem 2rem;border-radius:12px;font-size:1.5rem;font-weight:700;margin-top:1rem;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-.section{padding:6rem 0}
-.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;text-align:center}
-.section-subtitle{font-size:1.1rem;color:var(--gray);text-align:center;max-width:700px;margin:0 auto 3rem}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin:3rem 0}
-.info-card{background:var(--white);padding:2.5rem;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--gray-light);transition:all .3s}
-.info-card:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--gold)}
-.info-icon{font-size:2.5rem;margin-bottom:1rem}
-.info-card h3{font-size:1.4rem;margin-bottom:1rem;color:var(--gold)}
-.info-card ul{margin-left:1.5rem;color:var(--gray)}
-.info-card ul li{margin-bottom:.5rem}
-.highlight-section{background:var(--navy);color:var(--white)}
-.highlight-section .section-title{color:var(--white)}
-.highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin:3rem 0}
-.highlight-item{background:rgba(255,255,255,.05);padding:2rem;border-radius:12px;border:1px solid rgba(255,255,255,.1);text-align:center}
-.highlight-item .icon{font-size:3rem;margin-bottom:1rem}
-.highlight-item h3{color:var(--gold);margin-bottom:.5rem}
-.highlight-item p{color:rgba(255,255,255,.8)}
-.event-details{max-width:800px;margin:3rem auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.detail-row{display:flex;align-items:center;gap:1.5rem;padding:1.5rem;border-bottom:1px solid var(--gray-light)}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;width:100%;z-index:1000;
+  padding:16px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(250,247,242,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,151,59,0.2);
+  transition:all .3s;
+}
+.logo-nav{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-decoration:none}
+.logo-nav span{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--white);padding:9px 22px;border-radius:6px;text-decoration:none;font-size:.88rem;font-weight:700;letter-spacing:.5px;transition:all .3s}
+.nav-cta:hover{background:#a87a2e;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  background: linear-gradient(160deg, #1a1209 0%, #2d1f0e 45%, #3d2a12 100%);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:100px 24px 60px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(200,151,59,.12), transparent),
+    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,151,59,.08), transparent);
+  pointer-events:none;
+}
+/* Candle flicker orbs */
+.hero-orb {
+  position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:flicker 6s ease-in-out infinite;
+}
+.hero-orb-1{width:400px;height:400px;background:radial-gradient(circle,rgba(200,151,59,.18),transparent 70%);top:-100px;right:-100px;animation-delay:0s}
+.hero-orb-2{width:300px;height:300px;background:radial-gradient(circle,rgba(192,57,43,.08),transparent 70%);bottom:0;left:-80px;animation-delay:3s}
+@keyframes flicker{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.05)}}
+
+.hero-inner{max-width:820px;margin:0 auto;position:relative;z-index:2}
+.hero-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,151,59,.15);border:1px solid rgba(200,151,59,.4);
+  border-radius:40px;padding:8px 22px;
+  font-size:.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:32px;
+  animation:fadeDown .8s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,6vw,5rem);
+  font-weight:900;line-height:1.1;
+  color:var(--white);
+  margin-bottom:24px;
+  animation:fadeUp .9s .2s ease both;
+}
+.hero h1 em{color:var(--gold2);font-style:italic}
+.hero-sub {
+  font-size:clamp(1rem,2.5vw,1.25rem);
+  color:rgba(255,255,255,.7);
+  max-width:620px;margin:0 auto 40px;
+  font-weight:300;line-height:1.8;
+  animation:fadeUp .9s .4s ease both;
+}
+.hero-divider{
+  width:60px;height:2px;background:var(--gold);margin:0 auto 40px;
+  animation:fadeIn 1s .5s ease both;
+}
+.hero-wine {
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--ink);font-weight:700;font-size:1rem;
+  padding:10px 28px;border-radius:40px;letter-spacing:.5px;
+  margin-bottom:48px;
+  animation:fadeUp .9s .6s ease both;
+  box-shadow:0 8px 30px rgba(200,151,59,.35);
+}
+.hero-cta-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s .7s ease both}
+.btn-primary {
+  background:linear-gradient(135deg,var(--gold),#e8a830);
+  color:var(--ink);font-weight:700;font-size:1.05rem;
+  padding:16px 36px;border-radius:50px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 10px 40px rgba(200,151,59,.45);
+  transition:all .3s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(200,151,59,.5)}
+.btn-ghost{
+  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.25);
+  color:var(--white);font-weight:600;font-size:1rem;
+  padding:16px 36px;border-radius:50px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.15);border-color:var(--gold)}
+.hero-stats{
+  display:flex;gap:40px;justify-content:center;flex-wrap:wrap;
+  margin-top:60px;padding-top:48px;border-top:1px solid rgba(255,255,255,.1);
+  animation:fadeIn 1s 1s ease both;
+}
+.hs{text-align:center}
+.hs-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--gold2)}
+.hs-lbl{font-size:.8rem;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+
+/* ── EMOTION STRIP ── */
+.emotion-strip{
+  background:var(--gold);
+  padding:20px 32px;
+  display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;
+}
+.es-item{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;font-size:.95rem}
+.es-item span{font-size:1.3rem}
+
+/* ── SECTION BASE ── */
+.section{padding:90px 24px}
+.page-wrap{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;text-align:center;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;text-align:center;line-height:1.2;margin-bottom:16px;color:var(--ink)}
+.section-title em{color:var(--gold);font-style:italic}
+.section-sub{font-size:1.05rem;color:var(--muted);text-align:center;max-width:640px;margin:0 auto 60px;line-height:1.8}
+
+/* ── STORY SECTION ── */
+.story-section{background:var(--white)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-visual{position:relative}
+.story-card-main{
+  background:linear-gradient(135deg,var(--warm),#1a1209);
+  border-radius:24px;padding:48px 40px;color:var(--white);
+  position:relative;overflow:hidden;
+}
+.story-card-main::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:180px;height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,151,59,.2),transparent 70%);
+}
+.story-quote{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-style:italic;line-height:1.6;
+  color:rgba(255,255,255,.9);margin-bottom:24px;
+}
+.story-quote::before{content:'"';font-size:4rem;color:var(--gold);line-height:.5;display:block;margin-bottom:8px;font-family:'Playfair Display',serif}
+.story-author{display:flex;align-items:center;gap:14px}
+.story-avatar{width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink)}
+.story-author-name{font-weight:700;color:var(--gold2)}
+.story-author-loc{font-size:.85rem;color:rgba(255,255,255,.5)}
+.story-float{
+  position:absolute;bottom:-20px;right:-20px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border-radius:16px;padding:20px 24px;
+  box-shadow:0 12px 40px rgba(200,151,59,.4);
+  text-align:center;
+}
+.story-float-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ink)}
+.story-float-lbl{font-size:.75rem;font-weight:700;color:var(--ink);opacity:.7}
+.story-text{padding:20px 0}
+.story-text h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:20px;color:var(--ink)}
+.story-text p{color:var(--muted);line-height:1.85;margin-bottom:20px;font-size:1rem}
+.story-text p strong{color:var(--ink)}
+.story-checks{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.sc-item{display:flex;align-items:flex-start;gap:12px}
+.sc-icon{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--ink);font-weight:700;flex-shrink:0;margin-top:2px}
+.sc-text{font-size:.95rem;color:var(--muted);line-height:1.6}
+.sc-text strong{color:var(--ink)}
+
+/* ── THEMEN CARDS ── */
+.themen-section{background:var(--cream)}
+.themen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.thema-card{
+  background:var(--white);border-radius:20px;padding:36px 32px;
+  border:1px solid rgba(200,151,59,.15);
+  transition:all .35s;position:relative;overflow:hidden;
+}
+.thema-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.thema-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(200,151,59,.15);border-color:rgba(200,151,59,.4)}
+.thema-card:hover::after{transform:scaleX(1)}
+.thema-icon{font-size:2.2rem;margin-bottom:18px;display:block}
+.thema-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:12px}
+.thema-card p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.thema-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.thema-list li{font-size:.875rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.5}
+.thema-list li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* ── ZAHLEN SECTION ── */
+.zahlen-section{
+  background:linear-gradient(160deg,var(--warm) 0%,#1a1209 100%);
+  color:var(--white);
+}
+.zahlen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:60px;border-radius:20px;overflow:hidden}
+.zahl-item{
+  background:rgba(255,255,255,.04);
+  padding:48px 32px;text-align:center;
+  border:1px solid rgba(255,255,255,.06);
+  transition:background .3s;
+}
+.zahl-item:hover{background:rgba(200,151,59,.08)}
+.zahl-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold2);line-height:1}
+.zahl-lbl{font-size:.85rem;color:rgba(255,255,255,.5);letter-spacing:1px;margin-top:10px;text-transform:uppercase}
+.zahl-sub{font-size:.8rem;color:rgba(255,255,255,.3);margin-top:6px}
+
+/* ── EVENING FLOW ── */
+.abend-section{background:var(--white)}
+.abend-timeline{max-width:700px;margin:0 auto;position:relative}
+.abend-timeline::before{
+  content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--gold),rgba(200,151,59,.1));
+}
+.abend-item{display:flex;gap:32px;padding-bottom:48px;position:relative}
+.abend-item:last-child{padding-bottom:0}
+.abend-dot{
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+  box-shadow:0 8px 24px rgba(200,151,59,.3);
+  position:relative;z-index:1;
+}
+.abend-content{padding-top:10px}
+.abend-time{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.abend-content h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.abend-content p{font-size:.95rem;color:var(--muted);line-height:1.75}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section{background:var(--cream)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px}
+.testi-card{
+  background:var(--white);border-radius:20px;padding:32px;
+  border:1px solid rgba(200,151,59,.1);
+  transition:transform .3s;
+}
+.testi-card:hover{transform:translateY(-4px)}
+.testi-stars{color:var(--gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
+.testi-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:20px}
+.testi-text::before{content:'"';color:var(--gold);font-size:2rem;line-height:.5;display:block;margin-bottom:8px}
+.testi-author{font-size:.85rem;font-weight:700;color:var(--ink)}
+.testi-author span{color:var(--muted);font-weight:400}
+.testi-summary{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border-radius:16px;padding:28px 40px;
+  display:flex;gap:40px;justify-content:center;flex-wrap:wrap;text-align:center;
+}
+.ts-item .ts-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ink)}
+.ts-item .ts-lbl{font-size:.8rem;font-weight:700;color:rgba(26,18,9,.6);text-transform:uppercase;letter-spacing:1px}
+
+/* ── EVENT DETAILS ── */
+.details-section{background:var(--white)}
+.details-card{
+  max-width:700px;margin:0 auto;
+  background:var(--cream);border-radius:24px;overflow:hidden;
+  border:1px solid rgba(200,151,59,.2);
+  box-shadow:0 20px 60px rgba(200,151,59,.1);
+}
+.detail-row{
+  display:flex;align-items:center;gap:24px;
+  padding:24px 36px;
+  border-bottom:1px solid rgba(200,151,59,.1);
+  transition:background .2s;
+}
 .detail-row:last-child{border:none}
-.detail-icon{font-size:2rem;color:var(--gold);min-width:40px}
-.detail-content h4{font-size:1.1rem;color:var(--navy);margin-bottom:.3rem}
-.detail-content p{color:var(--gray);margin:0}
-.cta-box{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:var(--navy);padding:3rem;border-radius:16px;text-align:center;margin:3rem 0;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.cta-box h3{font-size:2rem;margin-bottom:1rem}
-.cta-box p{font-size:1.2rem;margin-bottom:2rem}
-.form-section{background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%)}
-.registration-form{max-width:600px;margin:0 auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.form-group{margin-bottom:1.5rem}
-.form-group label{display:block;margin-bottom:.5rem;color:var(--navy);font-weight:600;font-size:.95rem}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:.875rem;border:2px solid var(--gray-light);border-radius:8px;font-size:1rem;font-family:'Inter',sans-serif;transition:all .3s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,165,114,.1)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.btn-submit{width:100%;padding:1.25rem 2rem;background:var(--gold);color:white;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:1rem}
-.btn-submit:hover{background:var(--gold-dark);transform:translateY(-2px)}
-footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:center}
-@media (max-width:768px){.form-row{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
+.detail-row:hover{background:rgba(200,151,59,.04)}
+.detail-icon-wrap{
+  width:52px;height:52px;border-radius:12px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.detail-label{font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.detail-value{font-size:1rem;color:var(--ink);font-weight:500}
+.detail-value.highlight{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold)}
+
+/* ── URGENCY ── */
+.urgency-section{
+  background:linear-gradient(160deg,#1a0a05,var(--warm));
+  padding:80px 24px;text-align:center;
+}
+.urgency-inner{max-width:680px;margin:0 auto}
+.urgency-badge{
+  display:inline-block;
+  background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.5);
+  border-radius:40px;padding:8px 24px;
+  font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:#e74c3c;margin-bottom:32px;
+}
+.urgency-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:var(--white);margin-bottom:20px}
+.urgency-inner p{color:rgba(255,255,255,.6);margin-bottom:40px;font-size:1rem;line-height:1.8}
+.seats-bar-wrap{margin-bottom:40px}
+.seats-label{display:flex;justify-content:space-between;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:10px}
+.seats-bar{height:12px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden}
+.seats-fill{height:100%;width:68%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:6px;position:relative}
+.seats-fill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.3) 50%,transparent 100%);
+  animation:shimmer 2s infinite;
+}
+@keyframes shimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.seats-count{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:#e74c3c;margin-bottom:8px}
+.seats-text{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:32px}
+
+/* ── REGISTRATION FORM ── */
+.form-section{background:var(--cream);padding:90px 24px}
+.form-wrap{
+  max-width:640px;margin:0 auto;
+  background:var(--white);border-radius:24px;
+  padding:56px 48px;
+  box-shadow:0 30px 80px rgba(200,151,59,.12);
+  border:1px solid rgba(200,151,59,.15);
+}
+.form-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--ink);text-align:center;margin-bottom:8px}
+.form-subtitle{font-size:.95rem;color:var(--muted);text-align:center;margin-bottom:40px}
+.form-group{margin-bottom:22px}
+.form-group label{display:block;font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:.3px}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;padding:14px 18px;
+  border:2px solid #e8e0d4;border-radius:10px;
+  font-size:.95rem;font-family:'Lato',sans-serif;
+  background:var(--cream);color:var(--ink);
+  transition:all .3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{outline:none;border-color:var(--gold);background:var(--white);box-shadow:0 0 0 4px rgba(200,151,59,.08)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-hint{font-size:.8rem;color:var(--muted);margin-top:6px}
+.form-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px}
+.form-check input{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex-shrink:0}
+.form-check label{font-size:.9rem;color:var(--muted);line-height:1.6}
+.form-check a{color:var(--gold);text-decoration:none}
+.btn-submit{
+  width:100%;padding:18px;
+  background:linear-gradient(135deg,var(--gold),#e8a830);
+  color:var(--ink);font-weight:700;font-size:1.05rem;
+  border:none;border-radius:12px;cursor:pointer;
+  font-family:'Lato',sans-serif;letter-spacing:.5px;
+  box-shadow:0 10px 40px rgba(200,151,59,.35);
+  transition:all .3s;
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(200,151,59,.45)}
+.form-footer{text-align:center;margin-top:20px;font-size:.85rem;color:var(--muted)}
+.form-footer a{color:var(--gold)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);color:rgba(255,255,255,.4);
+  padding:40px 24px;text-align:center;font-size:.85rem;
+}
+footer a{color:var(--gold);text-decoration:none}
+
+/* ── STICKY BAR ── */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:900;
+  background:linear-gradient(90deg,var(--warm),#1a1209);
+  border-top:1px solid rgba(200,151,59,.3);
+  padding:12px 24px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  transform:translateY(100%);transition:transform .4s;
+}
+.sticky-bar.visible{transform:translateY(0)}
+.sticky-info{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sticky-date{font-size:.85rem;color:var(--white);font-weight:600}
+.sticky-free{background:rgba(200,151,59,.2);border:1px solid rgba(200,151,59,.4);color:var(--gold2);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
+.sticky-cta{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem;white-space:nowrap;flex-shrink:0;transition:transform .2s}
+.sticky-cta:hover{transform:translateY(-1px)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .hero{padding:90px 20px 50px}
+  .hero h1{font-size:2.2rem}
+  .hero-stats{gap:24px;margin-top:40px;padding-top:32px}
+  .emotion-strip{gap:16px;padding:16px 20px}
+  .es-item{font-size:.85rem}
+  .story-grid{grid-template-columns:1fr;gap:40px}
+  .story-float{display:none}
+  .section{padding:60px 20px}
+  .form-wrap{padding:36px 24px}
+  .form-row{grid-template-columns:1fr}
+  .detail-row{padding:18px 24px;gap:16px}
+  .testi-summary{gap:20px;padding:20px}
+  .sticky-bar{flex-direction:column;gap:8px;text-align:center;padding:14px 20px}
+  .sticky-info{justify-content:center}
+}
 </style>
 </head>
 <body>
-<nav>
-<div class="container">
-<a href="index.html" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="business-seminar.html">Business Seminar</a></li>
-<li><a href="info-abend.html">Info-Abend</a></li>
-<li><a href="pensionsluecke.html">Pensionslücke</a></li>
-<li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
-</ul>
-</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="logo-nav">Mario <span>Friedl</span></a>
+  <a href="#anmelden" class="nav-cta">Jetzt anmelden →</a>
 </nav>
 
-<section class="hero" style="text-align: center; padding: 6rem 1rem 3rem 1rem; background: #f5f5f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-
-        <!-- Badge oben -->
-        <div style="font-size: 1.3rem; color: #2c3e50; margin: 0 0 1rem 0; font-weight: 600;">
-            🎓 Kostenloser Info-Abend
-        </div>
-
-        <!-- Überschrift -->
-        <h1 style="font-size: 2.8rem; color: #e74c3c; font-weight: bold; line-height: 1.2; margin: 1rem auto; max-width: 1000px;">
-            ❌ Ihr größter Finanz-Fehler läuft JETZT!
-        </h1>
-
-        <!-- Untertitel -->
-        <p style="font-size: 1.4rem; color: #2c3e50; margin: 2rem auto; font-weight: 600; max-width: 900px;">
-            „Wie eine einzige Frage mein komplettes Finanzleben verändert hat"
-        </p>
-
-        <!-- Gelbe Box -->
-        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1.5rem; margin: 2rem auto; max-width: 600px; border-radius: 8px; text-align: left;">
-            <p style="margin: 0; font-size: 1.1rem; color: #856404;">
-                <strong>💰 Der Unterschied nach 30 Jahren?</strong><br>
-                Sparbuch: 8.610€ Kaufkraft (Verlust: -1.390€)<br>
-                Investment: 36.230€ Kaufkraft (Gewinn: +26.230€)<br>
-                <strong style="color: #e74c3c; font-size: 1.3rem;">= 35.840€ Unterschied!</strong>
-            </p>
-        </div>
-
-        <!-- Kostenlos Text -->
-        <p style="font-size: 1.2rem; color: #34495e; margin: 2rem auto; text-align: center;">
-            <strong>Neugier auf mehr?</strong>
-        </p>
-  <!-- Knappheits-Box -->
-<div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 2rem; border-radius: 12px; margin: 2rem auto; max-width: 600px; text-align: center; box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);">
-
-    <div style="background: rgba(255,255,255,0.2); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
-        <div style="font-size: 1rem; opacity: 0.9;">PLATZVERFÜGBARKEIT</div>
-        <div style="background: rgba(0,0,0,0.2); height: 25px; border-radius: 12px; overflow: hidden; margin: 0.5rem 0;">
-            <div style="background: #f39c12; height: 100%; width: 68%;"></div>
-        </div>
-
-</div>
-        <div style="font-size: 1.3rem; font-weight: bold;">8 von 25 Plätzen vergeben</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 Kostenloser Info-Abend · Graz</div>
+    <h1>Ein Abend, der<br><em>alles verändert.</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">
+      Was wäre, wenn du in 90 Minuten mehr über Geld, Vermögensaufbau und finanzielle Freiheit lernst, als die meisten Menschen in ihrem ganzen Leben? Keine Theorie. Keine Verkaufspräsentation. Nur echte Antworten – bei einem guten Glas Wein.
+    </p>
+    <div class="hero-wine">🍷 Wein & Brötchen inklusive · Eintritt: kostenlos</div>
+    <div class="hero-cta-wrap">
+      <a href="#anmelden" class="btn-primary">Meinen Platz sichern →</a>
+      <a href="#abend" class="btn-ghost">Was erwartet mich?</a>
     </div>
-
-    <div style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">🔥 NUR NOCH 17 PLÄTZE FREI! 🔥</div>
-
-   <a href="javascript:void(0);" onclick="document.querySelector('form').scrollIntoView({behavior:'smooth'});" style="display: inline-block; background: white; color: #e74c3c; padding: 1.2rem 3rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.3rem; margin: 1rem 0; cursor: pointer;">
-    JETZT KOSTENLOS ANMELDEN
-</a>
-
-    <div style="font-size: 0.95rem; opacity: 0.9; margin-top: 1rem;">
-        ⏰ Nächster Termin: 26. März 2026<br>
-        ✅ Eintritt frei • Unverbindlich
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">200+</div><div class="hs-lbl">Teilnehmer bisher</div></div>
+      <div class="hs"><div class="hs-num">4.9★</div><div class="hs-lbl">Bewertung</div></div>
+      <div class="hs"><div class="hs-num">90 Min</div><div class="hs-lbl">Pure Substanz</div></div>
+      <div class="hs"><div class="hs-num">€ 0</div><div class="hs-lbl">Eintritt</div></div>
     </div>
+  </div>
+</section>
 
+<!-- EMOTION STRIP -->
+<div class="emotion-strip">
+  <div class="es-item"><span>📍</span> Herrgottwiesgasse 119/1, 8020 Graz</div>
+  <div class="es-item"><span>📅</span> 26. März 2026 · 19:00 Uhr</div>
+  <div class="es-item"><span>🔥</span> Nur noch 17 Plätze verfügbar</div>
 </div>
-<div class="free-badge">🍷 WEIN & BRÖTCHEN INKLUSIVE</div>
+
+<!-- STORY SECTION -->
+<section class="section story-section">
+<div class="page-wrap">
+  <div class="story-grid">
+    <div class="story-visual">
+      <div class="story-card-main">
+        <div class="story-quote">Ich dachte, ich spare vernünftig. Erst an diesem Abend habe ich verstanden, dass mein Sparbuch mich jedes Jahr ärmer macht – nicht reicher.</div>
+        <div class="story-author">
+          <div class="story-avatar">S</div>
+          <div>
+            <div class="story-author-name">Sandra K.</div>
+            <div class="story-author-loc">Graz · Teilnehmerin März 2025</div>
+          </div>
+        </div>
+        <div class="story-float">
+          <div class="story-float-num">94%</div>
+          <div class="story-float-lbl">Empfehlen weiter</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-text">
+      <h3>Warum dieser Abend<br>kein gewöhnliches Seminar ist</h3>
+      <p>Die meisten Finanzveranstaltungen wollen dir etwas verkaufen. Dieser Abend nicht. Hier geht es darum, dass <strong>du endlich verstehst, wie Geld wirklich funktioniert</strong> – und welche Entscheidungen du heute treffen kannst, damit dein zukünftiges Ich dir dankt.</p>
+      <p>Mario Friedl erklärt dir in entspannter Atmosphäre, warum die staatliche Pension für die meisten Menschen nicht reicht, wie Investmentfonds wirklich funktionieren und wie du <strong>mit der gleichen monatlichen Rate ein Haus kaufen und gleichzeitig Vermögen aufbauen</strong> kannst.</p>
+      <div class="story-checks">
+        <div class="sc-item"><div class="sc-icon">✓</div><div class="sc-text"><strong>Keine Verkaufspräsentation</strong> – nur ehrliches, wertvolles Wissen</div></div>
+        <div class="sc-item"><div class="sc-icon">✓</div><div class="sc-text"><strong>Keine Vorerfahrung nötig</strong> – wir beginnen bei null</div></div>
+        <div class="sc-item"><div class="sc-icon">✓</div><div class="sc-text"><strong>Deine Fragen</strong> werden direkt und ehrlich beantwortet</div></div>
+        <div class="sc-item"><div class="sc-icon">✓</div><div class="sc-text"><strong>Wein & Brötchen</strong> sorgen für eine einladende Atmosphäre</div></div>
+      </div>
+    </div>
+  </div>
 </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2 class="section-title">Warum Ihr Sparbuch Sie ärmer macht?</h2>
-<p class="section-subtitle">Entdecken Sie in 90 Minuten, was die meisten Menschen ihr Leben lang nicht erfahren – die wahren Mechanismen des Vermögensaufbaus.</p>
+<!-- THEMEN -->
+<section class="section themen-section" id="abend">
+<div class="page-wrap">
+  <span class="section-eyebrow">Was dich erwartet</span>
+  <h2 class="section-title">90 Minuten, die dein<br><em>Finanzleben verändern</em></h2>
+  <p class="section-sub">Sieben Themen, die du so noch nie erklärt bekommen hast – klar, ehrlich und ohne Fachchinesisch.</p>
+  <div class="themen-grid">
 
-<div class="info-grid">
-<div class="info-card">
-<div class="info-icon">💰</div>
-<h3>Geld vs. Sachwerte</h3>
-<ul>
-<li>Der fundamentale Unterschied erklärt</li>
-<li>Warum Ihr Sparbuch Sie ärmer macht</li>
-<li>Die 72er-Regel live erlebt</li>
-<li>Inflation verstehen & nutzen</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">📊</div>
-<h3>Die Welt der Investmentfonds</h3>
-<ul>
-<li>200+ Jahre Erfolgsgeschichte</li>
-<li>Wie funktionieren Fonds wirklich?</li>
-<li>ETFs einfach erklärt</li>
-<li>Kostenfallen erkennen & vermeiden</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">🏠</div>
-<h3>Vorsorge-Immobilien</h3>
-<ul>
-<li>Massive Steuervorteile nutzen</li>
-<li>Passives Einkommen aufbauen</li>
-<li>Die richtige Finanzierung</li>
-<li>Rendite vs. Eigennutzung</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">💎</div>
-<h3>Finanzierung mal anders</h3>
-<ul>
-<li>Tilgungsfreie Konzepte verstehen</li>
-<li>Haus abbezahlen UND Vermögen aufbauen</li>
-<li>Die Mathematik dahinter (verblüffend!)</li>
-<li>Nach 30 Jahren: Alles abbezahlt + Rücklagen</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">⚠️</div>
-<h3>Die Pensionslücke</h3>
-<ul>
-<li>Schockierende Fakten & Zahlen</li>
-<li>Wie groß ist IHRE Lücke?</li>
-<li>3 Wege sie zu schließen</li>
-<li>Je früher, desto besser</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">🚀</div>
-<h3>Karriere bei EQUALITY</h3>
-<ul>
-<li>Finanzberatung als Berufung</li>
-<li>Die 13 Erfolgsfaktoren</li>
-<li>Verdienstmöglichkeiten</li>
-<li>Netzwerk von 150+ Beratern</li>
-</ul>
-</div>
-
-<div class="info-card">
-<div class="info-icon">🍷</div>
-<h3>Networking & Genuss</h3>
-<ul>
-<li>Entspannte Atmosphäre</li>
-<li>Wein & köstliche Brötchen</li>
-<li>Austausch mit Gleichgesinnten</li>
-<li>Persönliche Gespräche</li>
-</ul>
-</div>
-</div>
-
-<div class="cta-box">
-<h3>🎯 Ihr Mehrwert an diesem Abend</h3>
-<p>Sie verlassen den Raum mit mehr Wissen als 95% der Bevölkerung über Geld, Investitionen und Vermögensaufbau – und das völlig kostenlos!</p>
-</div>
-</div>
-</section>
-<!-- Testimonials -->
-<div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 4rem 2rem; margin: 3rem 0;">
-    <h2 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 3rem;">
-        💬 Das sagen unsere Teilnehmer
-    </h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-
-        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-            <p style="font-size: 1rem; line-height: 1.6; color: #34495e; margin-bottom: 1.5rem; font-style: italic;">
-                "Dieser Abend hat mir die Augen geöffnet. Die 72er-Regel war ein echter Aha-Moment!"
-            </p>
-            <div style="font-size: 0.95rem; color: #7f8c8d;">
-                <strong style="color: #2c3e50;">Sarah M.</strong>, Wien
-            </div>
-        </div>
-
-        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-            <p style="font-size: 1rem; line-height: 1.6; color: #34495e; margin-bottom: 1.5rem; font-style: italic;">
-                "Endlich jemand, der ehrlich ist! Ich habe sofort meine Finanzen umgestellt."
-            </p>
-            <div style="font-size: 0.95rem; color: #7f8c8d;">
-                <strong style="color: #2c3e50;">Thomas K.</strong>, Graz
-            </div>
-        </div>
-
-        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-            <p style="font-size: 1rem; line-height: 1.6; color: #34495e; margin-bottom: 1.5rem; font-style: italic;">
-                "Die 90 Minuten haben sich mehr als gelohnt!"
-            </p>
-            <div style="font-size: 0.95rem; color: #7f8c8d;">
-                <strong style="color: #2c3e50;">Stefan R.</strong>, Linz
-            </div>
-        </div>
-
+    <div class="thema-card">
+      <span class="thema-icon">💸</span>
+      <h3>Warum dein Sparbuch dich arm hält</h3>
+      <p>Die schockierende Wahrheit über Inflation und Kaufkraftverlust – live demonstriert mit der 72er-Regel.</p>
+      <ul class="thema-list">
+        <li>Inflation verstehen & richtig einschätzen</li>
+        <li>Die 72er-Regel – du wirst staunen</li>
+        <li>Sparbuch vs. Investment: der echte Vergleich</li>
+        <li>€10.000 heute – was sind sie in 25 Jahren wert?</li>
+      </ul>
     </div>
 
-    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.5); border-radius: 12px; max-width: 800px; margin-left: auto; margin-right: auto;">
-        <div style="font-size: 1.5rem; color: #2c3e50; font-weight: bold;">
-            ⭐ 4.9 von 5 Sternen • 👥 2.847 Teilnehmer • 🎯 94% Empfehlungsrate
-        </div>
+    <div class="thema-card">
+      <span class="thema-icon">📈</span>
+      <h3>Die Welt der Investmentfonds</h3>
+      <p>200 Jahre Erfolgsgeschichte – und warum die meisten Österreicher trotzdem nicht investieren.</p>
+      <ul class="thema-list">
+        <li>Wie Fonds wirklich funktionieren</li>
+        <li>ETFs einfach & verständlich erklärt</li>
+        <li>Risiko vs. Chance: die Wahrheit</li>
+        <li>Kostenfallen erkennen und vermeiden</li>
+      </ul>
     </div>
 
-</div>
-<section class="section highlight-section">
-<div class="container">
-<h2 class="section-title">Warum dieser Info-Abend?</h2>
-<p class="section-subtitle" style="color:rgba(255,255,255,.8)">Unser Ziel: Mehr Menschen für finanzielle Bildung begeistern</p>
+    <div class="thema-card">
+      <span class="thema-icon">🏡</span>
+      <h3>Haus kaufen & Vermögen aufbauen</h3>
+      <p>Das tilgungsfreie Finanzierungskonzept – wie du gleichzeitig ein Eigenheim kaufst und Fondsvermögen aufbaust.</p>
+      <ul class="thema-list">
+        <li>Die Mathematik dahinter (verblüffend!)</li>
+        <li>Gleiche Rate – doppeltes Ergebnis</li>
+        <li>Wie 200+ Familien es schon gemacht haben</li>
+        <li>Nach 30 Jahren: abbezahlt UND vermögend</li>
+      </ul>
+    </div>
 
-<div class="highlight-grid">
-<div class="highlight-item">
-<div class="icon">🎓</div>
-<h3>Bildung first</h3>
-<p>Keine Verkaufspräsentation – nur echtes Wissen</p>
-</div>
+    <div class="thema-card">
+      <span class="thema-icon">⚠️</span>
+      <h3>Die Pensionslücke – dein Problem</h3>
+      <p>Was die Statistik für dich bedeutet – und warum je früher du handelst, desto besser.</p>
+      <ul class="thema-list">
+        <li>Durchschnittspension Österreich: € 1.527 (Frauen)</li>
+        <li>2042: nur noch 2 Arbeitnehmer pro Pensionist</li>
+        <li>Wie groß ist deine persönliche Lücke?</li>
+        <li>3 konkrete Wege sie zu schließen</li>
+      </ul>
+    </div>
 
-<div class="highlight-item">
-<div class="icon">🤝</div>
-<h3>Kennenlernen</h3>
-<p>Unverbindlich & ohne Druck</p>
-</div>
+    <div class="thema-card">
+      <span class="thema-icon">🏢</span>
+      <h3>Vorsorge-Immobilien</h3>
+      <p>Passives Einkommen durch Immobilien – mit massiven Steuervorteilen, die kaum jemand kennt.</p>
+      <ul class="thema-list">
+        <li>Welche Steuervorteile du nutzen kannst</li>
+        <li>Wie passives Einkommen entsteht</li>
+        <li>Die richtige Finanzierungsstrategie</li>
+        <li>Eigennutzung vs. Vermietung: was rechnet sich?</li>
+      </ul>
+    </div>
 
-<div class="highlight-item">
-<div class="icon">💡</div>
-<h3>Aha-Momente</h3>
-<p>Garantiert neue Perspektiven</p>
-</div>
+    <div class="thema-card">
+      <span class="thema-icon">🍷</span>
+      <h3>Networking & echter Austausch</h3>
+      <p>Der Info-Abend endet nicht mit dem letzten Vortrag. Danach gehört der Abend dir – bei gutem Wein und echten Gesprächen.</p>
+      <ul class="thema-list">
+        <li>Wein & köstliche Brötchen inklusive</li>
+        <li>Persönliche Fragen direkt an Mario</li>
+        <li>Austausch mit Gleichgesinnten</li>
+        <li>Entspannte, einladende Atmosphäre</li>
+      </ul>
+    </div>
 
-<div class="highlight-item">
-<div class="icon">🎯</div>
-<h3>Seminar-Vorbereitung</h3>
-<p>Perfekte Vorbereitung für unser 2-Tages Business Seminar</p>
-</div>
-</div>
+  </div>
 </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2 class="section-title">Event-Details</h2>
-<div class="event-details">
-<div class="detail-row">
-<div class="detail-icon">📍</div>
-<div class="detail-content">
-<h4>Standort</h4>
-<p>EQUALITY EH GmbH, Herrgottwiesgasse 119/1, 8020 Graz</p>
-</div>
-</div>
-
-<div class="detail-row">
-<div class="detail-icon">📅</div>
-<div class="detail-content">
-<h4>Termine</h4>
-<p>Jeden ersten Dienstag im Monat – Nächster Termin wird bei Anmeldung bekannt gegeben</p>
-</div>
-</div>
-
-<div class="detail-row">
-<div class="detail-icon">⏰</div>
-<div class="detail-content">
-<h4>Dauer</h4>
-<p>19:00 - 20:30 Uhr (90 Minuten)<br>+ gemütlicher Ausklang bei Wein & Brötchen</p>
-</div>
-</div>
-
-<div class="detail-row">
-<div class="detail-icon">💰</div>
-<div class="detail-content">
-<h4>Investition</h4>
-<p style="color:var(--gold);font-weight:700;font-size:1.2rem">€ 0,00 – Völlig kostenlos!</p>
-</div>
-</div>
-
-<div class="detail-row">
-<div class="detail-icon">👔</div>
-<div class="detail-content">
-<h4>Dresscode</h4>
-<p>Smart Casual – kommen Sie wie Sie sind!</p>
-</div>
-</div>
-
-<div class="detail-row">
-<div class="detail-icon">🍷</div>
-<div class="detail-content">
-<h4>Verpflegung</h4>
-<p>Wein, alkoholfreie Getränke & köstliche Brötchen inklusive</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Dringlichkeits-Box - Elegant & Neugierig -->
-<div style="background: linear-gradient(135deg, #1a2a4a 0%, #0A1128 100%); color: white; padding: 2.5rem; border-radius: 16px; margin: 3rem auto; max-width: 700px; text-align: center; box-shadow: 0 8px 30px rgba(10,17,40,0.3);">
-    
-    <!-- Teaser Frage -->
-    <div style="background: rgba(197,165,114,0.15); border: 1px solid rgba(197,165,114,0.4); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
-        <div style="font-size: 1rem; color: #C5A572; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
-            🧮 Die 72er-Regel – Kennen Sie sie?
-        </div>
-        <div style="font-size: 1.4rem; font-weight: 700; color: white; line-height: 1.6; margin-bottom: 1rem;">
-            1€ bei 1% Zinsen –<br>
-            <span style="color: #C5A572;">wann wird es 2€?</span>
-        </div>
-        <div style="font-size: 1rem; color: rgba(255,255,255,0.7); font-style: italic;">
-            Die Antwort erfahren Sie an unserem Info-Abend.
-        </div>
+<!-- ZAHLEN -->
+<section class="section zahlen-section">
+<div class="page-wrap">
+  <span class="section-eyebrow" style="color:var(--gold2)">Die Zahlen sprechen für sich</span>
+  <h2 class="section-title" style="color:var(--white)">Was auf dem Spiel steht –<br><em>für dich persönlich</em></h2>
+  <div class="zahlen-grid">
+    <div class="zahl-item">
+      <div class="zahl-num">€ 700</div>
+      <div class="zahl-lbl">Pensionslücke pro Monat</div>
+      <div class="zahl-sub">Österreichischer Durchschnitt</div>
     </div>
-    
-    <!-- Plätze -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-        <div style="background: rgba(231,76,60,0.2); border: 1px solid rgba(231,76,60,0.5); border-radius: 8px; padding: 0.8rem 1.5rem;">
-            <div style="font-size: 1.8rem; font-weight: bold; color: #e74c3c;">17</div>
-            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7);">Plätze frei</div>
-        </div>
-        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 200px; text-align: left;">
-            von 25 Plätzen –<br>sichern Sie sich Ihren!
-        </div>
+    <div class="zahl-item">
+      <div class="zahl-num">-€ 1.890</div>
+      <div class="zahl-lbl">Kaufkraftverlust</div>
+      <div class="zahl-sub">€ 10.000 am Sparbuch über 25 Jahre</div>
     </div>
-    
-    <!-- Datum & Benefits -->
-    <div style="font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; line-height: 2;">
-        📅 26. März 2026 &nbsp;|&nbsp; 🕕 18:30 Uhr<br>
-        🍷 Eintritt frei &nbsp;•&nbsp; Wein & Brötchen inklusive
+    <div class="zahl-item">
+      <div class="zahl-num">+€ 33.800</div>
+      <div class="zahl-lbl">ETF-Gewinn</div>
+      <div class="zahl-sub">€ 10.000 investiert über 25 Jahre</div>
     </div>
-    
-</div>
-
-</div>
-<section class="section form-section">
-<div class="container">
-<h2 class="section-title">Jetzt kostenlos anmelden!</h2>
-<p class="section-subtitle">⚠️ Begrenzte Plätze pro Termin – Sichern Sie sich jetzt Ihren Platz!</p>
-
-<form action="https://formspree.io/f/mdagqzag" method="POST" class="registration-form">
-<h3 style="margin-bottom:2rem;text-align:center;color:var(--gold)">Ihre kostenlose Anmeldung</h3>
-
-<div class="form-row">
-<div class="form-group">
-<label for="vorname">Vorname *</label>
-<input type="text" id="vorname" name="vorname" required>
-</div>
-<div class="form-group">
-<label for="nachname">Nachname *</label>
-<input type="text" id="nachname" name="nachname" required>
-</div>
-</div>
-
-<div class="form-group">
-<label for="email">E-Mail *</label>
-<input type="email" id="email" name="email" required>
-</div>
-
-<div class="form-group">
-<label for="telefon">Telefon *</label>
-<input type="tel" id="telefon" name="telefon" required>
-</div>
-
-<div class="form-group">
-<label for="wunschtermin">Gewünschter Monat</label>
-<select id="wunschtermin" name="wunschtermin">
-<option value="">Nächster verfügbarer Termin</option>
-<option value="februar">Februar 2026</option>
-<option value="maerz">26.März 2026</option>
-<option value="april">April 2026</option>
-<option value="mai">Mai 2026</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="begleitpersonen">Anzahl Begleitpersonen</label>
-<input type="number" id="begleitpersonen" name="begleitpersonen" min="0" max="3" value="0">
-<p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Bringen Sie gerne Freunde oder Familie mit!</p>
-</div>
-
-<div class="form-group">
-<label for="interesse">Was interessiert Sie besonders?</label>
-<select id="interesse" name="hauptinteresse">
-<option value="">Bitte wählen (optional)</option>
-<option value="vermogensaufbau">Vermögensaufbau & ETFs</option>
-<option value="immobilien">Vorsorge-Immobilien</option>
-<option value="pension">Pensionsvorsorge</option>
-<option value="karriere">Karriere bei EQUALITY</option>
-<option value="alles">Alle Themen gleichermaßen</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="anmerkungen">Anmerkungen / Fragen</label>
-<textarea id="anmerkungen" name="anmerkungen" rows="3" placeholder="Haben Sie spezielle Fragen oder Wünsche?"></textarea>
-</div>
-
-<div class="form-group">
-<label style="display:flex;align-items:center;gap:0.5rem">
-<input type="checkbox" required style="width:auto">
-<span>Ich akzeptiere die <a href="datenschutz.html" style="color:var(--gold)">Datenschutzerklärung</a> *</span>
-</label>
-</div>
-
-<button type="submit" class="btn-submit">🎓 Kostenlos anmelden</button>
-
-<p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-size:0.9rem">
-Sie erhalten eine Bestätigungs-E-Mail mit dem genauen Datum und allen Details.
-</p>
-</form>
+    <div class="zahl-item">
+      <div class="zahl-num">2 : 1</div>
+      <div class="zahl-lbl">Verhältnis 2042</div>
+      <div class="zahl-sub">Arbeitnehmer pro Pensionist</div>
+    </div>
+  </div>
 </div>
 </section>
 
-<section class="section">
-<div class="container">
-<div class="cta-box">
-<h3>🚀 Bereit für mehr?</h3>
-<p>Nach dem Info-Abend laden wir Sie gerne zu unserem intensiven 2-Tages Business Seminar ein!</p>
-<a href="business-seminar.html" style="display:inline-block;background:var(--navy);color:var(--gold);padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;margin-top:1rem">Mehr über das Business Seminar erfahren →</a>
-</div>
+<!-- ABEND ABLAUF -->
+<section class="section abend-section">
+<div class="page-wrap">
+  <span class="section-eyebrow">Der Abend im Detail</span>
+  <h2 class="section-title">So läuft dein<br><em>unvergesslicher Abend</em> ab</h2>
+  <p class="section-sub">Von der Begrüßung bis zum gemütlichen Ausklang – ein Abend, der gut durchdacht ist und bei dem du dich wohlfühlst.</p>
+  <div class="abend-timeline">
+
+    <div class="abend-item">
+      <div class="abend-dot">🚪</div>
+      <div class="abend-content">
+        <div class="abend-time">18:30 Uhr</div>
+        <h3>Einlass & Ankommen</h3>
+        <p>Du wirst persönlich empfangen. Ein Glas Wein wartet bereits auf dich. Zeit zum Ankommen, Kennenlernen und Eingewöhnen in die warme Atmosphäre unserer Räumlichkeiten.</p>
+      </div>
+    </div>
+
+    <div class="abend-item">
+      <div class="abend-dot">🎓</div>
+      <div class="abend-content">
+        <div class="abend-time">19:00 Uhr</div>
+        <h3>Vortrag beginnt</h3>
+        <p>Mario Friedl nimmt dich mit auf eine Reise durch die wichtigsten Finanzkonzepte deines Lebens. Kein Fachjargon, keine Verkaufstaktik – nur klare Erklärungen mit echten Zahlen aus der österreichischen Realität.</p>
+      </div>
+    </div>
+
+    <div class="abend-item">
+      <div class="abend-dot">💡</div>
+      <div class="abend-content">
+        <div class="abend-time">Ca. 19:45 Uhr</div>
+        <h3>Die 72er-Regel live erleben</h3>
+        <p>Der Moment, nach dem viele Teilnehmer sagen: "Das hat mir die Augen geöffnet." Du wirst sehen – mit eigenen Augen und echten Zahlen – was dein Geld heute macht und was es machen könnte.</p>
+      </div>
+    </div>
+
+    <div class="abend-item">
+      <div class="abend-dot">❓</div>
+      <div class="abend-content">
+        <div class="abend-time">20:20 Uhr</div>
+        <h3>Deine Fragen – ehrliche Antworten</h3>
+        <p>Kein Thema ist tabu. Du hast die Möglichkeit, alle deine Fragen direkt zu stellen. Mario antwortet ehrlich – auch auf die unbequemen Fragen, die du vielleicht schon länger hattest.</p>
+      </div>
+    </div>
+
+    <div class="abend-item">
+      <div class="abend-dot">🍷</div>
+      <div class="abend-content">
+        <div class="abend-time">Ab 20:30 Uhr</div>
+        <h3>Gemütlicher Ausklang</h3>
+        <p>Der Vortrag endet – aber der Abend geht weiter. Bei Wein, Brötchen und entspannten Gesprächen hast du die Möglichkeit, dich mit Mario und anderen Teilnehmern auszutauschen. Ohne Eile, ohne Druck.</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+<div class="page-wrap">
+  <span class="section-eyebrow">Was Teilnehmer sagen</span>
+  <h2 class="section-title">Echte Stimmen,<br><em>echte Veränderungen</em></h2>
+  <p class="section-sub">Über 200 Menschen haben diesen Abend bereits erlebt. Das sind ihre Worte.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">Dieser Abend hat mir die Augen geöffnet. Die 72er-Regel war ein echter Aha-Moment – ich habe sofort verstanden, was ich bisher falsch gemacht habe.</div>
+      <div class="testi-author">Sandra M. <span>· Wien</span></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">Endlich jemand, der ehrlich redet! Keine Verkaufspräsentation, kein Druck – nur wertvolles Wissen. Ich habe danach sofort meine Finanzen umgestellt.</div>
+      <div class="testi-author">Thomas K. <span>· Graz</span></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">Ich dachte, ich kenne mich mit Finanzen aus. Nach diesem Abend weiß ich, dass ich vieles völlig falsch verstanden hatte. Absolut empfehlenswert!</div>
+      <div class="testi-author">Markus R. <span>· Linz</span></div>
+    </div>
+  </div>
+  <div class="testi-summary">
+    <div class="ts-item"><div class="ts-num">4.9 / 5</div><div class="ts-lbl">Bewertung</div></div>
+    <div class="ts-item"><div class="ts-num">200+</div><div class="ts-lbl">Teilnehmer</div></div>
+    <div class="ts-item"><div class="ts-num">94%</div><div class="ts-lbl">Empfehlen weiter</div></div>
+    <div class="ts-item"><div class="ts-num">100%</div><div class="ts-lbl">Kostenlos</div></div>
+  </div>
+</div>
+</section>
+
+<!-- EVENT DETAILS -->
+<section class="section details-section">
+<div class="page-wrap">
+  <span class="section-eyebrow">Alle Details</span>
+  <h2 class="section-title">Was du wissen<br><em>musst</em></h2>
+  <div class="details-card">
+    <div class="detail-row">
+      <div class="detail-icon-wrap">📍</div>
+      <div>
+        <div class="detail-label">Ort</div>
+        <div class="detail-value">EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">📅</div>
+      <div>
+        <div class="detail-label">Nächster Termin</div>
+        <div class="detail-value">Dienstag, 26. März 2026 · Jeden ersten Dienstag im Monat</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">⏰</div>
+      <div>
+        <div class="detail-label">Uhrzeit</div>
+        <div class="detail-value">19:00 – 20:30 Uhr · Einlass ab 18:30 Uhr</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">💰</div>
+      <div>
+        <div class="detail-label">Eintritt</div>
+        <div class="detail-value highlight">€ 0,00 · Völlig kostenlos</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">🍷</div>
+      <div>
+        <div class="detail-label">Verpflegung</div>
+        <div class="detail-value">Wein · Alkoholfreie Getränke · Köstliche Brötchen – inklusive</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">👔</div>
+      <div>
+        <div class="detail-label">Dresscode</div>
+        <div class="detail-value">Smart Casual · Komm wie du bist – wohl fühlen ist das Ziel</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon-wrap">👥</div>
+      <div>
+        <div class="detail-label">Plätze</div>
+        <div class="detail-value">Max. 25 Personen pro Abend · Bring gerne Freunde mit!</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency-section">
+  <div class="urgency-inner">
+    <div class="urgency-badge">⏳ Begrenzte Plätze</div>
+    <h2>Noch 17 Plätze frei.<br>Aber nicht lange.</h2>
+    <p>Jeder Info-Abend ist auf 25 Personen begrenzt – damit jeder die Möglichkeit hat, wirklich Fragen zu stellen und persönlich betreut zu werden. Der nächste Termin füllt sich erfahrungsgemäß schnell.</p>
+    <div class="seats-bar-wrap">
+      <div class="seats-label"><span>0 Plätze belegt</span><span>25 Plätze gesamt</span></div>
+      <div class="seats-bar"><div class="seats-fill"></div></div>
+    </div>
+    <div class="seats-count">17</div>
+    <div class="seats-text">Plätze noch verfügbar für den 26. März 2026</div>
+    <a href="#anmelden" class="btn-primary" style="font-size:1.1rem;padding:18px 48px">Meinen Platz jetzt sichern →</a>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="anmelden">
+  <span class="section-eyebrow">Kostenlose Anmeldung</span>
+  <h2 class="section-title" style="margin-bottom:8px">Dein Platz wartet.<br><em>Melde dich jetzt an.</em></h2>
+  <p class="section-sub">30 Sekunden. Kostenlos. Und du erhältst sofort eine Bestätigung per E-Mail.</p>
+  <div class="form-wrap">
+    <div class="form-title">Kostenlos anmelden</div>
+    <div class="form-subtitle">🍷 Wein & Brötchen inklusive · 26. März 2026 · 19:00 Uhr</div>
+
+    <form action="https://formspree.io/f/mdagqzag" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="vorname">Vorname *</label>
+          <input type="text" id="vorname" name="vorname" placeholder="Dein Vorname" required>
+        </div>
+        <div class="form-group">
+          <label for="nachname">Nachname *</label>
+          <input type="text" id="nachname" name="nachname" placeholder="Dein Nachname" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-Mail-Adresse *</label>
+        <input type="email" id="email" name="email" placeholder="deine@email.at" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefon">Telefonnummer *</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="+43 ..." required>
+      </div>
+
+      <div class="form-group">
+        <label for="wunschtermin">Gewünschter Termin</label>
+        <select id="wunschtermin" name="wunschtermin">
+          <option value="">Nächster verfügbarer Termin (26. März)</option>
+          <option value="maerz">26. März 2026</option>
+          <option value="april">April 2026</option>
+          <option value="mai">Mai 2026</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="begleitpersonen">Anzahl Begleitpersonen</label>
+        <input type="number" id="begleitpersonen" name="begleitpersonen" min="0" max="3" value="0">
+        <div class="form-hint">Bring gerne Familie oder Freunde mit – kostenlos für alle!</div>
+      </div>
+
+      <div class="form-group">
+        <label for="interesse">Was interessiert dich am meisten?</label>
+        <select id="interesse" name="hauptinteresse">
+          <option value="">Bitte wählen (optional)</option>
+          <option value="vermogensaufbau">Vermögensaufbau & ETFs</option>
+          <option value="immobilien">Eigenheim & tilgungsfreie Finanzierung</option>
+          <option value="pension">Pensionsvorsorge</option>
+          <option value="alles">Alles – ich starte bei null</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="anmerkungen">Hast du schon eine Frage?</label>
+        <textarea id="anmerkungen" name="anmerkungen" rows="3" placeholder="Optional – wenn du magst, stelle deine Frage schon hier..."></textarea>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+        <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und stimme zu, eine Bestätigungs-E-Mail zu erhalten. *</label>
+      </div>
+
+      <button type="submit" class="btn-submit">🎓 Jetzt kostenlos anmelden →</button>
+      <div class="form-footer">
+        Du erhältst sofort eine Bestätigung per E-Mail mit allen Details.<br>
+        <a href="datenschutz.html">Datenschutz</a> · Keine Werbemails · Jederzeit abmeldbar
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-<div class="container">
-<p>&copy; 2026 Mario Friedl – EQUALITY EH GmbH</p>
-<p style="margin-top:1rem"><a href="index.html" style="color:var(--gold)">Zurück zur Startseite</a></p>
-</div>
+  <p>© 2026 Mario Friedl – EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz</p>
+  <p style="margin-top:12px"><a href="index.html">← Zurück zur Startseite</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
 </footer>
-<script>
-// Live-Aktivität Simulator
-const activities = [
-    "Sarah aus Wien hat sich vor 3 Minuten angemeldet",
-    "Thomas aus Graz schaut sich gerade diese Seite an",
-    "Maria aus Linz hat sich vor 8 Minuten angemeldet",
-    "14 Personen schauen sich gerade diese Seite an",
-    "Stefan aus Salzburg hat sich vor 5 Minuten angemeldet",
-    "Lisa aus Innsbruck hat sich gerade angemeldet",
-    "Michael aus Klagenfurt schaut sich diese Seite an",
-    "Anna aus Wels hat sich vor 12 Minuten angemeldet"
-];
 
-function updateActivity() {
-    const randomActivity = activities[Math.floor(Math.random() * activities.length)];
-    const element = document.getElementById('activityText');
-    if (element) {
-        element.style.opacity = '0';
-        setTimeout(function() {
-            element.textContent = randomActivity;
-            element.style.opacity = '1';
-        }, 300);
-    }
-}
-
-// Start nach 3 Sekunden
-setTimeout(updateActivity, 3000);
-
-// Dann alle 8 Sekunden
-setInterval(updateActivity, 8000);
-</script>
-
-<script>
-// Countdown Timer
-const eventDate = new Date('2026-02-16T18:30:00').getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    if (distance < 0) {
-        document.getElementById('countdown').innerHTML = 
-            '<div style="font-size: 2rem; color: #f39c12;">Der Info-Abend läuft gerade!</div>';
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-}
-
-// Update every second
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-  <div id="sticky-countdown" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); max-width: 320px; background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 0.4rem 0.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 10000; border-radius: 20px;">
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
-
-        <div id="countdown-sticky" style="display: flex; gap: 0.3rem;">
-            <div style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; text-align: center; min-width: 32px;">
-                <div id="days-sticky" style="font-size: 0.9rem; font-weight: bold; color: #f39c12; line-height: 1;">6</div>
-                <div style="font-size: 0.5rem; opacity: 0.7;">T</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; text-align: center; min-width: 32px;">
-                <div id="hours-sticky" style="font-size: 0.9rem; font-weight: bold; color: #f39c12; line-height: 1;">20</div>
-                <div style="font-size: 0.5rem; opacity: 0.7;">H</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px; text-align: center; min-width: 32px;">
-                <div id="minutes-sticky" style="font-size: 0.9rem; font-weight: bold; color: #f39c12; line-height: 1;">0</div>
-                <div style="font-size: 0.5rem; opacity: 0.7;">M</div>
-            </div>
-        </div>
-
-        <a href="javascript:void(0);" onclick="document.querySelector('form').scrollIntoView({behavior:'smooth'});" style="background: #e74c3c; color: white; padding: 0.35rem 0.7rem; text-decoration: none; border-radius: 12px; font-size: 0.7rem; font-weight: bold; cursor: pointer; white-space: nowrap;">
-            →
-        </a>
-
-    </div>
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-info">
+    <div class="sticky-date">📅 26. März 2026 · 19:00 Uhr · Graz</div>
+    <div class="sticky-free">Kostenlos</div>
+    <div class="sticky-free" style="border-color:rgba(192,57,43,.5);color:#e74c3c;background:rgba(192,57,43,.15)">🔥 Nur 17 Plätze frei</div>
+  </div>
+  <a href="#anmelden" class="sticky-cta">Platz sichern →</a>
 </div>
-</section>
-
-<style>
-/* Mobile Optimierung - Alle Regeln zusammengefasst */
-@media (max-width: 768px) {
-    /* Hero MIT Padding */
-    .hero,
-    section.hero {
-        padding: 7rem 1rem 2rem 1rem !important;
-    }
-
-    /* Überschrift kleiner */
-    .hero h1 {
-        font-size: 1.8rem !important;
-        line-height: 1.1 !important;
-        margin: 0.5rem auto !important;
-    }
-
-    /* Untertitel */
-    .hero p {
-        font-size: 1.1rem !important;
-        margin: 1rem auto !important;
-    }
-
-    /* Badge */
-    .hero > div:first-child {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.8rem !important;
-    }
-
-    /* Sticky Countdown - Mini Version */
-    #sticky-countdown { 
-        max-width: 90% !important;
-        padding: 0.35rem 0.6rem !important;
-        bottom: 10px !important;
-    }
-
-    #countdown-sticky { 
-        gap: 0.25rem !important;
-    }
-
-    #countdown-sticky > div { 
-        padding: 0.2rem 0.3rem !important;
-        min-width: 28px !important;
-    }
-
-    #countdown-sticky > div > div:first-child {
-        font-size: 0.8rem !important;
-    }
-}
-</style>
 
 <script>
-(function() {
-    const eventDate = new Date('2026-02-16T18:30:00').getTime();
+// Sticky bar erscheint nach scroll
+window.addEventListener('scroll', function() {
+  const bar = document.getElementById('stickyBar');
+  if (window.scrollY > 500) bar.classList.add('visible');
+  else bar.classList.remove('visible');
+});
 
-    function updateStickyCountdown() {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-
-        if (distance < 0) {
-            const stickyBar = document.getElementById('sticky-countdown');
-            if (stickyBar) stickyBar.style.display = 'none';
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        const daysEl = document.getElementById('days-sticky');
-        const hoursEl = document.getElementById('hours-sticky');
-        const minutesEl = document.getElementById('minutes-sticky');
-        const secondsEl = document.getElementById('seconds-sticky');
-
-        if (daysEl) daysEl.textContent = days;
-        if (hoursEl) hoursEl.textContent = hours;
-        if (minutesEl) minutesEl.textContent = minutes;
-        if (secondsEl) secondsEl.textContent = seconds;
-    }
-
-    updateStickyCountdown();
-    setInterval(updateStickyCountdown, 1000);
-})();
+// Live Aktivität
+const activities = [
+  "👤 Petra aus Graz hat sich vor 4 Minuten angemeldet",
+  "👥 14 Personen schauen sich gerade diese Seite an",
+  "👤 Michael aus Graz hat sich vor 7 Minuten angemeldet",
+  "👤 Anna aus Leibnitz hat sich soeben angemeldet",
+  "👥 8 von 25 Plätzen wurden heute gebucht",
+  "👤 Stefan aus Graz hat sich vor 12 Minuten angemeldet"
+];
+let actIdx = 0;
+function showActivity() {
+  const el = document.getElementById('activityText');
+  if (!el) return;
+  el.style.opacity = '0';
+  setTimeout(() => { el.textContent = activities[actIdx % activities.length]; el.style.opacity = '1'; actIdx++; }, 300);
+}
+setTimeout(() => { showActivity(); setInterval(showActivity, 9000); }, 4000);
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
