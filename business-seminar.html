@@ -1,349 +1,1619 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Q5N5F85YTW');
-</script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Seminar - Mario Friedl | EQUALITY EH GmbH</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Business Seminar – Mario Friedl | Das Wochenende, das dein Denken verändert</title>
+<meta name="description" content="Zwei Tage. Erfahrene Referenten. Die unbequeme Wahrheit über dein Geld. Das exklusive Business Seminar mit Mario Friedl – in Top-Hotels, mit echten Zahlen, echten Erlebnissen.">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 <style>
-:root{--navy:#0A1128;--gold:#C5A572;--gold-dark:#A68B5B;--cream:#FAF9F6;--white:#FFF;--gray:#4A5568;--gray-light:#E2E8F0}
+:root{
+  --ink:#080c10;--deep:#0b1118;--navy:#0f1923;
+  --gold:#c8973b;--gold2:#f0c060;--gold3:#ffe09a;
+  --ember:#e85d2a;--flame:#f5841f;--lava:#c1380a;
+  --white:#ffffff;--muted:#6a7a8d;--border:#1a2530;--green:#0cac6a;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--cream);line-height:1.6}
-h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
-.container{max-width:1280px;margin:0 auto;padding:0 2rem}
-nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);z-index:1000;padding:1rem 0;border-bottom:1px solid var(--gray-light);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.5rem;font-weight:700;color:var(--navy);text-decoration:none;font-family:'Cormorant Garamond',serif}
-.logo-highlight{color:var(--gold)}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-links a{color:var(--navy);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--white);padding:.75rem 1.5rem;border-radius:6px}
-.hero-section{min-height:60vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--navy) 0%,#1a2847 100%);color:var(--white);padding:120px 2rem 4rem}
-.hero-content{max-width:900px;margin:0 auto;text-align:center}
-.hero-badge{display:inline-block;background:rgba(197,165,114,.2);color:var(--gold);padding:.5rem 1.5rem;border-radius:30px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem;border:1px solid rgba(197,165,114,.3)}
-.hero-section h1{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:1.5rem;color:var(--white)}
-.hero-section p{font-size:1.3rem;color:rgba(255,255,255,.9);margin-bottom:2rem}
-.section{padding:6rem 0}
-.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;text-align:center}
-.section-subtitle{font-size:1.1rem;color:var(--gray);text-align:center;max-width:700px;margin:0 auto 3rem}
-.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:3rem 0}
-.benefit-card{background:var(--white);padding:2rem;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid var(--gray-light);transition:all .3s}
-.benefit-card:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--gold)}
-.benefit-icon{font-size:2.5rem;margin-bottom:1rem}
-.benefit-card h3{font-size:1.3rem;margin-bottom:.8rem;color:var(--gold)}
-.benefit-card p{color:var(--gray);line-height:1.7}
-.image-showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:3rem 0}
-.showcase-image{border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.showcase-image img{width:100%;height:300px;object-fit:cover;transition:transform .3s}
-.showcase-image:hover img{transform:scale(1.05)}
-.locations-section{background:var(--white)}
-.location-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin:3rem 0}
-.location-card{background:var(--cream);padding:2.5rem;border-radius:12px;border-left:4px solid var(--gold)}
-.location-card h3{font-size:1.8rem;margin-bottom:1rem}
-.location-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;color:var(--gray)}
-.location-detail strong{color:var(--navy);min-width:100px}
-.pricing-box{background:rgba(197,165,114,.1);padding:2rem;border-radius:12px;margin:2rem 0}
-.pricing-box h4{color:var(--gold);margin-bottom:1rem}
-.pricing-item{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--gray-light)}
-.form-section{background:linear-gradient(135deg,var(--cream) 0%,var(--white) 100%)}
-.registration-form{max-width:800px;margin:0 auto;background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.form-group{margin-bottom:1.5rem}
-.form-group label{display:block;margin-bottom:.5rem;color:var(--navy);font-weight:600;font-size:.95rem}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:.875rem;border:2px solid var(--gray-light);border-radius:8px;font-size:1rem;font-family:'Inter',sans-serif;transition:all .3s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,165,114,.1)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.btn-submit{width:100%;padding:1.25rem 2rem;background:var(--gold);color:white;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:1rem}
-.btn-submit:hover{background:var(--gold-dark);transform:translateY(-2px)}
-.highlight-box{background:var(--gold);color:var(--navy);padding:2rem;border-radius:12px;text-align:center;margin:3rem 0}
-.highlight-box h3{font-size:1.8rem;margin-bottom:1rem}
-footer{background:var(--navy);color:var(--white);padding:3rem 0;text-align:center}
-@media (max-width:768px){.form-row{grid-template-columns:1fr}.location-cards,.image-showcase{grid-template-columns:1fr}}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Lato',sans-serif;background:var(--ink);color:var(--white);line-height:1.7;overflow-x:hidden;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--ember),var(--gold))}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.wrap-tight{max-width:800px;margin:0 auto;padding:0 28px}
+.eyebrow{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
+.eyebrow-gold{color:var(--gold)}
+.sh{text-align:center;margin-bottom:64px}
+.sh h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em}
+.sh h2 em{font-style:italic;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sh p{font-size:1.05rem;color:rgba(255,255,255,.45);max-width:580px;margin:0 auto;line-height:1.8}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes firePulse{0%,100%{box-shadow:0 0 30px rgba(232,93,42,.3),0 0 60px rgba(232,93,42,.1)}50%{box-shadow:0 0 50px rgba(232,93,42,.5),0 0 100px rgba(232,93,42,.2)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes borderFire{0%,100%{border-color:rgba(232,93,42,.3)}50%{border-color:rgba(232,93,42,.7)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes riseEmber{0%{opacity:0;transform:translateY(0) translateX(0) scale(1)}10%{opacity:.8}80%{opacity:.3}100%{opacity:0;transform:translateY(-100vh) translateX(var(--drift)) scale(0)}}
+
+.anim{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim.in{opacity:1;transform:translateY(0)}
+.anim-left{opacity:0;transform:translateX(-32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim-left.in{opacity:1;transform:translateX(0)}
+.anim-right{opacity:0;transform:translateX(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim-right.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;background:rgba(8,12,16,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(232,93,42,.15);transition:all .3s}
+nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5);border-bottom-color:rgba(200,151,59,.15)}
+.nav-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
+.nav-logo img{height:34px;border-radius:6px}
+.nav-logo .nl-gold{color:var(--gold)}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center}
+.nav-links a{padding:7px 13px;border-radius:8px;font-size:.83rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-fire{background:linear-gradient(135deg,var(--ember),var(--flame))!important;color:var(--white)!important;font-weight:700!important;border-radius:8px!important;animation:firePulse 2s ease-in-out infinite}
+.nav-fire:hover{transform:translateY(-1px)!important;filter:brightness(1.1)!important}
+.mob-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--white)}
+.mob-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,12,16,.98);padding:88px 28px 40px;flex-direction:column;gap:10px}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 18px;border-radius:12px;font-size:1rem;font-weight:600;color:var(--white);text-decoration:none;border:1px solid var(--border)}
+.mob-menu .mob-fire{background:linear-gradient(135deg,var(--ember),var(--flame));border-color:var(--ember);text-align:center;margin-top:8px}
+
+/* BUTTONS */
+.btn-fire{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);font-weight:900;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;letter-spacing:.5px;box-shadow:0 12px 40px rgba(232,93,42,.4);transition:all .3s;animation:firePulse 2.5s 1.5s ease-in-out infinite;position:relative;overflow:hidden}
+.btn-fire::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-fire:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(232,93,42,.55)}
+.btn-fire:hover::before{transform:translateX(200%)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid rgba(200,151,59,.35);color:rgba(255,255,255,.75);font-weight:700;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;transition:all .25s;font-family:'Lato',sans-serif}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 80px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 60% 100%,rgba(193,56,10,.18) 0%,transparent 55%),radial-gradient(ellipse 80% 60% at 30% 80%,rgba(232,93,42,.12) 0%,transparent 50%),radial-gradient(ellipse 60% 40% at 80% 20%,rgba(200,151,59,.07) 0%,transparent 50%),linear-gradient(180deg,#080c10 0%,#0f1520 40%,#0d1008 100%)}
+.hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(232,93,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,93,42,.03) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse 90% 90% at center,black 30%,transparent 100%)}
+.hero-embers{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.ember{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--ember);opacity:0;animation:riseEmber linear infinite}
+
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.3);border-radius:4px;padding:6px 18px;font-size:.7rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:28px;animation:fadeIn .6s ease both}
+.hero-kicker::before{content:'🔥';font-size:.9rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:900;line-height:.98;color:var(--white);margin-bottom:24px;animation:fadeUp .8s .1s ease both;letter-spacing:-.02em}
+.hero h1 .fire-word{display:block;background:linear-gradient(135deg,var(--ember) 0%,var(--flame) 40%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.hero-statement{font-family:'EB Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.62);line-height:1.75;margin-bottom:36px;animation:fadeUp .8s .2s ease both}
+.hero-statement strong{color:var(--gold2);font-style:normal}
+
+.hero-event-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;animation:fadeUp .8s .3s ease both}
+.event-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 16px;font-size:.83rem;font-weight:700;color:rgba(255,255,255,.75)}
+.event-pill.hot{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.3);color:var(--flame)}
+
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
+
+/* Countdown card */
+.hero-right{animation:fadeIn 1s .5s ease both}
+.countdown-card{background:linear-gradient(135deg,rgba(232,93,42,.08),rgba(193,56,10,.04));border:1px solid rgba(232,93,42,.25);border-radius:16px;padding:32px 26px;text-align:center;position:relative;overflow:hidden;animation:borderFire 3s ease-in-out infinite}
+.countdown-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--flame),var(--gold))}
+.cc-label{font-size:.68rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:18px;display:block}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:22px}
+.cd-item{background:rgba(0,0,0,.35);border-radius:10px;padding:12px 6px}
+.cd-num{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:1;background:linear-gradient(180deg,var(--white) 0%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.cd-lbl{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px;display:block}
+
+/* Seats */
+.seats-bar{margin-bottom:20px}
+.seats-labels{display:flex;justify-content:space-between;font-size:.76rem;font-weight:700;margin-bottom:7px}
+.sl-free{color:var(--white)}.sl-taken{color:var(--ember)}
+.seats-track{height:7px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.seats-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--ember),var(--flame),var(--gold));width:62%;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+.cc-quote{background:rgba(255,255,255,.04);border-radius:10px;padding:14px 16px;text-align:left;border-left:3px solid var(--gold);margin-top:18px}
+.cc-quote p{font-family:'EB Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(255,255,255,.62);line-height:1.6;margin-bottom:7px}
+.cc-quote strong{display:block;font-size:.73rem;color:var(--gold);font-family:'Lato',sans-serif;font-style:normal}
+
+/* ════════════════════════════
+   TICKER
+════════════════════════════ */
+.ticker{background:rgba(232,93,42,.06);border-top:1px solid rgba(232,93,42,.15);border-bottom:1px solid rgba(232,93,42,.15);overflow:hidden;padding:11px 0}
+.ticker-inner{display:flex;width:max-content;animation:ticker 32s linear infinite}
+.t-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 36px;font-size:.72rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.t-flame{font-size:.7rem}
+
+/* ════════════════════════════
+   TRUTH SECTION
+════════════════════════════ */
+.truth-section{padding:120px 0;background:linear-gradient(180deg,var(--ink) 0%,#0c1510 100%);position:relative;overflow:hidden}
+.truth-section::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(232,93,42,.05) 0%,transparent 65%);pointer-events:none}
+.truth-inner{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.truth-left h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:28px;letter-spacing:-.02em}
+.truth-left h2 em{font-style:italic;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.truth-pull{font-family:'EB Garamond',serif;font-size:1.4rem;font-style:italic;color:rgba(255,255,255,.6);line-height:1.65;border-left:4px solid var(--ember);padding:16px 0 16px 24px;margin:28px 0}
+.truth-left p{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:16px}
+.truth-left p strong{color:rgba(255,255,255,.85)}
+.truth-left p em{color:var(--gold);font-style:italic}
+.truth-stats{display:flex;flex-direction:column;gap:20px}
+.stat-block{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px 26px;position:relative;overflow:hidden;transition:all .3s}
+.stat-block:hover{background:rgba(232,93,42,.06);border-color:rgba(232,93,42,.2);transform:translateX(6px)}
+.stat-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--ember),var(--gold))}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;line-height:.95;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:4px}
+.stat-label{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.stat-label strong{color:rgba(255,255,255,.8);display:block;font-size:.9rem}
+
+/* ════════════════════════════
+   REFERENTEN
+════════════════════════════ */
+.ref-section{padding:120px 0;background:#090d12;position:relative;overflow:hidden}
+.ref-section::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.05),transparent 65%);pointer-events:none}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
+.ref-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;transition:all .35s;position:relative}
+.ref-card:hover{transform:translateY(-8px);border-color:rgba(232,93,42,.25);box-shadow:0 24px 60px rgba(232,93,42,.1)}
+.ref-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s}
+.ref-card:hover::before{opacity:1}
+.ref-img-wrap{width:100%;padding-top:75%;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(232,93,42,.08),rgba(200,151,59,.05))}
+.ref-img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:.3}
+.ref-body{padding:28px 24px}
+.ref-years{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.2);border-radius:20px;padding:4px 12px;font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--ember);margin-bottom:14px}
+.ref-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.2}
+.ref-role{font-size:.78rem;color:var(--gold);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.ref-bio{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.8;margin-bottom:18px}
+.ref-story{background:rgba(255,255,255,.04);border-left:3px solid var(--ember);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:0}
+.ref-story p{font-family:'EB Garamond',serif;font-style:italic;font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.7}
+.ref-story strong{color:rgba(255,255,255,.85);font-style:normal}
+
+/* ════════════════════════════
+   AGENDA
+════════════════════════════ */
+.agenda-section{padding:120px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative}
+.agenda-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,93,42,.3),transparent)}
+.agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(232,93,42,.04);border:1px solid rgba(232,93,42,.1);border-radius:20px;overflow:hidden}
+.agenda-item{padding:38px 34px;background:rgba(0,0,0,.4);transition:background .3s;position:relative;overflow:hidden;cursor:default}
+.agenda-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ember),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.agenda-item:hover{background:rgba(232,93,42,.06)}
+.agenda-item:hover::before{transform:scaleX(1)}
+.ai-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;line-height:1;color:rgba(232,93,42,.12);position:absolute;top:16px;right:20px;transition:color .3s}
+.agenda-item:hover .ai-num{color:rgba(232,93,42,.28)}
+.ai-icon{width:50px;height:50px;border-radius:10px;background:rgba(232,93,42,.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px;border:1px solid rgba(232,93,42,.15)}
+.ai-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.2}
+.ai-text{font-size:.87rem;color:rgba(255,255,255,.42);line-height:1.8}
+.ai-highlight{display:inline-block;margin-top:10px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ember);border-bottom:1px solid rgba(232,93,42,.3);padding-bottom:2px}
+
+/* ════════════════════════════
+   WHY DIFFERENT / VS
+════════════════════════════ */
+.diff-section{padding:120px 0;background:linear-gradient(160deg,var(--ink) 0%,#0d1015 100%);overflow:hidden;position:relative}
+.diff-section::before{content:'';position:absolute;top:-100px;right:-150px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.04),transparent 65%);pointer-events:none}
+.vs-block{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:0}
+.vs-col{border-radius:16px;padding:36px 28px}
+.vs-col.bad{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+.vs-col.good{background:rgba(232,93,42,.07);border:1px solid rgba(232,93,42,.2)}
+.vs-head{font-size:.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:block}
+.vs-col.bad .vs-head{color:rgba(255,255,255,.3)}
+.vs-col.good .vs-head{color:var(--ember)}
+.vs-item{display:flex;align-items:center;gap:10px;font-size:.88rem;margin-bottom:12px;color:rgba(255,255,255,.5)}
+.vs-item:last-child{margin-bottom:0}
+.vs-item .vi{font-size:1rem;flex-shrink:0}
+.vs-item.good-item{color:rgba(255,255,255,.78)}
+.vs-separator{display:flex;align-items:center;justify-content:center;padding:0 24px}
+.vs-badge{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--white);letter-spacing:1px;box-shadow:0 0 30px rgba(232,93,42,.4);flex-shrink:0}
+
+.diff-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.diff-card{padding:34px 26px;border-radius:16px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.03);transition:all .3s;position:relative;overflow:hidden}
+.diff-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s}
+.diff-card:hover{background:rgba(232,93,42,.05);border-color:rgba(232,93,42,.2);transform:translateY(-6px)}
+.diff-card:hover::after{opacity:1}
+.dc-icon{font-size:1.8rem;margin-bottom:16px;display:block;animation:float 3s ease-in-out infinite}
+.dc-title{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.dc-text{font-size:.87rem;color:rgba(255,255,255,.42);line-height:1.8}
+
+/* ════════════════════════════
+   MARIO
+════════════════════════════ */
+.mario-section{padding:120px 0;background:#090d12;position:relative;overflow:hidden}
+.mario-inner{display:grid;grid-template-columns:380px 1fr;gap:80px;align-items:center}
+.mario-img-wrap{position:relative}
+.mario-img-bg{position:absolute;inset:-20px;background:radial-gradient(ellipse,rgba(232,93,42,.12),transparent 65%);border-radius:50%;animation:firePulse 3s ease-in-out infinite}
+.mario-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 10%;border-radius:20px;border:2px solid rgba(232,93,42,.25);position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.mario-badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--ember),var(--flame));border-radius:10px;padding:10px 22px;white-space:nowrap;z-index:2;box-shadow:0 8px 30px rgba(232,93,42,.4)}
+.mario-badge span{font-size:.78rem;font-weight:700;color:var(--white);letter-spacing:.5px}
+.mario-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:22px}
+.mario-text h2 em{font-style:italic;color:var(--gold2)}
+.mario-pull{font-family:'EB Garamond',serif;font-size:1.45rem;font-style:italic;color:rgba(255,255,255,.6);line-height:1.6;border-left:3px solid var(--ember);padding:14px 0 14px 22px;margin:22px 0 26px}
+.mario-text p{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:14px}
+.mario-text p strong{color:rgba(255,255,255,.85)}
+.mario-creds{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.mc-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:7px 13px;font-size:.77rem;font-weight:700;color:rgba(255,255,255,.6)}
+.mc-pill.fire{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.25);color:var(--flame)}
+.mc-pill.gold{background:rgba(200,151,59,.1);border-color:rgba(200,151,59,.25);color:var(--gold2)}
+
+/* ════════════════════════════
+   HOTEL & PREISE
+════════════════════════════ */
+.hotel-section{padding:120px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
+.hotel-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:0}
+.hotel-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;transition:all .4s;position:relative}
+.hotel-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.hotel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;opacity:0;transition:opacity .3s}
+.hotel-card.h-riegersburg::before{background:linear-gradient(90deg,var(--ember),var(--flame),var(--gold))}
+.hotel-card.h-linz::before{background:linear-gradient(90deg,#1a6b8a,#2aa3c8,var(--gold))}
+.hotel-card:hover::before{opacity:1}
+.hotel-head{padding:32px 30px 0}
+.h-badge{display:inline-flex;align-items:center;gap:6px;border-radius:6px;padding:5px 14px;font-size:.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.h-riegersburg .h-badge{background:rgba(232,93,42,.1);color:var(--ember);border:1px solid rgba(232,93,42,.2)}
+.h-linz .h-badge{background:rgba(42,163,200,.08);color:#2aa3c8;border:1px solid rgba(42,163,200,.2)}
+.hotel-head h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--white);margin-bottom:6px}
+.hotel-head .h-address{font-size:.82rem;color:rgba(255,255,255,.38);margin-bottom:6px}
+.hotel-head .h-time{font-size:.84rem;font-weight:700;color:var(--gold);margin-bottom:0}
+.hotel-divider{height:1px;background:rgba(255,255,255,.07);margin:20px 30px}
+/* Price table */
+.price-table{padding:0 30px}
+.pt-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.pt-row:last-child{border-bottom:none}
+.pt-label{display:flex;align-items:center;gap:8px;font-size:.88rem;color:rgba(255,255,255,.6)}
+.pt-label .pt-icon{font-size:1rem;width:28px;text-align:center}
+.pt-price{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1}
+.h-riegersburg .pt-price{background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-linz .pt-price{background:linear-gradient(135deg,#2aa3c8,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pt-sub{font-size:.7rem;color:rgba(255,255,255,.3);display:block;text-align:right}
+.hotel-includes{padding:20px 30px;background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}
+.hi-title{font-size:.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;display:block}
+.hi-items{display:flex;flex-direction:column;gap:7px}
+.hi-item{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.5}
+.hi-item .hii{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.hotel-footer{padding:20px 30px 26px}
+
+/* Inklusive block */
+.inkl-section{padding:72px 0 0}
+.inkl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.inkl-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px 22px;transition:all .3s}
+.inkl-card:hover{background:rgba(232,93,42,.05);border-color:rgba(232,93,42,.15)}
+.inkl-icon{font-size:1.8rem;margin-bottom:14px;display:block}
+.inkl-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.inkl-items{list-style:none;display:flex;flex-direction:column;gap:6px}
+.inkl-items li{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.5;padding-left:16px;position:relative}
+.inkl-items li::before{content:'›';position:absolute;left:0;color:var(--ember);font-weight:900}
+
+/* ════════════════════════════
+   TERMINE
+════════════════════════════ */
+.termine-section{padding:100px 0;background:#090d12}
+.termine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:0}
+.termin-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px 22px;transition:all .3s;cursor:pointer;position:relative}
+.termin-card:hover,.termin-card.selected{background:rgba(232,93,42,.08);border-color:rgba(232,93,42,.3);transform:translateY(-4px)}
+.termin-card.selected::after{content:'✓';position:absolute;top:12px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--ember);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;color:var(--white);display:flex;align-items:center;justify-content:center}
+.tc-hotel{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;border-radius:4px;padding:3px 10px;margin-bottom:10px}
+.tc-hotel.riegersburg{background:rgba(232,93,42,.1);color:var(--ember);border:1px solid rgba(232,93,42,.2)}
+.tc-hotel.linz{background:rgba(42,163,200,.08);color:#2aa3c8;border:1px solid rgba(42,163,200,.2)}
+.tc-date{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--white);margin-bottom:4px;line-height:1.2}
+.tc-location{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:0}
+
+/* ════════════════════════════
+   TESTIMONIALS
+════════════════════════════ */
+.testi-section{padding:100px 0;background:var(--ink)}
+.testi-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:30px 24px;transition:all .3s}
+.testi-card:hover{background:rgba(232,93,42,.05);border-color:rgba(232,93,42,.15);transform:translateY(-4px)}
+.tc-stars{display:flex;gap:3px;margin-bottom:14px}
+.star{width:13px;height:13px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.tc-text{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,.68);line-height:1.75;margin-bottom:16px}
+.tc-text::before{content:'"';color:var(--ember);font-size:2.2rem;line-height:.35;display:block;margin-bottom:12px;font-family:'Playfair Display',serif}
+.tc-author{font-weight:700;color:var(--white);font-size:.86rem}
+.tc-role{font-size:.75rem;color:var(--ember);margin-top:2px}
+
+/* ════════════════════════════
+   ANMELDUNG
+════════════════════════════ */
+.reg-section{padding:120px 0;background:linear-gradient(160deg,var(--ink) 0%,#0d1008 100%);position:relative;overflow:hidden}
+.reg-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(232,93,42,.06),transparent 65%)}
+.reg-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.reg-card{background:rgba(255,255,255,.04);border:1px solid rgba(232,93,42,.2);border-radius:24px;padding:52px 46px;position:relative;overflow:hidden}
+.reg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--flame),var(--gold))}
+.reg-card h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;color:var(--white);margin-bottom:8px;text-align:center;line-height:1.1}
+.reg-sub{text-align:center;color:rgba(255,255,255,.45);font-size:.95rem;margin-bottom:36px;line-height:1.7}
+.form-field{margin-bottom:16px}
+.form-field label{display:block;font-size:.67rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:7px}
+.form-field input,.form-field select,.form-field textarea{width:100%;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:.88rem 1rem;font-family:'Lato',sans-serif;font-size:.95rem;color:var(--white);transition:all .25s;resize:vertical}
+.form-field input::placeholder{color:rgba(255,255,255,.2)}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--ember);background:rgba(255,255,255,.08);box-shadow:0 0 0 4px rgba(232,93,42,.1)}
+.form-field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(232,93,42,0.8)' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:10px;background-color:rgba(255,255,255,.06);padding-right:2.5rem}
+.form-field select option{background:#1a2535;color:var(--white)}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.privacy-check{display:flex;align-items:flex-start;gap:10px;margin:18px 0 26px}
+.privacy-check input[type=checkbox]{width:18px;height:18px;accent-color:var(--ember);flex-shrink:0;margin-top:2px;cursor:pointer}
+.privacy-check label{font-size:.81rem;color:rgba(255,255,255,.4);line-height:1.6}
+.privacy-check a{color:var(--ember)}
+.btn-submit-fire{width:100%;padding:18px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);border:none;border-radius:12px;font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:.5px;cursor:pointer;transition:all .3s;box-shadow:0 12px 40px rgba(232,93,42,.35);position:relative;overflow:hidden}
+.btn-submit-fire::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-submit-fire:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(232,93,42,.5)}
+.btn-submit-fire:hover::before{transform:translateX(200%)}
+.trust-row{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:22px}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:.77rem;color:rgba(255,255,255,.35);font-weight:600}
+.trust-item .ti-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+
+/* ════════════════════════════
+   FAQ
+════════════════════════════ */
+.faq-section{padding:100px 0;background:#090d12}
+.faq-list{max-width:760px;margin:52px auto 0;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;transition:border-color .25s}
+.faq-item.open{border-color:rgba(232,93,42,.25)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;cursor:pointer;gap:16px;font-weight:700;color:rgba(255,255,255,.82);font-size:.93rem;user-select:none}
+.faq-q:hover{color:var(--white)}
+.faq-arrow{width:26px;height:26px;border-radius:50%;flex-shrink:0;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.2);display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:transform .3s,background .25s;color:var(--ember)}
+.faq-item.open .faq-arrow{transform:rotate(45deg);background:rgba(232,93,42,.2)}
+.faq-a{display:none;padding:0 22px 20px;font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.8}
+.faq-item.open .faq-a{display:block}
+.faq-a strong{color:rgba(255,255,255,.75)}
+
+/* ════════════════════════════
+   FIRE CLOSING
+════════════════════════════ */
+.fire-cta{padding:120px 0;background:linear-gradient(160deg,var(--ink) 0%,#100800 100%);text-align:center;position:relative;overflow:hidden}
+.fire-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(232,93,42,.1),transparent 65%)}
+.fire-cta-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 28px}
+.fire-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--white);line-height:.95;margin-bottom:24px;letter-spacing:-.03em}
+.fire-cta h2 em{display:block;font-style:italic;background:linear-gradient(135deg,var(--ember),var(--flame),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.fire-cta p{font-family:'EB Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:40px}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1px solid rgba(232,93,42,.1)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;display:block}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:14px 0;font-size:.82rem}
+.footer-links a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ember)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.2);padding-top:18px;border-top:1px solid rgba(255,255,255,.05);margin-top:14px}
+
+/* STICKY */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(8,12,16,.97);border-top:1px solid rgba(232,93,42,.2);backdrop-filter:blur(16px);padding:12px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky.show{transform:translateY(0)}
+.sticky-left{font-size:.88rem;color:rgba(255,255,255,.65)}
+.sticky-left strong{color:var(--white)}
+.sl-urgent{color:var(--ember);font-size:.77rem;display:block;margin-top:1px}
+
+/* SUCCESS MODAL */
+.success-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.9);align-items:center;justify-content:center;padding:20px}
+.success-overlay.active{display:flex;animation:fadeIn .3s ease}
+.success-box{background:linear-gradient(160deg,#0f1520,#0d1208);border:1px solid rgba(232,93,42,.3);border-radius:24px;padding:52px 44px;max-width:520px;width:100%;text-align:center;position:relative;animation:fadeUp .4s ease}
+.success-box::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,var(--lava),var(--ember),var(--gold))}
+.sb-icon{font-size:4rem;display:block;margin-bottom:18px;animation:float 2s ease-in-out infinite}
+.sb-title{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:900;color:var(--white);margin-bottom:12px}
+.sb-text{font-size:.96rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:24px}
+.sb-confirm{background:rgba(12,172,106,.08);border:1px solid rgba(12,172,106,.2);border-radius:12px;padding:16px;margin-bottom:22px}
+.sc-item{display:flex;align-items:center;gap:8px;font-size:.87rem;color:rgba(255,255,255,.6);margin-bottom:7px}
+.sc-item:last-child{margin-bottom:0}
+.sc-item::before{content:'✓';color:var(--green);font-weight:700}
+.sb-close{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:12px 28px;border-radius:10px;font-family:'Lato',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s}
+.sb-close:hover{background:rgba(255,255,255,.1);color:var(--white)}
+
+/* ════════════════════════════
+   STORY + COST SECTION
+════════════════════════════ */
+.story-cost-section{padding:120px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
+.story-cost-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(232,93,42,.04),transparent 65%);pointer-events:none}
+
+/* Story block */
+.story-block{margin-bottom:0}
+.story-eyebrow-wrap{margin-bottom:10px}
+.story-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.8vw,4rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:48px;letter-spacing:-.02em}
+.story-h2 em{font-style:italic;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.story-text-grid{display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:start}
+.story-intro{font-family:'EB Garamond',serif;font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:22px}
+.story-left p{font-size:.97rem;color:rgba(255,255,255,.52);line-height:1.9;margin-bottom:16px}
+.story-left p strong{color:rgba(255,255,255,.88)}
+.story-left p em{color:var(--gold);font-style:italic}
+
+.story-pill-row{display:flex;flex-direction:column;gap:8px;margin:20px 0 22px;padding:20px;background:rgba(255,255,255,.03);border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+.sp-pill{display:flex;align-items:center;gap:10px;font-size:.87rem;color:rgba(255,255,255,.5);font-weight:600}
+.sp-pill.bad span{font-size:.9rem}
+
+.story-quote{font-family:'EB Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.62);line-height:1.65;border-left:4px solid var(--ember);padding:14px 0 14px 22px;margin:22px 0}
+.story-quote p strong{color:var(--white);font-style:normal}
+
+/* Timeline visual */
+.story-timeline-visual{display:flex;flex-direction:column;gap:0;margin-bottom:24px}
+.stv-item{border-radius:14px;padding:20px 22px;border:1px solid}
+.stv-item.stv-bad{background:rgba(255,60,60,.06);border-color:rgba(255,60,60,.2)}
+.stv-item.stv-turn{background:rgba(232,93,42,.08);border-color:rgba(232,93,42,.25)}
+.stv-item.stv-good{background:rgba(12,172,106,.08);border-color:rgba(12,172,106,.25)}
+.stv-year{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:rgba(255,255,255,.3);margin-bottom:4px}
+.stv-item.stv-bad .stv-year{color:rgba(255,80,80,.5)}
+.stv-item.stv-turn .stv-year{color:var(--ember)}
+.stv-item.stv-good .stv-year{color:var(--green)}
+.stv-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--white);margin-bottom:6px}
+.stv-text{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.stv-connector{text-align:center;font-size:1.2rem;color:rgba(255,255,255,.15);padding:4px 0}
+
+.story-cta-box{background:rgba(232,93,42,.07);border:1px solid rgba(232,93,42,.2);border-radius:14px;padding:22px}
+.scb-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.scb-sub{font-size:.87rem;color:rgba(255,255,255,.45)}
+
+/* Cost comparison */
+.cost-block{}
+.cost-compare{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin-bottom:40px}
+.cc-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:0}
+.cc-header{background:rgba(255,255,255,.06);padding:12px 20px;font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.cc-header .cc-col-name,.cc-header .cc-col-what,.cc-header .cc-col-price{padding:0}
+.cc-other{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}
+.cc-ours{background:rgba(232,93,42,.07);border-top:2px solid rgba(232,93,42,.3)}
+.cc-col-name,.cc-col-what,.cc-col-price{padding:18px 20px;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.cc-col-price{justify-content:flex-end;text-align:right;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;flex-direction:column;align-items:flex-end;gap:2px}
+.cc-col-price span{font-family:'Lato',sans-serif;font-size:.72rem;color:rgba(255,255,255,.35);font-weight:600}
+.cc-price-bad{color:rgba(255,100,100,.7)}
+.cc-price-good{color:var(--green)}
+.cc-price-good strong{font-size:1.6rem;color:var(--green)}
+.cc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block}
+.cc-dot.red{background:rgba(255,80,80,.6)}
+.cc-dot.green{background:var(--green)}
+.cc-col-name{color:rgba(255,255,255,.65);font-family:'Lato',sans-serif;font-size:.88rem}
+.cc-col-what{color:rgba(255,255,255,.4);font-size:.85rem}
+.cc-ours .cc-col-name{color:var(--white);font-weight:700}
+.cc-ours .cc-col-what{color:rgba(255,255,255,.65)}
+
+/* Cost of nothing */
+.cost-nothing{background:rgba(255,255,255,.03);border:1px solid rgba(232,93,42,.15);border-radius:20px;overflow:hidden}
+.cn-head{display:flex;align-items:flex-start;gap:16px;padding:28px 28px 0;margin-bottom:24px}
+.cn-icon{font-size:2rem;flex-shrink:0;margin-top:2px}
+.cn-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.cn-title em{color:var(--ember);font-style:italic}
+.cn-sub{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.6}
+.cn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.cn-item{padding:24px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.cn-item:last-child{border-right:none}
+.cn-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.cn-label{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.5}
+.cn-label span{display:block;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:4px;line-height:1.4}
+.cn-conclusion{padding:24px 28px;background:rgba(232,93,42,.05)}
+.cn-conclusion p{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.75}
+.cn-conclusion p strong{color:var(--white)}
+
+/* Referenten text block */
+.ref-text-block{max-width:920px;margin:0 auto}
+.ref-text-inner{}
+.ref-lead{font-family:'EB Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:24px}
+.ref-lead strong{color:var(--white);font-style:normal}
+.ref-pull{font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.7;border-left:4px solid var(--ember);padding:14px 0 14px 24px;margin:24px 0}
+.ref-text-inner p{font-size:.97rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:16px}
+.ref-text-inner p strong{color:rgba(255,255,255,.85)}
+.ref-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.rf-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px}
+.rfi{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.rf-item div{display:flex;flex-direction:column;gap:3px}
+.rf-item strong{font-size:.9rem;color:var(--white)}
+.rf-item span{font-size:.8rem;color:rgba(255,255,255,.38)}
+.ref-quote-big{background:linear-gradient(135deg,rgba(232,93,42,.08),rgba(200,151,59,.05));border:1px solid rgba(232,93,42,.2);border-radius:16px;padding:28px 28px;display:flex;gap:16px;align-items:flex-start}
+.rqb-icon{font-size:2rem;flex-shrink:0;margin-top:2px}
+.ref-quote-big p{font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.65);line-height:1.75}
+.ref-quote-big p strong{color:var(--white);font-style:normal}
+
+/* Termine toggle button */
+.btn-termine-toggle{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.05);
+  border:2px solid rgba(232,93,42,.3);
+  color:var(--white);font-weight:700;font-size:1rem;
+  padding:16px 36px;border-radius:12px;
+  cursor:pointer;font-family:'Lato',sans-serif;
+  letter-spacing:.5px;transition:all .3s;
+}
+.btn-termine-toggle:hover{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.6);color:var(--gold2)}
+.btn-termine-toggle.open{background:rgba(232,93,42,.1);border-color:var(--ember)}
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;max-width:680px}
+  .hero-right{display:none}
+  .truth-inner{grid-template-columns:1fr;gap:56px}
+  .mario-inner{grid-template-columns:1fr;max-width:540px;margin:0 auto}
+  .mario-img-wrap{max-width:340px;margin:0 auto}
+  .ref-grid{grid-template-columns:1fr 1fr}
+  .diff-cards{grid-template-columns:1fr 1fr}
+  .testi-scroll{grid-template-columns:1fr 1fr}
+  .agenda-grid{grid-template-columns:1fr}
+  .vs-block{grid-template-columns:1fr;gap:12px}
+  .vs-separator{display:none}
+  .hotel-grid{grid-template-columns:1fr}
+  .termine-grid{grid-template-columns:1fr 1fr}
+  .inkl-grid{grid-template-columns:1fr 1fr}
+  .story-text-grid{grid-template-columns:1fr;gap:48px}
+  .cc-row{grid-template-columns:1.5fr 1fr}.cc-col-what{display:none}
+  .cn-grid{grid-template-columns:repeat(2,1fr)}
+  .ref-features{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav{height:60px}
+  .nav-links{display:none}
+  .mob-btn{display:block}
+  .hero{padding:88px 0 60px}
+  .hero h1{font-size:2.6rem}
+  .hero-ctas{flex-direction:column}
+  .btn-fire,.btn-ghost{width:100%;justify-content:center}
+  .ref-grid{grid-template-columns:1fr}
+  .diff-cards{grid-template-columns:1fr}
+  .testi-scroll{grid-template-columns:1fr}
+  .termine-grid{grid-template-columns:1fr}
+  .inkl-grid{grid-template-columns:1fr}
+  .reg-card{padding:34px 22px}
+  .form-row-2{grid-template-columns:1fr}
+  .success-box{padding:34px 22px}
+  .mario-inner{gap:44px}
+  .mario-creds{justify-content:center}
+  .mario-text{text-align:center}
+  .mario-pull{text-align:left}
+  .sticky{flex-direction:column;gap:8px;text-align:center}
+  .cn-grid{grid-template-columns:1fr 1fr}
+  .cc-row{grid-template-columns:1fr 1fr}.cc-col-what{display:none}
+  .story-pill-row{padding:14px}
+  .cost-nothing .cn-head{flex-direction:column;gap:10px}
+  .story-cost-section{padding:72px 0}
+  .btn-termine-toggle{width:100%;justify-content:center;font-size:.92rem;padding:14px 20px}
+}
 </style>
 </head>
 <body>
-<nav>
-<div class="container">
-<a href="index.html" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="business-seminar.html">Business Seminar</a></li>
-<li><a href="info-abend.html">Info-Abend</a></li>
-<li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
-</ul>
-</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Mario Friedl Logo">
+      Mario <span class="nl-gold">Friedl</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="karriere-check.html">Karriere-Check</a></li>
+      <li><a href="info-abend.html">Info-Abend 🍷</a></li>
+      <li><a href="#anmeldung" class="nav-fire">🔥 Platz sichern</a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn">☰</button>
+  </div>
 </nav>
 
-<section class="hero-section">
-<div class="hero-content">
-<div class="hero-badge">🎯 Exklusives 2-Tages Business Seminar</div>
-<h1>Entdecken Sie die Geheimnisse erfolgreicher Vermögensbildung</h1>
-<p>Zwei intensive Tage voller Wissen, Strategien und Networking – Ihre Investition in finanzielle Bildung</p>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#leistungen">Leistungen</a>
+  <a href="karriere-check.html">Karriere-Check</a>
+  <a href="info-abend.html">Info-Abend 🍷</a>
+  <a href="#anmeldung" class="mob-fire">🔥 Jetzt Platz sichern</a>
 </div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-embers" id="embers"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">Business Seminar · 2-Tage · Exklusiv · Österreich</div>
+      <h1>
+        Zwei Tage,<br>die alles<br>
+        <span class="fire-word">verändern.</span>
+      </h1>
+      <p class="hero-statement">
+        Keine Hochglanz-Theorie. Keine leeren Versprechen.
+        <strong>Echte Referenten mit 20 Jahren Erfahrung, echte Zahlen, echte Geschichten</strong> –
+        und ein Wochenende, das dein Denken dauerhaft verändert.
+      </p>
+      <div class="hero-event-bar">
+        <div class="event-pill hot"><span>🔥</span> Nächster Termin: 07.–08. März 2026</div>
+        <div class="event-pill"><span>📍</span> 2 Premium-Locations · AT</div>
+        <div class="event-pill"><span>👥</span> Max. 70 Teilnehmer</div>
+        <div class="event-pill"><span>🏨</span> Inkl. Übernachtung möglich</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#termine" class="btn-fire">🔥 Termin wählen &amp; anmelden →</a>
+        <a href="#was-dich-erwartet" class="btn-ghost">Was dich erwartet</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="countdown-card">
+        <span class="cc-label">⚡ Nächstes Seminar startet in</span>
+        <div class="countdown-grid">
+          <div class="cd-item"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Tage</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Std</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Min</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Sek</span></div>
+        </div>
+        <div class="seats-bar">
+          <div class="seats-labels">
+            <span class="sl-free">Noch <strong>~28 Plätze</strong> frei</span>
+            <span class="sl-taken">42/70 vergeben</span>
+          </div>
+          <div class="seats-track"><div class="seats-fill" id="seatsFill"></div></div>
+        </div>
+        <div class="cc-quote">
+          <p>"Ich bin rein ohne Erwartung. Rausgegangen mit einem Aktionsplan. Den Rest hat Mario's Team übernommen."</p>
+          <strong>— Thomas K., Teilnehmer</strong>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2 class="section-title">Warum dieses Seminar Ihr Leben verändern wird</h2>
-<p class="section-subtitle">Mehr als 13.000 Teilnehmer haben bereits ihr finanzielles Denken revolutioniert. Jetzt sind Sie dran!</p>
-
-<div class="benefits-grid">
-<div class="benefit-card">
-<div class="benefit-icon">💡</div>
-<h3>Verstehen statt Raten</h3>
-<p>Erfahren Sie den fundamentalen Unterschied zwischen Geld und Sachwerten – das Wissen, das Banken Ihnen nicht erzählen.</p>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="t-item"><span class="t-flame">🔥</span> Warum dein Sparbuch dich arm macht</div>
+    <div class="t-item"><span class="t-flame">⚡</span> Inflation: Die stille Enteignung</div>
+    <div class="t-item"><span class="t-flame">🔥</span> Investmentfonds – was wirklich stimmt</div>
+    <div class="t-item"><span class="t-flame">📈</span> Echte Vermögensbildung verstehen</div>
+    <div class="t-item"><span class="t-flame">🔥</span> Die Pensionslücke: Deine Zahlen, keine Statistiken</div>
+    <div class="t-item"><span class="t-flame">⚡</span> Max. 70 Teilnehmer · Premium-Hotels · Österreich</div>
+    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick Linz</div>
+    <div class="t-item"><span class="t-flame">🔥</span> Warum dein Sparbuch dich arm macht</div>
+    <div class="t-item"><span class="t-flame">⚡</span> Inflation: Die stille Enteignung</div>
+    <div class="t-item"><span class="t-flame">🔥</span> Investmentfonds – was wirklich stimmt</div>
+    <div class="t-item"><span class="t-flame">📈</span> Echte Vermögensbildung verstehen</div>
+    <div class="t-item"><span class="t-flame">🔥</span> Die Pensionslücke: Deine Zahlen, keine Statistiken</div>
+    <div class="t-item"><span class="t-flame">⚡</span> Max. 70 Teilnehmer · Premium-Hotels · Österreich</div>
+    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick Linz</div>
+  </div>
 </div>
 
-<div class="benefit-card">
-<div class="benefit-icon">📈</div>
-<h3>200 Jahre Erfolgsgeschichte</h3>
-<p>Entdecken Sie die faszinierende Entwicklung von Investmentfonds seit ihrer Entstehung und warum sie auch heute noch relevant sind.</p>
-</div>
-
-<div class="benefit-card">
-<div class="benefit-icon">🎯</div>
-<h3>ETF-Strategien entschlüsselt</h3>
-<p>Verstehen Sie, wie Exchange Traded Funds funktionieren und warum sie für Ihren Vermögensaufbau revolutionär sein können.</p>
-</div>
-
-<div class="benefit-card">
-<div class="benefit-icon">🏠</div>
-<h3>Steuervorteile nutzen</h3>
-<p>Erfahren Sie, wie Vorsorge-Immobilien Ihnen massive Steuervorteile verschaffen – völlig legal und hocheffektiv.</p>
-</div>
-
-<div class="benefit-card">
-<div class="benefit-icon">💰</div>
-<h3>Finanzierung mal anders</h3>
-<p>Tilgungsfrei finanzieren: Nur Zinsen zahlen, Differenz clever 
-anlegen. 7% Depot-Rendite über 30 Jahre = Haus bezahlt + 
-Altersvorsorge + Renovierungsrücklage. Intelligent finanzieren!
-</p>
-</div>
-
-<div class="benefit-card">
-<div class="benefit-icon">⚠️</div>
-<h3>Pensionslücke schließen</h3>
-<p>Schockierende Fakten über Ihre Pension und konkrete Lösungen, wie Sie die Lücke jetzt noch schließen können.</p>
-</div>
-
-<div class="benefit-card">
-<div class="benefit-icon">🚀</div>
-<h3>Karriere-Durchbruch</h3>
-<p>Die 13 Erfolgsfaktoren für Ihre Karriere im Finanzbereich – inkl. Selbstreflexion und persönlichem Entwicklungsplan.</p>
-</div>
-</div>
-
-<div class="highlight-box">
-<h3>💎 Das Finanzierungs-Geheimnis, das alles verändert</h3>
-<p style="font-size:1.2rem;margin-bottom:1rem;font-weight:600">Warum zahlen Sie Ihr Haus mühsam ab, wenn Sie gleichzeitig Vermögen aufbauen können?</p>
-<p style="font-size:1.1rem;margin:0">Im Seminar zeigen wir Ihnen live an Beispielen, wie Sie mit tilgungsfreien Konzepten nicht nur Ihr Eigenheim finanzieren, sondern parallel ein Vermögen von mehreren 100.000€ aufbauen – mathematisch bewiesen, praktisch umsetzbar!</p>
-</div>
-</div>
+<!-- TRUTH -->
+<section class="truth-section">
+  <div class="wrap">
+    <div class="truth-inner">
+      <div class="truth-left anim-left">
+        <span class="eyebrow">Die unbequeme Wahrheit</span>
+        <h2>Dein Geld verliert<br><em>jeden Monat an Wert.</em></h2>
+        <div class="truth-pull">"Während du arbeitest, schläft dein Geld – und verliert dabei real an Kaufkraft."</div>
+        <p>Österreich spart fleißig. Auf Sparbüchern, die 0,1 % Zinsen abwerfen – während die Inflation seit Jahren über 3 % liegt. <strong>Das bedeutet: Du sparst, und wirst trotzdem ärmer.</strong></p>
+        <p>Gleichzeitig weiß die Mehrheit nicht, wie echte Vermögensbildung funktioniert. Nicht weil sie zu dumm wären. Sondern weil <em>niemand es ihnen erklärt hat.</em></p>
+        <p><strong>An diesem Wochenende ändert sich das.</strong> Keine Theorie. Nur echte Zahlen, echte Beispiele, echte Strategien – von Referenten, die selbst Jahrzehnte Erfahrung mitbringen.</p>
+        <a href="#anmeldung" class="btn-fire" style="margin-top:28px;display:inline-flex">Ich will dabei sein →</a>
+      </div>
+      <div class="truth-stats anim-right">
+        <div class="stat-block">
+          <span class="stat-num">-3,8%</span>
+          <div class="stat-label"><strong>Realzins deines Sparbuchs</strong>0,1 % Zinsen minus ~3,9 % Inflation = realer Verlust jedes Jahr</div>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">€ 700+</span>
+          <div class="stat-label"><strong>Ø Pensionslücke in Österreich</strong>Was Österreicher monatlich zusätzlich bräuchten – und nicht haben</div>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">7–8%</span>
+          <div class="stat-label"><strong>Historische Rendite von Investmentfonds p.a.</strong>Wer verstanden hat wie, hat das genutzt. Der Rest nicht.</div>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">25 J.</span>
+          <div class="stat-label"><strong>€ 10.000 auf dem Sparbuch</strong>werden real zu ~€ 8.100 — dieselbe Summe in Investmentfonds: ~€ 43.000</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section locations-section">
-<div class="container">
-<h2 class="section-title">Wählen Sie Ihren Seminar-Standort</h2>
-<p class="section-subtitle">Zwei Premium-Locations – Eine unvergessliche Erfahrung</p>
+<!-- MARIOS GESCHICHTE + KOSTENVERGLEICH -->
+<section class="story-cost-section">
+  <div class="wrap">
 
-<div class="location-cards">
-<div class="location-card">
-<h3>🏔️ Hotel Alpenblick, Linz</h3>
-<div class="location-detail">
-<strong>📍 Adresse:</strong>
-<span>Rohrbach 8, 4202 Kirchschlag bei Linz</span>
-</div>
-<div class="location-detail">
-<strong>📅 Nächste Termine:</strong>
-<span>11.-12. April 2026</span>
-</div>
-<div class="location-detail">
-<strong>⏰ Beginn:</strong>
-<span>Samstag, 10:00 Uhr</span>
-</div>
+    <!-- Mario's Story -->
+    <div class="story-block anim">
+      <div class="story-eyebrow-wrap">
+        <span class="eyebrow">Marios Geschichte</span>
+      </div>
+      <h2 class="story-h2">
+        Mit 20 Jahren. <em>€ 30.000 Schulden.</em><br>
+        Und fleißig am Sparen.
+      </h2>
 
-<div class="pricing-box">
-<h4>Seminar-Pauschale:</h4>
-<div class="pricing-item">
-<span>Einzelzimmer</span>
-<strong>€ 176,40 pro Person</strong>
-</div>
-<div class="pricing-item">
-<span>Doppelzimmer</span>
-<strong>€ 139,40 pro Person</strong>
-</div>
-<div class="pricing-item">
-<span>Tagesgast (ohne Übernachtung)</span>
-<strong>€ 89,00 pro Person</strong>
-</div>
-<p style="font-size:0.85rem;margin-top:1rem;color:var(--gray)">inkl. Ortstaxe, Seminarpausen, Vital-Mahlzeiten, Getränke</p>
-</div>
-</div>
+      <div class="story-text-grid">
+        <div class="story-left">
+          <p class="story-intro">
+            2008 saß ich das erste Mal auf einem Business Seminar. Ich wusste nicht, was mich erwartet. Ich wusste nur: <strong>irgendetwas stimmt nicht.</strong>
+          </p>
 
-<div class="location-card">
-<h3>🌄 Genusshotel Riegersburg</h3>
-<div class="location-detail">
-<strong>📍 Adresse:</strong>
-<span>Starzenberg 144, 8333 Riegersburg</span>
-</div>
-<div class="location-detail">
-<strong>📅 Nächste Termine:</strong>
-<span>07.-08. März 2026</span>
-</div>
-<div class="location-detail">
-<strong>⏰ Beginn:</strong>
-<span>Samstag, 10:00 Uhr</span>
-</div>
+          <p>
+            Mit 20 hatte ich € 30.000 Schulden. Kein Erbe. Kein großes Einkommen. Aber ich habe getan, was alle sagten: fleißig sparen. Bausparvertrag. Lebensversicherung. Sparbuch. Fonds bei der Bank.
+          </p>
 
-<div class="pricing-box">
-<h4>Seminar-Pauschale:</h4>
-<div class="pricing-item">
-<span>Einzelzimmer</span>
-<strong>€ 202,00 pro Person</strong>
-</div>
-<div class="pricing-item">
-<span>Doppelzimmer</span>
-<strong>€ 187,00 pro Person</strong>
-</div>
-<div class="pricing-item">
-<span>Tagesgast (ohne Übernachtung)</span>
-<strong>€ 94,50 pro Person</strong>
-</div>
-<p style="font-size:0.85rem;margin-top:1rem;color:var(--gray)">inkl. Ortstaxe, Seminarpausen, Vital-Mahlzeiten, Getränke</p>
-</div>
-</div>
-</div>
-</div>
+          <p>
+            Das Problem? <strong>Meine Schulden wurden jedes Jahr größer. Mein Erspartes – das genaue Gegenteil.</strong> Ich habe gespart wie ein Profi. Und wurde trotzdem ärmer. Jeden Monat ein bisschen mehr.
+          </p>
+
+          <div class="story-pill-row">
+            <div class="sp-pill bad"><span>📉</span> Schulden wuchsen trotz Sparen</div>
+            <div class="sp-pill bad"><span>💸</span> Bausparvertrag: kaum Rendite</div>
+            <div class="sp-pill bad"><span>😶</span> Lebensversicherung: Gebühren fraßen alles</div>
+            <div class="sp-pill bad"><span>🏦</span> Bankfonds: Kosten vs. Ertrag – Bankgewinn</div>
+          </div>
+
+          <p>
+            Dann saß ich auf diesem Seminar. Und jemand legte die Zahlen auf den Tisch. <em>Meine</em> Zahlen. Und ich habe zum ersten Mal verstanden, warum.
+          </p>
+
+          <div class="story-quote">
+            <p>"Es war nicht Pech. Es war kein fehlendes Glück. Es war fehlendes <strong>Wissen.</strong> Das hat mir niemand beigebracht – weder Schule, noch Eltern, noch Bank."</p>
+          </div>
+
+          <p>
+            <strong>Ich habe nach diesem Seminar alles geändert.</strong> Schritt für Schritt. Nicht über Nacht – aber mit einem Plan, den ich vorher nicht hatte.
+          </p>
+          <p>
+            Heute, 18 Jahre später: schuldenfrei. <strong>Ein Vermögen aufgebaut.</strong> Nicht durch Glück. Durch dieses Wissen – das ich an diesem Wochenende an dich weitergebe.
+          </p>
+        </div>
+
+        <div class="story-right">
+          <div class="story-timeline-visual">
+            <div class="stv-item stv-bad">
+              <div class="stv-year">2008</div>
+              <div class="stv-content">
+                <div class="stv-title">Der Tiefpunkt</div>
+                <div class="stv-text">€ 30.000 Schulden · Bausparvertrag · Lebensversicherung · Sparbuch · Bankfonds – fleißig gespart, trotzdem ärmer</div>
+              </div>
+            </div>
+            <div class="stv-connector">⬇</div>
+            <div class="stv-item stv-turn">
+              <div class="stv-year">2008</div>
+              <div class="stv-content">
+                <div class="stv-title">Das Seminar</div>
+                <div class="stv-text">Erstes Business Seminar. Die Zahlen lagen auf dem Tisch. Das Wissen öffnete die Augen. Der erste Schritt.</div>
+              </div>
+            </div>
+            <div class="stv-connector">⬇</div>
+            <div class="stv-item stv-good">
+              <div class="stv-year">2026</div>
+              <div class="stv-content">
+                <div class="stv-title">Heute – 18 Jahre später</div>
+                <div class="stv-text">Schuldenfrei ✓ · Vermögen aufgebaut ✓ · Hunderte Menschen begleitet ✓ · FMA-konzessioniert ✓</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-cta-box">
+            <p class="scb-text">Ich hätte dieses Wissen gerne mit 20 gehabt.</p>
+            <p class="scb-sub">Jetzt gebe ich es an dich weiter – in zwei Tagen.</p>
+            <a href="#anmeldung" class="btn-fire" style="width:100%;justify-content:center;margin-top:14px">🔥 Meinen Platz sichern →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kostenvergleich -->
+    <div class="cost-block anim" style="margin-top:80px">
+      <div class="sh" style="margin-bottom:48px">
+        <span class="eyebrow">Was Finanzseminare wirklich kosten</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em">
+          Was andere verlangen –<br><em>und was du hier bezahlst.</em>
+        </h2>
+        <p style="font-size:1.05rem;color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;line-height:1.8">
+          Wir haben recherchiert, was vergleichbare Finanzseminare in Österreich und Deutschland kosten. Das Ergebnis ist eindeutig.
+        </p>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="cost-compare">
+        <div class="cc-row cc-header">
+          <div class="cc-col-name">Seminartyp</div>
+          <div class="cc-col-what">Was du bekommst</div>
+          <div class="cc-col-price">Preis</div>
+        </div>
+        <div class="cc-row cc-other">
+          <div class="cc-col-name"><span class="cc-dot red"></span>Online-Finanzseminar (2,5h)</div>
+          <div class="cc-col-what">Video-Call, kein Austausch, kein Hotel</div>
+          <div class="cc-col-price cc-price-bad">€ 490 – 590 p.P.</div>
+        </div>
+        <div class="cc-row cc-other">
+          <div class="cc-col-name"><span class="cc-dot red"></span>2-Tages-Finanzseminar (ohne Hotel)</div>
+          <div class="cc-col-what">Seminarraum, Kaffee, keine Übernachtung</div>
+          <div class="cc-col-price cc-price-bad">€ 600 – 1.000 p.P.</div>
+        </div>
+        <div class="cc-row cc-other">
+          <div class="cc-col-name"><span class="cc-dot red"></span>Investorenausbildung (mehrstufig)</div>
+          <div class="cc-col-what">Online-Kurse, Plattformzugang</div>
+          <div class="cc-col-price cc-price-bad">€ 1.200 – 3.600 p.P.</div>
+        </div>
+        <div class="cc-row cc-ours">
+          <div class="cc-col-name"><span class="cc-dot green"></span><strong>Dieses Business Seminar</strong></div>
+          <div class="cc-col-what"><strong>2 Tage · Premium-Hotel · 3×Gänge-Menü · Übernachtung · Networking · Einzelgespräch</strong></div>
+          <div class="cc-col-price cc-price-good">
+            ab <strong>€ 139,40</strong><br>
+            <span>p.P. im DZ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- The real cost of doing nothing -->
+      <div class="cost-nothing">
+        <div class="cn-head">
+          <span class="cn-icon">⚠️</span>
+          <div>
+            <div class="cn-title">Was dich das <em>Nichtstun</em> kostet – in echten Zahlen</div>
+            <div class="cn-sub">Wer dieses Wissen nicht hat, verliert still und leise – jeden Monat, jedes Jahr.</div>
+          </div>
+        </div>
+
+        <div class="cn-grid">
+          <div class="cn-item">
+            <div class="cn-num">€ 380</div>
+            <div class="cn-label">Verlust pro Jahr<br><span>bei € 10.000 am Sparbuch<br>(Inflation vs. Zinsen)</span></div>
+          </div>
+          <div class="cn-item">
+            <div class="cn-num">€ 9.500</div>
+            <div class="cn-label">Verlust in 25 Jahren<br><span>bei passivem Sparbuch<br>statt aktivem Investment</span></div>
+          </div>
+          <div class="cn-item">
+            <div class="cn-num">€ 34.900</div>
+            <div class="cn-label">Entgangene Rendite<br><span>bei monatlich € 200 Sparrate<br>über 20 Jahre (Ø 7 % p.a.)</span></div>
+          </div>
+          <div class="cn-item">
+            <div class="cn-num">€ 700+</div>
+            <div class="cn-label">Fehlende Pension<br><span>monatlich – wenn nicht<br>privat vorgesorgt wird</span></div>
+          </div>
+        </div>
+
+        <div class="cn-conclusion">
+          <p>
+            <strong>Das bedeutet konkret:</strong> Ein durchschnittlicher Österreicher, der dieses Wissen nicht hat, verliert über seine Sparjahre <strong>leicht € 50.000 – € 80.000</strong> an entgangenen Erträgen und realen Kaufkraftverlusten.
+          </p>
+          <p style="margin-top:12px">
+            Das Seminar kostet ab <strong>€ 139,40</strong>. Die Unwissenheit kostet dich <strong>ein Vermögen.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2 class="section-title">Was Sie erwartet</h2>
-<div class="benefits-grid">
-<div class="benefit-card">
-<h3>🥐 Vitale Seminarpausen</h3>
-<p>Vormittag: Pikante Häppchen für einen schwungvollen Start<br>Nachmittag: Süße Leckereien für eine genussvolle Pause<br>Obstkörbe, Müsliriegel sowie Kaffee, Wasser & Fruchtsäfte</p>
-</div>
-<div class="benefit-card">
-<h3>🍽️ Genussvolle Mahlzeiten</h3>
-<p>Reichhaltiges Frühstück mit lokalen Spezialitäten<br>3-Gänge Vital-Mittagsmenü<br>3-Gänge Abendmenü für den perfekten Tagesausklang</p>
-</div>
-<div class="benefit-card">
-<h3>🛏️ Komfortable Übernachtung</h3>
-<p>Moderne, gemütliche Zimmer mit allem Komfort<br>Ruhige Lage für erholsamen Schlaf<br>Perfekt für Networking am Abend</p>
-</div>
-</div>
-</div>
+<!-- REFERENTEN – motivierter Text, keine Cards -->
+<section class="ref-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Deine Referenten</span>
+      <h2>6 Menschen.<br><em>Echte Geschichten. Echte Zahlen.</em></h2>
+    </div>
+
+    <div class="ref-text-block anim">
+      <div class="ref-text-inner">
+        <p class="ref-lead">
+          Kein Theoretiker. Kein Professor mit Lehrbuch. <strong>6 Referenten, die selbst durch das Feuer gegangen sind</strong> – mit Schulden, mit Zweifeln, mit falschen Entscheidungen. Und die auf der anderen Seite rausgekommen sind.
+        </p>
+
+        <div class="ref-pull">
+          "Die Menschen, die dir an diesem Wochenende gegenüber sitzen, haben zusammen über 20 Jahre Finanzpraxis – und jeder von ihnen hat eine Geschichte, die dir unter die Haut geht."
+        </div>
+
+        <p>
+          Du wirst hören, wie jemand mit einem Schuldenberg angefangen hat, der sich unmöglich anfühlte – und heute schuldenfrei ist, mit einem Vermögen im Rücken. Du wirst hören, wie jemand jahrelang fleißig gespart hat: Bausparvertrag, Lebensversicherung, Sparbuch, Bankfonds – und am Ende festgestellt hat, dass er <strong>trotz Fleiß ärmer geworden war</strong>. Du wirst hören, wie eine einzige Information alles verändert hat.
+        </p>
+        <p>
+          Diese Referenten erzählen nicht aus Büchern. <strong>Sie erzählen aus ihrem Leben.</strong> Mit echten Zahlen. Konkreten Beispielen. Und der Offenheit, die du in keiner Bank und keinem Bankgespräch je bekommst.
+        </p>
+
+        <div class="ref-features">
+          <div class="rf-item"><span class="rfi">🔥</span><div><strong>Persönliche Lebensgeschichten</strong><span>Echte Rückschläge, echte Wendepunkte, echte Lösungen</span></div></div>
+          <div class="rf-item"><span class="rfi">📊</span><div><strong>Echte Zahlen & Fakten</strong><span>Kein Marketing – nur das, was tatsächlich funktioniert hat</span></div></div>
+          <div class="rf-item"><span class="rfi">🎯</span><div><strong>Praxisnahe Beispiele</strong><span>Direkt auf deine Lebenssituation anwendbar</span></div></div>
+          <div class="rf-item"><span class="rfi">🤝</span><div><strong>Persönliche Gespräche danach</strong><span>Unter vier Augen – vertraulich, ohne Druck</span></div></div>
+        </div>
+
+        <div class="ref-quote-big">
+          <span class="rqb-icon">💬</span>
+          <p>Du gehst nach diesem Wochenende nicht nach Hause mit einem Zertifikat. Du gehst nach Hause mit <strong>Klarheit. Mit einem Plan. Und mit dem Gefühl, endlich zu verstehen, wie das alles wirklich funktioniert.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section form-section">
-<div class="container">
-<h2 class="section-title">Jetzt anmelden & Platz sichern!</h2>
-<p class="section-subtitle">⚠️ Begrenzte Teilnehmerzahl – Melden Sie sich jetzt an, bevor alle Plätze vergeben sind!</p>
-
-<form action="https://formspree.io/f/xjgwnrgy" method="POST" class="registration-form">
-<h3 style="margin-bottom:2rem;text-align:center;color:var(--gold)">Ihre Anmeldung</h3>
-
-<div class="form-row">
-<div class="form-group">
-<label for="vorname">Vorname *</label>
-<input type="text" id="vorname" name="vorname" required>
-</div>
-<div class="form-group">
-<label for="nachname">Nachname *</label>
-<input type="text" id="nachname" name="nachname" required>
-</div>
-</div>
-
-<div class="form-row">
-<div class="form-group">
-<label for="email">E-Mail *</label>
-<input type="email" id="email" name="email" required>
-</div>
-<div class="form-group">
-<label for="telefon">Telefon *</label>
-<input type="tel" id="telefon" name="telefon" required>
-</div>
-</div>
-
-<div class="form-group">
-<label for="standort">Gewünschter Standort *</label>
-<select id="standort" name="standort" required>
-<option value="">Bitte wählen...</option>
-<option value="linz-april">Hotel Alpenblick, Linz – 11.-12. April 2026</option>
-<option value="riegersburg-feb">Genusshotel Riegersburg – 07.-08. Februar 2026</option>
-<option value="riegersburg-maerz">Genusshotel Riegersburg – 07.-08. März 2026</option>
-<option value="riegersburg-mai">Genusshotel Riegersburg – 09.-10. Mai 2026</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="buchungsart">Buchungsart *</label>
-<select id="buchungsart" name="buchungsart" required>
-<option value="">Bitte wählen...</option>
-<option value="einzelzimmer">Einzelzimmer mit Übernachtung</option>
-<option value="doppelzimmer">Doppelzimmer mit Übernachtung</option>
-<option value="tagesgast">Tagesgast (ohne Übernachtung)</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="begleitpersonen">Anzahl Begleitpersonen</label>
-<input type="number" id="begleitpersonen" name="begleitpersonen" min="0" max="5" value="0">
-</div>
-
-<div class="form-group" id="begleitpersonen-details" style="display:none">
-<label for="begleitpersonen-namen">Namen der Begleitpersonen</label>
-<textarea id="begleitpersonen-namen" name="begleitpersonen_namen" rows="3" placeholder="Bitte Namen der Begleitpersonen angeben (jeweils in einer neuen Zeile)"></textarea>
-</div>
-
-<div class="form-group">
-<label for="anmerkungen">Besondere Wünsche / Anmerkungen</label>
-<textarea id="anmerkungen" name="anmerkungen" rows="3" placeholder="z.B. vegetarisches Essen, Allergien, etc."></textarea>
-</div>
-
-<div class="form-group">
-<label style="display:flex;align-items:center;gap:0.5rem">
-<input type="checkbox" required style="width:auto">
-<span>Ich akzeptiere die <a href="datenschutz.html" style="color:var(--gold)">Datenschutzerklärung</a> *</span>
-</label>
-</div>
-
-<button type="submit" class="btn-submit">🎯 Verbindlich anmelden</button>
-
-<p style="text-align:center;margin-top:1.5rem;color:var(--gray);font-size:0.9rem">
-Nach Ihrer Anmeldung erhalten Sie eine Bestätigung per E-Mail mit allen Details und Zahlungsinformationen.
-</p>
-</form>
-</div>
+<!-- AGENDA -->
+<section class="agenda-section" id="was-dich-erwartet">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Das Programm</span>
+      <h2>Was in diesen zwei Tagen<br><em>passiert.</em></h2>
+      <p>Komprimiertes Wissen aus über 20 Jahren Praxis – ohne Fachbegriffe, ohne Langeweile, ohne Blatt vor den Mund.</p>
+    </div>
+    <div class="agenda-grid">
+      <div class="agenda-item anim">
+        <span class="ai-num">01</span>
+        <div class="ai-icon">🧨</div>
+        <div class="ai-title">Die Inflation-Entlarve</div>
+        <p class="ai-text">Was Inflation wirklich mit deinem Geld macht – anhand deiner eigenen Zahlen. Du wirst erschrecken. Und dann handeln wollen.</p>
+        <span class="ai-highlight">Live-Berechnung deiner Kaufkraft</span>
+      </div>
+      <div class="agenda-item anim d1">
+        <span class="ai-num">02</span>
+        <div class="ai-icon">📊</div>
+        <div class="ai-title">Sparbuch vs. Investmentfonds</div>
+        <p class="ai-text">Ein Direktvergleich über 10, 20, 30 Jahre – mit echten Zahlen, nicht Marketing-Grafiken. Wie viel kostet dich Nichtstun wirklich?</p>
+        <span class="ai-highlight">Der echte Preis der Untätigkeit</span>
+      </div>
+      <div class="agenda-item anim d2">
+        <span class="ai-num">03</span>
+        <div class="ai-icon">🏗️</div>
+        <div class="ai-title">Vermögensaufbau – Step by Step</div>
+        <p class="ai-text">Wie ein einfacher Sparplan mit Investmentfonds aussieht, was er kostet, was er bringt – und wie du ihn ohne Vorkenntnisse selbst verstehst.</p>
+        <span class="ai-highlight">Konkret, nicht abstrakt</span>
+      </div>
+      <div class="agenda-item anim d3">
+        <span class="ai-num">04</span>
+        <div class="ai-icon">🏡</div>
+        <div class="ai-title">Eigentum – Traum oder Falle?</div>
+        <p class="ai-text">Kaufen oder mieten? Tilgungskredit oder tilgungsfreie Finanzierung mit parallelem Sparplan? Du bekommst eine ehrliche, mathematische Antwort.</p>
+        <span class="ai-highlight">Ohne Bankinteressen erklärt</span>
+      </div>
+      <div class="agenda-item anim d4">
+        <span class="ai-num">05</span>
+        <div class="ai-icon">🛡️</div>
+        <div class="ai-title">Die Pensionslücke – Deine Zahlen</div>
+        <p class="ai-text">Wir berechnen gemeinsam, was dir wirklich fehlen wird. Nicht als Angstmacherei – damit du weißt, welchen Spielraum du hast.</p>
+        <span class="ai-highlight">Persönliche Pensionsanalyse live</span>
+      </div>
+      <div class="agenda-item anim d5">
+        <span class="ai-num">06</span>
+        <div class="ai-icon">🤝</div>
+        <div class="ai-title">Persönlicher Austausch mit den Referenten</div>
+        <p class="ai-text">Am Ende des Seminars stehen die Referenten persönlich für dich zur Verfügung – im Einzelgespräch, ganz ohne Druck und ohne Publikum. Deine Fragen, deine Situation, deine Antworten.</p>
+        <span class="ai-highlight">Vertraulich · Persönlich · Unter vier Augen</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- WHY DIFFERENT -->
+<section class="diff-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Kein gewöhnliches Seminar</span>
+      <h2>Was dieses Wochenende<br><em>anders macht.</em></h2>
+    </div>
+    <div class="vs-block anim">
+      <div class="vs-col bad">
+        <span class="vs-head">😴 Andere Seminare</span>
+        <div class="vs-item"><span class="vi">❌</span> Generisches Wissen aus dem Lehrbuch</div>
+        <div class="vs-item"><span class="vi">❌</span> Produkte werden subtil beworben</div>
+        <div class="vs-item"><span class="vi">❌</span> 200 Personen im Konferenzsaal</div>
+        <div class="vs-item"><span class="vi">❌</span> Keine echten Zahlen, nur Grafiken</div>
+        <div class="vs-item"><span class="vi">❌</span> Öffentliche Fragerunde – unangenehm</div>
+        <div class="vs-item"><span class="vi">❌</span> Kein persönlicher Bezug zu dir</div>
+      </div>
+      <div class="vs-separator"><div class="vs-badge">VS</div></div>
+      <div class="vs-col good">
+        <span class="vs-head">🔥 Dieses Business Seminar</span>
+        <div class="vs-item good-item"><span class="vi">✅</span> 20+ Jahre Praxis-Erfahrung der Referenten</div>
+        <div class="vs-item good-item"><span class="vi">✅</span> Keine Produkte – nur Wissen & Klarheit</div>
+        <div class="vs-item good-item"><span class="vi">✅</span> Max. 70 Pers. · Premium-Hotel · Networking</div>
+        <div class="vs-item good-item"><span class="vi">✅</span> Deine echten Zahlen, live berechnet</div>
+        <div class="vs-item good-item"><span class="vi">✅</span> Persönliches Gespräch – vertraulich, privat</div>
+        <div class="vs-item good-item"><span class="vi">✅</span> 2 Tage inkl. 3×-Gang-Menüs & Übernachtung</div>
+      </div>
+    </div>
+    <div class="diff-cards">
+      <div class="diff-card anim">
+        <span class="dc-icon">🎯</span>
+        <div class="dc-title">Radikal ehrlich</div>
+        <p class="dc-text">Kein Provisionsmodell, das den Rat beeinflusst. Du bekommst, was die Referenten wirklich denken – nicht was sie verkaufen wollen.</p>
+      </div>
+      <div class="diff-card anim d1">
+        <span class="dc-icon">🔬</span>
+        <div class="dc-title">Konkret &amp; berechenbar</div>
+        <p class="dc-text">Alles was gezeigt wird, ist durchgerechnet. Du verlässt das Wochenende nicht mit Fragen, sondern mit Zahlen und einem nächsten Schritt.</p>
+      </div>
+      <div class="diff-card anim d2">
+        <span class="dc-icon">🏨</span>
+        <div class="dc-title">Premium-Erlebnis</div>
+        <p class="dc-text">Zwei Tage in erstklassigen Hotels. Vitale Mahlzeiten, Networking am Abend, komfortable Übernachtung – Lernen in bester Atmosphäre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARIO -->
+<section class="mario-section">
+  <div class="wrap">
+    <div class="mario-inner">
+      <div class="mario-img-wrap anim-left">
+        <div class="mario-img-bg"></div>
+        <img src="mario-profilbild.jpg" alt="Mario Friedl" class="mario-img">
+        <div class="mario-badge"><span>🏆 FMA-konzessioniert · WIFI Meisterprüfung</span></div>
+      </div>
+      <div class="mario-text anim-right">
+        <span class="eyebrow eyebrow-gold">Dein Gastgeber</span>
+        <h2>Mario Friedl.<br><em>Kein Banker.</em><br>Einer von euch.</h2>
+        <div class="mario-pull">"Ich habe 13 Jahre in der Logistik gearbeitet. Sicherer Job. Sicheres Gehalt. Und jeden Tag das Gefühl: Das kann nicht alles sein."</div>
+        <p>Die Leidenschaft für Märkte, Wirtschaft und Finanzen trug ich jahrelang in mir – ohne Weg dorthin. Heute, nach der Meisterprüfung und FMA-Konzession, erkläre ich in diesem Seminar das, was mir damals niemand erklärt hat.</p>
+        <p><strong>An diesem Wochenende sprechen erfahrene Vortragende mit – Menschen, die zusammen auf über 20 Jahre Praxiserfahrung zurückblicken.</strong></p>
+        <div class="mario-creds">
+          <div class="mc-pill fire">🔥 5+ Jahre Finanzberatung</div>
+          <div class="mc-pill gold">🏆 WIFI Meisterprüfung</div>
+          <div class="mc-pill">📋 FMA-konzessioniert</div>
+          <div class="mc-pill">🏢 EQUALITY EH GmbH</div>
+          <div class="mc-pill">👥 200+ Klienten begleitet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTEL & PREISE -->
+<section class="hotel-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Locations &amp; Preise</span>
+      <h2>Zwei Premium-Hotels.<br><em>Ein unvergessliches Wochenende.</em></h2>
+      <p>Wähle deine Location – beide bieten erstklassige Seminarbedingungen, vitale Mahlzeiten und komfortable Übernachtung.</p>
+    </div>
+
+    <div class="hotel-grid">
+      <!-- Riegersburg -->
+      <div class="hotel-card h-riegersburg anim">
+        <div class="hotel-head">
+          <div class="h-badge">🌄 Steiermark</div>
+          <h3>Genusshotel Riegersburg</h3>
+          <div class="h-address">📍 Starzenberg 144, 8333 Riegersburg</div>
+          <div class="h-time">⏰ Samstag, 10:00 Uhr · 2 Tage</div>
+        </div>
+        <div class="hotel-divider"></div>
+        <div class="price-table">
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">🛏️</span> Einzelzimmer (pro Person)</div>
+            <div>
+              <div class="pt-price">€ 202,–</div>
+              <span class="pt-sub">inkl. aller Leistungen</span>
+            </div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">👫</span> Doppelzimmer (pro Person)</div>
+            <div>
+              <div class="pt-price">€ 187,–</div>
+              <span class="pt-sub">pro Person im DZ</span>
+            </div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">🌅</span> Tagesgast (ohne Übernachtung)</div>
+            <div>
+              <div class="pt-price">€ 94,50</div>
+              <span class="pt-sub">inkl. Verpflegung</span>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-includes">
+          <span class="hi-title">Inklusive</span>
+          <div class="hi-items">
+            <div class="hi-item"><span class="hii">✓</span> Ortstaxe, Seminarpausen, Vital-Mahlzeiten</div>
+            <div class="hi-item"><span class="hii">✓</span> Reichhaltiges Frühstück mit lokalen Spezialitäten</div>
+            <div class="hi-item"><span class="hii">✓</span> 3-Gänge Vital-Mittagsmenü</div>
+            <div class="hi-item"><span class="hii">✓</span> 3-Gänge Abendmenü zum perfekten Tagesausklang</div>
+            <div class="hi-item"><span class="hii">✓</span> Kaffee, Wasser, Fruchtsäfte, Obstkörbe, Müsliriegel</div>
+          </div>
+        </div>
+        <div class="hotel-footer">
+          <a href="#anmeldung" class="btn-fire" style="width:100%;justify-content:center;font-size:.95rem;padding:14px">🔥 Riegersburg buchen →</a>
+        </div>
+      </div>
+
+      <!-- Linz -->
+      <div class="hotel-card h-linz anim d1">
+        <div class="hotel-head">
+          <div class="h-badge">🏔️ Oberösterreich</div>
+          <h3>Hotel Alpenblick, Linz</h3>
+          <div class="h-address">📍 Rohrbach 8, 4202 Kirchschlag bei Linz</div>
+          <div class="h-time">⏰ Samstag, 10:00 Uhr · 2 Tage</div>
+        </div>
+        <div class="hotel-divider"></div>
+        <div class="price-table">
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">🛏️</span> Einzelzimmer (pro Person)</div>
+            <div>
+              <div class="pt-price">€ 176,40</div>
+              <span class="pt-sub">inkl. aller Leistungen</span>
+            </div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">👫</span> Doppelzimmer (pro Person)</div>
+            <div>
+              <div class="pt-price">€ 139,40</div>
+              <span class="pt-sub">pro Person im DZ</span>
+            </div>
+          </div>
+          <div class="pt-row">
+            <div class="pt-label"><span class="pt-icon">🌅</span> Tagesgast (ohne Übernachtung)</div>
+            <div>
+              <div class="pt-price">€ 89,–</div>
+              <span class="pt-sub">inkl. Verpflegung</span>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-includes">
+          <span class="hi-title">Inklusive</span>
+          <div class="hi-items">
+            <div class="hi-item"><span class="hii">✓</span> Ortstaxe, Seminarpausen, Vital-Mahlzeiten, Getränke</div>
+            <div class="hi-item"><span class="hii">✓</span> Reichhaltiges Frühstück mit lokalen Spezialitäten</div>
+            <div class="hi-item"><span class="hii">✓</span> 3-Gänge Vital-Mittagsmenü</div>
+            <div class="hi-item"><span class="hii">✓</span> 3-Gänge Abendmenü zum perfekten Tagesausklang</div>
+            <div class="hi-item"><span class="hii">✓</span> Kaffee, Wasser, Fruchtsäfte, Obstkörbe, Müsliriegel</div>
+          </div>
+        </div>
+        <div class="hotel-footer">
+          <a href="#anmeldung" class="btn-fire" style="width:100%;justify-content:center;font-size:.95rem;padding:14px">🔥 Alpenblick buchen →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inklusive details -->
+    <div class="inkl-section">
+      <div class="inkl-grid">
+        <div class="inkl-card anim">
+          <span class="inkl-icon">🥐</span>
+          <div class="inkl-title">Vitale Seminarpausen</div>
+          <ul class="inkl-items">
+            <li>Pikante Häppchen für einen schwungvollen Start</li>
+            <li>Süße Leckereien für eine genussvolle Pause</li>
+            <li>Obstkörbe &amp; Müsliriegel</li>
+            <li>Kaffee, Wasser &amp; Fruchtsäfte ganztägig</li>
+          </ul>
+        </div>
+        <div class="inkl-card anim d1">
+          <span class="inkl-icon">🍽️</span>
+          <div class="inkl-title">Genussvolle Mahlzeiten</div>
+          <ul class="inkl-items">
+            <li>Reichhaltiges Frühstück mit lokalen Spezialitäten</li>
+            <li>3-Gänge Vital-Mittagsmenü</li>
+            <li>3-Gänge Abendmenü zum perfekten Tagesausklang</li>
+          </ul>
+        </div>
+        <div class="inkl-card anim d2">
+          <span class="inkl-icon">🛏️</span>
+          <div class="inkl-title">Komfortable Übernachtung</div>
+          <ul class="inkl-items">
+            <li>Moderne, gemütliche Zimmer mit allem Komfort</li>
+            <li>Ruhige Lage für erholsamen Schlaf</li>
+            <li>Perfekt für Networking am Abend</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMINE mit Accordion -->
+<section class="termine-section" id="termine">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Alle Termine 2026</span>
+      <h2>Wähle deinen<br><em>Wunschtermin.</em></h2>
+      <p>9 Termine über das Jahr verteilt – wähle und trage dich direkt im Anmeldeformular ein.</p>
+    </div>
+
+    <!-- Toggle button -->
+    <div style="text-align:center;margin-bottom:32px">
+      <button class="btn-termine-toggle" id="termineToggle" onclick="toggleTermine()">
+        <span id="termineToggleIcon">📅</span>
+        <span id="termineToggleText">Alle Termine anzeigen</span>
+        <span id="termineArrow" style="font-size:.9rem;transition:transform .3s;display:inline-block">▼</span>
+      </button>
+      <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:10px">Nächster Termin: <strong style="color:var(--ember)">07.–08. März 2026 · Genusshotel Riegersburg</strong></p>
+    </div>
+
+    <!-- Hidden termine grid -->
+    <div id="termineGrid" style="display:none;margin-bottom:0">
+      <div class="termine-grid">
+        <div class="termin-card" onclick="selectTermin(this,'07.–08. März 2026','Genusshotel Riegersburg')">
+          <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
+          <div class="tc-date">07.–08. März 2026</div>
+          <div class="tc-location">Genusshotel Riegersburg</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'11.–12. April 2026','Hotel Alpenblick Linz')">
+          <div class="tc-hotel linz">🏔️ Linz</div>
+          <div class="tc-date">11.–12. April 2026</div>
+          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'09.–10. Mai 2026','Genusshotel Riegersburg')">
+          <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
+          <div class="tc-date">09.–10. Mai 2026</div>
+          <div class="tc-location">Genusshotel Riegersburg</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'06.–07. Juni 2026','Hotel Alpenblick Linz')">
+          <div class="tc-hotel linz">🏔️ Linz</div>
+          <div class="tc-date">06.–07. Juni 2026</div>
+          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'04.–05. Juli 2026','Genusshotel Riegersburg')">
+          <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
+          <div class="tc-date">04.–05. Juli 2026</div>
+          <div class="tc-location">Genusshotel Riegersburg</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'29.–30. August 2026','Hotel Alpenblick Linz')">
+          <div class="tc-hotel linz">🏔️ Linz</div>
+          <div class="tc-date">29.–30. August 2026</div>
+          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'03.–04. Oktober 2026','Genusshotel Riegersburg')">
+          <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
+          <div class="tc-date">03.–04. Oktober 2026</div>
+          <div class="tc-location">Genusshotel Riegersburg</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'31. Oktober – 01. November 2026','Genusshotel Riegersburg')">
+          <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
+          <div class="tc-date">31. Oktober – 01. November 2026</div>
+          <div class="tc-location">Genusshotel Riegersburg</div>
+        </div>
+        <div class="termin-card" onclick="selectTermin(this,'05.–06. Dezember 2026','Hotel Alpenblick Linz')">
+          <div class="tc-hotel linz">🏔️ Linz</div>
+          <div class="tc-date">05.–06. Dezember 2026</div>
+          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="terminHint" style="text-align:center;margin-top:24px;font-size:.9rem;color:rgba(255,255,255,.35);display:none">
+      ✅ Termin gewählt – scrolle runter zur Anmeldung
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Was Teilnehmer sagen</span>
+      <h2>Nach diesem Wochenende<br><em>denkst du anders.</em></h2>
+    </div>
+    <div class="testi-scroll" style="margin-top:52px">
+      <div class="testi-card anim">
+        <div class="tc-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="tc-text">Ich bin reingekommen ohne Erwartung. Rausgegangen mit einem Aktionsplan, den ich sofort umgesetzt habe. Die Referenten erklären mit echten Zahlen – nicht mit Werbeprospekten.</p>
+        <div class="tc-author">Thomas K.</div><div class="tc-role">Ingenieur, Graz</div>
+      </div>
+      <div class="testi-card anim d1">
+        <div class="tc-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="tc-text">Das persönliche Einzelgespräch am Ende war Gold wert. Keine öffentliche Fragerunde, sondern ein echtes 1:1 – genau das hat mir gefehlt um endlich den Schritt zu machen.</p>
+        <div class="tc-author">Sandra M.</div><div class="tc-role">Lehrerin, Graz-Umgebung</div>
+      </div>
+      <div class="testi-card anim d2">
+        <div class="tc-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="tc-text">Das Hotel, das Essen, die Atmosphäre – und dann dieser Wissensschock. Ich dachte ich weiß was Investmentfonds sind. Falsch gedacht. Jetzt weiß ich es wirklich.</p>
+        <div class="tc-author">Michael R.</div><div class="tc-role">Unternehmer, Steiermark</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANMELDUNG -->
+<section class="reg-section" id="anmeldung">
+  <div class="reg-inner">
+    <div class="sh anim">
+      <span class="eyebrow">Jetzt anmelden</span>
+      <h2 style="color:var(--white)">Deinen Platz sichern.<br><em style="background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">Bevor es zu spät ist.</em></h2>
+      <p>Wähle Termin, Location und Zimmeroption. Wir bestätigen deine Buchung persönlich.</p>
+    </div>
+    <div class="reg-card anim d1">
+      <h2>🔥 Business Seminar<br>Anmeldung</h2>
+      <p class="reg-sub">Füll das Formular aus – wir melden uns persönlich mit Zahlungsdetails und finaler Bestätigung. <strong style="color:rgba(255,255,255,.7)">Max. 70 Plätze</strong>, first come, first served.</p>
+
+      <form id="seminarForm" action="https://formspree.io/f/mqeqwynk" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="_subject" value="Neue Anmeldung: Business Seminar 2026">
+        <input type="hidden" name="formular" value="Business Seminar Anmeldung">
+        <input type="hidden" name="gewaehlter_termin" id="hiddenTermin" value="">
+
+        <div class="form-row-2">
+          <div class="form-field">
+            <label>Vorname *</label>
+            <input type="text" name="vorname" placeholder="Dein Vorname" required>
+          </div>
+          <div class="form-field">
+            <label>Nachname *</label>
+            <input type="text" name="nachname" placeholder="Dein Nachname" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>E-Mail *</label>
+          <input type="email" name="email" placeholder="deine@email.at" required>
+        </div>
+        <div class="form-field">
+          <label>Telefon</label>
+          <input type="tel" name="telefon" placeholder="+43 ...">
+        </div>
+
+        <div class="form-field">
+          <label>Gewünschter Termin *</label>
+          <select name="termin" id="terminSelect" required>
+            <option value="">Bitte Termin wählen...</option>
+            <option value="07.-08. März 2026 · Genusshotel Riegersburg">07.–08. März 2026 · Genusshotel Riegersburg</option>
+            <option value="11.-12. April 2026 · Hotel Alpenblick Linz">11.–12. April 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="09.-10. Mai 2026 · Genusshotel Riegersburg">09.–10. Mai 2026 · Genusshotel Riegersburg</option>
+            <option value="06.-07. Juni 2026 · Hotel Alpenblick Linz">06.–07. Juni 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="04.-05. Juli 2026 · Genusshotel Riegersburg">04.–05. Juli 2026 · Genusshotel Riegersburg</option>
+            <option value="29.-30. August 2026 · Hotel Alpenblick Linz">29.–30. August 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="03.-04. Oktober 2026 · Genusshotel Riegersburg">03.–04. Oktober 2026 · Genusshotel Riegersburg</option>
+            <option value="31. Oktober - 01. November 2026 · Genusshotel Riegersburg">31. Oktober – 01. November 2026 · Genusshotel Riegersburg</option>
+            <option value="05.-06. Dezember 2026 · Hotel Alpenblick Linz">05.–06. Dezember 2026 · Hotel Alpenblick, Kirchschlag</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Zimmeroption *</label>
+          <select name="zimmeroption" required>
+            <option value="">Bitte wählen...</option>
+            <option value="Einzelzimmer">Einzelzimmer (EZ)</option>
+            <option value="Doppelzimmer">Doppelzimmer (DZ, pro Person)</option>
+            <option value="Tagesgast (ohne Übernachtung)">Tagesgast – ohne Übernachtung</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Anzahl Personen *</label>
+          <select name="personen" required>
+            <option value="1">1 Person</option>
+            <option value="2">2 Personen</option>
+            <option value="3">3 Personen</option>
+            <option value="4+">4 oder mehr</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Nachricht / Besondere Wünsche</label>
+          <textarea name="nachricht" placeholder="Allergien, spezielle Anforderungen, Fragen..." rows="3"></textarea>
+        </div>
+
+        <div class="privacy-check">
+          <input type="checkbox" id="privacy" name="datenschutz" required>
+          <label for="privacy">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und bin einverstanden, kontaktiert zu werden. Die Seminarpauschale ist nach Bestätigung zahlbar. *</label>
+        </div>
+
+        <button type="submit" class="btn-submit-fire">🔥 Verbindlich anmelden – Platz sichern</button>
+      </form>
+
+      <div class="trust-row">
+        <div class="trust-item"><div class="ti-dot"></div>Verbindliche Anmeldung</div>
+        <div class="trust-item"><div class="ti-dot"></div>Bestätigung in 48h</div>
+        <div class="trust-item"><div class="ti-dot"></div>FMA-konzessioniert</div>
+        <div class="trust-item"><div class="ti-dot"></div>Zahlung nach Bestätigung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>Deine Fragen.<br><em>Meine Antworten.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Was kostet das Seminar genau?<span class="faq-arrow">+</span></div>
+        <div class="faq-a">Die Kosten umfassen die gesamte Seminar-Pauschale inkl. Übernachtung, Mahlzeiten und Getränke. <strong>Genusshotel Riegersburg:</strong> EZ € 202,– / DZ € 187,– / Tagesgast € 94,50 p.P. <strong>Hotel Alpenblick Linz:</strong> EZ € 176,40 / DZ € 139,40 / Tagesgast € 89,– p.P. – jeweils inkl. Ortstaxe, Seminarpausen, Vital-Mahlzeiten und Getränke.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wann muss ich zahlen?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><strong>Erst nach der Bestätigung.</strong> Du meldest dich verbindlich an, wir bestätigen deinen Platz persönlich per E-Mail – danach erhältst du alle Zahlungsdetails. Kein Vorauszahlungsstress.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wird mir etwas verkauft?<span class="faq-arrow">+</span></div>
+        <div class="faq-a">Nein. <strong>Das Seminar ist keine Produktpräsentation.</strong> Du bekommst Wissen, Klarheit und die Möglichkeit auf persönliche Gespräche mit den Referenten. Was du danach machst, ist vollständig dir überlassen.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie läuft die Fragerunde ab – muss ich vor allen sprechen?<span class="faq-arrow">+</span></div>
+        <div class="faq-a">Absolut nicht. <strong>Es gibt keine öffentliche Fragerunde.</strong> Stattdessen stehen die Referenten nach dem Seminar persönlich für vertrauliche Einzelgespräche zur Verfügung. Du sprichst unter vier Augen – kein Publikum, kein Druck, nur du und der Referent deiner Wahl.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Für wen ist das Seminar geeignet?<span class="faq-arrow">+</span></div>
+        <div class="faq-a">Für alle, die wirklich verstehen wollen wie Geld funktioniert – <strong>egal ob Berufseinsteiger, Familienmenschen oder erfahrene Berufstätige ab 30</strong>. Keine Vorbildung nötig. Alles wird verständlich erklärt.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Kann ich mit einem Partner / einer Freundin kommen?<span class="faq-arrow">+</span></div>
+        <div class="faq-a">Ja, natürlich. <strong>Doppelzimmer sind günstiger</strong> und das Seminar eignet sich hervorragend als gemeinsames Erlebnis. Einfach bei der Anmeldung "Doppelzimmer" und "2 Personen" auswählen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="fire-cta">
+  <div class="fire-cta-inner">
+    <div class="anim">
+      <span class="eyebrow">Der Moment ist jetzt</span>
+      <h2>Jeder Monat ohne<br><em>dieses Wissen kostet dich.</em></h2>
+      <p>Zwei Tage, die dein Denken über Geld für immer verändern. In Premium-Atmosphäre, mit Referenten, die es selbst gelebt haben.</p>
+      <a href="#termine" class="btn-fire" style="font-size:1.05rem;padding:18px 44px">🔥 Termin wählen &amp; Platz sichern →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-<div class="container">
-<p>&copy; 2026 Mario Friedl – EQUALITY EH GmbH</p>
-<p style="margin-top:1rem"><a href="index.html" style="color:var(--gold)">Zurück zur Startseite</a></p>
-</div>
+  <span class="footer-logo">Mario Friedl</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="karriere-check.html">Karriere-Check</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
+    <span style="font-size:.72rem;opacity:.6;margin-top:4px;display:block">Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Ergebnisse.</span>
+  </div>
 </footer>
 
+<!-- STICKY -->
+<div class="sticky" id="stickyBar">
+  <div class="sticky-left">
+    <strong>🔥 Business Seminar 2026</strong> – Max. 70 Plätze · 9 Termine
+    <span class="sl-urgent">⚡ Nächster Termin: 07.–08. März · Riegersburg</span>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center">
+    <span style="background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:700;color:var(--flame)">FMA-konzessioniert</span>
+    <a href="#termine" class="btn-fire" style="font-size:.88rem;padding:10px 24px">Termin wählen →</a>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <span class="sb-icon">🔥</span>
+    <div class="sb-title">Anmeldung erhalten!</div>
+    <p class="sb-text">Deine Anmeldung ist eingegangen. Wir melden uns <strong>innerhalb von 48 Stunden</strong> persönlich mit Bestätigung, Zahlungsdetails und allen weiteren Infos.</p>
+    <div class="sb-confirm">
+      <div class="sc-item">Anmeldung erfolgreich übermittelt</div>
+      <div class="sc-item">Persönliche Bestätigung in 48 Stunden</div>
+      <div class="sc-item">Zahlung erst nach Bestätigung fällig</div>
+    </div>
+    <button class="sb-close" onclick="closeSuccess()">Schließen</button>
+  </div>
+</div>
+
 <script>
-document.getElementById('begleitpersonen').addEventListener('change', function() {
-    const details = document.getElementById('begleitpersonen-details');
-    if (this.value > 0) {
-        details.style.display = 'block';
-    } else {
-        details.style.display = 'none';
-    }
+/* Nav */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
+  document.getElementById('stickyBar').classList.toggle('show',scrollY>600);
 });
+
+/* Mobile menu */
+document.getElementById('mobBtn').addEventListener('click',()=>{
+  const m=document.getElementById('mobMenu');
+  m.classList.toggle('open');
+  document.getElementById('mobBtn').textContent=m.classList.contains('open')?'✕':'☰';
+});
+document.querySelectorAll('.mob-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('mobBtn').textContent='☰';
+}));
+
+/* Scroll animations */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('in');
+}),{threshold:.1});
+document.querySelectorAll('.anim,.anim-left,.anim-right').forEach(el=>obs.observe(el));
+
+/* Ember particles */
+function spawnEmber(){
+  const c=document.getElementById('embers');
+  if(!c)return;
+  const e=document.createElement('div');
+  e.className='ember';
+  const colors=['#e85d2a','#f5841f','#c8973b','#f0c060'];
+  const dur=4+Math.random()*6;
+  e.style.cssText=`left:${Math.random()*100}%;width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;background:${colors[Math.floor(Math.random()*colors.length)]};--drift:${(Math.random()-.5)*120}px;`;
+  c.appendChild(e);
+  setTimeout(()=>e.remove(),(dur+3)*1000);
+}
+setInterval(spawnEmber,350);
+for(let i=0;i<6;i++)setTimeout(spawnEmber,i*200);
+
+/* Countdown to 07. März 2026 */
+(function(){
+  const target=new Date('2026-03-07T10:00:00');
+  function update(){
+    const diff=target-Date.now();
+    if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>{document.getElementById(id).textContent='00'});return}
+    document.getElementById('cd-d').textContent=String(Math.floor(diff/864e5)).padStart(2,'0');
+    document.getElementById('cd-h').textContent=String(Math.floor((diff%864e5)/36e5)).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(Math.floor((diff%36e5)/6e4)).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(Math.floor((diff%6e4)/1000)).padStart(2,'0');
+  }
+  update();setInterval(update,1000);
+})();
+
+/* Seats fill */
+setTimeout(()=>{const sf=document.getElementById('seatsFill');if(sf)sf.style.width='62%'},800);
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+/* Toggle termine */
+function toggleTermine(){
+  const grid=document.getElementById('termineGrid');
+  const btn=document.getElementById('termineToggle');
+  const arrow=document.getElementById('termineArrow');
+  const txt=document.getElementById('termineToggleText');
+  const isOpen=grid.style.display!=='none';
+  if(isOpen){
+    grid.style.display='none';
+    txt.textContent='Alle Termine anzeigen';
+    arrow.style.transform='rotate(0deg)';
+    btn.classList.remove('open');
+  } else {
+    grid.style.display='block';
+    txt.textContent='Termine ausblenden';
+    arrow.style.transform='rotate(180deg)';
+    btn.classList.add('open');
+    setTimeout(()=>grid.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  }
+}
+
+/* Termin selection */
+function selectTermin(card,datum,hotel){
+  document.querySelectorAll('.termin-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  const sel=document.getElementById('terminSelect');
+  const hint=document.getElementById('terminHint');
+  if(sel){
+    for(let i=0;i<sel.options.length;i++){
+      if(sel.options[i].text.includes(datum.split('·')[0].trim().split('–')[0].trim())){
+        sel.selectedIndex=i;break;
+      }
+    }
+  }
+  const hidden=document.getElementById('hiddenTermin');
+  if(hidden)hidden.value=datum+' · '+hotel;
+  if(hint){hint.style.display='block'}
+  setTimeout(()=>{
+    const regSec=document.getElementById('anmeldung');
+    if(regSec)regSec.scrollIntoView({behavior:'smooth',block:'start'});
+  },400);
+}
+
+/* Form submit */
+async function handleSubmit(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('.btn-submit-fire');
+  btn.textContent='Wird gesendet...';
+  btn.disabled=true;
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      form.reset();
+      document.getElementById('successOverlay').classList.add('active');
+      document.body.style.overflow='hidden';
+    } else {
+      btn.textContent='Fehler – bitte erneut versuchen';
+      btn.disabled=false;
+    }
+  }catch{
+    btn.textContent='🔥 Verbindlich anmelden – Platz sichern';
+    btn.disabled=false;
+  }
+}
+
+function closeSuccess(){
+  document.getElementById('successOverlay').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.getElementById('successOverlay').addEventListener('click',function(e){
+  if(e.target===this)closeSuccess();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSuccess()});
 </script>
 </body>
 </html>
