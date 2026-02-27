@@ -2,1237 +2,937 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Historischer Inflationsrechner Österreich 1970-2026 | Mario Friedl</title>
-<meta name="description" content="Berechnen Sie die Inflation in Österreich seit 1970. Mit Schilling/Euro-Umrechnung, Warenkorb-Vergleich und historischen Daten.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Historischer Inflationsrechner – Was dein Geld wirklich wert ist | Mario Friedl</title>
+<meta name="description" content="Gib einen Betrag ein und sieh, was Inflation über 10, 20 oder 30 Jahre wirklich mit deinem Geld macht. Interaktiver Rechner mit echten österreichischen Inflationsdaten.">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
 
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --navy: #0A1128;
-    --gold: #C5A572;
-    --gold-dark: #A68B5B;
-    --cream: #FAF9F6;
-    --white: #FFF;
-    --red: #e74c3c;
-    --green: #27ae60;
-    --gray: #4A5568;
-    --gray-light: #E2E8F0;
+:root{
+  --ink:#080c10;--deep:#0b1118;--navy:#0f1923;
+  --gold:#c8973b;--gold2:#f0c060;--gold3:#ffe09a;
+  --ember:#e85d2a;--flame:#f5841f;--lava:#c1380a;
+  --white:#fff;--muted:#6a7a8d;--border:#1a2530;
+  --green:#0cac6a;--red:#e83a2a;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Lato',sans-serif;background:var(--ink);color:var(--white);line-height:1.7;overflow-x:hidden;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--ember),var(--gold))}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.eyebrow{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
+.eyebrow-gold{color:var(--gold)}
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--cream);
-    color: var(--navy);
-    line-height: 1.6;
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes firePulse{0%,100%{box-shadow:0 0 30px rgba(232,93,42,.3),0 0 60px rgba(232,93,42,.1)}50%{box-shadow:0 0 50px rgba(232,93,42,.5),0 0 100px rgba(232,93,42,.2)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes riseEmber{0%{opacity:0;transform:translateY(0) translateX(0) scale(1)}10%{opacity:.8}80%{opacity:.3}100%{opacity:0;transform:translateY(-100vh) translateX(var(--drift)) scale(0)}}
+@keyframes counterUp{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 8px rgba(232,93,42,.4))}50%{filter:drop-shadow(0 0 24px rgba(232,93,42,.8))}}
+@keyframes pulse-border{0%,100%{border-color:rgba(232,93,42,.3)}50%{border-color:rgba(232,93,42,.8)}}
+@keyframes moneyDrain{0%{height:100%;opacity:1}100%{height:0%;opacity:.3}}
+@keyframes slideRight{from{width:0}to{width:var(--target-w)}}
+@keyframes numberCount{from{opacity:0}to{opacity:1}}
+
+.anim{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim.in{opacity:1;transform:translateY(0)}
+.anim-left{opacity:0;transform:translateX(-32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim-left.in{opacity:1;transform:translateX(0)}
+.anim-right{opacity:0;transform:translateX(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim-right.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;background:rgba(8,12,16,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(232,93,42,.15);transition:all .3s}
+nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5);border-bottom-color:rgba(200,151,59,.15)}
+.nav-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
+.nav-logo img{height:34px;border-radius:6px}
+.nav-logo .nl-gold{color:var(--gold)}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center}
+.nav-links a{padding:7px 13px;border-radius:8px;font-size:.83rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-fire{background:linear-gradient(135deg,var(--ember),var(--flame))!important;color:var(--white)!important;font-weight:700!important;animation:firePulse 2s ease-in-out infinite}
+.mob-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--white)}
+.mob-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,12,16,.98);padding:88px 28px 40px;flex-direction:column;gap:10px}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 18px;border-radius:12px;font-size:1rem;font-weight:600;color:var(--white);text-decoration:none;border:1px solid var(--border)}
+.mob-menu .mob-fire{background:linear-gradient(135deg,var(--ember),var(--flame));border-color:var(--ember);text-align:center;margin-top:8px}
+
+/* BUTTONS */
+.btn-fire{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);font-weight:900;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;letter-spacing:.5px;box-shadow:0 12px 40px rgba(232,93,42,.4);transition:all .3s;position:relative;overflow:hidden}
+.btn-fire::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-fire:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(232,93,42,.55)}
+.btn-fire:hover::before{transform:translateX(200%)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid rgba(200,151,59,.35);color:rgba(255,255,255,.75);font-weight:700;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;transition:all .25s;font-family:'Lato',sans-serif}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* ═══ TICKER ═══ */
+.ticker{background:rgba(232,93,42,.06);border-top:1px solid rgba(232,93,42,.15);border-bottom:1px solid rgba(232,93,42,.15);overflow:hidden;padding:11px 0}
+.ticker-inner{display:flex;width:max-content;animation:ticker 36s linear infinite}
+.t-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 36px;font-size:.72rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* ═══════════════════════════════
+   HERO
+═══════════════════════════════ */
+.hero{min-height:55vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 50% 100%,rgba(193,56,10,.16) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 50%,rgba(232,93,42,.08),transparent 55%),linear-gradient(180deg,#080c10 0%,#0e1208 100%)}
+.hero-embers{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.ember{position:absolute;bottom:-10px;border-radius:50%;background:var(--ember);opacity:0;animation:riseEmber linear infinite}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:820px;margin:0 auto;padding:0 28px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.3);border-radius:4px;padding:6px 18px;font-size:.7rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:28px;animation:fadeIn .6s ease both}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,5.2rem);font-weight:900;line-height:.96;color:var(--white);margin-bottom:20px;animation:fadeUp .8s .1s ease both;letter-spacing:-.03em}
+.hero h1 .fire-line{display:block;background:linear-gradient(135deg,var(--ember) 0%,var(--flame) 40%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.hero-sub{font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:36px;animation:fadeUp .8s .2s ease both;max-width:640px;margin-left:auto;margin-right:auto}
+.hero-sub strong{color:var(--gold2);font-style:normal}
+.hero-pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .3s ease both;margin-bottom:36px}
+.h-pill{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:9px 16px;font-size:.82rem;font-weight:700;color:rgba(255,255,255,.7)}
+.h-pill.hot{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.25);color:var(--flame)}
+
+/* ═══════════════════════════════
+   INTRO FACTS – emotional hooks
+═══════════════════════════════ */
+.intro-section{padding:80px 0 0;background:linear-gradient(180deg,#0e1208 0%,var(--ink) 100%);position:relative}
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(232,93,42,.12);border-radius:20px;overflow:hidden}
+.intro-card{padding:36px 28px;position:relative;overflow:hidden;transition:background .3s}
+.intro-card:hover{background:rgba(232,93,42,.05)}
+.intro-card+.intro-card{border-left:1px solid rgba(232,93,42,.1)}
+.intro-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ember),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.intro-card:hover::after{transform:scaleX(1)}
+.ic-emoji{font-size:2rem;margin-bottom:14px;display:block;animation:float 3s ease-in-out infinite}
+.ic-num{font-family:'Bebas Neue',sans-serif;font-size:3.4rem;line-height:1;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px;display:block}
+.ic-label{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6}
+.ic-label strong{color:rgba(255,255,255,.85);display:block;font-size:.93rem;margin-bottom:3px}
+.ic-aha{display:inline-block;margin-top:10px;background:rgba(232,93,42,.12);border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:4px 12px;font-size:.7rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ember)}
+
+/* ═══════════════════════════════
+   RECHNER – THE MAIN EVENT
+═══════════════════════════════ */
+.calc-section{padding:80px 0;position:relative}
+.calc-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(232,93,42,.06),transparent 65%);pointer-events:none}
+.calc-outer{position:relative;z-index:1}
+.calc-card{background:rgba(255,255,255,.04);border:1px solid rgba(232,93,42,.2);border-radius:24px;overflow:hidden;position:relative;animation:pulse-border 4s ease-in-out infinite}
+.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--flame),var(--gold2),var(--gold))}
+.calc-top{padding:40px 44px 0}
+.calc-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.1}
+.calc-title em{font-style:italic;color:var(--gold2)}
+.calc-intro{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:32px}
+.calc-intro strong{color:rgba(255,255,255,.8)}
+
+/* Inputs */
+.calc-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px}
+.ci-group{display:flex;flex-direction:column;gap:8px}
+.ci-label{font-size:.67rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.ci-input-wrap{position:relative}
+.ci-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1.1rem;font-weight:700;color:var(--gold);pointer-events:none}
+.ci-input{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:.9rem 1rem .9rem 2.4rem;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--white);transition:all .25s;letter-spacing:1px}
+.ci-input.no-prefix{padding-left:1rem}
+.ci-input:focus{outline:none;border-color:var(--ember);background:rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(232,93,42,.12)}
+select.ci-input{cursor:pointer;appearance:none;font-family:'Lato',sans-serif;font-size:1rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(232,93,42,0.8)' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:10px;background-color:rgba(255,255,255,.07);padding-right:2.5rem}
+select.ci-input option{background:#1a2535}
+.calc-btn-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn-calc{width:100%;padding:18px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);border:none;border-radius:12px;font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:.5px;cursor:pointer;transition:all .3s;box-shadow:0 12px 40px rgba(232,93,42,.35);position:relative;overflow:hidden}
+.btn-calc::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-calc:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(232,93,42,.5)}
+.btn-calc:hover::before{transform:translateX(200%)}
+
+/* RESULTS */
+.calc-results{display:none;padding:36px 44px 44px;border-top:1px solid rgba(255,255,255,.06);margin-top:28px}
+.calc-results.show{display:block;animation:fadeUp .5s ease both}
+
+/* Big result numbers */
+.result-headline{text-align:center;margin-bottom:36px}
+.rh-label{font-size:.72rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:12px;display:block}
+.rh-aha{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-style:italic;color:rgba(255,255,255,.7);line-height:1.4;max-width:640px;margin:0 auto 28px}
+.rh-aha strong{color:var(--white);font-style:normal}
+.rh-aha em{color:var(--ember);font-style:italic}
+
+/* Result grid – main numbers */
+.result-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.rn-block{border-radius:16px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;border:1px solid}
+.rn-block.loss{background:rgba(232,58,42,.07);border-color:rgba(232,58,42,.2)}
+.rn-block.remains{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.rn-block.invest{background:rgba(12,172,106,.07);border-color:rgba(12,172,106,.2)}
+.rn-title{font-size:.67rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;display:block}
+.rn-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;display:block;margin-bottom:6px;animation:counterUp .6s ease both}
+.rn-block.loss .rn-num{color:var(--red)}
+.rn-block.remains .rn-num{color:rgba(255,255,255,.7)}
+.rn-block.invest .rn-num{color:var(--green)}
+.rn-sub{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.5}
+.rn-sub strong{color:rgba(255,255,255,.65)}
+
+/* Visual bar comparison */
+.bar-compare{margin-bottom:32px}
+.bc-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:block}
+.bc-row{margin-bottom:14px}
+.bc-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.bc-label{font-size:.87rem;font-weight:700;color:rgba(255,255,255,.65)}
+.bc-value{font-family:'Bebas Neue',sans-serif;font-size:1.2rem}
+.bc-track{height:14px;background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden}
+.bc-fill{height:100%;border-radius:8px;transition:width 1.2s cubic-bezier(.16,1,.3,1);width:0}
+.bc-fill.original{background:rgba(255,255,255,.25)}
+.bc-fill.kaufkraft{background:linear-gradient(90deg,var(--red),rgba(232,58,42,.5))}
+.bc-fill.invest{background:linear-gradient(90deg,var(--green),#1de598)}
+
+/* Year-by-year table */
+.year-table{margin-bottom:28px}
+.yt-head{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:0;background:rgba(255,255,255,.05);border-radius:10px 10px 0 0;padding:10px 16px;font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.yt-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:0;padding:10px 16px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s}
+.yt-row:hover{background:rgba(232,93,42,.05)}
+.yt-row:last-child{border-bottom:none;border-radius:0 0 10px 10px}
+.yt-year{font-weight:700;color:rgba(255,255,255,.6);font-family:'Bebas Neue',sans-serif;font-size:1.1rem}
+.yt-orig{color:rgba(255,255,255,.4)}
+.yt-real{font-weight:700}
+.yt-invest{font-weight:700;color:var(--green)}
+.yt-loss{color:var(--red);font-weight:700}
+
+/* AHA-moment callout */
+.aha-callout{background:linear-gradient(135deg,rgba(232,93,42,.1),rgba(193,56,10,.05));border:1px solid rgba(232,93,42,.3);border-radius:16px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.aha-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--gold))}
+.aha-callout .aha-icon{font-size:2rem;margin-bottom:10px;display:block;animation:glow 2s ease-in-out infinite}
+.aha-callout h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.2}
+.aha-callout p{font-size:.93rem;color:rgba(255,255,255,.6);line-height:1.75}
+.aha-callout p strong{color:var(--white)}
+.aha-callout p em{color:var(--gold);font-style:italic}
+
+/* CTA in results */
+.result-cta{background:rgba(255,255,255,.03);border-radius:16px;padding:28px;text-align:center;border:1px solid rgba(255,255,255,.07)}
+.rc-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.rc-sub{font-size:.88rem;color:rgba(255,255,255,.4);margin-bottom:20px;line-height:1.6}
+.rc-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════
+   HISTORIC FACTS SECTION
+═══════════════════════════════ */
+.facts-section{padding:80px 0;background:#090d12;position:relative;overflow:hidden}
+.facts-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,93,42,.3),transparent)}
+.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.fact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
+.fact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s}
+.fact-card:hover{background:rgba(232,93,42,.05);border-color:rgba(232,93,42,.18);transform:translateY(-4px)}
+.fact-card:hover::before{opacity:1}
+.fc-eyebrow{font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:12px;display:block}
+.fc-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
+.fc-body{font-size:.92rem;color:rgba(255,255,255,.48);line-height:1.8}
+.fc-body strong{color:rgba(255,255,255,.85)}
+.fc-body em{color:var(--gold);font-style:italic}
+.fc-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin:12px 0 8px}
+.fc-aha-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.2);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ember);margin-top:14px}
+
+/* Real items table */
+.items-table{margin-top:36px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
+.it-header{display:grid;grid-template-columns:1fr repeat(4,1fr);gap:0;background:rgba(255,255,255,.05);padding:12px 20px;font-size:.65rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.it-row{display:grid;grid-template-columns:1fr repeat(4,1fr);gap:0;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:.88rem;transition:background .2s}
+.it-row:last-child{border-bottom:none}
+.it-row:hover{background:rgba(232,93,42,.04)}
+.it-name{display:flex;align-items:center;gap:8px;font-weight:700;color:rgba(255,255,255,.75)}
+.it-icon{font-size:1.1rem}
+.it-year{color:rgba(255,255,255,.4);text-align:right}
+.it-year.highlight{font-weight:700;color:var(--ember);text-align:right}
+
+/* ═══════════════════════════════
+   EMOTIONAL SECTION – "Was passiert wenn nichts"
+═══════════════════════════════ */
+.nothing-section{padding:80px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
+.nothing-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.nothing-left h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:22px;letter-spacing:-.02em}
+.nothing-left h2 em{font-style:italic;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nothing-pull{font-family:'EB Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.58);border-left:4px solid var(--ember);padding:12px 0 12px 22px;margin:22px 0}
+.nothing-left p{font-size:.95rem;color:rgba(255,255,255,.48);line-height:1.9;margin-bottom:14px}
+.nothing-left p strong{color:rgba(255,255,255,.85)}
+
+/* Visual drain */
+.money-drain{display:flex;flex-direction:column;gap:20px}
+.md-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;position:relative;overflow:hidden}
+.md-item:hover{border-color:rgba(232,93,42,.2)}
+.md-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.md-name{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.7)}
+.md-loss{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red)}
+.md-track{height:10px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
+.md-fill{height:100%;border-radius:6px;transition:width 1.4s cubic-bezier(.16,1,.3,1);width:0}
+.md-fill.f1{background:linear-gradient(90deg,var(--red),rgba(232,58,42,.5))}
+.md-fill.f2{background:linear-gradient(90deg,rgba(232,93,42,.8),rgba(245,132,31,.5))}
+.md-fill.f3{background:linear-gradient(90deg,rgba(200,151,59,.7),rgba(240,192,96,.4))}
+.md-fill.f4{background:linear-gradient(90deg,rgba(42,163,200,.6),rgba(42,163,200,.3))}
+.md-subtext{font-size:.76rem;color:rgba(255,255,255,.3);margin-top:7px;line-height:1.5}
+
+/* ═══════════════════════════════
+   SOLUTION TEASER
+═══════════════════════════════ */
+.solution-section{padding:80px 0;background:linear-gradient(160deg,var(--ink) 0%,#0d0e00 100%);position:relative;overflow:hidden;text-align:center}
+.solution-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(200,151,59,.07),transparent 65%)}
+.sol-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.sol-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;color:var(--white);line-height:.96;margin-bottom:24px;letter-spacing:-.03em}
+.sol-h2 em{display:block;font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sol-sub{font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* Comparison mini – solution preview */
+.sol-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;text-align:left}
+.sc-card{border-radius:14px;padding:24px 22px;border:1px solid}
+.sc-card.bad{background:rgba(255,60,60,.05);border-color:rgba(255,60,60,.15)}
+.sc-card.good{background:rgba(200,151,59,.06);border-color:rgba(200,151,59,.2)}
+.sc-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:block}
+.sc-card.bad .sc-title{color:rgba(255,80,80,.6)}
+.sc-card.good .sc-title{color:var(--gold)}
+.sc-item{display:flex;align-items:center;gap:9px;font-size:.87rem;margin-bottom:9px;color:rgba(255,255,255,.55)}
+.sc-item:last-child{margin-bottom:0}
+
+/* ═══ FOOTER ═══ */
+footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1px solid rgba(232,93,42,.1)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;display:block}
+.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:14px 0;font-size:.82rem}
+.footer-links a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ember)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.2);padding-top:18px;border-top:1px solid rgba(255,255,255,.05);margin-top:14px}
+
+/* STICKY */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(8,12,16,.97);border-top:1px solid rgba(232,93,42,.2);backdrop-filter:blur(16px);padding:12px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.sticky-bar.show{transform:translateY(0)}
+.sb-left{font-size:.88rem;color:rgba(255,255,255,.6)}
+.sb-left strong{color:var(--white)}
+.sb-urgent{color:var(--ember);font-size:.75rem;display:block;margin-top:1px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .calc-inputs{grid-template-columns:1fr 1fr}
+  .result-nums{grid-template-columns:1fr 1fr}
+  .facts-grid{grid-template-columns:1fr}
+  .nothing-inner{grid-template-columns:1fr;gap:48px}
+  .sol-cards{grid-template-columns:1fr}
 }
-
-h1, h2, h3 { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
-
-/* Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255,255,255,.98);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--gray-light);
-    box-shadow: 0 1px 3px rgba(0,0,0,.08);
-}
-
-nav .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--navy);
-    text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.logo-highlight { color: var(--gold); }
-
-/* Hero */
-.hero {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    padding: 140px 2rem 3rem;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
-    color: var(--navy);
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    color: var(--navy);
-}
-
-/* Sections */
-section {
-    padding: 4rem 2rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--navy);
-}
-
-/* Calculator Box */
-.calc-box {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    margin-bottom: 3rem;
-}
-
-.input-group {
-    margin-bottom: 2rem;
-}
-
-.input-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--navy);
-    font-size: 1rem;
-}
-
-.input-field {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border: 2px solid var(--gray-light);
-    border-radius: 8px;
-    transition: border-color 0.3s;
-}
-
-.input-field:focus {
-    outline: none;
-    border-color: var(--gold);
-}
-
-select.input-field {
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 1.2rem 3rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    width: 100%;
-}
-
-.btn-primary:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
-}
-
-/* Result Box */
-.result-box {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    padding: 3rem;
-    border-radius: 16px;
-    color: white;
-    margin-top: 2rem;
-    display: none;
-}
-
-.result-box.show { display: block; }
-
-.result-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.result-card {
-    background: rgba(255,255,255,0.1);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.result-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-}
-
-.result-value {
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--gold);
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-thead {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-}
-
-tbody tr {
-    border-bottom: 1px solid var(--gray-light);
-}
-
-tbody tr:hover {
-    background: rgba(197,165,114,0.05);
-}
-
-.price-1970 {
-    color: var(--green);
-    font-weight: 600;
-}
-
-.price-2026 {
-    color: var(--red);
-    font-weight: 600;
-}
-
-.increase {
-    color: var(--red);
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-/* Info Boxes */
-.info-box {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 4px solid var(--gold);
-    margin: 2rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.info-box h3 {
-    margin-bottom: 1rem;
-    color: var(--gold);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    /* Navigation */
-    nav .container { padding: 0 1rem; }
-    .logo { font-size: 1.3rem; }
-    
-    /* Hero */
-    .hero { 
-        padding: 120px 1rem 2rem; 
-        min-height: 40vh;
-    }
-    .hero h1 { font-size: 2rem; }
-    .hero-subtitle { font-size: 1rem; }
-    
-    /* Sections */
-    section { padding: 2rem 1rem; }
-    .section-title { 
-        font-size: 1.8rem; 
-        margin-bottom: 2rem; 
-    }
-    
-    /* Calculator Box */
-    .calc-box { 
-        padding: 1.5rem; 
-        margin-bottom: 2rem;
-    }
-    
-    .input-group { margin-bottom: 1.5rem; }
-    .input-label { font-size: 0.9rem; }
-    .input-field { 
-        padding: 0.8rem; 
-        font-size: 1rem; 
-    }
-    
-    .btn-primary { 
-        padding: 1rem 2rem; 
-        font-size: 1rem; 
-    }
-    
-    /* Result Box - COMPACT */
-    .result-box { 
-        padding: 1.5rem 1rem !important;
-        margin-top: 2rem;
-    }
-    
-    .result-box h3 { 
-        font-size: 1.3rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    /* Result Cards Stack Vertically */
-    .result-box > div:first-of-type {
-        flex-direction: column !important;
-        gap: 1rem !important;
-        max-width: 100% !important;
-    }
-    
-    .result-box > div:first-of-type > div {
-        min-width: 100% !important;
-        width: 100% !important;
-        padding: 1.2rem !important;
-    }
-    
-    .result-box > div:first-of-type > div[style*="font-size: 2.5rem"] {
-        display: none; /* Hide arrow on mobile */
-    }
-    
-    /* Result Values Smaller */
-    .result-box .result-value,
-    .result-box div[style*="font-size: 3rem"] {
-        font-size: 2.2rem !important;
-    }
-    
-    /* Loss Box Compact */
-    .result-box > div[style*="rgba(231,76,60"] {
-        padding: 1.5rem 1rem !important;
-        margin-top: 1.5rem !important;
-        max-width: 100% !important;
-    }
-    
-    #res-loss {
-        font-size: 2.5rem !important;
-    }
-    
-    #res-percent {
-        font-size: 1.1rem !important;
-    }
-    
-    /* Explanation Text */
-    .result-box div[style*="rgba(255,255,255,0.08)"] {
-        padding: 1.2rem !important;
-        margin-top: 1.5rem !important;
-        max-width: 100% !important;
-    }
-    
-    #res-explanation {
-        font-size: 0.9rem !important;
-        line-height: 1.6 !important;
-    }
-    
-    /* Chart - BIGGER on Mobile */
-    #inflationChart {
-        height: 350px !important;
-    }
-    
-    .calc-box > div[style*="height: 400px"] {
-        height: 350px !important;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    /* Tables - NO HORIZONTAL SCROLL */
-    table { 
-        font-size: 0.85rem;
-        width: 100% !important;
-        display: table !important;
-        table-layout: fixed !important;
-    }
-    
-    thead, tbody {
-        display: table-header-group;
-        width: 100%;
-    }
-    
-    tbody {
-        display: table-row-group;
-    }
-    
-    tr {
-        display: table-row;
-        width: 100%;
-    }
-    
-    th, td { 
-        padding: 0.75rem 0.4rem;
-        display: table-cell;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    /* 10-Year Table Specific */
-    .calc-box:first-of-type table th:nth-child(1),
-    .calc-box:first-of-type table td:nth-child(1) {
-        width: 30%;
-    }
-    
-    .calc-box:first-of-type table th:nth-child(2),
-    .calc-box:first-of-type table td:nth-child(2) {
-        width: 35%;
-        text-align: right;
-    }
-    
-    .calc-box:first-of-type table th:nth-child(3),
-    .calc-box:first-of-type table td:nth-child(3) {
-        width: 35%;
-        text-align: right;
-    }
-    
-    /* Warenkorb Table - 4 columns fit perfectly */
-    section table th:nth-child(1),
-    section table td:nth-child(1) {
-        width: 40%;
-        font-size: 0.8rem;
-    }
-    
-    section table th:nth-child(2),
-    section table td:nth-child(2) {
-        width: 20%;
-        text-align: right;
-    }
-    
-    section table th:nth-child(3),
-    section table td:nth-child(3) {
-        width: 20%;
-        text-align: right;
-    }
-    
-    section table th:nth-child(4),
-    section table td:nth-child(4) {
-        width: 20%;
-        text-align: right;
-    }
-    
-    /* Info Boxes */
-    .info-box { 
-        padding: 1.2rem; 
-        font-size: 0.9rem;
-    }
-    
-    .info-box h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    /* Example Grid */
-    .example-grid { 
-        grid-template-columns: 1fr; 
-        gap: 1.5rem;
-    }
-    
-    /* CTA */
-    .cta-box {
-        padding: 2rem 1.5rem !important;
-    }
-    
-    .cta-box h2 {
-        font-size: 1.8rem !important;
-    }
-    
-    .cta-box p {
-        font-size: 1rem !important;
-    }
-    
-    /* Sparbuch Section Mobile - Elegant */
-    section[style*="linear-gradient(135deg, #2c3e50"] h2 {
-        font-size: 1.6rem !important;
-        margin-bottom: 2rem !important;
-    }
-    
-    section[style*="linear-gradient(135deg, #2c3e50"] h3 {
-        font-size: 1.2rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-    
-    section[style*="linear-gradient(135deg, #2c3e50"] h4 {
-        font-size: 1rem !important;
-    }
-    
-    section[style*="linear-gradient(135deg, #2c3e50"] > div > div {
-        padding: 1.5rem 1rem !important;
-    }
-    
-    /* Start Box */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 2.5rem"] {
-        font-size: 2rem !important;
-    }
-    
-    /* Nominal/Real Values */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 2.2rem"] {
-        font-size: 1.8rem !important;
-    }
-    
-    /* Loss Amount */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 2.8rem"] {
-        font-size: 2rem !important;
-    }
-    
-    /* ETF Comparison */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 2.5rem"]:last-of-type {
-        font-size: 2rem !important;
-    }
-    
-    /* Grid to Stack */
-    .sparbuch-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-    }
-    
-    /* Padding Adjustments */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="padding: 1.8rem"] {
-        padding: 1.5rem 1rem !important;
-    }
-    
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="padding: 1.5rem"] {
-        padding: 1.2rem 1rem !important;
-    }
-    
-    /* Text Sizes */
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 0.95rem"] {
-        font-size: 0.9rem !important;
-    }
-    
-    section[style*="linear-gradient(135deg, #2c3e50"] div[style*="font-size: 1.2rem"] {
-        font-size: 1rem !important;
-    }
-    
-    /* Footer */
-    footer { padding: 2rem 1rem; }
+@media(max-width:768px){
+  nav{height:60px}
+  .nav-links{display:none}
+  .mob-btn{display:block}
+  .hero{padding:88px 0 44px}
+  .hero h1{font-size:2.8rem}
+  .intro-grid{grid-template-columns:1fr}
+  .intro-card+.intro-card{border-left:none;border-top:1px solid rgba(232,93,42,.1)}
+  .calc-inputs{grid-template-columns:1fr}
+  .calc-top,.calc-results{padding:28px 20px}
+  .result-nums{grid-template-columns:1fr}
+  .yt-head,.yt-row{grid-template-columns:60px 1fr 1fr;font-size:.78rem}
+  .yt-head div:nth-child(3),.yt-row .yt-invest{display:none}
+  .it-header,.it-row{grid-template-columns:1fr 1fr 1fr;font-size:.78rem}
+  .it-header div:nth-child(3),.it-header div:nth-child(4),.it-row .it-year:nth-child(3),.it-row .it-year:nth-child(4){display:none}
+  .sticky-bar{flex-direction:column;text-align:center;gap:8px}
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav>
-    <div class="container">
-        <a href="index.html" class="logo">Mario <span class="logo-highlight">Friedl</span></a>
-    </div>
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Mario Friedl Logo">
+      Mario <span class="nl-gold">Friedl</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="business-seminar.html">Business Seminar</a></li>
+      <li><a href="info-abend.html">Info-Abend 🍷</a></li>
+      <li><a href="business-seminar.html#anmeldung" class="nav-fire">🔥 Platz sichern</a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn">☰</button>
+  </div>
 </nav>
 
-<!-- Hero -->
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="index.html#leistungen">Leistungen</a>
+  <a href="business-seminar.html">Business Seminar</a>
+  <a href="info-abend.html">Info-Abend 🍷</a>
+  <a href="business-seminar.html#anmeldung" class="mob-fire">🔥 Jetzt Platz sichern</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-    <div class="container">
-        <h1>📊 Historischer Inflationsrechner</h1>
-        <p class="hero-subtitle">Österreich 1970 - 2026 | Schilling & Euro | Warenkorb-Vergleich</p>
+  <div class="hero-bg"></div>
+  <div class="hero-embers" id="embers"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🔥 Historischer Inflationsrechner · Österreich</div>
+    <h1>
+      Was ist dein Geld<br>
+      <span class="fire-line">wirklich noch wert?</span>
+    </h1>
+    <p class="hero-sub">
+      Gib einen Betrag ein – und erlebe in Echtzeit, was Inflation, Zinsen und Zeit daraus machen.
+      <strong>Die Wahrheit ist schmerzhaft. Aber sie ist notwendig.</strong>
+    </p>
+    <div class="hero-pills">
+      <div class="h-pill hot"><span>📉</span> Echte Inflationsdaten Österreich</div>
+      <div class="h-pill"><span>📊</span> Sparbuch vs. Investmentfonds</div>
+      <div class="h-pill"><span>⏱️</span> Jahresvergleich ab 2000</div>
     </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .4s ease both">
+      <a href="#rechner" class="btn-fire">🔥 Jetzt berechnen →</a>
+      <a href="#was-passiert" class="btn-ghost">Was passiert beim Nichtstun?</a>
+    </div>
+  </div>
 </section>
 
-<!-- Calculator -->
-<section>
-    <div class="container">
-        <h2 class="section-title">Berechnen Sie die Kaufkraft</h2>
-        
-        <div class="calc-box">
-            <h3 style="text-align: center; margin-bottom: 2rem; color: var(--gold);">💰 Kaufkraftverlust-Rechner</h3>
-            
-            <div class="input-group">
-                <label class="input-label">Betrag (in Euro)</label>
-                <input type="number" class="input-field" id="amount" value="100" min="1" step="1">
-            </div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
+    <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
+    <div class="t-item">📉 Ø SPARBUCHZINS 2024: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
+    <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
+    <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
+    <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
+    <div class="t-item">📉 Ø SPARBUCHZINS 2024: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
+    <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
+  </div>
+</div>
 
-            <div class="input-group">
-                <label class="input-label">Nach wie vielen Jahren?</label>
-                <input type="number" class="input-field" id="years" value="20" min="1" max="50" step="1">
-            </div>
-
-            <div class="input-group">
-                <label class="input-label">Durchschnittliche Inflation pro Jahr (%)</label>
-                <input type="number" class="input-field" id="inflationRate" value="2" min="0" max="15" step="0.5">
-            </div>
-
-            <button class="btn-primary" onclick="calculatePurchasingPower()">Kaufkraftverlust berechnen</button>
-        </div>
-
-        <!-- Results -->
-        <div class="result-box" id="results">
-            <h3 style="font-size: 1.5rem; margin-bottom: 2rem; text-align: center;">💸 Ihr Kaufkraftverlust</h3>
-            
-            <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; max-width: 800px; margin: 0 auto; flex-wrap: wrap;">
-                
-                <!-- Left: Today -->
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; text-align: center; min-width: 200px;">
-                    <div style="font-size: 0.85rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Heute</div>
-                    <div style="font-size: 3rem; font-weight: 900; font-family: 'Cormorant Garamond', serif; color: #27ae60;" id="res-start">100 €</div>
-                    <div style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Ihr Geld heute</div>
-                </div>
-                
-                <!-- Arrow -->
-                <div style="font-size: 2.5rem; opacity: 0.5;">→</div>
-                
-                <!-- Right: After X years -->
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; text-align: center; min-width: 200px;">
-                    <div style="font-size: 0.85rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;" id="res-after-label">Nach 20 Jahren</div>
-                    <div style="font-size: 3rem; font-weight: 900; font-family: 'Cormorant Garamond', serif; color: #e74c3c;" id="res-end">67 €</div>
-                    <div style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Reale Kaufkraft</div>
-                </div>
-            </div>
-
-            <!-- Loss Box -->
-            <div style="margin-top: 2rem; padding: 2rem; background: rgba(231,76,60,0.15); border-radius: 12px; text-align: center; border: 2px solid rgba(231,76,60,0.3); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <div style="font-size: 0.9rem; margin-bottom: 0.5rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.05em;">Verlust durch Inflation:</div>
-                <div style="font-size: 3rem; font-weight: 900; font-family: 'Cormorant Garamond', serif; color: #e74c3c; line-height: 1;" id="res-loss">-33 €</div>
-                <div style="font-size: 1.2rem; margin-top: 0.5rem; color: #e74c3c; font-weight: 700;" id="res-percent">(-33%)</div>
-            </div>
-
-            <!-- Explanation -->
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.08); border-radius: 12px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 1rem; line-height: 1.7;" id="res-explanation">
-                    <!-- Will be filled by JavaScript -->
-                </p>
-            </div>
-        </div>
+<!-- INTRO HOOKS -->
+<section class="intro-section">
+  <div class="wrap">
+    <div class="intro-grid anim">
+      <div class="intro-card">
+        <span class="ic-emoji">🧨</span>
+        <span class="ic-num">-28%</span>
+        <div class="ic-label"><strong>Kaufkraftverlust seit 2000</strong>Was €10.000 im Jahr 2000 kaufen konnte, kostet heute ~€ 13.900. Dein Sparbuch? Hat sich kaum bewegt.</div>
+        <span class="ic-aha">AHA · Das weiß kaum jemand</span>
+      </div>
+      <div class="intro-card">
+        <span class="ic-emoji">😶</span>
+        <span class="ic-num">0,1%</span>
+        <div class="ic-label"><strong>Ø Sparbuchzins in Österreich 2024</strong>Während du diesen Text liest, hat Inflation deinen letzten Zinsertrag längst gefressen. Zehnfach und mehr.</div>
+        <span class="ic-aha">AHA · Sparen macht dich ärmer</span>
+      </div>
+      <div class="intro-card">
+        <span class="ic-emoji">🔥</span>
+        <span class="ic-num">+186%</span>
+        <div class="ic-label"><strong>Wer vor 20 Jahren in Fonds investiert hat</strong>€10.000 aus dem Jahr 2004 in einem globalen Investmentfonds wären heute ~€28.000+. Auf dem Sparbuch? Gleich viel wie vorher.</div>
+        <span class="ic-aha">AHA · Zeit arbeitet für oder gegen dich</span>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Warenkorb -->
-<section style="background: white;">
-    <div class="container">
-        <h2 class="section-title">🛒 Warenkorb: 1970 vs. 2026</h2>
-        
-        <div class="info-box">
-            <h3>So viel kosteten Alltagsprodukte früher und heute</h3>
-            <p>Die Tabelle zeigt typische Konsumgüter und deren Preisentwicklung seit 1970. Alle Preise sind Durchschnittswerte und dienen zur Veranschaulichung.</p>
+<!-- RECHNER -->
+<section class="calc-section" id="rechner">
+  <div class="wrap">
+    <div class="calc-outer anim d1">
+      <div class="calc-card">
+        <div class="calc-top">
+          <span class="eyebrow">Dein persönlicher Rechner</span>
+          <div class="calc-title">Was ist dein Geld wirklich wert?<br><em>Finde es jetzt heraus.</em></div>
+          <p class="calc-intro">Gib einen Betrag ein – z.B. was auf deinem Sparbuch liegt. Wähle das Startjahr und wie viele Jahre du in die Zukunft blickst. <strong>Das Ergebnis wird dich zum Nachdenken bringen.</strong></p>
+
+          <div class="calc-inputs">
+            <div class="ci-group">
+              <label class="ci-label">Betrag</label>
+              <div class="ci-input-wrap">
+                <span class="ci-prefix">€</span>
+                <input type="number" class="ci-input" id="inputBetrag" value="10000" min="100" max="9999999" step="100" placeholder="10000">
+              </div>
+            </div>
+            <div class="ci-group">
+              <label class="ci-label">Startjahr</label>
+              <div class="ci-input-wrap">
+                <select class="ci-input no-prefix" id="inputJahr">
+                  <option value="2000">2000</option>
+                  <option value="2005">2005</option>
+                  <option value="2010">2010</option>
+                  <option value="2015">2015</option>
+                  <option value="2020" selected>2020</option>
+                  <option value="2024">2024 (heute)</option>
+                </select>
+              </div>
+            </div>
+            <div class="ci-group">
+              <label class="ci-label">Vorschau in Jahren</label>
+              <div class="ci-input-wrap">
+                <select class="ci-input no-prefix" id="inputJahre">
+                  <option value="5">5 Jahre</option>
+                  <option value="10" selected>10 Jahre</option>
+                  <option value="15">15 Jahre</option>
+                  <option value="20">20 Jahre</option>
+                  <option value="25">25 Jahre</option>
+                  <option value="30">30 Jahre</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="btn-calc" onclick="berechnen()">🔥 Jetzt berechnen – Was bleibt wirklich übrig?</button>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 45%;">Produkt</th>
-                    <th style="width: 25%;">1970</th>
-                    <th style="width: 25%;">2026</th>
-                    <th style="width: 25%;">+%</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>🍞 Brot (1kg)</td>
-                    <td class="price-1970">0,73 €</td>
-                    <td class="price-2026">4,50 €</td>
-                    <td class="increase">+517%</td>
-                </tr>
-                <tr>
-                    <td>🥛 Milch (1L)</td>
-                    <td class="price-1970">0,44 €</td>
-                    <td class="price-2026">1,30 €</td>
-                    <td class="increase">+195%</td>
-                </tr>
-                <tr>
-                    <td>☕ Kaffee (Café)</td>
-                    <td class="price-1970">0,58 €</td>
-                    <td class="price-2026">3,50 €</td>
-                    <td class="increase">+503%</td>
-                </tr>
-                <tr>
-                    <td>🍺 Bier (Gasthaus)</td>
-                    <td class="price-1970">0,87 €</td>
-                    <td class="price-2026">4,20 €</td>
-                    <td class="increase">+383%</td>
-                </tr>
-                <tr>
-                    <td>🚗 VW Käfer</td>
-                    <td class="price-1970">3.052 €</td>
-                    <td class="price-2026">30.000 €</td>
-                    <td class="increase">+883%</td>
-                </tr>
-                <tr>
-                    <td>⛽ Benzin (1L)</td>
-                    <td class="price-1970">0,29 €</td>
-                    <td class="price-2026">1,60 €</td>
-                    <td class="increase">+452%</td>
-                </tr>
-                <tr>
-                    <td>🎬 Kinokarte</td>
-                    <td class="price-1970">1,45 €</td>
-                    <td class="price-2026">12,00 €</td>
-                    <td class="increase">+727%</td>
-                </tr>
-                <tr>
-                    <td>🏠 Miete 2-Zi (mtl.)</td>
-                    <td class="price-1970">58 €</td>
-                    <td class="price-2026">800 €</td>
-                    <td class="increase">+1.279%</td>
-                </tr>
-                <tr>
-                    <td>📰 Zeitung</td>
-                    <td class="price-1970">0,22 €</td>
-                    <td class="price-2026">2,50 €</td>
-                    <td class="increase">+1.036%</td>
-                </tr>
-                <tr>
-                    <td>💈 Friseur</td>
-                    <td class="price-1970">1,82 €</td>
-                    <td class="price-2026">25,00 €</td>
-                    <td class="increase">+1.274%</td>
-                </tr>
-                <tr>
-                    <td>📞 Telefon (mtl.)</td>
-                    <td class="price-1970">4,36 €</td>
-                    <td class="price-2026">20,00 €</td>
-                    <td class="increase">+359%</td>
-                </tr>
-                <tr>
-                    <td>🏥 Arzt (Privat)</td>
-                    <td class="price-1970">7,27 €</td>
-                    <td class="price-2026">100,00 €</td>
-                    <td class="increase">+1.276%</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- RESULTS -->
+        <div class="calc-results" id="calcResults">
 
-        <div class="info-box" style="margin-top: 3rem;">
-            <p><strong>Hinweis:</strong> Die Preise für 1970 wurden von Schilling in Euro umgerechnet (13,7603 ATS = 1 EUR). 
-            Alle Preise sind Durchschnittswerte und dienen zur Veranschaulichung der Inflation.</p>
-        </div>
+          <div class="result-headline">
+            <span class="rh-label">🔥 Dein Ergebnis · Das ist die Realität</span>
+            <div class="rh-aha" id="ahaText">…</div>
+          </div>
+
+          <div class="result-nums" id="resultNums">
+            <div class="rn-block loss">
+              <span class="rn-title">Kaufkraftverlust</span>
+              <span class="rn-num" id="rn-verlust">–</span>
+              <span class="rn-sub">Dieser Betrag ist <strong>still verdampft</strong> – kein Dieb, kein Börsenkrach. Nur Zeit und Inflation.</span>
+            </div>
+            <div class="rn-block remains">
+              <span class="rn-title">Reale Kaufkraft Sparbuch</span>
+              <span class="rn-num" id="rn-real">–</span>
+              <span class="rn-sub">Das ist der <strong>reale Wert</strong> deines Sparbuch-Betrags nach Inflation – in heutiger Kaufkraft.</span>
+            </div>
+            <div class="rn-block invest">
+              <span class="rn-title">Investmentfonds (Ø 7% p.a.)</span>
+              <span class="rn-num" id="rn-invest">–</span>
+              <span class="rn-sub">Was aus <strong>demselben Betrag</strong> bei einem einfachen Investmentfonds-Sparplan werden könnte.</span>
+            </div>
+          </div>
+
+          <!-- BAR COMPARISON -->
+          <div class="bar-compare">
+            <span class="bc-title">Visueller Vergleich – Dein Geld in <span id="bc-years">–</span> Jahren</span>
+            <div class="bc-row">
+              <div class="bc-label-row">
+                <span class="bc-label">Eingabe (Nominalbetrag)</span>
+                <span class="bc-value" style="color:rgba(255,255,255,.5)" id="bc-orig">–</span>
+              </div>
+              <div class="bc-track"><div class="bc-fill original" id="bc-bar-orig" style="width:100%"></div></div>
+            </div>
+            <div class="bc-row">
+              <div class="bc-label-row">
+                <span class="bc-label">Reale Kaufkraft (Sparbuch)</span>
+                <span class="bc-value" style="color:var(--red)" id="bc-kaufkraft">–</span>
+              </div>
+              <div class="bc-track"><div class="bc-fill kaufkraft" id="bc-bar-kauf" style="width:0"></div></div>
+            </div>
+            <div class="bc-row">
+              <div class="bc-label-row">
+                <span class="bc-label">Investmentfonds (Ø 7% p.a.)</span>
+                <span class="bc-value" style="color:var(--green)" id="bc-invest-val">–</span>
+              </div>
+              <div class="bc-track"><div class="bc-fill invest" id="bc-bar-invest" style="width:0"></div></div>
+            </div>
+          </div>
+
+          <!-- YEAR TABLE -->
+          <div class="year-table">
+            <div class="yt-head">
+              <div>Jahr</div>
+              <div>Nominalbetrag</div>
+              <div>Kaufkraft real</div>
+              <div>Investmentfonds</div>
+            </div>
+            <div id="ytBody"></div>
+          </div>
+
+          <!-- AHA CALLOUT -->
+          <div class="aha-callout" id="ahaCallout">
+            <span class="aha-icon">💡</span>
+            <h3 id="ahaTitle">Das AHA-Moment</h3>
+            <p id="ahaBody">…</p>
+          </div>
+
+          <!-- RESULT CTA -->
+          <div class="result-cta">
+            <div class="rc-text">Diese Zahlen sind der Grund, warum Finanzseminare existieren.</div>
+            <div class="rc-sub">Beim Business Seminar mit Mario Friedl lernst du, was du mit diesem Wissen anfangen kannst. Konkret. Persönlich. Ohne Produkte verkauft zu bekommen.</div>
+            <div class="rc-btns">
+              <a href="business-seminar.html#anmeldung" class="btn-fire">🔥 Zum Business Seminar →</a>
+              <a href="business-seminar.html" class="btn-ghost">Mehr erfahren</a>
+            </div>
+          </div>
+
+        </div><!-- /calc-results -->
+      </div><!-- /calc-card -->
     </div>
+  </div>
 </section>
 
-<!-- 10-Year Table -->
-<section>
-    <div class="container">
-        <h2 class="section-title">📈 Inflation der letzten 10 Jahre</h2>
-        
-        <div class="calc-box">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jahr</th>
-                        <th>Inflation</th>
-                        <th>Kaufkraft</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>2016</strong></td>
-                        <td>0,9%</td>
-                        <td>100,00 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2017</strong></td>
-                        <td>2,2%</td>
-                        <td>97,84 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2018</strong></td>
-                        <td>2,0%</td>
-                        <td>95,89 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2019</strong></td>
-                        <td>1,5%</td>
-                        <td>94,45 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2020</strong></td>
-                        <td>1,4%</td>
-                        <td>93,13 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2021</strong></td>
-                        <td>2,8%</td>
-                        <td>90,53 €</td>
-                    </tr>
-                    <tr>
-                        <td style="color: var(--red); font-weight: 700;"><strong>2022</strong></td>
-                        <td style="color: var(--red); font-weight: 700;">8,6%</td>
-                        <td style="color: var(--red); font-weight: 700;">82,74 €</td>
-                    </tr>
-                    <tr>
-                        <td style="color: var(--red); font-weight: 700;"><strong>2023</strong></td>
-                        <td style="color: var(--red); font-weight: 700;">7,8%</td>
-                        <td style="color: var(--red); font-weight: 700;">76,29 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2024</strong></td>
-                        <td>2,9%</td>
-                        <td>74,08 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2025</strong></td>
-                        <td>3,6%</td>
-                        <td>71,41 €</td>
-                    </tr>
-                    <tr style="background: rgba(197,165,114,0.2); font-weight: 700; border-top: 2px solid var(--gold);">
-                        <td><strong>Gesamt</strong></td>
-                        <td><strong>Ø 3,4%</strong></td>
-                        <td style="color: var(--red); font-size: 1.1rem;"><strong>-28,6%</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="info-box" style="margin-top: 2rem;">
-                <h3>Das bedeutet:</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    <strong>100 € aus dem Jahr 2016 haben heute (2026) nur noch eine Kaufkraft von 71,41 €.</strong><br><br>
-                    Das ist ein Verlust von <strong style="color: var(--red); font-size: 1.3rem;">28,59 €</strong> bzw. <strong style="color: var(--red); font-size: 1.3rem;">-28,6%</strong> in nur 10 Jahren!<br><br>
-                    Besonders stark war die Inflation 2022 (8,6%) und 2023 (7,8%) – hauptsächlich verursacht durch Energiepreise und Lieferkettenprobleme.
-                </p>
-            </div>
-        </div>
+<!-- HISTORISCHE FAKTEN -->
+<section class="facts-section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:52px" class="anim">
+      <span class="eyebrow">Österreich in Zahlen</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em">
+        Was Inflation mit echten<br><em style="background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">Alltagsdingen</em> gemacht hat.
+      </h2>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;line-height:1.8">Manchmal braucht es konkrete Beispiele, um zu begreifen, was Zahlen bedeuten. Diese werden dich aufhorchen lassen.</p>
     </div>
+
+    <div class="facts-grid">
+      <div class="fact-card anim">
+        <span class="fc-eyebrow">AHA-MOMENT · Immobilien Wien</span>
+        <div class="fc-title">Eine Wiener Eigentumswohnung, 70m² – was hat sie wann gekostet?</div>
+        <span class="fc-num">+157%</span>
+        <div class="fc-body">
+          Im Jahr 2000 kostete eine durchschnittliche 70-m²-Wohnung in Wien rund <strong>€ 140.000</strong>. Heute zahlt man dafür <strong>€ 360.000 – € 420.000</strong>. Wer damals investiert hatte, hat ein Vermögen aufgebaut. Wer auf das Sparbuch gesetzt hatte – hat den Kaufpreis auf dem Papier gehalten und real massiv verloren.
+        </div>
+        <span class="fc-aha-tag">🔥 Wissen schützt Vermögen</span>
+      </div>
+
+      <div class="fact-card anim d1">
+        <span class="fc-eyebrow">AHA-MOMENT · Alltagspreise</span>
+        <div class="fc-title">Was hat sich bei Alltagsdingen wirklich verändert?</div>
+        <div class="items-table" style="margin-top:14px">
+          <div class="it-header">
+            <div>Produkt</div>
+            <div style="text-align:right">2000</div>
+            <div style="text-align:right">2010</div>
+            <div style="text-align:right">2024</div>
+          </div>
+          <div class="it-row">
+            <div class="it-name"><span class="it-icon">🍞</span> Brot (1kg)</div>
+            <div class="it-year">€ 1,20</div>
+            <div class="it-year">€ 1,80</div>
+            <div class="it-year highlight">€ 3,50</div>
+          </div>
+          <div class="it-row">
+            <div class="it-name"><span class="it-icon">⛽</span> Benzin (1L)</div>
+            <div class="it-year">€ 0,82</div>
+            <div class="it-year">€ 1,14</div>
+            <div class="it-year highlight">€ 1,69</div>
+          </div>
+          <div class="it-row">
+            <div class="it-name"><span class="it-icon">☕</span> Kaffee (Café)</div>
+            <div class="it-year">€ 1,60</div>
+            <div class="it-year">€ 2,50</div>
+            <div class="it-year highlight">€ 4,20</div>
+          </div>
+          <div class="it-row">
+            <div class="it-name"><span class="it-icon">🏥</span> Arztbesuch</div>
+            <div class="it-year">€ 30</div>
+            <div class="it-year">€ 50</div>
+            <div class="it-year highlight">€ 90+</div>
+          </div>
+          <div class="it-row">
+            <div class="it-name"><span class="it-icon">🏠</span> Miete (70m², Wien)</div>
+            <div class="it-year">€ 550</div>
+            <div class="it-year">€ 820</div>
+            <div class="it-year highlight">€ 1.500+</div>
+          </div>
+        </div>
+        <span class="fc-aha-tag" style="margin-top:14px">📊 Alles teurer – Sparbuch gleich</span>
+      </div>
+
+      <div class="fact-card anim d2">
+        <span class="fc-eyebrow">AHA-MOMENT · Der stille Dieb</span>
+        <div class="fc-title">Warum die Inflation das „stille Enteignen" heißt – und wie sie funktioniert.</div>
+        <div class="fc-body" style="margin-top:12px">
+          <p>Inflation bedeutet: Dein Geld verliert Schritt für Schritt an Wert – <strong>ohne dass du etwas siehst, hörst oder spürst.</strong> Kein Dieb kommt. Keine Warnung. Kein Alarm.</p>
+          <br>
+          <p>Bei 3,5 % Inflation pro Jahr verliert ein Betrag von <strong>€ 50.000 innerhalb von 20 Jahren reale Kaufkraft von über € 26.000</strong>. Das ist mehr als die Hälfte – still verdampft.</p>
+          <br>
+          <p>Das Heimtückische: <em>Das Papier zeigt noch €50.000. Aber kaufen kannst du damit viel weniger.</em> Die Zahl stimmt. Die Realität nicht.</p>
+        </div>
+        <span class="fc-aha-tag">😶 „Mein Geld liegt sicher" – Nein.</span>
+      </div>
+
+      <div class="fact-card anim d3">
+        <span class="fc-eyebrow">AHA-MOMENT · Die Pension</span>
+        <div class="fc-title">Was Inflation mit deiner späteren Pension anstellt – bevor du sie siehst.</div>
+        <span class="fc-num">-22%</span>
+        <div class="fc-body">
+          Die staatliche Pension wird zwar angepasst – aber <strong>nie schnell genug</strong>. Ein Pensionist, der 2000 € 1.200 monatliche Pension bezog, bekam nominal mehr bis heute. Real aber hat diese Pension <strong>rund 22 % weniger Kaufkraft</strong>. Heizung, Lebensmittel, Miete – alles teurer. Die Pension: gefühlt gleich. Real: ein Verlust.
+        </div>
+        <span class="fc-aha-tag">🛡️ Private Vorsorge ist keine Option</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Historical Inflation Chart & Table -->
-<section>
-    <div class="container">
-        <h2 class="section-title">📈 Historische Inflation Österreich</h2>
-        
-        <div class="info-box">
-            <h3>Wertentwicklung und Verbraucherpreise (VPI):</h3>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                Die <strong>Inflationsrate von 1970 bis 2026</strong> liegt in Österreich bei <strong style="color: var(--red); font-size: 1.2rem;">548,66 %</strong>. 
-                Das bedeutet, dass <strong>100 Schilling</strong> in den letzten 56 Jahren einen Wert von <strong style="color: var(--gold);">648,66 Schilling</strong> 
-                bzw. <strong style="color: var(--gold);">47,14 Euro</strong> erreicht haben.
-            </p>
+<!-- WAS PASSIERT BEIM NICHTSTUN -->
+<section class="nothing-section" id="was-passiert">
+  <div class="wrap">
+    <div class="nothing-inner">
+      <div class="nothing-left anim-left">
+        <span class="eyebrow">Die Kosten der Untätigkeit</span>
+        <h2>Was passiert, wenn du<br><em>nichts änderst?</em></h2>
+        <div class="nothing-pull">"Das Gefährlichste ist nicht, etwas falsch zu machen. Es ist, überhaupt nichts zu tun – während die Zeit läuft."</div>
+        <p>
+          Die meisten Menschen wissen, dass irgendetwas nicht stimmt. Das Sparbuch bringt nichts. Die Pension wird nicht reichen. Irgendetwas sollte sich ändern. Aber dann kommt <strong>morgen – und übermorgen – und 10 Jahre sind weg.</strong>
+        </p>
+        <p>
+          Was in dieser Zeit auf dem Sparbuch passiert, ist keine Theorie. Es ist Mathematik. <strong>Stille, unaufhaltsame Mathematik.</strong>
+        </p>
+        <p>
+          Wer mit <strong>€ 500 monatlichem Sparplan ab 30 Jahren</strong> in Investmentfonds spart, hat mit 60 Jahren – bei historischer Durchschnittsrendite – <strong>rund € 567.000</strong> angespart. Wer dasselbe auf dem Sparbuch liegen lässt: <strong>€ 180.000 nominal – mit deutlich weniger realer Kaufkraft.</strong>
+        </p>
+      </div>
+
+      <div class="money-drain anim-right">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:20px;letter-spacing:-.01em">Was dich 1 Jahr Nichtstun kostet</h3>
+
+        <div class="md-item">
+          <div class="md-label">
+            <span class="md-name">Kaufkraftverlust (€ 50.000 am Sparbuch)</span>
+            <span class="md-loss">- € 1.900</span>
+          </div>
+          <div class="md-track"><div class="md-fill f1" id="drain1" style="width:0;--tw:95%"></div></div>
+          <div class="md-subtext">Bei 3,8 % Realzinsverlust p.a. – jedes Jahr, leise, ohne Alarm.</div>
         </div>
 
-        <div class="calc-box" style="margin-top: 3rem;">
-            <h3 style="margin-bottom: 2rem; color: var(--gold); text-align: center;">Grafik seit 1970</h3>
-            <p style="margin-bottom: 2rem; text-align: center; color: var(--gray);">
-                Diese Grafik zeigt die jährliche Inflationsrate in Österreich von 1970 bis heute.
-            </p>
-            
-            <!-- Chart Canvas -->
-            <div style="position: relative; height: 400px; margin-bottom: 2rem;">
-                <canvas id="inflationChart"></canvas>
-            </div>
-
-            <!-- Toggle Button -->
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <button id="toggleTableBtn" class="btn-primary" style="width: auto; padding: 0.8rem 2rem;" onclick="toggleTable()">
-                    📋 Tabelle anzeigen
-                </button>
-            </div>
-
-            <!-- Table (hidden by default) -->
-            <div id="tableContainer" style="display: none;">
-                <h4 style="margin-bottom: 1.5rem; color: var(--gold); text-align: center;">Detaillierte Tabelle</h4>
-                <p style="margin-bottom: 2rem; text-align: center; color: var(--gray); font-size: 0.95rem;">
-                    Die "Wertentwicklung" gibt an, wie viel 100 Schilling (ATS) im Jahr 1970 aufgrund der Inflation über die Jahre wert waren.
-                </p>
-                
-                <div style="max-height: 400px; overflow-y: auto; border: 1px solid var(--gray-light); border-radius: 8px;">
-                    <table>
-                        <thead style="position: sticky; top: 0; z-index: 10;">
-                            <tr>
-                                <th>Jahr</th>
-                                <th>Inflationsrate</th>
-                                <th>Wert von 100 ATS (1970)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="historical-table">
-                            <!-- Will be populated by JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="info-box" style="margin-top: 2rem;">
-                <p><strong>Hinweis:</strong> Die Wertentwicklung zeigt, wie viel 100 Schilling aus dem Jahr 1970 in den jeweiligen Jahren wert waren. 
-                Der Umrechnungskurs beträgt 13,7603 ATS = 1 EUR. Ab 2002 erfolgt die Berechnung in Euro.</p>
-            </div>
+        <div class="md-item">
+          <div class="md-label">
+            <span class="md-name">Entgangene Rendite (statt €200/Monat zu investieren)</span>
+            <span class="md-loss">- € 1.680</span>
+          </div>
+          <div class="md-track"><div class="md-fill f2" id="drain2" style="width:0;--tw:84%"></div></div>
+          <div class="md-subtext">Nur das erste Jahr – der Zinseszins-Effekt potenziert sich über Zeit massiv.</div>
         </div>
+
+        <div class="md-item">
+          <div class="md-label">
+            <span class="md-name">Pensionslücke die sich weiter öffnet</span>
+            <span class="md-loss">- € 8.400</span>
+          </div>
+          <div class="md-track"><div class="md-fill f3" id="drain3" style="width:0;--tw:72%"></div></div>
+          <div class="md-subtext">€ 700 monatliche Pensionslücke × 12 Monate – wächst jedes Jahr ohne Gegenmaßnahme.</div>
+        </div>
+
+        <div class="md-item">
+          <div class="md-label">
+            <span class="md-name">Verpasster Zinseszins (€ 10.000 angelegt)</span>
+            <span class="md-loss">- € 700</span>
+          </div>
+          <div class="md-track"><div class="md-fill f4" id="drain4" style="width:0;--tw:35%"></div></div>
+          <div class="md-subtext">Im ersten Jahr minimal – nach 20 Jahren wären das über €28.000 die dir fehlen.</div>
+        </div>
+
+        <div style="background:rgba(232,93,42,.08);border:1px solid rgba(232,93,42,.2);border-radius:12px;padding:18px;margin-top:4px;text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">~ € 12.680</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.45);margin-top:6px">Gesamtkosten des Nichtstuns – nur im ersten Jahr</div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Additional Info -->
-<section style="background: white;">
-    <div class="container">
-        <h2 class="section-title">ℹ️ Wissenswert</h2>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <div class="info-box">
-                <h3>💰 Schilling zu Euro</h3>
-                <p>Der offizielle Umrechnungskurs: <strong>13,7603 ATS = 1 EUR</strong></p>
-                <p style="margin-top: 1rem;">Der Euro wurde am <strong>1. Januar 2002</strong> als Bargeld eingeführt, aber die Umstellung erfolgte bereits am <strong>1. Januar 1999</strong> als Buchgeld.</p>
-            </div>
+<!-- SOLUTION -->
+<section class="solution-section">
+  <div class="sol-inner">
+    <div class="anim">
+      <span class="eyebrow eyebrow-gold">Der Weg nach vorne</span>
+      <h2 class="sol-h2">
+        Wissen ist<br><em>der erste Schritt.</em>
+      </h2>
+      <p class="sol-sub">
+        Diese Zahlen sind kein Anlass zur Panik – sondern zur Entscheidung. Wer einmal versteht wie das System wirklich funktioniert, handelt anders.
+      </p>
 
-            <div class="info-box">
-                <h3>📊 Durchschnittliche Inflation</h3>
-                <p><strong>1970-2026:</strong> ca. 3,8% pro Jahr</p>
-                <p><strong>2002-2021:</strong> ca. 1,9% pro Jahr</p>
-                <p><strong>2022-2025:</strong> ca. 5,7% pro Jahr (Hochinflation!)</p>
-            </div>
-
-            <div class="info-box">
-                <h3>🎯 Höchste Inflation</h3>
-                <p><strong>1974:</strong> 9,5% (Ölkrise)</p>
-                <p><strong>1981:</strong> 6,8%</p>
-                <p><strong>2022:</strong> 8,6% (Energie + Lieferketten)</p>
-            </div>
-
-            <div class="info-box">
-                <h3>✅ Niedrigste Inflation</h3>
-                <p><strong>2009:</strong> 0,5% (Finanzkrise)</p>
-                <p><strong>2015:</strong> 0,9%</p>
-                <p><strong>2020:</strong> 1,4% (Corona-Pandemie)</p>
-            </div>
+      <div class="sol-cards">
+        <div class="sc-card bad">
+          <span class="sc-title">❌ Ohne Wissen</span>
+          <div class="sc-item"><span>➤</span> Geld liegt auf dem Sparbuch und verliert Wert</div>
+          <div class="sc-item"><span>➤</span> Lebensversicherung bringt kaum Rendite nach Kosten</div>
+          <div class="sc-item"><span>➤</span> Bausparvertrag: Zinsen unter Inflationsrate</div>
+          <div class="sc-item"><span>➤</span> Pension reicht nicht – Lücke wird größer</div>
+          <div class="sc-item"><span>➤</span> Zeit läuft – der Zinseszinseffekt arbeitet gegen dich</div>
         </div>
+        <div class="sc-card good">
+          <span class="sc-title">✅ Mit Wissen</span>
+          <div class="sc-item"><span>➤</span> Geld arbeitet durch Investmentfonds für dich</div>
+          <div class="sc-item"><span>➤</span> Zinseszins-Effekt arbeitet für dich, nicht gegen dich</div>
+          <div class="sc-item"><span>➤</span> Pensionslücke wird frühzeitig geschlossen</div>
+          <div class="sc-item"><span>➤</span> Finanzierung ohne teure Fehler strukturiert</div>
+          <div class="sc-item"><span>➤</span> Konkrete Strategie – nicht Theorie</div>
+        </div>
+      </div>
+
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.45);margin-bottom:32px;line-height:1.7">
+        Beim Business Seminar mit Mario Friedl bekommst du dieses Wissen – in zwei Tagen, in einem Premium-Hotel, mit erfahrenen Referenten, die ihre eigene Geschichte kennen.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="business-seminar.html#anmeldung" class="btn-fire" style="font-size:1.05rem;padding:18px 44px">🔥 Jetzt Seminarplatz sichern →</a>
+        <a href="business-seminar.html" class="btn-ghost">Alle Infos zum Seminar</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Sparbuch Verlust Beispiel -->
-<section style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);">
-    <div class="container">
-        <h2 class="section-title" style="color: white;">Das Sparbuch: Ein reales Beispiel</h2>
-        
-        <div style="background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.15);">
-            <h3 style="color: white; text-align: center; margin-bottom: 2rem; font-size: 1.5rem; font-weight: 600;">
-                10.000 € auf dem Sparbuch – von 2000 bis 2025
-            </h3>
-            
-            <!-- Timeline -->
-            <div style="max-width: 800px; margin: 0 auto;">
-                
-                <!-- Start -->
-                <div style="text-align: center; margin-bottom: 2.5rem;">
-                    <div style="background: rgba(46,204,113,0.15); border: 2px solid #2ecc71; padding: 1.5rem; border-radius: 12px;">
-                        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Jahr 2000</div>
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #2ecc71; font-family: 'Cormorant Garamond', serif;">10.000 €</div>
-                        <div style="font-size: 0.95rem; color: rgba(255,255,255,0.9); margin-top: 0.5rem;">Einmalige Einlage</div>
-                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem;">Ø Sparbuch-Zinsen: 1,2% p.a.</div>
-                    </div>
-                </div>
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Mario Friedl</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="business-seminar.html">Business Seminar</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="karriere-check.html">Karriere-Check</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
+    <span style="font-size:.72rem;opacity:.6;display:block;margin-top:4px">Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden. Vergangene Wertentwicklungen sind kein zuverlässiger Indikator für zukünftige Ergebnisse. Alle Berechnungen sind vereinfachte Modellrechnungen und keine Anlageberatung.</span>
+  </div>
+</footer>
 
-                <!-- Arrow -->
-                <div style="text-align: center; margin: 1.5rem 0;">
-                    <div style="font-size: 2rem; color: rgba(255,255,255,0.3);">↓</div>
-                    <div style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">25 Jahre später (2025)</div>
-                </div>
-
-                <!-- Results -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;" class="sparbuch-grid">
-                    
-                    <!-- Nominal -->
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Nominal</div>
-                        <div style="font-size: 2.2rem; font-weight: 700; color: white; font-family: 'Cormorant Garamond', serif; margin: 0.5rem 0;">13.474 €</div>
-                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">Mit Zinsen</div>
-                        <div style="font-size: 0.95rem; color: #2ecc71; margin-top: 0.8rem; font-weight: 600;">+3.474 €</div>
-                    </div>
-
-                    <!-- Real -->
-                    <div style="background: rgba(231,76,60,0.15); padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid rgba(231,76,60,0.4);">
-                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Real (Kaufkraft)</div>
-                        <div style="font-size: 2.2rem; font-weight: 700; color: #f39c12; font-family: 'Cormorant Garamond', serif; margin: 0.5rem 0;">8.104 €</div>
-                        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">Inflationsbereinigt</div>
-                        <div style="font-size: 0.95rem; color: #e74c3c; margin-top: 0.8rem; font-weight: 600;">-1.896 €</div>
-                    </div>
-                </div>
-
-                <!-- Loss Summary -->
-                <div style="padding: 1.8rem; background: rgba(231,76,60,0.12); border-radius: 12px; text-align: center; border: 1px solid rgba(231,76,60,0.3);">
-                    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Echter Verlust</div>
-                    <div style="font-size: 2.8rem; font-weight: 700; color: #e74c3c; font-family: 'Cormorant Garamond', serif; line-height: 1;">-1.896 €</div>
-                    <div style="font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-top: 0.5rem;">(-18,96%)</div>
-                    <div style="font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-top: 1.2rem; line-height: 1.6;">
-                        Trotz Zinsen haben Sie real fast <strong style="color: white;">2.000 €</strong> verloren.
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Explanation -->
-            <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(255,255,255,0.08); border-radius: 12px; border-left: 3px solid var(--gold);">
-                <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Warum ist das so?</h4>
-                <div style="color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.7;">
-                    <p style="margin-bottom: 0.8rem;">
-                        <strong>Ø Inflation 2000-2025:</strong> 2,1% pro Jahr<br>
-                        <strong>Ø Sparbuch-Zinsen:</strong> 1,2% pro Jahr
-                    </p>
-                    <p style="margin-bottom: 0;">
-                        Die Inflation war höher als die Zinsen.<br>
-                        <strong style="color: var(--gold);">Effektive Rendite: -0,9% pro Jahr</strong>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Comparison -->
-            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(46,204,113,0.12); border-radius: 12px; border: 1px solid rgba(46,204,113,0.3);">
-                <h4 style="color: #2ecc71; text-align: center; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Zum Vergleich: 5% Rendite (z.B. ETFs)</h4>
-                <div style="text-align: center;">
-                    <div style="font-size: 2.5rem; font-weight: 700; color: #2ecc71; font-family: 'Cormorant Garamond', serif;">33.864 €</div>
-                    <div style="color: rgba(255,255,255,0.9); font-size: 0.95rem; margin-top: 0.8rem;">
-                        Gewinn: <strong style="color: #2ecc71; font-size: 1.1rem;">+23.864 €</strong>
-                    </div>
-                    <div style="color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 1rem;">
-                        Unterschied zum Sparbuch: <strong style="color: white;">25.760 €</strong>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section>
-    <div class="container">
-        <div style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); padding: 3rem; border-radius: 16px; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--navy); margin-bottom: 1rem;">Schützen Sie Ihr Geld vor Inflation!</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--navy);">
-                Erfahren Sie im kostenlosen Info-Abend, wie Sie Ihr Vermögen inflationsgeschützt anlegen.
-            </p>
-            <a href="info-abend.html" style="display: inline-block; background: var(--navy); color: var(--gold); padding: 1.2rem 3rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none;">
-                Jetzt zum Info-Abend anmelden →
-            </a>
-        </div>
-    </div>
-</section>
+<!-- STICKY -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-left">
+    <strong>💸 Jeder Monat Nichtstun kostet dich echtes Geld.</strong>
+    <span class="sb-urgent">⚡ Business Seminar · Ab €139,40 · Nächster Termin: 07.–08. März</span>
+  </div>
+  <a href="business-seminar.html#anmeldung" class="btn-fire" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
+</div>
 
 <script>
-// Historische Inflationsdaten Österreich (1970-2026)
+/* ═══ NAV ═══ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
+  document.getElementById('stickyBar').classList.toggle('show',scrollY>500);
+});
+
+/* ═══ MOBILE MENU ═══ */
+document.getElementById('mobBtn').addEventListener('click',()=>{
+  const m=document.getElementById('mobMenu');
+  m.classList.toggle('open');
+  document.getElementById('mobBtn').textContent=m.classList.contains('open')?'✕':'☰';
+});
+document.querySelectorAll('.mob-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('mobBtn').textContent='☰';
+}));
+
+/* ═══ SCROLL ANIM ═══ */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('in');
+}),{threshold:.1});
+document.querySelectorAll('.anim,.anim-left,.anim-right').forEach(el=>obs.observe(el));
+
+/* ═══ EMBERS ═══ */
+function spawnEmber(){
+  const c=document.getElementById('embers');if(!c)return;
+  const e=document.createElement('div');e.className='ember';
+  const colors=['#e85d2a','#f5841f','#c8973b','#f0c060'];
+  const dur=4+Math.random()*5;
+  e.style.cssText=`left:${Math.random()*100}%;width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;animation-duration:${dur}s;animation-delay:${Math.random()*2}s;background:${colors[Math.floor(Math.random()*colors.length)]};--drift:${(Math.random()-.5)*100}px;`;
+  c.appendChild(e);
+  setTimeout(()=>e.remove(),(dur+3)*1000);
+}
+setInterval(spawnEmber,400);for(let i=0;i<5;i++)setTimeout(spawnEmber,i*200);
+
+/* ═══ MONEY DRAIN ANIMATION ═══ */
+const drainObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){
+    setTimeout(()=>{
+      ['drain1','drain2','drain3','drain4'].forEach((id,i)=>{
+        const el=document.getElementById(id);
+        if(el){setTimeout(()=>{const tw=el.style.getPropertyValue('--tw');el.style.width=tw},i*200)}
+      });
+    },200);
+    drainObs.unobserve(e.target);
+  }
+}),{threshold:.3});
+const drainSection=document.querySelector('.money-drain');
+if(drainSection)drainObs.observe(drainSection);
+
+/* ═══ INFLATIONSDATEN (Österreich, historisch) ═══ */
+// Ø jährliche Inflationsrate in % – vereinfachte Modellwerte basierend auf Statistik Austria
 const inflationData = {
-    1970: 4.4, 1971: 4.7, 1972: 6.3, 1973: 7.5, 1974: 9.5, 1975: 8.4, 1976: 7.3, 1977: 5.5, 1978: 3.6, 1979: 3.7,
-    1980: 6.3, 1981: 6.8, 1982: 5.4, 1983: 3.3, 1984: 5.7, 1985: 3.2, 1986: 1.7, 1987: 1.4, 1988: 2.0, 1989: 2.5,
-    1990: 3.3, 1991: 3.3, 1992: 4.0, 1993: 3.6, 1994: 3.0, 1995: 2.2, 1996: 1.8, 1997: 1.2, 1998: 0.8, 1999: 0.5,
-    2000: 2.0, 2001: 2.3, 2002: 1.7, 2003: 1.3, 2004: 2.0, 2005: 2.1, 2006: 1.7, 2007: 2.2, 2008: 3.2, 2009: 0.4,
-    2010: 1.7, 2011: 3.6, 2012: 2.6, 2013: 2.1, 2014: 1.5, 2015: 0.8, 2016: 0.9, 2017: 2.2, 2018: 2.0, 2019: 1.5,
-    2020: 1.4, 2021: 2.8, 2022: 8.6, 2023: 7.8, 2024: 2.9, 2025: 3.6, 2026: 2.0
+  2000:2.3,2001:2.7,2002:1.8,2003:1.3,2004:2.0,2005:2.1,
+  2006:1.7,2007:2.2,2008:3.2,2009:0.5,2010:1.9,2011:3.3,
+  2012:2.6,2013:2.1,2014:1.5,2015:0.9,2016:0.9,2017:2.2,
+  2018:2.0,2019:1.5,2020:1.4,2021:2.8,2022:8.6,2023:7.8,
+  2024:3.9,2025:3.5
 };
+const SPARBUCH_ZINS = 0.1; // 0,1%
+const INVEST_RENDITE = 7.0; // 7% p.a.
 
-const ATS_TO_EUR = 13.7603;
+function fmt(n){return new Intl.NumberFormat('de-AT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
+function fmtPct(n){return (n>=0?'+':'')+n.toFixed(1)+'%'}
 
-// Toggle table visibility
-function toggleTable() {
-    const table = document.getElementById('tableContainer');
-    const btn = document.getElementById('toggleTableBtn');
-    
-    if (table.style.display === 'none') {
-        table.style.display = 'block';
-        btn.textContent = '📊 Grafik anzeigen';
-    } else {
-        table.style.display = 'none';
-        btn.textContent = '📋 Tabelle anzeigen';
-    }
-}
+function berechnen(){
+  const betrag=parseFloat(document.getElementById('inputBetrag').value)||10000;
+  const startJahr=parseInt(document.getElementById('inputJahr').value);
+  const jahre=parseInt(document.getElementById('inputJahre').value);
+  const endJahr=startJahr+jahre;
 
-// Create inflation chart
-function createInflationChart() {
-    const years = [];
-    const rates = [];
-    
-    for (let year = 1970; year <= 2026; year++) {
-        if (inflationData[year]) {
-            years.push(year);
-            rates.push(inflationData[year]);
-        }
-    }
-    
-    const ctx = document.getElementById('inflationChart').getContext('2d');
-    
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: years,
-            datasets: [{
-                label: 'Inflation (Prozent)',
-                data: rates,
-                borderColor: '#e74c3c',
-                backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.1,
-                pointRadius: 2,
-                pointHoverRadius: 5,
-                pointBackgroundColor: '#e74c3c',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    titleFont: { size: 14, weight: 'bold' },
-                    bodyFont: { size: 13 },
-                    padding: 12,
-                    callbacks: {
-                        label: function(context) {
-                            return context.parsed.y.toFixed(1).replace('.', ',') + ' %';
-                        }
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Jahr',
-                        font: { size: 14, weight: 'bold' }
-                    },
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        maxRotation: 45,
-                        minRotation: 45
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Inflationsrate (%)',
-                        font: { size: 14, weight: 'bold' }
-                    },
-                    beginAtZero: true,
-                    max: 10,
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        callback: function(value) {
-                            return value.toFixed(0) + ' %';
-                        }
-                    }
-                }
-            }
-        }
+  // Calculate year-by-year
+  let realWert=betrag;    // Kaufkraft nach Inflation, Sparbuch mit 0.1%
+  let investWert=betrag;  // Investmentfonds mit 7%
+  const rows=[];
+
+  for(let j=startJahr;j<endJahr;j++){
+    const inf=(inflationData[j]||3.5)/100;
+    const zins=SPARBUCH_ZINS/100;
+    const inv=INVEST_RENDITE/100;
+    realWert=realWert*(1+zins)/(1+inf); // real nach Inflation
+    investWert=investWert*(1+inv);
+    rows.push({
+      year:j+1,
+      nominal:betrag,
+      real:realWert,
+      invest:investWert
     });
-}
+  }
 
-// Populate historical table
-function populateHistoricalTable() {
-    const tbody = document.getElementById('historical-table');
-    if (!tbody) return;
-    
-    let cumulativeValue = 100;
-    
-    for (let year = 1970; year <= 2026; year++) {
-        if (!inflationData[year]) continue;
-        
-        const rate = inflationData[year];
-        cumulativeValue *= (1 + rate / 100);
-        
-        const row = document.createElement('tr');
-        
-        // Highlight special years
-        if (rate >= 8) {
-            row.style.background = 'rgba(231, 76, 60, 0.1)';
-        } else if (rate <= 1) {
-            row.style.background = 'rgba(39, 174, 96, 0.1)';
-        }
-        
-        // Year
-        const yearCell = document.createElement('td');
-        yearCell.innerHTML = `<strong>${year}</strong>`;
-        row.appendChild(yearCell);
-        
-        // Inflation rate
-        const rateCell = document.createElement('td');
-        rateCell.textContent = rate.toFixed(1).replace('.', ',') + ' %';
-        if (rate >= 8) {
-            rateCell.style.color = 'var(--red)';
-            rateCell.style.fontWeight = '700';
-        }
-        row.appendChild(rateCell);
-        
-        // Value
-        const valueCell = document.createElement('td');
-        if (year >= 2002) {
-            // Show in EUR
-            const eurValue = cumulativeValue / ATS_TO_EUR;
-            valueCell.textContent = eurValue.toLocaleString('de-AT', {maximumFractionDigits: 2}) + ' €';
-        } else {
-            // Show in ATS
-            valueCell.textContent = cumulativeValue.toLocaleString('de-AT', {maximumFractionDigits: 2}) + ' ATS';
-        }
-        valueCell.style.fontWeight = '600';
-        row.appendChild(valueCell);
-        
-        tbody.appendChild(row);
-    }
-}
+  const finalReal=realWert;
+  const finalInvest=investWert;
+  const verlust=betrag-finalReal;
 
-// Calculate purchasing power loss
-function calculatePurchasingPower() {
-    const amount = parseFloat(document.getElementById('amount').value);
-    const years = parseInt(document.getElementById('years').value);
-    const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
-    
-    if (!amount || !years || inflationRate < 0) {
-        alert('Bitte füllen Sie alle Felder korrekt aus!');
-        return;
-    }
-    
-    // Calculate purchasing power after inflation
-    const purchasingPower = amount / Math.pow(1 + inflationRate, years);
-    const loss = amount - purchasingPower;
-    const lossPercent = ((loss / amount) * 100).toFixed(1);
-    
-    // Update results
-    document.getElementById('res-start').textContent = amount.toLocaleString('de-AT', {maximumFractionDigits: 2}) + ' €';
-    document.getElementById('res-end').textContent = purchasingPower.toLocaleString('de-AT', {maximumFractionDigits: 2}) + ' €';
-    document.getElementById('res-loss').textContent = '-' + loss.toLocaleString('de-AT', {maximumFractionDigits: 2}) + ' €';
-    document.getElementById('res-percent').textContent = '(-' + lossPercent.replace('.', ',') + '%)';
-    document.getElementById('res-after-label').textContent = 'Nach ' + years + ' Jahren';
-    
-    // Update explanation
-    document.getElementById('res-explanation').innerHTML = `
-        <strong>Die Kaufkraft von ${amount.toLocaleString('de-AT')} €</strong> sinkt über <strong>${years} Jahre</strong> 
-        bei <strong>${(inflationRate * 100).toFixed(1).replace('.', ',')} % Inflation</strong> pro Jahr 
-        auf <strong style="color: var(--gold); font-size: 1.2rem;">${purchasingPower.toLocaleString('de-AT', {maximumFractionDigits: 2})} €</strong>.<br><br>
-        <strong style="color: #e74c3c; font-size: 1.1rem;">Das ist ein Verlust von ${loss.toLocaleString('de-AT', {maximumFractionDigits: 2})} € bzw. ${lossPercent.replace('.', ',')}%!</strong><br><br>
-        Was Sie heute für ${amount.toLocaleString('de-AT')} € kaufen können, kostet in ${years} Jahren 
-        inflationsbereinigt ${(amount * Math.pow(1 + inflationRate, years)).toLocaleString('de-AT', {maximumFractionDigits: 2})} €.
+  // Fill in UI
+  document.getElementById('rn-verlust').textContent=fmt(verlust);
+  document.getElementById('rn-real').textContent=fmt(finalReal);
+  document.getElementById('rn-invest').textContent=fmt(finalInvest);
+
+  // Bar comparison
+  const maxVal=Math.max(betrag,finalInvest);
+  document.getElementById('bc-years').textContent=jahre;
+  document.getElementById('bc-orig').textContent=fmt(betrag);
+  document.getElementById('bc-kaufkraft').textContent=fmt(finalReal);
+  document.getElementById('bc-invest-val').textContent=fmt(finalInvest);
+  setTimeout(()=>{
+    document.getElementById('bc-bar-orig').style.width=(betrag/maxVal*100)+'%';
+    document.getElementById('bc-bar-kauf').style.width=(finalReal/maxVal*100)+'%';
+    document.getElementById('bc-bar-invest').style.width=(finalInvest/maxVal*100)+'%';
+  },100);
+
+  // Year table
+  const tbody=document.getElementById('ytBody');
+  tbody.innerHTML='';
+  const step=jahre<=10?1:jahre<=20?2:3;
+  for(let i=step-1;i<rows.length;i+=step){
+    const r=rows[i];
+    const diff=r.real-betrag;
+    const tr=document.createElement('div');
+    tr.className='yt-row';
+    tr.innerHTML=`
+      <div class="yt-year">${r.year}</div>
+      <div class="yt-orig">${fmt(betrag)}</div>
+      <div class="yt-real" style="color:${r.real<betrag?'var(--red)':'var(--green)'}">${fmt(r.real)}<br><small style="font-size:.72rem;color:rgba(255,255,255,.3)">${fmtPct((r.real/betrag-1)*100)}</small></div>
+      <div class="yt-invest">${fmt(r.invest)}<br><small style="font-size:.72rem;color:rgba(12,172,106,.6)">${fmtPct((r.invest/betrag-1)*100)}</small></div>
     `;
-    
-    document.getElementById('results').classList.add('show');
-    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    tbody.appendChild(tr);
+  }
+
+  // AHA text
+  const diff=finalInvest-finalReal;
+  const diffFactor=(finalInvest/betrag).toFixed(1);
+  document.getElementById('ahaText').innerHTML=`<strong>${fmt(betrag)}</strong> auf dem Sparbuch – nach <strong>${jahre} Jahren</strong> noch <em>${fmt(finalReal)}</em> wert. Im Investmentfonds: <strong>${fmt(finalInvest)}</strong>. Die Differenz: <em>${fmt(diff)}</em>.`;
+
+  // AHA callout
+  const pctLoss=((verlust/betrag)*100).toFixed(0);
+  document.getElementById('ahaTitle').textContent=`Der Unterschied: ${fmt(diff)} — nur durch das Wissen, was zu tun ist.`;
+  document.getElementById('ahaBody').innerHTML=`Du hast ${betrag.toLocaleString('de-AT')} Euro – dieselbe Zahl auf zwei Wegen. Sparbuch: nach ${jahre} Jahren <strong>${fmt(verlust)} Kaufkraft verloren</strong> – real nur noch ${fmt(finalReal)} wert. Investmentfonds: <strong>${fmt(finalInvest)}</strong>. Das ist kein Zufall. Kein Glück. Es ist das Ergebnis von Wissen – gegen Unwissenheit. <em>Dieser Unterschied von ${fmt(diff)} wartet darauf, für dich oder gegen dich zu arbeiten.</em>`;
+
+  // Show results
+  const resultsEl=document.getElementById('calcResults');
+  resultsEl.classList.add('show');
+  setTimeout(()=>resultsEl.scrollIntoView({behavior:'smooth',block:'nearest'}),200);
 }
 
-// Initialize
-populateHistoricalTable();
-createInflationChart();
+// Auto-berechnen beim Laden
+window.addEventListener('load',()=>setTimeout(berechnen,400));
 </script>
-
 </body>
 </html>
