@@ -424,7 +424,90 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 .sh h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sh p{font-size:1.02rem;color:rgba(255,255,255,.42);max-width:560px;margin:0 auto;line-height:1.8}
 
+/* ═══════════════════════
+   GAME CHANGER – Regel 72
+═══════════════════════ */
+.gamechanger-section{padding:110px 0;background:linear-gradient(180deg,var(--ink) 0%,#0c0a14 50%,var(--ink) 100%);position:relative;overflow:hidden}
+.gamechanger-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(200,151,59,.07) 0%,transparent 65%);pointer-events:none}
+.gamechanger-section::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.3),transparent)}
+.gc-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
+
+.gc-kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,151,59,.25);border-radius:4px;padding:7px 20px;font-size:.68rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:48px;background:rgba(200,151,59,.06)}
+.gc-kicker-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:glowDot 1.5s ease-in-out infinite}
+
+/* The big question */
+.gc-question-wrap{margin-bottom:44px}
+.gc-question-label{font-size:.75rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.gc-question{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-.025em}
+.gc-question em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.gc-rate{color:var(--wine2);font-style:normal}
+
+/* Reveal button */
+.gc-reveal-wrap{margin-bottom:0}
+.gc-reveal-teaser{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:24px}
+.gc-reveal-teaser span{display:block;font-size:1rem;color:rgba(255,255,255,.3);margin-top:4px}
+.gc-reveal-btn{background:linear-gradient(135deg,rgba(200,151,59,.12),rgba(200,151,59,.06));border:1.5px solid rgba(200,151,59,.35);color:var(--gold2);font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;padding:16px 44px;border-radius:8px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+.gc-reveal-btn:hover{background:rgba(200,151,59,.18);border-color:var(--gold);transform:translateY(-2px)}
+
+/* Answer reveal */
+.gc-answer{display:none;margin-top:48px;animation:fadeUp .7s ease both}
+.gc-answer.show{display:block}
+.gc-answer-inner{background:linear-gradient(135deg,rgba(232,93,42,.08),rgba(107,26,42,.06));border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:44px 36px;margin-bottom:36px;position:relative;overflow:hidden}
+.gc-answer-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--ember),var(--gold))}
+.gc-answer-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(7rem,18vw,12rem);line-height:.85;background:linear-gradient(135deg,var(--ember) 0%,var(--gold2) 60%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;animation:counterUp .8s .1s ease both}
+.gc-answer-unit{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,.6);font-style:italic;margin-top:-8px;margin-bottom:12px}
+.gc-answer-rule{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 20px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.gc-impact{background:rgba(232,93,42,.06);border-left:3px solid var(--ember);border-radius:0 12px 12px 0;padding:18px 22px;text-align:left;margin-bottom:32px}
+.gc-impact-text{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.75}
+.gc-impact-text strong{color:var(--white);font-size:1.05rem}
+
+/* Compare table */
+.gc-compare{margin-bottom:36px;text-align:left}
+.gc-compare-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;text-align:center}
+.gc-compare-grid{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden}
+.gc-cg-head{display:grid;grid-template-columns:100px 1fr 1fr;gap:0;background:rgba(255,255,255,.05);padding:10px 18px;font-size:.66rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28)}
+.gc-cg-row{display:grid;grid-template-columns:100px 1fr 1fr;gap:0;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);align-items:center;transition:background .2s}
+.gc-cg-row:last-child{border-bottom:none}
+.gc-cg-row:hover{background:rgba(255,255,255,.03)}
+.gc-cg-row.bad{background:rgba(255,40,40,.03)}
+.gc-cg-row.mid{background:rgba(255,180,0,.03)}
+.gc-cg-row.good{background:rgba(12,172,106,.04)}
+.gc-cg-row.best{background:rgba(12,172,106,.07)}
+.gcr-rate{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:rgba(255,255,255,.55)}
+.gcr-years span{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:rgba(255,255,255,.4)}
+.gc-cg-row.bad .gcr-years span{color:rgba(255,80,80,.7)}
+.gc-cg-row.good .gcr-years span,.good-years span{color:var(--green)!important}
+.gc-cg-row.best .gcr-years span,.best-years span{color:#4cd4a0!important;font-size:1.6rem!important}
+.gc-cg-row.best .gcr-rate{color:var(--gold)}
+.gcr-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.5px}
+.bad-tag{background:rgba(255,80,80,.1);color:rgba(255,120,120,.7);border:1px solid rgba(255,80,80,.15)}
+.mid-tag{background:rgba(255,180,0,.1);color:rgba(255,200,80,.7);border:1px solid rgba(255,180,0,.15)}
+.good-tag{background:rgba(12,172,106,.1);color:#4cd4a0;border:1px solid rgba(12,172,106,.2)}
+.best-tag{background:rgba(12,172,106,.15);color:#4cd4a0;border:1px solid rgba(12,172,106,.3)}
+
+/* Mario's personal moment */
+.gc-mario-moment{background:linear-gradient(135deg,rgba(200,151,59,.07),rgba(107,26,42,.05));border:1px solid rgba(200,151,59,.18);border-radius:18px;padding:36px 32px;margin-bottom:32px;position:relative;overflow:hidden;text-align:left}
+.gc-mario-moment::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2))}
+.gcm-quote-mark{font-family:'Cormorant Garamond',serif;font-size:6rem;color:rgba(200,151,59,.15);line-height:.7;margin-bottom:10px}
+.gcm-content p{font-size:.97rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:14px}
+.gcm-content p:last-child{margin-bottom:0}
+.gcm-content p strong{color:rgba(255,255,255,.88)}
+.gcm-content p em{color:var(--gold2);font-style:italic}
+.gcm-author{font-size:.82rem;font-weight:700;color:var(--gold);margin-top:18px;letter-spacing:1px}
+
+.gc-bottom-cta{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px;display:flex;flex-direction:column;align-items:center}
+.gc-bottom-text{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.75;text-align:center}
+.gc-bottom-text strong{color:rgba(255,255,255,.82)}
+
 /* RESPONSIVE */
+@media(max-width:768px){
+  .gc-question{font-size:2.4rem}
+  .gc-answer-num{font-size:7rem}
+  .gc-cg-head,.gc-cg-row{grid-template-columns:70px 1fr 1fr;font-size:.78rem}
+  .gc-mario-moment{padding:24px 20px}
+}
+
+
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
   .inv-card{max-width:480px;margin:0 auto}
@@ -534,7 +617,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             <div class="icd-icon">📅</div>
             <div>
               <div class="icd-label">Nächster Termin</div>
-              <div class="icd-value">Donnerstag, 26. März 2026</div>
+              <div class="icd-value">Dienstag, 26. März 2026</div>
             </div>
           </div>
           <div class="icd-row">
@@ -587,7 +670,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <div class="t-item"><span class="t-gem">✦</span> KOSTENLOS · JEDEN ERSTEN DONNERSTAG IM MONAT</div>
+    <div class="t-item"><span class="t-gem">✦</span> KOSTENLOS · JEDEN ERSTEN DIENSTAG IM MONAT</div>
     <div class="t-item"><span class="t-gem">🍷</span> WEIN UND BRÖTCHEN INKLUSIVE · KEINE VERKAUFSVERANSTALTUNG</div>
     <div class="t-item"><span class="t-gem">✦</span> MAX. 25 PERSONEN · INTIM · EHRLICH · PERSÖNLICH</div>
     <div class="t-item"><span class="t-gem">🏛️</span> SEIT 2 JAHREN · ÜBER 500 TEILNEHMER · GRAZ</div>
@@ -721,7 +804,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="ps-content">
             <div class="ps-title">Ankommen &amp; Kennenlernen</div>
             <div class="ps-text">Wein, Brötchen, entspannte Atmosphäre. Kein Druck, kein Programm. <strong>Einfach ankommen.</strong> Die besten Gespräche entstehen oft schon hier.</div>
-            <span class="ps-tag">🍷 Einlass ab 18:30 Uhr</span>
+            <span class="ps-tag">🍷 Einlass ab 18:00 Uhr</span>
           </div>
         </div>
         <div class="ps-item">
@@ -737,7 +820,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
         <div class="ps-item">
           <div class="ps-time-col">
-            <div class="ps-time">19:30</div>
+            <div class="ps-time">19:00</div>
             <div class="ps-line"></div>
           </div>
           <div class="ps-content">
@@ -748,7 +831,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
         <div class="ps-item">
           <div class="ps-time-col">
-            <div class="ps-time">20:00</div>
+            <div class="ps-time">19:30</div>
             <div class="ps-line"></div>
           </div>
           <div class="ps-content">
@@ -759,12 +842,12 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
         <div class="ps-item">
           <div class="ps-time-col">
-            <div class="ps-time">20:30</div>
+            <div class="ps-time">20:00</div>
             <div class="ps-line" style="display:none"></div>
           </div>
           <div class="ps-content">
             <div class="ps-title">Ende – oder auch nicht</div>
-            <div class="ps-text">Offiziell fertig. Aber wer bleibt, bleibt. <strong>Manche der besten Gespräche entstehen nach 20:30 Uhr</strong> – beim letzten Glas Wein, ganz ohne Agenda.</div>
+            <div class="ps-text">Offiziell fertig. Aber wer bleibt, bleibt. <strong>Manche der besten Gespräche entstehen nach 20:00 Uhr</strong> – beim letzten Glas Wein, ganz ohne Agenda.</div>
             <span class="ps-tag">🍷 Wer mag, bleibt gerne länger</span>
           </div>
         </div>
@@ -814,6 +897,102 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="tc-aha">DIE BANK-STRATEGIE</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME CHANGER – REGEL 72 -->
+<section class="gamechanger-section">
+  <div class="wrap">
+    <div class="gc-inner anim">
+
+      <div class="gc-kicker">
+        <span class="gc-kicker-dot"></span>
+        Der Moment, der alles verändert hat
+      </div>
+
+      <div class="gc-question-wrap">
+        <div class="gc-question-label">Eine einzige Frage.</div>
+        <div class="gc-question">
+          Wie lange braucht es,<br>bis aus <em>1 Euro</em> –<br>bei <span class="gc-rate">1 % Zinsen</span> –<br><em>2 Euro</em> werden?
+        </div>
+      </div>
+
+      <div class="gc-reveal-wrap">
+        <div class="gc-reveal-teaser">Weißt du die Antwort?<br><span>Die meisten Menschen tippen falsch. Sehr falsch.</span></div>
+        <button class="gc-reveal-btn" id="gcBtn" onclick="revealAnswer()">
+          <span id="gcBtnText">🔍 Antwort aufdecken</span>
+        </button>
+      </div>
+
+      <div class="gc-answer" id="gcAnswer">
+        <div class="gc-answer-inner">
+          <div class="gc-answer-num" id="gcNum">72</div>
+          <div class="gc-answer-unit">Jahre</div>
+          <div class="gc-answer-rule">Die Regel 72: 72 ÷ 1% = 72 Jahre</div>
+        </div>
+
+        <div class="gc-impact">
+          <div class="gc-impact-text">
+            <strong>72 Jahre.</strong> Fast ein ganzes Leben. Das ist die Mathematik hinter deinem Sparbuch mit 1 % Zinsen.
+          </div>
+        </div>
+
+        <!-- Compare table -->
+        <div class="gc-compare">
+          <div class="gc-compare-title">Was die Regel 72 über dein Geld verrät</div>
+          <div class="gc-compare-grid">
+            <div class="gc-cg-head">
+              <div>Zinssatz</div>
+              <div>Verdopplung in</div>
+              <div>Bewertung</div>
+            </div>
+            <div class="gc-cg-row bad">
+              <div class="gcr-rate">0,1 %</div>
+              <div class="gcr-years"><span>720 Jahre</span></div>
+              <div class="gcr-tag bad-tag">Sparbuch Österreich heute</div>
+            </div>
+            <div class="gc-cg-row bad">
+              <div class="gcr-rate">1 %</div>
+              <div class="gcr-years"><span>72 Jahre</span></div>
+              <div class="gcr-tag bad-tag">Bausparvertrag Ø</div>
+            </div>
+            <div class="gc-cg-row mid">
+              <div class="gcr-rate">3 %</div>
+              <div class="gcr-years"><span>24 Jahre</span></div>
+              <div class="gcr-tag mid-tag">Lebensversicherung Ø nach Kosten</div>
+            </div>
+            <div class="gc-cg-row good">
+              <div class="gcr-rate">7 %</div>
+              <div class="gcr-years good-years"><span>~10 Jahre</span></div>
+              <div class="gcr-tag good-tag">Investmentfonds hist. Ø</div>
+            </div>
+            <div class="gc-cg-row best">
+              <div class="gcr-rate">10 %</div>
+              <div class="gcr-years best-years"><span>~7 Jahre</span></div>
+              <div class="gcr-tag best-tag">Globale Aktienindizes langfristig</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mario's story tied to this moment -->
+        <div class="gc-mario-moment">
+          <div class="gcm-quote-mark">"</div>
+          <div class="gcm-content">
+            <p>Vor 18 Jahren saß ich in einem Seminar. Jemand stellte genau diese Frage. Ich dachte: vielleicht 20, 30 Jahre? Dann kam die Antwort. <strong>72 Jahre.</strong></p>
+            <p>Ich fuhr nach Hause, öffnete alle meine Unterlagen – Sparbuch, Bausparvertrag, Lebensversicherung, Bankfonds – und rechnete nach. Was ich sah, hat mich erschüttert. Und dann hat es mich befreit.</p>
+            <p><strong>Nicht weil ich wütend war. Sondern weil ich zum ersten Mal <em>verstanden</em> habe, wie das System wirklich funktioniert. Und dass ich es ändern kann.</strong></p>
+            <p>Diesen Moment will ich dir geben. An diesem Abend. Mit deinen eigenen Zahlen.</p>
+          </div>
+          <div class="gcm-author">— Mario Friedl</div>
+        </div>
+
+        <div class="gc-bottom-cta">
+          <div class="gc-bottom-text">Was ergibt die Regel-72 für dein Sparbuch, deinen Bausparvertrag, deine Lebensversicherung?<br><strong>Rechnest du es an diesem Abend selbst durch – kostenlos, persönlich, in Graz.</strong></div>
+          <a href="#anmelden" class="btn-wine" style="margin-top:20px">🍷 Meinen Platz sichern →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -881,7 +1060,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             <div class="dr-icon">📅</div>
             <div>
               <div class="dr-label">Nächster Termin</div>
-              <div class="dr-value">Donnerstag, 26. März 2026<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Danach: Jeden ersten Dienstag im Monat</span></div>
+              <div class="dr-value">Dienstag, 26. März 2026<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Danach: Jeden ersten Dienstag im Monat</span></div>
             </div>
           </div>
           <div class="dr-row">
@@ -1023,7 +1202,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
       <div class="form-card anim-right">
         <div class="form-card-head">
           <div class="fch-title">🍷 Kostenlos anmelden</div>
-          <div class="fch-sub">26. März 2026 · 18:30 Uhr · Graz · Wein &amp; Brötchen inklusive</div>
+          <div class="fch-sub">26. März 2026 · 18:30 – 20:00 Uhr · Graz · Wein &amp; Brötchen inklusive</div>
         </div>
         <div class="form-body">
           <form id="infoForm" action="https://formspree.io/f/mdagqzag" method="POST" onsubmit="handleFormSubmit(event)">
@@ -1052,7 +1231,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
               <label>Gewünschter Termin</label>
               <select name="wunschtermin">
                 <option value="">Nächster verfügbarer Termin (26. März)</option>
-                <option value="april-2026">26. März 2026</option>
+                <option value="maerz-2026">26. März 2026</option>
                 <option value="mai-2026">Mai 2026</option>
                 <option value="juni-2026">Juni 2026</option>
               </select>
@@ -1095,7 +1274,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="form-success" id="formSuccess">
             <div class="fs-icon">🎉</div>
             <div class="fs-title">Anmeldung bestätigt!</div>
-            <div class="fs-text">Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt sofort per E-Mail.<br><br><strong>07. April 2026 · 19:00 Uhr</strong><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Komm einfach vorbei. Ein Glas Wein wartet auf dich. 🍷</div>
+            <div class="fs-text">Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt sofort per E-Mail.<br><br><strong>26. März 2026 · 18:30 – 20:00 Uhr</strong><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Komm einfach vorbei. Ein Glas Wein wartet auf dich. 🍷</div>
           </div>
         </div>
       </div>
@@ -1160,7 +1339,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <p class="cc-sub">Kostenlos. Ohne Druck. Mit einem Glas Wein. Und mit dem Wissen, das du schon lange hättest haben sollen.</p>
     <div class="cc-details">
       <div class="cd-item"><span>📅</span><strong>26. März 2026</strong></div>
-      <div class="cd-item"><span>⏰</span><strong>18:30 Uhr</strong></div>
+      <div class="cd-item"><span>⏰</span><strong>18:30 – 20:00 Uhr</strong></div>
       <div class="cd-item"><span>📍</span><strong>Graz · Herrgottwiesgasse</strong></div>
       <div class="cd-item"><span>💶</span><strong>€ 0,00 · Kostenlos</strong></div>
     </div>
@@ -1198,6 +1377,15 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 </div>
 
 <script>
+/* GAME CHANGER REVEAL */
+function revealAnswer(){
+  const answer=document.getElementById('gcAnswer');
+  const btn=document.getElementById('gcBtn');
+  answer.classList.add('show');
+  btn.parentElement.parentElement.querySelector('.gc-reveal-wrap').style.display='none';
+  answer.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
 /* NAV */
 window.addEventListener('scroll',()=>{
   document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
@@ -1280,4 +1468,3 @@ async function handleFormSubmit(e){
 </script>
 </body>
 </html>
-
