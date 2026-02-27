@@ -324,8 +324,18 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   .result-nums{grid-template-columns:1fr}
   .yt-head,.yt-row{grid-template-columns:60px 1fr 1fr;font-size:.78rem}
   .yt-head div:nth-child(3),.yt-row .yt-invest{display:none}
-  .it-header,.it-row{grid-template-columns:1fr 1fr 1fr;font-size:.78rem}
-  .it-header div:nth-child(3),.it-header div:nth-child(4),.it-row .it-year:nth-child(3),.it-row .it-year:nth-child(4){display:none}
+  /* Items table mobile: stack as cards */
+  .items-table{border:none;background:none}
+  .it-header{display:none}
+  .it-row{display:flex;flex-direction:column;gap:0;padding:0;border-bottom:none;margin-bottom:10px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+  .it-name{padding:11px 14px 6px;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.05)}
+  .it-year{display:flex;justify-content:space-between;align-items:center;padding:6px 14px;font-size:.84rem;color:rgba(255,255,255,.4)}
+  .it-year::before{font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
+  .it-row .it-year:nth-child(2)::before{content:"2000"}
+  .it-row .it-year:nth-child(3)::before{content:"2015"}
+  .it-row .it-year:nth-child(4)::before{content:"2026 ▶"}
+  .it-row .it-year.highlight{color:var(--ember);font-weight:700;background:rgba(232,93,42,.05)}
+  .it-row .it-year:nth-child(4){border-top:1px solid rgba(232,93,42,.1)}
   .sticky-bar{flex-direction:column;text-align:center;gap:8px}
 }
 </style>
@@ -389,11 +399,11 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   <div class="ticker-inner">
     <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
     <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
-    <div class="t-item">📉 Ø SPARBUCHZINS 2024: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
+    <div class="t-item">📉 Ø SPARBUCHZINS 2026: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
     <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
     <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
     <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
-    <div class="t-item">📉 Ø SPARBUCHZINS 2024: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
+    <div class="t-item">📉 Ø SPARBUCHZINS 2026: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
     <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
   </div>
 </div>
@@ -451,7 +461,9 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
                   <option value="2010">2010</option>
                   <option value="2015">2015</option>
                   <option value="2020" selected>2020</option>
-                  <option value="2024">2024 (heute)</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026 (heute)</option>
                 </select>
               </div>
             </div>
@@ -587,38 +599,38 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="it-header">
             <div>Produkt</div>
             <div style="text-align:right">2000</div>
-            <div style="text-align:right">2010</div>
-            <div style="text-align:right">2024</div>
+            <div style="text-align:right">2015</div>
+            <div style="text-align:right">2026</div>
           </div>
           <div class="it-row">
             <div class="it-name"><span class="it-icon">🍞</span> Brot (1kg)</div>
             <div class="it-year">€ 1,20</div>
-            <div class="it-year">€ 1,80</div>
-            <div class="it-year highlight">€ 3,50</div>
+            <div class="it-year">€ 2,10</div>
+            <div class="it-year highlight">€ 3,80</div>
           </div>
           <div class="it-row">
             <div class="it-name"><span class="it-icon">⛽</span> Benzin (1L)</div>
             <div class="it-year">€ 0,82</div>
-            <div class="it-year">€ 1,14</div>
-            <div class="it-year highlight">€ 1,69</div>
+            <div class="it-year">€ 1,22</div>
+            <div class="it-year highlight">€ 1,72</div>
           </div>
           <div class="it-row">
             <div class="it-name"><span class="it-icon">☕</span> Kaffee (Café)</div>
             <div class="it-year">€ 1,60</div>
-            <div class="it-year">€ 2,50</div>
-            <div class="it-year highlight">€ 4,20</div>
+            <div class="it-year">€ 2,80</div>
+            <div class="it-year highlight">€ 4,60</div>
           </div>
           <div class="it-row">
             <div class="it-name"><span class="it-icon">🏥</span> Arztbesuch</div>
             <div class="it-year">€ 30</div>
-            <div class="it-year">€ 50</div>
-            <div class="it-year highlight">€ 90+</div>
+            <div class="it-year">€ 55</div>
+            <div class="it-year highlight">€ 95+</div>
           </div>
           <div class="it-row">
             <div class="it-name"><span class="it-icon">🏠</span> Miete (70m², Wien)</div>
             <div class="it-year">€ 550</div>
-            <div class="it-year">€ 820</div>
-            <div class="it-year highlight">€ 1.500+</div>
+            <div class="it-year">€ 950</div>
+            <div class="it-year highlight">€ 1.700+</div>
           </div>
         </div>
         <span class="fc-aha-tag" style="margin-top:14px">📊 Alles teurer – Sparbuch gleich</span>
@@ -843,7 +855,7 @@ const inflationData = {
   2006:1.7,2007:2.2,2008:3.2,2009:0.5,2010:1.9,2011:3.3,
   2012:2.6,2013:2.1,2014:1.5,2015:0.9,2016:0.9,2017:2.2,
   2018:2.0,2019:1.5,2020:1.4,2021:2.8,2022:8.6,2023:7.8,
-  2024:3.9,2025:3.5
+  2024:3.9,2025:3.2,2026:2.8
 };
 const SPARBUCH_ZINS = 0.1; // 0,1%
 const INVEST_RENDITE = 7.0; // 7% p.a.
