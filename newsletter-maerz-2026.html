@@ -64,7 +64,7 @@ body {
 
 .ticker-track {
   display: flex;
-  animation: ticker 60s linear infinite;
+  animation: ticker 35s linear infinite;
   gap: 0;
   align-items: center;
   height: 100%;
@@ -481,11 +481,21 @@ nav {
 }
 
 /* Price table */
+.price-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+  border-radius: 10px;
+}
 .price-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
-  margin: 20px 0;
   font-size: .85rem;
+}
+@media(max-width:640px){
+  .price-table thead th { font-size:.62rem; padding: 8px 10px; }
+  .price-table tbody td { padding: 10px 10px; font-size:.78rem; }
 }
 .price-table thead th {
   text-align: left;
@@ -882,6 +892,156 @@ footer a { color: rgba(200,151,59,.6); }
   .breaking { padding: 16px 18px; flex-direction: column; gap: 10px; }
   .zins-row { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Info-Abend Card ── */
+.info-abend-card {
+  background: linear-gradient(160deg, var(--dark2) 0%, rgba(200,151,59,.08) 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 36px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.info-abend-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.ia-eyebrow {
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.ia-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.ia-title em { color: var(--gold); font-style: italic; }
+.ia-sub {
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.ia-sub strong { color: var(--white); }
+.ia-points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.ia-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .85rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.5;
+}
+.ia-check {
+  color: var(--gold);
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ia-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--ink);
+  font-weight: 900;
+  font-size: .9rem;
+  padding: 13px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(200,151,59,.3);
+  transition: all .2s;
+}
+.ia-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,151,59,.4); }
+
+/* Date card */
+.ia-right { flex-shrink: 0; }
+.ia-date-card {
+  background: var(--dark3);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  min-width: 140px;
+}
+.ia-date-month {
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.ia-date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.ia-date-year {
+  font-size: .78rem;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 14px;
+}
+.ia-divider-line {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 14px;
+}
+.ia-time {
+  font-size: .82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 6px;
+}
+.ia-location {
+  font-size: .78rem;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 10px;
+}
+.ia-spots {
+  font-size: .74rem;
+  color: rgba(255,255,255,.4);
+  background: rgba(200,151,59,.1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+.ia-spots strong { color: var(--gold); }
+
+@media(max-width:768px){
+  .info-abend-card {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+    gap: 24px;
+  }
+  .ia-date-card { display: flex; align-items: center; gap: 16px; padding: 18px 20px; min-width: auto; }
+  .ia-date-day { font-size: 2.4rem; margin-bottom: 0; }
+  .ia-date-year { margin-bottom: 0; }
+  .ia-divider-line { display: none; }
+  .ia-date-card > * { text-align: left; }
+}
 </style>
 </head>
 <body>
@@ -1131,7 +1291,7 @@ footer a { color: rgba(200,151,59,.6); }
 
       <h3>Wichtige Einschätzungen für 2026</h3>
 
-      <table class="price-table">
+      <div class="price-table-wrap"><table class="price-table">
         <thead>
           <tr>
             <th>Metall</th>
@@ -1172,7 +1332,7 @@ footer a { color: rgba(200,151,59,.6); }
             <td>KI-Rechenzentren, Elektrifizierung</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       <div class="warning-box">
         <p><strong>⚠️ Wichtig:</strong> Edelmetalle schwanken stark! Ein Anteil von <strong>5–10% des Gesamtvermögens</strong> als Absicherung ist sinnvoll – aber nicht als Hauptanlage. Wer 2025 früh in Gold eingestiegen ist, hat <strong>+64%</strong> erzielt. Wer nach dem Hoch kaufte, hat verloren.</p>
@@ -1295,12 +1455,30 @@ footer a { color: rgba(200,151,59,.6); }
     </div>
   </section>
 
-  <!-- ═══ MARIO QUOTE ═══ -->
-  <div class="mario-quote">
-    <div class="mario-quote-placeholder">MF</div>
-    <div class="mario-quote-body">
-      <blockquote>"Ich war 20 Jahre alt, hatte 30.000 Euro Schulden und sparte trotzdem fleißig – auf Konten, die mich jeden Monat ärmer machten. Niemand hat mir erklärt, was wirklich passiert. Das ist der Grund, warum ich heute tue, was ich tue. Jeder Mensch verdient eine ehrliche, unabhängige Einschätzung seines Geldes."</blockquote>
-      <cite>— Mario Friedl · Unabhängiger Finanzberater · FMA-konzessioniert · Graz</cite>
+  <!-- ═══ INFO-ABEND CTA ═══ -->
+  <div class="info-abend-card">
+    <div class="ia-left">
+      <div class="ia-eyebrow">🍷 Nächster Termin · 26. März 2026 · Graz</div>
+      <h2 class="ia-title">Diese Themen live erleben –<br><em>kostenloser Info-Abend</em></h2>
+      <p class="ia-sub">Iran-Krieg, Ölpreisschock, Edelmetalle, Finanzierungschancen – all das bespreche ich live mit dir. Keine Theorie, sondern konkrete Antworten auf deine persönliche Situation. <strong>Kostenlos. Unverbindlich. Kein Bürotermin.</strong></p>
+      <div class="ia-points">
+        <div class="ia-point"><span class="ia-check">✓</span> Aktuelle Börsenlage & was du jetzt tun solltest</div>
+        <div class="ia-point"><span class="ia-check">✓</span> Iran-Krieg – Chancen &amp; Risiken für Anleger</div>
+        <div class="ia-point"><span class="ia-check">✓</span> Edelmetalle, Fonds &amp; Immobilienfinanzierung</div>
+        <div class="ia-point"><span class="ia-check">✓</span> Deine Fragen – live beantwortet</div>
+      </div>
+      <a href="info-abend.html" class="ia-btn">🍷 Jetzt kostenlos anmelden →</a>
+    </div>
+    <div class="ia-right">
+      <div class="ia-date-card">
+        <div class="ia-date-month">MÄRZ</div>
+        <div class="ia-date-day">26</div>
+        <div class="ia-date-year">2026</div>
+        <div class="ia-divider-line"></div>
+        <div class="ia-time">18:30 – 20:00 Uhr</div>
+        <div class="ia-location">📍 Graz</div>
+        <div class="ia-spots">Noch <strong>17</strong> Plätze frei</div>
+      </div>
     </div>
   </div>
 
@@ -1310,7 +1488,7 @@ footer a { color: rgba(200,151,59,.6); }
     <p>Finanzierung prüfen lassen? Sparplan aufbauen? Edelmetallfonds ergänzen? Ich analysiere deine Situation kostenlos und unverbindlich – ohne Bürotermin, ohne Verkaufsdruck.</p>
     <a href="index.html#upload" class="btn-gold">📎 Unterlagen hochladen – kostenlos →</a>
     <div class="cta-contacts">
-      <a href="mailto:office@finanzberater-friedl.info">✉ office@finanzberater-friedl.info</a>
+      <a href="/cdn-cgi/l/email-protection#b3dcd5d5dad0d6f3d5daddd2ddc9d1d6c1d2c7d6c19ed5c1dad6d7df9ddaddd5dc">✉ <span class="__cf_email__" data-cfemail="83ece5e5eae0e6c3e5eaede2edf9e1e6f1e2f7e6f1aee5f1eae6e7efadeaede5ec">[email&#160;protected]</span></a>
       <a href="tel:+436605256328">📞 +43 660 5256328</a>
       <a href="https://finanzberater-friedl.info">🌐 finanzberater-friedl.info</a>
     </div>
@@ -1330,8 +1508,4 @@ footer a { color: rgba(200,151,59,.6); }
   <p><strong>⚠️ Rechtlicher Hinweis &amp; Risikohinweis</strong></p>
   <p>Dieser Newsletter dient ausschließlich zu Informationszwecken und stellt keine individuelle Anlageberatung dar. Veranlagungen in Finanzinstrumente, Edelmetalle und Immobilien sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Die Wertentwicklung der Vergangenheit ist kein verlässlicher Indikator für die Zukunft.</p>
   <p style="margin-top:10px;">Die Marktdaten im Ticker sind orientierungshalber und können verzögert oder gerundet sein. Bitte stets aktuelle Kurse bei lizenzierten Datenanbietern prüfen.</p>
-  <p style="margin-top:10px;font-size:.73rem;opacity:.6">Stand: 1. März 2026 · Quellen: EZB, Infina, WallStreet-Online, Business Insider, Heraeus Precious Metals, GOLD.DE, Statistik Austria · © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
-</footer>
-
-</body>
-</html>
+  <p style="margin-top:10px;font-size:.73rem;opacity:.6">Stand: 1. März 2026 · Quellen: EZB, Infina, WallStreet-Online, Business Insider, Heraeus Precious Metals, GOLD.DE, Statistik Austria · © 2026 Mario Friedl · EQUALITY EH Gmb
