@@ -795,9 +795,15 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 /* ══════════════════════════════════════════
    MODAL SYSTEM
 ══════════════════════════════════════════ */
-.modal{display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.85);overflow-y:auto}
-.modal.active{display:flex;align-items:center;justify-content:center;padding:2rem}
-.modal-content{background:var(--white);padding:2.5rem;border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.modal{display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.85);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal.active{display:flex;align-items:flex-start;justify-content:center;padding:1.5rem 1rem 3rem}
+.modal-content{background:var(--white);padding:2.5rem;border-radius:20px;max-width:620px;width:100%;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.35);margin:auto}
+@media(max-width:600px){
+  .modal.active{padding:.75rem .75rem 4rem;align-items:flex-start}
+  .modal-content{padding:1.6rem 1.1rem 1.8rem;border-radius:16px;width:100%;margin:0}
+  .modal h3{font-size:1.4rem!important}
+  .fm-form-title{font-size:1.3rem!important}
+}
 .modal-close{position:absolute;top:1.2rem;right:1.2rem;background:var(--cream);border:none;font-size:1.6rem;color:var(--ink);cursor:pointer;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .3s;line-height:1;font-family:'Lato',sans-serif}
 .modal-close:hover{background:var(--gold);color:white;transform:rotate(90deg)}
 .modal h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--ink);margin-bottom:.75rem}
@@ -2716,40 +2722,38 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
 </form>
 </div></div>
 
-<!-- NEUES MODAL: Finanzierung Analyse/Auszug – nur Name + Mail Pflicht -->
+<!-- MODAL: Finanzierung Analyse – Pflicht Name+Mail, alle Immo-Felder optional -->
 <div id="finanzierungAnalyseModal" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal('finanzierungAnalyseModal')">×</button>
-<div class="fm-story">
-  <div class="fm-story-tag">Kreditanalyse · Kostenlos · 24h Antwort</div>
-  <p class="fm-story-text">
-    Lade deinen Kreditauszug oder Vertrag hoch – ich vergleiche <strong>15+ Banken</strong> und zeige dir, ob du zu viel zahlst.<br>
-    <em>Keine Verpflichtung. Kein Bürotermin. Nur ein ehrliches Ergebnis.</em>
-  </p>
-</div>
 <h3 class="fm-form-title">📎 Kreditauszug hochladen &amp; anfragen</h3>
-<p class="fm-form-sub">Bestehende Finanzierung analysieren oder Neufinanzierung anfragen – Pflichtfelder: nur Name und E-Mail.</p>
+<p class="fm-form-sub">Bestehende Finanzierung analysieren oder Neufinanzierung anfragen – <strong>Pflichtfelder: nur Name und E-Mail.</strong> Alle weiteren Angaben helfen mir, dir sofort das beste Angebot zu zeigen.</p>
 <form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data">
 <input type="hidden" name="formular_typ" value="📎 KREDITANALYSE / ANFRAGE">
+<div class="form-group"><label>Name, Vorname *</label><input type="text" name="name" placeholder="z.B. Anna Müller" required></div>
+<div class="form-group"><label>E-Mail *</label><input type="email" name="email" placeholder="deine@email.at" required></div>
+<div class="form-group"><label>Telefon <span class="label-opt">(optional)</span></label><input type="tel" name="telefon" placeholder="+43 ..."></div>
 <div class="form-row">
-  <div class="form-group">
-    <label>Name, Vorname *</label>
-    <input type="text" name="name" placeholder="z.B. Anna Müller" required>
-  </div>
-  <div class="form-group">
-    <label>E-Mail *</label>
-    <input type="email" name="email" placeholder="deine@email.at" required>
-  </div>
+  <div class="form-group"><label>Kaufpreis / Baukosten (€) <span class="label-opt">(optional)</span></label><input type="number" name="kaufpreis" min="0" placeholder="z.B. 350000"></div>
+  <div class="form-group"><label>Eigenkapital (€) <span class="label-opt">(optional)</span></label><input type="number" name="eigenkapital" min="0" placeholder="z.B. 80000"></div>
 </div>
-<div class="form-group">
-  <label>Mein Anliegen <span class="label-opt">(optional)</span></label>
+<div class="form-group"><label>Objektart <span class="label-opt">(optional)</span></label>
+  <select name="objektart"><option value="">Bitte wählen...</option><option>Eigentumswohnung</option><option>Haus</option><option>Grundstück</option><option>Bauvorhaben</option></select>
+</div>
+<div class="form-group"><label>Mein Anliegen <span class="label-opt">(optional)</span></label>
   <select name="anliegen">
     <option value="">Was kann ich für dich tun?</option>
-    <option value="analyse">Bestehenden Kredit analysieren – bessere Konditionen finden</option>
+    <option value="analyse">Bestehenden Kredit analysieren</option>
     <option value="neu">Neufinanzierung – Haus oder Wohnung kaufen</option>
     <option value="umschuldung">Umschuldung – bestehenden Kredit ablösen</option>
-    <option value="info">Ich bin noch in der Planung</option>
+    <option value="planung">Ich bin noch in der Planung</option>
   </select>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Netto-Einkommen/Mon. (€) <span class="label-opt">(optional)</span></label><input type="number" name="einkommen" min="0" placeholder="z.B. 2800"></div>
+  <div class="form-group"><label>Gewünschte Laufzeit <span class="label-opt">(optional)</span></label>
+    <select name="laufzeit"><option value="">Bitte wählen...</option><option>15 Jahre</option><option>20 Jahre</option><option>25 Jahre</option><option>30+ Jahre</option></select>
+  </div>
 </div>
 <div class="form-group">
   <label>📎 Kreditauszug oder Vertrag hochladen <span class="label-opt">(optional – aber hilfreich)</span></label>
@@ -2761,8 +2765,7 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
   <input type="file" id="analyseFile" name="kreditauszug" accept=".pdf,.jpg,.jpeg,.png" multiple style="display:none"
     onchange="document.getElementById('analyseFileLabel').textContent='✓ '+Array.from(this.files).map(f=>f.name).join(', ');document.getElementById('analyseFileLabel').style.color='var(--green)';this.previousElementSibling.classList.add('has-file')">
 </div>
-<div class="form-group">
-  <label>Nachricht <span class="label-opt">(optional)</span></label>
+<div class="form-group"><label>Weitere Anmerkungen <span class="label-opt">(optional)</span></label>
   <textarea name="nachricht" rows="2" placeholder="Kurz deine Situation – was beschäftigt dich?"></textarea>
 </div>
 <div class="fm-privacy">
@@ -2843,25 +2846,24 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
 <div class="modal-content">
 <button class="modal-close" onclick="closeModal('depotFormModal')">×</button>
 <h3>💼 Depot-Analyse</h3>
-<p>Lass dein Wertpapierdepot professionell analysieren</p>
+<p>Lass dein Wertpapierdepot professionell analysieren – Pflichtfelder: nur Name und E-Mail.</p>
 <form action="https://formspree.io/f/mzdryjoe" method="POST" class="web-form">
-<div class="form-row">
-  <div class="form-group"><label>Name, Vorname *</label><input type="text" name="name" required></div>
-  <div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
+<div class="form-group"><label>Name, Vorname *</label><input type="text" name="name" required></div>
+<div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
+<div class="form-group"><label>Telefon <span class="label-opt">(optional)</span></label><input type="tel" name="telefon"></div>
+<div class="form-group"><label>Depotbank / Broker *</label><input type="text" name="depotbank" required placeholder="z.B. Flatex, Erste Bank, Comdirect..."></div>
+<div class="form-group"><label>ISIN-Nummern meiner Positionen <span class="label-opt">(optional – aber sehr hilfreich)</span></label>
+  <textarea name="isin_nummern" rows="3" placeholder="z.B. IE00B4L5Y983&#10;LU0274208692&#10;AT0000809058&#10;(eine ISIN pro Zeile)" style="font-family:monospace;font-size:.85rem"></textarea>
+  <p style="font-size:.78rem;color:var(--muted);margin-top:.3rem">Die ISIN findest du in deinem Depotauszug oder auf der Produktseite deiner Bank.</p>
 </div>
-<div class="form-group"><label>Telefon</label><input type="tel" name="telefon"></div>
-<div class="form-group"><label>Depotbank / Broker *</label><input type="text" name="depotbank" required></div>
-<div class="form-row">
-  <div class="form-group"><label>Depotvolumen (€, ca.)</label><input type="number" name="depotvolumen" min="0"></div>
-  <div class="form-group"><label>Anzahl Positionen (ca.)</label><input type="number" name="positionen" min="0"></div>
-</div>
+<div class="form-group"><label>Anzahl Positionen (ca.) <span class="label-opt">(optional)</span></label><input type="number" name="positionen" min="0" placeholder="z.B. 5"></div>
 <div class="form-group"><label>Was analysiert werden soll *</label>
   <select name="analysewunsch" required><option value="">Bitte wählen...</option><option>Kostenanalyse (TER, Gebühren)</option><option>Diversifikation / Risikostreuung</option><option>Performance-Check</option><option>Optimierungsvorschläge</option><option>Komplette Analyse</option></select>
 </div>
-<div class="form-group"><label>Zufriedenheit aktuell</label>
+<div class="form-group"><label>Zufriedenheit aktuell <span class="label-opt">(optional)</span></label>
   <select name="zufriedenheit"><option value="">Bitte wählen...</option><option>Sehr zufrieden</option><option>Neutral – möchte Zweitmeinung</option><option>Unzufrieden – suche bessere Strategie</option></select>
 </div>
-<div class="form-group"><label>Bekannte Fragen / Probleme</label><textarea name="probleme"></textarea></div>
+<div class="form-group"><label>Bekannte Fragen / Probleme <span class="label-opt">(optional)</span></label><textarea name="probleme" rows="2" placeholder="Was beschäftigt dich bei deinem Depot?"></textarea></div>
 <button type="submit" class="btn-calculate">Absenden →</button>
 <p style="font-size:.8rem;color:var(--muted);margin-top:.75rem">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zu.</p>
 </form>
