@@ -863,16 +863,20 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 /* ══════════════════════════════════════════
    CAREER SECTION
 ══════════════════════════════════════════ */
-.career-section{padding:100px 28px;background:linear-gradient(135deg,var(--gold) 0%,#e8a830 100%)}
-.career-section .eyebrow{color:rgba(15,25,35,.5)}
-.career-section h2{color:var(--ink)}
-.career-section p{color:rgba(15,25,35,.75)}
-.career-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.75rem;margin-top:3rem}
-.benefit-item{background:rgba(255,255,255,.35);backdrop-filter:blur(10px);padding:2rem;border-radius:16px;border:1px solid rgba(15,25,35,.08);transition:all .3s}
-.benefit-item:hover{background:rgba(255,255,255,.5);transform:translateY(-4px)}
+.career-section{padding:100px 28px;background:linear-gradient(160deg,#0a1520 0%,#0f1923 60%,#131f2e 100%);position:relative;overflow:hidden}
+.career-section::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(197,156,70,.13) 0%,transparent 70%);pointer-events:none}
+.career-section::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(197,156,70,.08) 0%,transparent 70%);pointer-events:none}
+.career-section .eyebrow{color:var(--gold);opacity:.85}
+.career-section h2{color:#fff}
+.career-section h2 em{color:var(--gold2)}
+.career-section>div>p{color:rgba(255,255,255,.72)}
+.career-section>div>p em{color:rgba(255,255,255,.95);font-style:italic}
+.career-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;position:relative;z-index:1}
+.benefit-item{background:rgba(255,255,255,.05);backdrop-filter:blur(8px);padding:2rem;border-radius:16px;border:1px solid rgba(197,156,70,.18);transition:all .3s}
+.benefit-item:hover{background:rgba(197,156,70,.1);border-color:rgba(197,156,70,.4);transform:translateY(-4px)}
 .benefit-icon{font-size:2rem;margin-bottom:1rem}
-.benefit-item h4{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.75rem;color:var(--ink)}
-.benefit-item p{color:rgba(15,25,35,.7);line-height:1.7;font-size:.92rem}
+.benefit-item h4{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.75rem;color:#fff}
+.benefit-item p{color:rgba(255,255,255,.62);line-height:1.7;font-size:.92rem}
 
 /* ══════════════════════════════════════════
    UPLOAD SECTION
@@ -2385,10 +2389,10 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <p>Individuelles Mentoring, wöchentliche Strategie-Meetings und direkter Support bei allen Herausforderungen. Du bist nie allein.</p>
       </div>
     </div>
-    <div style="text-align:center;margin-top:3rem">
-      <a href="#kontakt" class="btn-gold" style="background:var(--ink);color:var(--gold2);box-shadow:0 8px 28px rgba(15,25,35,.3)">Karrieregespräch vereinbaren →</a>
-      <p style="margin-top:1.2rem;font-size:.95rem;opacity:.7">Oder:</p>
-      <a href="karriere-check.html" style="display:inline-block;margin-top:.75rem;padding:.9rem 2rem;border:2px solid rgba(15,25,35,.3);border-radius:50px;color:var(--ink);font-weight:700;text-decoration:none;transition:all .2s">📋 Karriere-Check machen → <small style="display:block;font-weight:400;font-size:.78rem;opacity:.6">10 Fragen · 5 Minuten · Kostenlos</small></a>
+    <div style="text-align:center;margin-top:3rem;position:relative;z-index:1">
+      <a href="#kontakt" class="btn-gold">Karrieregespräch vereinbaren →</a>
+      <p style="margin-top:1.2rem;font-size:.95rem;color:rgba(255,255,255,.45)">Oder:</p>
+      <a href="karriere-check.html" style="display:inline-block;margin-top:.75rem;padding:.9rem 2rem;border:2px solid rgba(197,156,70,.4);border-radius:50px;color:var(--gold2);font-weight:700;text-decoration:none;transition:all .2s">📋 Karriere-Check machen → <small style="display:block;font-weight:400;font-size:.78rem;opacity:.6">10 Fragen · 5 Minuten · Kostenlos</small></a>
     </div>
   </div>
 </section>
