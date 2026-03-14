@@ -85,9 +85,9 @@ body{font-family:var(--font-b);background:var(--navy3);color:var(--white);overfl
 /* ── NAV ──────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:12px 5%;background:rgba(10,20,40,.95);
+  padding:12px 5%;background:rgba(10,20,40,.97);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(201,168,76,.15);}
+  border-bottom:1px solid rgba(201,168,76,.15);height:62px;}
 .nl{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nl img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(201,168,76,.4);}
 .nl-name{font-family:var(--font-h);font-size:1rem;font-weight:600;color:var(--white);}
@@ -97,6 +97,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;
 .nav-btn1:hover{border-color:var(--gold);color:var(--gold);}
 .nav-btn2{background:var(--gold);color:var(--navy3);padding:8px 18px;border-radius:6px;font-weight:700;font-size:.8rem;text-decoration:none;transition:.2s;white-space:nowrap;}
 .nav-btn2:hover{background:var(--gold2);}
+
+/* Hamburger */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:201;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile slide-down menu */
+.mobile-nav{display:none;position:fixed;top:62px;left:0;right:0;z-index:199;
+  background:rgba(10,20,40,.99);border-bottom:1px solid rgba(201,168,76,.2);
+  padding:20px 24px 28px;flex-direction:column;gap:10px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a,.mobile-nav button.mn-btn{
+  display:block;padding:13px 16px;border-radius:8px;
+  font-size:.95rem;font-weight:600;color:rgba(255,255,255,.75);
+  text-decoration:none;border:1px solid rgba(255,255,255,.1);
+  background:none;cursor:pointer;font-family:var(--font-b);
+  text-align:left;transition:all .2s;width:100%;}
+.mobile-nav a:hover,.mobile-nav button.mn-btn:hover{color:var(--gold);border-color:rgba(201,168,76,.3);}
+.mobile-nav .mn-cta{background:var(--gold)!important;color:var(--navy3)!important;border-color:var(--gold)!important;font-weight:700!important;text-align:center!important;margin-top:4px;}
+
+@media(max-width:680px){
+  .nav-btns{display:none;}
+  .nav-hamburger{display:flex;}
+}
 
 /* ── HERO ──────────────────────────────────── */
 .hero{min-height:100vh;display:flex;align-items:center;padding:110px 5% 60px;
@@ -423,7 +449,7 @@ footer a:hover{color:var(--gold);}
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="mainNav">
   <a href="https://finanzberater-friedl.info" class="nl">
     <img src="https://finanzberater-friedl.info/mario-profilbild.jpg" alt="Mario Friedl">
     <div><div class="nl-name">Mario Friedl</div><div class="nl-sub">Unabhängige Finanzberatung · Graz</div></div>
@@ -433,7 +459,18 @@ footer a:hover{color:var(--gold);}
     <a href="https://finanzberater-friedl.info/info-abend.html" class="nav-btn1">🍷 Info-Abend</a>
     <a href="#app-sec" class="nav-btn2">Gold Sparplan starten →</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="https://finanzberater-friedl.info/info-abend.html" onclick="closeMobileNav()">🍷 Info-Abend besuchen</a>
+  <button class="mn-btn" onclick="openCode();closeMobileNav()">🔑 Partner-Code einlösen</button>
+  <a href="https://finanzberater-friedl.info" onclick="closeMobileNav()">🏠 Zur Hauptseite</a>
+  <a href="#app-sec" class="mn-cta" onclick="closeMobileNav()">Gold Sparplan starten →</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1069,6 +1106,26 @@ function submitPartner(){
     alert('Verbindungsfehler. Bitte versuche es nochmal.');
   });
 }
+
+// ── MOBILE NAV ────────────────────────────────
+function toggleMobileNav(){
+  const nav=document.getElementById('mobileNav');
+  const btn=document.getElementById('navHamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open');
+}
+// Close on outside click
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav');
+  const btn=document.getElementById('navHamburger');
+  if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    closeMobileNav();
+  }
+});
 
 // ── SCROLL ANIMATIONS ─────────────────────────
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.08});
