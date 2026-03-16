@@ -607,7 +607,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         und ein Wochenende, das dein Denken dauerhaft verändert.
       </p>
       <div class="hero-event-bar">
-        <div class="event-pill hot"><span>🔥</span> Nächster Termin: 07.–08. März 2026</div>
+        <div class="event-pill hot"><span>🔥</span> Nächster Termin: 11.–12. April 2026</div>
         <div class="event-pill"><span>📍</span> 2 Premium-Locations · AT</div>
         <div class="event-pill"><span>👥</span> Max. 70 Teilnehmer</div>
         <div class="event-pill"><span>🏨</span> Inkl. Übernachtung möglich</div>
@@ -629,8 +629,8 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
         <div class="seats-bar">
           <div class="seats-labels">
-            <span class="sl-free">Noch <strong>~28 Plätze</strong> frei</span>
-            <span class="sl-taken">42/70 vergeben</span>
+            <span class="sl-free">Noch <strong>25 Plätze</strong> frei</span>
+            <span class="sl-taken">45/70 vergeben</span>
           </div>
           <div class="seats-track"><div class="seats-fill" id="seatsFill"></div></div>
         </div>
@@ -1200,19 +1200,21 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <span id="termineToggleText">Alle Termine anzeigen</span>
         <span id="termineArrow" style="font-size:.9rem;transition:transform .3s;display:inline-block">▼</span>
       </button>
-      <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:10px">Nächster Termin: <strong style="color:var(--ember)">07.–08. März 2026 · Genusshotel Riegersburg</strong></p>
+      <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:10px">Nächster Termin: <strong style="color:var(--ember)">11.–12. April 2026 · Hotel Alpenblick</strong></p>
     </div>
 
     <!-- Hidden termine grid -->
     <div id="termineGrid" style="display:none;margin-bottom:0">
       <div class="termine-grid">
-        <div class="termin-card" onclick="selectTermin(this,'07.–08. März 2026','Genusshotel Riegersburg')">
+        <div class="termin-card" style="opacity:.45;pointer-events:none;position:relative">
+          <div style="position:absolute;top:8px;right:10px;background:#EF4444;color:#fff;font-size:.6rem;font-weight:900;letter-spacing:1px;padding:2px 8px;border-radius:4px">AUSGEBUCHT</div>
           <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
           <div class="tc-date">07.–08. März 2026</div>
           <div class="tc-location">Genusshotel Riegersburg</div>
         </div>
-        <div class="termin-card" onclick="selectTermin(this,'11.–12. April 2026','Hotel Alpenblick Linz')">
-          <div class="tc-hotel linz">🏔️ Linz</div>
+        <div class="termin-card selected" onclick="selectTermin(this,'11.–12. April 2026','Hotel Alpenblick')">
+          <div style="position:absolute;top:8px;right:10px;background:var(--ember);color:#fff;font-size:.6rem;font-weight:900;letter-spacing:1px;padding:2px 8px;border-radius:4px">NÄCHSTER</div>
+          <div class="tc-hotel linz">🏔️ Alpenblick</div>
           <div class="tc-date">11.–12. April 2026</div>
           <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
         </div>
@@ -1515,7 +1517,7 @@ for(let i=0;i<6;i++)setTimeout(spawnEmber,i*200);
 
 /* Countdown to 07. März 2026 */
 (function(){
-  const target=new Date('2026-03-07T10:00:00');
+  const target=new Date('2026-04-11T10:00:00');
   function update(){
     const diff=target-Date.now();
     if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>{document.getElementById(id).textContent='00'});return}
@@ -1528,7 +1530,7 @@ for(let i=0;i<6;i++)setTimeout(spawnEmber,i*200);
 })();
 
 /* Seats fill */
-setTimeout(()=>{const sf=document.getElementById('seatsFill');if(sf)sf.style.width='62%'},800);
+setTimeout(()=>{const sf=document.getElementById('seatsFill');if(sf)sf.style.width='64%'},800);
 
 /* FAQ */
 document.querySelectorAll('.faq-q').forEach(q=>{
