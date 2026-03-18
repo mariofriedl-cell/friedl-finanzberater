@@ -604,7 +604,7 @@ footer a:hover{color:var(--gold);}
         </div>
         <div class="bar-group">
           <div class="bar-label">
-            <span>🏅 Gold Sparplan (6% p.a.)*</span>
+            <span>🏅 Gold Sparplan (7% p.a.)*</span>
             <span id="goBarVal">93.000 €</span>
           </div>
           <div class="bar-track">
@@ -631,7 +631,7 @@ footer a:hover{color:var(--gold);}
         <div class="diff-text">Unterschied nach <span id="diffYears">20</span> Jahren:</div>
         <div class="diff-num" id="diffNum">+66.600 € mehr mit Gold</div>
       </div>
-      <p style="font-size:.7rem;color:var(--gray);margin-top:10px;font-style:italic;">*Historische Gold-Wachstumsrate ~6% p.a. (2000–2025). Sparbuch 0,5% p.a. Keine Garantie für künftige Entwicklung. § 31 EStG Österreich.</p>
+      <p style="font-size:.7rem;color:var(--gray);margin-top:10px;font-style:italic;">*Historische Gold-Wachstumsrate Ø 7,2% p.a. (2000–2024). Sparbuch 0,5% p.a. Keine Garantie für künftige Entwicklung. § 31 EStG Österreich.</p>
     </div>
   </div>
 
@@ -682,7 +682,7 @@ footer a:hover{color:var(--gold);}
       <div style="background:var(--navy3);border-radius:12px;padding:22px;">
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;">
           <div style="text-align:center;"><div style="font-family:var(--font-h);font-size:1.65rem;font-weight:700;color:var(--white);" id="d2TotalIn">18.000 €</div><div style="font-size:.7rem;color:rgba(255,255,255,.42);margin-top:2px;">Eingezahlt</div></div>
-          <div style="text-align:center;"><div style="font-family:var(--font-h);font-size:1.65rem;font-weight:700;color:var(--gold);" id="d2GoldVal">43.000 €</div><div style="font-size:.7rem;color:rgba(255,255,255,.42);margin-top:2px;">Depotwert (6% p.a.)</div></div>
+          <div style="text-align:center;"><div style="font-family:var(--font-h);font-size:1.65rem;font-weight:700;color:var(--gold);" id="d2GoldVal">43.000 €</div><div style="font-size:.7rem;color:rgba(255,255,255,.42);margin-top:2px;">Depotwert (7% p.a.)</div></div>
           <div style="text-align:center;"><div style="font-family:var(--font-h);font-size:1.65rem;font-weight:700;color:var(--green);" id="d2Gain">+25.000 €</div><div style="font-size:.7rem;color:rgba(255,255,255,.42);margin-top:2px;">Gewinn</div></div>
         </div>
         <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:10px;padding:14px 16px;">
@@ -797,7 +797,7 @@ footer a:hover{color:var(--gold);}
   </div>
   <div class="tax-cards">
     <div class="tc"><div class="tc-head g">KESt auf Gewinne</div><div class="tc-body"><div class="tc-num gr">0%</div><p>Nach 1 Jahr: Ihre Gewinne gehören zu 100% Ihnen.</p></div></div>
-    <div class="tc"><div class="tc-head d">Ihr Steuervorteil</div><div class="tc-body"><div class="tc-num go">+6.875€</div><p>Beispiel: 100€/Monat, 15J, ~25.000€ Gewinn.*</p></div></div>
+    <div class="tc"><div class="tc-head d">Ihr Steuervorteil</div><div class="tc-body"><div class="tc-num go">+3.766€</div><p>Beispiel: 100€/Monat, 15J, ~13.700€ Gewinn.*</p></div></div>
     <div class="tc"><div class="tc-head g">MwSt. beim Kauf</div><div class="tc-body"><div class="tc-num gr">0%</div><p>Anlagegold ist beim Kauf mehrwertsteuerfrei.</p></div></div>
   </div>
   <p class="tax-src">§ 31 EStG Österreich · § 6 Abs. 1 Z 8 lit. j UStG · *Beispiel, keine Garantie. Steuerberater empfohlen.</p>
@@ -834,7 +834,7 @@ footer a:hover{color:var(--gold);}
         <div class="or"><span class="ol">Bearbeitungsgebühr</span><span class="ov good">0%</span></div>
         <div class="or"><span class="ol">Goldguthaben (7,5%)</span><span class="ov go" style="font-weight:700;">Ihr Startkapital</span></div>
         <div class="or"><span class="ol">Goldguthaben am Ende</span><span class="ov good">✓ Als Gold!</span></div>
-        <div class="dn" style="margin-top:14px;">💡 <strong>Was ist das Goldguthaben?</strong> Dein eigenes Kapital – bei Laufzeitende oder bei vorzeitigem Erreichen der Zielsumme wird es vollständig als Gold gutgeschrieben. <strong>Mit Code:</strong> Agio nur 2%, Bearbeitungsgebühr 0%.</div>
+        <div class="dn" style="margin-top:14px;">💡 <strong>Was ist das Goldguthaben?</strong> Ihr eigenes Kapital — bei Laufzeitende vollständig als Gold gutgeschrieben. <strong>Mit Code:</strong> Agio nur 2%, Bearbeitungsgebühr 0%.</div>
       </div>
     </div>
   </div>
@@ -999,7 +999,7 @@ function rcUpdate(){
   const years = +document.getElementById('rcYearsS').value;
   document.getElementById('rcRate').textContent = rate+' €';
   document.getElementById('rcYears').textContent = years+' Jahre';
-  const n = years*12, r = 0.06/12, rs = 0.005/12;
+  const n = years*12, r = 0.07/12, rs = 0.005/12;
   const totalIn = rate*n;
   const goldFV = Math.round(rate*((Math.pow(1+r,n)-1)/r));
   const spFV   = Math.round(rate*((Math.pow(1+rs,n)-1)/rs));
@@ -1033,7 +1033,7 @@ function d2Update(){
   const r=+document.getElementById('d2RateS').value, y=+document.getElementById('d2YearsS').value;
   document.getElementById('d2Rate').textContent=r+' €';
   document.getElementById('d2Years').textContent=y+' Jahre';
-  const ti=r*12*y, rv=0.06/12, n=y*12;
+  const ti=r*12*y, rv=0.07/12, n=y*12;
   const fv=Math.round(r*((Math.pow(1+rv,n)-1)/rv));
   const gain=fv-ti, kest=Math.round(gain*0.275);
   document.getElementById('d2TotalIn').textContent=fmt(ti);
