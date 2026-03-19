@@ -307,11 +307,11 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 ═══════════════════════ */
 .urgency-section{padding:90px 0;background:linear-gradient(160deg,var(--warm) 0%,#0f0b0d 100%);text-align:center;position:relative;overflow:hidden}
 .urgency-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(107,26,42,.12),transparent 65%);pointer-events:none}
-.urg-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.urg-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 20px}
 .urg-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,26,42,.2);border:1px solid rgba(107,26,42,.4);border-radius:4px;padding:7px 20px;font-size:.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(245,208,211,.8);margin-bottom:28px}
-.urg-h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:20px;letter-spacing:-.02em}
+.urg-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,8vw,3.8rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:20px;letter-spacing:-.02em}
 .urg-h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.urg-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:32px;font-weight:300}
+.urg-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:32px;font-weight:300}
 
 .seats-visual{margin:0 auto 36px;max-width:420px}
 .sv-top{display:flex;justify-content:space-between;margin-bottom:10px;font-size:.8rem;font-weight:700}
@@ -1136,7 +1136,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px">🚗 Anreise & Parken</div>
           <div style="font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75">
             Straßenbahn: <strong>Linie 1 & 7</strong>, Haltestelle Jakominiplatz (8 Min. Fußweg)<br>
-            Auto: Packen vor Ort<br>
+            Auto: Kurzparkzone, Tiefgarage Paulustor in der Nähe<br>
             Fahrrad: Abstellmöglichkeiten direkt vor dem Haus
           </div>
         </div>
@@ -1158,8 +1158,8 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 
     <div class="seats-visual">
       <div class="sv-top">
-        <span class="sv-taken">8 Plätze belegt</span>
-        <span class="sv-free">13 noch frei</span>
+        <span class="sv-taken">14 Plätze belegt</span>
+        <span class="sv-free">11 noch frei</span>
       </div>
       <div class="sv-track"><div class="sv-fill" id="urgFill"></div></div>
       <div class="sv-count">11</div>
@@ -1422,9 +1422,9 @@ const seatObs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){
     setTimeout(()=>{
       const f=document.getElementById('seatFill');
-      if(f)f.style.width='32%'; // 8/25 = 32%
+      if(f)f.style.width='56%'; // 14/25 = 56%
       const uf=document.getElementById('urgFill');
-      if(uf)uf.style.width='32%';
+      if(uf)uf.style.width='56%';
     },400);
     seatObs.unobserve(e.target);
   }
@@ -1476,5 +1476,3 @@ async function handleFormSubmit(e){
 </script>
 </body>
 </html>
-
-
