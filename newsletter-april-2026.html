@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feivel's Finanz News | April 2026 | Iran-Krieg, Ölpreise & Investmentchancen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8973B;
+  --gold2: #E8B84B;
+  --ink: #0F1923;
+  --white: #FAFAF7;
+  --cream: #F5F1EA;
+  --muted: #6B7280;
+  --dark: #0F1923;
+  --dark2: #162030;
+  --dark3: #1E2C3A;
+  --border: rgba(200,151,59,.18);
+  --green: #16A34A;
+  --red: #DC2626;
+  --blue: #2563EB;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ══ TICKER ══ */
+.ticker-outer {
+  background: var(--ink);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  overflow: hidden;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+.ticker-label {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--ink);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 26s linear infinite;
+  align-items: center;
+  height: 100%;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px;
+  font-size: .82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,.06);
+  height: 100%;
+}
+.t-name { color: rgba(255,255,255,.5); font-weight: 400; font-size: .75rem; margin-right: 4px; }
+.t-val { color: var(--white); }
+.t-up { color: #22C55E; }
+.t-down { color: #EF4444; }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ══ NAV ══ */
+nav {
+  background: rgba(15,25,35,.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 44px;
+  z-index: 100;
+}
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-logo-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem; flex-shrink: 0;
+}
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.nav-logo-text .nl-top { font-size: .72rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.nav-logo-text .nl-bot { font-size: .98rem; font-weight: 700; color: var(--white); }
+.nav-logo-text .nl-bot span { color: var(--gold); }
+
+.nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; flex-shrink:0; }
+.nav-hamburger span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; transition:all .3s; }
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: .83rem; font-weight: 600; padding: 7px 14px; border-radius: 8px; transition: all .2s; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,.07); }
+
+.mobile-nav { display:none; position:fixed; top:112px; left:0; right:0; z-index:99; background:rgba(15,25,35,.99); border-bottom:1px solid var(--border); padding:16px 20px 24px; flex-direction:column; gap:8px; }
+.mobile-nav.open { display:flex; }
+.mobile-nav a { display:block; padding:12px 16px; border-radius:8px; font-size:.95rem; font-weight:600; color:rgba(255,255,255,.75); text-decoration:none; border:1px solid rgba(255,255,255,.08); }
+.mobile-nav .mn-gold { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:var(--ink)!important; border-color:transparent!important; font-weight:900!important; text-align:center; }
+
+/* ══ ARCHIV ══ */
+.month-bar {
+  background: var(--dark2);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.month-bar-label { font-size:.72rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); flex-shrink:0; }
+.month-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.month-pill { padding:6px 16px; border-radius:20px; font-size:.78rem; font-weight:700; border:1px solid rgba(255,255,255,.12); background:transparent; color:rgba(255,255,255,.45); cursor:pointer; text-decoration:none; transition:all .2s; display:flex; align-items:center; gap:6px; }
+.month-pill:hover { border-color:var(--gold); color:var(--gold); }
+.month-pill.active { background:linear-gradient(135deg,var(--gold),var(--gold2)); border-color:transparent; color:var(--ink); font-weight:900; }
+.month-pill .mp-dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+.month-pill.disabled { opacity:.35; pointer-events:none; }
+
+/* ══ HERO ══ */
+.hero {
+  background: linear-gradient(160deg, #0F1923 0%, #162030 50%, #0F1923 100%);
+  padding: 80px 28px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60%; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(200,151,59,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,151,59,.12); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 16px;
+  font-size: .7rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:900; line-height:1.1; color:var(--white); margin-bottom:20px; }
+.hero h1 em { color:var(--gold); font-style:italic; }
+.hero-sub { font-size:1.05rem; color:rgba(255,255,255,.5); max-width:680px; margin:0 auto 32px; line-height:1.7; }
+.hero-meta { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+.hero-meta-item { display:flex; align-items:center; gap:7px; font-size:.8rem; color:rgba(255,255,255,.35); font-weight:600; }
+.hero-meta-item span { color:var(--gold); }
+
+/* ══ BREAKING BANNER ══ */
+.breaking {
+  background: linear-gradient(135deg, #7F1D1D, #991B1B);
+  border-top: 2px solid #EF4444;
+  border-bottom: 2px solid #EF4444;
+  padding: 20px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.breaking-badge { background:#EF4444; color:white; font-size:.62rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; padding:4px 12px; border-radius:4px; flex-shrink:0; margin-top:2px; animation:blink 1.5s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.6} }
+.breaking-content h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:white; margin-bottom:4px; }
+.breaking-content p { font-size:.85rem; color:rgba(255,255,255,.75); line-height:1.6; }
+
+/* ══ MAIN ══ */
+.main { max-width:900px; margin:0 auto; padding:56px 28px 80px; display:flex; flex-direction:column; gap:52px; }
+
+.section-head { display:flex; align-items:flex-start; gap:16px; margin-bottom:28px; }
+.section-num { font-size:.62rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); background:rgba(200,151,59,.1); border:1px solid var(--border); border-radius:8px; padding:3px 10px; flex-shrink:0; margin-top:5px; }
+.section-head h2 { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,3vw,2rem); font-weight:700; color:var(--white); line-height:1.2; }
+.section-head h2 em { color:var(--gold); font-style:italic; }
+
+.card { background:var(--dark2); border:1px solid var(--border); border-radius:20px; padding:32px; position:relative; overflow:hidden; }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:.4; }
+.card p { font-size:.92rem; color:rgba(255,255,255,.65); line-height:1.75; margin-bottom:16px; }
+.card p:last-child { margin-bottom:0; }
+.card p strong { color:var(--white); font-weight:700; }
+.card p em { color:var(--gold); font-style:normal; font-weight:600; }
+.card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--white); margin:24px 0 12px; }
+.card h3:first-child { margin-top:0; }
+.card ul { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.card ul li { font-size:.88rem; color:rgba(255,255,255,.6); line-height:1.6; padding-left:20px; position:relative; }
+.card ul li::before { content:'▸'; position:absolute; left:0; color:var(--gold); font-size:.75rem; }
+.card ul li strong { color:var(--white); }
+
+.highlight-box { background:rgba(200,151,59,.08); border:1px solid rgba(200,151,59,.25); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.highlight-box p { font-size:.86rem; color:rgba(255,255,255,.7); margin:0; }
+.highlight-box p strong { color:var(--gold); }
+
+.warning-box { background:rgba(239,68,68,.06); border:1px solid rgba(239,68,68,.2); border-left:3px solid #EF4444; border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.warning-box p { font-size:.86rem; margin:0; color:rgba(255,255,255,.7); }
+
+.success-box { background:rgba(22,163,74,.07); border:1px solid rgba(22,163,74,.2); border-left:3px solid var(--green); border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.success-box p { font-size:.86rem; margin:0; color:rgba(255,255,255,.7); }
+
+/* Preistabelle */
+.price-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:20px 0; border-radius:10px; }
+.price-table { width:100%; min-width:420px; border-collapse:collapse; font-size:.85rem; }
+.price-table thead th { text-align:left; padding:10px 14px; font-size:.68rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--border); }
+.price-table tbody td { padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.7); }
+.price-table tbody tr:hover td { background:rgba(255,255,255,.03); }
+.price-table tbody td strong { color:var(--white); }
+.td-up { color:#22C55E; font-weight:700; }
+.td-down { color:#EF4444; font-weight:700; }
+.td-gold { color:var(--gold); font-weight:700; }
+
+/* Scenario grid */
+.scenario-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.scenario-card { border-radius:14px; padding:20px; border:1px solid; }
+.scenario-card.bear { background:rgba(239,68,68,.06); border-color:rgba(239,68,68,.2); }
+.scenario-card.bull { background:rgba(22,163,74,.06); border-color:rgba(22,163,74,.2); }
+.sc-label { font-size:.65rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.bear .sc-label { color:#EF4444; }
+.bull .sc-label { color:var(--green); }
+.scenario-card h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); margin-bottom:8px; }
+.scenario-card p { font-size:.82rem; color:rgba(255,255,255,.55); line-height:1.6; margin:0; }
+
+/* Sondervermögen vergleich */
+.vs-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border); border-radius:14px; overflow:hidden; margin:20px 0; }
+.vs-head { background:rgba(200,151,59,.1); padding:12px 18px; font-size:.68rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; }
+.vs-head.left { color:rgba(255,255,255,.5); border-right:1px solid var(--border); }
+.vs-head.right { color:var(--green); }
+.vs-row { display:contents; }
+.vs-row > div { padding:12px 18px; font-size:.86rem; border-bottom:1px solid rgba(255,255,255,.05); line-height:1.55; }
+.vs-row > div:first-child { border-right:1px solid var(--border); color:rgba(255,255,255,.5); }
+.vs-row > div:last-child { color:rgba(255,255,255,.8); }
+.vs-row > div strong { color:var(--white); }
+.vs-row > div.good { color:#22C55E; }
+.vs-row > div.bad { color:#EF4444; }
+
+/* Inflation tabelle */
+.infl-table { width:100%; border-collapse:collapse; font-size:.88rem; margin:20px 0; }
+.infl-table th { text-align:left; padding:10px 14px; font-size:.68rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--border); }
+.infl-table td { padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.7); }
+.infl-table td strong { color:var(--white); }
+.infl-table .loss { color:#EF4444; font-weight:700; }
+
+/* CTA section */
+.cta-section { background:linear-gradient(160deg,#1a0a0f 0%,#0f1923 100%); border-radius:24px; padding:48px 40px; text-align:center; border:1px solid rgba(200,151,59,.2); position:relative; overflow:hidden; }
+.cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(200,151,59,.07),transparent 65%); pointer-events:none; }
+.cta-inner { position:relative; z-index:1; }
+.cta-section h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; }
+.cta-section h2 em { color:var(--gold); font-style:italic; }
+.cta-section p { font-size:.96rem; color:rgba(255,255,255,.6); line-height:1.8; margin-bottom:28px; max-width:560px; margin-left:auto; margin-right:auto; }
+.cta-section p strong { color:rgba(255,255,255,.9); }
+.cta-details { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:28px; }
+.cta-detail { display:flex; align-items:center; gap:7px; font-size:.84rem; color:rgba(255,255,255,.65); font-weight:600; }
+.cta-detail span { color:var(--gold); }
+.btn-wine { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#8b2635,#a83245); color:#fff; font-weight:700; font-size:1rem; padding:16px 36px; border-radius:50px; text-decoration:none; box-shadow:0 8px 28px rgba(139,38,53,.4); transition:all .25s; }
+.btn-wine:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(139,38,53,.5); }
+.btn-gold-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; border:2px solid rgba(200,151,59,.4); color:rgba(255,255,255,.75); font-weight:600; font-size:.95rem; padding:14px 28px; border-radius:50px; text-decoration:none; transition:all .25s; }
+.btn-gold-outline:hover { border-color:var(--gold); color:var(--white); }
+.inline-cta { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; background:rgba(200,151,59,.06); border:1px solid rgba(200,151,59,.18); border-radius:14px; padding:18px 24px; margin-top:24px; }
+.inline-cta p { font-size:.88rem; color:rgba(255,255,255,.6); margin:0; line-height:1.6; flex:1; min-width:200px; }
+.inline-cta p strong { color:var(--white); }
+.btn-sm-gold { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--gold),#e8a830); color:var(--ink); font-weight:900; font-size:.85rem; padding:11px 22px; border-radius:40px; text-decoration:none; white-space:nowrap; flex-shrink:0; box-shadow:0 6px 18px rgba(200,151,59,.3); transition:all .2s; }
+.btn-sm-gold:hover { transform:translateY(-2px); }
+.btn-sm-wine { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,#8b2635,#a83245); color:#fff; font-weight:900; font-size:.85rem; padding:11px 22px; border-radius:40px; text-decoration:none; white-space:nowrap; flex-shrink:0; box-shadow:0 6px 18px rgba(139,38,53,.35); transition:all .2s; }
+.btn-sm-wine:hover { transform:translateY(-2px); }
+@media(max-width:600px){ .inline-cta { flex-direction:column; } }
+
+.cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* Quellen */
+.sources { font-size:.72rem; color:rgba(255,255,255,.25); margin-top:16px; line-height:1.6; }
+.sources strong { color:rgba(255,255,255,.35); }
+
+/* Footer */
+footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
+.footer-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--gold); display:block; margin-bottom:10px; }
+.footer-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:12px 0; font-size:.82rem; }
+.footer-links a { color:rgba(255,255,255,.35); text-decoration:none; }
+.footer-links a:hover { color:var(--gold); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding-top:16px; font-size:.75rem; color:rgba(255,255,255,.2); margin-top:12px; line-height:1.7; }
+
+/* Responsive */
+@media(max-width:768px){
+  nav { padding:0 16px; }
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  .breaking { flex-direction:column; gap:10px; padding:16px 20px; }
+  .main { padding:40px 20px 60px; gap:40px; }
+  .card { padding:24px 20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .vs-grid { grid-template-columns:1fr; }
+  .vs-head.left { border-right:none; border-bottom:1px solid var(--border); }
+  .vs-row > div:first-child { border-right:none; }
+  .cta-section { padding:36px 24px; }
+  .month-bar { padding:12px 16px; }
+}
+@media(max-width:480px){
+  .nl-bot { font-size:.88rem!important; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">📡 LIVE MÄRKTE</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="t-name">Brent Öl</span><span class="t-val">112,40 USD</span><span class="t-up">▲ +2,1%</span></div>
+      <div class="ticker-item"><span class="t-name">WTI Öl</span><span class="t-val">102,80 USD</span><span class="t-up">▲ +1,8%</span></div>
+      <div class="ticker-item"><span class="t-name">Gold</span><span class="t-val">4.310 USD</span><span class="t-up">▲ +0,4%</span></div>
+      <div class="ticker-item"><span class="t-name">Silber</span><span class="t-val">68,20 USD</span><span class="t-up">▲ +1,2%</span></div>
+      <div class="ticker-item"><span class="t-name">DAX</span><span class="t-val">25.380</span><span class="t-down">▼ -0,6%</span></div>
+      <div class="ticker-item"><span class="t-name">S&P 500</span><span class="t-val">5.210</span><span class="t-down">▼ -0,9%</span></div>
+      <div class="ticker-item"><span class="t-name">EUR/USD</span><span class="t-val">1,0820</span><span class="t-down">▼ -0,3%</span></div>
+      <div class="ticker-item"><span class="t-name">Inflation AT</span><span class="t-val">3,1%</span><span class="t-up">▲ März 2026</span></div>
+      <div class="ticker-item"><span class="t-name">Diesel AT</span><span class="t-val">2,20 €</span><span class="t-up">▲ +20%</span></div>
+      <!-- Duplikat für nahtlosen Loop -->
+      <div class="ticker-item"><span class="t-name">Brent Öl</span><span class="t-val">112,40 USD</span><span class="t-up">▲ +2,1%</span></div>
+      <div class="ticker-item"><span class="t-name">WTI Öl</span><span class="t-val">102,80 USD</span><span class="t-up">▲ +1,8%</span></div>
+      <div class="ticker-item"><span class="t-name">Gold</span><span class="t-val">4.310 USD</span><span class="t-up">▲ +0,4%</span></div>
+      <div class="ticker-item"><span class="t-name">Silber</span><span class="t-val">68,20 USD</span><span class="t-up">▲ +1,2%</span></div>
+      <div class="ticker-item"><span class="t-name">DAX</span><span class="t-val">25.380</span><span class="t-down">▼ -0,6%</span></div>
+      <div class="ticker-item"><span class="t-name">S&P 500</span><span class="t-val">5.210</span><span class="t-down">▼ -0,9%</span></div>
+      <div class="ticker-item"><span class="t-name">EUR/USD</span><span class="t-val">1,0820</span><span class="t-down">▼ -0,3%</span></div>
+      <div class="ticker-item"><span class="t-name">Inflation AT</span><span class="t-val">3,1%</span><span class="t-up">▲ März 2026</span></div>
+      <div class="ticker-item"><span class="t-name">Diesel AT</span><span class="t-val">2,20 €</span><span class="t-up">▲ +20%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">📰</div>
+    <div class="nav-logo-text">
+      <span class="nl-top">Feivel's</span>
+      <span class="nl-bot">Finanz <span>News</span></span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">🍷 Info-Abend</a>
+    <a href="gold-sparplan.html">🥇 Gold Sparplan</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </div>
+  <button class="nav-hamburger" id="navBurger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">🏠 Home</a>
+  <a href="info-abend.html">🍷 Info-Abend</a>
+  <a href="gold-sparplan.html">🥇 Gold Sparplan</a>
+  <a href="business-seminar.html">🎓 Seminar</a>
+  <a href="index.html#kontakt">📞 Kontakt</a>
+  <a href="info-abend.html" class="mn-gold">🍷 Platz sichern →</a>
+</div>
+
+<!-- ARCHIV -->
+<div class="month-bar">
+  <span class="month-bar-label">📚 Archiv</span>
+  <div class="month-pills">
+    <a href="newsletter-maerz-2026.html" class="month-pill"><span class="mp-dot"></span>Februar 2026</a>
+    <a href="newsletter-maerz-2026.html" class="month-pill"><span class="mp-dot"></span>März 2026</a>
+    <a href="newsletter-april-2026.html" class="month-pill active"><span class="mp-dot"></span>April 2026</a>
+    <span class="month-pill disabled"><span class="mp-dot"></span>Mai 2026 – bald</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span> Newsletter · April 2026</div>
+  <h1>Iran-Krieg, Ölpreise & Chancen –<br><em>was du jetzt wissen solltest.</em></h1>
+  <p class="hero-sub">Die Energiepreise explodieren, die Börsen korrigieren, die Inflation steigt. Und gleichzeitig entstehen für Anleger mit kühlem Kopf echte Chancen. Hier sind die Fakten.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span>✍️</span> Mario Friedl</div>
+    <div class="hero-meta-item"><span>📅</span> April 2026</div>
+    <div class="hero-meta-item"><span>⏱</span> 8 Min. Lesezeit</div>
+    <div class="hero-meta-item"><span>📍</span> Graz · Steiermark</div>
+  </div>
+</section>
+
+<!-- BREAKING BANNER -->
+<div class="breaking">
+  <span class="breaking-badge">⚡ Aktuell</span>
+  <div class="breaking-content">
+    <h3>Iran-Konflikt: Straße von Hormus faktisch blockiert – Ölpreis +50% seit Februar</h3>
+    <p>Brent Crude bei 107–116 USD/Barrel · Diesel in Österreich bei 2,20 € · Spritpreisbremse ab 2. April · Inflation AT bei 3,1% · Gold weiterhin über 4.300 USD</p>
+  </div>
+</div>
+
+<!-- HAUPTINHALT -->
+<div class="main">
+
+  <!-- 01 IRAN-KRIEG -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Iran-Krieg & Ölpreise:<br><em>Was gerade wirklich passiert</em></h2>
+    </div>
+    <div class="card">
+
+      <h3>Die Situation – mehr als ein regionaler Konflikt</h3>
+      <p>Seit Ende Februar 2026 eskaliert der Konflikt zwischen den USA, Israel und dem Iran auf eine Art, die weit über einen klassischen regionalen Krieg hinausgeht. Was mit gezielten Luftschlägen auf iranische Atomanlagen begann, hat sich zu einem offenen Konflikt entwickelt, der die gesamte Weltwirtschaft spürt.</p>
+      <p>Der Iran hat als Reaktion die <strong>Straße von Hormus</strong> – die engste Passage zwischen dem Persischen Golf und dem Indischen Ozean – durch Minen, Drohnen und Marinepräsenz faktisch blockiert. Durch diese 54 Kilometer breite Meerenge fließen normalerweise rund <strong>20% des weltweiten Rohöls</strong>. Wenn dieser Kanal nicht mehr frei befahrbar ist, spüren das Tankstellen in Wien genauso wie Fabriken in Stuttgart.</p>
+
+      <h3>Warum trifft uns das so direkt?</h3>
+      <p>Österreich bezieht einen erheblichen Teil seiner Energieversorgung über internationale Rohölmärkte. Wenn der Ölpreis steigt, werden nicht nur Benzin und Diesel teurer – die Kettenreaktion erfasst Heizkosten, Transportkosten, Lebensmittelpreise und letztlich fast jeden Konsumgüterbereich. Die Inflation, die wir seit 2022 mühsam gedrückt hatten, kehrt zurück.</p>
+
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr><th>Rohstoff / Preis</th><th>Februar 2026</th><th>Stand März/April 2026</th><th>Veränderung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Brent Crude</strong></td><td>~70 USD</td><td><strong>107–116 USD</strong></td><td class="td-down">▲ +50–60%</td></tr>
+            <tr><td><strong>WTI Crude</strong></td><td>~68 USD</td><td><strong>102–103 USD</strong></td><td class="td-down">▲ +50%</td></tr>
+            <tr><td><strong>Diesel AT</strong></td><td>~1,83 €</td><td><strong>2,20 €/Liter</strong></td><td class="td-down">▲ +20%</td></tr>
+            <tr><td><strong>Super 95 AT</strong></td><td>~1,65 €</td><td><strong>1,88 €/Liter</strong></td><td class="td-down">▲ +14%</td></tr>
+            <tr><td><strong>Inflation AT</strong></td><td>2,2%</td><td><strong>3,1%</strong></td><td class="td-down">▲ +0,9 Pp</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="inline-cta">
+        <p><strong>Ölpreise, Inflation, Zinsen</strong> – wie du dein Portfolio jetzt positionierst, erkläre ich dir persönlich.</p>
+        <a href="index.html#kontakt" class="btn-sm-gold">💬 Kostenloses Erstgespräch →</a>
+      </div>
+      <p class="sources"><strong>Quellen:</strong> Ad-hoc-news.de, Börsen-Zeitung, ÖAMTC, Durchblicker.at, E-Control Austria, Statistik Austria (Stand: 31. März 2026)</p>
+
+      <h3>Spritpreisbremse ab 2. April – was bringt sie wirklich?</h3>
+      <p>Die österreichische Bundesregierung hat auf den Preisschock reagiert: Ab 2. April gilt eine Mineralölsteuer-Senkung von rund 5 Cent pro Liter, ergänzt durch einen Margendeckel für Raffinerien und Tankstellen. Die erwartete Entlastung liegt bei <strong>rund 10 Cent pro Liter</strong>. Das ist besser als nichts – aber bei einem Preisanstieg von 20–60% nur ein symbolischer Schritt.</p>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Wichtig zu verstehen:</strong> Staatliche Eingriffe wie die Spritpreisbremse dämpfen die Symptome, nicht die Ursache. Solange der Ölpreis auf diesem Niveau bleibt, bleibt der Inflationsdruck hoch – und das wirkt sich auf dein Erspartes aus.</p>
+      </div>
+
+      <h3>Wie könnte es weitergehen?</h3>
+      <p>Die Unsicherheit bleibt hoch. Drei Szenarien sind realistisch:</p>
+
+      <div class="scenario-grid">
+        <div class="scenario-card bear">
+          <div class="sc-label">⚠️ Szenario: Eskalation</div>
+          <h4>Konflikt weitet sich aus</h4>
+          <p>Einbindung weiterer Golfstaaten, Angriffe auf Ölanlagen in Saudi-Arabien. Brent könnte auf 130–150 USD steigen. Inflation in AT auf 4–5%. Rezessionsgefahr steigt.</p>
+        </div>
+        <div class="scenario-card bull">
+          <div class="sc-label">✅ Szenario: Deeskalation</div>
+          <h4>Verhandlungen beginnen</h4>
+          <p>Diplomatische Lösung unter UN-Vermittlung. Straße von Hormus wird schrittweise geöffnet. Ölpreis fällt auf 80–90 USD. Inflation stabilisiert sich bei 2–2,5%.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Meine Einschätzung:</strong> Beide Szenarien sind möglich – und genau das ist der Grund, warum eine breite Diversifikation gerade wichtiger ist denn je. Wer jetzt nur aufs Sparbuch setzt, verliert in beiden Szenarien real an Kaufkraft.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- 02 FONDS & SONDERVERMÖGEN -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Investmentfonds:<br><em>Was Sondervermögen wirklich bedeutet</em></h2>
+    </div>
+    <div class="card">
+
+      <h3>Die aktuelle Börsenlage – Korrektur, kein Crash</h3>
+      <p>Nach drei Jahren Rallye erleben wir eine <strong>gesunde Marktkorrektur</strong>: Technologie-Aktien sind 10–15% vom Höchststand entfernt, der DAX hält sich stabil über 25.000 Punkten, der VIX (Angst-Index) liegt bei ~25 – Panik beginnt erst ab 30+. Das ist keine Katastrophe, sondern eine normale Atempause.</p>
+
+      <div class="success-box">
+        <p>✅ <strong>Cost-Average-Effekt:</strong> Wer monatliche Sparpläne laufen hat, kauft jetzt automatisch mehr Anteile zum günstigeren Preis. Korrekturen sind für Sparplan-Inhaber eine stille Chance.</p>
+      </div>
+
+      <h3>Sondervermögen: Die entscheidende Sicherheitsgarantie</h3>
+      <p>Immer wieder höre ich die Frage: <em>„Ist mein Geld im Fonds sicher, wenn die Bank pleitegeht?"</em> Die Antwort ist ein klares <strong>Ja</strong> – und das ist gesetzlich verankert.</p>
+      <p>Gemäß <strong>§ 46 Investmentfondsgesetz (InvFG) 2011</strong> sowie der EU-Richtlinie <strong>UCITS</strong> (Undertakings for Collective Investment in Transferable Securities) gilt: Das Fondsvermögen ist rechtlich getrennt vom Vermögen der Kapitalanlagegesellschaft (KAG) und der Depotbank. Es handelt sich um sogenanntes <strong>Sondervermögen</strong> – das bedeutet im Klartext:</p>
+
+      <!-- VERGLEICH SPARBUCH vs FONDS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;margin:24px 0;border:1px solid var(--border)">
+
+        <!-- Spalten-Header -->
+        <div style="background:rgba(239,68,68,.1);border-right:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:1.2rem">🏦</span>
+          <div>
+            <div style="font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ef4444">Sparbuch / Bank-Einlage</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Klassische Variante</div>
+          </div>
+        </div>
+        <div style="background:rgba(22,163,74,.1);padding:14px 20px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:1.2rem">📈</span>
+          <div>
+            <div style="font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#22c55e">Investmentfonds · Sondervermögen</div>
+            <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Gesetzlich geschützt · § 46 InvFG</div>
+          </div>
+        </div>
+
+        <!-- Zeile 1: Eigentum -->
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Eigentum</div>
+          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Dein Geld wird der Bank als <strong style="color:rgba(255,255,255,.85)">Darlehen</strong> übertragen – es gehört buchhalterisch zur Bank</div>
+        </div>
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Eigentum</div>
+          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">Dein Eigentum bleibt dein Eigentum</strong> – der Fonds verwaltet es nur, überträgt es nie</div>
+        </div>
+
+        <!-- Zeile 2: Schutz bei Pleite -->
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Schutz bei Insolvenz</div>
+          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Einlagensicherung: <strong style="color:#ef4444">max. 100.000 € pro Person</strong> – alles darüber ist ungesichert und kann verloren gehen</div>
+        </div>
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Schutz bei Insolvenz</div>
+          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">Vollständiger Schutz – kein Limit</strong>. Bei KAG-Pleite bleibt das Fondsvermögen unangetastet</div>
+        </div>
+
+        <!-- Zeile 3: Streuung -->
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Risikostreuung</div>
+          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Du setzt auf <strong style="color:rgba(255,255,255,.85)">eine einzige Bank</strong> – deren Bonität und Stabilität entscheidet</div>
+        </div>
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Risikostreuung</div>
+          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">100+ Unternehmen weltweit</strong> – kein einzelnes Unternehmen kann dein Portfolio ruinieren</div>
+        </div>
+
+        <!-- Zeile 4: Rendite -->
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Rendite</div>
+          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Zinsen: <strong style="color:#ef4444">1,5–2,25% p.a.</strong> – bei 3,1% Inflation ein realer Verlust</div>
+        </div>
+        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Rendite</div>
+          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">7–9% p.a.</strong> historisch (globale Aktienfonds) – schlägt die Inflation langfristig</div>
+        </div>
+
+      </div>
+
+      <!-- COMMERZIALBANK MATTERSBURG -->
+      <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.25);border-radius:16px;padding:24px;margin:24px 0;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ef4444,#dc2626)"></div>
+        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#ef4444;margin-bottom:12px">⚠️ Reales Beispiel: Was bei einer Bankpleite wirklich passiert</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:14px;line-height:1.3">Commerzialbank Mattersburg: Eine österreichische Warnung</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Im <strong style="color:rgba(255,255,255,.9)">Juli 2020</strong> wurde die Commerzialbank Mattersburg im Burgenland von der FMA geschlossen. Der Grund: Ein über Jahrzehnte aufgebauter Bilanzskandal – Guthaben wurden schlicht erfunden. Die Bank war faktisch insolvent, das Kapital größtenteils nicht vorhanden.</p>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Rund <strong style="color:rgba(255,255,255,.9)">40.000 Kunden</strong> – Privatpersonen, Vereine, Gemeinden, Unternehmen – kamen nicht mehr an ihr Geld. Die Einlagensicherung AUSTRIA deckte bis zu 100.000 € pro Person ab. <strong style="color:#ef4444">Alles, was über 100.000 € lag, war ungesichert – und ist verloren.</strong></p>
+        <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 18px;margin-bottom:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Bankschließung</div>
+              <div style="font-size:.95rem;font-weight:700;color:var(--white)">Juli 2020</div>
+            </div>
+            <div>
+              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Betroffene Kunden</div>
+              <div style="font-size:.95rem;font-weight:700;color:var(--white)">~40.000</div>
+            </div>
+            <div>
+              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Gedeckt durch ESA</div>
+              <div style="font-size:.95rem;font-weight:700;color:#22c55e">bis 100.000 € / Person</div>
+            </div>
+            <div>
+              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Über 100.000 €</div>
+              <div style="font-size:.95rem;font-weight:700;color:#ef4444">Ungesichert – verloren</div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:0">Viele Betroffene warten Stand heute – <strong style="color:rgba(255,255,255,.9)">über 5 Jahre nach der Schließung</strong> – noch immer auf die vollständige Abwicklung. Das Insolvenzverfahren zieht sich hin, Gläubiger erhalten allenfalls einen Bruchteil. Gemeinden und Vereine, die mehr als 100.000 € auf Konten hatten, tragen massive Verluste.</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.6"><strong>Quellen:</strong> FMA Österreich (fma.gv.at) · ORF.at · Der Standard · APA · Einlagensicherung AUSTRIA (einlagensicherung.at) · Insolvenzgericht Eisenstadt</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Rechtliche Grundlage Sondervermögen:</strong> § 46 InvFG 2011 (Österreich) · UCITS-Richtlinie 2009/65/EG (EU) · Aufsicht durch FMA (Finanzmarktaufsicht Österreich) · Depotbank nach § 40 InvFG getrennt von der KAG · <em>Seit Einführung regulierter Fonds hat in Österreich noch nie ein Anleger sein Geld durch eine Fondsinsolvenz verloren.</em></p>
+      </div>
+
+      <h3>Geschichte: Fonds gibt es seit 1774 – und noch nie einen Totalverlust</h3>
+      <p>Was kaum jemand weiß: Das Konzept des Investmentfonds ist älter als die meisten Staaten der Welt. <strong>1774 gründete der niederländische Kaufmann Adriaan van Ketwich</strong> den ersten bekannten Investmentfonds der Geschichte – „Eendragt Maakt Magt" (Einigkeit macht stark). Sein Ziel damals war genau das, was heute noch gilt: <em>Kleinen Anlegern durch Bündelung und breite Streuung Zugang zu Investments ermöglichen, die zuvor nur Reichen offenstanden.</em></p>
+
+      <div style="position:relative;padding-left:24px;border-left:2px solid var(--border);margin:24px 0;display:flex;flex-direction:column;gap:20px">
+        <div style="position:relative">
+          <div style="position:absolute;left:-28px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2)"></div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">1774 · Niederlande</div>
+          <div style="font-size:.88rem;color:var(--white);font-weight:700;margin-bottom:3px">Erster Investmentfonds der Welt</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6">Adriaan van Ketwich gründet „Eendragt Maakt Magt" – Risikostreuung als Prinzip, Kleinanleger als Zielgruppe. Das Grundprinzip ist bis heute unverändert.</div>
+        </div>
+        <div style="position:relative">
+          <div style="position:absolute;left:-28px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2)"></div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">1868 · Großbritannien</div>
+          <div style="font-size:.88rem;color:var(--white);font-weight:700;margin-bottom:3px">Foreign &amp; Colonial Government Trust</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6">Der erste britische Investmenttrust ermöglicht erstmals breiten Bevölkerungsschichten Zugang zum globalen Kapitalmarkt. Heute noch aktiv – nach über 155 Jahren.</div>
+        </div>
+        <div style="position:relative">
+          <div style="position:absolute;left:-28px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2)"></div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">1924 · USA</div>
+          <div style="font-size:.88rem;color:var(--white);font-weight:700;margin-bottom:3px">Massachusetts Investors Trust – der moderne Fonds entsteht</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6">Erster offener Investmentfonds mit täglicher Preisstellung und Rücknahmegarantie. Dieser Standard gilt bis heute weltweit.</div>
+        </div>
+        <div style="position:relative">
+          <div style="position:absolute;left:-28px;top:3px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2)"></div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">1949 · Österreich</div>
+          <div style="font-size:.88rem;color:var(--white);font-weight:700;margin-bottom:3px">Erstes Investmentfondsgesetz Österreichs</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6">Österreich reguliert Investmentfonds gesetzlich – inkl. Sondervermögensschutz. Seitdem: <strong style="color:rgba(255,255,255,.85)">kein einziger regulierter Fonds pleite gegangen.</strong></div>
+        </div>
+        <div style="position:relative">
+          <div style="position:absolute;left:-28px;top:3px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:2px solid var(--dark2)"></div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px">Heute · 2026</div>
+          <div style="font-size:.88rem;color:var(--white);font-weight:700;margin-bottom:3px">Über 140.000 Fonds weltweit – Sondervermögen gesetzlich geschützt</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6">Weltweit verwalten Investmentfonds über 63 Billionen USD. Die Sondervermögensregel schützt jeden einzelnen Anleger – in Österreich, Deutschland, der gesamten EU.</div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(200,151,59,.1),rgba(200,151,59,.04));border:1px solid rgba(200,151,59,.2);border-radius:14px;padding:20px 24px;margin:20px 0;display:flex;align-items:flex-start;gap:14px">
+        <span style="font-size:1.8rem;flex-shrink:0">📜</span>
+        <div>
+          <div style="font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">250 Jahre Fondsgeschichte – eine Bilanz</div>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;margin:0">Seit <strong style="color:var(--white)">1774</strong> – also über 250 Jahre – hat kein regulierter Investmentfonds seine Anleger durch eine Insolvenz in den Totalverlust geführt. Krisenjahre wie 1929, 1987, 2000, 2008 oder 2020 hat das Fondskonzept überstanden. <strong style="color:var(--white)">Das Kapital der Anleger war immer geschützt – weil es Sondervermögen ist.</strong></p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:28px">
+        <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#e8a830);color:var(--ink);font-weight:900;font-size:.95rem;padding:14px 28px;border-radius:50px;text-decoration:none;box-shadow:0 8px 24px rgba(200,151,59,.3)">💬 Depot kostenlos analysieren lassen →</a>
+      </div>
+
+      <p class="sources" style="margin-top:20px"><strong>Quellen:</strong> § 46 InvFG 2011 (RIS – Rechtsinformationssystem des Bundes, ris.bka.gv.at) · UCITS-Richtlinie 2009/65/EG (EUR-Lex) · FMA Österreich (fma.gv.at) · Adriaan van Ketwich 1774: Charles P. Kindleberger, „A Financial History of Western Europe", Oxford University Press · Foreign &amp; Colonial Government Trust 1868: Investment Association UK (theinvestmentassociation.org) · Massachusetts Investors Trust 1924: Investment Company Institute (ici.org) · Weltvermögen Fonds 2026: ICI Global / EFAMA – European Fund and Asset Management Association (efama.org) · Morningstar · DAS INVESTMENT</p>
+
+    </div>
+  </article>
+
+  <!-- 03 INFLATION -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Inflation & Kaufkraft:<br><em>Was dein Geld heute wirklich kostet</em></h2>
+    </div>
+    <div class="card">
+
+      <p>Die Inflation in Österreich ist im März 2026 auf <strong>3,1%</strong> gestiegen – nach 2,2% im Februar. Haupttreiber sind die Energiepreise durch den Iran-Konflikt sowie Dienstleistungen (+4,5%). Was das konkret für dein Erspartes bedeutet:</p>
+
+      <table class="infl-table">
+        <thead>
+          <tr><th>Betrag</th><th>Heute</th><th>Kaufkraft in 5 J.</th><th>Kaufkraft in 10 J.</th><th>Kaufkraft in 20 J.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>10.000 €</strong></td><td>10.000 €</td><td class="loss">8.550 €</td><td class="loss">7.310 €</td><td class="loss">5.340 €</td></tr>
+          <tr><td><strong>50.000 €</strong></td><td>50.000 €</td><td class="loss">42.750 €</td><td class="loss">36.550 €</td><td class="loss">26.700 €</td></tr>
+          <tr><td><strong>100.000 €</strong></td><td>100.000 €</td><td class="loss">85.500 €</td><td class="loss">73.100 €</td><td class="loss">53.400 €</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Das Sparbuch-Problem:</strong> Aktuelle Sparbuchzinsen in Österreich liegen bei 1,5–2,25% p.a. Gegen eine Inflation von 3,1% ergibt das einen <strong>realen Verlust von ca. 0,85% pro Jahr</strong>. Auf 50.000 € bedeutet das: ca. 425 € Kaufkraftverlust – jedes Jahr, still und leise.</p>
+      </div>
+
+
+      <div class="inline-cta">
+        <p><strong>Kaufkraftverlust stoppen:</strong> Ich zeige dir kostenlos, welche Alternativen zum Sparbuch zu deiner Situation passen.</p>
+        <a href="index.html#kontakt" class="btn-sm-gold">💬 Erstgespräch anfragen →</a>
+      </div>
+      <p class="sources"><strong>Quellen:</strong> Statistik Austria, IHS Preismonitor, WKO Österreich, Raisin.at, Finanzrechner.at (Stand: März 2026)</p>
+
+    </div>
+  </article>
+
+  <!-- 04 GOLD -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Gold & Silber:<br><em>Der sichere Hafen glänzt weiter</em></h2>
+    </div>
+    <div class="card">
+
+      <p>Gold hat in den letzten 12 Monaten eindrucksvoll bewiesen, warum es seit Jahrtausenden als Werterhalt gilt. <strong>+64% in 2025</strong> (von ca. 2.700 auf über 4.300 USD) – und die fundamentalen Treiber sind weiterhin intakt: Geopolitik, Inflation, Zentralbankkäufe.</p>
+
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead><tr><th>Edelmetall</th><th>Performance 2025</th><th>Aktuell (April 2026)</th><th>Treiber</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Gold</strong></td><td class="td-up">+64%</td><td class="td-gold">~4.310 USD</td><td>Geopolitik, Inflation, Zentralbanken</td></tr>
+            <tr><td><strong>Silber</strong></td><td class="td-up">+147% (!)</td><td class="td-gold">~68 USD</td><td>Solar, E-Autos, KI-Infrastruktur</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Meine Empfehlung:</strong> 10–15% Edelmetalle im Portfolio – als Versicherung, nicht als Spekulation. Gold schwankt kurzfristig (±10–20% sind normal), bewahrt aber langfristig Kaufkraft. Wer schon einen <a href="gold-sparplan.html" style="color:var(--gold)">Gold Sparplan</a> hat: weiterlaufen lassen.</p>
+      </div>
+
+
+      <div class="inline-cta">
+        <p><strong>Gold Sparplan:</strong> Schon ab € 30/Monat in physisches Gold investieren – steueroptimiert, flexibel, direkt gutgeschrieben.</p>
+        <a href="gold-sparplan.html" class="btn-sm-gold">🥇 Gold Sparplan ansehen →</a>
+      </div>
+      <p class="sources"><strong>Quellen:</strong> DER AKTIONÄR, Heraeus Precious Metals, GOLD.DE, WallStreet-Online (Stand: März/April 2026)</p>
+
+    </div>
+  </article>
+
+  <!-- 05 BAUZINSEN -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Immobilienzinsen:<br><em>Fix oder variabel – was 2026 besser ist</em></h2>
+    </div>
+    <div class="card">
+
+      <p>Eine selten Marktsituation: <strong>Fixzinsen sind derzeit teilweise günstiger als variable Zinsen</strong> – eine sogenannte inverse Zinskurve. Das passiert, wenn der Markt erwartet, dass die kurzfristigen Zinsen künftig fallen.</p>
+
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead><tr><th>Finanzierungsart</th><th>Zinssatz p.a.</th><th>Empfehlung</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Variable Verzinsung</strong></td><td>ab 2,80%</td><td>⚠️ Risiko bei Zinsanstieg</td></tr>
+            <tr><td><strong>Fixzins 5 Jahre</strong></td><td>ab 2,80%</td><td class="td-up">✓ Gleichauf mit variabel</td></tr>
+            <tr><td><strong>Fixzins 10 Jahre</strong></td><td>3,15–3,60%</td><td class="td-up">✓ Empfohlen 2026</td></tr>
+            <tr><td><strong>Fixzins 15–20 Jahre</strong></td><td>3,50–4,00%</td><td class="td-up">✓ Maximale Planungssicherheit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="success-box">
+        <p>✅ <strong>Meine Empfehlung:</strong> Fixzins für 10–15 Jahre sichern. Die inverse Zinskurve ist eine seltene Chance: Du erhältst historisch moderate Zinsen mit voller Planungssicherheit – und bist gegen einen möglichen Zinsanstieg durch eine Eskalation des Iran-Konflikts geschützt.</p>
+      </div>
+
+
+      <div class="inline-cta">
+        <p><strong>Baufinanzierung geplant?</strong> Mit Zugang zu 15+ Partnerbanken finde ich den besten Fixzins für dich – kostenlos und unabhängig.</p>
+        <a href="index.html#kontakt" class="btn-sm-wine">🏡 Finanzierung anfragen →</a>
+      </div>
+      <p class="sources"><strong>Quellen:</strong> Durchblicker.at, INFINA, OeNB, Capitalo, Interhyp, Dr. Klein, Baufi24, WIFO (Stand: März 2026)</p>
+
+    </div>
+  </article>
+
+  <!-- CTA – Info-Abend -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <div style="font-size:.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px">🍷 Dein nächster Schritt</div>
+      <h2>Du hast die Fakten.<br><em>Jetzt brauchst du Klarheit.</em></h2>
+      <p>Iran-Krieg, Inflation, Fonds, Gold, Bauzinsen – das klingt nach viel. Und ist es auch. Am Info-Abend gehen wir das gemeinsam durch: <strong>Was das für dich konkret bedeutet. Und was du jetzt tun kannst.</strong></p>
+      <div class="cta-details">
+        <div class="cta-detail"><span>📅</span><strong>27. April 2026</strong></div>
+        <div class="cta-detail"><span>⏰</span><strong>18:30 – 20:00 Uhr</strong></div>
+        <div class="cta-detail"><span>📍</span><strong>Graz · EQUALITY EH GmbH</strong></div>
+        <div class="cta-detail"><span>🥂</span><strong>Sekt · Wein · Brötchen inklusive</strong></div>
+        <div class="cta-detail"><span>💶</span><strong>Kostenlos</strong></div>
+        <div class="cta-detail"><span>🔥</span><strong>Noch 20 Plätze frei</strong></div>
+      </div>
+      <div class="cta-btns">
+        <a href="info-abend.html" class="btn-wine">🍷 Meinen Platz sichern →</a>
+        <a href="index.html#kontakt" class="btn-gold-outline">💬 Direktes Erstgespräch</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Feivel's Finanz News</span>
+  <div style="font-size:.82rem;color:rgba(255,255,255,.35);margin-bottom:12px">Mario Friedl · Unabhängiger Finanzberater · EQUALITY EH GmbH · Graz</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="gold-sparplan.html">Gold Sparplan</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="newsletter-maerz-2026.html">März 2026</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
+    📧 <a href="mailto:mario.friedl@equality-co.at" style="color:rgba(255,255,255,.35)">mario.friedl@equality-co.at</a> · 📱 +43 660 5256328<br><br>
+    <em>Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können neben Gewinnen auch zum Verlust des eingesetzten Kapitals führen. Wertentwicklungen der Vergangenheit stellen keinen verlässlichen Indikator für die Zukunft dar. Diese Informationen stellen keine individuelle Anlageberatung dar.</em><br><br>
+    <strong style="color:rgba(255,255,255,.3)">Quellen:</strong> Ad-hoc-news.de, Börsen-Zeitung, ADAC, Euronews, E-Control Austria, ÖAMTC, Durchblicker.at, Statistik Austria, IHS Preismonitor, WKO, Morningstar, Deutsche Bank, DAS INVESTMENT, DWS, DZ Bank, DER AKTIONÄR, INFINA, OeNB, Interhyp, WIFO, § 46 InvFG 2011, FMA Österreich, UCITS-Richtlinie 2009/65/EG · Stand: März/April 2026
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav(){
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav');
+  const btn=document.getElementById('navBurger');
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    nav.classList.remove('open');
+  }
+});
+document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mobileNav').classList.remove('open');
+}));
+</script>
+</body>
+</html>
