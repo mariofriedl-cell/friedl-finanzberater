@@ -325,6 +325,39 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
 @media(max-width:480px){
   .nl-bot { font-size:.88rem!important; }
 }
+
+/* ══ MOBILE FIXES ══ */
+@media(max-width:600px){
+  /* Alle Tabellen scrollbar */
+  .price-table-wrap { border-radius:10px; }
+  .price-table { min-width:360px; font-size:.78rem; }
+  .price-table thead th { font-size:.6rem; padding:8px 10px; }
+  .price-table tbody td { padding:10px 10px; font-size:.78rem; }
+
+  .infl-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; white-space:nowrap; font-size:.78rem; }
+  .infl-table th, .infl-table td { padding:8px 10px; }
+
+  /* Vergleichs-Grid: untereinander statt nebeneinander */
+  .vs-compare-wrap { display:flex; flex-direction:column; gap:0; border-radius:16px; overflow:hidden; }
+  .vs-col { width:100%; }
+  .vs-col-header { border-right:none!important; border-bottom:1px solid var(--border); }
+  .vs-cell { border-right:none!important; }
+
+  /* Scenario grid */
+  .scenario-grid { grid-template-columns:1fr!important; }
+
+  /* Commerzialbank stats */
+  .cmb-stats { grid-template-columns:1fr 1fr!important; }
+
+  /* inline-cta */
+  .inline-cta { flex-direction:column; }
+
+  /* CTA section */
+  .cta-section { padding:28px 18px; }
+  .cta-details { flex-direction:column; align-items:flex-start; gap:8px; }
+  .cta-btns { flex-direction:column; align-items:stretch; }
+  .cta-btns a { text-align:center; justify-content:center; }
+}
 </style>
 </head>
 <body>
@@ -508,6 +541,119 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
       <p>Gemäß <strong>§ 46 Investmentfondsgesetz (InvFG) 2011</strong> sowie der EU-Richtlinie <strong>UCITS</strong> (Undertakings for Collective Investment in Transferable Securities) gilt: Das Fondsvermögen ist rechtlich getrennt vom Vermögen der Kapitalanlagegesellschaft (KAG) und der Depotbank. Es handelt sich um sogenanntes <strong>Sondervermögen</strong> – das bedeutet im Klartext:</p>
 
       <!-- VERGLEICH SPARBUCH vs FONDS -->
+      <div style="margin:24px 0">
+
+        <!-- Mobile: gestapelt, Desktop: nebeneinander -->
+        <style>
+        .vs-compare { border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+        .vs-row-wrap { display:grid; grid-template-columns:1fr 1fr; }
+        .vs-cell-l { background:rgba(239,68,68,.03); border-right:1px solid var(--border); border-top:1px solid rgba(255,255,255,.05); padding:14px 18px; min-width:0; }
+        .vs-cell-r { background:rgba(22,163,74,.03); border-top:1px solid rgba(255,255,255,.05); padding:14px 18px; min-width:0; }
+        .vs-cat { font-size:.6rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:5px; }
+        .vs-text-l { font-size:.84rem; color:rgba(255,255,255,.6); line-height:1.55; }
+        .vs-text-r { font-size:.84rem; color:#22c55e; line-height:1.55; }
+        .vs-text-l strong { color:rgba(255,255,255,.85); }
+        .vs-text-r strong { color:#4ade80; }
+        .vs-text-l .bad { color:#ef4444; font-weight:700; }
+        @media(max-width:580px){
+          .vs-row-wrap { grid-template-columns:1fr; }
+          .vs-cell-l { border-right:none; border-bottom:1px solid rgba(255,255,255,.05); }
+          .vs-cell-r { border-top:none; }
+        }
+        </style>
+
+        <div class="vs-compare">
+          <!-- Header -->
+          <div class="vs-row-wrap">
+            <div style="background:rgba(239,68,68,.1);border-right:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;gap:10px;min-width:0">
+              <span style="font-size:1.2rem;flex-shrink:0">🏦</span>
+              <div style="min-width:0">
+                <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ef4444">Sparbuch / Bank-Einlage</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px">Klassische Variante</div>
+              </div>
+            </div>
+            <div style="background:rgba(22,163,74,.1);padding:14px 18px;display:flex;align-items:center;gap:10px;min-width:0">
+              <span style="font-size:1.2rem;flex-shrink:0">📈</span>
+              <div style="min-width:0">
+                <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#22c55e">Investmentfonds · Sondervermögen</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px">Gesetzlich geschützt · § 46 InvFG</div>
+              </div>
+            </div>
+          </div>
+          <!-- Eigentum -->
+          <div class="vs-row-wrap">
+            <div class="vs-cell-l">
+              <div class="vs-cat">Eigentum</div>
+              <div class="vs-text-l">Dein Geld wird der Bank als <strong>Darlehen</strong> übertragen – gehört buchhalterisch zur Bank</div>
+            </div>
+            <div class="vs-cell-r">
+              <div class="vs-cat">Eigentum</div>
+              <div class="vs-text-r"><strong>Dein Eigentum bleibt dein Eigentum</strong> – der Fonds verwaltet es nur, überträgt es nie</div>
+            </div>
+          </div>
+          <!-- Schutz -->
+          <div class="vs-row-wrap">
+            <div class="vs-cell-l">
+              <div class="vs-cat">Schutz bei Insolvenz</div>
+              <div class="vs-text-l">Einlagensicherung: <span class="bad">max. 100.000 € / Person</span> – alles darüber ungesichert</div>
+            </div>
+            <div class="vs-cell-r">
+              <div class="vs-cat">Schutz bei Insolvenz</div>
+              <div class="vs-text-r"><strong>Vollständiger Schutz – kein Limit.</strong> Bei KAG-Pleite bleibt Fondsvermögen unangetastet</div>
+            </div>
+          </div>
+          <!-- Streuung -->
+          <div class="vs-row-wrap">
+            <div class="vs-cell-l">
+              <div class="vs-cat">Risikostreuung</div>
+              <div class="vs-text-l">Du setzt auf <strong>eine einzige Bank</strong> – deren Bonität entscheidet</div>
+            </div>
+            <div class="vs-cell-r">
+              <div class="vs-cat">Risikostreuung</div>
+              <div class="vs-text-r"><strong>100+ Unternehmen weltweit</strong> – kein einzelnes Unternehmen kann dein Portfolio ruinieren</div>
+            </div>
+          </div>
+          <!-- Rendite -->
+          <div class="vs-row-wrap">
+            <div class="vs-cell-l">
+              <div class="vs-cat">Rendite</div>
+              <div class="vs-text-l">Zinsen: <span class="bad">1,5–2,25% p.a.</span> – bei 3,1% Inflation realer Verlust</div>
+            </div>
+            <div class="vs-cell-r">
+              <div class="vs-cat">Rendite</div>
+              <div class="vs-text-r"><strong>7–9% p.a.</strong> historisch – schlägt die Inflation langfristig</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Meine Einschätzung:</strong> Beide Szenarien sind möglich – und genau das ist der Grund, warum eine breite Diversifikation gerade wichtiger ist denn je. Wer jetzt nur aufs Sparbuch setzt, verliert in beiden Szenarien real an Kaufkraft.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- 02 FONDS & SONDERVERMÖGEN -->
+  <article>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Investmentfonds:<br><em>Was Sondervermögen wirklich bedeutet</em></h2>
+    </div>
+    <div class="card">
+
+      <h3>Die aktuelle Börsenlage – Korrektur, kein Crash</h3>
+      <p>Nach drei Jahren Rallye erleben wir eine <strong>gesunde Marktkorrektur</strong>: Technologie-Aktien sind 10–15% vom Höchststand entfernt, der DAX hält sich stabil über 25.000 Punkten, der VIX (Angst-Index) liegt bei ~25 – Panik beginnt erst ab 30+. Das ist keine Katastrophe, sondern eine normale Atempause.</p>
+
+      <div class="success-box">
+        <p>✅ <strong>Cost-Average-Effekt:</strong> Wer monatliche Sparpläne laufen hat, kauft jetzt automatisch mehr Anteile zum günstigeren Preis. Korrekturen sind für Sparplan-Inhaber eine stille Chance.</p>
+      </div>
+
+      <h3>Sondervermögen: Die entscheidende Sicherheitsgarantie</h3>
+      <p>Immer wieder höre ich die Frage: <em>„Ist mein Geld im Fonds sicher, wenn die Bank pleitegeht?"</em> Die Antwort ist ein klares <strong>Ja</strong> – und das ist gesetzlich verankert.</p>
+      <p>Gemäß <strong>§ 46 Investmentfondsgesetz (InvFG) 2011</strong> sowie der EU-Richtlinie <strong>UCITS</strong> (Undertakings for Collective Investment in Transferable Securities) gilt: Das Fondsvermögen ist rechtlich getrennt vom Vermögen der Kapitalanlagegesellschaft (KAG) und der Depotbank. Es handelt sich um sogenanntes <strong>Sondervermögen</strong> – das bedeutet im Klartext:</p>
+
+      <!-- VERGLEICH SPARBUCH vs FONDS -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;margin:24px 0;border:1px solid var(--border)">
 
         <!-- Spalten-Header -->
@@ -576,7 +722,7 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
         <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Im <strong style="color:rgba(255,255,255,.9)">Juli 2020</strong> wurde die Commerzialbank Mattersburg im Burgenland von der FMA geschlossen. Der Grund: Ein über Jahrzehnte aufgebauter Bilanzskandal – Guthaben wurden schlicht erfunden. Die Bank war faktisch insolvent, das Kapital größtenteils nicht vorhanden.</p>
         <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Rund <strong style="color:rgba(255,255,255,.9)">40.000 Kunden</strong> – Privatpersonen, Vereine, Gemeinden, Unternehmen – kamen nicht mehr an ihr Geld. Die Einlagensicherung AUSTRIA deckte bis zu 100.000 € pro Person ab. <strong style="color:#ef4444">Alles, was über 100.000 € lag, war ungesichert – und ist verloren.</strong></p>
         <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 18px;margin-bottom:12px">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="cmb-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div>
               <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Bankschließung</div>
               <div style="font-size:.95rem;font-weight:700;color:var(--white)">Juli 2020</div>
@@ -666,7 +812,7 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
 
       <p>Die Inflation in Österreich ist im März 2026 auf <strong>3,1%</strong> gestiegen – nach 2,2% im Februar. Haupttreiber sind die Energiepreise durch den Iran-Konflikt sowie Dienstleistungen (+4,5%). Was das konkret für dein Erspartes bedeutet:</p>
 
-      <table class="infl-table">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;margin:20px 0"><table class="infl-table" style="margin:0;min-width:480px">
         <thead>
           <tr><th>Betrag</th><th>Heute</th><th>Kaufkraft in 5 J.</th><th>Kaufkraft in 10 J.</th><th>Kaufkraft in 20 J.</th></tr>
         </thead>
@@ -675,7 +821,7 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
           <tr><td><strong>50.000 €</strong></td><td>50.000 €</td><td class="loss">42.750 €</td><td class="loss">36.550 €</td><td class="loss">26.700 €</td></tr>
           <tr><td><strong>100.000 €</strong></td><td>100.000 €</td><td class="loss">85.500 €</td><td class="loss">73.100 €</td><td class="loss">53.400 €</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <div class="warning-box">
         <p>⚠️ <strong>Das Sparbuch-Problem:</strong> Aktuelle Sparbuchzinsen in Österreich liegen bei 1,5–2,25% p.a. Gegen eine Inflation von 3,1% ergibt das einen <strong>realen Verlust von ca. 0,85% pro Jahr</strong>. Auf 50.000 € bedeutet das: ca. 425 € Kaufkraftverlust – jedes Jahr, still und leise.</p>
@@ -736,7 +882,7 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
       <p>Eine selten Marktsituation: <strong>Fixzinsen sind derzeit teilweise günstiger als variable Zinsen</strong> – eine sogenannte inverse Zinskurve. Das passiert, wenn der Markt erwartet, dass die kurzfristigen Zinsen künftig fallen.</p>
 
       <div class="price-table-wrap">
-        <table class="price-table">
+        <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;margin:20px 0"><table class="price-table" style="margin:0;min-width:340px">
           <thead><tr><th>Finanzierungsart</th><th>Zinssatz p.a.</th><th>Empfehlung</th></tr></thead>
           <tbody>
             <tr><td><strong>Variable Verzinsung</strong></td><td>ab 2,80%</td><td>⚠️ Risiko bei Zinsanstieg</td></tr>
@@ -799,26 +945,17 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
   </div>
   <div class="footer-bottom">
     © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
-    📧 <a href="mailto:mario.friedl@equality-co.at" style="color:rgba(255,255,255,.35)">mario.friedl@equality-co.at</a> · 📱 +43 660 5256328<br><br>
+    📧 <a href="/cdn-cgi/l/email-protection#8ce1edfee5e3a2eafee5e9e8e0cce9fdf9ede0e5f8f5a1efe3a2edf8" style="color:rgba(255,255,255,.35)"><span class="__cf_email__" data-cfemail="bed3dfccd7d190d8ccd7dbdad2fedbcfcbdfd2d7cac793ddd190dfca">[email&#160;protected]</span></a> · 📱 +43 660 5256328<br><br>
     <em>Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können neben Gewinnen auch zum Verlust des eingesetzten Kapitals führen. Wertentwicklungen der Vergangenheit stellen keinen verlässlichen Indikator für die Zukunft dar. Diese Informationen stellen keine individuelle Anlageberatung dar.</em><br><br>
     <strong style="color:rgba(255,255,255,.3)">Quellen:</strong> Ad-hoc-news.de, Börsen-Zeitung, ADAC, Euronews, E-Control Austria, ÖAMTC, Durchblicker.at, Statistik Austria, IHS Preismonitor, WKO, Morningstar, Deutsche Bank, DAS INVESTMENT, DWS, DZ Bank, DER AKTIONÄR, INFINA, OeNB, Interhyp, WIFO, § 46 InvFG 2011, FMA Österreich, UCITS-Richtlinie 2009/65/EG · Stand: März/April 2026
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMobileNav(){
   document.getElementById('mobileNav').classList.toggle('open');
 }
 document.addEventListener('click',function(e){
   const nav=document.getElementById('mobileNav');
   const btn=document.getElementById('navBurger');
-  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
-    nav.classList.remove('open');
-  }
-});
-document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mobileNav').classList.remove('open');
-}));
-</script>
-</body>
-</html>
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.t
