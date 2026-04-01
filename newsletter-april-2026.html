@@ -540,209 +540,144 @@ footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
       <p>Immer wieder höre ich die Frage: <em>„Ist mein Geld im Fonds sicher, wenn die Bank pleitegeht?"</em> Die Antwort ist ein klares <strong>Ja</strong> – und das ist gesetzlich verankert.</p>
       <p>Gemäß <strong>§ 46 Investmentfondsgesetz (InvFG) 2011</strong> sowie der EU-Richtlinie <strong>UCITS</strong> (Undertakings for Collective Investment in Transferable Securities) gilt: Das Fondsvermögen ist rechtlich getrennt vom Vermögen der Kapitalanlagegesellschaft (KAG) und der Depotbank. Es handelt sich um sogenanntes <strong>Sondervermögen</strong> – das bedeutet im Klartext:</p>
 
-      <!-- VERGLEICH SPARBUCH vs FONDS -->
+ 
+      <!-- VERGLEICH SPARBUCH vs FONDS – SWIPE SLIDER -->
       <div style="margin:24px 0">
-
-        <!-- Mobile: gestapelt, Desktop: nebeneinander -->
         <style>
-        .vs-compare { border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-        .vs-row-wrap { display:grid; grid-template-columns:1fr 1fr; }
-        .vs-cell-l { background:rgba(239,68,68,.03); border-right:1px solid var(--border); border-top:1px solid rgba(255,255,255,.05); padding:14px 18px; min-width:0; }
-        .vs-cell-r { background:rgba(22,163,74,.03); border-top:1px solid rgba(255,255,255,.05); padding:14px 18px; min-width:0; }
-        .vs-cat { font-size:.6rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:5px; }
-        .vs-text-l { font-size:.84rem; color:rgba(255,255,255,.6); line-height:1.55; }
-        .vs-text-r { font-size:.84rem; color:#22c55e; line-height:1.55; }
-        .vs-text-l strong { color:rgba(255,255,255,.85); }
-        .vs-text-r strong { color:#4ade80; }
-        .vs-text-l .bad { color:#ef4444; font-weight:700; }
-        @media(max-width:580px){
-          .vs-row-wrap { grid-template-columns:1fr; }
-          .vs-cell-l { border-right:none; border-bottom:1px solid rgba(255,255,255,.05); }
-          .vs-cell-r { border-top:none; }
+        .vs-slider-wrap { position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--border); }
+        .vs-slider-track { display:flex; transition:transform .35s cubic-bezier(.4,0,.2,1); will-change:transform; }
+        .vs-slide { min-width:100%; padding:0; }
+        .vs-slide-inner { padding:0; }
+
+        /* Header */
+        .vs-slide-header { padding:16px 20px; display:flex; align-items:center; gap:12px; }
+        .vs-slide-header.red { background:rgba(239,68,68,.12); border-bottom:1px solid rgba(239,68,68,.15); }
+        .vs-slide-header.green { background:rgba(22,163,74,.12); border-bottom:1px solid rgba(22,163,74,.15); }
+        .vs-slide-header .sh-icon { font-size:1.4rem; flex-shrink:0; }
+        .vs-slide-header .sh-label { font-size:.62rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; }
+        .vs-slide-header.red .sh-label { color:#ef4444; }
+        .vs-slide-header.green .sh-label { color:#22c55e; }
+        .vs-slide-header .sh-sub { font-size:.75rem; color:rgba(255,255,255,.4); margin-top:2px; }
+
+        /* Rows */
+        .vs-slide-row { padding:14px 20px; border-top:1px solid rgba(255,255,255,.05); }
+        .vs-slide-row .vsr-cat { font-size:.6rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:6px; }
+        .vs-slide-row .vsr-text { font-size:.88rem; line-height:1.6; }
+        .vs-slide.red-slide .vsr-text { color:rgba(255,255,255,.65); }
+        .vs-slide.red-slide .vsr-text strong { color:rgba(255,255,255,.9); }
+        .vs-slide.red-slide .vsr-text .bad { color:#ef4444; font-weight:700; }
+        .vs-slide.green-slide .vsr-text { color:#4ade80; }
+        .vs-slide.green-slide .vsr-text strong { color:#86efac; }
+
+        /* Toggle / Regler */
+        .vs-toggle { display:flex; border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:12px; }
+        .vs-toggle-btn { flex:1; padding:10px 0; text-align:center; font-size:.78rem; font-weight:700; cursor:pointer; transition:all .25s; border:none; background:transparent; color:rgba(255,255,255,.4); }
+        .vs-toggle-btn.active-red { background:rgba(239,68,68,.15); color:#ef4444; }
+        .vs-toggle-btn.active-green { background:rgba(22,163,74,.15); color:#22c55e; }
+        .vs-toggle-divider { width:1px; background:var(--border); flex-shrink:0; }
+
+        /* Desktop: nebeneinander */
+        @media(min-width:640px){
+          .vs-slider-wrap { overflow:visible; border:none; border-radius:0; }
+          .vs-toggle { display:none; }
+          .vs-slider-track { display:grid; grid-template-columns:1fr 1fr; gap:0; transform:none!important; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+          .vs-slide { min-width:unset; }
+          .vs-slide.red-slide .vs-slide-header { border-radius:0; }
+          .vs-slide-row { }
+          .vs-slide.red-slide .vs-slide-row { border-right:1px solid var(--border); }
         }
         </style>
 
-        <div class="vs-compare">
-          <!-- Header -->
-          <div class="vs-row-wrap">
-            <div style="background:rgba(239,68,68,.1);border-right:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;gap:10px;min-width:0">
-              <span style="font-size:1.2rem;flex-shrink:0">🏦</span>
-              <div style="min-width:0">
-                <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ef4444">Sparbuch / Bank-Einlage</div>
-                <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px">Klassische Variante</div>
+        <!-- Toggle Buttons (nur Mobile) -->
+        <div class="vs-toggle" id="vsToggle">
+          <button class="vs-toggle-btn active-red" onclick="vsShow(0)" id="vsBtn0">🏦 Sparbuch</button>
+          <div class="vs-toggle-divider"></div>
+          <button class="vs-toggle-btn" onclick="vsShow(1)" id="vsBtn1">📈 Investmentfonds</button>
+        </div>
+
+        <div class="vs-slider-wrap">
+          <div class="vs-slider-track" id="vsTrack">
+
+            <!-- SLIDE 1: SPARBUCH -->
+            <div class="vs-slide red-slide">
+              <div class="vs-slide-header red">
+                <span class="sh-icon">🏦</span>
+                <div>
+                  <div class="sh-label">Sparbuch / Bank-Einlage</div>
+                  <div class="sh-sub">Klassische Variante</div>
+                </div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Eigentum</div>
+                <div class="vsr-text">Dein Geld wird der Bank als <strong>Darlehen</strong> übertragen – es gehört buchhalterisch zur Bank</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Schutz bei Insolvenz</div>
+                <div class="vsr-text">Einlagensicherung: <span class="bad">max. 100.000 € / Person</span> – alles darüber ungesichert und kann verloren gehen</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Risikostreuung</div>
+                <div class="vsr-text">Du setzt auf <strong>eine einzige Bank</strong> – deren Bonität allein entscheidet</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Rendite</div>
+                <div class="vsr-text">Zinsen: <span class="bad">1,5–2,25% p.a.</span> – bei 3,1% Inflation realer Verlust jedes Jahr</div>
               </div>
             </div>
-            <div style="background:rgba(22,163,74,.1);padding:14px 18px;display:flex;align-items:center;gap:10px;min-width:0">
-              <span style="font-size:1.2rem;flex-shrink:0">📈</span>
-              <div style="min-width:0">
-                <div style="font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#22c55e">Investmentfonds · Sondervermögen</div>
-                <div style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px">Gesetzlich geschützt · § 46 InvFG</div>
+
+            <!-- SLIDE 2: FONDS -->
+            <div class="vs-slide green-slide">
+              <div class="vs-slide-header green">
+                <span class="sh-icon">📈</span>
+                <div>
+                  <div class="sh-label">Investmentfonds · Sondervermögen</div>
+                  <div class="sh-sub">Gesetzlich geschützt · § 46 InvFG</div>
+                </div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Eigentum</div>
+                <div class="vsr-text"><strong>Dein Eigentum bleibt dein Eigentum</strong> – der Fonds verwaltet es nur, überträgt es nie</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Schutz bei Insolvenz</div>
+                <div class="vsr-text"><strong>Vollständiger Schutz – kein Limit.</strong> Bei KAG-Pleite bleibt das Fondsvermögen unangetastet</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Risikostreuung</div>
+                <div class="vsr-text"><strong>100+ Unternehmen weltweit</strong> – kein einzelnes Unternehmen kann dein Portfolio ruinieren</div>
+              </div>
+              <div class="vs-slide-row">
+                <div class="vsr-cat">Rendite</div>
+                <div class="vsr-text"><strong>7–9% p.a.</strong> historisch – schlägt die Inflation langfristig deutlich</div>
               </div>
             </div>
-          </div>
-          <!-- Eigentum -->
-          <div class="vs-row-wrap">
-            <div class="vs-cell-l">
-              <div class="vs-cat">Eigentum</div>
-              <div class="vs-text-l">Dein Geld wird der Bank als <strong>Darlehen</strong> übertragen – gehört buchhalterisch zur Bank</div>
-            </div>
-            <div class="vs-cell-r">
-              <div class="vs-cat">Eigentum</div>
-              <div class="vs-text-r"><strong>Dein Eigentum bleibt dein Eigentum</strong> – der Fonds verwaltet es nur, überträgt es nie</div>
-            </div>
-          </div>
-          <!-- Schutz -->
-          <div class="vs-row-wrap">
-            <div class="vs-cell-l">
-              <div class="vs-cat">Schutz bei Insolvenz</div>
-              <div class="vs-text-l">Einlagensicherung: <span class="bad">max. 100.000 € / Person</span> – alles darüber ungesichert</div>
-            </div>
-            <div class="vs-cell-r">
-              <div class="vs-cat">Schutz bei Insolvenz</div>
-              <div class="vs-text-r"><strong>Vollständiger Schutz – kein Limit.</strong> Bei KAG-Pleite bleibt Fondsvermögen unangetastet</div>
-            </div>
-          </div>
-          <!-- Streuung -->
-          <div class="vs-row-wrap">
-            <div class="vs-cell-l">
-              <div class="vs-cat">Risikostreuung</div>
-              <div class="vs-text-l">Du setzt auf <strong>eine einzige Bank</strong> – deren Bonität entscheidet</div>
-            </div>
-            <div class="vs-cell-r">
-              <div class="vs-cat">Risikostreuung</div>
-              <div class="vs-text-r"><strong>100+ Unternehmen weltweit</strong> – kein einzelnes Unternehmen kann dein Portfolio ruinieren</div>
-            </div>
-          </div>
-          <!-- Rendite -->
-          <div class="vs-row-wrap">
-            <div class="vs-cell-l">
-              <div class="vs-cat">Rendite</div>
-              <div class="vs-text-l">Zinsen: <span class="bad">1,5–2,25% p.a.</span> – bei 3,1% Inflation realer Verlust</div>
-            </div>
-            <div class="vs-cell-r">
-              <div class="vs-cat">Rendite</div>
-              <div class="vs-text-r"><strong>7–9% p.a.</strong> historisch – schlägt die Inflation langfristig</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="highlight-box">
-        <p><strong>Meine Einschätzung:</strong> Beide Szenarien sind möglich – und genau das ist der Grund, warum eine breite Diversifikation gerade wichtiger ist denn je. Wer jetzt nur aufs Sparbuch setzt, verliert in beiden Szenarien real an Kaufkraft.</p>
-      </div>
-
-    </div>
-  </article>
-
-  <!-- 02 FONDS & SONDERVERMÖGEN -->
-  <article>
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Investmentfonds:<br><em>Was Sondervermögen wirklich bedeutet</em></h2>
-    </div>
-    <div class="card">
-
-      <h3>Die aktuelle Börsenlage – Korrektur, kein Crash</h3>
-      <p>Nach drei Jahren Rallye erleben wir eine <strong>gesunde Marktkorrektur</strong>: Technologie-Aktien sind 10–15% vom Höchststand entfernt, der DAX hält sich stabil über 25.000 Punkten, der VIX (Angst-Index) liegt bei ~25 – Panik beginnt erst ab 30+. Das ist keine Katastrophe, sondern eine normale Atempause.</p>
-
-      <div class="success-box">
-        <p>✅ <strong>Cost-Average-Effekt:</strong> Wer monatliche Sparpläne laufen hat, kauft jetzt automatisch mehr Anteile zum günstigeren Preis. Korrekturen sind für Sparplan-Inhaber eine stille Chance.</p>
-      </div>
-
-      <h3>Sondervermögen: Die entscheidende Sicherheitsgarantie</h3>
-      <p>Immer wieder höre ich die Frage: <em>„Ist mein Geld im Fonds sicher, wenn die Bank pleitegeht?"</em> Die Antwort ist ein klares <strong>Ja</strong> – und das ist gesetzlich verankert.</p>
-      <p>Gemäß <strong>§ 46 Investmentfondsgesetz (InvFG) 2011</strong> sowie der EU-Richtlinie <strong>UCITS</strong> (Undertakings for Collective Investment in Transferable Securities) gilt: Das Fondsvermögen ist rechtlich getrennt vom Vermögen der Kapitalanlagegesellschaft (KAG) und der Depotbank. Es handelt sich um sogenanntes <strong>Sondervermögen</strong> – das bedeutet im Klartext:</p>
-
-      <!-- VERGLEICH SPARBUCH vs FONDS -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;margin:24px 0;border:1px solid var(--border)">
-
-        <!-- Spalten-Header -->
-        <div style="background:rgba(239,68,68,.1);border-right:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.2rem">🏦</span>
-          <div>
-            <div style="font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#ef4444">Sparbuch / Bank-Einlage</div>
-            <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Klassische Variante</div>
-          </div>
-        </div>
-        <div style="background:rgba(22,163,74,.1);padding:14px 20px;display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.2rem">📈</span>
-          <div>
-            <div style="font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#22c55e">Investmentfonds · Sondervermögen</div>
-            <div style="font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px">Gesetzlich geschützt · § 46 InvFG</div>
           </div>
         </div>
 
-        <!-- Zeile 1: Eigentum -->
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Eigentum</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Dein Geld wird der Bank als <strong style="color:rgba(255,255,255,.85)">Darlehen</strong> übertragen – es gehört buchhalterisch zur Bank</div>
-        </div>
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Eigentum</div>
-          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">Dein Eigentum bleibt dein Eigentum</strong> – der Fonds verwaltet es nur, überträgt es nie</div>
-        </div>
-
-        <!-- Zeile 2: Schutz bei Pleite -->
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Schutz bei Insolvenz</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Einlagensicherung: <strong style="color:#ef4444">max. 100.000 € pro Person</strong> – alles darüber ist ungesichert und kann verloren gehen</div>
-        </div>
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Schutz bei Insolvenz</div>
-          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">Vollständiger Schutz – kein Limit</strong>. Bei KAG-Pleite bleibt das Fondsvermögen unangetastet</div>
-        </div>
-
-        <!-- Zeile 3: Streuung -->
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Risikostreuung</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Du setzt auf <strong style="color:rgba(255,255,255,.85)">eine einzige Bank</strong> – deren Bonität und Stabilität entscheidet</div>
-        </div>
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Risikostreuung</div>
-          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">100+ Unternehmen weltweit</strong> – kein einzelnes Unternehmen kann dein Portfolio ruinieren</div>
-        </div>
-
-        <!-- Zeile 4: Rendite -->
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);border-right:1px solid var(--border);background:rgba(239,68,68,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Rendite</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.55">Zinsen: <strong style="color:#ef4444">1,5–2,25% p.a.</strong> – bei 3,1% Inflation ein realer Verlust</div>
-        </div>
-        <div style="padding:14px 20px;border-top:1px solid rgba(255,255,255,.05);background:rgba(22,163,74,.03)">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px">Rendite</div>
-          <div style="font-size:.86rem;color:#22c55e;line-height:1.55"><strong style="color:#4ade80">7–9% p.a.</strong> historisch (globale Aktienfonds) – schlägt die Inflation langfristig</div>
-        </div>
-
-      </div>
-
-      <!-- COMMERZIALBANK MATTERSBURG -->
-      <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.25);border-radius:16px;padding:24px;margin:24px 0;position:relative;overflow:hidden">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ef4444,#dc2626)"></div>
-        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#ef4444;margin-bottom:12px">⚠️ Reales Beispiel: Was bei einer Bankpleite wirklich passiert</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:14px;line-height:1.3">Commerzialbank Mattersburg: Eine österreichische Warnung</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Im <strong style="color:rgba(255,255,255,.9)">Juli 2020</strong> wurde die Commerzialbank Mattersburg im Burgenland von der FMA geschlossen. Der Grund: Ein über Jahrzehnte aufgebauter Bilanzskandal – Guthaben wurden schlicht erfunden. Die Bank war faktisch insolvent, das Kapital größtenteils nicht vorhanden.</p>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:12px">Rund <strong style="color:rgba(255,255,255,.9)">40.000 Kunden</strong> – Privatpersonen, Vereine, Gemeinden, Unternehmen – kamen nicht mehr an ihr Geld. Die Einlagensicherung AUSTRIA deckte bis zu 100.000 € pro Person ab. <strong style="color:#ef4444">Alles, was über 100.000 € lag, war ungesichert – und ist verloren.</strong></p>
-        <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:14px 18px;margin-bottom:12px">
-          <div class="cmb-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div>
-              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Bankschließung</div>
-              <div style="font-size:.95rem;font-weight:700;color:var(--white)">Juli 2020</div>
-            </div>
-            <div>
-              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Betroffene Kunden</div>
-              <div style="font-size:.95rem;font-weight:700;color:var(--white)">~40.000</div>
-            </div>
-            <div>
-              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Gedeckt durch ESA</div>
-              <div style="font-size:.95rem;font-weight:700;color:#22c55e">bis 100.000 € / Person</div>
-            </div>
-            <div>
-              <div style="font-size:.65rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px">Über 100.000 €</div>
-              <div style="font-size:.95rem;font-weight:700;color:#ef4444">Ungesichert – verloren</div>
-            </div>
-          </div>
-        </div>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:0">Viele Betroffene warten Stand heute – <strong style="color:rgba(255,255,255,.9)">über 5 Jahre nach der Schließung</strong> – noch immer auf die vollständige Abwicklung. Das Insolvenzverfahren zieht sich hin, Gläubiger erhalten allenfalls einen Bruchteil. Gemeinden und Vereine, die mehr als 100.000 € auf Konten hatten, tragen massive Verluste.</p>
-        <p style="font-size:.78rem;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.6"><strong>Quellen:</strong> FMA Österreich (fma.gv.at) · ORF.at · Der Standard · APA · Einlagensicherung AUSTRIA (einlagensicherung.at) · Insolvenzgericht Eisenstadt</p>
+        <script>
+        function vsShow(idx){
+          var track = document.getElementById('vsTrack');
+          if(track) track.style.transform = idx === 0 ? 'translateX(0)' : 'translateX(-100%)';
+          ['vsBtn0','vsBtn1'].forEach(function(id,i){
+            var btn = document.getElementById(id);
+            if(!btn) return;
+            btn.className = 'vs-toggle-btn';
+            if(i === idx) btn.className += (idx===0 ? ' active-red' : ' active-green');
+          });
+        }
+        // Touch/swipe support
+        (function(){
+          var wrap = document.querySelector('.vs-slider-wrap');
+          if(!wrap) return;
+          var startX, current = 0;
+          wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+          wrap.addEventListener('touchend', function(e){
+            var diff = startX - e.changedTouches[0].clientX;
+            if(Math.abs(diff) > 50) vsShow(diff > 0 ? 1 : 0);
+          }, {passive:true});
+        })();
+        </script>
       </div>
 
       <div class="highlight-box">
