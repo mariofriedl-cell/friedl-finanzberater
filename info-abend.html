@@ -655,8 +655,8 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="ic-seats-top">
             <span class="ic-seats-label">Verfügbare Plätze</span>
             <div>
-              <div class="ic-seats-count" id="seatCount">20</div>
-              <div class="ic-seats-sub">von 25 noch frei</div>
+              <div class="ic-seats-count" id="seatCount">10</div>
+              <div class="ic-seats-sub">von 25 Plätzen · 10 noch frei</div>
             </div>
           </div>
           <div class="ic-track"><div class="ic-fill" id="seatFill"></div></div>
@@ -1151,7 +1151,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   <div class="urg-inner anim">
     <div class="urg-badge">⏳ Begrenzte Plätze</div>
     <h2 class="urg-h2">
-      Noch <em>20 Plätze</em> frei.<br>Für den 27. April.
+      Noch <em>10 Plätze</em> frei.<br>Für den 27. April.
     </h2>
     <p class="urg-text">
       Wir begrenzen jeden Abend auf 25 Personen – damit jeder wirklich zu Wort kommt. Damit die Gespräche persönlich bleiben. Das ist kein Marketing-Trick. Das ist der Grund, warum dieser Abend funktioniert.
@@ -1159,11 +1159,11 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 
     <div class="seats-visual">
       <div class="sv-top">
-        <span class="sv-taken">5 Plätze belegt</span>
-        <span class="sv-free">20 noch frei</span>
+        <span class="sv-taken">15 Plätze belegt</span>
+        <span class="sv-free">10 noch frei</span>
       </div>
       <div class="sv-track"><div class="sv-fill" id="urgFill"></div></div>
-      <div class="sv-count">20</div>
+      <div class="sv-count">10</div>
       <div class="sv-label">freie Plätze für den 27. April 2026</div>
     </div>
 
@@ -1416,7 +1416,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <div class="sticky-bar" id="stickyBar">
   <div class="sb-left">
     <strong>🍷 Der Info-Abend · 27. April 2026 · Kostenlos</strong>
-    <div class="sb-detail">Noch 20 Plätze · Graz · Wein &amp; Brötchen inklusive</div>
+    <div class="sb-detail">Noch 10 Plätze · Graz · Wein &amp; Brötchen inklusive</div>
   </div>
   <a href="#anmelden" class="btn-wine" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
 </div>
@@ -1459,9 +1459,9 @@ const seatObs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){
     setTimeout(()=>{
       const f=document.getElementById('seatFill');
-      if(f)f.style.width='20%'; // 14/25 = 56%
+      if(f)f.style.width='60%'; // 15/25 belegt = 60%
       const uf=document.getElementById('urgFill');
-      if(uf)uf.style.width='20%';
+      if(uf)uf.style.width='60%';
     },400);
     seatObs.unobserve(e.target);
   }
