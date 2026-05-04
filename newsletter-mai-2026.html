@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feivel's Finanz News | Mai 2026 | Weltwirtschaft, Gold & Bauzinsen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8973B;
+  --gold2: #E8B84B;
+  --ink: #0F1923;
+  --white: #FAFAF7;
+  --cream: #F5F1EA;
+  --muted: #6B7280;
+  --dark: #0F1923;
+  --dark2: #162030;
+  --dark3: #1E2C3A;
+  --border: rgba(200,151,59,.18);
+  --green: #16A34A;
+  --red: #DC2626;
+  --blue: #2563EB;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Lato',sans-serif; background:var(--dark); color:var(--white); line-height:1.6; overflow-x:hidden; }
+::-webkit-scrollbar{width:3px} ::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* ══ TICKER ══ */
+.ticker-outer { background:var(--ink); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:200; overflow:hidden; height:44px; display:flex; align-items:center; }
+.ticker-label { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:var(--ink); font-size:.68rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; padding:0 16px; height:100%; display:flex; align-items:center; flex-shrink:0; white-space:nowrap; }
+.ticker-track { display:flex; animation:ticker 28s linear infinite; align-items:center; height:100%; }
+.ticker-track:hover { animation-play-state:paused; }
+.ticker-item { display:flex; align-items:center; gap:6px; padding:0 24px; font-size:.82rem; font-weight:700; white-space:nowrap; border-right:1px solid rgba(255,255,255,.06); height:100%; }
+.t-name { color:rgba(255,255,255,.5); font-weight:400; font-size:.75rem; margin-right:4px; }
+.t-val { color:var(--white); }
+.t-up { color:#22C55E; }
+.t-down { color:#EF4444; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ══ NAV ══ */
+nav { background:rgba(15,25,35,.97); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 28px; height:68px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:44px; z-index:100; }
+.nav-logo { text-decoration:none; display:flex; align-items:center; gap:9px; white-space:nowrap; flex-shrink:0; }
+.nav-logo-icon { width:34px; height:34px; border-radius:8px; background:linear-gradient(135deg,var(--gold),var(--gold2)); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
+.nav-logo-text { display:flex; flex-direction:column; line-height:1.15; }
+.nav-logo-text .nl-top { font-size:.72rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+.nav-logo-text .nl-bot { font-size:.98rem; font-weight:700; color:var(--white); }
+.nav-logo-text .nl-bot span { color:var(--gold); }
+.nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; flex-shrink:0; }
+.nav-hamburger span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; transition:all .3s; }
+.nav-links { display:flex; gap:8px; align-items:center; }
+.nav-links a { color:rgba(255,255,255,.55); text-decoration:none; font-size:.83rem; font-weight:600; padding:7px 14px; border-radius:8px; transition:all .2s; }
+.nav-links a:hover { color:var(--white); background:rgba(255,255,255,.07); }
+.mobile-nav { display:none; position:fixed; top:112px; left:0; right:0; z-index:99; background:rgba(15,25,35,.99); border-bottom:1px solid var(--border); padding:16px 20px 24px; flex-direction:column; gap:8px; }
+.mobile-nav.open { display:flex; }
+.mobile-nav a { display:block; padding:12px 16px; border-radius:8px; font-size:.95rem; font-weight:600; color:rgba(255,255,255,.75); text-decoration:none; border:1px solid rgba(255,255,255,.08); }
+.mobile-nav .mn-gold { background:linear-gradient(135deg,var(--gold),var(--gold2)); color:var(--ink)!important; border-color:transparent!important; font-weight:900!important; text-align:center; }
+
+/* ══ ARCHIV-BAR ══ */
+.month-bar { background:var(--dark2); border-bottom:1px solid var(--border); padding:14px 28px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.month-bar-label { font-size:.72rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); flex-shrink:0; }
+.month-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.month-pill { padding:6px 16px; border-radius:20px; font-size:.78rem; font-weight:700; border:1px solid rgba(255,255,255,.12); background:transparent; color:rgba(255,255,255,.45); cursor:pointer; text-decoration:none; transition:all .2s; display:flex; align-items:center; gap:6px; }
+.month-pill:hover { border-color:var(--gold); color:var(--gold); }
+.month-pill.active { background:linear-gradient(135deg,var(--gold),var(--gold2)); border-color:transparent; color:var(--ink); font-weight:900; }
+.month-pill .mp-dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+.month-pill.disabled { opacity:.35; pointer-events:none; }
+
+/* ══ HERO ══ */
+.hero { background:linear-gradient(160deg,#0F1923 0%,#162030 50%,#0F1923 100%); padding:80px 28px 64px; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-60%; left:50%; transform:translateX(-50%); width:900px; height:900px; background:radial-gradient(circle,rgba(200,151,59,.08) 0%,transparent 70%); pointer-events:none; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(200,151,59,.12); border:1px solid var(--border); border-radius:20px; padding:5px 16px; font-size:.7rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+.hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:900; line-height:1.1; color:var(--white); margin-bottom:20px; }
+.hero h1 em { color:var(--gold); font-style:italic; }
+.hero-sub { font-size:1.05rem; color:rgba(255,255,255,.5); max-width:680px; margin:0 auto 32px; line-height:1.7; }
+.hero-meta { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+.hero-meta-item { display:flex; align-items:center; gap:7px; font-size:.8rem; color:rgba(255,255,255,.35); font-weight:600; }
+.hero-meta-item span { color:var(--gold); }
+
+/* ══ MAIN ══ */
+.main { max-width:900px; margin:0 auto; padding:56px 28px 80px; display:flex; flex-direction:column; gap:52px; }
+
+.section-head { display:flex; align-items:flex-start; gap:16px; margin-bottom:28px; }
+.section-num { font-size:.62rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); background:rgba(200,151,59,.1); border:1px solid var(--border); border-radius:8px; padding:3px 10px; flex-shrink:0; margin-top:5px; }
+.section-head h2 { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,3vw,2rem); font-weight:700; color:var(--white); line-height:1.2; }
+.section-head h2 em { color:var(--gold); font-style:italic; }
+
+.card { background:var(--dark2); border:1px solid var(--border); border-radius:20px; padding:32px; position:relative; overflow:hidden; }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:.4; }
+.card p { font-size:.92rem; color:rgba(255,255,255,.65); line-height:1.75; margin-bottom:16px; }
+.card p:last-child { margin-bottom:0; }
+.card p strong { color:var(--white); font-weight:700; }
+.card p em { color:var(--gold); font-style:normal; font-weight:600; }
+.card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--white); margin:24px 0 12px; }
+.card h3:first-child { margin-top:0; }
+.card ul { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.card ul li { font-size:.88rem; color:rgba(255,255,255,.6); line-height:1.6; padding-left:20px; position:relative; }
+.card ul li::before { content:'▸'; position:absolute; left:0; color:var(--gold); font-size:.75rem; }
+.card ul li strong { color:var(--white); }
+
+.highlight-box { background:rgba(200,151,59,.08); border:1px solid rgba(200,151,59,.25); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.highlight-box p { font-size:.86rem; color:rgba(255,255,255,.7); margin:0; line-height:1.7; }
+.highlight-box p strong { color:var(--gold); }
+.warning-box { background:rgba(239,68,68,.06); border:1px solid rgba(239,68,68,.2); border-left:3px solid #EF4444; border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.warning-box p { font-size:.86rem; margin:0; color:rgba(255,255,255,.7); line-height:1.7; }
+.success-box { background:rgba(22,163,74,.07); border:1px solid rgba(22,163,74,.2); border-left:3px solid var(--green); border-radius:0 12px 12px 0; padding:16px 20px; margin:20px 0; }
+.success-box p { font-size:.86rem; margin:0; color:rgba(255,255,255,.7); line-height:1.7; }
+
+/* Stats Grid */
+.stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:20px 0; }
+.stat-item { background:rgba(0,0,0,.2); border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center; }
+.stat-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color:var(--gold); line-height:1; margin-bottom:6px; display:block; }
+.stat-num.blue { color:#60a5fa; }
+.stat-num.green { color:#22C55E; }
+.stat-num.red { color:#EF4444; }
+.stat-label { font-size:.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.35); }
+
+/* Tabellen */
+.price-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:20px 0; border-radius:10px; }
+.price-table { width:100%; min-width:400px; border-collapse:collapse; font-size:.85rem; }
+.price-table thead th { text-align:left; padding:10px 14px; font-size:.68rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--border); }
+.price-table tbody td { padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.7); }
+.price-table tbody tr:hover td { background:rgba(255,255,255,.03); }
+.price-table tbody td strong { color:var(--white); }
+.td-up { color:#22C55E; font-weight:700; }
+.td-down { color:#EF4444; font-weight:700; }
+.td-gold { color:var(--gold); font-weight:700; }
+.td-best { color:#22C55E; font-weight:900; }
+.td-warn { color:#F59E0B; font-weight:700; }
+
+/* Scenario Grid */
+.scenario-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.scenario-card { border-radius:14px; padding:20px; border:1px solid; }
+.scenario-card.bear { background:rgba(239,68,68,.06); border-color:rgba(239,68,68,.2); }
+.scenario-card.bull { background:rgba(22,163,74,.06); border-color:rgba(22,163,74,.2); }
+.sc-label { font-size:.65rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; display:block; }
+.bear .sc-label { color:#EF4444; }
+.bull .sc-label { color:var(--green); }
+.scenario-card h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); margin-bottom:8px; }
+.scenario-card p { font-size:.82rem; color:rgba(255,255,255,.55); line-height:1.6; margin:0; }
+
+/* Treiber-Liste */
+.treiber-list { display:flex; flex-direction:column; gap:10px; margin:20px 0; }
+.treiber-item { display:flex; align-items:flex-start; gap:14px; background:var(--dark3); border-radius:12px; padding:14px 16px; border:1px solid rgba(255,255,255,.05); transition:border-color .2s; }
+.treiber-item:hover { border-color:var(--border); }
+.treiber-num { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; color:rgba(200,151,59,.4); flex-shrink:0; line-height:1; margin-top:2px; width:24px; }
+.treiber-body {}
+.treiber-title { font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.treiber-text { font-size:.82rem; color:rgba(255,255,255,.48); line-height:1.6; }
+
+/* Empfehlung Box */
+.empfehlung-box { background:linear-gradient(135deg,rgba(200,151,59,.1),rgba(200,151,59,.04)); border:1px solid rgba(200,151,59,.3); border-radius:16px; padding:24px; margin:20px 0; position:relative; overflow:hidden; }
+.empfehlung-box::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold2)); }
+.eb-label { font-size:.65rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block; }
+.empfehlung-box p { font-size:.9rem; color:rgba(255,255,255,.7); line-height:1.75; margin-bottom:10px; }
+.empfehlung-box p:last-child { margin-bottom:0; }
+.empfehlung-box p strong { color:var(--white); }
+
+/* Inline CTA */
+.inline-cta { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; background:rgba(200,151,59,.06); border:1px solid rgba(200,151,59,.18); border-radius:14px; padding:18px 24px; margin-top:24px; }
+.inline-cta p { font-size:.88rem; color:rgba(255,255,255,.6); margin:0; line-height:1.6; flex:1; min-width:200px; }
+.inline-cta p strong { color:var(--white); }
+.btn-sm-gold { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--gold),#e8a830); color:var(--ink); font-weight:900; font-size:.85rem; padding:11px 22px; border-radius:40px; text-decoration:none; white-space:nowrap; flex-shrink:0; box-shadow:0 6px 18px rgba(200,151,59,.3); transition:all .2s; }
+.btn-sm-gold:hover { transform:translateY(-2px); }
+.btn-sm-wine { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,#8b2635,#a83245); color:#fff; font-weight:900; font-size:.85rem; padding:11px 22px; border-radius:40px; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:all .2s; }
+.btn-sm-wine:hover { transform:translateY(-2px); }
+
+/* CTA Section */
+.cta-section { background:linear-gradient(160deg,#1a0a0f 0%,#0f1923 100%); border-radius:24px; padding:48px 40px; text-align:center; border:1px solid rgba(200,151,59,.2); position:relative; overflow:hidden; }
+.cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(200,151,59,.07),transparent 65%); pointer-events:none; }
+.cta-inner { position:relative; z-index:1; }
+.cta-section h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; }
+.cta-section h2 em { color:var(--gold); font-style:italic; }
+.cta-section p { font-size:.96rem; color:rgba(255,255,255,.6); line-height:1.8; margin-bottom:28px; max-width:560px; margin-left:auto; margin-right:auto; }
+.cta-section p strong { color:rgba(255,255,255,.9); }
+.cta-details { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:28px; }
+.cta-detail { display:flex; align-items:center; gap:7px; font-size:.84rem; color:rgba(255,255,255,.65); font-weight:600; }
+.cta-detail span { color:var(--gold); }
+.btn-wine { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#8b2635,#a83245); color:#fff; font-weight:700; font-size:1rem; padding:16px 36px; border-radius:50px; text-decoration:none; box-shadow:0 8px 28px rgba(139,38,53,.4); transition:all .25s; }
+.btn-wine:hover { transform:translateY(-2px); }
+.btn-gold-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; border:2px solid rgba(200,151,59,.4); color:rgba(255,255,255,.75); font-weight:600; font-size:.95rem; padding:14px 28px; border-radius:50px; text-decoration:none; transition:all .25s; }
+.btn-gold-outline:hover { border-color:var(--gold); color:var(--white); }
+.cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* Quellen */
+.sources { font-size:.72rem; color:rgba(255,255,255,.25); margin-top:16px; line-height:1.6; }
+.sources strong { color:rgba(255,255,255,.35); }
+
+/* Footer */
+footer { background:#070c14; padding:40px 28px 24px; text-align:center; }
+.footer-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--gold); display:block; margin-bottom:10px; }
+.footer-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:12px 0; font-size:.82rem; }
+.footer-links a { color:rgba(255,255,255,.35); text-decoration:none; }
+.footer-links a:hover { color:var(--gold); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding-top:16px; font-size:.75rem; color:rgba(255,255,255,.2); margin-top:12px; line-height:1.7; }
+
+/* Animations */
+.anim { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+.anim.in { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* Responsive */
+@media(max-width:768px){
+  nav { padding:0 16px; }
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  .main { padding:40px 20px 60px; gap:40px; }
+  .card { padding:24px 20px; }
+  .scenario-grid { grid-template-columns:1fr; }
+  .stats-grid { grid-template-columns:1fr 1fr; }
+  .cta-section { padding:36px 24px; }
+  .month-bar { padding:12px 16px; }
+  .inline-cta { flex-direction:column; }
+}
+@media(max-width:480px){
+  .stats-grid { grid-template-columns:1fr; }
+  .nl-bot { font-size:.88rem!important; }
+  .cta-btns { flex-direction:column; align-items:stretch; }
+  .cta-btns a { text-align:center; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">📡 LIVE MÄRKTE</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="t-name">Gold</span><span class="t-val">4.600 USD</span><span class="t-up">▲ +1,3%</span></div>
+      <div class="ticker-item"><span class="t-name">DAX</span><span class="t-val">24.180</span><span class="t-up">▲ +0,8%</span></div>
+      <div class="ticker-item"><span class="t-name">S&P 500</span><span class="t-val">5.590</span><span class="t-up">▲ +0,5%</span></div>
+      <div class="ticker-item"><span class="t-name">Nasdaq</span><span class="t-val">17.840</span><span class="t-up">▲ +0,6%</span></div>
+      <div class="ticker-item"><span class="t-name">Brent Öl</span><span class="t-val">102,40 USD</span><span class="t-down">▼ −0,4%</span></div>
+      <div class="ticker-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1320</span><span class="t-up">▲ +0,2%</span></div>
+      <div class="ticker-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-down">▼ stabil</span></div>
+      <div class="ticker-item"><span class="t-name">Inflation AT</span><span class="t-val">3,1%</span><span class="t-up">▲ Mai 2026</span></div>
+      <div class="ticker-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-down">▼ −0,58%</span></div>
+      <!-- Loop -->
+      <div class="ticker-item"><span class="t-name">Gold</span><span class="t-val">4.600 USD</span><span class="t-up">▲ +1,3%</span></div>
+      <div class="ticker-item"><span class="t-name">DAX</span><span class="t-val">24.180</span><span class="t-up">▲ +0,8%</span></div>
+      <div class="ticker-item"><span class="t-name">S&P 500</span><span class="t-val">5.590</span><span class="t-up">▲ +0,5%</span></div>
+      <div class="ticker-item"><span class="t-name">Nasdaq</span><span class="t-val">17.840</span><span class="t-up">▲ +0,6%</span></div>
+      <div class="ticker-item"><span class="t-name">Brent Öl</span><span class="t-val">102,40 USD</span><span class="t-down">▼ −0,4%</span></div>
+      <div class="ticker-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1320</span><span class="t-up">▲ +0,2%</span></div>
+      <div class="ticker-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-down">▼ stabil</span></div>
+      <div class="ticker-item"><span class="t-name">Inflation AT</span><span class="t-val">3,1%</span><span class="t-up">▲ Mai 2026</span></div>
+      <div class="ticker-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-down">▼ −0,58%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">📰</div>
+    <div class="nav-logo-text">
+      <span class="nl-top">Feivel's</span>
+      <span class="nl-bot">Finanz <span>News</span></span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">🍷 Info-Abend</a>
+    <a href="gold-sparplan.html">🥇 Gold Sparplan</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </div>
+  <button class="nav-hamburger" id="navBurger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">🏠 Home</a>
+  <a href="info-abend.html">🍷 Info-Abend</a>
+  <a href="gold-sparplan.html">🥇 Gold Sparplan</a>
+  <a href="business-seminar.html">🎓 Seminar</a>
+  <a href="index.html#kontakt">📞 Kontakt</a>
+  <a href="info-abend.html" class="mn-gold">🍷 Platz sichern →</a>
+</div>
+
+<!-- ARCHIV BAR -->
+<div class="month-bar">
+  <span class="month-bar-label">📁 Archiv</span>
+  <div class="month-pills">
+    <a href="newsletter.html" class="month-pill"><span class="mp-dot"></span>Februar</a>
+    <a href="newsletter-maerz-2026.html" class="month-pill"><span class="mp-dot"></span>März</a>
+    <a href="newsletter-april-2026.html" class="month-pill"><span class="mp-dot"></span>April</a>
+    <a href="newsletter-mai-2026.html" class="month-pill active"><span class="mp-dot"></span>Mai</a>
+    <span class="month-pill disabled"><span class="mp-dot"></span>Juni bald</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span> Newsletter · Mai 2026</div>
+  <h1>Weltwirtschaft stabil,<br>Gold auf Rekordjagd –<br><em>was das für dich bedeutet.</em></h1>
+  <p class="hero-sub">Trotz geopolitischer Spannungen zeigt die Weltwirtschaft Widerstandskraft. Gold nähert sich der 5.600-USD-Marke. Und bei den Bauzinsen gibt es eine seltene Chance, die du kennen solltest.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span>✍️</span> Mario Friedl</div>
+    <div class="hero-meta-item"><span>📅</span> Mai 2026</div>
+    <div class="hero-meta-item"><span>⏱</span> 8 Min. lesen</div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- ══ 1. WELTWIRTSCHAFT ══ -->
+  <section class="anim">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Weltwirtschaft Mai 2026 –<br><em>stabil trotz Unsicherheiten</em></h2>
+    </div>
+    <div class="card">
+      <p>Die Weltwirtschaft zeigt sich zum Frühjahr 2026 überraschend widerstandsfähig. Trotz anhaltender geopolitischer Spannungen, Handelskonflikten und struktureller Herausforderungen prognostizieren führende Wirtschaftsinstitute ein solides Wachstum.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num">2,7%</span>
+          <span class="stat-label">Welt-BIP-Wachstum 2026</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num blue">2,4%</span>
+          <span class="stat-label">USA-Wachstum</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" style="color:rgba(255,255,255,.5)">1,1%</span>
+          <span class="stat-label">Eurozone-Wachstum</span>
+        </div>
+      </div>
+
+      <h3>🇺🇸 USA: Robuste Wirtschaft dank KI-Boom</h3>
+      <p>Die US-Wirtschaft wächst 2026 um <strong>2,4%</strong> – über dem 10-Jahres-Durchschnitt. Treiber sind massive KI-Investitionen (fast 500 Mrd. USD), solider Konsum und fiskalische Impulse. Die Inflation bleibt bei 2,8% – Importzölle der Trump-Regierung belasten, stützen aber gleichzeitig die heimische Produktion.</p>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Risikofaktor:</strong> Die protektionistische Handelspolitik sorgt für Unsicherheit. Zollerhöhungen treiben die Inflation und belasten internationale Lieferketten. Experten warnen vor zunehmenden Handelskonflikten, die das globale Wachstum dämpfen könnten.</p>
+      </div>
+
+      <h3>🇪🇺 Europa: Verhaltenes Wachstum, aber stabile Basis</h3>
+      <p>Die Eurozone wächst mit <strong>1,1%</strong> moderat. Deutschland meldet nach drei Jahren Rezession endlich wieder ein Plus von 0,8–1,2%, getrieben durch Infrastruktur-Sondervermögen und Rüstungsinvestitionen. Südeuropa – Spanien, Italien, Griechenland – entwickelt sich zu stabilen Wachstumsmotoren.</p>
+
+      <h3>🇨🇳 China: Wachstumsdynamik lässt nach</h3>
+      <p>China kämpft mit Überproduktion, schwacher Konsumnachfrage und der anhaltenden Immobilienkrise. Das Wachstum dürfte 2026 auf <strong>4,3%</strong> sinken. Gleichzeitig treibt China die Importsubstitution voran – eine Herausforderung für europäische Exporteure.</p>
+
+      <div class="highlight-box">
+        <p><strong>Was bedeutet das für dein Portfolio?</strong> USA: KI-getriebene Tech-Sektoren bleiben attraktiv. Europa: Infrastruktur- und Rüstungstitel profitieren. Global: Breite Diversifikation wichtiger denn je. China: Selektive Investments mit Fokus auf Binnenkonsum.</p>
+      </div>
+
+      <p class="sources"><strong>Quellen:</strong> Munich Re Economic Outlook 2026 · IMK Hans-Böckler-Stiftung · Berenberg Wirtschaftsausblick 2026 · UN-Bericht „Lage und Aussichten der Weltwirtschaft 2026"</p>
+    </div>
+
+    <div class="inline-cta">
+      <p><strong>Wie positioniere ich mein Portfolio in diesem Umfeld?</strong> Ich analysiere deine aktuelle Situation kostenlos und zeige dir konkrete Möglichkeiten.</p>
+      <a href="index.html#kontakt" class="btn-sm-gold">💬 Kostenloses Erstgespräch →</a>
+    </div>
+  </section>
+
+  <!-- ══ 2. GOLD ══ -->
+  <section class="anim">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Gold 2026 –<br><em>5.600 USD in Sichtweite</em></h2>
+    </div>
+    <div class="card">
+      <p>Gold erlebt 2026 eine historische Rally. Im Januar wurde das <strong>Allzeithoch bei 5.598 USD/Unze</strong> erreicht. Aktuell konsolidiert der Preis im Bereich 4.500–4.700 USD – eine gesunde Atempause nach dem steilen Anstieg.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num">5.598</span>
+          <span class="stat-label">Allzeithoch Jan. 2026 (USD)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">~4.600</span>
+          <span class="stat-label">Aktueller Preis Mai 2026</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num green">7.500</span>
+          <span class="stat-label">Prognose Ende 2026 (USD)</span>
+        </div>
+      </div>
+
+      <h3>Die 5 Treiber der Gold-Rally</h3>
+      <div class="treiber-list">
+        <div class="treiber-item">
+          <span class="treiber-num">1</span>
+          <div class="treiber-body">
+            <div class="treiber-title">Geopolitische Spannungen</div>
+            <div class="treiber-text">Iran-Krieg, Handelskonflikte → Flucht in sichere Häfen. Die Unsicherheit treibt institutionelle Anleger in Gold.</div>
+          </div>
+        </div>
+        <div class="treiber-item">
+          <span class="treiber-num">2</span>
+          <div class="treiber-body">
+            <div class="treiber-title">Zentralbank-Käufe</div>
+            <div class="treiber-text">Schwellenländer stocken massiv Goldreserven auf. Der Trend zur Entdollarisierung ist strukturell und langfristig.</div>
+          </div>
+        </div>
+        <div class="treiber-item">
+          <span class="treiber-num">3</span>
+          <div class="treiber-body">
+            <div class="treiber-title">Inflationsschutz</div>
+            <div class="treiber-text">Bei 2,5–3% Inflation bleibt Gold eine attraktive Absicherung für reale Kaufkraft.</div>
+          </div>
+        </div>
+        <div class="treiber-item">
+          <span class="treiber-num">4</span>
+          <div class="treiber-body">
+            <div class="treiber-title">Zinspolitik der Fed</div>
+            <div class="treiber-text">Erwartete Zinssenkungen machen Gold als zinsloses Asset attraktiver – die Opportunitätskosten sinken.</div>
+          </div>
+        </div>
+        <div class="treiber-item">
+          <span class="treiber-num">5</span>
+          <div class="treiber-body">
+            <div class="treiber-title">Vertrauensverlust in Fiatwährungen</div>
+            <div class="treiber-text">Hohe Staatsverschuldung in USA und Europa treibt die Nachfrage nach dem „echten" Wertaufbewahrungsmittel.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Expertenprognosen 2026–2027</h3>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Quelle</th>
+              <th>Prognose</th>
+              <th>Zeitraum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>World Gold Council</td><td class="td-gold">+5% bis +30%</td><td>2026 (je nach Szenario)</td></tr>
+            <tr><td>WalletInvestor</td><td class="td-up">5.600–7.500 USD</td><td>Ende 2026</td></tr>
+            <tr><td>KSW Vermögensverwaltung</td><td class="td-up">5.000 USD</td><td>Jahresende 2026</td></tr>
+            <tr><td>I.C.M. Mannheim (optimistisch)</td><td class="td-gold">5.000–10.000 USD</td><td>2026–2027</td></tr>
+            <tr><td>Langfrist (Konsens)</td><td class="td-up">8.000–10.800 USD</td><td>bis 2030</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empfehlung-box">
+        <span class="eb-label">💎 Meine Empfehlung · Portfolio-Allokation</span>
+        <p><strong>10–15% Gold im Portfolio</strong> – nicht mehr, nicht weniger. Gold ist keine Renditemaschine, sondern eine Versicherung gegen Währungs-, Schulden- und Systemrisiken.</p>
+        <p>Wichtig: Gold zahlt keine Dividenden oder Zinsen. Kurzfristige Schwankungen von ±10–20% sind völlig normal. Wer Gold kauft, muss langfristig denken – Horizont 5–10 Jahre.</p>
+      </div>
+
+      <div class="scenario-grid">
+        <div class="scenario-card bear">
+          <span class="sc-label">⬇ Risiken nach unten</span>
+          <h4>Was Gold bremsen kann</h4>
+          <p>Starker US-Dollar, höhere Zinsen als erwartet, schnelle geopolitische Entspannung, Rückkehr des Risikoappetits.</p>
+        </div>
+        <div class="scenario-card bull">
+          <span class="sc-label">⬆ Chancen nach oben</span>
+          <h4>Was Gold weiter treibt</h4>
+          <p>Rezession, Vertrauenskrise in Fiatwährungen, weitere Zentralbankkäufe, anhaltende geopolitische Spannungen.</p>
+        </div>
+      </div>
+
+      <p class="sources"><strong>Quellen:</strong> GOLDPREIS.de · World Gold Council · GoldRepublic (J.P. Morgan, Goldman Sachs) · Kagels Trading · Maiestas AG Vermögensverwaltung</p>
+    </div>
+
+    <div class="inline-cta">
+      <p><strong>Gold Sparplan ab 50 €/Monat.</strong> Ich zeige dir, wie du schrittweise in physisches Gold investierst – steuerlich optimiert, kostenlos erklärt.</p>
+      <a href="gold-sparplan.html" class="btn-sm-gold">🥇 Gold Sparplan →</a>
+    </div>
+  </section>
+
+  <!-- ══ 3. INVESTMENTFONDS ══ -->
+  <section class="anim">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Investmentfonds –<br><em>warum jetzt einsteigen?</em></h2>
+    </div>
+    <div class="card">
+      <p>Nach 3 Jahren Börsenrallye erleben wir gesunde Korrekturen von 10–15%. Für langfristige Anleger bedeutet das: Die Einstiegskurse sind wieder attraktiver. Wer jetzt regelmäßig investiert, kauft günstig nach.</p>
+
+      <h3>Die 3 besten Argumente für Fonds in 2026</h3>
+      <ul>
+        <li><strong>Marktkorrektur = Einstiegschance.</strong> Günstigere Kurse bei gleichem langfristigen Wachstumspotenzial – Cost-Average-Effekt nutzt das automatisch.</li>
+        <li><strong>Diversifikation schlägt alles.</strong> Ein globaler Aktienfonds investiert in 100–3.000 Unternehmen weltweit. Deutlich sicherer als eine Einzelaktie oder ein Sparbuch bei einer einzigen Bank.</li>
+        <li><strong>Langfristrendite bleibt attraktiv.</strong> Historische Durchschnittsrendite von Aktienfonds: 7–9% p.a. – weit über Sparbuch (2,25%) und Inflation (3,1%).</li>
+      </ul>
+
+      <h3>Top-Anlagethemen 2026</h3>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr><th>Thema</th><th>Chancen</th><th>Für wen?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Künstliche Intelligenz</strong></td><td class="td-up">KI-Investitionen 500 Mrd. USD</td><td>Wachstumsorientierte</td></tr>
+            <tr><td><strong>Infrastruktur EU/DE</strong></td><td class="td-gold">Solide, planbare Renditen</td><td>Konservative Anleger</td></tr>
+            <tr><td><strong>Global Diversifiziert</strong></td><td class="td-best">Beste Risiko-Rendite-Balance</td><td>Alle · Einsteiger</td></tr>
+            <tr><td><strong>Schwellenländer (selektiv)</strong></td><td class="td-warn">Indien, Südostasien</td><td>Erfahrene Anleger</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="success-box">
+        <p>✅ <strong>Erinnerung:</strong> Seit 1774 ist <em>kein einziger</em> regulierter Investmentfonds pleite gegangen. Das Sondervermögensprinzip schützt dein Geld vollständig – ohne Limit, ohne Wartezeit. Im Gegensatz zum Sparbuch, das nur bis 100.000 € gesichert ist.</p>
+      </div>
+
+      <h3>Meine Empfehlung: Core-Satellite-Strategie</h3>
+      <div class="empfehlung-box">
+        <span class="eb-label">📊 Portfolio-Aufteilung Mai 2026</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin:0">
+          <li style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:rgba(255,255,255,.75)">
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);width:44px;flex-shrink:0">70%</span>
+            <span><strong style="color:var(--white)">Core:</strong> Breit gestreuter globaler Aktienfonds (MSCI World o.ä.) – Stabilität und Wachstum</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:rgba(255,255,255,.75)">
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);width:44px;flex-shrink:0">20%</span>
+            <span><strong style="color:var(--white)">Satellite:</strong> Themenfonds (KI, Infrastruktur, Schwellenländer) – Wachstumschancen</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:rgba(255,255,255,.75)">
+            <span style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);width:44px;flex-shrink:0">10%</span>
+            <span><strong style="color:var(--white)">Absicherung:</strong> Gold & Edelmetalle – Krisenabsicherung</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="sources"><strong>Quellen:</strong> ICI Global · EFAMA · Morningstar · § 46 InvFG 2011 · FMA Österreich</p>
+    </div>
+
+    <div class="inline-cta">
+      <p><strong>Depot analysieren oder neu aufstellen?</strong> Ich prüfe dein Portfolio kostenlos und zeige dir, ob deine Strategie für 2026 noch passt.</p>
+      <a href="index.html#kontakt" class="btn-sm-wine">📊 Depot prüfen lassen →</a>
+    </div>
+  </section>
+
+  <!-- ══ 4. BAUZINSEN ══ -->
+  <section class="anim">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Bauzinsen Österreich –<br><em>die inverse Zinskurve nutzen</em></h2>
+    </div>
+    <div class="card">
+      <p>Die Kreditzinsen in Österreich zeigen sich im Mai 2026 stabil auf moderatem Niveau. Eine seltene Marktanomalie macht Fixzins-Kredite aktuell besonders attraktiv.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num" style="font-size:1.4rem;color:#22C55E">2,80–3,00%</span>
+          <span class="stat-label">Variable Verzinsung p.a.</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" style="font-size:1.4rem;color:var(--gold)">3,15–3,60%</span>
+          <span class="stat-label">Fixzins 10 Jahre</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" style="font-size:1.5rem;color:#60a5fa">2,15%</span>
+          <span class="stat-label">EZB-Leitzins (stabil)</span>
+        </div>
+      </div>
+
+      <h3>Zinsentwicklung im Überblick</h3>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr><th>Finanzierungsart</th><th>Zinssatz p.a. (Mai 2026)</th><th>Empfehlung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Variable Verzinsung</td><td class="td-warn">ab 2,80%</td><td>⚠️ Zinsrisiko</td></tr>
+            <tr><td>Fixzins 5 Jahre</td><td class="td-gold">ab 2,80%</td><td>✓ Kurzfristig sicher</td></tr>
+            <tr><td><strong>Fixzins 10 Jahre</strong></td><td class="td-best">3,15–3,60%</td><td>✅ Beste Wahl</td></tr>
+            <tr><td>Fixzins 15–20 Jahre</td><td class="td-up">3,50–4,00%</td><td>✅ Maximale Sicherheit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p>⚡ <strong>Besonderheit: Inverse Zinskurve!</strong> Eine seltene Marktsituation hält an: Fixzinsen sind teilweise günstiger als variable Zinsen! Normalerweise ist es umgekehrt. Du bekommst langfristige Planungssicherheit für 10–20 Jahre – ohne Aufpreis für die Sicherheit.</p>
+      </div>
+
+      <h3>Fix vs. Variabel – die Entscheidung für 2026</h3>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr><th>Kriterium</th><th>Fixzins 10–15 Jahre</th><th>Variable Verzinsung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Planungssicherheit</td><td class="td-best">✅ 10–20 Jahre garantiert</td><td class="td-down">❌ Rate kann steigen</td></tr>
+            <tr><td>Aktuelle Konditionen</td><td class="td-best">✅ 3,15–3,60% fix</td><td class="td-warn">⚠️ ab 2,80% (variabel)</td></tr>
+            <tr><td>Zinsrisiko</td><td class="td-best">✅ Kein Risiko</td><td class="td-down">❌ Hohes Risiko</td></tr>
+            <tr><td>Sondertilgungen</td><td class="td-warn">⚠️ Begrenzt (3–5% p.a.)</td><td class="td-best">✅ Flexibel</td></tr>
+            <tr><td>Bei Zinssenkung</td><td class="td-down">❌ Profitiert nicht</td><td class="td-best">✅ Rate sinkt</td></tr>
+            <tr><td>Beliebtheit 2024 (OeNB)</td><td class="td-best">✅ 89% wählten Fix</td><td>11% wählten Variabel</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empfehlung-box">
+        <span class="eb-label">🎯 Meine klare Empfehlung für Mai 2026</span>
+        <p><strong>Fixzins für 10–15 Jahre jetzt sichern.</strong> Historisch moderate Zinsen, inverse Zinskurve, hohe geopolitische Risiken – die Argumente für langfristige Zinssicherheit überwiegen deutlich.</p>
+        <p>Ausnahme: Nur wenn du innerhalb von 5 Jahren verkaufen oder stark tilgen willst, kann Variabel Sinn machen. In allen anderen Fällen gilt: Fix ist 2026 die klügere Wahl.</p>
+      </div>
+
+      <h3>EURIBOR-Ausblick</h3>
+      <ul>
+        <li><strong>März 2025:</strong> 2,56% → <strong>Mai 2026:</strong> 1,98% (−0,58 Prozentpunkte)</li>
+        <li><strong>Prognose H2/2026:</strong> Seitwärtsbewegung 1,8–2,2%</li>
+        <li><strong>Langfrist (2027):</strong> Leichte Senkungen möglich, aber <em>keine Rückkehr zu 0%</em></li>
+      </ul>
+
+      <p class="sources"><strong>Quellen:</strong> Capitalo Bauzinsen-Übersicht · OeNB Wohnbaufinanzierungsstatistik · EZB Pressemitteilungen · Durchblicker.at</p>
+    </div>
+
+    <div class="inline-cta">
+      <p><strong>Eigenheim finanzieren oder Kredit optimieren?</strong> Ich vergleiche 15+ Banken und finde die besten Konditionen für dich – kostenlos, unabhängig.</p>
+      <a href="index.html#kontakt" class="btn-sm-gold">🏡 Kredit vergleichen →</a>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="cta-section anim">
+    <div class="cta-inner">
+      <h2>Ein Abend.<br><em>Ein anderes Denken danach.</em></h2>
+      <p>Weltwirtschaft, Gold, Fonds, Bauzinsen – du kennst jetzt die Zahlen. Was fehlt, ist der nächste Schritt: ein persönliches Gespräch über <strong>deine</strong> Situation. Kostenlos, ohne Druck, in Graz.</p>
+
+      <div class="cta-details">
+        <div class="cta-detail"><span>📅</span> Nächster Termin: Anfrage</div>
+        <div class="cta-detail"><span>⏰</span> 18:30 – 20:00 Uhr</div>
+        <div class="cta-detail"><span>📍</span> Graz · EQUALITY EH GmbH</div>
+        <div class="cta-detail"><span>💶</span> Kostenlos</div>
+      </div>
+
+      <div class="cta-btns">
+        <a href="info-abend.html" class="btn-wine">🍷 Platz sichern →</a>
+        <a href="index.html#kontakt" class="btn-gold-outline">💬 Direktes Erstgespräch</a>
+      </div>
+
+      <p style="margin-top:24px;font-size:.8rem;color:rgba(255,255,255,.25);font-style:italic">„Der beste Zeitpunkt zu investieren war vor 20 Jahren. Der zweitbeste ist heute." – Warren Buffett</p>
+    </div>
+  </section>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Feivel's Finanz News</span>
+  <div style="font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:10px">Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="newsletter-april-2026.html">April Newsletter</a>
+    <a href="gold-sparplan.html">Gold Sparplan</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Mario Friedl · EQUALITY EH GmbH<br>
+    <em style="color:rgba(255,255,255,.15)">Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Diese Inhalte stellen keine individuelle Anlageberatung dar.</em>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+function toggleMobileNav(){
+  const nav=document.getElementById('mobileNav');
+  nav.classList.toggle('open');
+}
+
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.1});
+document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
