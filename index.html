@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Geld richtig anlegen & investieren | Mario Friedl – Finanzberatung Graz Steiermark</title>
-<meta name="description" content="Geld richtig anlegen und investieren – unabhängig, FMA-konzessioniert, ohne Bankinteressen. Vermögensaufbau, Pensionsvorsorge, Immobilienfinanzierung in Graz & Steiermark. Mario Friedl.">
+<meta name="description" content="Geld richtig anlegen und investieren – bankunabhängig, im FMA-Register eingetragen, ohne Bankinteressen. Vermögensaufbau, Pensionsvorsorge, Immobilienfinanzierung in Graz & Steiermark. Mario Friedl.">
 <meta name="keywords" content="geld richtig anlegen, geld richtig investieren, geld anlegen Österreich, geld investieren Graz, Finanzberatung Graz, unabhängiger Finanzberater Steiermark, Vermögensaufbau Österreich, Investmentfonds Österreich, Pensionsvorsorge Graz, Pensionslücke berechnen Österreich, private Pension Österreich, Immobilienfinanzierung Graz, eigenheim finanzieren Österreich, kredit vergleich Österreich, finanzberater werden Österreich Quereinsteiger, FMA Finanzberater Graz">
 <link rel="canonical" href="https://finanzberater-friedl.info/">
 <meta property="og:title" content="Geld richtig anlegen & investieren | Mario Friedl – Finanzberatung Graz">
-<meta property="og:description" content="Geld richtig anlegen und investieren – unabhängig, bankunabhängig, FMA-konzessioniert. Kostenlose Erstberatung in Graz & Steiermark.">
+<meta property="og:description" content="Geld richtig anlegen und investieren – bankunabhängig, im FMA-Register eingetragen. Kostenlose Erstberatung in Graz & Steiermark.">
 <meta property="og:url" content="https://finanzberater-friedl.info/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_AT">
@@ -23,7 +23,7 @@
   "@context": "https://schema.org",
   "@type": ["FinancialService","LocalBusiness"],
   "name": "Mario Friedl – Unabhängige Finanzberatung",
-  "description": "Geld richtig anlegen und investieren – unabhängiger FMA-konzessionierter Finanzberater in Graz, Steiermark. Vermögensaufbau, Pensionsvorsorge, Immobilienfinanzierung.",
+  "description": "Geld richtig anlegen und investieren – bankunabhängiger, im FMA-Register eingetragener Vermögensberater in Graz, Steiermark. Vermögensaufbau, Pensionsvorsorge, Immobilienfinanzierung.",
   "url": "https://finanzberater-friedl.info",
   "telephone": "+436605256328",
   "email": "mario.friedl@equality-co.at",
@@ -64,9 +64,57 @@
 }
 </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
+<!-- Cookie Consent Banner -->
+<script>
+(function(){
+  const CONSENT_KEY = 'mf_cookie_consent';
+  function loadGA(){
+    if(document.getElementById('ga-script')) return;
+    var s=document.createElement('script');
+    s.id='ga-script';
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js',new Date());
+    gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
+    window.gtag=gtag;
+  }
+  window.mfConsentInit = function(){
+    var bar = document.getElementById('cookieConsentBar');
+    if(!bar) return;
+    if(localStorage.getItem(CONSENT_KEY)==='accepted'){
+      bar.style.display='none'; loadGA(); return;
+    }
+    if(localStorage.getItem(CONSENT_KEY)==='declined'){
+      bar.style.display='none'; return;
+    }
+    bar.style.display='flex';
+  };
+  window.mfAcceptCookies = function(){
+    localStorage.setItem(CONSENT_KEY,'accepted');
+    document.getElementById('cookieConsentBar').style.display='none';
+    loadGA();
+  };
+  window.mfDeclineCookies = function(){
+    localStorage.setItem(CONSENT_KEY,'declined');
+    document.getElementById('cookieConsentBar').style.display='none';
+  };
+  document.addEventListener('DOMContentLoaded', window.mfConsentInit);
+})();
+</script>
+
+<!-- Cookie Consent Bar HTML (injected early so it's available) -->
+<div id="cookieConsentBar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:16px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.4)">
+  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.65;max-width:600px;margin:0">
+    🍪 Diese Website verwendet Google Analytics zur anonymisierten Besuchsanalyse. Deine Daten werden nur mit deiner Zustimmung erhoben. Mehr Infos: <a href="datenschutz.html" style="color:var(--gold)">Datenschutzerklärung</a>
+  </p>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="mfDeclineCookies()" style="padding:9px 18px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.5);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
+    <button onclick="mfAcceptCookies()" style="padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
+  </div>
+</div>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -1695,7 +1743,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-trust">✓ FMA-konzessioniert · 100% bankunabhängig · Graz</div>
+    <div class="hero-trust">✓ Im FMA-Register eingetragen · 100% bankunabhängig · Graz</div>
 
     <h1 class="h-display">Arbeitest. Sparst. Sorgst.<br><em class="gold">Geld richtig anlegen –</em><br>aber wie?</h1>
 
@@ -1767,7 +1815,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <div class="ticker-item"><div class="ticker-dot"></div> 100% bankunabhängig</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> FMA-konzessioniert</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Im FMA-Register eingetragen</div>
     <div class="ticker-item"><div class="ticker-dot"></div> 15+ Partnerbanken</div>
     <div class="ticker-item"><div class="ticker-dot"></div> Kein Agio · 0% Ausgabeaufschlag</div>
     <div class="ticker-item"><div class="ticker-dot"></div> Kostenlose Erstberatung</div>
@@ -1776,7 +1824,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
     <div class="ticker-item"><div class="ticker-dot"></div> Automatische KESt-Abführung</div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-item"><div class="ticker-dot"></div> 100% bankunabhängig</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> FMA-konzessioniert</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Im FMA-Register eingetragen</div>
     <div class="ticker-item"><div class="ticker-dot"></div> 15+ Partnerbanken</div>
     <div class="ticker-item"><div class="ticker-dot"></div> Kein Agio · 0% Ausgabeaufschlag</div>
     <div class="ticker-item"><div class="ticker-dot"></div> Kostenlose Erstberatung</div>
@@ -1866,6 +1914,14 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
           </div>
           <div class="comp-footer">
             Der Unterschied nach 25 Jahren: <strong>€ 35.690</strong> – aus derselben Ausgangssumme.
+          <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:14px 18px;margin-top:14px;font-size:.82rem;color:#5a3e10;line-height:1.65">
+  <strong style="color:#7a4e0a">⚠️ Wichtiger Hinweis (MiFID II / WAG 2018 § 46):</strong><br>
+  Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden – bis hin zum Totalverlust des eingesetzten Kapitals. Die dargestellten Renditen (≈ 7–8 % p.a.) sind historische Durchschnittswerte und stellen keine Garantie dar.
+</div>
+          </div>
+          <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:14px 18px;margin-top:16px;font-size:.82rem;color:#5a3e10;line-height:1.65">
+            <strong style="color:#7a4e0a">⚠️ Wichtiger Hinweis (MiFID II / WAG 2018 § 46):</strong><br>
+            Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Die dargestellten Werte (≈ 7–8 % p.a.) sind historische Durchschnittswerte und stellen keine Garantie dar.
           </div>
         </div>
       </div>
@@ -1878,7 +1934,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
           </div>
         </div>
         <h2 class="h-display">Geld anlegen in Österreich –<br><em class="gold">aber nicht so wie alle.</em></h2>
-        <p>Österreich spart brav – auf Konten, die real an Wert verlieren. Dabei wäre es so einfach: <strong>Geld richtig anlegen</strong> bedeutet nicht spekulieren. Es bedeutet, das Geld für sich arbeiten lassen – mit Strategie, Streuung und einem unabhängigen Berater. Inflation, Niedrigzinsen, Lebenshaltungskosten: Der Abstand zwischen dem, was du verdienst, und dem, was du aufbaust, wird kleiner. <strong>Nicht weil du falsch liegst. Sondern weil dir niemand erklärt hat, wie es wirklich geht.</strong></p>
+        <p>Österreich spart brav – auf Konten, die real an Wert verlieren. Dabei wäre es so einfach: <strong>Geld richtig anlegen</strong> bedeutet nicht spekulieren. Es bedeutet, das Geld für sich arbeiten lassen – mit Strategie, Streuung und einem bankunabhängigen Berater. Inflation, Niedrigzinsen, Lebenshaltungskosten: Der Abstand zwischen dem, was du verdienst, und dem, was du aufbaust, wird kleiner. <strong>Nicht weil du falsch liegst. Sondern weil dir niemand erklärt hat, wie es wirklich geht.</strong></p>
         <p>Die staatliche Pension wird nicht reichen. Die <strong>Pensionslücke in Österreich</strong> beträgt im Durchschnitt <strong>über € 700 pro Monat</strong> – und wer keine private Pension aufbaut, spürt das spätestens mit 65. Das <strong>Eigenheim finanzieren</strong> bleibt ein Traum, weil niemand den richtigen Kredit gezeigt hat. Dabei gibt es in Österreich bessere Möglichkeiten – wenn man weiß, wo man suchen muss.</p>
         <div class="solve-list">
           <div class="sl-item">
@@ -2192,7 +2248,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
               <span>Lebensversicherung Ø 3%</span><span class="qcc-val">24 Jahre</span>
             </div>
             <div class="qcc-row qcc-good">
-              <span>Investmentfonds Ø 7%</span><span class="qcc-val qcc-best">~10 Jahre ✓</span>
+              <span>Investmentfonds Ø 7%</span><span class="qcc-val qcc-best">~10 Jahre ✓</span></div><div style="font-size:.75rem;color:#5a3e10;background:#fff8ee;border:1px solid #e8a830;border-radius:8px;margin-top:10px;padding:8px 12px;line-height:1.55">* Historischer Durchschnitt (2000–2024). Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft. Veranlagungen sind mit Risiken verbunden.
             </div>
           </div>
           <a href="#upload" class="quiz-cta" onclick="document.getElementById('qcQuestion').style.display='block';document.getElementById('qcAnswer').style.display='none'">
@@ -2210,8 +2266,8 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 <section class="why-section" id="vorteile">
   <div class="page-wrap">
     <span class="eyebrow" style="text-align:center;display:block">Warum bankunabhängig?</span>
-    <h2 class="h-display anim-up" style="text-align:center;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:16px">100% unabhängig.<br><em class="gold">100% für dich.</em></h2>
-    <p style="text-align:center;color:var(--muted);max-width:580px;margin:0 auto 60px;font-size:1.05rem;line-height:1.8">Als unabhängiger Berater bin ich keiner Bank verpflichtet – nur dir. Das ist der Unterschied.</p>
+    <h2 class="h-display anim-up" style="text-align:center;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:16px">100% bankunabhängig.<br><em class="gold">100% für dich.</em></h2>
+    <p style="text-align:center;color:var(--muted);max-width:580px;margin:0 auto 60px;font-size:1.05rem;line-height:1.8">Als bankunabhängiger Vermögensberater bin ich keiner Bank verpflichtet – nur dir. Ich bin als vertraglich gebundener Vermittler im FMA-Register eingetragen und tätig im Namen der TopTen/FiNUM.Private Finance AG. Das ist der Unterschied.</p>
     <div class="why-grid">
       <div class="why-card anim-up why-card--featured">
         <div class="why-icon-wrap">🌍</div>
@@ -2233,7 +2289,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
       <div class="why-card anim-up d2">
         <div class="why-icon-wrap">🤝</div>
         <h3>Faire Vergütung</h3>
-        <p>Kostenlose Beratung mit einmaliger Provision bei Abschluss. Du sparst dir das Agio, bist von Tag 1 zu 100% investiert und hast keine laufenden Beratungskosten – mehr Rendite für dich.</p>
+        <p>Kostenlose Beratung – bei Abschluss erhalte ich eine einmalige Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Du sparst dir das Agio, bist von Tag 1 zu 100% investiert und hast keine laufenden Beratungskosten. Die genaue Höhe der Zuwendung wird dir vor Abschluss schriftlich offengelegt.</p>
       </div>
       <div class="why-card anim-up d3">
         <div class="why-icon-wrap">🏆</div>
@@ -2622,7 +2678,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2))"></div>
         <div style="font-size:1.3rem;margin-bottom:12px">💶</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:10px">Geld richtig anlegen in Österreich</h3>
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:12px">Wer Geld richtig anlegen möchte, steht vor einer wichtigen Entscheidung: Sparbuch, Bausparvertrag oder Investmentfonds? Als unabhängiger, FMA-konzessionierter Finanzberater in Graz zeige ich dir die Lösung – ohne Bankinteressen, ohne Produktquoten.</p>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:12px">Wer Geld richtig anlegen möchte, steht vor einer wichtigen Entscheidung: Sparbuch, Bausparvertrag oder Investmentfonds? Als bankunabhängiger, im FMA-Register eingetragener Vermögensberater in Graz zeige ich dir die Lösung – ohne Bankinteressen, ohne Produktquoten.</p>
         <p style="font-size:.88rem;color:var(--muted);line-height:1.8">Geld richtig anlegen bedeutet: breit streuen, langfristig denken, Inflation schlagen. Mit Zugang zu 15+ Partnerbanken finde ich die Strategie, die zu dir passt.</p>
       </div>
 
