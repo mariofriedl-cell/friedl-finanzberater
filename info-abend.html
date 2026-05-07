@@ -6,8 +6,37 @@
 <title>Der Info-Abend 🍷 – Mario Friedl | Graz · Kostenlos · Jeden Monat</title>
 <meta name="description" content="Ein Abend, der dein Denken über Geld für immer verändert. Kostenlos. Persönlich. Mit Wein, Brötchen & echten Antworten. Regelmäßig in Graz.">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
+<!-- Cookie Consent + GA Guard -->
+<script>
+(function(){
+  var KEY='mf_cookie_consent';
+  function loadGA(){
+    if(document.getElementById('ga-s'))return;
+    var s=document.createElement('script');s.id='ga-s';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
+    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
+  }
+  window.mfAccept=function(){localStorage.setItem(KEY,'accepted');document.getElementById('mfCookieBar').style.display='none';loadGA();};
+  window.mfDecline=function(){localStorage.setItem(KEY,'declined');document.getElementById('mfCookieBar').style.display='none';};
+  document.addEventListener('DOMContentLoaded',function(){
+    var bar=document.getElementById('mfCookieBar');if(!bar)return;
+    var v=localStorage.getItem(KEY);
+    if(v==='accepted'){bar.style.display='none';loadGA();}
+    else if(v==='declined'){bar.style.display='none';}
+    else{bar.style.display='flex';}
+  });
+})();
+</script>
+<div id="mfCookieBar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)">
+  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
+    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
+  </div>
+</div>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 
@@ -828,6 +857,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             <div class="ps-title">Sparbuch vs. Fonds – der direkte Vergleich</div>
             <div class="ps-text">Zahlen auf den Tisch. Schwarz auf weiß. <strong>Was passiert mit € 200 monatlich über 20 Jahre – auf dem Sparbuch vs. in einem Fonds?</strong> Diese eine Grafik verändert die Art, wie du über Sparen denkst.</div>
             <span class="ps-tag gold-tag">💡 Der Moment, der alles klarer macht</span>
+            <span style="font-size:.73rem;color:#888;display:block;margin-top:6px;line-height:1.5">* Dargestellt anhand historischer Durchschnittswerte. Keine Garantie für zukünftige Erträge.</span>
           </div>
         </div>
         <div class="ps-item">
@@ -878,7 +908,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         <div class="tc-icon">📈</div>
         <div class="tc-body">
           <div class="tc-title">50 Jahre Fondsentwicklung – was die Geschichte zeigt</div>
-          <div class="tc-text">Crashs kamen. Crashs gingen. Wer investiert blieb, hat gewonnen. <strong>Was die letzten 50 Jahre über Fonds, Geduld und Rendite lehren</strong> – anhand echter Daten, ohne Schönfärberei. Das ist kein Glücksspiel. Das ist Mathematik.</div>
+          <div class="tc-text">Crashs kamen. Crashs gingen. Wer investiert blieb, hat gewonnen. <strong>Was die letzten 50 Jahre über Fonds, Geduld und Rendite lehren</strong> – anhand historischer Daten, ohne Schönfärberei. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft.</div>
           <span class="tc-aha">50 JAHRE DATEN AUF EINEN BLICK</span>
         </div>
       </div>
@@ -974,7 +1004,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             <div class="gc-cg-row good">
               <div class="gcr-rate">7 %</div>
               <div class="gcr-years good-years"><span>~10 Jahre</span></div>
-              <div class="gcr-tag good-tag">Investmentfonds hist. Ø</div>
+              <div class="gcr-tag good-tag">Investmentfonds hist. Ø*</div>
             </div>
             <div class="gc-cg-row best">
               <div class="gcr-rate">10 %</div>
@@ -998,6 +1028,9 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 
         <div class="gc-bottom-cta">
           <div class="gc-bottom-text">Was ergibt die Regel-72 für dein Sparbuch, deinen Bausparvertrag, deine Lebensversicherung?<br><strong>Rechnest du es an diesem Abend selbst durch – kostenlos, persönlich, in Graz.</strong></div>
+          <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:12px 18px;margin:16px 0;font-size:.8rem;color:#5a3e10;line-height:1.65">
+            <strong style="color:#7a4e0a">* Wichtiger Hinweis (MiFID II / WAG 2018 § 46):</strong> Die dargestellten Renditeangaben (z.B. 7 % p.a. Investmentfonds) basieren auf historischen Durchschnittswerten und stellen keine Garantie für zukünftige Erträge dar. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen.
+          </div>
           <a href="#anmelden" class="btn-wine" style="margin-top:20px">🍷 Meinen Platz sichern →</a>
         </div>
       </div>
@@ -1304,7 +1337,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="faq-q-text">Wirklich kostenlos – oder gibt es einen Haken?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Wirklich kostenlos. Kein Haken. Kein Produkt, das am Ende verkauft wird. Keine versteckte Gebühr. <strong>Der Abend existiert, weil Mario Friedl selbst gerne früher ein solches Angebot gehabt hätte.</strong> Wer danach ein persönliches Gespräch möchte, kann das anfragen – muss aber absolut nicht.</p></div>
+        <div class="faq-a"><p>Wirklich kostenlos. Kein Haken. Kein Produkt, das am Ende verkauft wird. Keine versteckte Gebühr. <strong>Der Abend existiert, weil Mario Friedl selbst gerne früher ein solches Angebot gehabt hätte.</strong> Wer danach ein persönliches Gespräch möchte, kann das anfragen – muss aber absolut nicht. Hinweis: Mario Friedl erhält bei einem späteren Produktabschluss eine Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Der Abend selbst ist und bleibt kostenlos.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -1407,8 +1440,9 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <a href="datenschutz.html">Datenschutz</a>
   </div>
   <div class="footer-copy">
-    © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz · FMA-konzessioniert<br>
-    <span style="font-size:.7rem;opacity:.55;display:block;margin-top:4px">Die Inhalte des Info-Abends dienen der allgemeinen Finanzbildung und stellen keine individuelle Anlageberatung dar.</span>
+    © 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz<br>
+    <span style="font-size:.7rem;display:block;margin-top:6px;line-height:1.75;color:rgba(255,255,255,.45)">Im FMA-Register eingetragen als vertraglich gebundener Vermittler · tätig im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG · Haftung gem. § 1313a ABGB beim Rechtsträger.</span>
+    <span style="font-size:.7rem;display:block;margin-top:6px;line-height:1.75;color:rgba(255,255,255,.45)"><strong style="color:rgba(255,255,255,.6)">Risikohinweis:</strong> Die Inhalte dieses Abends dienen der allgemeinen Finanzbildung und stellen keine individuelle Anlageberatung dar. Veranlagungen sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Historische Renditeangaben (z.B. 7 % Fonds-Ø) sind kein verlässlicher Indikator für die Zukunft.</span>
   </div>
 </footer>
 
