@@ -2,949 +2,573 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Historischer Inflationsrechner – Was dein Geld wirklich wert ist | Mario Friedl</title>
-<meta name="description" content="Gib einen Betrag ein und sieh, was Inflation über 10, 20 oder 30 Jahre wirklich mit deinem Geld macht. Interaktiver Rechner mit echten österreichischen Inflationsdaten.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historischer Inflationsrechner Österreich – Was ist dein Geld wirklich wert? | Mario Friedl</title>
+<meta name="description" content="Interaktiver Inflationsrechner mit echten österreichischen Daten. Sieh, was Inflation über 10–30 Jahre mit deinem Geld macht. Kostenlos. Keine Anmeldung.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://finanzberater-friedl.info/historischer-inflationsrechner.html">
+<meta property="og:title" content="Historischer Inflationsrechner Österreich | Mario Friedl">
+<meta property="og:description" content="Was ist dein Geld wirklich noch wert? Interaktiver Rechner mit echten Inflationsdaten aus Österreich.">
+<meta property="og:url" content="https://finanzberater-friedl.info/historischer-inflationsrechner.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
+<!-- Cookie Consent + GA Guard (DSGVO Art. 6) -->
+<script>
+(function(){
+  var K='mf_cookie_consent';
+  function loadGA(){
+    if(document.getElementById('ga-s'))return;
+    var s=document.createElement('script');s.id='ga-s';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
+    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
+  }
+  window.mfAccept=function(){localStorage.setItem(K,'accepted');document.getElementById('mfBar').style.display='none';loadGA();};
+  window.mfDecline=function(){localStorage.setItem(K,'declined');document.getElementById('mfBar').style.display='none';};
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('mfBar');if(!b)return;
+    var v=localStorage.getItem(K);
+    if(v==='accepted'){b.style.display='none';loadGA();}
+    else if(v==='declined'){b.style.display='none';}
+    else b.style.display='flex';
+  });
+})();
+</script>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --ink:#080c10;--deep:#0b1118;--navy:#0f1923;
-  --gold:#c8973b;--gold2:#f0c060;--gold3:#ffe09a;
-  --ember:#e85d2a;--flame:#f5841f;--lava:#c1380a;
-  --white:#fff;--muted:#6a7a8d;--border:#1a2530;
-  --green:#0cac6a;--red:#e83a2a;
+  --ink:#0f1923; --gold:#c8973b; --gold2:#f0c060;
+  --ember:#e84d1c; --cream:#faf8f4; --white:#fff;
+  --muted:#6b7a8d; --border:rgba(200,151,59,.18);
+  --green:#16a34a; --red:#dc2626;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Lato',sans-serif;background:var(--ink);color:var(--white);line-height:1.7;overflow-x:hidden;-webkit-text-size-adjust:100%}
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:var(--ink)}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--ember),var(--gold))}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--ink);line-height:1.7;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold)}
 
-.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
-.eyebrow{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
-.eyebrow-gold{color:var(--gold)}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes firePulse{0%,100%{box-shadow:0 0 30px rgba(232,93,42,.3),0 0 60px rgba(232,93,42,.1)}50%{box-shadow:0 0 50px rgba(232,93,42,.5),0 0 100px rgba(232,93,42,.2)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes riseEmber{0%{opacity:0;transform:translateY(0) translateX(0) scale(1)}10%{opacity:.8}80%{opacity:.3}100%{opacity:0;transform:translateY(-100vh) translateX(var(--drift)) scale(0)}}
-@keyframes counterUp{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 8px rgba(232,93,42,.4))}50%{filter:drop-shadow(0 0 24px rgba(232,93,42,.8))}}
-@keyframes pulse-border{0%,100%{border-color:rgba(232,93,42,.3)}50%{border-color:rgba(232,93,42,.8)}}
-@keyframes moneyDrain{0%{height:100%;opacity:1}100%{height:0%;opacity:.3}}
-@keyframes slideRight{from{width:0}to{width:var(--target-w)}}
-@keyframes numberCount{from{opacity:0}to{opacity:1}}
-
-.anim{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.anim.in{opacity:1;transform:translateY(0)}
-.anim-left{opacity:0;transform:translateX(-32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.anim-left.in{opacity:1;transform:translateX(0)}
-.anim-right{opacity:0;transform:translateX(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.anim-right.in{opacity:1;transform:translateX(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-/* ═══ NAV ═══ */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;background:rgba(8,12,16,.96);backdrop-filter:blur(24px);border-bottom:1px solid rgba(232,93,42,.15);transition:all .3s}
-nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5);border-bottom-color:rgba(200,151,59,.15)}
-.nav-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
-.nav-logo img{height:34px;border-radius:6px}
-.nav-logo .nl-gold{color:var(--gold)}
-.nav-links{display:flex;gap:6px;list-style:none;align-items:center}
-.nav-links a{padding:7px 13px;border-radius:8px;font-size:.83rem;font-weight:600;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s}
-.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
-.nav-fire{background:linear-gradient(135deg,var(--ember),var(--flame))!important;color:var(--white)!important;font-weight:700!important;animation:firePulse 2s ease-in-out infinite}
-.mob-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--white)}
-.mob-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,12,16,.98);padding:88px 28px 40px;flex-direction:column;gap:10px}
+/* NAV */
+nav{background:var(--ink);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo img{width:30px;height:30px;border-radius:6px}
+.nav-logo span{font-size:.95rem;font-weight:700;color:var(--white)}
+.nav-logo span span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;font-weight:600;padding:7px 13px;border-radius:7px;transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.08)}
+.nav-links .nav-cta{background:linear-gradient(135deg,var(--ember),#c43a10);color:var(--white)!important;font-weight:900!important}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:66px;left:0;right:0;z-index:190;background:rgba(15,25,35,.98);border-bottom:1px solid var(--border);padding:16px 20px 24px;flex-direction:column;gap:8px}
 .mob-menu.open{display:flex}
-.mob-menu a{padding:14px 18px;border-radius:12px;font-size:1rem;font-weight:600;color:var(--white);text-decoration:none;border:1px solid var(--border)}
-.mob-menu .mob-fire{background:linear-gradient(135deg,var(--ember),var(--flame));border-color:var(--ember);text-align:center;margin-top:8px}
+.mob-menu a{display:block;padding:11px 16px;border-radius:8px;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;border:1px solid rgba(255,255,255,.07)}
+.mob-menu .m-fire{background:linear-gradient(135deg,var(--ember),#c43a10);color:var(--white)!important;font-weight:900!important;text-align:center;border-color:transparent!important}
 
-/* BUTTONS */
-.btn-fire{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);font-weight:900;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;letter-spacing:.5px;box-shadow:0 12px 40px rgba(232,93,42,.4);transition:all .3s;position:relative;overflow:hidden}
-.btn-fire::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
-.btn-fire:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(232,93,42,.55)}
-.btn-fire:hover::before{transform:translateX(200%)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid rgba(200,151,59,.35);color:rgba(255,255,255,.75);font-weight:700;font-size:1rem;padding:16px 36px;border-radius:6px;text-decoration:none;transition:all .25s;font-family:'Lato',sans-serif}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+/* TICKER */
+.ticker-outer{background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,80,0,.2);height:40px;display:flex;align-items:center;overflow:hidden}
+.ticker-label{background:linear-gradient(135deg,var(--ember),#c43a10);color:var(--white);font-size:.62rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0;white-space:nowrap}
+.ticker-track{display:flex;animation:ticker 28s linear infinite;align-items:center;height:100%}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{padding:0 20px;font-size:.76rem;font-weight:700;white-space:nowrap;border-right:1px solid rgba(255,255,255,.06);height:100%;display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.55)}
+.ticker-item strong{color:rgba(255,255,255,.85)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ═══ TICKER ═══ */
-.ticker{background:rgba(232,93,42,.06);border-top:1px solid rgba(232,93,42,.15);border-bottom:1px solid rgba(232,93,42,.15);overflow:hidden;padding:11px 0}
-.ticker-inner{display:flex;width:max-content;animation:ticker 36s linear infinite}
-.t-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 36px;font-size:.72rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+/* HERO */
+.hero{background:linear-gradient(160deg,#0a0f18 0%,var(--ink) 60%,#120a0a 100%);padding:72px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(232,77,28,.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(232,77,28,.25);border-radius:30px;padding:5px 16px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(232,77,28,.8);margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:900;color:var(--white);line-height:1.07;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--gold);display:block;margin-top:6px}
+.hero-sub{font-size:clamp(.9rem,2vw,1.05rem);color:rgba(255,255,255,.5);max-width:580px;margin:0 auto 32px;line-height:1.8}
+.hero-sub strong{color:rgba(255,255,255,.82)}
 
-/* ═══════════════════════════════
-   HERO
-═══════════════════════════════ */
-.hero{min-height:55vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 60px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 50% 100%,rgba(193,56,10,.16) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 50%,rgba(232,93,42,.08),transparent 55%),linear-gradient(180deg,#080c10 0%,#0e1208 100%)}
-.hero-embers{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.ember{position:absolute;bottom:-10px;border-radius:50%;background:var(--ember);opacity:0;animation:riseEmber linear infinite}
-.hero-inner{position:relative;z-index:2;text-align:center;max-width:820px;margin:0 auto;padding:0 28px}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.3);border-radius:4px;padding:6px 18px;font-size:.7rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:28px;animation:fadeIn .6s ease both}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,5.2rem);font-weight:900;line-height:.96;color:var(--white);margin-bottom:20px;animation:fadeUp .8s .1s ease both;letter-spacing:-.03em}
-.hero h1 .fire-line{display:block;background:linear-gradient(135deg,var(--ember) 0%,var(--flame) 40%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
-.hero-sub{font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:36px;animation:fadeUp .8s .2s ease both;max-width:640px;margin-left:auto;margin-right:auto}
-.hero-sub strong{color:var(--gold2);font-style:normal}
-.hero-pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .3s ease both;margin-bottom:36px}
-.h-pill{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:9px 16px;font-size:.82rem;font-weight:700;color:rgba(255,255,255,.7)}
-.h-pill.hot{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.25);color:var(--flame)}
+/* AHA stats */
+.aha-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.aha-pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:16px 22px;text-align:center;min-width:150px;transition:border-color .25s}
+.aha-pill:hover{border-color:rgba(200,151,59,.3)}
+.ap-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;line-height:1;display:block;margin-bottom:5px}
+.ap-num.red{color:#ef4444}
+.ap-num.gray{color:rgba(255,255,255,.35)}
+.ap-num.green{color:var(--green)}
+.ap-lbl{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:2px}
+.ap-src{font-size:.6rem;color:rgba(255,255,255,.2);display:block}
 
-/* ═══════════════════════════════
-   INTRO FACTS – emotional hooks
-═══════════════════════════════ */
-.intro-section{padding:80px 0 0;background:linear-gradient(180deg,#0e1208 0%,var(--ink) 100%);position:relative}
-.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(232,93,42,.12);border-radius:20px;overflow:hidden}
-.intro-card{padding:36px 28px;position:relative;overflow:hidden;transition:background .3s}
-.intro-card:hover{background:rgba(232,93,42,.05)}
-.intro-card+.intro-card{border-left:1px solid rgba(232,93,42,.1)}
-.intro-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ember),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.intro-card:hover::after{transform:scaleX(1)}
-.ic-emoji{font-size:2rem;margin-bottom:14px;display:block;animation:float 3s ease-in-out infinite}
-.ic-num{font-family:'Bebas Neue',sans-serif;font-size:3.4rem;line-height:1;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px;display:block}
-.ic-label{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.6}
-.ic-label strong{color:rgba(255,255,255,.85);display:block;font-size:.93rem;margin-bottom:3px}
-.ic-aha{display:inline-block;margin-top:10px;background:rgba(232,93,42,.12);border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:4px 12px;font-size:.7rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ember)}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-fire{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--ember),#c43a10);color:var(--white);font-weight:900;font-size:.95rem;padding:14px 28px;border-radius:40px;text-decoration:none;box-shadow:0 8px 24px rgba(232,77,28,.3);transition:all .2s}
+.btn-fire:hover{transform:translateY(-2px)}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font-weight:900;font-size:.95rem;padding:14px 28px;border-radius:40px;text-decoration:none;transition:all .2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.65);font-weight:600;font-size:.9rem;padding:13px 22px;border-radius:40px;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--white)}
 
-/* ═══════════════════════════════
-   RECHNER – THE MAIN EVENT
-═══════════════════════════════ */
-.calc-section{padding:80px 0;position:relative}
-.calc-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(232,93,42,.06),transparent 65%);pointer-events:none}
-.calc-outer{position:relative;z-index:1}
-.calc-card{background:rgba(255,255,255,.04);border:1px solid rgba(232,93,42,.2);border-radius:24px;overflow:hidden;position:relative;animation:pulse-border 4s ease-in-out infinite}
-.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--flame),var(--gold2),var(--gold))}
-.calc-top{padding:40px 44px 0}
-.calc-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.1}
-.calc-title em{font-style:italic;color:var(--gold2)}
-.calc-intro{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:32px}
-.calc-intro strong{color:rgba(255,255,255,.8)}
+/* RECHNER */
+.rechner-section{background:#080e16;padding:72px 24px}
+.wrap{max-width:860px;margin:0 auto}
+.section-eyebrow{font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.section-h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.8vw,2.6rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:14px}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.section-lead{font-size:.96rem;color:rgba(255,255,255,.48);line-height:1.85;margin-bottom:36px;max-width:600px}
+.section-lead strong{color:rgba(255,255,255,.75)}
 
-/* Inputs */
-.calc-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px}
-.ci-group{display:flex;flex-direction:column;gap:8px}
-.ci-label{font-size:.67rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.ci-input-wrap{position:relative}
-.ci-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1.1rem;font-weight:700;color:var(--gold);pointer-events:none}
-.ci-input{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:.9rem 1rem .9rem 2.4rem;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--white);transition:all .25s;letter-spacing:1px}
-.ci-input.no-prefix{padding-left:1rem}
-.ci-input:focus{outline:none;border-color:var(--ember);background:rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(232,93,42,.12)}
-select.ci-input{cursor:pointer;appearance:none;font-family:'Lato',sans-serif;font-size:1rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='rgba(232,93,42,0.8)' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:10px;background-color:rgba(255,255,255,.07);padding-right:2.5rem}
-select.ci-input option{background:#1a2535}
-.calc-btn-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.btn-calc{width:100%;padding:18px;background:linear-gradient(135deg,var(--lava),var(--ember),var(--flame));color:var(--white);border:none;border-radius:12px;font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:.5px;cursor:pointer;transition:all .3s;box-shadow:0 12px 40px rgba(232,93,42,.35);position:relative;overflow:hidden}
-.btn-calc::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-100%);transition:transform .5s}
-.btn-calc:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(232,93,42,.5)}
-.btn-calc:hover::before{transform:translateX(200%)}
+.rechner-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden}
+.rechner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold),var(--gold2))}
 
-/* RESULTS */
-.calc-results{display:none;padding:36px 44px 44px;border-top:1px solid rgba(255,255,255,.06);margin-top:28px}
-.calc-results.show{display:block;animation:fadeUp .5s ease both}
+/* Controls */
+.ctrl-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px}
+.ctrl-group{display:flex;flex-direction:column;gap:8px}
+.ctrl-label{font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.ctrl-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold)}
+input[type=range]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--gold) var(--pct,50%),rgba(255,255,255,.15) var(--pct,50%));outline:none;cursor:pointer;margin-top:4px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:3px solid var(--ink);box-shadow:0 2px 8px rgba(200,151,59,.4);cursor:pointer}
 
-/* Big result numbers */
-.result-headline{text-align:center;margin-bottom:36px}
-.rh-label{font-size:.72rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:12px;display:block}
-.rh-aha{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-style:italic;color:rgba(255,255,255,.7);line-height:1.4;max-width:640px;margin:0 auto 28px}
-.rh-aha strong{color:var(--white);font-style:normal}
-.rh-aha em{color:var(--ember);font-style:italic}
+select.ctrl-select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px 14px;font-size:.9rem;color:var(--white);font-family:'Lato',sans-serif;outline:none;cursor:pointer}
+select.ctrl-select option{background:#0f1923;color:var(--white)}
 
-/* Result grid – main numbers */
-.result-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
-.rn-block{border-radius:16px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;border:1px solid}
-.rn-block.loss{background:rgba(232,58,42,.07);border-color:rgba(232,58,42,.2)}
-.rn-block.remains{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
-.rn-block.invest{background:rgba(12,172,106,.07);border-color:rgba(12,172,106,.2)}
-.rn-title{font-size:.67rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;display:block}
-.rn-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;display:block;margin-bottom:6px;animation:counterUp .6s ease both}
-.rn-block.loss .rn-num{color:var(--red)}
-.rn-block.remains .rn-num{color:rgba(255,255,255,.7)}
-.rn-block.invest .rn-num{color:var(--green)}
-.rn-sub{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.5}
-.rn-sub strong{color:rgba(255,255,255,.65)}
+.btn-calc{width:100%;padding:16px;background:linear-gradient(135deg,var(--ember),#c43a10);color:var(--white);font-weight:900;font-size:1rem;border:none;border-radius:50px;cursor:pointer;font-family:'Lato',sans-serif;box-shadow:0 8px 24px rgba(232,77,28,.3);transition:all .2s;margin-top:8px}
+.btn-calc:hover{transform:translateY(-2px)}
 
-/* Visual bar comparison */
-.bar-compare{margin-bottom:32px}
-.bc-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;display:block}
-.bc-row{margin-bottom:14px}
-.bc-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.bc-label{font-size:.87rem;font-weight:700;color:rgba(255,255,255,.65)}
-.bc-value{font-family:'Bebas Neue',sans-serif;font-size:1.2rem}
-.bc-track{height:14px;background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden}
-.bc-fill{height:100%;border-radius:8px;transition:width 1.2s cubic-bezier(.16,1,.3,1);width:0}
-.bc-fill.original{background:rgba(255,255,255,.25)}
-.bc-fill.kaufkraft{background:linear-gradient(90deg,var(--red),rgba(232,58,42,.5))}
-.bc-fill.invest{background:linear-gradient(90deg,var(--green),#1de598)}
+/* Result */
+.result-area{margin-top:28px;display:none}
+.result-area.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.rg-item{background:rgba(255,255,255,.05);border-radius:14px;padding:20px;text-align:center;border:1px solid rgba(255,255,255,.06)}
+.rg-num{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1;display:block;margin-bottom:6px}
+.rg-lbl{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);display:block}
 
-/* Year-by-year table */
-.year-table{margin-bottom:28px}
-.yt-head{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:0;background:rgba(255,255,255,.05);border-radius:10px 10px 0 0;padding:10px 16px;font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.yt-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:0;padding:10px 16px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s}
-.yt-row:hover{background:rgba(232,93,42,.05)}
-.yt-row:last-child{border-bottom:none;border-radius:0 0 10px 10px}
-.yt-year{font-weight:700;color:rgba(255,255,255,.6);font-family:'Bebas Neue',sans-serif;font-size:1.1rem}
-.yt-orig{color:rgba(255,255,255,.4)}
-.yt-real{font-weight:700}
-.yt-invest{font-weight:700;color:var(--green)}
-.yt-loss{color:var(--red);font-weight:700}
+.result-chart{background:rgba(0,0,0,.2);border-radius:12px;padding:20px;margin:16px 0}
+.chart-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.chart-label{font-size:.78rem;color:rgba(255,255,255,.5);width:180px;flex-shrink:0}
+.chart-bar-wrap{flex:1;background:rgba(255,255,255,.07);border-radius:4px;height:20px;overflow:hidden}
+.chart-bar{height:100%;border-radius:4px;transition:width 1s ease}
+.chart-bar.nominal{background:rgba(255,255,255,.35)}
+.chart-bar.real{background:linear-gradient(90deg,#ef4444,#dc2626)}
+.chart-bar.fonds{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.chart-val{font-size:.82rem;font-weight:700;width:90px;text-align:right;flex-shrink:0}
 
-/* AHA-moment callout */
-.aha-callout{background:linear-gradient(135deg,rgba(232,93,42,.1),rgba(193,56,10,.05));border:1px solid rgba(232,93,42,.3);border-radius:16px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
-.aha-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lava),var(--ember),var(--gold))}
-.aha-callout .aha-icon{font-size:2rem;margin-bottom:10px;display:block;animation:glow 2s ease-in-out infinite}
-.aha-callout h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.2}
-.aha-callout p{font-size:.93rem;color:rgba(255,255,255,.6);line-height:1.75}
-.aha-callout p strong{color:var(--white)}
-.aha-callout p em{color:var(--gold);font-style:italic}
+/* DISCLAIMER BOX – direkt beim Rechner (WAG 2018 § 46) */
+.risk-box{background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:.8rem;color:#5a3e10;line-height:1.7}
+.risk-box strong{color:#7a4e0a}
 
-/* CTA in results */
-.result-cta{background:rgba(255,255,255,.03);border-radius:16px;padding:28px;text-align:center;border:1px solid rgba(255,255,255,.07)}
-.rc-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px}
-.rc-sub{font-size:.88rem;color:rgba(255,255,255,.4);margin-bottom:20px;line-height:1.6}
-.rc-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* FAKTEN */
+.fakten-section{background:var(--ink);padding:64px 24px}
+.fakten-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.fakt-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.fakt-card:hover{border-color:rgba(200,151,59,.3);transform:translateY(-3px)}
+.fakt-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));opacity:.4}
+.fakt-icon{font-size:1.4rem;margin-bottom:10px;display:block}
+.fakt-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px;display:block}
+.fakt-title{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.fakt-text{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.65}
+.fakt-src{font-size:.67rem;color:rgba(255,255,255,.22);margin-top:8px;display:block}
 
-/* ═══════════════════════════════
-   HISTORIC FACTS SECTION
-═══════════════════════════════ */
-.facts-section{padding:80px 0;background:#090d12;position:relative;overflow:hidden}
-.facts-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,93,42,.3),transparent)}
-.facts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.fact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
-.fact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold));opacity:0;transition:opacity .3s}
-.fact-card:hover{background:rgba(232,93,42,.05);border-color:rgba(232,93,42,.18);transform:translateY(-4px)}
-.fact-card:hover::before{opacity:1}
-.fc-eyebrow{font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:12px;display:block}
-.fc-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.2}
-.fc-body{font-size:.92rem;color:rgba(255,255,255,.48);line-height:1.8}
-.fc-body strong{color:rgba(255,255,255,.85)}
-.fc-body em{color:var(--gold);font-style:italic}
-.fc-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin:12px 0 8px}
-.fc-aha-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.2);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--ember);margin-top:14px}
+/* PREISTABELLE */
+.preis-section{background:#080e16;padding:64px 24px}
+.preis-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;border-radius:14px;border:1px solid var(--border)}
+.preis-table{width:100%;min-width:400px;border-collapse:collapse}
+.preis-table th{padding:12px 16px;font-size:.68rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);text-align:left;background:rgba(200,151,59,.06)}
+.preis-table td{padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;color:rgba(255,255,255,.65)}
+.preis-table tr:last-child td{border-bottom:none}
+.preis-table td:first-child{color:var(--white);font-weight:600}
+.preis-table td.last{color:#ef4444;font-weight:700}
+.preis-src{font-size:.72rem;color:rgba(255,255,255,.25);margin-top:12px;line-height:1.65}
 
-/* Real items table */
-.items-table{margin-top:36px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
-.it-header{display:grid;grid-template-columns:1fr repeat(4,1fr);gap:0;background:rgba(255,255,255,.05);padding:12px 20px;font-size:.65rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.it-row{display:grid;grid-template-columns:1fr repeat(4,1fr);gap:0;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:.88rem;transition:background .2s}
-.it-row:last-child{border-bottom:none}
-.it-row:hover{background:rgba(232,93,42,.04)}
-.it-name{display:flex;align-items:center;gap:8px;font-weight:700;color:rgba(255,255,255,.75)}
-.it-icon{font-size:1.1rem}
-.it-year{color:rgba(255,255,255,.4);text-align:right}
-.it-year.highlight{font-weight:700;color:var(--ember);text-align:right}
+/* WAS PASSIERT */
+.kosten-section{background:var(--ink);padding:64px 24px}
+.kosten-list{display:flex;flex-direction:column;gap:12px;margin:28px 0}
+.kl-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 20px;flex-wrap:wrap;gap:10px}
+.kl-desc{font-size:.9rem;color:rgba(255,255,255,.65);flex:1;min-width:200px}
+.kl-cost{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:#ef4444;flex-shrink:0}
 
-/* ═══════════════════════════════
-   EMOTIONAL SECTION – "Was passiert wenn nichts"
-═══════════════════════════════ */
-.nothing-section{padding:80px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
-.nothing-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.nothing-left h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:22px;letter-spacing:-.02em}
-.nothing-left h2 em{font-style:italic;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.nothing-pull{font-family:'EB Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.58);border-left:4px solid var(--ember);padding:12px 0 12px 22px;margin:22px 0}
-.nothing-left p{font-size:.95rem;color:rgba(255,255,255,.48);line-height:1.9;margin-bottom:14px}
-.nothing-left p strong{color:rgba(255,255,255,.85)}
+/* CTA */
+.cta-section{background:linear-gradient(160deg,#150a02,var(--ink));padding:72px 24px;text-align:center}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:14px}
+.cta-section h2 em{font-style:italic;color:var(--gold)}
+.cta-section p{font-size:.96rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px}
+.cta-list{display:flex;flex-direction:column;gap:9px;margin-bottom:32px;text-align:left;max-width:480px;margin-left:auto;margin-right:auto}
+.cl-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:rgba(255,255,255,.7)}
+.cl-check{width:20px;height:20px;border-radius:50%;background:rgba(200,151,59,.2);border:1px solid rgba(200,151,59,.4);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gold);flex-shrink:0;margin-top:2px}
 
-/* Visual drain */
-.money-drain{display:flex;flex-direction:column;gap:20px}
-.md-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;position:relative;overflow:hidden}
-.md-item:hover{border-color:rgba(232,93,42,.2)}
-.md-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.md-name{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.7)}
-.md-loss{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--red)}
-.md-track{height:10px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
-.md-fill{height:100%;border-radius:6px;transition:width 1.4s cubic-bezier(.16,1,.3,1);width:0}
-.md-fill.f1{background:linear-gradient(90deg,var(--red),rgba(232,58,42,.5))}
-.md-fill.f2{background:linear-gradient(90deg,rgba(232,93,42,.8),rgba(245,132,31,.5))}
-.md-fill.f3{background:linear-gradient(90deg,rgba(200,151,59,.7),rgba(240,192,96,.4))}
-.md-fill.f4{background:linear-gradient(90deg,rgba(42,163,200,.6),rgba(42,163,200,.3))}
-.md-subtext{font-size:.76rem;color:rgba(255,255,255,.3);margin-top:7px;line-height:1.5}
+/* FOOTER */
+footer{background:#050503;padding:36px 24px 24px;text-align:center;border-top:1px solid rgba(200,151,59,.12)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold);display:block;margin-bottom:8px}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:10px 0;font-size:.8rem}
+.footer-links a{color:rgba(255,255,255,.32);text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+.footer-legal{max-width:860px;margin:16px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:.72rem;color:rgba(255,255,255,.28);line-height:1.75}
+.footer-legal strong{color:rgba(255,255,255,.42)}
+.footer-vgv{font-size:.7rem;color:rgba(255,255,255,.26);margin-top:6px;line-height:1.7}
 
-/* ═══════════════════════════════
-   SOLUTION TEASER
-═══════════════════════════════ */
-.solution-section{padding:80px 0;background:linear-gradient(160deg,var(--ink) 0%,#0d0e00 100%);position:relative;overflow:hidden;text-align:center}
-.solution-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(200,151,59,.07),transparent 65%)}
-.sol-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
-.sol-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;color:var(--white);line-height:.96;margin-bottom:24px;letter-spacing:-.03em}
-.sol-h2 em{display:block;font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sol-sub{font-family:'EB Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
-
-/* Comparison mini – solution preview */
-.sol-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;text-align:left}
-.sc-card{border-radius:14px;padding:24px 22px;border:1px solid}
-.sc-card.bad{background:rgba(255,60,60,.05);border-color:rgba(255,60,60,.15)}
-.sc-card.good{background:rgba(200,151,59,.06);border-color:rgba(200,151,59,.2)}
-.sc-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:block}
-.sc-card.bad .sc-title{color:rgba(255,80,80,.6)}
-.sc-card.good .sc-title{color:var(--gold)}
-.sc-item{display:flex;align-items:center;gap:9px;font-size:.87rem;margin-bottom:9px;color:rgba(255,255,255,.55)}
-.sc-item:last-child{margin-bottom:0}
-
-/* ═══ FOOTER ═══ */
-footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1px solid rgba(232,93,42,.1)}
-.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;display:block}
-.footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:14px 0;font-size:.82rem}
-.footer-links a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--ember)}
-.footer-copy{font-size:.78rem;color:rgba(255,255,255,.2);padding-top:18px;border-top:1px solid rgba(255,255,255,.05);margin-top:14px}
-
-/* STICKY */
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(8,12,16,.97);border-top:1px solid rgba(232,93,42,.2);backdrop-filter:blur(16px);padding:12px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
-.sticky-bar.show{transform:translateY(0)}
-.sb-left{font-size:.88rem;color:rgba(255,255,255,.6)}
-.sb-left strong{color:var(--white)}
-.sb-urgent{color:var(--ember);font-size:.75rem;display:block;margin-top:1px}
+/* Cookie Banner */
+#mfBar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)}
 
 /* RESPONSIVE */
-@media(max-width:1024px){
-  .calc-inputs{grid-template-columns:1fr 1fr}
-  .result-nums{grid-template-columns:1fr 1fr}
-  .facts-grid{grid-template-columns:1fr}
-  .nothing-inner{grid-template-columns:1fr;gap:48px}
-  .sol-cards{grid-template-columns:1fr}
-}
-@media(max-width:768px){
-  nav{height:60px}
+@media(max-width:680px){
   .nav-links{display:none}
-  .mob-btn{display:block}
-  .hero{padding:88px 0 44px}
-  .hero h1{font-size:2.8rem}
-  .intro-grid{grid-template-columns:1fr}
-  .intro-card+.intro-card{border-left:none;border-top:1px solid rgba(232,93,42,.1)}
-  .calc-inputs{grid-template-columns:1fr}
-  .calc-top,.calc-results{padding:28px 20px}
-  .result-nums{grid-template-columns:1fr}
-  .yt-head,.yt-row{grid-template-columns:60px 1fr 1fr;font-size:.78rem}
-  .yt-head div:nth-child(3),.yt-row .yt-invest{display:none}
-  /* Items table mobile: stack as cards */
-  .items-table{border:none;background:none}
-  .it-header{display:none}
-  .it-row{display:flex;flex-direction:column;gap:0;padding:0;border-bottom:none;margin-bottom:10px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
-  .it-name{padding:11px 14px 6px;font-size:.92rem;border-bottom:1px solid rgba(255,255,255,.05)}
-  .it-year{display:flex;justify-content:space-between;align-items:center;padding:6px 14px;font-size:.84rem;color:rgba(255,255,255,.4)}
-  .it-year::before{font-size:.65rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2)}
-  .it-row .it-year:nth-child(2)::before{content:"2000"}
-  .it-row .it-year:nth-child(3)::before{content:"2015"}
-  .it-row .it-year:nth-child(4)::before{content:"2026 ▶"}
-  .it-row .it-year.highlight{color:var(--ember);font-weight:700;background:rgba(232,93,42,.05)}
-  .it-row .it-year:nth-child(4){border-top:1px solid rgba(232,93,42,.1)}
-  .sticky-bar{flex-direction:column;text-align:center;gap:8px}
+  .nav-burger{display:flex}
+  .fakten-grid{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+  .ctrl-row{grid-template-columns:1fr}
+  .rechner-card{padding:24px 18px}
+  nav{padding:0 16px}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="Mario Friedl Logo">
-      Mario <span class="nl-gold">Friedl</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#leistungen">Leistungen</a></li>
-      <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="info-abend.html">Info-Abend 🍷</a></li>
-      <li><a href="business-seminar.html#anmeldung" class="nav-fire">🔥 Platz sichern</a></li>
-    </ul>
-    <button class="mob-btn" id="mobBtn">☰</button>
+<!-- Cookie Banner -->
+<div id="mfBar">
+  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
+    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
   </div>
-</nav>
+</div>
 
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Logo">
+    <span>Mario <span>Friedl</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#leistungen">Leistungen</a>
+    <a href="info-abend.html">🍷 Info-Abend</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="business-seminar.html#anmeldung" class="nav-cta">🔥 Platz sichern</a>
+  </div>
+  <button class="nav-burger" onclick="document.getElementById('mobMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 <div class="mob-menu" id="mobMenu">
-  <a href="index.html">Home</a>
-  <a href="index.html#leistungen">Leistungen</a>
-  <a href="business-seminar.html">Business Seminar</a>
-  <a href="info-abend.html">Info-Abend 🍷</a>
-  <a href="business-seminar.html#anmeldung" class="mob-fire">🔥 Jetzt Platz sichern</a>
+  <a href="index.html">🏠 Home</a>
+  <a href="info-abend.html">🍷 Info-Abend</a>
+  <a href="business-seminar.html">🎓 Business Seminar</a>
+  <a href="pensionsluecke.html">📊 Pensionslücke</a>
+  <a href="index.html#kontakt">📞 Kontakt</a>
+  <a href="business-seminar.html#anmeldung" class="m-fire">🔥 Platz sichern →</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">🔥 INFLATION AT</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <div class="ticker-item">⚡ <strong>Österreich Inflation 2022: +8,6 %</strong> – Historischer Höchstwert · Quelle: Statistik Austria</div>
+      <div class="ticker-item">🔥 <strong>Sparbuch €10.000 (Jahr 2000):</strong> reale Kaufkraft heute ~€7.200</div>
+      <div class="ticker-item">📉 <strong>Ø Sparbuchzins 2024: 0,1 %</strong> · Ø Inflation 3,9 % = −3,8 % real</div>
+      <div class="ticker-item">📊 <strong>Alle Berechnungen: vereinfachte Modellrechnungen</strong> · keine Anlageberatung</div>
+      <div class="ticker-item">⚡ <strong>Österreich Inflation 2022: +8,6 %</strong> – Historischer Höchstwert · Quelle: Statistik Austria</div>
+      <div class="ticker-item">🔥 <strong>Sparbuch €10.000 (Jahr 2000):</strong> reale Kaufkraft heute ~€7.200</div>
+      <div class="ticker-item">📉 <strong>Ø Sparbuchzins 2024: 0,1 %</strong> · Ø Inflation 3,9 % = −3,8 % real</div>
+      <div class="ticker-item">📊 <strong>Alle Berechnungen: vereinfachte Modellrechnungen</strong> · keine Anlageberatung</div>
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-embers" id="embers"></div>
   <div class="hero-inner">
-    <div class="hero-badge">🔥 Historischer Inflationsrechner · Österreich</div>
-    <h1>
-      Was ist dein Geld<br>
-      <span class="fire-line">wirklich noch wert?</span>
-    </h1>
-    <p class="hero-sub">
-      Gib einen Betrag ein – und erlebe in Echtzeit, was Inflation, Zinsen und Zeit daraus machen.
-      <strong>Die Wahrheit ist schmerzhaft. Aber sie ist notwendig.</strong>
-    </p>
-    <div class="hero-pills">
-      <div class="h-pill hot"><span>📉</span> Echte Inflationsdaten Österreich</div>
-      <div class="h-pill"><span>📊</span> Sparbuch vs. Investmentfonds</div>
-      <div class="h-pill"><span>⏱️</span> Jahresvergleich ab 2000</div>
+    <div class="hero-eyebrow">🔥 Historischer Inflationsrechner · Österreich</div>
+    <h1>Was ist dein Geld<br><em>wirklich noch wert?</em></h1>
+    <p class="hero-sub">Gib einen Betrag ein – und sieh in Echtzeit, was Inflation, Zinsen und Zeit daraus machen. <strong>Echte österreichische Daten. Keine Schönfärberei.</strong></p>
+
+    <div class="aha-row">
+      <div class="aha-pill">
+        <span class="ap-num red">−28%</span>
+        <span class="ap-lbl">Kaufkraftverlust seit 2000</span>
+        <span class="ap-src">Quelle: Statistik Austria VPI</span>
+      </div>
+      <div class="aha-pill">
+        <span class="ap-num gray">0,1%</span>
+        <span class="ap-lbl">Ø Sparbuchzins 2024</span>
+        <span class="ap-src">Quelle: OeNB Österreich</span>
+      </div>
+      <div class="aha-pill">
+        <span class="ap-num" style="color:var(--gold)">+186%*</span>
+        <span class="ap-lbl">Globale Fonds 20 Jahre</span>
+        <span class="ap-src">*Ø MSCI World 2004–2024 · keine Garantie</span>
+      </div>
     </div>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .4s ease both">
+
+    <div class="hero-ctas">
       <a href="#rechner" class="btn-fire">🔥 Jetzt berechnen →</a>
-      <a href="#was-passiert" class="btn-ghost">Was passiert beim Nichtstun?</a>
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
-    <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
-    <div class="t-item">📉 Ø SPARBUCHZINS 2026: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
-    <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
-    <div class="t-item">⚡ ÖSTERREICH INFLATION 2022: +8,6% – HISTORISCHER HÖCHSTWERT</div>
-    <div class="t-item">🔥 EIN SPARBUCH MIT 10.000€ VON 2000 HAT HEUTE REALE KAUFKRAFT VON ~€ 7.200</div>
-    <div class="t-item">📉 Ø SPARBUCHZINS 2026: 0,1% · Ø INFLATION: 3,9% = -3,8% REAL VERLUST</div>
-    <div class="t-item">🏦 WER 2004 €10.000 IN INVESTMENTFONDS INVESTIERT HAT: HEUTE ~€ 28.000+</div>
-  </div>
-</div>
-
-<!-- INTRO HOOKS -->
-<section class="intro-section">
-  <div class="wrap">
-    <div class="intro-grid anim">
-      <div class="intro-card">
-        <span class="ic-emoji">🧨</span>
-        <span class="ic-num">-28%</span>
-        <div class="ic-label"><strong>Kaufkraftverlust seit 2000</strong>Was €10.000 im Jahr 2000 kaufen konnte, kostet heute ~€ 13.900. Dein Sparbuch? Hat sich kaum bewegt.</div>
-        <span class="ic-aha">AHA · Das weiß kaum jemand</span>
-      </div>
-      <div class="intro-card">
-        <span class="ic-emoji">😶</span>
-        <span class="ic-num">0,1%</span>
-        <div class="ic-label"><strong>Ø Sparbuchzins in Österreich 2024</strong>Während du diesen Text liest, hat Inflation deinen letzten Zinsertrag längst gefressen. Zehnfach und mehr.</div>
-        <span class="ic-aha">AHA · Sparen macht dich ärmer</span>
-      </div>
-      <div class="intro-card">
-        <span class="ic-emoji">🔥</span>
-        <span class="ic-num">+186%</span>
-        <div class="ic-label"><strong>Wer vor 20 Jahren in Fonds investiert hat</strong>€10.000 aus dem Jahr 2004 in einem globalen Investmentfonds wären heute ~€28.000+. Auf dem Sparbuch? Gleich viel wie vorher.</div>
-        <span class="ic-aha">AHA · Zeit arbeitet für oder gegen dich</span>
-      </div>
+      <a href="#was-passiert" class="btn-outline">Was passiert beim Nichtstun?</a>
     </div>
   </div>
 </section>
 
 <!-- RECHNER -->
-<section class="calc-section" id="rechner">
+<section class="rechner-section" id="rechner">
   <div class="wrap">
-    <div class="calc-outer anim d1">
-      <div class="calc-card">
-        <div class="calc-top">
-          <span class="eyebrow">Dein persönlicher Rechner</span>
-          <div class="calc-title">Was ist dein Geld wirklich wert?<br><em>Finde es jetzt heraus.</em></div>
-          <p class="calc-intro">Gib einen Betrag ein – z.B. was auf deinem Sparbuch liegt. Wähle das Startjahr und wie viele Jahre du in die Zukunft blickst. <strong>Das Ergebnis wird dich zum Nachdenken bringen.</strong></p>
+    <span class="section-eyebrow">Dein persönlicher Rechner</span>
+    <h2 class="section-h2">Was ist dein Geld wirklich wert?<br><em>Finde es jetzt heraus.</em></h2>
+    <p class="section-lead"><strong>Hinweis:</strong> Alle Berechnungen sind vereinfachte Modellrechnungen auf Basis historischer Durchschnittswerte. Sie stellen keine individuelle Anlageberatung dar.</p>
 
-          <div class="calc-inputs">
-            <div class="ci-group">
-              <label class="ci-label">Betrag</label>
-              <div class="ci-input-wrap">
-                <span class="ci-prefix">€</span>
-                <input type="number" class="ci-input" id="inputBetrag" value="10000" min="100" max="9999999" step="100" placeholder="10000">
-              </div>
-            </div>
-            <div class="ci-group">
-              <label class="ci-label">Startjahr</label>
-              <div class="ci-input-wrap">
-                <select class="ci-input no-prefix" id="inputJahr">
-                  <option value="2000">2000</option>
-                  <option value="2005">2005</option>
-                  <option value="2010">2010</option>
-                  <option value="2015">2015</option>
-                  <option value="2020" selected>2020</option>
-                  <option value="2024">2024</option>
-                  <option value="2025">2025</option>
-                  <option value="2026">2026 (heute)</option>
-                </select>
-              </div>
-            </div>
-            <div class="ci-group">
-              <label class="ci-label">Vorschau in Jahren</label>
-              <div class="ci-input-wrap">
-                <select class="ci-input no-prefix" id="inputJahre">
-                  <option value="5">5 Jahre</option>
-                  <option value="10" selected>10 Jahre</option>
-                  <option value="15">15 Jahre</option>
-                  <option value="20">20 Jahre</option>
-                  <option value="25">25 Jahre</option>
-                  <option value="30">30 Jahre</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <button class="btn-calc" onclick="berechnen()">🔥 Jetzt berechnen – Was bleibt wirklich übrig?</button>
+    <div class="rechner-card">
+      <div class="ctrl-row">
+        <div class="ctrl-group">
+          <div class="ctrl-label">Betrag (€)</div>
+          <div class="ctrl-val" id="betragVal">10.000 €</div>
+          <input type="range" id="betrag" min="1000" max="100000" step="500" value="10000" oninput="updateSlider(this,'betragVal','€'); calc()">
         </div>
-
-        <!-- RESULTS -->
-        <div class="calc-results" id="calcResults">
-
-          <div class="result-headline">
-            <span class="rh-label">🔥 Dein Ergebnis · Das ist die Realität</span>
-            <div class="rh-aha" id="ahaText">…</div>
-          </div>
-
-          <div class="result-nums" id="resultNums">
-            <div class="rn-block loss">
-              <span class="rn-title">Kaufkraftverlust</span>
-              <span class="rn-num" id="rn-verlust">–</span>
-              <span class="rn-sub">Dieser Betrag ist <strong>still verdampft</strong> – kein Dieb, kein Börsenkrach. Nur Zeit und Inflation.</span>
-            </div>
-            <div class="rn-block remains">
-              <span class="rn-title">Reale Kaufkraft Sparbuch</span>
-              <span class="rn-num" id="rn-real">–</span>
-              <span class="rn-sub">Das ist der <strong>reale Wert</strong> deines Sparbuch-Betrags nach Inflation – in heutiger Kaufkraft.</span>
-            </div>
-            <div class="rn-block invest">
-              <span class="rn-title">Investmentfonds (Ø 7% p.a.)</span>
-              <span class="rn-num" id="rn-invest">–</span>
-              <span class="rn-sub">Was aus <strong>demselben Betrag</strong> bei einem einfachen Investmentfonds-Sparplan werden könnte.</span>
-            </div>
-          </div>
-
-          <!-- BAR COMPARISON -->
-          <div class="bar-compare">
-            <span class="bc-title">Visueller Vergleich – Dein Geld in <span id="bc-years">–</span> Jahren</span>
-            <div class="bc-row">
-              <div class="bc-label-row">
-                <span class="bc-label">Eingabe (Nominalbetrag)</span>
-                <span class="bc-value" style="color:rgba(255,255,255,.5)" id="bc-orig">–</span>
-              </div>
-              <div class="bc-track"><div class="bc-fill original" id="bc-bar-orig" style="width:100%"></div></div>
-            </div>
-            <div class="bc-row">
-              <div class="bc-label-row">
-                <span class="bc-label">Reale Kaufkraft (Sparbuch)</span>
-                <span class="bc-value" style="color:var(--red)" id="bc-kaufkraft">–</span>
-              </div>
-              <div class="bc-track"><div class="bc-fill kaufkraft" id="bc-bar-kauf" style="width:0"></div></div>
-            </div>
-            <div class="bc-row">
-              <div class="bc-label-row">
-                <span class="bc-label">Investmentfonds (Ø 7% p.a.)</span>
-                <span class="bc-value" style="color:var(--green)" id="bc-invest-val">–</span>
-              </div>
-              <div class="bc-track"><div class="bc-fill invest" id="bc-bar-invest" style="width:0"></div></div>
-            </div>
-          </div>
-
-          <!-- YEAR TABLE -->
-          <div class="year-table">
-            <div class="yt-head">
-              <div>Jahr</div>
-              <div>Nominalbetrag</div>
-              <div>Kaufkraft real</div>
-              <div>Investmentfonds</div>
-            </div>
-            <div id="ytBody"></div>
-          </div>
-
-          <!-- AHA CALLOUT -->
-          <div class="aha-callout" id="ahaCallout">
-            <span class="aha-icon">💡</span>
-            <h3 id="ahaTitle">Das AHA-Moment</h3>
-            <p id="ahaBody">…</p>
-          </div>
-
-          <!-- RESULT CTA -->
-          <div class="result-cta">
-            <div class="rc-text">Diese Zahlen sind der Grund, warum Finanzseminare existieren.</div>
-            <div class="rc-sub">Beim Business Seminar mit Mario Friedl lernst du, was du mit diesem Wissen anfangen kannst. Konkret. Persönlich. Ohne Produkte verkauft zu bekommen.</div>
-            <div class="rc-btns">
-              <a href="business-seminar.html#anmeldung" class="btn-fire">🔥 Zum Business Seminar →</a>
-              <a href="business-seminar.html" class="btn-ghost">Mehr erfahren</a>
-            </div>
-          </div>
-
-        </div><!-- /calc-results -->
-      </div><!-- /calc-card -->
-    </div>
-  </div>
-</section>
-
-<!-- HISTORISCHE FAKTEN -->
-<section class="facts-section">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:52px" class="anim">
-      <span class="eyebrow">Österreich in Zahlen</span>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em">
-        Was Inflation mit echten<br><em style="background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">Alltagsdingen</em> gemacht hat.
-      </h2>
-      <p style="font-size:1.05rem;color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;line-height:1.8">Manchmal braucht es konkrete Beispiele, um zu begreifen, was Zahlen bedeuten. Diese werden dich aufhorchen lassen.</p>
-    </div>
-
-    <div class="facts-grid">
-      <div class="fact-card anim">
-        <span class="fc-eyebrow">AHA-MOMENT · Immobilien Wien</span>
-        <div class="fc-title">Eine Wiener Eigentumswohnung, 70m² – was hat sie wann gekostet?</div>
-        <span class="fc-num">+157%</span>
-        <div class="fc-body">
-          Im Jahr 2000 kostete eine durchschnittliche 70-m²-Wohnung in Wien rund <strong>€ 140.000</strong>. Heute zahlt man dafür <strong>€ 360.000 – € 420.000</strong>. Wer damals investiert hatte, hat ein Vermögen aufgebaut. Wer auf das Sparbuch gesetzt hatte – hat den Kaufpreis auf dem Papier gehalten und real massiv verloren.
+        <div class="ctrl-group">
+          <div class="ctrl-label">Startjahr</div>
+          <select class="ctrl-select" id="startjahr" onchange="calc()">
+            <option value="2000">2000</option>
+            <option value="2005">2005</option>
+            <option value="2010">2010</option>
+            <option value="2015">2015</option>
+            <option value="2020" selected>2020</option>
+            <option value="2024">2024</option>
+          </select>
         </div>
-        <span class="fc-aha-tag">🔥 Wissen schützt Vermögen</span>
+        <div class="ctrl-group">
+          <div class="ctrl-label">Jahre voraus</div>
+          <div class="ctrl-val" id="jahreVal">10 Jahre</div>
+          <input type="range" id="jahre" min="5" max="30" step="5" value="10" oninput="updateSlider(this,'jahreVal',' Jahre'); calc()">
+        </div>
       </div>
 
-      <div class="fact-card anim d1">
-        <span class="fc-eyebrow">AHA-MOMENT · Alltagspreise</span>
-        <div class="fc-title">Was hat sich bei Alltagsdingen wirklich verändert?</div>
-        <div class="items-table" style="margin-top:14px">
-          <div class="it-header">
-            <div>Produkt</div>
-            <div style="text-align:right">2000</div>
-            <div style="text-align:right">2015</div>
-            <div style="text-align:right">2026</div>
+      <button class="btn-calc" onclick="calc(); document.getElementById('resultArea').classList.add('show')">🔥 Jetzt berechnen – Was bleibt wirklich übrig?</button>
+
+      <div class="result-area" id="resultArea">
+        <div style="height:1px;background:var(--border);margin:24px 0"></div>
+        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(232,77,28,.7);margin-bottom:16px">🔥 Dein Ergebnis · Das ist die Realität</div>
+
+        <div class="result-grid">
+          <div class="rg-item">
+            <span class="rg-num" id="nominalVal" style="color:rgba(255,255,255,.6)">–</span>
+            <span class="rg-lbl">Nominalbetrag</span>
           </div>
-          <div class="it-row">
-            <div class="it-name"><span class="it-icon">🍞</span> Brot (1kg)</div>
-            <div class="it-year">€ 1,20</div>
-            <div class="it-year">€ 2,10</div>
-            <div class="it-year highlight">€ 3,80</div>
+          <div class="rg-item">
+            <span class="rg-num" id="realVal" style="color:#ef4444">–</span>
+            <span class="rg-lbl">Reale Kaufkraft (Sparbuch)</span>
           </div>
-          <div class="it-row">
-            <div class="it-name"><span class="it-icon">⛽</span> Benzin (1L)</div>
-            <div class="it-year">€ 0,82</div>
-            <div class="it-year">€ 1,22</div>
-            <div class="it-year highlight">€ 1,72</div>
-          </div>
-          <div class="it-row">
-            <div class="it-name"><span class="it-icon">☕</span> Kaffee (Café)</div>
-            <div class="it-year">€ 1,60</div>
-            <div class="it-year">€ 2,80</div>
-            <div class="it-year highlight">€ 4,60</div>
-          </div>
-          <div class="it-row">
-            <div class="it-name"><span class="it-icon">🏥</span> Arztbesuch</div>
-            <div class="it-year">€ 30</div>
-            <div class="it-year">€ 55</div>
-            <div class="it-year highlight">€ 95+</div>
-          </div>
-          <div class="it-row">
-            <div class="it-name"><span class="it-icon">🏠</span> Miete (70m², Wien)</div>
-            <div class="it-year">€ 550</div>
-            <div class="it-year">€ 950</div>
-            <div class="it-year highlight">€ 1.700+</div>
+          <div class="rg-item">
+            <span class="rg-num" id="fondsVal" style="color:var(--gold)">–</span>
+            <span class="rg-lbl">Fonds Ø 7% p.a.*</span>
           </div>
         </div>
-        <span class="fc-aha-tag" style="margin-top:14px">📊 Alles teurer – Sparbuch gleich</span>
-      </div>
 
-      <div class="fact-card anim d2">
-        <span class="fc-eyebrow">AHA-MOMENT · Der stille Dieb</span>
-        <div class="fc-title">Warum die Inflation das „stille Enteignen" heißt – und wie sie funktioniert.</div>
-        <div class="fc-body" style="margin-top:12px">
-          <p>Inflation bedeutet: Dein Geld verliert Schritt für Schritt an Wert – <strong>ohne dass du etwas siehst, hörst oder spürst.</strong> Kein Dieb kommt. Keine Warnung. Kein Alarm.</p>
-          <br>
-          <p>Bei 3,5 % Inflation pro Jahr verliert ein Betrag von <strong>€ 50.000 innerhalb von 20 Jahren reale Kaufkraft von über € 26.000</strong>. Das ist mehr als die Hälfte – still verdampft.</p>
-          <br>
-          <p>Das Heimtückische: <em>Das Papier zeigt noch €50.000. Aber kaufen kannst du damit viel weniger.</em> Die Zahl stimmt. Die Realität nicht.</p>
-        </div>
-        <span class="fc-aha-tag">😶 „Mein Geld liegt sicher" – Nein.</span>
-      </div>
+        <div class="result-chart" id="resultChart"></div>
 
-      <div class="fact-card anim d3">
-        <span class="fc-eyebrow">AHA-MOMENT · Die Pension</span>
-        <div class="fc-title">Was Inflation mit deiner späteren Pension anstellt – bevor du sie siehst.</div>
-        <span class="fc-num">-22%</span>
-        <div class="fc-body">
-          Die staatliche Pension wird zwar angepasst – aber <strong>nie schnell genug</strong>. Ein Pensionist, der 2000 € 1.200 monatliche Pension bezog, bekam nominal mehr bis heute. Real aber hat diese Pension <strong>rund 22 % weniger Kaufkraft</strong>. Heizung, Lebensmittel, Miete – alles teurer. Die Pension: gefühlt gleich. Real: ein Verlust.
-        </div>
-        <span class="fc-aha-tag">🛡️ Private Vorsorge ist keine Option</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WAS PASSIERT BEIM NICHTSTUN -->
-<section class="nothing-section" id="was-passiert">
-  <div class="wrap">
-    <div class="nothing-inner">
-      <div class="nothing-left anim-left">
-        <span class="eyebrow">Die Kosten der Untätigkeit</span>
-        <h2>Was passiert, wenn du<br><em>nichts änderst?</em></h2>
-        <div class="nothing-pull">"Das Gefährlichste ist nicht, etwas falsch zu machen. Es ist, überhaupt nichts zu tun – während die Zeit läuft."</div>
-        <p>
-          Die meisten Menschen wissen, dass irgendetwas nicht stimmt. Das Sparbuch bringt nichts. Die Pension wird nicht reichen. Irgendetwas sollte sich ändern. Aber dann kommt <strong>morgen – und übermorgen – und 10 Jahre sind weg.</strong>
-        </p>
-        <p>
-          Was in dieser Zeit auf dem Sparbuch passiert, ist keine Theorie. Es ist Mathematik. <strong>Stille, unaufhaltsame Mathematik.</strong>
-        </p>
-        <p>
-          Wer mit <strong>€ 500 monatlichem Sparplan ab 30 Jahren</strong> in Investmentfonds spart, hat mit 60 Jahren – bei historischer Durchschnittsrendite – <strong>rund € 567.000</strong> angespart. Wer dasselbe auf dem Sparbuch liegen lässt: <strong>€ 180.000 nominal – mit deutlich weniger realer Kaufkraft.</strong>
-        </p>
-      </div>
-
-      <div class="money-drain anim-right">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:20px;letter-spacing:-.01em">Was dich 1 Jahr Nichtstun kostet</h3>
-
-        <div class="md-item">
-          <div class="md-label">
-            <span class="md-name">Kaufkraftverlust (€ 50.000 am Sparbuch)</span>
-            <span class="md-loss">- € 1.900</span>
-          </div>
-          <div class="md-track"><div class="md-fill f1" id="drain1" style="width:0;--tw:95%"></div></div>
-          <div class="md-subtext">Bei 3,8 % Realzinsverlust p.a. – jedes Jahr, leise, ohne Alarm.</div>
+        <!-- PFLICHT-DISCLAIMER (WAG 2018 § 46 / MiFID II) -->
+        <div class="risk-box">
+          <strong>* Wichtiger Hinweis (WAG 2018 § 46 / MiFID II):</strong> Der Investmentfonds-Wert basiert auf dem historischen Durchschnitt von 7 % p.a. (MSCI World 2000–2024) und stellt keine Garantie für zukünftige Erträge dar. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Diese Berechnung ist eine vereinfachte Modellrechnung und ersetzt keine individuelle Anlage- oder Finanzberatung. Inflationsdaten: Statistik Austria (VPI).
         </div>
 
-        <div class="md-item">
-          <div class="md-label">
-            <span class="md-name">Entgangene Rendite (statt €200/Monat zu investieren)</span>
-            <span class="md-loss">- € 1.680</span>
-          </div>
-          <div class="md-track"><div class="md-fill f2" id="drain2" style="width:0;--tw:84%"></div></div>
-          <div class="md-subtext">Nur das erste Jahr – der Zinseszins-Effekt potenziert sich über Zeit massiv.</div>
-        </div>
-
-        <div class="md-item">
-          <div class="md-label">
-            <span class="md-name">Pensionslücke die sich weiter öffnet</span>
-            <span class="md-loss">- € 8.400</span>
-          </div>
-          <div class="md-track"><div class="md-fill f3" id="drain3" style="width:0;--tw:72%"></div></div>
-          <div class="md-subtext">€ 700 monatliche Pensionslücke × 12 Monate – wächst jedes Jahr ohne Gegenmaßnahme.</div>
-        </div>
-
-        <div class="md-item">
-          <div class="md-label">
-            <span class="md-name">Verpasster Zinseszins (€ 10.000 angelegt)</span>
-            <span class="md-loss">- € 700</span>
-          </div>
-          <div class="md-track"><div class="md-fill f4" id="drain4" style="width:0;--tw:35%"></div></div>
-          <div class="md-subtext">Im ersten Jahr minimal – nach 20 Jahren wären das über €28.000 die dir fehlen.</div>
-        </div>
-
-        <div style="background:rgba(232,93,42,.08);border:1px solid rgba(232,93,42,.2);border-radius:12px;padding:18px;margin-top:4px;text-align:center">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.4rem;background:linear-gradient(135deg,var(--ember),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1">~ € 12.680</div>
-          <div style="font-size:.82rem;color:rgba(255,255,255,.45);margin-top:6px">Gesamtkosten des Nichtstuns – nur im ersten Jahr</div>
+        <div style="text-align:center;margin-top:20px">
+          <a href="info-abend.html" class="btn-gold">🍷 Was tun? → Kostenloser Info-Abend</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SOLUTION -->
-<section class="solution-section">
-  <div class="sol-inner">
-    <div class="anim">
-      <span class="eyebrow eyebrow-gold">Der Weg nach vorne</span>
-      <h2 class="sol-h2">
-        Wissen ist<br><em>der erste Schritt.</em>
-      </h2>
-      <p class="sol-sub">
-        Diese Zahlen sind kein Anlass zur Panik – sondern zur Entscheidung. Wer einmal versteht wie das System wirklich funktioniert, handelt anders.
-      </p>
+<!-- FAKTEN -->
+<section class="fakten-section">
+  <div class="wrap">
+    <span class="section-eyebrow">Österreich in Zahlen</span>
+    <h2 class="section-h2">Was Inflation mit echten<br><em>Alltagsdingen gemacht hat.</em></h2>
 
-      <div class="sol-cards">
-        <div class="sc-card bad">
-          <span class="sc-title">❌ Ohne Wissen</span>
-          <div class="sc-item"><span>➤</span> Geld liegt auf dem Sparbuch und verliert Wert</div>
-          <div class="sc-item"><span>➤</span> Lebensversicherung bringt kaum Rendite nach Kosten</div>
-          <div class="sc-item"><span>➤</span> Bausparvertrag: Zinsen unter Inflationsrate</div>
-          <div class="sc-item"><span>➤</span> Pension reicht nicht – Lücke wird größer</div>
-          <div class="sc-item"><span>➤</span> Zeit läuft – der Zinseszinseffekt arbeitet gegen dich</div>
-        </div>
-        <div class="sc-card good">
-          <span class="sc-title">✅ Mit Wissen</span>
-          <div class="sc-item"><span>➤</span> Geld arbeitet durch Investmentfonds für dich</div>
-          <div class="sc-item"><span>➤</span> Zinseszins-Effekt arbeitet für dich, nicht gegen dich</div>
-          <div class="sc-item"><span>➤</span> Pensionslücke wird frühzeitig geschlossen</div>
-          <div class="sc-item"><span>➤</span> Finanzierung ohne teure Fehler strukturiert</div>
-          <div class="sc-item"><span>➤</span> Konkrete Strategie – nicht Theorie</div>
-        </div>
+    <div class="fakten-grid">
+      <div class="fakt-card">
+        <span class="fakt-icon">🏠</span>
+        <span class="fakt-num">+157%</span>
+        <div class="fakt-title">Immobilien Wien (70m²)</div>
+        <p class="fakt-text">2000: ca. € 140.000 · Heute: € 360.000–420.000. Wer damals investiert hatte, hat ein Vermögen aufgebaut. Das Sparbuch hat real massiv verloren.</p>
+        <span class="fakt-src">Quelle: OeNB Immobilienpreisindex · Statistik Austria</span>
       </div>
-
-      <p style="font-size:1.05rem;color:rgba(255,255,255,.45);margin-bottom:32px;line-height:1.7">
-        Beim Business Seminar mit Mario Friedl bekommst du dieses Wissen – in zwei Tagen, in einem Premium-Hotel, mit erfahrenen Referenten, die ihre eigene Geschichte kennen.
-      </p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="business-seminar.html#anmeldung" class="btn-fire" style="font-size:1.05rem;padding:18px 44px">🔥 Jetzt Seminarplatz sichern →</a>
-        <a href="business-seminar.html" class="btn-ghost">Alle Infos zum Seminar</a>
+      <div class="fakt-card">
+        <span class="fakt-icon">📉</span>
+        <span class="fakt-num">−28%</span>
+        <div class="fakt-title">Kaufkraftverlust seit 2000</div>
+        <p class="fakt-text">Was € 10.000 im Jahr 2000 kaufen konnte, kostet heute ~ € 13.900. Das Sparbuch hat sich kaum bewegt – der Unterschied ist Inflation.</p>
+        <span class="fakt-src">Quelle: Statistik Austria VPI 2000–2024</span>
+      </div>
+      <div class="fakt-card">
+        <span class="fakt-icon">🏛️</span>
+        <span class="fakt-num">−22%</span>
+        <div class="fakt-title">Reale Kaufkraft der Pension</div>
+        <p class="fakt-text">Die staatliche Pension wird angepasst – aber nie schnell genug. Eine Pension von € 1.200 im Jahr 2000 hat heute real rund 22 % weniger Kaufkraft.</p>
+        <span class="fakt-src">Quelle: PVA · Statistik Austria · Pensionsanpassungsgesetz</span>
+      </div>
+      <div class="fakt-card">
+        <span class="fakt-icon">⏰</span>
+        <span class="fakt-num">72 ÷ %</span>
+        <div class="fakt-title">Die 72er-Regel</div>
+        <p class="fakt-text">72 geteilt durch den Zinssatz = Jahre bis zur Verdopplung. Bei 1 % Sparbuch: 72 Jahre. Bei historisch 7 % Fonds-Ø: ~10 Jahre. Gleicher Betrag – anderes Werkzeug.</p>
+        <span class="fakt-src">*Ø 7 % p.a. ist ein historischer Wert · keine Garantie für zukünftige Erträge</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PREISTABELLE -->
+<section class="preis-section">
+  <div class="wrap">
+    <span class="section-eyebrow">Alltagspreise im Zeitverlauf</span>
+    <h2 class="section-h2">Was sich bei<br><em>Alltagsdingen verändert hat.</em></h2>
+
+    <div class="preis-table-wrap">
+      <table class="preis-table">
+        <thead>
+          <tr><th>Produkt</th><th>2000</th><th>2015</th><th>2026</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🍞 Brot (1 kg)</td><td>€ 1,20</td><td>€ 2,10</td><td class="last">€ 3,80</td></tr>
+          <tr><td>⛽ Benzin (1 L)</td><td>€ 0,82</td><td>€ 1,22</td><td class="last">€ 1,72</td></tr>
+          <tr><td>☕ Kaffee (Café)</td><td>€ 1,60</td><td>€ 2,80</td><td class="last">€ 4,60</td></tr>
+          <tr><td>🏠 Miete (70m², Wien)</td><td>€ 550</td><td>€ 950</td><td class="last">€ 1.700+</td></tr>
+          <tr><td>🏥 Arztbesuch (Privatarzt)</td><td>€ 30</td><td>€ 55</td><td class="last">€ 95+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="preis-src">Quellen: Statistik Austria VPI · WKO Preisstatistik · ÖAMTC · OeNB · eigene Recherchen. Alle Angaben ohne Gewähr auf Vollständigkeit und Aktualität.</p>
+  </div>
+</section>
+
+<!-- WAS PASSIERT -->
+<section class="kosten-section" id="was-passiert">
+  <div class="wrap">
+    <span class="section-eyebrow">Die Kosten der Untätigkeit</span>
+    <h2 class="section-h2">Was passiert, wenn du<br><em>nichts änderst?</em></h2>
+    <p class="section-lead">Nicht dramatisch. Nicht auf einmal. Aber <strong>jedes Jahr, leise, unaufhaltsam</strong> – die Mathematik der Untätigkeit.</p>
+
+    <div class="kosten-list">
+      <div class="kl-item">
+        <div class="kl-desc">Kaufkraftverlust · € 50.000 am Sparbuch · bei 3,8 % Realzinsverlust p.a.</div>
+        <div class="kl-cost">− € 1.900 / Jahr</div>
+      </div>
+      <div class="kl-item">
+        <div class="kl-desc">Entgangene Rendite · statt € 200/Monat zu investieren · nur Jahr 1</div>
+        <div class="kl-cost">− € 1.680 / Jahr</div>
+      </div>
+      <div class="kl-item">
+        <div class="kl-desc">Pensionslücke · Ø € 700/Monat × 12 · wächst ohne Gegenmaßnahme</div>
+        <div class="kl-cost">− € 8.400 / Jahr</div>
+      </div>
+      <div class="kl-item">
+        <div class="kl-desc">Verpasster Zinseszins · € 10.000 angelegt · nach 20 Jahren über € 28.000*</div>
+        <div class="kl-cost">− € 700 im Jahr 1</div>
+      </div>
+    </div>
+
+    <div class="risk-box">
+      <strong>* Modellrechnung (WAG 2018 § 46):</strong> Die obigen Werte basieren auf historischen Durchschnittswerten und vereinfachten Modellrechnungen. Sie stellen keine Anlageberatung dar und sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen können zum Verlust des eingesetzten Kapitals führen. Pensionslücke: Ø-Wert laut PVA/Statistik Austria.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Wissen ist<br><em>der erste Schritt.</em></h2>
+    <p>Diese Zahlen sind kein Anlass zur Panik – sondern zur Entscheidung. Wer versteht, wie das System wirklich funktioniert, handelt anders.</p>
+
+    <div class="cta-list">
+      <div class="cl-item"><div class="cl-check">✓</div><span>Geld arbeitet durch Investmentfonds für dich – nicht gegen dich</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Zinseszins arbeitet für dich, nicht gegen dich</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Pensionslücke frühzeitig schließen – konkrete Strategie</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Kein Fachjargon · kein Verkaufsdruck · auf Augenhöhe</span></div>
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">
+      <a href="info-abend.html" class="btn-gold">🍷 Kostenloser Info-Abend →</a>
+      <a href="business-seminar.html" class="btn-fire">🔥 Business Seminar →</a>
+    </div>
+
+    <!-- Vergütungshinweis WAG § 39 -->
+    <p style="font-size:.75rem;color:rgba(255,255,255,.3);line-height:1.65;max-width:520px;margin:0 auto">
+      Der Info-Abend ist kostenlos. Das Business Seminar ist kostenpflichtig (ab € 139,40). Mario Friedl erhält bei einem späteren Produktabschluss eine Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Die Höhe wird vor Abschluss schriftlich offengelegt.
+    </p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">Mario Friedl</span>
+  <span class="footer-logo">Mario Friedl · Finanzberatung</span>
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="business-seminar.html">Business Seminar</a>
     <a href="info-abend.html">Info-Abend</a>
+    <a href="business-seminar.html">Business Seminar</a>
+    <a href="pensionsluecke.html">Pensionslücke</a>
     <a href="karriere-check.html">Karriere-Check</a>
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
   </div>
-  <div class="footer-copy">
-    © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
-    <span style="font-size:.72rem;opacity:.6;display:block;margin-top:4px">Risikohinweis: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden. Vergangene Wertentwicklungen sind kein zuverlässiger Indikator für zukünftige Ergebnisse. Alle Berechnungen sind vereinfachte Modellrechnungen und keine Anlageberatung.</span>
+  <div class="footer-legal">
+    <strong>Risikohinweis:</strong> Alle Berechnungen auf dieser Seite sind vereinfachte Modellrechnungen auf Basis historischer Durchschnittswerte (Inflationsdaten: Statistik Austria; Fondsrendite: Ø MSCI World). Sie stellen keine individuelle Anlage- oder Finanzberatung dar und sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen.
+  </div>
+  <div class="footer-vgv">
+    © 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz ·
+    Im FMA-Register eingetragen als vertraglich gebundener Vermittler ·
+    tätig im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) ·
+    Haftung gem. § 1313a ABGB beim Rechtsträger ·
+    <a href="impressum.html" style="color:rgba(255,255,255,.32)">Impressum</a> ·
+    <a href="datenschutz.html" style="color:rgba(255,255,255,.32)">Datenschutz</a>
   </div>
 </footer>
 
-<!-- STICKY -->
-<div class="sticky-bar" id="stickyBar">
-  <div class="sb-left">
-    <strong>💸 Jeder Monat Nichtstun kostet dich echtes Geld.</strong>
-    <span class="sb-urgent">⚡ Business Seminar · Ab €139,40 · Nächster Termin: 07.–08. März</span>
-  </div>
-  <a href="business-seminar.html#anmeldung" class="btn-fire" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
-</div>
-
 <script>
-/* ═══ NAV ═══ */
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
-  document.getElementById('stickyBar').classList.toggle('show',scrollY>500);
-});
+function fmt(n){return new Intl.NumberFormat('de-AT',{maximumFractionDigits:0}).format(Math.round(n))+'  €';}
+function fmtN(n){return new Intl.NumberFormat('de-AT',{maximumFractionDigits:0}).format(Math.round(n));}
 
-/* ═══ MOBILE MENU ═══ */
-document.getElementById('mobBtn').addEventListener('click',()=>{
-  const m=document.getElementById('mobMenu');
-  m.classList.toggle('open');
-  document.getElementById('mobBtn').textContent=m.classList.contains('open')?'✕':'☰';
-});
-document.querySelectorAll('.mob-menu a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mobMenu').classList.remove('open');
-  document.getElementById('mobBtn').textContent='☰';
-}));
-
-/* ═══ SCROLL ANIM ═══ */
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting)e.target.classList.add('in');
-}),{threshold:.1});
-document.querySelectorAll('.anim,.anim-left,.anim-right').forEach(el=>obs.observe(el));
-
-/* ═══ EMBERS ═══ */
-function spawnEmber(){
-  const c=document.getElementById('embers');if(!c)return;
-  const e=document.createElement('div');e.className='ember';
-  const colors=['#e85d2a','#f5841f','#c8973b','#f0c060'];
-  const dur=4+Math.random()*5;
-  e.style.cssText=`left:${Math.random()*100}%;width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;animation-duration:${dur}s;animation-delay:${Math.random()*2}s;background:${colors[Math.floor(Math.random()*colors.length)]};--drift:${(Math.random()-.5)*100}px;`;
-  c.appendChild(e);
-  setTimeout(()=>e.remove(),(dur+3)*1000);
-}
-setInterval(spawnEmber,400);for(let i=0;i<5;i++)setTimeout(spawnEmber,i*200);
-
-/* ═══ MONEY DRAIN ANIMATION ═══ */
-const drainObs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting){
-    setTimeout(()=>{
-      ['drain1','drain2','drain3','drain4'].forEach((id,i)=>{
-        const el=document.getElementById(id);
-        if(el){setTimeout(()=>{const tw=el.style.getPropertyValue('--tw');el.style.width=tw},i*200)}
-      });
-    },200);
-    drainObs.unobserve(e.target);
-  }
-}),{threshold:.3});
-const drainSection=document.querySelector('.money-drain');
-if(drainSection)drainObs.observe(drainSection);
-
-/* ═══ INFLATIONSDATEN (Österreich, historisch) ═══ */
-// Ø jährliche Inflationsrate in % – vereinfachte Modellwerte basierend auf Statistik Austria
-const inflationData = {
-  2000:2.3,2001:2.7,2002:1.8,2003:1.3,2004:2.0,2005:2.1,
-  2006:1.7,2007:2.2,2008:3.2,2009:0.5,2010:1.9,2011:3.3,
-  2012:2.6,2013:2.1,2014:1.5,2015:0.9,2016:0.9,2017:2.2,
-  2018:2.0,2019:1.5,2020:1.4,2021:2.8,2022:8.6,2023:7.8,
-  2024:3.9,2025:3.2,2026:2.8
+// Historische Inflation AT (Statistik Austria VPI, Ø pro Periode)
+var inflData = {
+  2000:3.5, 2005:2.3, 2010:3.2, 2015:1.8, 2020:3.8, 2024:3.9
 };
-const SPARBUCH_ZINS = 0.1; // 0,1%
-const INVEST_RENDITE = 7.0; // 7% p.a.
 
-function fmt(n){return new Intl.NumberFormat('de-AT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
-function fmtPct(n){return (n>=0?'+':'')+n.toFixed(1)+'%'}
+function getInflation(year){ return (inflData[year] || 3.5) / 100; }
 
-function berechnen(){
-  const betrag=parseFloat(document.getElementById('inputBetrag').value)||10000;
-  const startJahr=parseInt(document.getElementById('inputJahr').value);
-  const jahre=parseInt(document.getElementById('inputJahre').value);
-  const endJahr=startJahr+jahre;
-
-  // Calculate year-by-year
-  let realWert=betrag;    // Kaufkraft nach Inflation, Sparbuch mit 0.1%
-  let investWert=betrag;  // Investmentfonds mit 7%
-  const rows=[];
-
-  for(let j=startJahr;j<endJahr;j++){
-    const inf=(inflationData[j]||3.5)/100;
-    const zins=SPARBUCH_ZINS/100;
-    const inv=INVEST_RENDITE/100;
-    realWert=realWert*(1+zins)/(1+inf); // real nach Inflation
-    investWert=investWert*(1+inv);
-    rows.push({
-      year:j+1,
-      nominal:betrag,
-      real:realWert,
-      invest:investWert
-    });
-  }
-
-  const finalReal=realWert;
-  const finalInvest=investWert;
-  const verlust=betrag-finalReal;
-
-  // Fill in UI
-  document.getElementById('rn-verlust').textContent=fmt(verlust);
-  document.getElementById('rn-real').textContent=fmt(finalReal);
-  document.getElementById('rn-invest').textContent=fmt(finalInvest);
-
-  // Bar comparison
-  const maxVal=Math.max(betrag,finalInvest);
-  document.getElementById('bc-years').textContent=jahre;
-  document.getElementById('bc-orig').textContent=fmt(betrag);
-  document.getElementById('bc-kaufkraft').textContent=fmt(finalReal);
-  document.getElementById('bc-invest-val').textContent=fmt(finalInvest);
-  setTimeout(()=>{
-    document.getElementById('bc-bar-orig').style.width=(betrag/maxVal*100)+'%';
-    document.getElementById('bc-bar-kauf').style.width=(finalReal/maxVal*100)+'%';
-    document.getElementById('bc-bar-invest').style.width=(finalInvest/maxVal*100)+'%';
-  },100);
-
-  // Year table
-  const tbody=document.getElementById('ytBody');
-  tbody.innerHTML='';
-  const step=jahre<=10?1:jahre<=20?2:3;
-  for(let i=step-1;i<rows.length;i+=step){
-    const r=rows[i];
-    const diff=r.real-betrag;
-    const tr=document.createElement('div');
-    tr.className='yt-row';
-    tr.innerHTML=`
-      <div class="yt-year">${r.year}</div>
-      <div class="yt-orig">${fmt(betrag)}</div>
-      <div class="yt-real" style="color:${r.real<betrag?'var(--red)':'var(--green)'}">${fmt(r.real)}<br><small style="font-size:.72rem;color:rgba(255,255,255,.3)">${fmtPct((r.real/betrag-1)*100)}</small></div>
-      <div class="yt-invest">${fmt(r.invest)}<br><small style="font-size:.72rem;color:rgba(12,172,106,.6)">${fmtPct((r.invest/betrag-1)*100)}</small></div>
-    `;
-    tbody.appendChild(tr);
-  }
-
-  // AHA text
-  const diff=finalInvest-finalReal;
-  const diffFactor=(finalInvest/betrag).toFixed(1);
-  document.getElementById('ahaText').innerHTML=`<strong>${fmt(betrag)}</strong> auf dem Sparbuch – nach <strong>${jahre} Jahren</strong> noch <em>${fmt(finalReal)}</em> wert. Im Investmentfonds: <strong>${fmt(finalInvest)}</strong>. Die Differenz: <em>${fmt(diff)}</em>.`;
-
-  // AHA callout
-  const pctLoss=((verlust/betrag)*100).toFixed(0);
-  document.getElementById('ahaTitle').textContent=`Der Unterschied: ${fmt(diff)} — nur durch das Wissen, was zu tun ist.`;
-  document.getElementById('ahaBody').innerHTML=`Du hast ${betrag.toLocaleString('de-AT')} Euro – dieselbe Zahl auf zwei Wegen. Sparbuch: nach ${jahre} Jahren <strong>${fmt(verlust)} Kaufkraft verloren</strong> – real nur noch ${fmt(finalReal)} wert. Investmentfonds: <strong>${fmt(finalInvest)}</strong>. Das ist kein Zufall. Kein Glück. Es ist das Ergebnis von Wissen – gegen Unwissenheit. <em>Dieser Unterschied von ${fmt(diff)} wartet darauf, für dich oder gegen dich zu arbeiten.</em>`;
-
-  // Show results
-  const resultsEl=document.getElementById('calcResults');
-  resultsEl.classList.add('show');
-  setTimeout(()=>resultsEl.scrollIntoView({behavior:'smooth',block:'nearest'}),200);
+function updateSlider(el, outId, unit){
+  var min=+el.min, max=+el.max, val=+el.value;
+  var pct=((val-min)/(max-min)*100).toFixed(1)+'%';
+  el.style.setProperty('--pct', pct);
+  var out = document.getElementById(outId);
+  if(unit==='€') out.textContent = fmtN(val)+' €';
+  else out.textContent = val + unit;
 }
 
-// Auto-berechnen beim Laden
-window.addEventListener('load',()=>setTimeout(berechnen,400));
+function calc(){
+  var betrag = +document.getElementById('betrag').value;
+  var sjahr  = +document.getElementById('startjahr').value;
+  var jahre  = +document.getElementById('jahre').value;
+  var infl   = getInflation(sjahr);
+  var fonds  = 0.07;
+
+  var nominal = betrag;
+  var real    = betrag * Math.pow(1 - infl, jahre);
+  var fondsV  = betrag * Math.pow(1 + fonds, jahre);
+
+  document.getElementById('nominalVal').textContent = fmt(nominal);
+  document.getElementById('realVal').textContent    = fmt(real);
+  document.getElementById('fondsVal').textContent   = fmt(fondsV);
+
+  // Chart
+  var maxV = Math.max(nominal, fondsV);
+  var chart = document.getElementById('resultChart');
+  chart.innerHTML =
+    '<div class="chart-row"><div class="chart-label">Eingabe (nominal)</div><div class="chart-bar-wrap"><div class="chart-bar nominal" style="width:'+(nominal/maxV*100).toFixed(0)+'%"></div></div><div class="chart-val" style="color:rgba(255,255,255,.6)">'+fmt(nominal)+'</div></div>'+
+    '<div class="chart-row"><div class="chart-label">Reale Kaufkraft (Sparbuch)</div><div class="chart-bar-wrap"><div class="chart-bar real" style="width:'+(real/maxV*100).toFixed(0)+'%"></div></div><div class="chart-val" style="color:#ef4444">'+fmt(real)+'</div></div>'+
+    '<div class="chart-row"><div class="chart-label">Investmentfonds Ø 7 %*</div><div class="chart-bar-wrap"><div class="chart-bar fonds" style="width:'+(fondsV/maxV*100).toFixed(0)+'%"></div></div><div class="chart-val" style="color:var(--gold)">'+fmt(fondsV)+'</div></div>';
+}
+
+// Init
+updateSlider(document.getElementById('betrag'),'betragVal','€');
+updateSlider(document.getElementById('jahre'),'jahreVal',' Jahre');
+calc();
+document.getElementById('resultArea').classList.add('show');
 </script>
 </body>
 </html>
