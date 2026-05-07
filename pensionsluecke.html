@@ -3,606 +3,448 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO & Social Media Meta Tags -->
-<title>Pensionslücke berechnen – Wie groß ist Ihre? | Mario Friedl</title>
-<meta name="description" content="Berechnen Sie Ihre persönliche Pensionslücke in 2 Minuten. Kostenloser Rechner + Info-Abend mit konkreten Lösungen. EQUALITY EH GmbH – Ihr Finanzberater in Graz.">
-
-<!-- Facebook Meta Tags (Open Graph) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://finanzberater-friedl.info/pensionsluecke.html">
-<meta property="og:title" content="🚨 Ihre Pensionslücke: Bis zu 168.000€ weniger im Alter?">
-<meta property="og:description" content="Berechnen Sie JETZT Ihre persönliche Pensionslücke. Kostenloser Rechner + gratis Info-Abend. Erfahren Sie, wie Sie gegensteuern können!">
-<meta property="og:image" content="https://finanzberater-friedl.info/images/pension-og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="🚨 Ihre Pensionslücke: Bis zu 168.000€ weniger im Alter?">
-<meta name="twitter:description" content="Berechnen Sie JETZT Ihre Pensionslücke. Kostenloser Rechner + Info-Abend!">
-<meta name="twitter:image" content="https://finanzberater-friedl.info/images/pension-og-image.jpg">
-
-<!-- LinkedIn Meta Tags -->
-<meta property="og:site_name" content="EQUALITY EH GmbH – Mario Friedl">
-<meta property="article:author" content="Mario Friedl">
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- Canonical URL -->
+<title>Pensionslücke berechnen Österreich | Mario Friedl – Finanzberatung Graz</title>
+<meta name="description" content="Berechne deine persönliche Pensionslücke in 2 Minuten. Kostenloser Rechner + Info-Abend mit konkreten Lösungen. Mario Friedl – bankunabhängige Finanzberatung Graz.">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://finanzberater-friedl.info/pensionsluecke.html">
 
-<!-- Structured Data (Schema.org) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FinancialService",
-  "name": "EQUALITY EH GmbH",
-  "description": "Finanzberatung mit Fokus auf Pensionsvorsorge und Vermögensaufbau",
-  "url": "https://finanzberater-friedl.info",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Herrgottwiesgasse 119/1",
-    "addressLocality": "Graz",
-    "postalCode": "8020",
-    "addressCountry": "AT"
-  },
-  "telephone": "+43-XXX-XXXXXXX",
-  "priceRange": "€€",
-  "areaServed": "Österreich"
-}
+<meta property="og:title" content="Pensionslücke berechnen – wie groß ist deine? | Mario Friedl">
+<meta property="og:description" content="Berechne in 2 Minuten, wie viel Geld dir im Ruhestand fehlen wird – und erfahre kostenlos, wie du gegensteuern kannst.">
+<meta property="og:url" content="https://finanzberater-friedl.info/pensionsluecke.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+
+<!-- Cookie Consent + GA Guard (DSGVO Art. 6) -->
+<script>
+(function(){
+  var KEY='mf_cookie_consent';
+  function loadGA(){
+    if(document.getElementById('ga-s'))return;
+    var s=document.createElement('script');s.id='ga-s';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
+    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
+  }
+  window.mfAccept=function(){localStorage.setItem(KEY,'accepted');document.getElementById('mfCookieBar').style.display='none';loadGA();};
+  window.mfDecline=function(){localStorage.setItem(KEY,'declined');document.getElementById('mfCookieBar').style.display='none';};
+  document.addEventListener('DOMContentLoaded',function(){
+    var bar=document.getElementById('mfCookieBar');if(!bar)return;
+    var v=localStorage.getItem(KEY);
+    if(v==='accepted'){bar.style.display='none';loadGA();}
+    else if(v==='declined'){bar.style.display='none';}
+    else{bar.style.display='flex';}
+  });
+})();
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --dark: #0d1117;
-    --darker: #080c11;
-    --gold: #C5A572;
-    --gold-light: #e8c97a;
-    --gold-dark: #A68B5B;
-    --red: #e63946;
-    --green: #2d9e5f;
-    --text: #e8e8e8;
-    --text-muted: #8a8fa8;
-    --surface: #131820;
-    --surface2: #1a2030;
-    --border: rgba(197,165,114,0.15);
-  }
+:root{
+  --ink:#0f1923; --gold:#c8973b; --gold2:#f0c060;
+  --cream:#faf8f4; --white:#fff;
+  --muted:#6b7a8d; --border:rgba(200,151,59,.18);
+  --green:#16a34a; --red:#dc2626;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-text-size-adjust:100%}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold)}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* NAV */
+nav{background:var(--ink);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border)}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo img{width:30px;height:30px;border-radius:6px}
+.nav-logo span{font-size:.95rem;font-weight:700;color:var(--white)}
+.nav-logo span span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;font-weight:600;padding:7px 13px;border-radius:7px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.08)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold2))!important;color:var(--ink)!important;font-weight:900!important}
+.nav-cta:hover{opacity:.9}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:66px;left:0;right:0;z-index:190;background:rgba(15,25,35,.98);border-bottom:1px solid var(--border);padding:16px 20px 24px;flex-direction:column;gap:8px}
+.mob-menu.open{display:flex}
+.mob-menu a{display:block;padding:11px 16px;border-radius:8px;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;border:1px solid rgba(255,255,255,.07)}
+.mob-menu .m-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink)!important;font-weight:900!important;text-align:center;border-color:transparent!important}
 
-  html { scroll-behavior: smooth; }
+/* HERO */
+.hero{background:var(--ink);padding:68px 24px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(200,151,59,.07) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:5px 16px;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-sub{font-size:clamp(.9rem,2vw,1.05rem);color:rgba(255,255,255,.5);max-width:580px;margin:0 auto 32px;line-height:1.8}
+.hero-sub strong{color:rgba(255,255,255,.82)}
 
-  body {
-    background: var(--darker);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+/* Stats */
+.stats-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.stat-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 20px;text-align:center;min-width:130px}
+.sp-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);line-height:1;display:block}
+.sp-lbl{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:3px;display:block}
+.sp-src{font-size:.62rem;color:rgba(255,255,255,.2);margin-top:2px;display:block}
 
-  /* ─── NOISE TEXTURE OVERLAY ─── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.4;
-  }
+/* Hero CTAs */
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font-weight:900;font-size:.95rem;padding:14px 28px;border-radius:40px;text-decoration:none;box-shadow:0 8px 24px rgba(200,151,59,.3);transition:all .2s}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.65);font-weight:600;font-size:.9rem;padding:13px 22px;border-radius:40px;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--white)}
 
-  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+/* RECHNER */
+.rechner-section{padding:72px 24px;background:var(--cream)}
+.wrap{max-width:820px;margin:0 auto}
+.section-eyebrow{font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.section-h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.8vw,2.5rem);font-weight:900;color:var(--ink);line-height:1.1;margin-bottom:12px}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.section-lead{font-size:.96rem;color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:600px}
 
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { color: var(--gold-light); }
+.rechner-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px;box-shadow:0 4px 24px rgba(200,151,59,.07);position:relative;overflow:hidden}
+.rechner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
 
-  /* ─── STICKY NAV ─── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,12,17,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-  }
+.slider-group{margin-bottom:28px}
+.slider-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.sl-name{font-size:.88rem;font-weight:700;color:var(--ink)}
+.sl-val{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:var(--gold)}
+.sl-unit{font-size:.78rem;color:var(--muted);font-weight:400;margin-left:2px}
+input[type=range]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--gold) var(--pct,50%),#e2d5c0 var(--pct,50%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:3px solid var(--white);box-shadow:0 2px 8px rgba(200,151,59,.4);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:3px solid var(--white);cursor:pointer}
 
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.result-box{background:linear-gradient(135deg,#1a0c02,var(--ink));border-radius:16px;padding:28px;text-align:center;margin-top:28px;position:relative;overflow:hidden}
+.result-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.rb-label{font-size:.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;display:block}
+.rb-num{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,4.2rem);font-weight:900;color:var(--gold);line-height:1;display:block;margin-bottom:6px}
+.rb-sub{font-size:.85rem;color:rgba(255,255,255,.5);display:block;margin-bottom:20px}
+.rb-disclaimer{background:rgba(255,255,255,.06);border-radius:10px;padding:12px 16px;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.65;text-align:left;margin-bottom:20px}
+.rb-disclaimer strong{color:rgba(255,255,255,.65)}
 
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    font-weight: 700;
-  }
+/* Breakdown table */
+.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.bk-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px 16px;text-align:center}
+.bk-num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;line-height:1;display:block;margin-bottom:4px}
+.bk-lbl{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35)}
 
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    list-style: none;
-  }
+/* WARUM SECTION */
+.why-section{padding:64px 24px;background:var(--white)}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.fact-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:transform .25s}
+.fact-card:hover{transform:translateY(-3px)}
+.fact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));opacity:.5}
+.fc-icon{font-size:1.4rem;margin-bottom:10px;display:block}
+.fc-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px;display:block}
+.fc-title{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.fc-text{font-size:.84rem;color:var(--muted);line-height:1.65}
+.fc-src{font-size:.68rem;color:rgba(0,0,0,.3);margin-top:8px;display:block}
 
-  .nav-links a {
-    color: var(--text);
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
+/* CTA SECTION */
+.cta-section{padding:72px 24px;background:var(--ink);text-align:center}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:14px}
+.cta-section h2 em{font-style:italic;color:var(--gold)}
+.cta-section p{font-size:.96rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-list{display:flex;flex-direction:column;gap:9px;margin-bottom:32px;text-align:left;max-width:480px;margin-left:auto;margin-right:auto}
+.cl-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:rgba(255,255,255,.7)}
+.cl-check{width:20px;height:20px;border-radius:50%;background:rgba(200,151,59,.2);border:1px solid rgba(200,151,59,.4);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gold);flex-shrink:0;margin-top:2px}
 
-  .nav-links a:hover { color: var(--gold); }
+/* LEGAL BOX */
+.legal-box{background:#fff8ee;border:1px solid #e8a830;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:14px 18px;margin:20px 0;font-size:.82rem;color:#5a3e10;line-height:1.7}
+.legal-box strong{color:#7a4e0a}
 
-  .nav-cta {
-    background: var(--gold);
-    color: var(--darker);
-    font-weight: 600;
-    padding: 0.6rem 1.4rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
+/* FOOTER */
+footer{background:#050503;padding:36px 24px 24px;text-align:center;border-top:1px solid rgba(200,151,59,.15)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold);display:block;margin-bottom:8px}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:10px 0;font-size:.8rem}
+.footer-links a{color:rgba(255,255,255,.32);text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+.footer-legal{max-width:820px;margin:16px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.07);font-size:.72rem;color:rgba(255,255,255,.28);line-height:1.75}
+.footer-legal strong{color:rgba(255,255,255,.42)}
+.footer-vgv{font-size:.7rem;color:rgba(255,255,255,.28);margin-top:6px;line-height:1.7}
 
-  .nav-cta:hover { background: var(--gold-light); color: var(--darker); transform: translateY(-1px); }
+/* Cookie Banner */
+#mfCookieBar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)}
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 6rem 2rem 4rem;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 50% at 70% 30%, rgba(197,165,114,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(230,57,70,0.06) 0%, transparent 60%),
-      var(--darker);
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image: 
-      linear-gradient(rgba(197,165,114,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(197,165,114,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-inner {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(197,165,114,0.12);
-    border: 1px solid var(--border);
-    color: var(--gold);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.4rem 1rem;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.05;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-
-  .hero h1 .highlight {
-    color: var(--gold);
-    position: relative;
-  }
-
-  .hero h1 .danger { color: var(--red); }
-
-  .hero-sub {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--text-muted);
-    max-width: 650px;
-    margin: 1.5rem 0 2.5rem;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-
-  .hero-number-bar {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-
-  .hero-stat {
-    border-left: 3px solid var(--gold);
-    padding-left: 1rem;
-  }
-
-  .hero-stat .val {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .hero-stat .val.red { color: var(--red); }
-
-  .hero-stat .lbl {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .hero-cta-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--darker);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(197,165,114,0.3); color: var(--darker); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── SECTIONS ─── */
-  section {
-    padding: 5rem 2rem;
-    position: relative;
-  }
-
-  .section-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 900;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  /* ─── CALCULATOR ─── */
-  .calc-wrapper {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2.5rem;
-    margin: 3rem 0;
-  }
-
-  .calc-row {
-    margin-bottom: 2.5rem;
-  }
-
-  .calc-label {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .calc-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-
-  .calc-slider {
-    width: 100%;
-    height: 6px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px;
-    outline: none;
-    -webkit-appearance: none;
-    position: relative;
-    --pct: 50%;
-  }
-
-  .calc-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .calc-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 12px rgba(197,165,114,0.6);
-  }
-
-  .calc-result {
-    background: rgba(197,165,114,0.08);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2rem;
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .calc-result-title {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-  }
-
-  .calc-result-value {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--red);
-    font-family: 'Playfair Display', serif;
-  }
-
-  .calc-result-sub {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--dark);
-    padding: 3rem 2rem;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--text-muted);
-  }
-
-  footer a { color: var(--gold); }
-  footer a:hover { color: var(--gold-light); }
-
-  /* ─── MOBILE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem; }
-    .nav-links { display: none; }
-    .hero { padding: 4rem 1rem 3rem; }
-    .calc-wrapper { padding: 1.5rem; }
-    .calc-result-value { font-size: 2.5rem; }
-  }
+/* RESPONSIVE */
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .fact-grid{grid-template-columns:1fr}
+  .breakdown{grid-template-columns:1fr}
+  .stats-row{gap:12px}
+  .rechner-card{padding:24px 18px}
+  nav{padding:0 16px}
+}
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Cookie Banner -->
+<div id="mfCookieBar">
+  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
+    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
+  </div>
+</div>
+
+<!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Mario <span style="color: var(--text-muted); font-weight: 400;">Friedl</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="info-abend.html">Info-Abend</a></li>
-      <li><a href="pensionsluecke.html" style="color: var(--gold);">Pensionslücke</a></li>
-      <li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
-    </ul>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Logo">
+    <span>Mario <span>Friedl</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">🍷 Info-Abend</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="info-abend.html" class="nav-cta">Platz sichern →</a>
   </div>
+  <button class="nav-burger" onclick="document.getElementById('mobMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">🏠 Home</a>
+  <a href="info-abend.html">🍷 Info-Abend</a>
+  <a href="business-seminar.html">🎓 Seminar</a>
+  <a href="historischer-inflationsrechner.html">📉 Inflationsrechner</a>
+  <a href="index.html#kontakt">📞 Kontakt</a>
+  <a href="info-abend.html" class="m-gold">🍷 Platz sichern →</a>
+</div>
 
-<!-- Hero Section -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-badge">📊 Kostenloser Pensionsrechner</div>
-    <h1>
-      Ihre <span class="highlight">Pensionslücke</span>:<br>
-      <span class="danger">Bis zu 168.000€</span> weniger im Alter?
-    </h1>
+    <div class="hero-eyebrow">📊 Kostenloser Pensionsrechner · Österreich</div>
+
+    <h1>Deine Pensionslücke –<br><em>wie groß ist sie wirklich?</em></h1>
+
     <p class="hero-sub">
-      Berechnen Sie in 2 Minuten, wie viel Geld Ihnen im Ruhestand fehlen wird – und erfahren Sie im kostenlosen Info-Abend, wie Sie gegensteuern.
+      Die staatliche Pension reicht für die meisten nicht. <strong>Berechne in 2 Minuten</strong>, wie viel Geld dir im Ruhestand fehlen wird – und erfahre im kostenlosen Info-Abend, wie du gegensteuern kannst.
     </p>
-    
-    <div class="hero-number-bar">
-      <div class="hero-stat">
-        <div class="val red">1.527 €</div>
-        <div class="lbl">Ø Frauenpension</div>
+
+    <!-- Statistiken mit Quellen -->
+    <div class="stats-row">
+      <div class="stat-pill">
+        <span class="sp-num">1.527 €</span>
+        <span class="sp-lbl">Ø Frauenpension</span>
+        <span class="sp-src">Quelle: Statistik Austria 2024</span>
       </div>
-      <div class="hero-stat">
-        <div class="val">2.535 €</div>
-        <div class="lbl">Ø Männerpension</div>
+      <div class="stat-pill">
+        <span class="sp-num">2.535 €</span>
+        <span class="sp-lbl">Ø Männerpension</span>
+        <span class="sp-src">Quelle: Statistik Austria 2024</span>
       </div>
-      <div class="hero-stat">
-        <div class="val red">-35,6%</div>
-        <div class="lbl">Gender Pension Gap</div>
+      <div class="stat-pill">
+        <span class="sp-num">−35,6%</span>
+        <span class="sp-lbl">Gender Pension Gap</span>
+        <span class="sp-src">Quelle: Statistik Austria 2024</span>
       </div>
     </div>
 
-    <div class="hero-cta-group">
-      <a href="#rechner" class="btn-primary">Jetzt berechnen</a>
-      <a href="info-abend.html" class="btn-outline">Zum Info-Abend</a>
+    <div class="hero-ctas">
+      <a href="#rechner" class="btn-gold">📊 Jetzt berechnen →</a>
+      <a href="info-abend.html" class="btn-outline">🍷 Zum Info-Abend</a>
     </div>
   </div>
 </section>
 
-<!-- Calculator Section -->
-<section id="rechner">
-  <div class="section-inner">
-    <h2 class="section-title">Berechnen Sie Ihre Pensionslücke</h2>
-    <p class="section-subtitle">Wie viel Geld fehlt Ihnen im Ruhestand?</p>
+<!-- RECHNER -->
+<section class="rechner-section" id="rechner">
+  <div class="wrap">
+    <span class="section-eyebrow">Interaktiver Rechner</span>
+    <h2 class="section-h2">Berechne deine<br><em>persönliche Pensionslücke</em></h2>
+    <p class="section-lead">Stelle die Regler auf deine Situation ein – der Rechner zeigt dir sofort das Ergebnis. <strong>Hinweis: Das Ergebnis ist eine vereinfachte Schätzung</strong> und kein Ersatz für eine individuelle Beratung.</p>
 
-    <div class="calc-wrapper">
-      <div class="calc-row">
-        <div class="calc-label">
-          <span>Ihr aktuelles Nettoeinkommen</span>
-          <span class="calc-value" id="income-val">3.000 €</span>
+    <div class="rechner-card">
+
+      <div class="slider-group">
+        <div class="slider-label">
+          <span class="sl-name">Aktuelles Nettoeinkommen</span>
+          <span><span class="sl-val" id="einkommenVal">3.000</span><span class="sl-unit">€ / Monat</span></span>
         </div>
-        <input type="range" class="calc-slider" id="income" min="1500" max="6000" value="3000" step="100" oninput="updateCalc()">
+        <input type="range" id="einkommen" min="1000" max="8000" step="100" value="3000" oninput="updateSlider(this,'einkommenVal'); calc()">
       </div>
 
-      <div class="calc-row">
-        <div class="calc-label">
-          <span>Erwartete Pensionshöhe (% vom Einkommen)</span>
-          <span class="calc-value" id="pct-val">55 %</span>
+      <div class="slider-group">
+        <div class="slider-label">
+          <span class="sl-name">Erwartete Pensionshöhe</span>
+          <span><span class="sl-val" id="pensionPctVal">55</span><span class="sl-unit">% vom Einkommen</span></span>
         </div>
-        <input type="range" class="calc-slider" id="pct" min="30" max="70" value="55" step="1" oninput="updateCalc()">
+        <input type="range" id="pensionPct" min="30" max="80" step="1" value="55" oninput="updateSlider(this,'pensionPctVal'); calc()">
       </div>
 
-      <div class="calc-row">
-        <div class="calc-label">
-          <span>Jahre in Pension</span>
-          <span class="calc-value" id="years-val">20 Jahre</span>
+      <div class="slider-group">
+        <div class="slider-label">
+          <span class="sl-name">Geplante Jahre in Pension</span>
+          <span><span class="sl-val" id="jahreVal">20</span><span class="sl-unit">Jahre</span></span>
         </div>
-        <input type="range" class="calc-slider" id="years" min="10" max="35" value="20" step="1" oninput="updateCalc()">
+        <input type="range" id="jahre" min="10" max="35" step="1" value="20" oninput="updateSlider(this,'jahreVal'); calc()">
       </div>
 
-      <div class="calc-result">
-        <div class="calc-result-title">Ihre Pensionslücke gesamt:</div>
-        <div class="calc-result-value" id="total-gap">108.000 €</div>
-        <div class="calc-result-sub" id="result-sub-text">bei 450 € monatlicher Lücke über 20 Jahre</div>
+      <!-- Ergebnis -->
+      <div class="result-box" id="resultBox">
+        <span class="rb-label">Deine geschätzte Pensionslücke gesamt</span>
+        <span class="rb-num" id="resultNum">108.000 €</span>
+        <span class="rb-sub" id="resultSub">bei 450 € monatlicher Lücke über 20 Jahre</span>
+
+        <div class="breakdown">
+          <div class="bk-item">
+            <span class="bk-num" id="monatlicheEinkommen" style="color:var(--gold)">3.000 €</span>
+            <span class="bk-lbl">Aktuelles Nettoeinkommen</span>
+          </div>
+          <div class="bk-item">
+            <span class="bk-num" id="monatlichePension" style="color:#60a5fa">1.650 €</span>
+            <span class="bk-lbl">Erwartete Pension</span>
+          </div>
+          <div class="bk-item">
+            <span class="bk-num" id="monatlicheLuecke" style="color:#ef4444">450 €</span>
+            <span class="bk-lbl">Monatliche Lücke</span>
+          </div>
+          <div class="bk-item">
+            <span class="bk-num" id="gesamtLuecke" style="color:#ef4444">108.000 €</span>
+            <span class="bk-lbl">Lücke gesamt (nominal)</span>
+          </div>
+        </div>
+
+        <!-- PFLICHT-DISCLAIMER direkt beim Ergebnis (WAG 2018 § 46) -->
+        <div class="rb-disclaimer">
+          <strong>⚠️ Wichtiger Hinweis:</strong> Dieses Ergebnis ist eine vereinfachte Modellrechnung auf Basis deiner Eingaben. Es stellt keine individuelle Anlage- oder Pensionsberatung dar und ersetzt diese nicht. Die tatsächliche Pensionshöhe hängt von Beitragszeiten, Pensionskonto, Pensionsantrittsalter und weiteren individuellen Faktoren ab. Für eine genaue Berechnung wende dich an die Pensionsversicherungsanstalt (PVA) oder vereinbare ein kostenloses Erstgespräch.
+        </div>
+
+        <a href="info-abend.html" class="btn-gold" style="display:inline-flex;margin-top:4px">🍷 Lösungen im kostenlosen Info-Abend →</a>
       </div>
 
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="info-abend.html" class="btn-primary">Lösungen im kostenlosen Info-Abend</a>
-      </div>
     </div>
-
   </div>
 </section>
 
-<!-- CTA Section -->
-<section style="background: var(--surface);">
-  <div class="section-inner" style="text-align: center;">
-    <h2 class="section-title">Was jetzt tun?</h2>
-    <p class="section-subtitle">
-      Kommen Sie zu unserem <strong style="color: var(--gold);">kostenlosen Info-Abend</strong> und erfahren Sie:
+<!-- WARUM ABSCHNITT -->
+<section class="why-section">
+  <div class="wrap">
+    <span class="section-eyebrow">Warum das wichtig ist</span>
+    <h2 class="section-h2">Das österreichische<br><em>Pensionssystem unter Druck</em></h2>
+    <p class="section-lead">Fakten zur Pensionssituation in Österreich – alle Angaben mit Quellenangabe.</p>
+
+    <div class="fact-grid">
+      <div class="fact-card">
+        <span class="fc-icon">📉</span>
+        <span class="fc-num">~55–65%</span>
+        <div class="fc-title">Durchschnittliche Ersatzrate</div>
+        <p class="fc-text">Österreicher erhalten im Schnitt 55–65% ihres letzten Nettoeinkommens als Pension. Bei durchschnittlichen Einkommen bedeutet das oft über 700 € monatliche Lücke zum letzten Gehalt.</p>
+        <span class="fc-src">Quelle: OECD Pensions at a Glance 2023 · PVA Österreich</span>
+      </div>
+      <div class="fact-card">
+        <span class="fc-icon">👥</span>
+        <span class="fc-num">1:1,6</span>
+        <div class="fc-title">Verhältnis Beitragszahler zu Pensionisten</div>
+        <p class="fc-text">Das Umlageverfahren steht unter Druck: Immer weniger Beitragszahler finanzieren immer mehr Pensionisten. Das System bleibt stabil – aber die Leistungshöhe wird mittelfristig sinken.</p>
+        <span class="fc-src">Quelle: Statistik Austria · Sozialministerium Österreich 2024</span>
+      </div>
+      <div class="fact-card">
+        <span class="fc-icon">📅</span>
+        <span class="fc-num">65+</span>
+        <div class="fc-title">Steigendes Pensionsantrittsalter</div>
+        <p class="fc-text">Das effektive Pensionsantrittsalter steigt. Frauen ab 2024 schrittweise auf 65 Jahre (bis 2033). Wer früher in Pension gehen möchte, braucht private Vorsorge.</p>
+        <span class="fc-src">Quelle: Bundesministerium für Soziales, Arbeit und Konsumentenschutz 2024</span>
+      </div>
+      <div class="fact-card">
+        <span class="fc-icon">⏰</span>
+        <span class="fc-num">Zeit</span>
+        <div class="fc-title">Das größte Kapital: Frühzeitig handeln</div>
+        <p class="fc-text">Wer mit 30 beginnt, braucht deutlich weniger monatliche Sparrate als jemand, der mit 45 anfängt – bei gleichem Ziel. Jedes Jahr Wartezeit erhöht die benötigte Sparrate erheblich.</p>
+        <span class="fc-src">Modellrechnung auf Basis historischer Fondsdurchschnitte · keine Garantie</span>
+      </div>
+    </div>
+
+    <div class="legal-box" style="margin-top:24px">
+      <strong>Datenquellen dieser Seite:</strong> Statistik Austria (Pensionsstatistik 2024) · OECD Pensions at a Glance 2023 · Pensionsversicherungsanstalt (PVA) Österreich · Sozialministerium Österreich. Alle Angaben ohne Gewähr auf Vollständigkeit und Aktualität. Für aktuelle Pensionskontodaten: <a href="https://www.pensionsversicherung.at" target="_blank" style="color:#7a4e0a">pensionsversicherung.at</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Du weißt jetzt deine Lücke.<br><em>Jetzt geht es ums Schließen.</em></h2>
+    <p>Im kostenlosen Info-Abend in Graz zeige ich dir konkret, wie du die Pensionslücke systematisch aufholst – ohne Risiko, ohne Fachjargon, auf Augenhöhe.</p>
+
+    <div class="cta-list">
+      <div class="cl-item"><div class="cl-check">✓</div><span>Wie du die Pensionslücke systematisch schließt</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Fonds, private Vorsorge & Absicherung einfach erklärt</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Konkrete Zahlen für deine persönliche Situation</span></div>
+      <div class="cl-item"><div class="cl-check">✓</div><span>Kostenlos · kein Verkaufsdruck · Wein & Brötchen</span></div>
+    </div>
+
+    <a href="info-abend.html" class="btn-gold" style="font-size:1rem;padding:16px 36px">🍷 Jetzt kostenlos anmelden →</a>
+
+    <!-- Vergütungshinweis WAG § 39 -->
+    <p style="font-size:.75rem;color:rgba(255,255,255,.3);margin-top:20px;line-height:1.65;max-width:520px;margin-left:auto;margin-right:auto">
+      Der Info-Abend ist kostenlos. Mario Friedl erhält bei einem späteren Produktabschluss eine Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Die Höhe wird vor Abschluss offengelegt.
     </p>
-    
-    <div style="max-width: 600px; margin: 2rem auto; text-align: left; font-size: 1.1rem; line-height: 2;">
-      ✓ Wie Sie die Pensionslücke systematisch schließen<br>
-      ✓ Die 72er-Regel – so vermehrt sich Ihr Geld wirklich<br>
-      ✓ ETFs, Fonds & Vorsorge-Immobilien einfach erklärt<br>
-      ✓ Konkrete Zahlen & individuelle Strategien<br>
-      ✓ Kostenlos + Wein & Brötchen inklusive
-    </div>
-
-    <a href="info-abend.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
-      Jetzt zum Info-Abend anmelden →
-    </a>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
-  <div style="max-width: 900px; margin: 0 auto;">
-    <p style="margin-bottom: 1rem;">
-      <strong style="color: var(--gold);">EQUALITY EH GmbH</strong><br>
-      Herrgottwiesgasse 119/1, 8020 Graz
-    </p>
-    <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">
-      <a href="index.html">Home</a> &nbsp;|&nbsp;
-      <a href="business-seminar.html">Business Seminar</a> &nbsp;|&nbsp;
-      <a href="info-abend.html">Info-Abend</a> &nbsp;|&nbsp;
-      <a href="index.html#kontakt">Kontakt</a>
-    </p>
-    <p style="font-size: 0.85rem; color: var(--text-muted);">
-      © 2026 Mario Friedl – EQUALITY EH GmbH. Alle Rechte vorbehalten.
-    </p>
+  <span class="footer-logo">Mario Friedl · Finanzberatung</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="historischer-inflationsrechner.html">Inflationsrechner</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="footer-legal">
+    <strong>Risikohinweis:</strong> Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Der Pensionsrechner auf dieser Seite liefert vereinfachte Modellrechnungen und stellt keine individuelle Anlage- oder Pensionsberatung dar. Für eine individuelle Berechnung wende dich an die Pensionsversicherungsanstalt (PVA) oder vereinbare ein persönliches Gespräch.
+  </div>
+  <div class="footer-vgv">
+    © 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz · Im FMA-Register eingetragen als vertraglich gebundener Vermittler · tätig im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) · Haftung gem. § 1313a ABGB beim Rechtsträger ·
+    <a href="impressum.html" style="color:rgba(255,255,255,.35)">Impressum</a> ·
+    <a href="datenschutz.html" style="color:rgba(255,255,255,.35)">Datenschutz</a>
   </div>
 </footer>
 
 <script>
-// ─── CALCULATOR ───
-function updateCalc() {
-  const income = parseInt(document.getElementById('income').value);
-  const pct = parseInt(document.getElementById('pct').value);
-  const years = parseInt(document.getElementById('years').value);
+function fmt(n){return new Intl.NumberFormat('de-AT').format(Math.round(n));}
 
-  document.getElementById('income-val').textContent = income.toLocaleString('de-AT') + ' €';
-  document.getElementById('pct-val').textContent = pct + ' %';
-  document.getElementById('years-val').textContent = years + ' Jahre';
-
-  const pension = Math.round(income * pct / 100);
-  const gap = income - pension;
-  const total = gap * 12 * years;
-
-  document.getElementById('total-gap').textContent = total.toLocaleString('de-AT') + ' €';
-  document.getElementById('result-sub-text').textContent = `bei ${gap.toLocaleString('de-AT')} € monatlicher Lücke über ${years} Jahre`;
-
-  // Update slider track fill
-  updateSliderFill('income', 1500, 6000);
-  updateSliderFill('pct', 30, 70);
-  updateSliderFill('years', 10, 35);
+function updateSlider(el, outId){
+  var min=+el.min, max=+el.max, val=+el.value;
+  var pct=((val-min)/(max-min)*100).toFixed(1)+'%';
+  el.style.setProperty('--pct', pct);
+  document.getElementById(outId).textContent = fmt(val);
 }
 
-function updateSliderFill(id, min, max) {
-  const slider = document.getElementById(id);
-  const pct = ((slider.value - min) / (max - min)) * 100;
-  slider.style.setProperty('--pct', pct + '%');
+function calc(){
+  var eink = +document.getElementById('einkommen').value;
+  var pct  = +document.getElementById('pensionPct').value / 100;
+  var jahre= +document.getElementById('jahre').value;
+
+  var pension   = Math.round(eink * pct);
+  var lueckeM   = Math.round(eink - pension);
+  var lueckeGes = lueckeM * 12 * jahre;
+
+  document.getElementById('resultNum').textContent   = fmt(lueckeGes) + ' €';
+  document.getElementById('resultSub').textContent   = 'bei ' + fmt(lueckeM) + ' € monatlicher Lücke über ' + jahre + ' Jahre';
+  document.getElementById('monatlicheEinkommen').textContent = fmt(eink) + ' €';
+  document.getElementById('monatlichePension').textContent   = fmt(pension) + ' €';
+  document.getElementById('monatlicheLuecke').textContent    = fmt(lueckeM) + ' €';
+  document.getElementById('gesamtLuecke').textContent        = fmt(lueckeGes) + ' €';
 }
 
-// Initialize on load
-updateCalc();
+// Init sliders
+['einkommen','pensionPct','jahre'].forEach(function(id){
+  var el = document.getElementById(id);
+  updateSlider(el, id+'Val');
+});
+calc();
 </script>
-
 </body>
 </html>
