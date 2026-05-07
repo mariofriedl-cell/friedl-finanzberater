@@ -1,284 +1,219 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - Mario Friedl | Unabhängige Finanzberatung</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --navy: #0A1128;
-            --gold: #C5A572;
-            --cream: #FAF9F6;
-            --white: #FFFFFF;
-            --gray: #4A5568;
-            --gray-light: #E2E8F0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--navy);
-            background: var(--cream);
-            line-height: 1.7;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            color: var(--navy);
-            margin-bottom: 2rem;
-        }
-        
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--gray-light);
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        .info-box {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--gold);
-        }
-        
-        .info-box strong {
-            display: block;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-        
-        a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--gold);
-            color: var(--white);
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .back-link:hover {
-            background: #A68B5B;
-            text-decoration: none;
-        }
-        
-        ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        hr {
-            border: none;
-            border-top: 2px solid var(--gray-light);
-            margin: 3rem 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum - Mario Friedl | Unabhängige Finanzberatung</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1923;--gold:#c8973b;--gold2:#f0c060;--cream:#faf8f4;--white:#fff;--muted:#6b7a8d;--border:rgba(200,151,59,.18)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);line-height:1.8;-webkit-text-size-adjust:100%}
+nav{background:var(--ink);padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo img{width:30px;height:30px;border-radius:6px}
+.nav-logo span{font-size:.95rem;font-weight:700;color:var(--white)}
+.nav-logo span span{color:var(--gold)}
+.nav-back{color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem;font-weight:600;padding:8px 16px;border:1px solid rgba(255,255,255,.15);border-radius:8px;transition:all .2s}
+.nav-back:hover{color:var(--white);border-color:var(--gold)}
+.page{max-width:820px;margin:0 auto;padding:52px 28px 80px}
+h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--ink);margin-bottom:32px;padding-bottom:14px;border-bottom:3px solid var(--gold);display:inline-block}
+h2{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(200,151,59,.2)}
+h3{font-size:.95rem;font-weight:700;color:var(--ink);margin:18px 0 8px}
+p{font-size:.92rem;color:#3d4a56;line-height:1.85;margin-bottom:10px}
+p:last-child{margin-bottom:0}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+hr{border:none;border-top:1px solid rgba(200,151,59,.15);margin:30px 0}
+ul{list-style:none;margin:10px 0;display:flex;flex-direction:column;gap:5px}
+ul li{font-size:.9rem;color:#3d4a56;padding-left:16px;position:relative;line-height:1.75}
+ul li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:.72rem;top:5px}
+/* nur für neu ergänzte Blöcke */
+.add-box{background:#fff8ee;border:1px solid #e8a830;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 20px;margin:14px 0;font-size:.9rem;color:#5a3e10;line-height:1.8}
+.add-box strong{color:#7a4e0a}
+.add-label{font-size:.6rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+footer{background:var(--ink);padding:30px 28px 22px;text-align:center}
+.f-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.8rem;margin-bottom:10px}
+.f-links a{color:rgba(255,255,255,.32);text-decoration:none}
+.f-links a:hover{color:var(--gold)}
+.f-copy{font-size:.72rem;color:rgba(255,255,255,.22);line-height:1.7}
+@media(max-width:600px){.page{padding:36px 18px 56px}nav{padding:0 16px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-        
-        <h1>Impressum</h1>
-        
-        <div class="info-box">
-            <strong>EQUALITY EH GmbH</strong>
-            <p>
-                Zentrale: 8020 Graz, Herrgottwiesgasse 119/1
-            </p>
-        </div>
-        
-        <div class="info-box">
-            <strong>Selbständiger Partner Friedl Mario</strong>
-            <p>Gewerblicher Vermögensberater</p>
-            <p>
-                8063 Eggersdorf bei Graz, Prellerbergstraße 49<br>
-                Telefon: <a href="tel:+436605256328">+43 660 5256328</a><br>
-                Email: <a href="mailto:mario.friedl@equality-co.at">mario.friedl@equality-co.at</a><br>
-                Website: <a href="https://finanzberater-friedl.info" target="_blank">https://finanzberater-friedl.info</a>
-            </p>
-            <p>
-                <strong>GISA:</strong> 35679738
-            </p>
-        </div>
-        
-        <h3>Gewerblicher Vermögensberater</h3>
-        <p>
-            <strong>Fachgruppe / Berufszweig:</strong><br>
-            Gewerbliche Vermögensberater ohne Leben u. Unfall<br>
-            FG Finanzdienstleister<br>
-            Berechtigungen aufrecht
-        </p>
-        
-        <hr>
-        
-        <h2>Allgemeiner Hinweis</h2>
-        <p>
-            Mario Friedl ist vertraglich gebundener Vermittler und im öffentlichen Register der Finanzmarktaufsicht eingetragen (<a href="https://www.fma.gv.at" target="_blank">www.fma.gv.at</a>). Er erbringt die Anlageberatung und/oder (Anlage)Vermittlung bezüglich Finanzinstrumente auf der Grundlage des dt. Wertpapierinstitutsgesetzes ausschließlich im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) bzw der Hauptniederlassung FiNUM.Private Finance AG mit Sitz in Berlin, Deutschland. 
-        </p>
-        <p>
-            Diese haften für eine fehlerhafte Anlageberatung und/oder (Anlage)Vermittlung von Mario Friedl gemäß § 1313a ABGB. Allgemeine Hinweise zur TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) finden Sie unter: <a href="http://www.topten-wp.at" target="_blank">http://www.topten-wp.at</a>
-        </p>
-        
-        <h3>Anlageberatung</h3>
-        <p>
-            Bei einer Anlageberatung wird unter Berücksichtigung der Kenntnisse und Erfahrungen mit einzelnen Anlageformen, der finanziellen Verhältnisse (inkl. Verlusttragfähigkeit), der Anlageziele, des Anlagehorizonts, der Risikobereitschaft und der Nachhaltigkeitspräferenz des Kunden eine individuelle Beratung durchgeführt und als Ergebnis dem Kunden das für ihn geeignete Produkt empfohlen.
-        </p>
-        
-        <h3>Anlagevermittlung</h3>
-        <p>
-            Bei einer Anlagevermittlung wird lediglich anhand der individuellen Kenntnisse und Erfahrungen des Kunden geprüft, ob das vom ihm selbst gewünschte Produkt angemessen ist.
-        </p>
-        
-        <hr>
-        
-        <h2>Impressum für den Bereich Wertpapiere</h2>
-        <p>
-            <em>Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz</em>
-        </p>
-        
-        <h3>Verantwortlich für den Inhalt</h3>
-        <div class="info-box">
-            <strong>TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin)</strong>
-            <p>
-                Zweigniederlassung eines dt. Wertpapierinstituts, welches mit der Erlaubnis der Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin) gemäß § 15 Wertpapierinstitutsgesetz u.a. zu nachfolgenden Tätigkeiten über selbständig tätige vertraglich gebundene Vermittler berechtigt ist:
-            </p>
-            <ul>
-                <li>Anlageberatung und Anlagevermittlung zu übertragbaren Wertpapieren</li>
-                <li>Geldmarktinstrumenten</li>
-                <li>Investment- und Immobilienfondsanteilen</li>
-                <li>Finanz- und Kreditderivaten</li>
-            </ul>
-            <p>
-                <strong>Adresse:</strong> Krugerstraße 13/4. OG, A-1010 Wien<br>
-                <strong>Email:</strong> <a href="mailto:info@topten-wp.at">info@topten-wp.at</a><br>
-                <strong>Tel:</strong> +43 (0)1 503 74 50<br>
-                <strong>Fax:</strong> +43 (0)1 505 21 95<br>
-                <strong>Internet:</strong> <a href="https://www.topten-wp.at" target="_blank">www.topten-wp.at</a>
-            </p>
-            <p>
-                <strong>Sitz der Gesellschaft:</strong> Wien<br>
-                <strong>Firmenbuchgericht:</strong> Handelsgericht Wien<br>
-                <strong>Firmenbuchnummer:</strong> FN 638403 d<br>
-                <strong>UID-Nummer:</strong> ATU 55692806
-            </p>
-        </div>
-        
-        <h3>Aufsichtsbehörden</h3>
-        <div class="info-box">
-            <strong>Finanzmarktaufsicht (FMA)</strong>
-            <p>
-                Otto-Wagner Platz<br>
-                A-1090 Wien<br>
-                <a href="https://www.fma.gv.at/" target="_blank">https://www.fma.gv.at/</a>
-            </p>
-        </div>
-        
-        <div class="info-box">
-            <strong>Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin)</strong>
-            <p>
-                Marie-Curie-Straße 24–28<br>
-                DE-60439 Frankfurt am Main<br>
-                <a href="https://www.bafin.de/" target="_blank">https://www.bafin.de/</a>
-            </p>
-        </div>
-        
-        <h3>Kammer/Berufsverband</h3>
-        <p>
-            Wirtschaftskammer Österreich<br>
-            Bundessparte Information und Consulting<br>
-            Fachgruppe Finanzdienstleister Wien<br>
-            <a href="https://www.wko.at" target="_blank">www.wko.at</a><br>
-            <a href="https://www.diefinanzdienstleister.at" target="_blank">www.diefinanzdienstleister.at</a>
-        </p>
-        
-        <hr>
-        
-        <h2>Rechtliche Hinweise</h2>
-        <p>
-            Die TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) übernimmt keine Haftung hinsichtlich der Vollständigkeit, Richtigkeit oder Aktualität allfälliger im Bereich „Wertpapiere" zur Verfügung gestellter Informationen zu Finanzinstrumenten. Gleiches gilt auch für alle anderen Websites, auf die mittels Hyperlink verwiesen wird.
-        </p>
-        <p>
-            Die TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) behält sich das Recht vor, den vertraglich gebundenen Vermittler zu Ergänzungen und/oder Änderungen der zu Verfügung gestellten Informationen zu verpflichten. Die Inhalte der Webseite sind nicht als Angebot oder Empfehlung bestimmter Produkte zu verstehen. Die Inhalte der Webseite können eine auf die individuellen Verhältnisse des Kunden abgestellte Beratung nicht ersetzen.
-        </p>
-        <p>
-            Eine Weiterverwertung in welcher Form auch immer bedarf der ausdrücklichen Zustimmung der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin).
-        </p>
-        
-        <hr>
-        
-        <h2>Datenschutzerklärung</h2>
-        <p>
-            Die aktuelle Datenschutzerklärung der Top Ten Wertpapier GmbH finden Sie unter:<br>
-            <a href="https://topten-wp.at/datenschutz/" target="_blank">https://topten-wp.at/datenschutz/</a>
-        </p>
-        
-        <hr>
-        
-        <h2>Nachhaltigkeits-Policy</h2>
-        <p>
-            Die aktuelle Nachhaltigkeits-Policy der Top Ten Wertpapier GmbH finden Sie unter:<br>
-            <a href="https://topten-wp.at/leistungen/fuer-kunden/" target="_blank">https://topten-wp.at/leistungen/fuer-kunden/</a>
-        </p>
-        
-        <hr>
-        
-        <h2>Haftungshinweis</h2>
-        <p>
-            Die Webseite von Mario Friedl, selbstständiger Partner der EQUALITY EH GmbH wird permanent gepflegt. Sie wird mit größtmöglicher Sorgfalt betreut. Die EQUALITY EH GmbH übernimmt keinerlei Garantie oder Haftung hinsichtlich der Aktualität, Vollständigkeit und Richtigkeit der zur Verfügung gestellten Informationen und behält sich das Recht vor, Ergänzungen und/oder Änderungen der zu Verfügung gestellten Informationen vorzunehmen.
-        </p>
-        <p>
-            Die EQUALITY EH GmbH übernimmt trotz sorgfältiger inhaltlicher Kontrolle keine Haftung für die Inhalte verlinkter Seiten. Ausschließlich deren Betreiber sind hierfür verantwortlich. Alle enthaltenen Angaben und Informationen beziehen sich auf die Lebensverhältnisse und Gesetze der Republik Österreich.
-        </p>
-        
-        <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--gray-light);">
-            <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-        </div>
-    </div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Logo">
+    <span>Mario <span>Friedl</span></span>
+  </a>
+  <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+
+<div class="page">
+
+<h1>Impressum</h1>
+
+<!-- ═══════════════════════════════════════════════════
+     UNVERÄNDERT – vorgegeben vom Haftungsdach
+     ═══════════════════════════════════════════════════ -->
+
+<p><strong>EQUALITY EH GmbH</strong></p>
+<p>Zentrale: 8020 Graz, Herrgottwiesgasse 119/1</p>
+
+<!-- NEU ERGÄNZT: FN + UID der EQUALITY EH GmbH (§ 14 UGB Pflicht) -->
+<div class="add-box">
+  <span class="add-label">Ergänzung gemäß § 14 UGB</span>
+  <strong>Firmenbuchnummer:</strong> FN 462897 g<br>
+  <strong>Firmenbuchgericht:</strong> Landesgericht für Zivilrechtssachen Graz<br>
+  <strong>UID-Nummer:</strong> ATU71847479
+</div>
+
+<p><strong>Selbständiger Partner Friedl Mario</strong></p>
+<p>Gewerblicher Vermögensberater</p>
+<p>
+  8063 Eggersdorf bei Graz, Prellerbergstraße 49<br>
+  Telefon: <a href="tel:+436605256328">+43 660 5256328</a><br>
+  Email: <a href="mailto:mario.friedl@equality-co.at">mario.friedl@equality-co.at</a><br>
+  Website: <a href="https://finanzberater-friedl.info">https://finanzberater-friedl.info</a>
+</p>
+
+<p><strong>GISA:</strong> 35679738</p>
+
+<h3>Gewerblicher Vermögensberater</h3>
+<p>
+  <strong>Fachgruppe / Berufszweig:</strong><br>
+  Gewerbliche Vermögensberater ohne Leben u. Unfall<br>
+  FG Finanzdienstleister<br>
+  Berechtigungen aufrecht
+</p>
+
+<hr>
+
+<h2>Allgemeiner Hinweis</h2>
+
+<p>Mario Friedl ist vertraglich gebundener Vermittler und im öffentlichen Register der Finanzmarktaufsicht eingetragen (<a href="https://www.fma.gv.at">www.fma.gv.at</a>). Er erbringt die Anlageberatung und/oder (Anlage)Vermittlung bezüglich Finanzinstrumente auf der Grundlage des dt. Wertpapierinstitutsgesetzes ausschließlich im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) bzw der Hauptniederlassung FiNUM.Private Finance AG mit Sitz in Berlin, Deutschland.</p>
+
+<p>Diese haften für eine fehlerhafte Anlageberatung und/oder (Anlage)Vermittlung von Mario Friedl gemäß § 1313a ABGB. Allgemeine Hinweise zur TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) finden Sie unter: <a href="http://www.topten-wp.at">www.topten-wp.at</a></p>
+
+<h3>Anlageberatung</h3>
+<p>Bei einer Anlageberatung wird unter Berücksichtigung der Kenntnisse und Erfahrungen mit einzelnen Anlageformen, der finanziellen Verhältnisse (inkl. Verlusttragfähigkeit), der Anlageziele, des Anlagehorizonts, der Risikobereitschaft und der Nachhaltigkeitspräferenz des Kunden eine individuelle Beratung durchgeführt und als Ergebnis dem Kunden das für ihn geeignete Produkt empfohlen.</p>
+
+<h3>Anlagevermittlung</h3>
+<p>Bei einer Anlagevermittlung wird lediglich anhand der individuellen Kenntnisse und Erfahrungen des Kunden geprüft, ob das vom ihm selbst gewünschte Produkt angemessen ist.</p>
+
+<hr>
+
+<h2>Impressum für den Bereich Wertpapiere</h2>
+<p><em>Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz</em></p>
+
+<h3>Verantwortlich für den Inhalt</h3>
+
+<p><strong>TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin)</strong></p>
+
+<p>Zweigniederlassung eines dt. Wertpapierinstituts, welches mit der Erlaubnis der Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin) gemäß § 15 Wertpapierinstitutsgesetz u.a. zu nachfolgenden Tätigkeiten über selbständig tätige vertraglich gebundene Vermittler berechtigt ist:</p>
+<ul>
+  <li>Anlageberatung und Anlagevermittlung zu übertragbaren Wertpapieren</li>
+  <li>Geldmarktinstrumenten</li>
+  <li>Investment- und Immobilienfondsanteilen</li>
+  <li>Finanz- und Kreditderivaten</li>
+</ul>
+
+<p>
+  <strong>Adresse:</strong> Krugerstraße 13/4. OG, A-1010 Wien<br>
+  <strong>Email:</strong> <a href="mailto:info@topten-wp.at">info@topten-wp.at</a><br>
+  <strong>Tel:</strong> +43 (0)1 503 74 50<br>
+  <strong>Fax:</strong> +43 (0)1 505 21 95<br>
+  <strong>Internet:</strong> <a href="https://www.topten-wp.at">www.topten-wp.at</a>
+</p>
+
+<p>
+  <strong>Sitz der Gesellschaft:</strong> Wien<br>
+  <strong>Firmenbuchgericht:</strong> Handelsgericht Wien<br>
+  <strong>Firmenbuchnummer:</strong> FN 638403 d<br>
+  <strong>UID-Nummer:</strong> ATU 55692806
+</p>
+
+<h3>Aufsichtsbehörden</h3>
+
+<p>
+  <strong>Finanzmarktaufsicht (FMA)</strong><br>
+  Otto-Wagner Platz, A-1090 Wien<br>
+  <a href="https://www.fma.gv.at/">https://www.fma.gv.at/</a>
+</p>
+
+<p>
+  <strong>Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin)</strong><br>
+  Marie-Curie-Straße 24–28, DE-60439 Frankfurt am Main<br>
+  <a href="https://www.bafin.de/">https://www.bafin.de/</a>
+</p>
+
+<h3>Kammer/Berufsverband</h3>
+<p>
+  Wirtschaftskammer Österreich<br>
+  Bundessparte Information und Consulting<br>
+  Fachgruppe Finanzdienstleister Wien<br>
+  <a href="https://www.wko.at">www.wko.at</a> · <a href="https://www.diefinanzdienstleister.at">www.diefinanzdienstleister.at</a>
+</p>
+
+<hr>
+
+<h2>Rechtliche Hinweise</h2>
+
+<p>Die TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) übernimmt keine Haftung hinsichtlich der Vollständigkeit, Richtigkeit oder Aktualität allfälliger im Bereich „Wertpapiere" zur Verfügung gestellter Informationen zu Finanzinstrumenten. Gleiches gilt auch für alle anderen Websites, auf die mittels Hyperlink verwiesen wird.</p>
+
+<p>Die TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin) behält sich das Recht vor, den vertraglich gebundenen Vermittler zu Ergänzungen und/oder Änderungen der zu Verfügung gestellten Informationen zu verpflichten. Die Inhalte der Webseite sind nicht als Angebot oder Empfehlung bestimmter Produkte zu verstehen. Die Inhalte der Webseite können eine auf die individuellen Verhältnisse des Kunden abgestellte Beratung nicht ersetzen.</p>
+
+<p>Eine Weiterverwertung in welcher Form auch immer bedarf der ausdrücklichen Zustimmung der TopTen, Zweigniederlassung der FiNUM.Private Finance AG (Berlin).</p>
+
+<hr>
+
+<h2>Datenschutzerklärung</h2>
+
+<p>Die aktuelle Datenschutzerklärung der Top Ten Wertpapier GmbH finden Sie unter:<br>
+<a href="https://topten-wp.at/datenschutz/">https://topten-wp.at/datenschutz/</a></p>
+
+<!-- NEU ERGÄNZT: Eigene Website-DSE -->
+<div class="add-box">
+  <span class="add-label">Ergänzung gemäß Art. 13 DSGVO</span>
+  Die Datenschutzerklärung für diese Website (Kontaktformulare, Google Analytics, Cookies) finden Sie zusätzlich unter:<br>
+  <a href="datenschutz.html" style="color:#7a4e0a;font-weight:700">finanzberater-friedl.info/datenschutz.html</a>
+</div>
+
+<hr>
+
+<h2>Nachhaltigkeits-Policy</h2>
+
+<p>Die aktuelle Nachhaltigkeits-Policy der Top Ten Wertpapier GmbH finden Sie unter:<br>
+<a href="https://topten-wp.at/leistungen/fuer-kunden/">https://topten-wp.at/leistungen/fuer-kunden/</a></p>
+
+<hr>
+
+<h2>Haftungshinweis</h2>
+
+<p>Die Webseite von Mario Friedl, selbstständiger Partner der EQUALITY EH GmbH wird permanent gepflegt. Sie wird mit größtmöglicher Sorgfalt betreut. Die EQUALITY EH GmbH übernimmt keinerlei Garantie oder Haftung hinsichtlich der Aktualität, Vollständigkeit und Richtigkeit der zur Verfügung gestellten Informationen und behält sich das Recht vor, Ergänzungen und/oder Änderungen der zu Verfügung gestellten Informationen vorzunehmen.</p>
+
+<p>Die EQUALITY EH GmbH übernimmt trotz sorgfältiger inhaltlicher Kontrolle keine Haftung für die Inhalte verlinkter Seiten. Ausschließlich deren Betreiber sind hierfür verantwortlich. Alle enthaltenen Angaben und Informationen beziehen sich auf die Lebensverhältnisse und Gesetze der Republik Österreich.</p>
+
+<p style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(200,151,59,.15);font-size:.8rem;color:var(--muted);text-align:center">
+  Stand: Mai 2026 · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="index.html">Startseite</a>
+</p>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="info-abend.html">Info-Abend</a>
+    <a href="business-seminar.html">Seminar</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+  <div class="f-copy">© 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz</div>
+</footer>
+
 </body>
 </html>
