@@ -1919,10 +1919,6 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
   Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden – bis hin zum Totalverlust des eingesetzten Kapitals. Die dargestellten Renditen (≈ 7–8 % p.a.) sind historische Durchschnittswerte und stellen keine Garantie dar.
 </div>
           </div>
-          <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:14px 18px;margin-top:16px;font-size:.82rem;color:#5a3e10;line-height:1.65">
-            <strong style="color:#7a4e0a">⚠️ Wichtiger Hinweis (MiFID II / WAG 2018 § 46):</strong><br>
-            Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Die dargestellten Werte (≈ 7–8 % p.a.) sind historische Durchschnittswerte und stellen keine Garantie dar.
-          </div>
         </div>
       </div>
       <div class="problem-text anim-up d2">
@@ -2865,7 +2861,7 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
 <button class="modal-close" onclick="closeModal('anlageFormModal')">×</button>
 <h3>📋 Anlagefragebogen</h3>
 <p>Fülle den Fragebogen aus – ich melde mich in Kürze bei dir!</p>
-<form action="https://formspree.io/f/xdagywlo" method="POST" class="web-form">
+<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form">
 <div class="form-row">
   <div class="form-group"><label>Name, Vorname *</label><input type="text" name="name" required></div>
   <div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
@@ -3214,4 +3210,35 @@ function updateLabel(input,labelId){
 }
 // Drag & drop
 document.querySelectorAll('.drop-zone').forEach(zone=>{
-  zone.addEventListener('dra
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.style.borderColor='var(--gold)';zone.style.background='rgba(200,151,59,.06)'});
+  zone.addEventListener('dragleave',()=>{zone.style.borderColor='';zone.style.background=''});
+  zone.addEventListener('drop',e=>{
+    e.preventDefault();
+    const inp=zone.querySelector('input[type=file]')||zone.nextElementSibling;
+    if(inp&&e.dataTransfer.files.length){
+      try{inp.files=e.dataTransfer.files}catch(err){}
+      inp.dispatchEvent(new Event('change'));
+    }
+  });
+});
+
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15});
+document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
+
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
+  document.querySelector('.sticky-cta-bar')?.classList.toggle('show',window.scrollY>600);
+});
+
+// Mobile menu
+document.getElementById('mobileBtn').addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.remove('open');
+}));
+</script>
+</body>
+</html>
