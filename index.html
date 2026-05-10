@@ -163,8 +163,8 @@ em.gold{color:var(--gold);font-style:italic}
 @keyframes pulse    {0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 @keyframes ticker   {from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-.anim-up  {opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.anim-up.in{opacity:1;transform:translateY(0)}
+.anim-up  {opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+.anim-up.in{opacity:1;transform:translateY(0);pointer-events:auto}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
 /* ══════════════════════════════════════════
@@ -484,6 +484,8 @@ nav.scrolled{box-shadow:0 4px 30px rgba(15,25,35,.08)}
 .services-section{
   padding:100px 28px;
   background:var(--ink);
+  position:relative;
+  overflow:hidden;
 }
 .services-section .eyebrow{color:rgba(200,151,59,.8)}
 .services-section .h-display{color:var(--white)}
@@ -1919,6 +1921,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
   Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden – bis hin zum Totalverlust des eingesetzten Kapitals. Die dargestellten Renditen (≈ 7–8 % p.a.) sind historische Durchschnittswerte und stellen keine Garantie dar.
 </div>
           </div>
+          
         </div>
       </div>
       <div class="problem-text anim-up d2">
@@ -1953,38 +1956,138 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 
 
 <!-- ══ UPLOAD – So einfach geht Finanzberatung heute ══ -->
-<section id="upload" class="upload-section">
+<section class="services-section" id="leistungen">
 
+  <!-- decorative glows -->
   <div style="position:absolute;top:-200px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.08),transparent 65%);pointer-events:none"></div>
   <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.05),transparent 65%);pointer-events:none"></div>
 
   <div class="page-wrap" style="position:relative;z-index:1">
 
-    <!-- Headline emotional -->
-    <div class="upload-header anim-up">
-      <span class="eyebrow" style="color:rgba(200,151,59,.8)">Der neue Weg · Kein Bürotermin nötig</span>
-      <h2>Du hast es schon<br><em>tausendmal verschoben.</em></h2>
-      <div class="upload-scene">
-        <div class="upload-scene-item">
-          <div class="usi-icon">😮‍💨</div>
-          <div class="usi-text">Es ist 18:30. Du bist müde. Kind abholen. Einkaufen. Kochen. Und jetzt noch irgendwo hinfahren für einen <strong>Banktermin?</strong></div>
-        </div>
-        <div class="upload-scene-divider">↓</div>
-        <div class="upload-scene-item upload-scene-item--solution">
-          <div class="usi-icon">📱</div>
-          <div class="usi-text">Was wenn du das alles <strong>vom Sofa aus</strong> erledigen kannst? In der Zeit, die du sonst mit Warten in einer Bankfiliale verbringst?</div>
-        </div>
-      </div>
-      <p class="upload-header-sub">Unterlagen hochladen – ich analysiere persönlich und melde mich in <strong>24 Stunden</strong>. Kein Termin. Kein Parkplatzsuche. Kein Stress.</p>
+    <!-- HEADER -->
+    <div class="svc-header anim-up in">
+      <span class="eyebrow">Meine Leistungen</span>
+      <h2 class="h-display" style="color:var(--white);font-size:clamp(2rem,5vw,3.4rem);margin-bottom:0">
+        Geld richtig anlegen &amp; investieren –<br><em class="gold">bankunabhängig. Für dich.</em>
+      </h2>
     </div>
 
-    <!-- 3-Schritt-Visual -->
-    <div class="upload-steps anim-up">
+    <!-- 6 KARTEN: 2+2+2 Raster -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:36px">
+
+      <!-- 01 Investment -->
+      <div class="svc-featured-card anim-up in">
+        <div class="sfc-num">01</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">📈</div>
+          <h3 class="sfc-title">Geldanlage &amp; Vermögensaufbau</h3>
+          <p class="sfc-text">Weißt du noch, wie dein Bankberater dir erklärt hat, dass dein Geld „gut aufgehoben" ist? Während die Bank dasselbe Geld für 5–7 % weiterverleiht und dir 1 % davon gibt. <strong style="color:var(--gold2)">Direkter Zugang zu BlackRock, Vanguard, Amundi</strong> – kein Ausgabeaufschlag, keine Bankkommission, 100 % von Tag 1 investiert.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">🌍 Weltweite Streuung</span>
+            <span class="sfc-tag">0% Ausgabeaufschlag</span>
+            <span class="sfc-tag">Ab 100 € / Monat</span>
+          </div>
+          <div class="sfc-actions">
+            <a href="#kontakt" class="svc-link svc-link--upload">Erstgespräch vereinbaren →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Immobilien -->
+      <div class="svc-featured-card anim-up in">
+        <div class="sfc-num">02</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">🏡</div>
+          <h3 class="sfc-title">Eigenheim &amp; Kredit</h3>
+          <p class="sfc-text">Das Eigenheim ist kein Luxus – es ist ein Plan. Die meisten verschieben es, weil ihnen niemand gezeigt hat, wie es wirklich geht. Mit dem tilgungsfreien Konzept zahlst du <strong style="color:var(--gold2)">dieselbe Rate wie beim normalen Kredit</strong> – baust aber gleichzeitig ein Depot auf. 15+ Banken verglichen, beste Kondition gefunden.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">🏦 15+ Banken</span>
+            <span class="sfc-tag">Tilgungsfreies Konzept</span>
+            <span class="sfc-tag">Oft tausende € gespart</span>
+          </div>
+          <div class="sfc-actions">
+            <a href="#kontakt" class="svc-link svc-link--upload">Erstgespräch vereinbaren →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Pensionsvorsorge -->
+      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
+        <div class="sfc-num">03</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">🛡️</div>
+          <h3 class="sfc-title">Pensionsvorsorge</h3>
+          <p class="sfc-text">Die staatliche Pension wird nicht reichen – das weißt du. Die Frage ist: <em>Wie groß ist deine Lücke wirklich?</em> Ich berechne es konkret für deine Situation und zeige dir, wie du sie schließt – bevor es zu spät ist.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">📊 Ø −€700/Monat Lücke</span>
+            <span class="sfc-tag">Persönliche Berechnung</span>
+          </div>
+          <div class="sfc-actions">
+            <a href="pensionsluecke.html" class="svc-link">Lücke jetzt berechnen →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Versicherung – MIT UPLOAD, kein eigener Abschnitt mehr -->
+      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
+        <div class="sfc-num">04</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">🔍</div>
+          <h3 class="sfc-title">Versicherungscheck</h3>
+          <p class="sfc-text">Die meisten zahlen seit Jahren für Policen, die sie nie hinterfragt haben. Lade deine Police hoch – ich zeige dir, was sie wirklich kostet und ob es bessere Alternativen gibt. Ohne dir selbst etwas zu verkaufen.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">📎 Police hochladen</span>
+            <span class="sfc-tag">Ergebnis in 24h</span>
+          </div>
+          <div class="sfc-actions">
+            <button onclick="openModal('versicherungFormModal')" class="svc-link svc-link--upload">Police hochladen →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Depot -->
+      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
+        <div class="sfc-num">05</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">💼</div>
+          <h3 class="sfc-title">Depot &amp; bestehendes Geld</h3>
+          <p class="sfc-text">Schon ein Depot? Ich schau drüber – kostenlos, ohne Verpflichtung. Noch kein Depot? Ich zeig dir, wie du mit 150 € pro Monat anfängst. Österreichische Depotbank. KESt automatisch. Dein Geld bleibt dein Geld.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">📎 Depotauszug hochladen</span>
+            <span class="sfc-tag">Analyse in 24h</span>
+          </div>
+          <div class="sfc-actions">
+            <button onclick="openModal('depotFormModal')" class="svc-link svc-link--upload">Depot analysieren →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Kredit & Umschuldung -->
+      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
+        <div class="sfc-num">06</div>
+        <div class="sfc-body">
+          <div class="sfc-icon">💳</div>
+          <h3 class="sfc-title">Kredit &amp; Umschuldung</h3>
+          <p class="sfc-text">Ob PKW, Umschuldung oder Einrichtung – ein falscher Kredit kostet dich tausende Euro über die Laufzeit. Lade deinen Kreditvertrag hoch oder schreib mir kurz deine Situation. Ich vergleiche Banken und finde die beste Kondition.</p>
+          <div class="sfc-tags">
+            <span class="sfc-tag">📎 Kreditvertrag hochladen</span>
+            <span class="sfc-tag">15+ Banken Vergleich</span>
+          </div>
+          <div class="sfc-actions">
+            <button onclick="openModal('kreditFormModal')" class="svc-link svc-link--upload">Kredit analysieren →</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /6-card grid -->
+
+    <!-- HOW IT WORKS: 3 Schritte -->
+    <div class="upload-steps anim-up in" style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(200,151,59,.15)">
       <div class="us-step">
         <div class="us-num">1</div>
         <div class="us-icon">📎</div>
-        <div class="us-title">Hochladen</div>
-        <div class="us-desc">Fragebogen ausfüllen &amp; Dokument anhängen – 2 Minuten</div>
+        <div class="us-title">Hochladen oder anfragen</div>
+        <div class="us-desc">Dokument anhängen oder kurz beschreiben – 2 Minuten</div>
       </div>
       <div class="us-arrow">→</div>
       <div class="us-step">
@@ -1997,180 +2100,21 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
       <div class="us-step">
         <div class="us-num">3</div>
         <div class="us-icon">📞</div>
-        <div class="us-title">Rückmeldung</div>
-        <div class="us-desc">Konkretes Ergebnis innerhalb 24h – kostenlos</div>
+        <div class="us-title">Rückmeldung in 24h</div>
+        <div class="us-desc">Konkretes Ergebnis – kostenlos, ohne Verpflichtung</div>
       </div>
     </div>
 
-    <!-- Upload Grid -->
-    <div class="upload-grid">
-
-      <div class="upload-card anim-up" onclick="openModal('versicherungFormModal')" style="cursor:pointer">
-        <div class="upload-card-top">
-          <span class="upload-card-icon">🔍</span>
-        </div>
-        <h3>Versicherung prüfen</h3>
-        <p class="card-desc">Lebensversicherung, Fondspolice, Unfallschutz – lade deine Police hoch. Ich zeige dir was sie wirklich kostet, ob du zu viel zahlst und ob es bessere Alternativen gibt.</p>
-        <div class="uc-upload-row">
-          <div class="drop-zone" onclick="event.stopPropagation();openModal('versicherungFormModal')">
-            <div class="drop-zone-icon">📎</div>
-            <div class="drop-zone-title">Police hochladen</div>
-            <div class="drop-zone-hint">PDF, JPG, PNG · Klicken zum Starten</div>
-          </div>
-        </div>
-        <button class="btn-upload" onclick="event.stopPropagation();openModal('versicherungFormModal')">Jetzt Analyse starten →</button>
-        <div class="upload-privacy">🔒 Vertraulich · Nur Mario sieht deine Daten</div>
-      </div>
-
-      <div class="upload-card upload-card-featured anim-up d1" style="cursor:default">
-        <div class="upload-card-top">
-          <span class="upload-card-icon">🏡</span>
-        </div>
-        <h3>Eigenheim finanzieren &amp; Kredit vergleichen</h3>
-        <p class="card-desc">Eigenheim finanzieren oder Kredit optimieren? Ich vergleiche 15+ Banken in Österreich und finde die beste Kondition – kostenlos, ohne Bankinteressen.</p>
-        <div class="uc-upload-row">
-          <div class="drop-zone" onclick="event.stopPropagation();openModal('finanzierungAnalyseModal')">
-            <div class="drop-zone-icon">📎</div>
-            <div class="drop-zone-title">Kreditauszug hochladen</div>
-            <div class="drop-zone-hint">Eigenheim · Kredit vergleichen · Umschuldung</div>
-          </div>
-        </div>
-        <button class="btn-upload" onclick="event.stopPropagation();openModal('finanzierungAnalyseModal')">Jetzt kostenlos anfragen →</button>
-        <div class="upload-privacy">🔒 Vertraulich · Antwort in 24h · Kostenlos</div>
-      </div>
-
-      <div class="upload-card anim-up d2" onclick="openModal('depotFormModal')" style="cursor:pointer">
-        <div class="upload-card-top">
-          <span class="upload-card-icon">💼</span>
-        </div>
-        <h3>Depot prüfen lassen</h3>
-        <p class="card-desc">Depotauszug hochladen – ich analysiere Kosten, Diversifikation und Performance. Kostenlos. Ehrlich. Ohne Verkaufsdruck.</p>
-        <div class="uc-upload-row">
-          <div class="drop-zone" onclick="event.stopPropagation();openModal('depotFormModal')">
-            <div class="drop-zone-icon">📎</div>
-            <div class="drop-zone-title">Depotauszug hochladen</div>
-            <div class="drop-zone-hint">PDF, JPG, PNG · Klicken zum Starten</div>
-          </div>
-        </div>
-        <button class="btn-upload" onclick="event.stopPropagation();openModal('depotFormModal')">Depot kostenlos analysieren →</button>
-        <div class="upload-privacy">🔒 Vertraulich · FMA-konzessioniert</div>
-      </div>
-
-    </div><!-- /upload-grid -->
-
-    <!-- Mario Quote -->
-    <div class="upload-mario-quote anim-up">
-      <img src="mario-profilbild.jpg" alt="Mario Friedl">
-      <blockquote>
-        <p>"Ich weiß, wie es sich anfühlt, wenn das Geld knapp wird – obwohl man spart. Mit 20 Jahren und € 30.000 Schulden saß ich genau da, wo vielleicht du gerade sitzt. Kein Zeit. Kein Überblick. Kein Vertrauen in das System. Deshalb habe ich diesen Weg gebaut: einfach hochladen, ich kümmere mich um den Rest."</p>
-        <cite>— Mario Friedl · Unabhängiger Finanzberater · FMA-konzessioniert</cite>
-      </blockquote>
+    <!-- Single bottom CTA -->
+    <div class="anim-up in" style="text-align:center;margin-top:40px">
+      <p style="font-size:.96rem;color:rgba(255,255,255,.52);margin-bottom:18px;line-height:1.8">
+        Nicht sicher welche Leistung passt? Einfach schreiben –<br>
+        <strong style="color:rgba(255,255,255,.82)">ich finde gemeinsam mit dir den richtigen nächsten Schritt.</strong>
+      </p>
+      <a href="#kontakt" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-size:1rem">
+        💬 Kostenloses Erstgespräch →
+      </a>
     </div>
-
-    <!-- Trust Row -->
-    <div class="upload-trust-row anim-up">
-      <div class="utr-item"><span style="color:var(--gold)">✅</span> FMA-konzessioniert</div>
-      <div class="utr-item"><span style="color:var(--gold)">🔒</span> Alle Daten vertraulich</div>
-      <div class="utr-item"><span style="color:var(--gold)">⏱️</span> Rückmeldung in 24h</div>
-      <div class="utr-item"><span style="color:var(--gold)">💶</span> Beratung 100% kostenlos</div>
-      <div class="utr-item"><span style="color:var(--gold)">🚫</span> Kein Bürotermin nötig</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══ SERVICES ══ -->
-<section class="services-section" id="leistungen">
-  <div class="page-wrap">
-
-    <div class="svc-header anim-up">
-      <span class="eyebrow">Meine Leistungen</span>
-      <h2 class="h-display" style="color:var(--white);font-size:clamp(2rem,5vw,3.4rem);margin-bottom:0">
-        Alles aus einer Hand.<br><em class="gold">Direkt. Ohne Umweg.</em>
-      </h2>
-    </div>
-
-    <!-- FEATURED ROW: Investment + Immobilien full-width editorial -->
-    <div class="svc-row-featured anim-up">
-
-      <div class="svc-featured-card">
-        <div class="sfc-num">01</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">📈</div>
-          <h3 class="sfc-title">Investment &amp; Vermögensaufbau</h3>
-          <p class="sfc-text">Direkter Zugang zu den <strong style="color:var(--gold2)">größten Fondsgesellschaften der Welt</strong> – BlackRock, Vanguard, Amundi, DWS. Kein Agio. Keine Bankkommission. Dein Geld investiert von Tag&nbsp;1 zu 100%. Weltweit gestreut, automatisch optimiert – genau das, was die Bank dir nicht anbietet.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">🌍 Weltweite Diversifikation</span>
-            <span class="sfc-tag">0% Ausgabeaufschlag</span>
-            <span class="sfc-tag">Automatische KESt</span>
-          </div>
-          <div class="sfc-actions">
-            <button onclick="openModal('sparplanModal')" class="svc-link">📊 Sparplan-Rechner →</button>
-            <button onclick="openModal('anlageFormModal')" class="svc-link svc-link--upload">📎 Jetzt starten →</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="svc-featured-card">
-        <div class="sfc-num">02</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">🏡</div>
-          <h3 class="sfc-title">Immobilienfinanzierung</h3>
-          <p class="sfc-text">Das Haus kaufen – und gleichzeitig Vermögen aufbauen. Mit dem tilgungsfreien Konzept zahlst du <strong style="color:var(--gold2)">dieselbe Rate wie bei einem normalen Kredit</strong> – aber baust parallel ein Depot auf. 15+ Banken im Vergleich, beste Konditionen, echte Unabhängigkeit.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">🏦 15+ Banken Vergleich</span>
-            <span class="sfc-tag">Tilgungsfreies Konzept</span>
-            <span class="sfc-tag">Oft tausende € gespart</span>
-          </div>
-          <div class="sfc-actions">
-            <button onclick="openModal('finanzierungModal')" class="svc-link">🏡 Rechner →</button>
-            <button onclick="openModal('finanzierungFormModal')" class="svc-link svc-link--upload">📎 Jetzt anfragen →</button>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /featured row -->
-
-    <!-- SECONDARY GRID: 4 smaller cards -->
-    <div class="svc-grid-secondary">
-
-      <div class="svc-small-card anim-up">
-        <div class="ssc-num">03</div>
-        <div class="ssc-icon">🛡️</div>
-        <h4>Pensionsvorsorge</h4>
-        <p>Ø <strong>€&nbsp;700/Monat</strong> Pensionslücke in Österreich. Wir berechnen deine persönliche Lücke und schließen sie – bevor es zu spät ist.</p>
-        <a href="pensionsluecke.html" class="svc-link">Lücke berechnen →</a>
-      </div>
-
-      <div class="svc-small-card anim-up d1">
-        <div class="ssc-num">04</div>
-        <div class="ssc-icon">🔍</div>
-        <h4>Versicherungsanalyse</h4>
-        <p>Deine Lebensversicherung kostet dich <em>mehr als du weißt</em>. Ich decke versteckte Kosten auf – ohne selbst Versicherungen zu verkaufen.</p>
-        <button onclick="openModal('versicherungFormModal')" class="svc-link">📎 Police hochladen →</button>
-      </div>
-
-      <div class="svc-small-card anim-up d2">
-        <div class="ssc-num">05</div>
-        <div class="ssc-icon">💼</div>
-        <h4>Depot &amp; Wertpapiere</h4>
-        <p>Bestehendes Depot analysieren lassen. KESt automatisch. Österreichische Depotbank. Voller Online-Zugang – dein Geld, deine Kontrolle.</p>
-        <button onclick="openModal('depotFormModal')" class="svc-link">📎 Depot-Analyse →</button>
-      </div>
-
-      <div class="svc-small-card anim-up d3">
-        <div class="ssc-num">06</div>
-        <div class="ssc-icon">💳</div>
-        <h4>Kredit &amp; Umschuldung</h4>
-        <p>PKW, Einrichtung, Umschuldung – ich vergleiche Banken und finde die besten Konditionen. Kreditvertrag hochladen und sparen.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button onclick="openModal('kreditModal')" class="svc-link">Rechner →</button>
-          <button onclick="openModal('kreditFormModal')" class="svc-link">📎 Anfragen →</button>
-        </div>
-      </div>
-
-    </div><!-- /secondary grid -->
 
   </div>
 </section>
@@ -2247,8 +2191,8 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
               <span>Investmentfonds Ø 7%</span><span class="qcc-val qcc-best">~10 Jahre ✓</span></div><div style="font-size:.75rem;color:#5a3e10;background:#fff8ee;border:1px solid #e8a830;border-radius:8px;margin-top:10px;padding:8px 12px;line-height:1.55">* Historischer Durchschnitt (2000–2024). Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft. Veranlagungen sind mit Risiken verbunden.
             </div>
           </div>
-          <a href="#upload" class="quiz-cta" onclick="document.getElementById('qcQuestion').style.display='block';document.getElementById('qcAnswer').style.display='none'">
-            📎 Jetzt mein Geld besser anlegen →
+          <a href="#kontakt" class="quiz-cta">
+            💬 Kostenloses Erstgespräch anlegen →
           </a>
           <button class="quiz-retry" onclick="resetQuiz()">↺ Nochmal</button>
         </div>
@@ -2603,7 +2547,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <div class="cp-badges">
           <div class="cp-badge"><div class="cp-badge-icon">✅</div> FMA-konzessioniert</div>
           <div class="cp-badge"><div class="cp-badge-icon">📍</div> Herrgottwiesgasse 119/1, 8020 Graz</div>
-          <div class="cp-badge"><div class="cp-badge-icon">📧</div> <a href="/cdn-cgi/l/email-protection#771a16051e185911051e12131b37120602161b1e030e5a1418591603"><span class="__cf_email__" data-cfemail="2e434f5c474100485c474b4a426e4b5f5b4f42475a57034d41004f5a">[email&#160;protected]</span></a></div>
+          <div class="cp-badge"><div class="cp-badge-icon">📧</div> <a href="mailto:mario.friedl@equality-co.at">mario.friedl@equality-co.at</a></div>
           <div class="cp-badge"><div class="cp-badge-icon">🕐</div> Antwort innerhalb 24 Stunden</div>
         </div>
       </div>
@@ -2861,7 +2805,7 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
 <button class="modal-close" onclick="closeModal('anlageFormModal')">×</button>
 <h3>📋 Anlagefragebogen</h3>
 <p>Fülle den Fragebogen aus – ich melde mich in Kürze bei dir!</p>
-<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form">
+<form action="https://formspree.io/f/xdagywlo" method="POST" class="web-form">
 <div class="form-row">
   <div class="form-group"><label>Name, Vorname *</label><input type="text" name="name" required></div>
   <div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
@@ -3210,35 +3154,4 @@ function updateLabel(input,labelId){
 }
 // Drag & drop
 document.querySelectorAll('.drop-zone').forEach(zone=>{
-  zone.addEventListener('dragover',e=>{e.preventDefault();zone.style.borderColor='var(--gold)';zone.style.background='rgba(200,151,59,.06)'});
-  zone.addEventListener('dragleave',()=>{zone.style.borderColor='';zone.style.background=''});
-  zone.addEventListener('drop',e=>{
-    e.preventDefault();
-    const inp=zone.querySelector('input[type=file]')||zone.nextElementSibling;
-    if(inp&&e.dataTransfer.files.length){
-      try{inp.files=e.dataTransfer.files}catch(err){}
-      inp.dispatchEvent(new Event('change'));
-    }
-  });
-});
-
-// Scroll animations
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15});
-document.querySelectorAll('.anim-up').forEach(el=>obs.observe(el));
-
-// Navbar scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
-  document.querySelector('.sticky-cta-bar')?.classList.toggle('show',window.scrollY>600);
-});
-
-// Mobile menu
-document.getElementById('mobileBtn').addEventListener('click',()=>{
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
-document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mobileMenu').classList.remove('open');
-}));
-</script>
-</body>
-</html>
+  zone.addEventListener('dra
