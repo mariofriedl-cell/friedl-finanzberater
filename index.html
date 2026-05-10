@@ -1695,6 +1695,138 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 @media(max-width:640px){
   .seo-grid { grid-template-columns:1fr!important; }
 }
+
+/* ══ LEISTUNGEN 4-KARTEN UPLOAD ══ */
+.leist-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.leist-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,151,59,.2);
+  border-radius:20px;
+  padding:32px 28px 28px;
+  transition:border-color .3s, transform .3s;
+  position:relative;
+  overflow:hidden;
+}
+.leist-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  opacity:.5;
+}
+.leist-card:hover{
+  border-color:rgba(200,151,59,.45);
+  transform:translateY(-3px);
+}
+.leist-card-head{
+  display:flex;align-items:flex-start;gap:14px;margin-bottom:22px;
+}
+.leist-num{
+  font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;
+  color:rgba(200,151,59,.25);flex-shrink:0;line-height:1;
+}
+.leist-icon{
+  font-size:1.8rem;flex-shrink:0;margin-top:2px;
+}
+.leist-title{
+  font-size:1.05rem;font-weight:900;color:var(--white);margin-bottom:5px;
+}
+.leist-sub{
+  font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.6;margin:0;
+}
+
+/* Form inside leist-card */
+.leist-form{display:flex;flex-direction:column;gap:12px;}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.lf-group{display:flex;flex-direction:column;gap:5px;}
+.lf-group label{
+  font-size:.72rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:rgba(255,255,255,.38);
+}
+.lf-group input,
+.lf-group select,
+.lf-group textarea{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:11px 14px;
+  font-size:.88rem;
+  color:var(--white);
+  font-family:'Lato',sans-serif;
+  outline:none;
+  transition:border-color .2s;
+  -webkit-appearance:none;
+  resize:vertical;
+}
+.lf-group input:focus,
+.lf-group select:focus,
+.lf-group textarea:focus{
+  border-color:var(--gold);
+  background:rgba(255,255,255,.1);
+}
+.lf-group input::placeholder,
+.lf-group textarea::placeholder{color:rgba(255,255,255,.2);}
+.lf-group select option{background:#0f1923;color:var(--white);}
+
+/* File upload */
+.lf-upload{margin-top:2px;}
+.lf-upload-label{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(200,151,59,.07);
+  border:1.5px dashed rgba(200,151,59,.35);
+  border-radius:10px;
+  padding:12px 16px;
+  font-size:.83rem;
+  color:rgba(255,255,255,.55);
+  cursor:pointer;
+  transition:background .2s, border-color .2s;
+}
+.lf-upload-label:hover{
+  background:rgba(200,151,59,.12);
+  border-color:var(--gold);
+  color:rgba(255,255,255,.8);
+}
+.lf-opt{font-size:.72rem;color:rgba(255,255,255,.3);}
+.lf-filename{
+  font-size:.72rem;color:var(--gold);font-weight:700;
+  max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* Submit button */
+.leist-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--ink);
+  font-weight:900;font-size:.92rem;
+  border:none;border-radius:50px;
+  cursor:pointer;
+  font-family:'Lato',sans-serif;
+  box-shadow:0 6px 20px rgba(200,151,59,.3);
+  transition:all .2s;
+  margin-top:4px;
+}
+.leist-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,151,59,.45);}
+.lf-privacy{
+  font-size:.72rem;color:rgba(255,255,255,.25);
+  text-align:center;line-height:1.5;margin:0;
+}
+.lf-opt{font-size:.72rem;color:rgba(255,255,255,.3);}
+
+/* Responsive */
+@media(max-width:800px){
+  .leist-grid{grid-template-columns:1fr;}
+  .lf-row{grid-template-columns:1fr;}
+  .leist-card{padding:24px 18px 22px;}
+}
+
+/* 2x2 Leistungen Grid */
+.leist-4grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.leist-4grid{grid-template-columns:1fr}}
+@media(max-width:860px){
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 <body>
@@ -1956,138 +2088,32 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 
 
 <!-- ══ UPLOAD – So einfach geht Finanzberatung heute ══ -->
-<section class="services-section" id="leistungen">
+<section class="upload-section" id="leistungen" style="position:relative;overflow:hidden">
 
-  <!-- decorative glows -->
   <div style="position:absolute;top:-200px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.08),transparent 65%);pointer-events:none"></div>
   <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,59,.05),transparent 65%);pointer-events:none"></div>
 
   <div class="page-wrap" style="position:relative;z-index:1">
 
     <!-- HEADER -->
-    <div class="svc-header anim-up in">
-      <span class="eyebrow">Meine Leistungen</span>
-      <h2 class="h-display" style="color:var(--white);font-size:clamp(2rem,5vw,3.4rem);margin-bottom:0">
-        Geld richtig anlegen &amp; investieren –<br><em class="gold">bankunabhängig. Für dich.</em>
+    <div class="upload-header anim-up in" style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">Meine Leistungen · Kein Bürotermin nötig</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px">
+        So einfach geht's –<br><em style="font-style:italic;color:var(--gold)">gemütlich von der Couch aus.</em>
       </h2>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.5);max-width:680px;margin:0 auto 16px;line-height:1.9">
+        Feierabend. Kinder abholen. Einkaufen. Kochen. Und dann noch einen Bürotermin?<br>
+        <strong style="color:rgba(255,255,255,.85)">Einfach auf den Button klicken – Formular ausfüllen – fertig. Ich melde mich persönlich innerhalb 24 Stunden.</strong>
+      </p>
     </div>
 
-    <!-- 6 KARTEN: 2+2+2 Raster -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:36px">
-
-      <!-- 01 Investment -->
-      <div class="svc-featured-card anim-up in">
-        <div class="sfc-num">01</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">📈</div>
-          <h3 class="sfc-title">Geldanlage &amp; Vermögensaufbau</h3>
-          <p class="sfc-text">Weißt du noch, wie dein Bankberater dir erklärt hat, dass dein Geld „gut aufgehoben" ist? Während die Bank dasselbe Geld für 5–7 % weiterverleiht und dir 1 % davon gibt. <strong style="color:var(--gold2)">Direkter Zugang zu BlackRock, Vanguard, Amundi</strong> – kein Ausgabeaufschlag, keine Bankkommission, 100 % von Tag 1 investiert.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">🌍 Weltweite Streuung</span>
-            <span class="sfc-tag">0% Ausgabeaufschlag</span>
-            <span class="sfc-tag">Ab 100 € / Monat</span>
-          </div>
-          <div class="sfc-actions">
-            <a href="#kontakt" class="svc-link svc-link--upload">Erstgespräch vereinbaren →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 02 Immobilien -->
-      <div class="svc-featured-card anim-up in">
-        <div class="sfc-num">02</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">🏡</div>
-          <h3 class="sfc-title">Eigenheim &amp; Kredit</h3>
-          <p class="sfc-text">Das Eigenheim ist kein Luxus – es ist ein Plan. Die meisten verschieben es, weil ihnen niemand gezeigt hat, wie es wirklich geht. Mit dem tilgungsfreien Konzept zahlst du <strong style="color:var(--gold2)">dieselbe Rate wie beim normalen Kredit</strong> – baust aber gleichzeitig ein Depot auf. 15+ Banken verglichen, beste Kondition gefunden.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">🏦 15+ Banken</span>
-            <span class="sfc-tag">Tilgungsfreies Konzept</span>
-            <span class="sfc-tag">Oft tausende € gespart</span>
-          </div>
-          <div class="sfc-actions">
-            <a href="#kontakt" class="svc-link svc-link--upload">Erstgespräch vereinbaren →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03 Pensionsvorsorge -->
-      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
-        <div class="sfc-num">03</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">🛡️</div>
-          <h3 class="sfc-title">Pensionsvorsorge</h3>
-          <p class="sfc-text">Die staatliche Pension wird nicht reichen – das weißt du. Die Frage ist: <em>Wie groß ist deine Lücke wirklich?</em> Ich berechne es konkret für deine Situation und zeige dir, wie du sie schließt – bevor es zu spät ist.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">📊 Ø −€700/Monat Lücke</span>
-            <span class="sfc-tag">Persönliche Berechnung</span>
-          </div>
-          <div class="sfc-actions">
-            <a href="pensionsluecke.html" class="svc-link">Lücke jetzt berechnen →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 04 Versicherung – MIT UPLOAD, kein eigener Abschnitt mehr -->
-      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
-        <div class="sfc-num">04</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">🔍</div>
-          <h3 class="sfc-title">Versicherungscheck</h3>
-          <p class="sfc-text">Die meisten zahlen seit Jahren für Policen, die sie nie hinterfragt haben. Lade deine Police hoch – ich zeige dir, was sie wirklich kostet und ob es bessere Alternativen gibt. Ohne dir selbst etwas zu verkaufen.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">📎 Police hochladen</span>
-            <span class="sfc-tag">Ergebnis in 24h</span>
-          </div>
-          <div class="sfc-actions">
-            <button onclick="openModal('versicherungFormModal')" class="svc-link svc-link--upload">Police hochladen →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 05 Depot -->
-      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
-        <div class="sfc-num">05</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">💼</div>
-          <h3 class="sfc-title">Depot &amp; bestehendes Geld</h3>
-          <p class="sfc-text">Schon ein Depot? Ich schau drüber – kostenlos, ohne Verpflichtung. Noch kein Depot? Ich zeig dir, wie du mit 150 € pro Monat anfängst. Österreichische Depotbank. KESt automatisch. Dein Geld bleibt dein Geld.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">📎 Depotauszug hochladen</span>
-            <span class="sfc-tag">Analyse in 24h</span>
-          </div>
-          <div class="sfc-actions">
-            <button onclick="openModal('depotFormModal')" class="svc-link svc-link--upload">Depot analysieren →</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 06 Kredit & Umschuldung -->
-      <div class="svc-featured-card anim-up in" style="border-top:2px solid rgba(200,151,59,.15)">
-        <div class="sfc-num">06</div>
-        <div class="sfc-body">
-          <div class="sfc-icon">💳</div>
-          <h3 class="sfc-title">Kredit &amp; Umschuldung</h3>
-          <p class="sfc-text">Ob PKW, Umschuldung oder Einrichtung – ein falscher Kredit kostet dich tausende Euro über die Laufzeit. Lade deinen Kreditvertrag hoch oder schreib mir kurz deine Situation. Ich vergleiche Banken und finde die beste Kondition.</p>
-          <div class="sfc-tags">
-            <span class="sfc-tag">📎 Kreditvertrag hochladen</span>
-            <span class="sfc-tag">15+ Banken Vergleich</span>
-          </div>
-          <div class="sfc-actions">
-            <button onclick="openModal('kreditFormModal')" class="svc-link svc-link--upload">Kredit analysieren →</button>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /6-card grid -->
-
-    <!-- HOW IT WORKS: 3 Schritte -->
-    <div class="upload-steps anim-up in" style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(200,151,59,.15)">
+    <!-- 3-SCHRITT -->
+    <div class="upload-steps anim-up in" style="margin-bottom:56px">
       <div class="us-step">
         <div class="us-num">1</div>
-        <div class="us-icon">📎</div>
-        <div class="us-title">Hochladen oder anfragen</div>
-        <div class="us-desc">Dokument anhängen oder kurz beschreiben – 2 Minuten</div>
+        <div class="us-icon">📋</div>
+        <div class="us-title">Formular ausfüllen</div>
+        <div class="us-desc">Button klicken, Fragen beantworten – 3 Minuten</div>
       </div>
       <div class="us-arrow">→</div>
       <div class="us-step">
@@ -2105,17 +2131,82 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
       </div>
     </div>
 
-    <!-- Single bottom CTA -->
-    <div class="anim-up in" style="text-align:center;margin-top:40px">
-      <p style="font-size:.96rem;color:rgba(255,255,255,.52);margin-bottom:18px;line-height:1.8">
-        Nicht sicher welche Leistung passt? Einfach schreiben –<br>
-        <strong style="color:rgba(255,255,255,.82)">ich finde gemeinsam mit dir den richtigen nächsten Schritt.</strong>
-      </p>
-      <a href="#kontakt" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-size:1rem">
-        💬 Kostenloses Erstgespräch →
-      </a>
-    </div>
+    <!-- 4 KARTEN -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="anim-up in">
 
+      <!-- KARTE 1 -->
+      <div class="upload-card" style="cursor:default">
+        <div class="upload-card-top" style="margin-bottom:12px">
+          <span class="upload-card-icon">🏡</span>
+          <span class="uc-badge-small">Eigenheim · Kredit · Umschuldung</span>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:900;color:var(--white);margin-bottom:10px">Kredit &amp; Finanzierung</h3>
+        <p class="card-desc">Du denkst ans Eigenheim, willst einen Kredit vergleichen oder einen bestehenden umschulden? Ich vergleiche 15+ Banken und finde die beste Kondition – ohne dass du einen Termin brauchst.</p>
+        <ul style="list-style:none;margin:14px 0 20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Eigenheim &amp; Baufinanzierung</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Umschuldung &amp; Konsumkredit</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Bestehenden Kredit prüfen lassen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Unterlagen optional hochladen</li>
+        </ul>
+        <button onclick="openModal('modalKredit')" class="btn-upload" style="margin-top:auto">📋 Jetzt anfragen →</button>
+        <div class="upload-privacy">Kostenlos · Antwort in 24h · Kein Verkaufsgespräch</div>
+      </div>
+
+      <!-- KARTE 2 -->
+      <div class="upload-card" style="cursor:default">
+        <div class="upload-card-top" style="margin-bottom:12px">
+          <span class="upload-card-icon">📈</span>
+          <span class="uc-badge-small">Geldanlage · Sparplan · Depot</span>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:900;color:var(--white);margin-bottom:10px">Investment &amp; bestehendes Depot</h3>
+        <p class="card-desc">Schon ein Depot? Ich schau drüber – kostenlos. Noch keins? Ich zeig dir wie du mit 100–200 € pro Monat anfängst. Kein Ausgabeaufschlag, dein Geld von Tag 1 zu 100% investiert.</p>
+        <ul style="list-style:none;margin:14px 0 20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Bestehendes Depot analysieren</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Sparplan ab 100 € / Monat starten</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Einmalbetrag sinnvoll anlegen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Depotauszug optional hochladen</li>
+        </ul>
+        <button onclick="openModal('modalDepot')" class="btn-upload" style="margin-top:auto">📋 Jetzt anfragen →</button>
+        <div class="upload-privacy">Kostenlos · Antwort in 24h · Kein Verkaufsgespräch</div>
+      </div>
+
+      <!-- KARTE 3 -->
+      <div class="upload-card" style="cursor:default">
+        <div class="upload-card-top" style="margin-bottom:12px">
+          <span class="upload-card-icon">🔍</span>
+          <span class="uc-badge-small">Police · Lebensversicherung · Fonds</span>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:900;color:var(--white);margin-bottom:10px">Versicherungscheck</h3>
+        <p class="card-desc">Die meisten zahlen seit Jahren für Policen die sie nie hinterfragt haben. Ich zeige dir was sie wirklich kosten, ob sie noch sinnvoll sind – ohne dir selbst etwas zu verkaufen.</p>
+        <ul style="list-style:none;margin:14px 0 20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Lebensversicherung prüfen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Fondspolice analysieren</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Unfallschutz &amp; Berufsunfähigkeit</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Police optional hochladen</li>
+        </ul>
+        <button onclick="openModal('modalVersicherung')" class="btn-upload" style="margin-top:auto">📋 Jetzt anfragen →</button>
+        <div class="upload-privacy">Kostenlos · Antwort in 24h · Kein Verkaufsgespräch</div>
+      </div>
+
+      <!-- KARTE 4 -->
+      <div class="upload-card" style="cursor:default">
+        <div class="upload-card-top" style="margin-bottom:12px">
+          <span class="upload-card-icon">🛡️</span>
+          <span class="uc-badge-small">Pension · Vorsorge · Lücke schließen</span>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:900;color:var(--white);margin-bottom:10px">Pensionsvorsorge</h3>
+        <p class="card-desc">Die staatliche Pension wird nicht reichen – das weißt du. Wie groß ist deine persönliche Lücke? Ich berechne es für dich und zeige dir wie du sie schließt, bevor es zu spät ist.</p>
+        <ul style="list-style:none;margin:14px 0 20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Persönliche Pensionslücke berechnen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Private Vorsorge aufbauen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Bestehende Vorsorge prüfen</li>
+          <li style="font-size:.82rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px"><span style="color:var(--gold)">✓</span> Strategie für dein Alter festlegen</li>
+        </ul>
+        <button onclick="openModal('modalPension')" class="btn-upload" style="margin-top:auto">📋 Jetzt anfragen →</button>
+        <div class="upload-privacy">Kostenlos · Antwort in 24h · Kein Verkaufsgespräch</div>
+      </div>
+
+    </div><!-- /grid -->
   </div>
 </section>
 
@@ -2705,7 +2796,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── NAV scroll shadow
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
@@ -2730,6 +2821,67 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.15 });
 document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
+
+
+/* Leist-form submit feedback */
+document.querySelectorAll('.leist-form').forEach(form => {
+  form.addEventListener('submit', function() {
+    const btn = this.querySelector('.leist-btn');
+    if(btn) {
+      setTimeout(() => {
+        btn.textContent = '✓ Gesendet! Ich melde mich innerhalb 24h.';
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+        btn.style.animation = 'none';
+      }, 200);
+    }
+  });
+});
+
+/* File upload label update */
+document.querySelectorAll('.lf-upload-label input[type=file]').forEach(inp => {
+  inp.addEventListener('change', function() {
+    const span = this.closest('label').querySelector('.lf-filename');
+    if(span) span.textContent = this.files[0]?.name || '';
+  });
+});
+
+
+/* Leist-form submit feedback */
+document.querySelectorAll('.leist-form').forEach(form => {
+  form.addEventListener('submit', function() {
+    const btn = this.querySelector('.leist-btn');
+    if(btn) {
+      setTimeout(() => {
+        btn.textContent = '✓ Gesendet! Ich melde mich innerhalb 24h.';
+        btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+        btn.style.animation = 'none';
+      }, 200);
+    }
+  });
+});
+
+function handleLeistSubmit(form) {
+  setTimeout(() => {
+    const btn = form.querySelector('button[type="submit"]');
+    if(btn){
+      btn.textContent = '✓ Gesendet! Mario meldet sich innerhalb 24h.';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+    }
+  }, 200);
+}
+
+
+function handleModalSubmit(form, modalId) {
+  setTimeout(() => {
+    const btn = form.querySelector('button[type="submit"]');
+    if(btn) {
+      btn.textContent = '✓ Gesendet! Mario meldet sich innerhalb 24h.';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+      btn.disabled = true;
+    }
+  }, 200);
+}
+
 </script>
 
 <!-- ══════════════════════════════════════════
@@ -3042,116 +3194,458 @@ document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
 ══════════════════════════════════════════ -->
 <script>
 
-/* QUIZ */
+/* ── QUIZ ── */
 function quizAnswer(btn, correct) {
   const opts = document.querySelectorAll('.qco');
   opts.forEach(b => {
     b.disabled = true;
     if (b === btn) b.classList.add(correct ? 'correct' : 'wrong');
+    else if (b.dataset && b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) b.classList.add('correct');
   });
-  // Find the correct btn (72 Jahre)
-  opts.forEach(b => { if (b.textContent.includes('72')) b.classList.add('correct'); });
-  
-  setTimeout(() => {
-    document.getElementById('qcQuestion').style.display = 'none';
-    const ans = document.getElementById('qcAnswer');
-    ans.style.display = 'block';
-    ans.style.animation = 'quizReveal .5s ease both';
-    document.getElementById('qcAnsNum').textContent = '72';
-    document.getElementById('qcAnsText').innerHTML = correct
-      ? '✓ Richtig! In 72 Jahren verdoppelt sich dein Geld bei 1% Zinsen. Fast ein ganzes Leben. <strong>Beim Investmentfonds mit Ø 7%? Nur 10 Jahre.</strong>'
-      : '✗ Leider falsch. Die Antwort ist 72 Jahre. Fast ein ganzes Menschenleben – für eine Verdopplung. <strong>Beim Investmentfonds? Nur 10 Jahre.</strong>';
-  }, 800);
+  const qNum = document.getElementById('qcAnsNum');
+  const qTxt = document.getElementById('qcAnsText');
+  if (correct) {
+    if (qNum) qNum.textContent = '72';
+    if (qTxt) qTxt.innerHTML = '<strong style="color:var(--green)">Richtig!</strong> 72 ÷ 1% = 72 Jahre. Bei 7% Investmentfonds: nur 10 Jahre. Selbes Geld – anderes Werkzeug.';
+  } else {
+    if (qNum) qNum.textContent = '72';
+    if (qTxt) qTxt.innerHTML = 'Fast! Die richtige Antwort ist <strong>72 Jahre</strong>. 72 ÷ 1% Zinsen = 72 Jahre bis zur Verdopplung. Bei 7% Fonds-Ø: nur 10 Jahre.';
+  }
+  document.getElementById('qcQuestion').style.display = 'none';
+  document.getElementById('qcAnswer').style.display = 'block';
 }
+
 function resetQuiz() {
   document.getElementById('qcQuestion').style.display = 'block';
   document.getElementById('qcAnswer').style.display = 'none';
   document.querySelectorAll('.qco').forEach(b => {
     b.disabled = false;
-    b.classList.remove('correct', 'wrong');
+    b.classList.remove('correct','wrong');
   });
 }
 
-
-function updateFinanzLabel(input) {
-  const label = document.getElementById('finanzFileLabel');
-  const zone = input.previousElementSibling;
-  if (input.files && input.files.length > 0) {
-    label.textContent = '✓ ' + Array.from(input.files).map(f => f.name).join(', ');
-    label.style.color = 'var(--green)';
-    if (zone) zone.classList.add('has-file');
-  }
+/* ── MODALS ── */
+function openModal(id) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; }
 }
-document.querySelectorAll('.drop-zone-modal').forEach(zone => {
-  zone.addEventListener('dragover', e => { e.preventDefault(); zone.style.borderColor = 'var(--gold)'; zone.style.background = 'rgba(200,151,59,.06)'; });
-  zone.addEventListener('dragleave', () => { zone.style.borderColor = ''; zone.style.background = ''; });
+function closeModal(id) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.remove('active'); document.body.style.overflow = ''; }
+}
+document.querySelectorAll('.modal').forEach(m => {
+  m.addEventListener('click', function(e) {
+    if (e.target === this) closeModal(this.id);
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal.active').forEach(m => closeModal(m.id));
+  }
+});
+
+/* ── MODAL FORM SUBMIT FEEDBACK ── */
+function handleModalSubmit(form, modalId) {
+  setTimeout(() => {
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      btn.textContent = '✓ Gesendet! Mario meldet sich innerhalb 24h.';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+      btn.disabled = true;
+    }
+  }, 200);
+}
+
+/* ── SCROLL ANIMATIONS ── */
+const animObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.anim-up:not(.in)').forEach(el => animObs.observe(el));
+
+/* ── NAV SCROLL SHADOW ── */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  const sticky = document.getElementById('stickyCta');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+  if (sticky) sticky.classList.toggle('show', window.scrollY > 600);
+});
+
+/* ── MOBILE MENU ── */
+const burger = document.getElementById('navBurger');
+const mobMenu = document.getElementById('mobMenu');
+if (burger && mobMenu) {
+  burger.addEventListener('click', () => mobMenu.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!burger.contains(e.target) && !mobMenu.contains(e.target)) {
+      mobMenu.classList.remove('open');
+    }
+  });
+}
+
+/* ── DROPDOWN NAV ── */
+document.querySelectorAll('.dropdown').forEach(dd => {
+  dd.addEventListener('mouseenter', () => dd.classList.add('open'));
+  dd.addEventListener('mouseleave', () => dd.classList.remove('open'));
+});
+
+/* ── FILE UPLOAD LABEL UPDATE ── */
+document.querySelectorAll('input[type="file"]').forEach(inp => {
+  inp.addEventListener('change', function() {
+    const span = this.parentElement.querySelector('.fn');
+    if (span) span.textContent = this.files[0]?.name || '';
+  });
+});
+
+/* ── DRAG & DROP ── */
+document.querySelectorAll('.drop-zone').forEach(zone => {
+  zone.addEventListener('dragover', e => {
+    e.preventDefault();
+    zone.classList.add('drag-over');
+  });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
   zone.addEventListener('drop', e => {
     e.preventDefault();
+    zone.classList.remove('drag-over');
     const inp = zone.nextElementSibling;
-    if (inp && e.dataTransfer.files.length) {
+    if (inp && inp.type === 'file' && e.dataTransfer.files.length) {
       try { inp.files = e.dataTransfer.files; } catch(err) {}
       inp.dispatchEvent(new Event('change'));
     }
   });
 });
 
-function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
-function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow=''}
-document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id)})});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.active').forEach(m=>closeModal(m.id))});
-
-function fmt(v){return'€'+v.toLocaleString('de-AT',{minimumFractionDigits:2,maximumFractionDigits:2})}
-
-function calculateSparplan(){
-  const r=parseFloat(document.getElementById('sparrate').value)||0;
-  const j=parseInt(document.getElementById('sparjahre').value)||0;
-  const p=parseFloat(document.getElementById('sparrendite').value)/100||0;
-  const m=j*12,mz=p/12;
-  const ev=mz>0?r*((Math.pow(1+mz,m)-1)/mz):r*m;
-  const ez=r*m;
-  document.getElementById('sparplanValue').textContent=fmt(ev);
-  document.getElementById('sparplanEinzahlung').textContent=fmt(ez);
-  document.getElementById('sparplanZinsen').textContent=fmt(ev-ez);
-  document.getElementById('sparplanResult').classList.add('show');
-}
-function calculateFinanzierung(){
-  const s=parseFloat(document.getElementById('darlehenssumme').value)||0;
-  const z=parseFloat(document.getElementById('zinssatz').value)/100||0;
-  const j=parseInt(document.getElementById('laufzeit').value)||0;
-  const m=j*12,mz=z/12;
-  const r=mz>0?s*(mz*Math.pow(1+mz,m))/(Math.pow(1+mz,m)-1):s/m;
-  const g=r*m;
-  document.getElementById('finanzierungRate').textContent=fmt(r);
-  document.getElementById('finanzierungGesamt').textContent=fmt(g);
-  document.getElementById('finanzierungZinsen').textContent=fmt(g-s);
-  document.getElementById('finanzierungResult').classList.add('show');
-}
-function calculateKredit(){
-  const b=parseFloat(document.getElementById('kreditbetrag').value)||0;
-  const z=parseFloat(document.getElementById('kreditzins').value)/100||0;
-  const m=parseInt(document.getElementById('kreditmonate').value)||0;
-  const mz=z/12;
-  const r=mz>0?b*(mz*Math.pow(1+mz,m))/(Math.pow(1+mz,m)-1):b/m;
-  const g=r*m;
-  document.getElementById('kreditRate').textContent=fmt(r);
-  document.getElementById('kreditGesamt').textContent=fmt(g);
-  document.getElementById('kreditZinsen').textContent=fmt(g-b);
-  document.getElementById('kreditResult').classList.add('show');
-}
-function checkAnswer(btn,correct){
-  btn.parentElement.querySelectorAll('.quiz-option').forEach(b=>{
-    b.disabled=true;
-    if(b===btn)b.classList.add(correct?'correct':'wrong');
-  });
+/* ── SPARPLAN RECHNER (falls Modal offen) ── */
+function calcSparplan() {
+  const rate = parseFloat(document.getElementById('sp_rate')?.value || 0);
+  const years = parseFloat(document.getElementById('sp_years')?.value || 0);
+  const ret = parseFloat(document.getElementById('sp_return')?.value || 7) / 100;
+  if (!rate || !years) return;
+  const months = years * 12;
+  const mr = ret / 12;
+  const fv = rate * ((Math.pow(1 + mr, months) - 1) / mr);
+  const invested = rate * months;
+  const el = document.getElementById('sp_result');
+  if (el) el.innerHTML = `<strong>Einzahlung:</strong> €${Math.round(invested).toLocaleString('de-AT')} · <strong style="color:var(--gold)">Endwert: €${Math.round(fv).toLocaleString('de-AT')}</strong>`;
 }
 
-// File upload label update
-function updateLabel(input,labelId){
-  if(input.files&&input.files.length>0){
-    document.getElementById(labelId).textContent='✓ '+Array.from(input.files).map(f=>f.name).join(', ');
-    document.getElementById(labelId).style.color='var(--gold2)';
-  }
-}
-// Drag & drop
-document.querySelectorAll('.drop-zone').forEach(zone=>{
-  zone.addEventListener('dra
+</script>
+
+
+<!-- ══ MODAL: KREDIT & FINANZIERUNG ══ -->
+<div id="modalKredit" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('modalKredit')">×</button>
+<h3 style="font-size:1.3rem;font-weight:900;color:var(--ink);margin-bottom:6px">🏡 Kredit &amp; Finanzierung</h3>
+<p style="font-size:.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6">Eigenheim, Umschuldung oder Konsumkredit – beantworte kurz ein paar Fragen. <strong>Pflichtfelder: nur Name, Telefon &amp; E-Mail.</strong> Alles andere hilft mir, dir sofort das beste Angebot zu zeigen.</p>
+<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data" onsubmit="handleModalSubmit(this,'modalKredit')">
+<input type="hidden" name="formular_typ" value="🏡 KREDIT & FINANZIERUNG">
+
+<div class="form-row">
+  <div class="form-group">
+    <label>Vorname &amp; Name *</label>
+    <input type="text" name="name" placeholder="Max Mustermann" required>
+  </div>
+  <div class="form-group">
+    <label>Telefon *</label>
+    <input type="tel" name="telefon" placeholder="+43 660 ..." required>
+  </div>
+</div>
+<div class="form-group">
+  <label>E-Mail *</label>
+  <input type="email" name="email" placeholder="deine@email.at" required>
+</div>
+<div class="form-group">
+  <label>Worum geht es? *</label>
+  <select name="kredit_art" required>
+    <option value="">Bitte wählen …</option>
+    <option>Eigenheim kaufen / Immobilienkauf</option>
+    <option>Hausbau / Baufinanzierung</option>
+    <option>Umschuldung – bestehender Kredit zu teuer</option>
+    <option>Konsumkredit (PKW, Einrichtung, Sonstiges)</option>
+    <option>Bestehendes Angebot prüfen lassen</option>
+  </select>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Finanzierungsbedarf ca. (€)</label>
+    <input type="number" name="betrag" placeholder="z.B. 250.000" min="1000">
+  </div>
+  <div class="form-group">
+    <label>Gewünschte Laufzeit (Jahre)</label>
+    <input type="number" name="laufzeit" placeholder="z.B. 25" min="1" max="35">
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Eigenkapital vorhanden (€)</label>
+    <input type="number" name="eigenkapital" placeholder="z.B. 50.000" min="0">
+  </div>
+  <div class="form-group">
+    <label>Nettoeinkommen / Monat (€)</label>
+    <input type="number" name="einkommen" placeholder="z.B. 2.800" min="0">
+  </div>
+</div>
+<div class="form-group">
+  <label>Hast du bereits ein Angebot oder einen Kredit?</label>
+  <select name="bestehendes_angebot">
+    <option value="">Bitte wählen …</option>
+    <option>Nein, noch nichts</option>
+    <option>Ja – ein Bankangebot liegt vor</option>
+    <option>Ja – bestehender Kredit soll geprüft werden</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Was ist dir bei der Finanzierung am wichtigsten?</label>
+  <select name="prioritaet">
+    <option value="">Bitte wählen …</option>
+    <option>Niedrigste monatliche Rate</option>
+    <option>Gesamtkosten so gering wie möglich</option>
+    <option>Flexibilität – Sondertilgungen möglich</option>
+    <option>Fixzins – Sicherheit über die Laufzeit</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Anmerkung / Situation kurz beschreiben</label>
+  <textarea name="anmerkung" rows="2" placeholder="z.B. Wir möchten 2025 kaufen, haben einen Makler, Grundbuchauszug liegt vor …"></textarea>
+</div>
+<div class="form-group">
+  <label style="cursor:pointer;display:flex;align-items:center;gap:10px;background:rgba(200,151,59,.07);border:1.5px dashed rgba(200,151,59,.35);border-radius:10px;padding:12px 14px;color:rgba(0,0,0,.55);font-size:.84rem;font-weight:600;text-transform:none;letter-spacing:0">
+    📎 Unterlagen hochladen <span style="font-size:.72rem;color:var(--muted);font-weight:400">(optional – Kreditvertrag, Angebot, Gehaltszettel)</span>
+    <input type="file" name="datei" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="this.parentElement.querySelector('.fn').textContent=this.files[0]?.name||''">
+    <span class="fn" style="font-size:.72rem;color:var(--gold);font-weight:700;margin-left:auto"></span>
+  </label>
+</div>
+<button type="submit" class="fm-submit btn-primary" style="width:100%;justify-content:center;margin-top:8px">📋 Anfrage absenden →</button>
+<p class="fm-trust">🔒 Vertraulich · Nur Mario sieht deine Daten · Antwort innerhalb 24h · Kostenlos</p>
+</form>
+</div>
+</div>
+
+<!-- ══ MODAL: INVESTMENT & DEPOT ══ -->
+<div id="modalDepot" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('modalDepot')">×</button>
+<h3 style="font-size:1.3rem;font-weight:900;color:var(--ink);margin-bottom:6px">📈 Investment &amp; bestehendes Depot</h3>
+<p style="font-size:.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6">Schon ein Depot oder möchtest du neu anlegen? <strong>Pflichtfelder: nur Name, Telefon &amp; E-Mail.</strong> Alle weiteren Angaben helfen mir, dir direkt die richtige Lösung zu zeigen.</p>
+<form action="https://formspree.io/f/mzdryjoe" method="POST" class="web-form" enctype="multipart/form-data" onsubmit="handleModalSubmit(this,'modalDepot')">
+<input type="hidden" name="formular_typ" value="📈 INVESTMENT & DEPOT">
+
+<div class="form-row">
+  <div class="form-group">
+    <label>Vorname &amp; Name *</label>
+    <input type="text" name="name" placeholder="Max Mustermann" required>
+  </div>
+  <div class="form-group">
+    <label>Telefon *</label>
+    <input type="tel" name="telefon" placeholder="+43 660 ..." required>
+  </div>
+</div>
+<div class="form-group">
+  <label>E-Mail *</label>
+  <input type="email" name="email" placeholder="deine@email.at" required>
+</div>
+<div class="form-group">
+  <label>Was ist dein Ziel? *</label>
+  <select name="ziel" required>
+    <option value="">Bitte wählen …</option>
+    <option>Bestehendes Depot analysieren lassen</option>
+    <option>Neu anlegen – monatlicher Sparplan</option>
+    <option>Einmalbetrag sinnvoll investieren</option>
+    <option>Geld vom Sparbuch besser anlegen</option>
+    <option>Pensionsvorsorge über Fonds aufbauen</option>
+  </select>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Sparrate / Monat ca. (€)</label>
+    <input type="number" name="sparrate" placeholder="z.B. 150" min="50">
+  </div>
+  <div class="form-group">
+    <label>Anlagehorizont ca. (Jahre)</label>
+    <input type="number" name="horizont" placeholder="z.B. 20" min="1">
+  </div>
+</div>
+<div class="form-group">
+  <label>Risikobereitschaft</label>
+  <select name="risiko">
+    <option value="">Bitte wählen …</option>
+    <option>Sicherheitsorientiert – kein Verlust</option>
+    <option>Ausgewogen – etwas Schwankung okay</option>
+    <option>Wachstumsorientiert – langfristig denken</option>
+    <option>Bin mir noch nicht sicher</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Depotbank / Broker (falls vorhanden)</label>
+  <input type="text" name="depotbank" placeholder="z.B. Erste Bank, Flatex, Raiffeisen, Comdirect …">
+</div>
+<div class="form-group">
+  <label>ISIN-Nummern meiner Positionen <span style="font-weight:400;font-size:.8rem;color:var(--muted)">(optional – sehr hilfreich)</span></label>
+  <textarea name="isin" rows="2" placeholder="z.B. IE00B4L5Y983&#10;LU0274208692&#10;(eine ISIN pro Zeile)" style="font-family:monospace;font-size:.85rem"></textarea>
+</div>
+<div class="form-group">
+  <label style="cursor:pointer;display:flex;align-items:center;gap:10px;background:rgba(200,151,59,.07);border:1.5px dashed rgba(200,151,59,.35);border-radius:10px;padding:12px 14px;color:rgba(0,0,0,.55);font-size:.84rem;font-weight:600;text-transform:none;letter-spacing:0">
+    📎 Depotauszug hochladen <span style="font-size:.72rem;color:var(--muted);font-weight:400">(optional – PDF, JPG, PNG)</span>
+    <input type="file" name="datei" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="this.parentElement.querySelector('.fn').textContent=this.files[0]?.name||''">
+    <span class="fn" style="font-size:.72rem;color:var(--gold);font-weight:700;margin-left:auto"></span>
+  </label>
+</div>
+<button type="submit" class="fm-submit btn-primary" style="width:100%;justify-content:center;margin-top:8px">📋 Anfrage absenden →</button>
+<p class="fm-trust">🔒 Vertraulich · Nur Mario sieht deine Daten · Antwort innerhalb 24h · Kostenlos</p>
+</form>
+</div>
+</div>
+
+<!-- ══ MODAL: VERSICHERUNGSCHECK ══ -->
+<div id="modalVersicherung" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('modalVersicherung')">×</button>
+<h3 style="font-size:1.3rem;font-weight:900;color:var(--ink);margin-bottom:6px">🔍 Versicherungscheck</h3>
+<p style="font-size:.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6">Lade deine Police hoch oder beschreib deine Versicherung kurz. <strong>Pflichtfelder: nur Name, Telefon &amp; E-Mail.</strong> Ich prüfe kostenlos und ohne dir selbst etwas zu verkaufen.</p>
+<form action="https://formspree.io/f/mqeqwynk" method="POST" class="web-form" enctype="multipart/form-data" onsubmit="handleModalSubmit(this,'modalVersicherung')">
+<input type="hidden" name="formular_typ" value="🔍 VERSICHERUNGSCHECK">
+
+<div class="form-row">
+  <div class="form-group">
+    <label>Vorname &amp; Name *</label>
+    <input type="text" name="name" placeholder="Max Mustermann" required>
+  </div>
+  <div class="form-group">
+    <label>Telefon *</label>
+    <input type="tel" name="telefon" placeholder="+43 660 ..." required>
+  </div>
+</div>
+<div class="form-group">
+  <label>E-Mail *</label>
+  <input type="email" name="email" placeholder="deine@email.at" required>
+</div>
+<div class="form-group">
+  <label>Versicherungstyp *</label>
+  <select name="versicherungstyp" required>
+    <option value="">Bitte wählen …</option>
+    <option>Lebensversicherung</option>
+    <option>Fondsgebundene Lebensversicherung</option>
+    <option>Rentenversicherung / Pensionsvorsorge</option>
+    <option>Unfallversicherung</option>
+    <option>Berufsunfähigkeit</option>
+    <option>Mehrere / Bin mir nicht sicher</option>
+  </select>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Versicherungsunternehmen</label>
+    <input type="text" name="versicherungsunternehmen" placeholder="z.B. Uniqa, Allianz, Wiener Städtische …">
+  </div>
+  <div class="form-group">
+    <label>Monatliche Prämie ca. (€)</label>
+    <input type="number" name="praemie" placeholder="z.B. 85" min="1">
+  </div>
+</div>
+<div class="form-group">
+  <label>Seit wann läuft die Versicherung?</label>
+  <select name="laufzeit">
+    <option value="">Bitte wählen …</option>
+    <option>Weniger als 2 Jahre</option>
+    <option>2–5 Jahre</option>
+    <option>5–10 Jahre</option>
+    <option>Länger als 10 Jahre</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Was soll geprüft werden?</label>
+  <select name="pruefungsauftrag">
+    <option value="">Bitte wählen …</option>
+    <option>Ist die Police noch zeitgemäß / sinnvoll?</option>
+    <option>Zahle ich zu viel?</option>
+    <option>Gibt es bessere Alternativen?</option>
+    <option>Soll ich kündigen oder behalten?</option>
+    <option>Allgemeine Einschätzung</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Anmerkung</label>
+  <textarea name="anmerkung" rows="2" placeholder="z.B. Ich habe die Police 2012 abgeschlossen und weiß nicht ob das noch gut ist …"></textarea>
+</div>
+<div class="form-group">
+  <label style="cursor:pointer;display:flex;align-items:center;gap:10px;background:rgba(200,151,59,.07);border:1.5px dashed rgba(200,151,59,.35);border-radius:10px;padding:12px 14px;color:rgba(0,0,0,.55);font-size:.84rem;font-weight:600;text-transform:none;letter-spacing:0">
+    📎 Police hochladen <span style="font-size:.72rem;color:var(--muted);font-weight:400">(optional – Polizzennummer, Jahresabrechnung)</span>
+    <input type="file" name="datei" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="this.parentElement.querySelector('.fn').textContent=this.files[0]?.name||''">
+    <span class="fn" style="font-size:.72rem;color:var(--gold);font-weight:700;margin-left:auto"></span>
+  </label>
+</div>
+<button type="submit" class="fm-submit btn-primary" style="width:100%;justify-content:center;margin-top:8px">📋 Anfrage absenden →</button>
+<p class="fm-trust">🔒 Vertraulich · Nur Mario sieht deine Daten · Antwort innerhalb 24h · Kostenlos</p>
+</form>
+</div>
+</div>
+
+<!-- ══ MODAL: PENSIONSVORSORGE ══ -->
+<div id="modalPension" class="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal('modalPension')">×</button>
+<h3 style="font-size:1.3rem;font-weight:900;color:var(--ink);margin-bottom:6px">🛡️ Pensionsvorsorge</h3>
+<p style="font-size:.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6">Ich berechne deine persönliche Pensionslücke und zeige dir wie du sie schließt. <strong>Pflichtfelder: nur Name, Telefon &amp; E-Mail.</strong> Der Rest hilft mir, dir eine ehrliche Einschätzung zu geben.</p>
+<form action="https://formspree.io/f/mdagqzag" method="POST" class="web-form" onsubmit="handleModalSubmit(this,'modalPension')">
+<input type="hidden" name="formular_typ" value="🛡️ PENSIONSVORSORGE">
+
+<div class="form-row">
+  <div class="form-group">
+    <label>Vorname &amp; Name *</label>
+    <input type="text" name="name" placeholder="Max Mustermann" required>
+  </div>
+  <div class="form-group">
+    <label>Telefon *</label>
+    <input type="tel" name="telefon" placeholder="+43 660 ..." required>
+  </div>
+</div>
+<div class="form-group">
+  <label>E-Mail *</label>
+  <input type="email" name="email" placeholder="deine@email.at" required>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Aktuelles Alter</label>
+    <input type="number" name="alter" placeholder="z.B. 34" min="18" max="65">
+  </div>
+  <div class="form-group">
+    <label>Nettoeinkommen / Monat (€)</label>
+    <input type="number" name="nettoeinkommen" placeholder="z.B. 2.800" min="500">
+  </div>
+</div>
+<div class="form-group">
+  <label>Was ist dir bei der Vorsorge am wichtigsten? *</label>
+  <select name="prioritaet" required>
+    <option value="">Bitte wählen …</option>
+    <option>Sicherheit – ich will kein Risiko eingehen</option>
+    <option>Rendite – mein Geld soll wachsen</option>
+    <option>Flexibilität – jederzeit verfügbar</option>
+    <option>Steuervorteile nutzen</option>
+    <option>Bin noch unsicher – brauche Orientierung</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Hast du bereits eine Vorsorge?</label>
+  <select name="bestehende_vorsorge">
+    <option value="">Bitte wählen …</option>
+    <option>Nein, noch keine</option>
+    <option>Ja – möchte prüfen ob die gut ist</option>
+    <option>Ja – staatliche Pension reicht mir nicht</option>
+    <option>Sparbuch / Lebensversicherung vorhanden</option>
+  </select>
+</div>
+<div class="form-group">
+  <label>Wieviel könntest du ca. / Monat zur Seite legen? (€)</label>
+  <input type="number" name="sparrate" placeholder="z.B. 150" min="50">
+</div>
+<div class="form-group">
+  <label>Was beschäftigt dich zum Thema Pension?</label>
+  <textarea name="nachricht" rows="2" placeholder="z.B. Ich weiß nicht wo ich anfangen soll. Ich hab Angst dass es zu spät ist. Meine Lebensversicherung läuft in 5 Jahren aus …"></textarea>
+</div>
+<button type="submit" class="fm-submit btn-primary" style="width:100%;justify-content:center;margin-top:8px">📋 Anfrage absenden →</button>
+<p class="fm-trust">🔒 Nur Mario sieht deine Daten · Kostenlos · Kein Verkaufsgespräch · Antwort in 24h</p>
+</form>
+</div>
+</div>
+
+</body>
+</html>
