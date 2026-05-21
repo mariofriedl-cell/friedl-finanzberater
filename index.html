@@ -857,7 +857,7 @@ nav.scrolled{box-shadow:0 4px 30px rgba(15,25,35,.08)}
 footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 .footer-top{
   max-width:1140px;margin:0 auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:50px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:50px;
 }
 .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin-bottom:14px}
 .footer-brand p{font-size:.88rem;line-height:1.8;color:rgba(255,255,255,.4)}
@@ -1997,27 +1997,31 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
   </span>
 </div>
 
-    <h1 class="h-display">Arbeitest. Sparst. Sorgst.<br><em class="gold">Geld richtig anlegen –</em><br>aber wie?</h1>
+    <h1 class="h-display">Du machst alles richtig.<br><em class="gold">Und trotzdem reicht es nicht.</em></h1>
 
     <div class="hero-story">
-      <div class="hs-tag">Eine Frage · 2008</div>
+      <div class="hs-tag">Finanzberater Graz · Meine Geschichte</div>
       <div class="hs-body">
-        <p class="hs-line-big">Du arbeitest. Du sorgst für deine Familie. Du legst zur Seite, was geht. <strong>Aber am Monatsende ist das Gefühl immer dasselbe.</strong></p>
-        <p class="hs-line-muted">Bausparvertrag. Sparbuch. Lebensversicherung. Du tust, was dir die Bank empfohlen hat. Die Wohnung bleibt ein Traum. Die Pension irgendwie unsicher. Und dieses leise Gefühl: du läufst im Kreis – ohne voranzukommen. Ich kenne das. Mit 22 und <strong>€ 30.000 Schulden</strong> war das mein Alltag. Bis mir jemand gezeigt hat, wie Geld wirklich funktioniert.</p>
-        <p class="hs-line-pain"><em>Fleißig. Verantwortungsbewusst. Und trotzdem dreht sich das Rad immer schneller – ohne dass mehr bleibt.</em></p>
+        <p class="hs-line-big">Jeden Monat: gleicher Plan. Arbeiten. <strong>Geld richtig anlegen</strong> wollen. Familie versorgen. Du tust, was du kannst – manchmal sogar mehr.</p>
+        <p class="hs-line-muted">Und trotzdem ist da am Monatsende immer dieses Gefühl. Das Eigenheim rückt nicht näher. Die Pension fühlt sich unsicher an. Du sparst – aber es reicht nicht. Du hast immer das Richtige getan: brav gespart, vorgesorgt, zur Seite gelegt. <strong>Das ist nicht dein Fehler.</strong></p>
+        <p class="hs-line-pain"><em>Niemand hat uns beigebracht, wie <strong>Geld wirklich funktioniert</strong>. Die meisten kämpfen still gegen die Inflation – und verlieren, ohne es zu merken.</em></p>
         <div class="hs-wende">
           <span class="hs-dot"></span>
-          <span>Das war meine Situation. Heute zeige ich dir den Weg raus.</span>
+          <span>2008. Mit 22 Jahren und <strong>€ 30.000 Schulden</strong>. Bis mir jemand eine einzige Frage stellte, die alles veränderte.</span>
+        </div>
+        <div class="hs-wende" style="margin-top:10px">
+          <span class="hs-dot"></span>
+          <span>Seitdem zeige ich Menschen in <strong>Graz und der Steiermark</strong>, dass es anders geht. Nicht durch Wunder. Nicht durch Sparen bis zum Umfallen. Sondern durch einen Plan – einen, der zu dir passt. Zu deinem Leben. Zu deinen Träumen.</span>
         </div>
       </div>
     </div>
 
     <p class="hero-sub">
-      Stell dir vor: Dein Geld arbeitet richtig – für dich, nicht für die Bank. Familie abgesichert. Eigenheim greifbar. Pension klar. <em style="color:var(--gold)">So geht Geld richtig investieren – und es beginnt mit einem Abend.</em>
+      Nicht durch Sparen bis zum Umfallen. Sondern durch <strong>Geld richtig investieren</strong> – mit einer Strategie, die zu dir passt. Zu deinem Leben. Zu deinen Träumen. <em style="color:var(--gold)">Und ja – es beginnt mit einem Gespräch.</em>
     </p>
-    <div class="hero-ctas">
+        <div class="hero-ctas">
       <a href="info-abend.html" class="btn-gold">🍷 Kostenlosen Info-Abend sichern →</a>
-      <a href="#upload" class="btn-outline">📎 Direkt Unterlagen hochladen</a>
+      <a href="#leistungen" onclick="setTimeout(function(){openModal('modalKredit')},400)" class="btn-outline">📎 Direkt Unterlagen hochladen</a>
     </div>
     <div class="hero-badges">
       <div class="hb-item"><div class="hb-icon">✓</div> FMA-konzessioniert</div>
@@ -2062,47 +2066,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
     </div>
   </div>
 </section>
-<!-- ══ TRUST & VERIFIKATION BAR ══ -->
-<div style="background:#f8f5ee;border-top:1px solid rgba(200,151,59,.2);border-bottom:1px solid rgba(200,151,59,.2);padding:16px 24px">
-  <div style="max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap">
 
-    <a href="https://www.fma.gv.at/finanzdienstleister/wertpapierdienstleister/abfrage-vgv-und-wpv/" target="_blank" rel="noopener noreferrer"
-       style="display:flex;align-items:center;gap:8px;text-decoration:none;background:#fff;border:1.5px solid rgba(200,151,59,.4);border-radius:10px;padding:9px 16px;transition:all .2s"
-       title="FMA-Registrierung öffentlich prüfbar – GISA 35679738">
-      <span style="font-size:1.1rem">🏛️</span>
-      <div>
-        <div style="font-size:.62rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#c8973b">Verifikation</div>
-        <div style="font-size:.82rem;font-weight:700;color:#0f1923">FMA-Register · GISA 35679738</div>
-      </div>
-      <span style="font-size:.7rem;color:#c8973b;margin-left:4px">↗</span>
-    </a>
-
-    <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid rgba(0,0,0,.08);border-radius:10px;padding:9px 16px">
-      <span style="font-size:1.1rem">🏢</span>
-      <div>
-        <div style="font-size:.62rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#6b7a8d">Gesellschaft</div>
-        <div style="font-size:.82rem;font-weight:700;color:#0f1923">EQUALITY EH GmbH · FN 462897 g</div>
-      </div>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid rgba(0,0,0,.08);border-radius:10px;padding:9px 16px">
-      <span style="font-size:1.1rem">🛡️</span>
-      <div>
-        <div style="font-size:.62rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#6b7a8d">Haftungsträger</div>
-        <div style="font-size:.82rem;font-weight:700;color:#0f1923">TopTen / FiNUM.Private Finance AG</div>
-      </div>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid rgba(0,0,0,.08);border-radius:10px;padding:9px 16px">
-      <span style="font-size:1.1rem">📍</span>
-      <div>
-        <div style="font-size:.62rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#6b7a8d">Standort</div>
-        <div style="font-size:.82rem;font-weight:700;color:#0f1923">Graz · Steiermark · Österreich</div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
 <!-- ══ TICKER ══ -->
@@ -2160,64 +2124,73 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 
   <!-- LINKS: SPARBUCH -->
   <div style="background:#1a2535;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden">
-    <!-- Header -->
     <div style="background:#1e2a38;padding:18px 16px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center">
-      <div style="font-size:.6rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#8a9bb0;margin-bottom:6px">🏦 SPARBUCH</div>
+      <div style="font-size:.6rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#8a9bb0;margin-bottom:6px">🏦 SPARBUCH ÖSTERREICH</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:rgba(255,255,255,.7)">€ 10.000</div>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-top:3px">Einmalig angelegt</div>
+      <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-top:3px">Angelegt 01.01.2000</div>
     </div>
-    <!-- Werte -->
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
-      <div style="font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Zinsen p.a.</div>
-      <div style="font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.6)">≈ 0,1 %</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <div style="font-size:.62rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Ø Zins p.a. 2000–2024</div>
+      <div style="font-size:1.05rem;font-weight:700;color:rgba(255,255,255,.6)">1,59 %</div>
     </div>
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
-      <div style="font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Inflation</div>
-      <div style="font-size:.95rem;font-weight:700;color:#e07070">❌ Frisst Kaufkraft</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <div style="font-size:.62rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Ø Inflation p.a.</div>
+      <div style="font-size:1.05rem;font-weight:700;color:#e07070">2,48 % ❌</div>
     </div>
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
-      <div style="font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">nach 25 Jahren</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#e07070">€ 8.110</div>
-      <div style="font-size:.7rem;color:#e07070;margin-top:2px">real weniger wert</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <div style="font-size:.62rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Nominalwert Ende 2024</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:rgba(255,255,255,.55)">€ 14.796</div>
     </div>
-    <div style="padding:12px 16px;background:rgba(239,68,68,.08);text-align:center">
-      <div style="font-size:.75rem;color:#e07070;font-weight:700">– € 1.890 Kaufkraftverlust</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <div style="font-size:.62rem;color:#e07070;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Reale Kaufkraft (in € von 2000)</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:#e07070">€ 8.228</div>
+    </div>
+    <div style="padding:11px 16px;background:rgba(239,68,68,.08);text-align:center">
+      <div style="font-size:.75rem;color:#e07070;font-weight:700">Real − € 1.772 Kaufkraftverlust</div>
     </div>
   </div>
 
   <!-- RECHTS: INVESTMENTFONDS -->
   <div style="background:rgba(12,172,106,.08);border:1px solid rgba(12,172,106,.3);border-radius:16px;overflow:hidden">
-    <!-- Header -->
     <div style="background:rgba(12,172,106,.18);padding:18px 16px;border-bottom:1px solid rgba(12,172,106,.2);text-align:center">
-      <div style="font-size:.6rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:6px">📈 INVESTMENTFONDS</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--white)">€ 10.000</div>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:3px">Einmalig angelegt</div>
+      <div style="font-size:.6rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#0a6e42;margin-bottom:6px">📈 MSCI WORLD FONDS</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#0f2a1a">€ 10.000</div>
+      <div style="font-size:.72rem;color:#2a5a3a;margin-top:3px">Angelegt 01.01.2000</div>
     </div>
-    <!-- Werte -->
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
-      <div style="font-size:.65rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Rendite p.a.</div>
-      <div style="font-size:1.1rem;font-weight:700;color:var(--green)">≈ 7–8 %</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
+      <div style="font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Ø Rendite p.a. 2000–2024*</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--green)">6,8 % ✓</div>
     </div>
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
-      <div style="font-size:.65rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Wertschutz</div>
-      <div style="font-size:.95rem;font-weight:700;color:var(--green)">✓ Sachwerte</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
+      <div style="font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Inflationsschutz</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--green)">Sachwerte ✓</div>
     </div>
-    <div style="padding:14px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
-      <div style="font-size:.65rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">nach 25 Jahren</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--green)">€ 43.800</div>
-      <div style="font-size:.7rem;color:var(--green);margin-top:2px">historischer Ø*</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
+      <div style="font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Wert Ende 2024*</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--green)">€ 52.349</div>
     </div>
-    <div style="padding:12px 16px;background:rgba(12,172,106,.15);text-align:center">
-      <div style="font-size:.75rem;color:var(--green);font-weight:700">+ € 33.800 Gewinn</div>
+    <div style="padding:13px 16px;border-bottom:1px solid rgba(12,172,106,.15)">
+      <div style="font-size:.62rem;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Trotz 3 großer Crashs</div>
+      <div style="font-size:.9rem;font-weight:700;color:var(--green)">2002 · 2008 · 2022 ✓</div>
+    </div>
+    <div style="padding:11px 16px;background:rgba(12,172,106,.15);text-align:center">
+      <div style="font-size:.75rem;color:var(--green);font-weight:700">+ € 42.349 Wertzuwachs</div>
     </div>
   </div>
 
 </div>
-<!-- Unterschied -->
-<div style="text-align:center;margin-top:12px;padding:12px 16px;background:rgba(200,151,59,.08);border:1px solid rgba(200,151,59,.2);border-radius:10px">
-  <div style="font-size:.7rem;color:rgba(255,255,255,.4);margin-bottom:4px">Unterschied nach 25 Jahren</div>
-  <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold)">+ € 35.690</div>
-  <div style="font-size:.7rem;color:rgba(255,255,255,.3);margin-top:2px">aus derselben Ausgangssumme</div>
+<!-- Unterschied + Quellen -->
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+  <div style="text-align:center;padding:14px 16px;background:rgba(200,151,59,.12);border:1px solid rgba(200,151,59,.3);border-radius:10px">
+    <div style="font-size:.7rem;color:#5a4a2a;margin-bottom:4px;font-weight:600">Unterschied nach 25 Jahren – gleiche Ausgangssumme</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold)">+ € 44.121</div>
+    <div style="font-size:.7rem;color:#7a6040;margin-top:2px">Fonds real vs. Sparbuch real</div>
+  </div>
+  <div style="padding:10px 14px;background:rgba(0,0,0,.05);border-radius:8px;font-size:.68rem;color:#4a4a4a;line-height:1.7">
+    * Modellrechnung auf Basis MSCI World Net Return EUR (Quellensteuer abgezogen). Inkl. Dotcom-Crash 2002, Finanzkrise 2008, Zinsschock 2022.<br>
+    <strong style="color:#2a2a2a">Quellen:</strong> OeNB Einlagenzinssätze | Statistik Austria VPI (783,8 → 1.409,5) | WKO Langzeit-Inflation | MSCI World Net EUR (investingintheweb.com)<br>
+    WAG 2018 § 46: Historische Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen können zum Verlust des eingesetzten Kapitals führen.
+  </div>
 </div>>
           <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:4px">
             <div style="padding:20px 22px;border-right:2px solid rgba(224,112,112,.3);background:rgba(224,112,112,.08);border-top:2px solid rgba(224,112,112,.3)">
@@ -2624,7 +2597,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <div class="ia-seats">
           <div class="ia-seats-text"><span>Platzverfügbarkeit</span><span>25 gesamt</span></div>
           <div class="ia-seats-bar"><div class="ia-seats-fill"></div></div>
-          <strong>🔥 Nur noch 8 Plätze verfügbar!</strong>
+          <strong>🔥 Nur noch 10 Plätze verfügbar!</strong>
         </div>
       </div>
     </div>
@@ -2705,7 +2678,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <div>
           <div style="font-size:.68rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">📅 Nächster Termin</div>
           <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#fff;line-height:1.1">06.–07. Juni 2026</div>
-          <div style="font-size:.88rem;color:rgba(255,255,255,.5);margin-top:4px">Genusshotel Riegersburg</div>
+          <div style="font-size:.88rem;color:rgba(255,255,255,.5);margin-top:4px">Alpenblick Hotel Linz</div>
         </div>
         <div style="background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.2);border-radius:10px;padding:12px 18px;text-align:center;flex-shrink:0">
           <div style="font-size:.65rem;color:rgba(255,255,255,.4);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Noch frei</div>
@@ -3051,12 +3024,22 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
         <li><a href="historischer-inflationsrechner.html">Inflationsrechner</a></li>
       </ul>
     </div>
+    <div class="footer-col">
+      <h4>Verifikation</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.fma.gv.at/finanzdienstleister/wertpapierdienstleister/abfrage-vgv-und-wpv/" target="_blank" rel="noopener noreferrer" style="font-size:.82rem">🏛️ FMA-Register · GISA 35679738 ↗</a></li>
+        <li style="color:rgba(255,255,255,.45);font-size:.82rem">🏢 EQUALITY EH GmbH · FN 462897 g</li>
+        <li style="color:rgba(255,255,255,.45);font-size:.82rem">🛡️ TopTen / FiNUM.Private Finance AG</li>
+        <li style="color:rgba(255,255,255,.45);font-size:.82rem">📍 Graz · Steiermark · Österreich</li>
+      </ul>
+    </div>
   </div>
+
   <div style="max-width:1140px;margin:0 auto 24px;padding:20px 24px;background:rgba(200,151,59,.06);border-radius:12px;border-left:3px solid rgba(200,151,59,.3)">
     <p style="font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.75;margin:0"><strong style="color:rgba(255,255,255,.5)">Risikohinweis:</strong> Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können neben Gewinnen auch zum Verlust des eingesetzten Kapitals führen. Wertentwicklungen der Vergangenheit stellen keinen verlässlichen Indikator für die Zukunft dar.</p>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz</span>
+    <span>© 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz · <a href="mailto:mario.friedl@equality-co.at" style="color:rgba(255,255,255,.75);font-weight:600;text-decoration:none">mario.friedl@equality-co.at</a> · <a href="tel:+436605256328" style="color:rgba(255,255,255,.75);font-weight:600;text-decoration:none">+43 660 5256328</a></span>
     <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
@@ -3066,7 +3049,7 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
   <div class="sticky-text"><strong>Unterlagen hochladen</strong> – Analyse kostenlos, Antwort in 24h, kein Bürotermin</div>
   <div class="sticky-actions">
     <div class="sticky-pill">FMA-konzessioniert</div>
-    <a href="#upload" class="btn-gold" style="font-size:.9rem;padding:11px 24px">📎 Jetzt hochladen →</a>
+    <a href="#leistungen" onclick="setTimeout(function(){openModal('modalKredit')},400)" class="btn-gold" style="font-size:.9rem;padding:11px 24px">📎 Jetzt hochladen →</a>
   </div>
 </div>
 
