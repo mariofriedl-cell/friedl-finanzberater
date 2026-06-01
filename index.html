@@ -3744,5 +3744,19 @@ function calcSparplan() {
 </div>
 </div>
 
+<!-- ══ SCROLL TO TOP ══ -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(200,151,59,.4);opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s;z-index:999" aria-label="Nach oben">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M4 9l5-5 5 5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<script>
+const st=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{
+  const show=window.scrollY>400;
+  st.style.opacity=show?'1':'0';
+  st.style.transform=show?'translateY(0)':'translateY(12px)';
+  st.style.pointerEvents=show?'auto':'none';
+});
+</script>
+
 </body>
 </html>
