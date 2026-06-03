@@ -1926,6 +1926,40 @@ footer{background:var(--ink);padding:60px 28px 30px;color:rgba(255,255,255,.4)}
 @media(max-width:860px){
   [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
+/* ── SCROLL TO TOP ── */
+#scrollTopBtn{
+  position:fixed;
+  bottom:90px;
+  right:22px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#e8a830);
+  color:var(--ink);
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+  font-weight:900;
+  box-shadow:0 4px 18px rgba(200,151,59,.45);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .25s,transform .25s;
+  z-index:98;
+}
+#scrollTopBtn.visible{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+#scrollTopBtn:hover{
+  background:linear-gradient(135deg,#e8a830,var(--gold));
+  box-shadow:0 6px 24px rgba(200,151,59,.6);
+  transform:translateY(-2px);
+}
 </style>
 </head>
 <body>
@@ -3761,5 +3795,12 @@ function calcSparplan() {
 </div>
 </div>
 
+<!-- SCROLL TO TOP -->
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Nach oben" aria-label="Seitenanfang">&#8679;</button>
+<script>
+window.addEventListener('scroll',function(){
+  document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 400);
+});
+</script>
 </body>
 </html>
