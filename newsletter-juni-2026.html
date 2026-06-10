@@ -4,659 +4,628 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>Mario Friedl · Newsletter Juni 2026 | Fonds, Gold & Wartekosten</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Feivel's Finanz News | Juni 2026 | Fonds, Gold & Wartekosten</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{min-height:100%;background:#0f1923}
+html,body{min-height:100%;background:#0B1219}
 :root{
-  --gold:#c8973b;--gold2:#e0aa4a;
-  --dark:#0f1923;--dark2:#141f2d;--dark3:#1a2535;
-  --cream:#f8f5ee;--text:#e8e0d4;
-  --muted:rgba(255,255,255,.45);--soft:rgba(255,255,255,.08);
-  --green:#0cac6a;--red:#e07070;--border:rgba(200,151,59,.2);
+  --gold:#C8973B;--gold2:#E8B84B;
+  --dark:#0F1923;--dark2:#141F2D;--dark3:#1C2A3A;
+  --green:#22C55E;--red:#EF4444;
+  --text-bright:#F0EBE3;--text-mid:rgba(240,235,227,.65);--text-dim:rgba(240,235,227,.35);
+  --border:rgba(200,151,59,.18);--border-soft:rgba(255,255,255,.07);
 }
-body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.75;background:#0f1923}
-.wrapper{max-width:720px;margin:0 auto;background:var(--dark);min-height:100vh}
+body{font-family:'Inter',sans-serif;color:var(--text-mid);line-height:1.75;background:#0B1219}
 
 /* ── TICKER ── */
-.ticker-wrap{background:#0a111a;overflow:hidden;border-bottom:1px solid rgba(200,151,59,.2);padding:10px 0;position:relative}
-.ticker-wrap::before,.ticker-wrap::after{
-  content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
-}
-.ticker-wrap::before{left:0;background:linear-gradient(90deg,#0a111a,transparent)}
-.ticker-wrap::after{right:0;background:linear-gradient(270deg,#0a111a,transparent)}
-.ticker-track{display:flex;width:max-content;gap:0}
-.ticker-inner{display:flex;gap:0;animation:ticker 35s linear infinite}
+.ticker-bar{background:#080E14;border-bottom:1px solid var(--border);overflow:hidden;position:relative;padding:9px 0}
+.ticker-bar::before,.ticker-bar::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.ticker-bar::before{left:0;background:linear-gradient(90deg,#080E14 30%,transparent)}
+.ticker-bar::after{right:0;background:linear-gradient(270deg,#080E14 30%,transparent)}
+.ticker-inner{display:flex;width:max-content;animation:scroll-left 40s linear infinite}
 @media(prefers-reduced-motion:reduce){.ticker-inner{animation:none}}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.t-item{display:flex;align-items:center;gap:6px;padding:0 28px;white-space:nowrap;font-size:.72rem;font-weight:600;border-right:1px solid rgba(255,255,255,.07)}
-.t-name{color:rgba(255,255,255,.35);letter-spacing:.5px;text-transform:uppercase;font-size:.62rem}
-.t-val{color:#fff;font-weight:700}
-.t-up{color:var(--green)}
-.t-dn{color:var(--red)}
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.t-item{display:inline-flex;align-items:center;gap:7px;padding:0 24px;white-space:nowrap;border-right:1px solid rgba(255,255,255,.06)}
+.t-name{font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim)}
+.t-val{font-size:.75rem;font-weight:700;color:var(--text-bright)}
+.t-chg{font-size:.65rem;font-weight:600}
+.up{color:var(--green)}.dn{color:var(--red)}
 
-/* ── HEADER ── */
-.nl-header{
-  background:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 100%);
-  padding:0;position:relative;overflow:hidden;
-}
-.nl-header::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(200,151,59,.1),transparent 65%);
-  pointer-events:none;
-}
-.nl-top{
-  padding:28px 44px 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:relative;z-index:1;
-}
-.nl-logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;
-}
-.nl-logo span{color:var(--gold)}
-.nl-badge{
-  font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.25);
-  padding:5px 14px;border-radius:20px;white-space:nowrap;
-}
+/* ── PAGE SHELL ── */
+.page-outer{max-width:1100px;margin:0 auto;padding:0 20px}
 
-/* Nav */
-.nl-nav{
-  padding:12px 44px;
-  display:flex;gap:6px;flex-wrap:wrap;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:relative;z-index:1;
+/* ── TOP NAV ── */
+.top-nav{
+  background:var(--dark);border-bottom:1px solid var(--border-soft);
+  padding:0 0;position:sticky;top:0;z-index:100;
 }
-.nl-nav a{
-  font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);
-  text-decoration:none;padding:5px 12px;border-radius:20px;
-  border:1px solid rgba(255,255,255,.07);transition:all .2s;
+.top-nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;
 }
-.nl-nav a:hover{color:var(--gold);border-color:rgba(200,151,59,.3)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-size:.72rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--gold);background:rgba(200,151,59,.08)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold2))!important;color:var(--dark)!important;font-weight:700!important;border-radius:20px!important;padding:7px 18px!important}
 
-/* Archive */
-.nl-archive{
-  padding:10px 44px;
-  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:relative;z-index:1;
+/* ── ARCHIVE BAR ── */
+.archive-bar{
+  background:var(--dark2);border-bottom:1px solid var(--border-soft);
+  padding:10px 0;
 }
-.arc-label{font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
-.nl-archive a{
-  font-size:.7rem;color:rgba(255,255,255,.35);text-decoration:none;
-  padding:3px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.07);transition:all .2s;
+.archive-inner{
+  max-width:1100px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
-.nl-archive a:hover,.nl-archive a.active{color:var(--gold);border-color:rgba(200,151,59,.3)}
+.arc-label{font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);flex-shrink:0}
+.arc-links{display:flex;gap:6px;flex-wrap:wrap}
+.arc-links a{font-size:.72rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.1);transition:all .2s}
+.arc-links a:hover{color:var(--gold);border-color:var(--border)}
+.arc-links a.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--dark);border-color:transparent}
 
 /* ── HERO ── */
-.nl-hero{
-  padding:52px 44px 56px;
-  position:relative;z-index:1;
+.hero{
+  background:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 100%);
+  padding:60px 20px 0;position:relative;overflow:hidden;
 }
-.eyebrow{
-  font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:18px;display:block;
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 20% 50%,rgba(200,151,59,.09),transparent 60%);
+  pointer-events:none;
 }
-.hero-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
-  color:#fff;line-height:1.12;margin-bottom:14px;
-}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:end;position:relative;z-index:1}
+.hero-eyebrow{font-size:.6rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px}
 .hero-h1 em{font-style:italic;font-weight:400;color:var(--gold)}
-.hero-sub{font-size:.97rem;color:var(--muted);line-height:1.75;max-width:520px;margin-bottom:28px}
-.hero-meta{display:flex;gap:22px;flex-wrap:wrap}
-.hero-meta span{font-size:.72rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px}
-.hero-divider{height:1px;background:linear-gradient(90deg,rgba(200,151,59,.3),transparent);margin:0 44px}
+.hero-sub{font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:28px;max-width:520px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;padding-bottom:40px}
+.hero-meta span{font-size:.72rem;color:var(--text-dim);display:flex;align-items:center;gap:5px}
+.hero-card{
+  background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px 16px 0 0;
+  padding:28px 24px;margin-bottom:0;align-self:end;
+}
+.hero-card-label{font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.hero-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:6px}
+.hero-card p{font-size:.78rem;color:var(--text-dim);margin:0}
+
+/* ── MAIN LAYOUT ── */
+.layout{max-width:1100px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+.main-col{padding:40px 0 80px}
+.side-col{padding:32px 0 80px;position:sticky;top:72px}
 
 /* ── SECTIONS ── */
-.nl-section{padding:48px 44px;border-bottom:1px solid rgba(255,255,255,.05)}
-.nl-section:last-child{border-bottom:none}
-.sec-num{
-  font-family:'Playfair Display',serif;
-  font-size:4rem;font-weight:900;color:rgba(200,151,59,.12);
-  line-height:1;margin-bottom:2px;display:block;
-}
-.sec-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.7rem;font-weight:700;color:#fff;
-  line-height:1.2;margin-bottom:20px;
-}
-.sec-title em{font-style:italic;font-weight:400;color:var(--gold);font-family:'Playfair Display',serif}
-h3.sub{
-  font-size:.78rem;font-weight:700;letter-spacing:.5px;
-  color:rgba(255,255,255,.9);margin:26px 0 10px;
-  padding-left:12px;border-left:3px solid var(--gold);
-}
-p{margin-bottom:14px;font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.85}
+.section{margin-bottom:56px}
+.sec-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(200,151,59,.1);line-height:1;display:block;margin-bottom:0}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:18px}
+.sec-title em{font-style:italic;font-weight:400;color:var(--gold)}
+h3.sub{font-size:.78rem;font-weight:700;letter-spacing:.5px;color:var(--text-bright);margin:24px 0 10px;padding-left:12px;border-left:3px solid var(--gold)}
+p{margin-bottom:14px;font-size:.9rem;color:var(--text-mid);line-height:1.85}
 p:last-child{margin-bottom:0}
-p strong{color:rgba(255,255,255,.9);font-weight:700}
+p strong{color:var(--text-bright);font-weight:700}
+.divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:0 0 56px}
 
 /* Stats */
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-.stat-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:20px 14px;text-align:center;
-}
-.stat-val{
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem;font-weight:900;color:var(--gold);
-  display:block;margin-bottom:5px;
-}
-.stat-lbl{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
+.stat-card{background:rgba(255,255,255,.03);border:1px solid var(--border-soft);border-radius:10px;padding:18px 12px;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;color:var(--gold);display:block;margin-bottom:4px}
+.stat-lbl{font-size:.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim)}
 
 /* Lists */
-ul.nl-list{list-style:none;margin:16px 0;display:flex;flex-direction:column;gap:7px}
-ul.nl-list li{
-  padding:10px 14px 10px 34px;position:relative;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
-  border-radius:8px;font-size:.86rem;color:rgba(255,255,255,.6);
-}
-ul.nl-list li::before{content:'→';position:absolute;left:12px;color:var(--gold);font-weight:700}
+ul.nl-list{list-style:none;margin:14px 0;display:flex;flex-direction:column;gap:6px}
+ul.nl-list li{padding:9px 12px 9px 32px;position:relative;background:rgba(255,255,255,.025);border:1px solid var(--border-soft);border-radius:8px;font-size:.86rem;color:var(--text-mid)}
+ul.nl-list li::before{content:'→';position:absolute;left:11px;color:var(--gold);font-weight:700}
 
 /* Tables */
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.8rem}
-th{background:rgba(200,151,59,.15);color:var(--gold);padding:10px 14px;text-align:left;font-weight:700;font-size:.68rem;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid rgba(200,151,59,.2)}
-td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.6)}
-tr:hover td{background:rgba(255,255,255,.02)}
-.pos{color:var(--green);font-weight:700}
-.neg{color:var(--red);font-weight:700}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.8rem}
+th{background:rgba(200,151,59,.12);color:var(--gold);padding:9px 12px;text-align:left;font-weight:700;font-size:.66rem;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid var(--border-soft);color:var(--text-mid)}
+tr:hover td{background:rgba(255,255,255,.015)}
+.pos{color:var(--green);font-weight:700}.neg{color:var(--red);font-weight:700}
 
 /* Boxes */
-.box-gold{
-  background:rgba(200,151,59,.07);border-left:3px solid var(--gold);
-  border-radius:0 10px 10px 0;padding:22px 24px;margin:20px 0;
-}
-.box-gold h4{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.box-gold p{color:rgba(255,255,255,.65);font-size:.86rem}
-.box-dark{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;padding:24px;margin:20px 0;
-}
-.box-dark h4{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.box-dark p,.insight-item{color:rgba(255,255,255,.55);font-size:.85rem;margin-bottom:10px}
-.insight-item{padding:8px 8px 8px 24px;position:relative}
-.insight-item::before{content:'→';position:absolute;left:4px;color:var(--gold);font-weight:700}
-.source-note{font-size:.65rem;color:rgba(255,255,255,.25);margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.box-gold{background:rgba(200,151,59,.06);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:20px 22px;margin:18px 0}
+.box-gold h4{font-size:.65rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.box-gold p{color:var(--text-mid);font-size:.86rem}
+.box-dark{background:rgba(255,255,255,.025);border:1px solid var(--border-soft);border-radius:12px;padding:22px;margin:18px 0}
+.box-dark h4{font-size:.65rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.box-dark p,.insight-item{color:var(--text-mid);font-size:.85rem;margin-bottom:9px}
+.insight-item{padding:7px 7px 7px 22px;position:relative}
+.insight-item::before{content:'→';position:absolute;left:3px;color:var(--gold);font-weight:700}
 
-/* ── RECHNER ── */
-.rechner-section{padding:48px 44px;border-bottom:1px solid rgba(255,255,255,.05)}
-.rechner-wrap{
-  background:rgba(255,255,255,.03);border:1px solid rgba(200,151,59,.2);
-  border-radius:16px;overflow:hidden;
+/* Inline CTA (between sections) */
+.inline-cta{
+  background:linear-gradient(135deg,rgba(200,151,59,.08),rgba(200,151,59,.03));
+  border:1px solid var(--border);border-radius:14px;
+  padding:24px 28px;margin:32px 0;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
 }
-.rechner-head{
-  background:rgba(200,151,59,.1);border-bottom:1px solid rgba(200,151,59,.2);
-  padding:20px 28px;
-}
-.rechner-head h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:4px;
-}
-.rechner-head p{font-size:.78rem;color:rgba(255,255,255,.45);margin:0}
-.rechner-body{padding:28px}
-.input-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.input-group{display:flex;flex-direction:column;gap:6px}
-.input-group label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.input-group input,.input-group select{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  color:#fff;padding:10px 14px;border-radius:8px;font-size:.88rem;
-  font-family:'Inter',sans-serif;outline:none;transition:border .2s;width:100%;
-}
-.input-group input:focus,.input-group select:focus{border-color:rgba(200,151,59,.5)}
-.input-group input::placeholder{color:rgba(255,255,255,.2)}
-.calc-btn{
-  width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:var(--dark);font-weight:700;font-size:.92rem;border:none;border-radius:8px;
-  cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s;margin-top:4px;
-}
-.calc-btn:hover{opacity:.9}
-.rechner-result{
-  padding:24px 28px;border-top:1px solid rgba(255,255,255,.06);
-  display:none;
-}
-.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
-.res-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:16px;text-align:center;
-}
-.res-card.highlight{background:rgba(200,151,59,.08);border-color:rgba(200,151,59,.3)}
-.res-label{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px;display:block}
-.res-val{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:#fff;display:block}
-.res-card.highlight .res-val{color:var(--gold)}
-.res-card.neg-card{background:rgba(224,112,112,.07);border-color:rgba(224,112,112,.2)}
-.res-card.neg-card .res-val{color:var(--red)}
-.warte-table{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:16px}
-.warte-table th{background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);padding:8px 12px;text-align:left;font-weight:600;font-size:.65rem;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.06)}
-.warte-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.6)}
-.warte-table tr.best td{background:rgba(200,151,59,.06);color:rgba(255,255,255,.85)}
-.warte-table tr.best td:first-child{font-weight:700;color:var(--gold)}
-.warte-table .cost{color:var(--red);font-weight:700}
-.warte-table .zero{color:var(--green);font-weight:700}
-.wag-note{
-  margin-top:16px;padding:12px 16px;
-  background:rgba(200,151,59,.05);border-left:2px solid rgba(200,151,59,.3);
-  border-radius:0 8px 8px 0;font-size:.65rem;color:rgba(255,255,255,.3);line-height:1.6;
-}
-
-/* ── CTA ── */
-.nl-cta{
-  padding:52px 44px;text-align:center;
-  background:linear-gradient(160deg,rgba(200,151,59,.08),transparent);
-  position:relative;overflow:hidden;
-}
-.nl-cta::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(200,151,59,.07),transparent 65%);
-}
-.nl-cta h2{
-  font-family:'Playfair Display',serif;
-  font-size:1.9rem;font-weight:900;color:#fff;
-  margin-bottom:10px;position:relative;z-index:1;
-}
-.nl-cta h2 em{font-style:italic;color:var(--gold)}
-.nl-cta p{color:var(--muted);font-size:.88rem;margin-bottom:28px;position:relative;z-index:1}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.inline-cta-text h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px}
+.inline-cta-text p{font-size:.78rem;color:var(--text-dim);margin:0}
 .btn-gold{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:var(--dark);font-weight:700;font-size:.9rem;
-  padding:14px 28px;border-radius:50px;text-decoration:none;
-  box-shadow:0 4px 20px rgba(200,151,59,.35);transition:transform .2s,box-shadow .2s;
+  display:inline-flex;align-items:center;gap:7px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--dark);
+  font-weight:700;font-size:.82rem;padding:12px 22px;border-radius:50px;
+  text-decoration:none;white-space:nowrap;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 3px 14px rgba(200,151,59,.3);
 }
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(200,151,59,.45)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(200,151,59,.4)}
 .btn-outline{
-  display:inline-flex;align-items:center;gap:8px;
-  border:2px solid rgba(200,151,59,.35);color:rgba(255,255,255,.7);
-  font-weight:600;font-size:.9rem;padding:13px 24px;border-radius:50px;
-  text-decoration:none;transition:all .2s;
+  display:inline-flex;align-items:center;gap:7px;flex-shrink:0;
+  border:1.5px solid rgba(200,151,59,.35);color:rgba(255,255,255,.65);
+  font-weight:600;font-size:.82rem;padding:11px 20px;border-radius:50px;
+  text-decoration:none;transition:all .2s;white-space:nowrap;
 }
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ── FOOTER ── */
-.nl-footer{
-  padding:32px 44px;text-align:center;
-  border-top:1px solid rgba(255,255,255,.06);
-}
-.nl-footer-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
-.nl-footer-links a{
-  font-size:.68rem;color:rgba(255,255,255,.35);text-decoration:none;
-  padding:4px 10px;border:1px solid rgba(255,255,255,.07);border-radius:20px;transition:color .2s;
-}
-.nl-footer-links a:hover{color:var(--gold)}
-.nl-footer p{font-size:.7rem;color:rgba(255,255,255,.25);line-height:1.7}
-.nl-footer strong{color:rgba(255,255,255,.45)}
-.disclaimer{
-  margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.05);
-  font-size:.62rem;color:rgba(255,255,255,.18);line-height:1.7;
-}
+.source-note{font-size:.63rem;color:var(--text-dim);margin-top:16px;padding-top:10px;border-top:1px solid var(--border-soft)}
 
-/* Responsive */
-@media(max-width:580px){
-  .nl-top,.nl-nav,.nl-archive,.nl-hero,.nl-section,.rechner-section,.nl-cta,.nl-footer{padding-left:20px;padding-right:20px}
-  .hero-h1{font-size:1.7rem}
-  .stats-row,.input-row,.result-grid{grid-template-columns:1fr}
-  .hero-divider{margin:0 20px}
-  .rechner-body,.rechner-head{padding:20px}
+/* ── RECHNER ── */
+.rechner-wrap{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:0}
+.rechner-head{background:rgba(200,151,59,.09);border-bottom:1px solid var(--border);padding:18px 22px}
+.rechner-head h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:3px}
+.rechner-head p{font-size:.72rem;color:var(--text-dim);margin:0}
+.rechner-body{padding:22px}
+.input-grp{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.input-grp label{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim)}
+.input-grp input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;padding:9px 12px;border-radius:7px;font-size:.85rem;font-family:'Inter',sans-serif;outline:none;transition:border .2s;width:100%}
+.input-grp input:focus{border-color:rgba(200,151,59,.5)}
+.calc-btn-full{width:100%;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--dark);font-weight:700;font-size:.85rem;border:none;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;margin-top:4px;transition:opacity .2s}
+.calc-btn-full:hover{opacity:.9}
+.rechner-result{padding:18px 22px;border-top:1px solid var(--border-soft);display:none}
+.res-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border-soft);font-size:.8rem}
+.res-item:last-child{border-bottom:none}
+.res-item span:first-child{color:var(--text-dim)}
+.res-item span:last-child{font-weight:700;color:#fff}
+.res-item.highlight span:last-child{color:var(--gold);font-size:.92rem}
+.res-item.loss span:last-child{color:var(--red)}
+.wag-tiny{margin-top:12px;font-size:.6rem;color:var(--text-dim);line-height:1.6;padding:10px 12px;background:rgba(200,151,59,.04);border-radius:6px;border-left:2px solid rgba(200,151,59,.2)}
+
+/* ── SIDEBAR CARDS ── */
+.side-card{background:rgba(255,255,255,.03);border:1px solid var(--border-soft);border-radius:12px;padding:20px;margin-bottom:16px}
+.side-card-label{font-size:.58rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.side-card h4{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.3}
+.side-card p{font-size:.75rem;color:var(--text-dim);margin:0 0 12px}
+.side-card a.btn-gold{font-size:.75rem;padding:9px 18px;display:flex;justify-content:center}
+.side-card a.btn-outline{font-size:.75rem;padding:8px 16px;display:flex;justify-content:center;margin-top:7px}
+
+/* ── BIG CTA BANNER ── */
+.cta-banner{
+  background:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 100%);
+  padding:60px 20px;text-align:center;position:relative;overflow:hidden;
+}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(200,151,59,.08),transparent 65%)}
+.cta-banner-inner{max-width:560px;margin:0 auto;position:relative;z-index:1}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#fff;margin-bottom:10px}
+.cta-banner h2 em{font-style:italic;color:var(--gold)}
+.cta-banner p{color:var(--text-dim);font-size:.88rem;margin-bottom:28px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+.nl-footer{background:var(--dark);padding:32px 20px;border-top:1px solid var(--border-soft)}
+.nl-footer-inner{max-width:1100px;margin:0 auto;text-align:center}
+.footer-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+.footer-links a{font-size:.68rem;color:var(--text-dim);text-decoration:none;padding:4px 10px;border:1px solid var(--border-soft);border-radius:20px;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-txt{font-size:.7rem;color:var(--text-dim);line-height:1.7}
+.footer-txt strong{color:rgba(255,255,255,.5)}
+.disclaimer{margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft);font-size:.6rem;color:rgba(255,255,255,.18);line-height:1.7}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-card{border-radius:16px}
+  .layout{grid-template-columns:1fr}
+  .side-col{position:static;padding-top:0}
+  .nav-links .nav-cta{display:none}
+}
+@media(max-width:560px){
+  .hero{padding:40px 16px 0}
+  .hero-h1{font-size:1.9rem}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .inline-cta{flex-direction:column;align-items:flex-start}
+  .top-nav-inner{padding:0 16px}
+  .archive-inner,.layout .main-col,.layout .side-col{padding-left:0;padding-right:0}
 }
 </style>
 </head>
 <body>
-<div class="wrapper">
 
-<!-- ── TICKER ── -->
-<div class="ticker-wrap" aria-label="Marktdaten" aria-hidden="true">
-  <div class="ticker-track">
-    <div class="ticker-inner">
-      <div class="t-item"><span class="t-name">Gold</span><span class="t-val">4.298 $</span><span class="t-up">▲ +0,8%</span></div>
-      <div class="t-item"><span class="t-name">DAX</span><span class="t-val">24.560</span><span class="t-dn">▼ −1,2%</span></div>
-      <div class="t-item"><span class="t-name">S&P 500</span><span class="t-val">5.620</span><span class="t-up">▲ +0,3%</span></div>
-      <div class="t-item"><span class="t-name">Nasdaq</span><span class="t-val">19.840</span><span class="t-up">▲ +0,5%</span></div>
-      <div class="t-item"><span class="t-name">Brent Öl</span><span class="t-val">103 $</span><span class="t-up">▲ +0,5%</span></div>
-      <div class="t-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1340</span><span class="t-up">▲ +0,1%</span></div>
-      <div class="t-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-dn">▼ stabil</span></div>
-      <div class="t-item"><span class="t-name">Inflation AT</span><span class="t-val">2,9%</span><span class="t-dn">▼ Jun 26</span></div>
-      <div class="t-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-dn">▼ −0,08%</span></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="t-item"><span class="t-name">Gold</span><span class="t-val">4.298 $</span><span class="t-up">▲ +0,8%</span></div>
-      <div class="t-item"><span class="t-name">DAX</span><span class="t-val">24.560</span><span class="t-dn">▼ −1,2%</span></div>
-      <div class="t-item"><span class="t-name">S&P 500</span><span class="t-val">5.620</span><span class="t-up">▲ +0,3%</span></div>
-      <div class="t-item"><span class="t-name">Nasdaq</span><span class="t-val">19.840</span><span class="t-up">▲ +0,5%</span></div>
-      <div class="t-item"><span class="t-name">Brent Öl</span><span class="t-val">103 $</span><span class="t-up">▲ +0,5%</span></div>
-      <div class="t-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1340</span><span class="t-up">▲ +0,1%</span></div>
-      <div class="t-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-dn">▼ stabil</span></div>
-      <div class="t-item"><span class="t-name">Inflation AT</span><span class="t-val">2,9%</span><span class="t-dn">▼ Jun 26</span></div>
-      <div class="t-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-dn">▼ −0,08%</span></div>
-    </div>
+<!-- TICKER -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-inner">
+    <div class="t-item"><span class="t-name">Gold</span><span class="t-val">4.298 $</span><span class="t-chg up">▲ +0,8%</span></div>
+    <div class="t-item"><span class="t-name">DAX</span><span class="t-val">24.560</span><span class="t-chg dn">▼ −1,2%</span></div>
+    <div class="t-item"><span class="t-name">S&P 500</span><span class="t-val">5.620</span><span class="t-chg up">▲ +0,3%</span></div>
+    <div class="t-item"><span class="t-name">Nasdaq</span><span class="t-val">19.840</span><span class="t-chg up">▲ +0,5%</span></div>
+    <div class="t-item"><span class="t-name">Brent Öl</span><span class="t-val">103 $</span><span class="t-chg up">▲ +0,5%</span></div>
+    <div class="t-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1340</span><span class="t-chg up">▲ +0,1%</span></div>
+    <div class="t-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-chg dn">▼ stabil</span></div>
+    <div class="t-item"><span class="t-name">Inflation AT</span><span class="t-val">2,9%</span><span class="t-chg dn">▼ Jun 26</span></div>
+    <div class="t-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-chg dn">▼ −0,08%</span></div>
+    <!-- duplicate for loop -->
+    <div class="t-item"><span class="t-name">Gold</span><span class="t-val">4.298 $</span><span class="t-chg up">▲ +0,8%</span></div>
+    <div class="t-item"><span class="t-name">DAX</span><span class="t-val">24.560</span><span class="t-chg dn">▼ −1,2%</span></div>
+    <div class="t-item"><span class="t-name">S&P 500</span><span class="t-val">5.620</span><span class="t-chg up">▲ +0,3%</span></div>
+    <div class="t-item"><span class="t-name">Nasdaq</span><span class="t-val">19.840</span><span class="t-chg up">▲ +0,5%</span></div>
+    <div class="t-item"><span class="t-name">Brent Öl</span><span class="t-val">103 $</span><span class="t-chg up">▲ +0,5%</span></div>
+    <div class="t-item"><span class="t-name">EUR/USD</span><span class="t-val">1,1340</span><span class="t-chg up">▲ +0,1%</span></div>
+    <div class="t-item"><span class="t-name">EZB Leitzins</span><span class="t-val">2,15%</span><span class="t-chg dn">▼ stabil</span></div>
+    <div class="t-item"><span class="t-name">Inflation AT</span><span class="t-val">2,9%</span><span class="t-chg dn">▼ Jun 26</span></div>
+    <div class="t-item"><span class="t-name">EURIBOR 3M</span><span class="t-val">1,98%</span><span class="t-chg dn">▼ −0,08%</span></div>
   </div>
 </div>
 
-<!-- ── HEADER ── -->
-<div class="nl-header">
-  <div class="nl-top">
-    <a href="https://finanzberater-friedl.info/" class="nl-logo">Mario <span>Friedl</span></a>
-    <span class="nl-badge">📰 Newsletter · Juni 2026</span>
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="https://finanzberater-friedl.info/" class="nav-logo">📰 Feivel's <span>Finanz News</span></a>
+    <div class="nav-links">
+      <a href="https://finanzberater-friedl.info/">🏠 Home</a>
+      <a href="https://finanzberater-friedl.info/info-abend.html">🍷 Info-Abend</a>
+      <a href="https://finanzberater-friedl.info/gold-sparplan.html">🥇 Gold Sparplan</a>
+      <a href="https://finanzberater-friedl.info/business-seminar.html">🎓 Seminar</a>
+      <a href="https://finanzberater-friedl.info/#kontakt">📞 Kontakt</a>
+      <a href="https://finanzberater-friedl.info/#kontakt" class="nav-cta btn-gold">Erstgespräch →</a>
+    </div>
   </div>
-  <div class="nl-nav">
-    <a href="https://finanzberater-friedl.info/">🏠 Home</a>
-    <a href="https://finanzberater-friedl.info/info-abend.html">🍷 Info-Abend</a>
-    <a href="https://finanzberater-friedl.info/gold-sparplan.html">🥇 Gold Sparplan</a>
-    <a href="https://finanzberater-friedl.info/business-seminar.html">🎓 Seminar</a>
-    <a href="https://finanzberater-friedl.info/#kontakt">📞 Kontakt</a>
-  </div>
-  <div class="nl-archive">
+</nav>
+
+<!-- ARCHIVE BAR -->
+<div class="archive-bar">
+  <div class="archive-inner">
     <span class="arc-label">📁 Archiv</span>
-    <a href="https://finanzberater-friedl.info/newsletter.html">Feb</a>
-    <a href="https://finanzberater-friedl.info/newsletter-maerz-2026.html">März</a>
-    <a href="https://finanzberater-friedl.info/newsletter-april-2026.html">April</a>
-    <a href="https://finanzberater-friedl.info/newsletter-mai-2026.html">Mai</a>
-    <a class="active" href="#">Juni</a>
-  </div>
-</div>
-
-<!-- ── HERO ── -->
-<div class="nl-hero">
-  <span class="eyebrow">Newsletter · Juni 2026</span>
-  <h1 class="hero-h1">Nicht warten ist auch<br>eine Entscheidung –<br><em>und sie kostet dich Geld.</em></h1>
-  <p class="hero-sub">Konkrete Zahlen zeigen, was dich jedes Jahr Verzögerung kostet. Plus: Fonds, Gold & Bauzinsen im Juni 2026.</p>
-  <div class="hero-meta">
-    <span>✍️ Mario Friedl</span>
-    <span>📅 Juni 2026</span>
-    <span>⏱ 10 Min. lesen</span>
-  </div>
-</div>
-<div class="hero-divider"></div>
-
-<!-- ── 01 WELTWIRTSCHAFT ── -->
-<div class="nl-section">
-  <span class="sec-num">01</span>
-  <h2 class="sec-title">Weltwirtschaft Juni 2026 – <em>stabil trotz Volatilität</em></h2>
-  <p>Die Weltwirtschaft läuft im Juni solider als viele erwarten. Trotz Iran-Krieg, Handelskonflikten und Konjunkturängsten zeigen die Märkte Widerstandskraft.</p>
-  <div class="stats-row">
-    <div class="stat-card"><span class="stat-val">3,0%</span><span class="stat-lbl">Welt-BIP-Wachstum</span></div>
-    <div class="stat-card"><span class="stat-val">1,7%</span><span class="stat-lbl">USA-Wachstum</span></div>
-    <div class="stat-card"><span class="stat-val">1,2%</span><span class="stat-lbl">Europa-Wachstum</span></div>
-  </div>
-  <h3 class="sub">🇺🇸 USA: KI-Boom macht's</h3>
-  <p>Die US-Wirtschaft wächst mit <strong>2,4%</strong>. Treiber: KI-Investitionen (500 Mrd. USD), Tech-Gewinne, solider Konsum. Trump-Zölle belasten, aber die Märkte ignorieren aktuell die Risiken.</p>
-  <h3 class="sub">🇪🇺 Europa: Aufwärtstrend beginnt</h3>
-  <p>Deutschland erlebt endlich wieder Wachstum (+0,8–1,2%) nach drei Jahren Stagnation. Südeuropa (Spanien, Italien) entwickelt sich zu echten Wachstumsmotoren.</p>
-  <h3 class="sub">🇨🇳 China: Wachstum bremst</h3>
-  <p>China kämpft mit Überproduktion und schwacher Inlandsnachfrage. Wachstum dürfte auf <strong>4,3%</strong> sinken – für China respektabel, aber ein Warnsignal für Exportabhängige.</p>
-  <h3 class="sub">📊 Was das für dein Portfolio bedeutet</h3>
-  <ul class="nl-list">
-    <li><strong>USA:</strong> KI-getriebene Tech-Werte bleiben interessant</li>
-    <li><strong>Europa:</strong> Infrastruktur- & Rüstungstitel profitieren</li>
-    <li><strong>Global:</strong> Breite Diversifikation wichtiger denn je</li>
-    <li><strong>China:</strong> Selektive Picks, nicht blind vertrauen</li>
-  </ul>
-  <p class="source-note"><strong>Quellen:</strong> OECD Wirtschaftsprognose 2026 · ComdDirect Börsenausblick · Investment Week · Börse.de</p>
-</div>
-
-<!-- ── 02 WARTEKOSTEN ── -->
-<div class="nl-section">
-  <span class="sec-num">02</span>
-  <h2 class="sec-title">Die versteckten Kosten des Wartens – <em>in konkreten Zahlen</em></h2>
-  <p>Angenommen, du hast 5.000€ zu sparen und könntest monatlich 200€ in Fonds investieren. Historische Durchschnittsrendite: <strong>7,5% p.a.</strong> Was ändert sich, wenn du 1, 5 oder 10 Jahre wartest?</p>
-  <div class="box-gold">
-    <h4>💰 Szenario: Jetzt vs. Später</h4>
-    <p style="margin-bottom:8px"><strong>Sofort anfangen (Juni 2026):</strong> Nach 10 Jahren = <strong>173.450€</strong></p>
-    <p style="margin-bottom:8px"><strong>1 Jahr warten:</strong> = 163.200€ · <span style="color:var(--red);font-weight:700">−10.250€</span></p>
-    <p style="margin-bottom:8px"><strong>5 Jahre warten:</strong> = 125.890€ · <span style="color:var(--red);font-weight:700">−47.560€</span></p>
-    <p style="margin:0"><strong>10 Jahre warten:</strong> = 82.340€ · <span style="color:var(--red);font-weight:700">−91.110€</span></p>
-  </div>
-  <table>
-    <tr><th>Startzeitpunkt</th><th>Endkapital</th><th>Zinseszinn-Gewinn</th><th>Kosten des Wartens</th></tr>
-    <tr><td><strong>Jetzt</strong></td><td class="pos">173.450€</td><td>144.450€</td><td class="zero pos">0€</td></tr>
-    <tr><td>1 Jahr</td><td>163.200€</td><td>134.200€</td><td class="neg">−10.250€</td></tr>
-    <tr><td>5 Jahre</td><td>125.890€</td><td>96.890€</td><td class="neg">−47.560€</td></tr>
-    <tr><td>10 Jahre</td><td>82.340€</td><td>53.340€</td><td class="neg">−91.110€</td></tr>
-  </table>
-  <p><strong>Jedes Jahr des Wartens kostet dich etwa 10.000€</strong> an verlorenen Zinseszins-Effekten. Das ist nicht emotional gemeint – das ist pure Mathematik.</p>
-  <h3 class="sub">💭 Warum Menschen trotzdem warten</h3>
-  <div class="box-dark">
-    <h4>Die häufigsten Denkmuster:</h4>
-    <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Perfektionismus-Falle:</strong> „Erst will ich alles verstehen, dann starte ich..."</div>
-    <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Kontrolle-Illusion:</strong> „Wenn ich lange genug warte, erwische ich den perfekten Einstieg..."</div>
-    <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Sicherheits-Bedürfnis:</strong> „Das Geld auf der Bank fühlt sich sicherer an, auch wenn es real an Wert verliert..."</div>
-    <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Vertrauens-Mangel:</strong> „Ich kenne keinen Berater, dem ich wirklich traue..."</div>
-  </div>
-  <p><strong>Die Wahrheit:</strong> Es geht nicht um Perfektion. Es geht darum, anzufangen. Jeder Monat, den du wartest, kostet dich echtes Geld.</p>
-</div>
-
-<!-- ── 03 FONDS ── -->
-<div class="nl-section">
-  <span class="sec-num">03</span>
-  <h2 class="sec-title">Investmentfonds – <em>warum jetzt einsteigen?</em></h2>
-  <p>Nach 3 Jahren Börsenrallye erleben wir Korrektionen von 10–15%. Das ist NICHT schlecht – das ist eine Chance.</p>
-  <h3 class="sub">Die 3 Gründe, jetzt in Fonds zu investieren</h3>
-  <ul class="nl-list">
-    <li><strong>Marktkorrektur = Einstiegschance.</strong> Niedrigere Kurse bei gleichem langfristigen Wachstumspotenzial. Der Cost-Average-Effekt arbeitet für dich.</li>
-    <li><strong>Diversifikation schlägt alles.</strong> Ein globaler Fonds investiert in 100–3.000 Unternehmen. Deutlich sicherer als einzelne Aktien oder ein Sparbuch.</li>
-    <li><strong>Langfristrendite bleibt attraktiv.</strong> Historisch: 7–9% p.a. vs. Sparbuch 2,25% vs. Inflation 2,9%.</li>
-  </ul>
-  <h3 class="sub">Top-Anlagethemen 2026</h3>
-  <table>
-    <tr><th>Thema</th><th>Chancen</th><th>Für wen?</th></tr>
-    <tr><td><strong>Künstliche Intelligenz</strong></td><td>500 Mrd. USD Investitionen</td><td>Wachstumsorientierte</td></tr>
-    <tr><td><strong>Infrastruktur</strong></td><td>Staatliche Investitionen DE/EU</td><td>Konservative</td></tr>
-    <tr><td><strong>Global Diversifiziert</strong></td><td>Beste Risiko-Rendite-Balance</td><td>Alle · Einsteiger</td></tr>
-    <tr><td><strong>Schwellenländer</strong></td><td>Indien, Südostasien</td><td>Erfahrene Anleger</td></tr>
-  </table>
-  <div class="box-gold">
-    <h4>📊 Meine Empfehlung: Core-Satellite Juni 2026</h4>
-    <p><strong>70% Core:</strong> Globaler Aktienfonds (MSCI World) – Stabilität & Wachstum<br>
-    <strong>20% Satellite:</strong> Themenfonds (KI, Infrastruktur) – Wachstumschancen<br>
-    <strong>10% Absicherung:</strong> Gold & Edelmetalle – Krisenabsicherung</p>
-  </div>
-  <p class="source-note"><strong>Quellen:</strong> Morningstar · EFAMA · ICI Global · § 46 InvFG 2011 · FMA Österreich</p>
-</div>
-
-<!-- ── 04 GOLD ── -->
-<div class="nl-section">
-  <span class="sec-num">04</span>
-  <h2 class="sec-title">Gold im Juni 2026 – <em>5.600 USD sind nah</em></h2>
-  <div class="stats-row">
-    <div class="stat-card"><span class="stat-val">5.598$</span><span class="stat-lbl">Allzeithoch Jan.</span></div>
-    <div class="stat-card"><span class="stat-val">4.298$</span><span class="stat-lbl">Aktueller Kurs</span></div>
-    <div class="stat-card"><span class="stat-val">6.000$</span><span class="stat-lbl">Prognose Jahresende</span></div>
-  </div>
-  <h3 class="sub">📈 Was treibt Gold?</h3>
-  <ul class="nl-list">
-    <li><strong>Geopolitische Spannungen:</strong> Iran-Krieg, Handelskonflikte → Flucht in sichere Häfen</li>
-    <li><strong>Zentralbank-Käufe:</strong> Schwellenländer kaufen massiv zur Entdollarisierung</li>
-    <li><strong>Inflationsschutz:</strong> Bei 2,9% Inflation bleibt Gold attraktiv</li>
-    <li><strong>Zinspolitik:</strong> Erwartete Zinssenkungen machen Gold interessanter</li>
-  </ul>
-  <h3 class="sub">💎 Die richtige Dosis: 10–15% Portfolio</h3>
-  <p>Gold ist <strong>keine Renditemaschine</strong>, sondern eine Versicherung. 10–15% des Portfolios – nicht mehr, nicht weniger. Langfristig denken, kurzfristige Schwankungen akzeptieren.</p>
-  <p class="source-note"><strong>Quellen:</strong> Capital.com · Libertex · GoldRepublic · J.P. Morgan Outlook · GOLD.DE</p>
-</div>
-
-<!-- ── 05 BAUZINSEN ── -->
-<div class="nl-section">
-  <span class="sec-num">05</span>
-  <h2 class="sec-title">Bauzinsen Österreich – <em>inverse Zinskurve nutzen</em></h2>
-  <div class="stats-row">
-    <div class="stat-card"><span class="stat-val">2,80%</span><span class="stat-lbl">Variable Verzinsung</span></div>
-    <div class="stat-card"><span class="stat-val">3,15–3,60%</span><span class="stat-lbl">Fixzins 10 Jahre</span></div>
-    <div class="stat-card"><span class="stat-val">2,15%</span><span class="stat-lbl">EZB-Leitzins</span></div>
-  </div>
-  <h3 class="sub">⚡ Seltene Anomalie: Fixzins günstiger als variabel!</h3>
-  <p>Normalerweise kostet Fixzins einen Aufpreis. Aktuell ist es umgekehrt. Du bekommst 10–20 Jahre Planungssicherheit – ohne Risikoaufschlag.</p>
-  <table>
-    <tr><th>Finanzierungsart</th><th>Zinssatz p.a.</th><th>Empfehlung</th></tr>
-    <tr><td>Variable Verzinsung</td><td>ab 2,80%</td><td class="neg">⚠️ Zinsrisiko</td></tr>
-    <tr><td>Fixzins 5 Jahre</td><td>ab 2,80%</td><td>✓ Kurzfristig sicher</td></tr>
-    <tr><td><strong>Fixzins 10 Jahre</strong></td><td><strong>3,15–3,60%</strong></td><td class="pos">✅ Beste Wahl</td></tr>
-    <tr><td>Fixzins 15–20 Jahre</td><td>3,50–4,00%</td><td class="pos">✅ Max. Sicherheit</td></tr>
-  </table>
-  <div class="box-dark">
-    <h4>💡 Tilgungsfreie Hypothek + Fonds-Sparplan</h4>
-    <p><strong style="color:rgba(255,255,255,.75)">Klassisch (300.000€):</strong> 1.380€/Monat → Nach 25 Jahren: Haus frei, Vermögen = 0€</p>
-    <p style="margin:0"><strong style="color:var(--gold)">EQUALITY-Modell:</strong> 875€ Zins + 500€ Fonds = 1.375€ gleich<br>→ Nach 25 Jahren: Haus frei <strong style="color:var(--green)">PLUS 390.000€!</strong></p>
-  </div>
-  <p class="source-note"><strong>Quellen:</strong> Capitalo · OeNB Wohnbaufinanzierungsstatistik · EZB · Durchblicker.at</p>
-</div>
-
-<!-- ── RECHNER ── -->
-<div class="rechner-section">
-  <span class="eyebrow">Interaktiv</span>
-  <h2 class="sec-title" style="margin-bottom:24px">Dein persönlicher <em>Wartekosten-Rechner</em></h2>
-  <div class="rechner-wrap">
-    <div class="rechner-head">
-      <h3>📊 Was kostet dich Warten wirklich?</h3>
-      <p>Gib deine Zahlen ein und sieh sofort, was jedes Jahr Verzögerung kostet.</p>
+    <div class="arc-links">
+      <a href="https://finanzberater-friedl.info/newsletter.html">Februar</a>
+      <a href="https://finanzberater-friedl.info/newsletter-maerz-2026.html">März</a>
+      <a href="https://finanzberater-friedl.info/newsletter-april-2026.html">April</a>
+      <a href="https://finanzberater-friedl.info/newsletter-mai-2026.html">Mai</a>
+      <a href="#" class="active">Juni</a>
     </div>
-    <div class="rechner-body">
-      <div class="input-row">
-        <div class="input-group">
-          <label>Einmaleinlage (€)</label>
-          <input type="number" id="einmaleinlage" placeholder="z.B. 5000" value="5000" min="0">
-        </div>
-        <div class="input-group">
-          <label>Monatliche Sparrate (€)</label>
-          <input type="number" id="sparrate" placeholder="z.B. 200" value="200" min="0">
-        </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="hero-eyebrow">Newsletter · Juni 2026</span>
+      <h1 class="hero-h1">Nicht warten ist auch<br>eine Entscheidung –<br><em>und sie kostet dich Geld.</em></h1>
+      <p class="hero-sub">Konkrete Zahlen zeigen, was dich jedes Jahr Verzögerung kostet. Plus: Fonds, Gold & Bauzinsen im Juni 2026.</p>
+      <div class="hero-meta">
+        <span>✍️ Mario Friedl</span>
+        <span>📅 Juni 2026</span>
+        <span>⏱ 10 Min. lesen</span>
       </div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>Anlagedauer (Jahre)</label>
-          <input type="number" id="laufzeit" placeholder="z.B. 20" value="20" min="1" max="50">
-        </div>
-        <div class="input-group">
-          <label>Rendite p.a. (%)</label>
-          <input type="number" id="rendite" placeholder="z.B. 7.5" value="7.5" min="0.1" max="20" step="0.1">
-        </div>
-      </div>
-      <button class="calc-btn" onclick="berechne()">📊 Jetzt berechnen →</button>
     </div>
-    <div class="rechner-result" id="rechnerResult">
-      <div class="result-grid" id="resultCards"></div>
-      <h4 style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin:20px 0 10px">Was kostet dich Warten?</h4>
-      <table class="warte-table" id="warteTable"></table>
-      <div class="wag-note">
-        ⚠️ <strong>Hinweis gem. WAG 2018 § 46:</strong> Modellrechnung auf Basis historischer Durchschnittswerte. Historische Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen unterliegen Marktschwankungen – ein Verlust des eingesetzten Kapitals ist möglich.
+    <div class="hero-card">
+      <div class="hero-card-label">Kostenloses Erstgespräch</div>
+      <h3>Deine Situation. Mein Plan. 30 Minuten.</h3>
+      <p>Kein Bürotermin · Antwort in 24h · FMA-registriert</p>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+        <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold" style="justify-content:center">📅 Termin vereinbaren →</a>
+        <a href="https://finanzberater-friedl.info/info-abend.html" class="btn-outline" style="justify-content:center">🍷 Info-Abend sichern</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── CLOSING ── -->
-<div class="nl-section" style="border-bottom:none">
-  <h2 class="sec-title">Ein Gespräch. <em>Ein anderes Denken danach.</em></h2>
-  <p>Du kennst jetzt die Zahlen – was dir Warten kostet, welche Chancen bestehen, wie du dein Geld richtig positionierst. Was fehlt: der nächste Schritt.</p>
-  <p><strong>Ein persönliches Gespräch über deine Situation. Kostenlos. Ohne Druck. In Graz.</strong></p>
-</div>
+<!-- MAIN LAYOUT -->
+<div class="page-outer">
+<div class="layout">
 
-<!-- ── CTA ── -->
-<div class="nl-cta">
-  <h2>Ein Gespräch.<br><em>Kostenlos. Ohne Druck.</em></h2>
-  <p>FMA-registriert · GISA 35679738 · Kein Bankberater · Keine Produktquoten</p>
-  <div class="cta-btns">
-    <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">📅 Erstgespräch vereinbaren →</a>
-    <a href="https://finanzberater-friedl.info/info-abend.html" class="btn-outline">🍷 Info-Abend sichern</a>
+<!-- ══ MAIN COLUMN ══ -->
+<div class="main-col">
+
+  <!-- 01 WELTWIRTSCHAFT -->
+  <div class="section">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">Weltwirtschaft Juni 2026 – <em>stabil trotz Volatilität</em></h2>
+    <p>Die Weltwirtschaft läuft im Juni solider als viele erwarten. Trotz Iran-Krieg, Handelskonflikten und Konjunkturängsten zeigen die Märkte Widerstandskraft.</p>
+    <div class="stats-row">
+      <div class="stat-card"><span class="stat-val">3,0%</span><span class="stat-lbl">Welt-BIP</span></div>
+      <div class="stat-card"><span class="stat-val">1,7%</span><span class="stat-lbl">USA-Wachstum</span></div>
+      <div class="stat-card"><span class="stat-val">1,2%</span><span class="stat-lbl">Europa</span></div>
+    </div>
+    <h3 class="sub">🇺🇸 USA: KI-Boom macht's</h3>
+    <p>Die US-Wirtschaft wächst mit <strong>2,4%</strong>. Treiber: KI-Investitionen (500 Mrd. USD), Tech-Gewinne, solider Konsum. Trump-Zölle belasten, aber die Märkte ignorieren aktuell die Risiken.</p>
+    <h3 class="sub">🇪🇺 Europa: Aufwärtstrend beginnt</h3>
+    <p>Deutschland erlebt endlich wieder Wachstum (+0,8–1,2%) nach drei Jahren Stagnation. Südeuropa (Spanien, Italien) entwickelt sich zu echten Wachstumsmotoren.</p>
+    <h3 class="sub">🇨🇳 China: Wachstum bremst</h3>
+    <p>China kämpft mit Überproduktion und schwacher Inlandsnachfrage. Wachstum dürfte auf <strong>4,3%</strong> sinken – ein Warnsignal für Exportabhängige.</p>
+    <h3 class="sub">📊 Was das für dein Portfolio bedeutet</h3>
+    <ul class="nl-list">
+      <li><strong>USA:</strong> KI-getriebene Tech-Werte bleiben interessant</li>
+      <li><strong>Europa:</strong> Infrastruktur- & Rüstungstitel profitieren</li>
+      <li><strong>Global:</strong> Breite Diversifikation wichtiger denn je</li>
+      <li><strong>China:</strong> Selektive Picks, nicht blind vertrauen</li>
+    </ul>
+    <p class="source-note"><strong>Quellen:</strong> OECD Wirtschaftsprognose 2026 · ComdDirect Börsenausblick · Börse.de</p>
+  </div>
+
+  <!-- INLINE CTA 1 -->
+  <div class="inline-cta">
+    <div class="inline-cta-text">
+      <h4>Wie positioniere ich mein Portfolio in diesem Umfeld?</h4>
+      <p>Ich analysiere deine aktuelle Situation kostenlos und zeige dir konkrete Möglichkeiten.</p>
+    </div>
+    <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">💬 Kostenloses Erstgespräch →</a>
+  </div>
+
+  <!-- 02 WARTEKOSTEN -->
+  <div class="section">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Die versteckten Kosten des Wartens – <em>in konkreten Zahlen</em></h2>
+    <p>Angenommen, du hast 5.000€ gespart und könntest monatlich 200€ investieren. Historische Durchschnittsrendite: <strong>7,5% p.a.</strong> Was ändert sich, wenn du 1, 5 oder 10 Jahre wartest?</p>
+    <div class="box-gold">
+      <h4>💰 Szenario: Jetzt vs. Später</h4>
+      <p style="margin-bottom:8px"><strong>Sofort anfangen:</strong> Nach 10 Jahren = <strong>173.450€</strong></p>
+      <p style="margin-bottom:8px"><strong>1 Jahr warten:</strong> = 163.200€ · <span style="color:var(--red);font-weight:700">−10.250€</span></p>
+      <p style="margin-bottom:8px"><strong>5 Jahre warten:</strong> = 125.890€ · <span style="color:var(--red);font-weight:700">−47.560€</span></p>
+      <p style="margin:0"><strong>10 Jahre warten:</strong> = 82.340€ · <span style="color:var(--red);font-weight:700">−91.110€</span></p>
+    </div>
+    <table>
+      <tr><th>Startzeitpunkt</th><th>Endkapital</th><th>Zinseszins-Gewinn</th><th>Kosten des Wartens</th></tr>
+      <tr><td><strong>Jetzt</strong></td><td class="pos">173.450€</td><td>144.450€</td><td class="pos">0€</td></tr>
+      <tr><td>1 Jahr</td><td>163.200€</td><td>134.200€</td><td class="neg">−10.250€</td></tr>
+      <tr><td>5 Jahre</td><td>125.890€</td><td>96.890€</td><td class="neg">−47.560€</td></tr>
+      <tr><td>10 Jahre</td><td>82.340€</td><td>53.340€</td><td class="neg">−91.110€</td></tr>
+    </table>
+    <p><strong>Jedes Jahr des Wartens kostet dich etwa 10.000€</strong> an verlorenen Zinseszins-Effekten. Das ist nicht emotional gemeint – das ist pure Mathematik.</p>
+    <h3 class="sub">💭 Warum Menschen trotzdem warten</h3>
+    <div class="box-dark">
+      <h4>Die häufigsten Denkmuster:</h4>
+      <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Perfektionismus-Falle:</strong> „Erst will ich alles verstehen, dann starte ich..."</div>
+      <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Kontrolle-Illusion:</strong> „Wenn ich lange genug warte, erwische ich den perfekten Einstieg..."</div>
+      <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Sicherheits-Bedürfnis:</strong> „Das Geld auf der Bank fühlt sich sicherer an, auch wenn es real an Wert verliert..."</div>
+      <div class="insight-item"><strong style="color:rgba(255,255,255,.8)">Vertrauens-Mangel:</strong> „Ich kenne keinen Berater, dem ich wirklich traue..."</div>
+    </div>
+    <p><strong>Die Wahrheit:</strong> Es geht nicht um Perfektion. Es geht darum, anzufangen.</p>
+  </div>
+
+  <!-- INLINE CTA 2 -->
+  <div class="inline-cta">
+    <div class="inline-cta-text">
+      <h4>Bereit anzufangen?</h4>
+      <p>Kein Bürotermin, keine Produktquoten – ein echtes Gespräch über deine Lage.</p>
+    </div>
+    <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">📅 Termin in 2 Min. →</a>
+  </div>
+
+  <!-- 03 FONDS -->
+  <div class="section">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Investmentfonds – <em>warum jetzt einsteigen?</em></h2>
+    <p>Nach 3 Jahren Börsenrallye erleben wir Korrektionen von 10–15%. Das ist NICHT schlecht – das ist eine Chance.</p>
+    <h3 class="sub">Die 3 Gründe, jetzt in Fonds zu investieren</h3>
+    <ul class="nl-list">
+      <li><strong>Marktkorrektur = Einstiegschance.</strong> Niedrigere Kurse bei gleichem langfristigen Wachstumspotenzial.</li>
+      <li><strong>Diversifikation schlägt alles.</strong> Ein globaler Fonds investiert in 100–3.000 Unternehmen.</li>
+      <li><strong>Langfristrendite bleibt attraktiv.</strong> Historisch: 7–9% p.a. vs. Sparbuch 2,25% vs. Inflation 2,9%.</li>
+    </ul>
+    <h3 class="sub">Top-Anlagethemen 2026</h3>
+    <table>
+      <tr><th>Thema</th><th>Chancen</th><th>Für wen?</th></tr>
+      <tr><td><strong>Künstliche Intelligenz</strong></td><td>500 Mrd. USD Investitionen</td><td>Wachstumsorientierte</td></tr>
+      <tr><td><strong>Infrastruktur</strong></td><td>Staatliche Investitionen DE/EU</td><td>Konservative</td></tr>
+      <tr><td><strong>Global Diversifiziert</strong></td><td>Beste Risiko-Rendite-Balance</td><td>Alle · Einsteiger</td></tr>
+      <tr><td><strong>Schwellenländer</strong></td><td>Indien, Südostasien</td><td>Erfahrene Anleger</td></tr>
+    </table>
+    <div class="box-gold">
+      <h4>📊 Meine Empfehlung: Core-Satellite Juni 2026</h4>
+      <p><strong>70% Core:</strong> Globaler Aktienfonds (MSCI World)<br><strong>20% Satellite:</strong> Themenfonds (KI, Infrastruktur)<br><strong>10% Absicherung:</strong> Gold & Edelmetalle</p>
+    </div>
+    <p class="source-note"><strong>Quellen:</strong> Morningstar · EFAMA · ICI Global · FMA Österreich</p>
+  </div>
+
+  <!-- INLINE CTA 3 -->
+  <div class="inline-cta">
+    <div class="inline-cta-text">
+      <h4>Welcher Fonds passt zu dir?</h4>
+      <p>Ich zeige dir konkret, welche Anlagestrategie zu deiner Lebenssituation passt.</p>
+    </div>
+    <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">🔍 Kostenlose Analyse →</a>
+  </div>
+
+  <!-- 04 GOLD -->
+  <div class="section">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">Gold im Juni 2026 – <em>5.600 USD sind nah</em></h2>
+    <div class="stats-row">
+      <div class="stat-card"><span class="stat-val">5.598$</span><span class="stat-lbl">Allzeithoch Jan.</span></div>
+      <div class="stat-card"><span class="stat-val">4.298$</span><span class="stat-lbl">Aktueller Kurs</span></div>
+      <div class="stat-card"><span class="stat-val">6.000$</span><span class="stat-lbl">Prognose Jahresende</span></div>
+    </div>
+    <h3 class="sub">📈 Was treibt Gold?</h3>
+    <ul class="nl-list">
+      <li><strong>Geopolitische Spannungen:</strong> Iran-Krieg, Handelskonflikte → Flucht in sichere Häfen</li>
+      <li><strong>Zentralbank-Käufe:</strong> Schwellenländer kaufen massiv zur Entdollarisierung</li>
+      <li><strong>Inflationsschutz:</strong> Bei 2,9% Inflation bleibt Gold attraktiv</li>
+      <li><strong>Zinspolitik:</strong> Erwartete Zinssenkungen machen Gold interessanter</li>
+    </ul>
+    <h3 class="sub">💎 Die richtige Dosis: 10–15% Portfolio</h3>
+    <p>Gold ist <strong>keine Renditemaschine</strong>, sondern eine Versicherung. 10–15% des Portfolios – langfristig denken, kurzfristige Schwankungen akzeptieren.</p>
+    <p class="source-note"><strong>Quellen:</strong> Capital.com · GoldRepublic · J.P. Morgan Outlook · GOLD.DE</p>
+  </div>
+
+  <!-- 05 BAUZINSEN -->
+  <div class="section">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Bauzinsen Österreich – <em>inverse Zinskurve nutzen</em></h2>
+    <div class="stats-row">
+      <div class="stat-card"><span class="stat-val">2,80%</span><span class="stat-lbl">Variable</span></div>
+      <div class="stat-card"><span class="stat-val">3,15–3,60%</span><span class="stat-lbl">Fixzins 10 J.</span></div>
+      <div class="stat-card"><span class="stat-val">2,15%</span><span class="stat-lbl">EZB-Leitzins</span></div>
+    </div>
+    <h3 class="sub">⚡ Seltene Anomalie: Fixzins günstiger als variabel!</h3>
+    <p>Normalerweise kostet Fixzins einen Aufpreis. Aktuell ist es umgekehrt – 10–20 Jahre Planungssicherheit ohne Risikoaufschlag.</p>
+    <table>
+      <tr><th>Finanzierungsart</th><th>Zinssatz p.a.</th><th>Empfehlung</th></tr>
+      <tr><td>Variable Verzinsung</td><td>ab 2,80%</td><td class="neg">⚠️ Zinsrisiko</td></tr>
+      <tr><td>Fixzins 5 Jahre</td><td>ab 2,80%</td><td>✓ Kurzfristig sicher</td></tr>
+      <tr><td><strong>Fixzins 10 Jahre</strong></td><td><strong>3,15–3,60%</strong></td><td class="pos">✅ Beste Wahl</td></tr>
+      <tr><td>Fixzins 15–20 Jahre</td><td>3,50–4,00%</td><td class="pos">✅ Max. Sicherheit</td></tr>
+    </table>
+    <div class="box-dark">
+      <h4>💡 Tilgungsfreie Hypothek + Fonds-Sparplan</h4>
+      <p><strong style="color:rgba(255,255,255,.75)">Klassisch (300.000€):</strong> 1.380€/Monat → Haus frei, Vermögen = 0€</p>
+      <p style="margin:0"><strong style="color:var(--gold)">EQUALITY-Modell:</strong> 875€ Zins + 500€ Fonds = 1.375€<br>→ Haus frei <strong style="color:var(--green)">PLUS 390.000€!</strong></p>
+    </div>
+    <p class="source-note"><strong>Quellen:</strong> OeNB Wohnbaufinanzierungsstatistik · EZB · Durchblicker.at</p>
+  </div>
+
+  <!-- INLINE CTA 4 -->
+  <div class="inline-cta">
+    <div class="inline-cta-text">
+      <h4>Günstigere Finanzierung finden?</h4>
+      <p>Ich vergleiche 15+ Banken für dich – kostenlos, ohne Verpflichtung.</p>
+    </div>
+    <a href="https://finanzberater-friedl.info/immobilienfinanzierung-graz.html" class="btn-gold">🏡 Finanzierung anfragen →</a>
+  </div>
+
+  <!-- RECHNER -->
+  <div class="section">
+    <span class="sec-num" style="color:rgba(200,151,59,.15)">⚙</span>
+    <h2 class="sec-title">Dein persönlicher <em>Wartekosten-Rechner</em></h2>
+    <p>Gib deine eigenen Zahlen ein und sieh sofort, was jedes Jahr Verzögerung konkret kostet.</p>
+    <div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:14px;overflow:hidden">
+      <div style="background:rgba(200,151,59,.08);border-bottom:1px solid var(--border);padding:18px 22px">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:3px">📊 Was kostet dich Warten wirklich?</h3>
+        <p style="font-size:.72rem;color:var(--text-dim);margin:0">Modellrechnung · historische Durchschnittswerte · kein Versprechen auf Rendite</p>
+      </div>
+      <div style="padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="input-grp"><label>Einmaleinlage (€)</label><input type="number" id="einmal" value="5000" min="0"></div>
+        <div class="input-grp"><label>Monatliche Sparrate (€)</label><input type="number" id="sparen" value="200" min="0"></div>
+        <div class="input-grp"><label>Anlagedauer (Jahre)</label><input type="number" id="laufzeit" value="20" min="1" max="50"></div>
+        <div class="input-grp"><label>Rendite p.a. (%)</label><input type="number" id="rendite" value="7.5" step="0.1" min="0.1" max="20"></div>
+      </div>
+      <div style="padding:0 22px 22px">
+        <button class="calc-btn-full" onclick="berechne()">📊 Wartekosten berechnen →</button>
+      </div>
+      <div id="calcResult" style="display:none;padding:0 22px 22px">
+        <div style="border-top:1px solid var(--border-soft);padding-top:18px">
+          <div id="resultItems"></div>
+          <div class="wag-tiny">⚠️ <strong>WAG 2018 § 46:</strong> Modellrechnung auf Basis historischer Werte. Historische Wertentwicklungen sind kein verlässlicher Indikator für die Zukunft. Kapitalverlust möglich.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-col -->
+
+<!-- ══ SIDEBAR ══ -->
+<div class="side-col">
+
+  <div class="side-card">
+    <span class="side-card-label">📅 Erstgespräch</span>
+    <h4>Kostenlos. Unverbindlich. Ohne Bürotermin.</h4>
+    <p>Ich melde mich innerhalb von 24 Stunden persönlich bei dir.</p>
+    <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">Jetzt anfragen →</a>
+    <a href="https://finanzberater-friedl.info/info-abend.html" class="btn-outline">🍷 Info-Abend</a>
+  </div>
+
+  <div class="side-card">
+    <span class="side-card-label">🥇 Gold Sparplan</span>
+    <h4>Monatlich Gold kaufen – ab 50€</h4>
+    <p>Automatisch, physisch hinterlegt, ohne Ausgabeaufschlag.</p>
+    <a href="https://finanzberater-friedl.info/gold-sparplan.html" class="btn-outline">Mehr erfahren →</a>
+  </div>
+
+  <div class="side-card">
+    <span class="side-card-label">🏡 Immobilienfinanzierung</span>
+    <h4>15+ Banken vergleichen – kostenlos</h4>
+    <p>Fixzins 10 Jahre jetzt sichern. Ich finde die beste Konditionen für dich.</p>
+    <a href="https://finanzberater-friedl.info/immobilienfinanzierung-graz.html" class="btn-outline">Finanzierung anfragen →</a>
+  </div>
+
+  <div class="side-card">
+    <span class="side-card-label">🎓 Business Seminar</span>
+    <h4>06.–07. Juni 2026 · Alpenblick Hotel Linz</h4>
+    <p>Zwei Tage. Ein anderer Blick auf Geld, Strategie und Zukunft.</p>
+    <a href="https://finanzberater-friedl.info/business-seminar.html" class="btn-outline">Programm ansehen →</a>
+  </div>
+
+  <div class="side-card" style="background:rgba(200,151,59,.06);border-color:var(--border)">
+    <span class="side-card-label">📋 Verifikation</span>
+    <p style="font-size:.72rem;color:var(--text-dim);margin:0">🏛️ FMA-Register · GISA 35679738<br>🏢 EQUALITY EH GmbH · FN 462897 g<br>🛡️ TopTen / FiNUM.Private Finance AG<br>📍 Graz · Steiermark · Österreich</p>
+  </div>
+
+</div><!-- /side-col -->
+</div><!-- /layout -->
+</div><!-- /page-outer -->
+
+<!-- BIG CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Ein Gespräch.<br><em>Kostenlos. Ohne Druck.</em></h2>
+    <p>FMA-registriert · GISA 35679738 · Kein Bankberater · Keine Produktquoten</p>
+    <div class="cta-btns">
+      <a href="https://finanzberater-friedl.info/#kontakt" class="btn-gold">📅 Erstgespräch vereinbaren →</a>
+      <a href="https://finanzberater-friedl.info/info-abend.html" class="btn-outline">🍷 Info-Abend sichern</a>
+    </div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <div class="nl-footer">
-  <p><strong>Mario Friedl · EQUALITY EH GmbH</strong><br>
-  Herrgottwiesgasse 119/1 · 8020 Graz · <a href="mailto:mario.friedl@equality-co.at" style="color:var(--gold);text-decoration:none">mario.friedl@equality-co.at</a></p>
-  <div class="nl-footer-links">
-    <a href="https://finanzberater-friedl.info/">Home</a>
-    <a href="https://finanzberater-friedl.info/info-abend.html">Info-Abend</a>
-    <a href="https://finanzberater-friedl.info/gold-sparplan.html">Gold Sparplan</a>
-    <a href="https://finanzberater-friedl.info/business-seminar.html">Seminar</a>
-    <a href="https://finanzberater-friedl.info/impressum.html">Impressum</a>
-    <a href="https://finanzberater-friedl.info/datenschutz.html">Datenschutz</a>
+  <div class="nl-footer-inner">
+    <p class="footer-txt"><strong>Mario Friedl · EQUALITY EH GmbH</strong><br>
+    Herrgottwiesgasse 119/1 · 8020 Graz · <a href="mailto:mario.friedl@equality-co.at" style="color:var(--gold);text-decoration:none">mario.friedl@equality-co.at</a></p>
+    <div class="footer-links">
+      <a href="https://finanzberater-friedl.info/">Home</a>
+      <a href="https://finanzberater-friedl.info/newsletter-mai-2026.html">Mai Newsletter</a>
+      <a href="https://finanzberater-friedl.info/info-abend.html">Info-Abend</a>
+      <a href="https://finanzberater-friedl.info/gold-sparplan.html">Gold Sparplan</a>
+      <a href="https://finanzberater-friedl.info/business-seminar.html">Seminar</a>
+      <a href="https://finanzberater-friedl.info/impressum.html">Impressum</a>
+      <a href="https://finanzberater-friedl.info/datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="disclaimer">
+      © 2026 Mario Friedl · EQUALITY EH GmbH · FMA-Register GISA 35679738 · Haftungsträger: TopTen / FiNUM.Private Finance AG<br>
+      Risikohinweis gem. WAG 2018 § 46: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Historische Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Erträge.
+    </div>
   </div>
-  <div class="disclaimer">
-    © 2026 Mario Friedl · EQUALITY EH GmbH · FMA-Register GISA 35679738 · Haftungsträger: TopTen / FiNUM.Private Finance AG<br>
-    Risikohinweis gem. WAG 2018 § 46: Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Historische Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Erträge. Diese Inhalte stellen keine individuelle Anlage- oder Kreditberatung dar.
-  </div>
-</div>
-
 </div>
 
 <script>
-function fmtEur(v){
-  return '€ '+Math.round(v).toLocaleString('de-AT');
+function fmt(v){return'€ '+Math.round(v).toLocaleString('de-AT')}
+function endwert(einmal,rate,jahre,rPa){
+  const rm=rPa/100/12,n=jahre*12;
+  const ev=einmal*Math.pow(1+rPa/100,jahre);
+  const sp=rm>0?rate*((Math.pow(1+rm,n)-1)/rm):rate*n;
+  return ev+sp;
 }
-
-function calcEndwert(einmal, sparrate, jahre, renditeP){
-  const r = renditeP / 100;
-  const rm = r / 12;
-  const n = jahre * 12;
-  // Endwert Einmaleinlage
-  const ev_einmal = einmal * Math.pow(1 + r, jahre);
-  // Endwert Sparplan (geometrische Reihe)
-  const ev_sparplan = rm > 0 ? sparrate * ((Math.pow(1 + rm, n) - 1) / rm) : sparrate * n;
-  return ev_einmal + ev_sparplan;
-}
-
 function berechne(){
-  const einmal = parseFloat(document.getElementById('einmaleinlage').value) || 0;
-  const sparrate = parseFloat(document.getElementById('sparrate').value) || 0;
-  const jahre = parseInt(document.getElementById('laufzeit').value) || 20;
-  const rendite = parseFloat(document.getElementById('rendite').value) || 7.5;
-
-  if(einmal === 0 && sparrate === 0){ alert('Bitte mindestens einen Wert eingeben.'); return; }
-
-  const eingezahlt = einmal + sparrate * 12 * jahre;
-  const endwert_jetzt = calcEndwert(einmal, sparrate, jahre, rendite);
-  const gewinn_jetzt = endwert_jetzt - eingezahlt;
-
-  // Cards
-  const cards = document.getElementById('resultCards');
-  cards.innerHTML = `
-    <div class="res-card highlight">
-      <span class="res-label">Endwert nach ${jahre} Jahren</span>
-      <span class="res-val">${fmtEur(endwert_jetzt)}</span>
-    </div>
-    <div class="res-card">
-      <span class="res-label">Eingezahlt gesamt</span>
-      <span class="res-val">${fmtEur(eingezahlt)}</span>
-    </div>
-    <div class="res-card">
-      <span class="res-label">Zinseszinn-Gewinn</span>
-      <span class="res-val" style="color:var(--green)">${fmtEur(gewinn_jetzt)}</span>
-    </div>
-    <div class="res-card">
-      <span class="res-label">Rendite Faktor</span>
-      <span class="res-val">${(endwert_jetzt / eingezahlt).toFixed(1)}x</span>
-    </div>
-  `;
-
-  // Warte-Tabelle
-  const warteJahre = [0, 1, 2, 5, 10];
-  let rows = `<tr>
-    <th>Warten</th>
-    <th>Endwert (${jahre} J.)</th>
-    <th>Kosten des Wartens</th>
-    <th>Pro Jahr Verzögerung</th>
-  </tr>`;
-
-  warteJahre.forEach(w => {
-    const restJahre = Math.max(jahre - w, 1);
-    const ev = calcEndwert(einmal, sparrate, restJahre, rendite);
-    const verlust = endwert_jetzt - ev;
-    const proJahr = w > 0 ? verlust / w : 0;
-    const isBest = w === 0;
-    rows += `<tr class="${isBest ? 'best' : ''}">
-      <td>${isBest ? '⚡ Sofort anfangen' : w + ' Jahr' + (w > 1 ? 'e' : '')}</td>
-      <td>${fmtEur(ev)}</td>
-      <td class="${isBest ? 'zero' : 'cost'}">${isBest ? '± 0€' : '− '+Math.round(verlust).toLocaleString('de-AT')+'€'}</td>
-      <td>${isBest ? '—' : '− '+Math.round(proJahr).toLocaleString('de-AT')+'€'}</td>
-    </tr>`;
+  const einmal=parseFloat(document.getElementById('einmal').value)||0;
+  const rate=parseFloat(document.getElementById('sparen').value)||0;
+  const jahre=parseInt(document.getElementById('laufzeit').value)||20;
+  const r=parseFloat(document.getElementById('rendite').value)||7.5;
+  if(!einmal&&!rate){alert('Bitte mindestens einen Betrag eingeben.');return}
+  const eingezahlt=einmal+rate*12*jahre;
+  const ev0=endwert(einmal,rate,jahre,r);
+  const rows=[
+    {label:`Endwert nach ${jahre} Jahren (sofort)`,val:fmt(ev0),cls:'highlight'},
+    {label:'Eingezahlt gesamt',val:fmt(eingezahlt),cls:''},
+    {label:'Zinseszins-Gewinn',val:fmt(ev0-eingezahlt),cls:'pos'},
+    {label:'──── Kosten des Wartens ────',val:'',cls:'divrow'},
+  ];
+  [1,2,5,10].forEach(w=>{
+    if(w>=jahre)return;
+    const ev=endwert(einmal,rate,jahre-w,r);
+    const verlust=ev0-ev;
+    rows.push({label:`Warten ${w} Jahr${w>1?'e':''}`,val:'−'+Math.round(verlust).toLocaleString('de-AT')+'€',cls:'loss'});
   });
-
-  document.getElementById('warteTable').innerHTML = rows;
-  const res = document.getElementById('rechnerResult');
-  res.style.display = 'block';
-  res.scrollIntoView({behavior:'smooth', block:'nearest'});
+  let html='';
+  rows.forEach(r=>{
+    if(r.cls==='divrow'){html+=`<div style="padding:10px 0 4px;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim)">${r.label}</div>`;return}
+    html+=`<div class="res-item ${r.cls}"><span>${r.label}</span><span>${r.val}</span></div>`;
+  });
+  document.getElementById('resultItems').innerHTML=html;
+  const res=document.getElementById('calcResult');
+  res.style.display='block';
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 </script>
 </body>
