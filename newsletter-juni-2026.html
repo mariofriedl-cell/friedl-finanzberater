@@ -8,7 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{min-height:100%;background:#0B1219}
+html{overflow-x:hidden;width:100%}
+html,body{min-height:100%;background:#0B1219;overflow-x:hidden}
+img,video,iframe,table{max-width:100%}
+.ticker-inner{max-width:none!important}
 :root{
   --gold:#C8973B;--gold2:#E8B84B;
   --dark:#0F1923;--dark2:#141F2D;--dark3:#1C2A3A;
@@ -118,8 +121,9 @@ ul.nl-list{list-style:none;margin:14px 0;display:flex;flex-direction:column;gap:
 ul.nl-list li{padding:9px 12px 9px 32px;position:relative;background:rgba(255,255,255,.025);border:1px solid var(--border-soft);border-radius:8px;font-size:.86rem;color:var(--text-mid)}
 ul.nl-list li::before{content:'→';position:absolute;left:11px;color:var(--gold);font-weight:700}
 
-/* Tables */
-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.8rem}
+/* ── TABLE WRAPPER (mobile scroll) ── */
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.8rem;min-width:420px}
 th{background:rgba(200,151,59,.12);color:var(--gold);padding:9px 12px;text-align:left;font-weight:700;font-size:.66rem;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid var(--border)}
 td{padding:9px 12px;border-bottom:1px solid var(--border-soft);color:var(--text-mid)}
 tr:hover td{background:rgba(255,255,255,.015)}
@@ -231,19 +235,54 @@ tr:hover td{background:rgba(255,255,255,.015)}
   .nav-links .nav-cta{display:flex!important}
 }
 @media(max-width:860px){
-  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-inner{grid-template-columns:1fr;gap:28px}
   .hero-card{border-radius:16px}
   .layout{grid-template-columns:1fr}
   .side-col{position:static;padding-top:0}
   .nav-links .nav-cta{display:none}
 }
 @media(max-width:560px){
-  .hero{padding:40px 16px 0}
-  .hero-h1{font-size:1.9rem}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .inline-cta{flex-direction:column;align-items:flex-start}
+  /* Base containment */
+  html,body{overflow-x:hidden;width:100%}
+  .top-nav,.archive-bar,.hero,.page-outer,.cta-banner,.nl-footer{
+    width:100%;overflow-x:hidden;
+  }
+  /* Nav */
   .top-nav-inner{padding:0 16px}
-  .archive-inner,.layout .main-col,.layout .side-col{padding-left:0;padding-right:0}
+  .archive-inner{padding:0 16px}
+  /* Hero */
+  .hero{padding:36px 16px 0}
+  .hero-inner{width:100%;padding:0}
+  .hero-h1{font-size:1.65rem}
+  .hero-sub{max-width:100%}
+  .hero-card{width:100%;padding:18px 16px}
+  .hero-card a{font-size:.78rem;padding:10px 14px}
+  /* Layout */
+  .page-outer{padding:0 16px;width:100%;overflow-x:hidden}
+  .main-col{padding:24px 0 32px;width:100%;overflow-x:hidden}
+  .side-col{padding:0 0 32px;width:100%}
+  /* Sections */
+  .section{overflow-x:hidden;width:100%}
+  .sec-title{font-size:1.45rem;word-break:break-word}
+  /* Stats */
+  .stats-row{grid-template-columns:1fr 1fr}
+  /* Lists */
+  ul.nl-list li{word-break:break-word}
+  /* Inline CTA */
+  .inline-cta{flex-direction:column;align-items:flex-start;padding:16px;width:100%}
+  .inline-cta .btn-gold{width:100%;justify-content:center;font-size:.8rem}
+  /* Boxes */
+  .box-gold,.box-dark{width:100%;overflow-x:hidden;word-break:break-word}
+  /* CTA banner */
+  .cta-banner{padding:40px 16px}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns a{width:100%;justify-content:center;text-align:center}
+  /* Footer */
+  .nl-footer{padding:24px 16px}
+  /* Calculator */
+  .calc-grid{grid-template-columns:1fr!important}
+  /* Sidebar cards */
+  .side-card{word-break:break-word}
 }
 </style>
 </head>
@@ -382,13 +421,13 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <p style="margin-bottom:8px"><strong>5 Jahre warten:</strong> = 125.890€ · <span style="color:var(--red);font-weight:700">−47.560€</span></p>
       <p style="margin:0"><strong>10 Jahre warten:</strong> = 82.340€ · <span style="color:var(--red);font-weight:700">−91.110€</span></p>
     </div>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Startzeitpunkt</th><th>Endkapital</th><th>Zinseszins-Gewinn</th><th>Kosten des Wartens</th></tr>
       <tr><td><strong>Jetzt</strong></td><td class="pos">173.450€</td><td>144.450€</td><td class="pos">0€</td></tr>
       <tr><td>1 Jahr</td><td>163.200€</td><td>134.200€</td><td class="neg">−10.250€</td></tr>
       <tr><td>5 Jahre</td><td>125.890€</td><td>96.890€</td><td class="neg">−47.560€</td></tr>
       <tr><td>10 Jahre</td><td>82.340€</td><td>53.340€</td><td class="neg">−91.110€</td></tr>
-    </table>
+    </table></div>
     <p><strong>Jedes Jahr des Wartens kostet dich etwa 10.000€</strong> an verlorenen Zinseszins-Effekten. Das ist nicht emotional gemeint – das ist pure Mathematik.</p>
     <h3 class="sub">💭 Warum Menschen trotzdem warten</h3>
     <div class="box-dark">
@@ -422,13 +461,13 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <li><strong>Langfristrendite bleibt attraktiv.</strong> Historisch: 7–9% p.a. vs. Sparbuch 2,25% vs. Inflation 2,9%.</li>
     </ul>
     <h3 class="sub">Top-Anlagethemen 2026</h3>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Thema</th><th>Chancen</th><th>Für wen?</th></tr>
       <tr><td><strong>Künstliche Intelligenz</strong></td><td>500 Mrd. USD Investitionen</td><td>Wachstumsorientierte</td></tr>
       <tr><td><strong>Infrastruktur</strong></td><td>Staatliche Investitionen DE/EU</td><td>Konservative</td></tr>
       <tr><td><strong>Global Diversifiziert</strong></td><td>Beste Risiko-Rendite-Balance</td><td>Alle · Einsteiger</td></tr>
       <tr><td><strong>Schwellenländer</strong></td><td>Indien, Südostasien</td><td>Erfahrene Anleger</td></tr>
-    </table>
+    </table></div>
     <div class="box-gold">
       <h4>📊 Meine Empfehlung: Core-Satellite Juni 2026</h4>
       <p><strong>70% Core:</strong> Globaler Aktienfonds (MSCI World)<br><strong>20% Satellite:</strong> Themenfonds (KI, Infrastruktur)<br><strong>10% Absicherung:</strong> Gold & Edelmetalle</p>
@@ -477,13 +516,13 @@ tr:hover td{background:rgba(255,255,255,.015)}
     </div>
     <h3 class="sub">⚡ Seltene Anomalie: Fixzins günstiger als variabel!</h3>
     <p>Normalerweise kostet Fixzins einen Aufpreis. Aktuell ist es umgekehrt – 10–20 Jahre Planungssicherheit ohne Risikoaufschlag.</p>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Finanzierungsart</th><th>Zinssatz p.a.</th><th>Empfehlung</th></tr>
       <tr><td>Variable Verzinsung</td><td>ab 2,80%</td><td class="neg">⚠️ Zinsrisiko</td></tr>
       <tr><td>Fixzins 5 Jahre</td><td>ab 2,80%</td><td>✓ Kurzfristig sicher</td></tr>
       <tr><td><strong>Fixzins 10 Jahre</strong></td><td><strong>3,15–3,60%</strong></td><td class="pos">✅ Beste Wahl</td></tr>
       <tr><td>Fixzins 15–20 Jahre</td><td>3,50–4,00%</td><td class="pos">✅ Max. Sicherheit</td></tr>
-    </table>
+    </table></div>
     <div class="box-dark">
       <h4>💡 Tilgungsfreie Hypothek + Fonds-Sparplan</h4>
       <p><strong style="color:rgba(255,255,255,.75)">Klassisch (300.000€):</strong> 1.380€/Monat → Haus frei, Vermögen = 0€</p>
@@ -511,7 +550,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
         <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:3px">📊 Was kostet dich Warten wirklich?</h3>
         <p style="font-size:.72rem;color:var(--text-dim);margin:0">Modellrechnung · historische Durchschnittswerte · kein Versprechen auf Rendite</p>
       </div>
-      <div style="padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px" class="calc-grid">
         <div class="input-grp"><label>Einmaleinlage (€)</label><input type="number" id="einmal" value="5000" min="0"></div>
         <div class="input-grp"><label>Monatliche Sparrate (€)</label><input type="number" id="sparen" value="200" min="0"></div>
         <div class="input-grp"><label>Anlagedauer (Jahre)</label><input type="number" id="laufzeit" value="20" min="1" max="50"></div>
