@@ -330,39 +330,63 @@ nav.scrolled{box-shadow:0 2px 20px rgba(14,23,32,.07)}
 .mobile-menu .m-cta{background:var(--gold);color:var(--ink);border-color:var(--gold);text-align:center}
 
 /* ══════════════════════════════════════════
-   HERO
+   HERO — Foto oben, Text darunter
 ══════════════════════════════════════════ */
 .hero {
-  min-height:calc(100vh - 64px);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:0;
+  display:block;
   padding-top:64px;
   overflow:hidden;
   position:relative;
 }
-/* Graz Foto als Hero-Gesamthintergrund */
-.hero::before{
-  content:'';
+.hero-photo{
+  width:100%;height:52vh;min-height:320px;max-height:520px;
+  position:relative;overflow:hidden;
+}
+.hero-photo img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:20% 55%;
+  display:block;
+}
+.hero-photo-overlay{
   position:absolute;inset:0;
-  background:url('graz-uhrturm.jpg') center 40% / cover no-repeat;
-  opacity:.07;
-  pointer-events:none;
-  z-index:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(14,23,32,.15) 0%,
+    rgba(14,23,32,.05) 40%,
+    rgba(240,237,232,.0) 60%,
+    rgba(240,237,232,.6) 85%,
+    rgba(240,237,232,1) 100%
+  );
+}
+.hero-photo-badge{
+  position:absolute;bottom:28px;left:max(28px,calc((100vw - 1140px)/2 + 28px));
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(14,23,32,.7);backdrop-filter:blur(12px);
+  border:1px solid rgba(200,151,59,.4);border-radius:999px;
+  padding:7px 18px;font-size:.72rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
+}
+.hero-content{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;align-items:stretch;
+  max-width:100%;
 }
 .hero-left {
-  padding:80px 60px 80px 0;
+  padding:52px 60px 80px 0;
   padding-left:max(28px, calc((100vw - 1140px)/2 + 28px));
   position:relative;z-index:1;
+  background:var(--off-white);
 }
 .hero-right {
   background:linear-gradient(160deg,var(--warm) 0%,#0e1820 100%);
-  min-height:calc(100vh - 64px);
   display:flex;align-items:center;justify-content:center;
   flex-direction:column;gap:0;
-  padding:60px 60px 60px 80px;
+  padding:52px 60px 80px 80px;
   position:relative;overflow:hidden;
+  /* Graz-Foto dezent im Hintergrund der rechten Spalte */
+  background:
+    linear-gradient(160deg,rgba(14,23,32,.92) 0%,rgba(10,16,28,.96) 100%),
+    url('graz-uhrturm.jpg') 30% center / cover no-repeat;
 }
 .hero-right::before{
   content:'';position:absolute;
@@ -432,7 +456,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(14,23,32,.07)}
 .hb-icon{width:18px;height:18px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:.5rem;color:white;flex-shrink:0}
 
 /* Hero right content */
-.hero-card-wrap{position:relative;z-index:1;width:100%;max-width:400px}
+.hero-card-wrap{position:relative;z-index:1;width:100%}
 .profile-card{
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.09);
@@ -1035,9 +1059,10 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:80px 28px 40px}
-  .hero-right{min-height:auto;padding:50px 28px}
+  .hero-photo{height:42vh;min-height:260px}
+  .hero-content{grid-template-columns:1fr}
+  .hero-left{padding:44px 28px 40px}
+  .hero-right{min-height:auto;padding:44px 28px 50px}
   .hero-card-wrap{max-width:100%}
   .hero-floating-badge{display:none}
   .impact-grid{grid-template-columns:repeat(2,1fr)}
@@ -1063,7 +1088,8 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
   .hero h1{font-size:2.3rem}
   .hero-ctas{flex-direction:column}
   .btn-gold,.btn-outline{width:100%;justify-content:center}
-  .hero-right{padding:36px 20px}
+  .hero-photo{height:35vw;min-height:200px}
+  .hero-right{padding:32px 16px 44px}
 
   /* ── Impact strip: 2x2 grid, fully centered ── */
   .impact-strip{padding:40px 16px}
@@ -2109,6 +2135,16 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
 
 <!-- ══ HERO ══ -->
 <section class="hero">
+
+  <!-- Vollbreites Graz-Foto oben -->
+  <div class="hero-photo">
+    <img src="graz-uhrturm.jpg" alt="Graz – Finanzberatung Mario Friedl" fetchpriority="high">
+    <div class="hero-photo-overlay"></div>
+    <div class="hero-photo-badge">📍 Graz · Steiermark · Österreich</div>
+  </div>
+
+  <!-- Inhalt darunter: Links Text, Rechts Karte -->
+  <div class="hero-content">
   <div class="hero-left">
     <div style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;animation:fadeDown .8s ease both">
   <!-- FMA Badge -->
@@ -2167,8 +2203,6 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
 
   <!-- Graz SVG Skyline im Hero-Right Hintergrund -->
   <div class="hero-right">
-    <!-- Graz Foto-Hintergrund (dein Foto vom Uhrturm) -->
-    <div class="graz-photo-bg" style="--graz-bg:url('graz-uhrturm.jpg')"></div>
     <!-- Graz Skyline SVG — dekorativ im Hintergrund -->
     <svg class="graz-skyline" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
       <!-- Schlossberg Turm (links, markant) -->
@@ -2215,36 +2249,25 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
       <rect x="712" y="200" width="6" height="8" rx="1" fill="rgba(200,151,59,.2)"/>
     </svg>
 
-    <!-- Chart Canvas — Zinseszins-Kurve, direkt sichtbar -->
-    <div style="width:100%;max-width:420px;margin-bottom:20px;background:rgba(255,255,255,.04);border:1px solid rgba(200,151,59,.2);border-radius:16px;padding:16px 20px 10px;position:relative;z-index:2">
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(200,151,59,.7);margin-bottom:4px">📈 Zinseszins · 25 Jahre · € 10.000</div>
-      <canvas id="heroChart" width="380" height="180" style="width:100%;display:block"></canvas>
-      <div style="display:flex;gap:16px;margin-top:8px">
-        <div style="display:flex;align-items:center;gap:5px;font-size:.68rem;color:rgba(224,112,112,.8)"><span style="width:16px;height:2px;background:rgba(224,112,112,.8);display:inline-block;border-top:2px dashed rgba(224,112,112,.8)"></span>Sparbuch real</div>
-        <div style="display:flex;align-items:center;gap:5px;font-size:.68rem;color:rgba(12,172,106,.9)"><span style="width:16px;height:2px;background:rgba(12,172,106,.9);display:inline-block"></span>MSCI World Fonds</div>
-      </div>
-    </div>
-
-    <canvas id="heroChartOld" style="display:none"></canvas>
-
-    <div class="hero-card-wrap">
-      <div class="profile-card">
-        <img src="mario-profilbild.jpg" alt="Mario Friedl" class="profile-img">
-        <div class="profile-name">Mario Friedl</div>
-        <div class="profile-title">Unabhängiger Finanzberater · Graz · Steiermark</div>
+    <!-- 1. PROFIL KARTE oben, vollbreit -->
+    <div style="width:100%;margin-bottom:20px;position:relative;z-index:2">
+      <div class="profile-card" style="padding:44px 48px">
+        <img src="mario-profilbild.jpg" alt="Mario Friedl" class="profile-img" style="width:120px;height:120px">
+        <div class="profile-name" style="font-size:1.8rem">Mario Friedl</div>
+        <div class="profile-title" style="font-size:.95rem;margin-bottom:28px">Unabhängiger Finanzberater · Graz · Steiermark</div>
         <div class="profile-divider"></div>
-        <div class="profile-stats">
+        <div class="profile-stats" style="padding-top:4px">
           <div class="ps-item">
-            <div class="ps-num">200+</div>
-            <div class="ps-lbl">Kunden</div>
+            <div class="ps-num" style="font-size:2.4rem">200+</div>
+            <div class="ps-lbl" style="font-size:.75rem">Kunden</div>
           </div>
           <div class="ps-item">
-            <div class="ps-num">15+</div>
-            <div class="ps-lbl">Banken</div>
+            <div class="ps-num" style="font-size:2.4rem">15+</div>
+            <div class="ps-lbl" style="font-size:.75rem">Banken</div>
           </div>
           <div class="ps-item">
-            <div class="ps-num">€ 0</div>
-            <div class="ps-lbl">Beratung</div>
+            <div class="ps-num" style="font-size:2.4rem">€ 0</div>
+            <div class="ps-lbl" style="font-size:.75rem">Beratung</div>
           </div>
         </div>
       </div>
@@ -2253,15 +2276,25 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
         <div class="hfb-value">150+</div>
         <div class="hfb-label">Berater AT</div>
       </div>
-      <div class="hero-info-card">
-        <div class="hic-icon">📅</div>
-        <div>
-          <div class="hic-title">Kostenloses Erstgespräch</div>
-          <div class="hic-sub">Antwort in 24h · Kein Bürotermin nötig</div>
+    </div>
+
+    <!-- 2. ZINSESZINS CHART unten, vollbreit und groß -->
+    <div style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(200,151,59,.2);border-radius:16px;padding:22px 28px 18px;position:relative;z-index:2">
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(200,151,59,.7);margin-bottom:10px">📈 Zinseszins · 25 Jahre · € 10.000</div>
+      <canvas id="heroChart" width="600" height="260" style="width:100%;display:block"></canvas>
+      <div style="display:flex;gap:24px;margin-top:12px">
+        <div style="display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(224,112,112,.85)">
+          <span style="width:20px;height:0;border-top:2.5px dashed rgba(224,112,112,.85);display:inline-block"></span>Sparbuch real
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(12,172,106,.95)">
+          <span style="width:20px;height:2.5px;background:rgba(12,172,106,.95);display:inline-block"></span>MSCI World Fonds
         </div>
       </div>
     </div>
+
+    <canvas id="heroChartOld" style="display:none"></canvas>
   </div>
+</div><!-- /hero-content -->
 </section>
 
 
@@ -2486,7 +2519,8 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
   <div class="photo-banner-item">
     <img src="graz-uhrturm.jpg"
          alt="Graz Uhrturm Steiermark bei Sonnenuntergang"
-         loading="lazy">
+         loading="lazy"
+         style="object-position:20% center">
     <div class="photo-banner-overlay"></div>
     <div class="photo-banner-label">Graz · Steiermark</div>
   </div>
