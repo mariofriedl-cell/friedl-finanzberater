@@ -340,10 +340,21 @@ nav.scrolled{box-shadow:0 2px 20px rgba(14,23,32,.07)}
   gap:0;
   padding-top:64px;
   overflow:hidden;
+  position:relative;
+}
+/* Graz Foto als Hero-Gesamthintergrund */
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url('graz-uhrturm.jpg') center 40% / cover no-repeat;
+  opacity:.07;
+  pointer-events:none;
+  z-index:0;
 }
 .hero-left {
   padding:80px 60px 80px 0;
   padding-left:max(28px, calc((100vw - 1140px)/2 + 28px));
+  position:relative;z-index:1;
 }
 .hero-right {
   background:linear-gradient(160deg,var(--warm) 0%,#0e1820 100%);
@@ -499,8 +510,64 @@ nav.scrolled{box-shadow:0 2px 20px rgba(14,23,32,.07)}
 }
 
 /* ══════════════════════════════════════════
-   ANIMATED BAR CHART (Impact)
+   FOTO-ELEMENTE
 ══════════════════════════════════════════ */
+/* Family/Home Banner zwischen Problem und Upload */
+.photo-banner{
+  position:relative;height:420px;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;
+}
+.photo-banner-item{
+  overflow:hidden;position:relative;
+}
+.photo-banner-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;
+  display:block;
+}
+.photo-banner-item:hover img{transform:scale(1.04)}
+.photo-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(14,23,32,.7) 0%,transparent 50%);
+  pointer-events:none;
+}
+.photo-banner-label{
+  position:absolute;bottom:20px;left:20px;
+  font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+/* Graz hero background image */
+.graz-photo-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:var(--graz-bg);
+  background-size:cover;background-position:center 60%;
+  opacity:.18;
+  pointer-events:none;
+}
+/* Testimonial avatars */
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;
+  object-fit:cover;border:2px solid var(--border);
+  flex-shrink:0;
+}
+.testi-author-row{display:flex;align-items:center;gap:10px;margin-top:20px}
+/* Beratungs-Foto in Why/Services */
+.section-photo{
+  width:100%;overflow:hidden;aspect-ratio:21/7;
+  position:relative;
+}
+.section-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.section-photo-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:20px 40px;
+  background:linear-gradient(to top,rgba(14,23,32,.85),transparent);
+  font-size:.88rem;color:rgba(255,255,255,.8);font-weight:500;font-style:italic;
+  text-align:center;
+}
+@media(max-width:768px){
+  .photo-banner{height:260px;grid-template-columns:1fr 1fr}
+  .photo-banner-item:last-child{display:none}
+}
 .chart-section{
   background:var(--ink);padding:60px 28px 0;
   overflow:hidden;
@@ -2100,6 +2167,8 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
 
   <!-- Graz SVG Skyline im Hero-Right Hintergrund -->
   <div class="hero-right">
+    <!-- Graz Foto-Hintergrund (dein Foto vom Uhrturm) -->
+    <div class="graz-photo-bg" style="--graz-bg:url('graz-uhrturm.jpg')"></div>
     <!-- Graz Skyline SVG — dekorativ im Hintergrund -->
     <svg class="graz-skyline" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
       <!-- Schlossberg Turm (links, markant) -->
@@ -2402,6 +2471,36 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
 </section>
 
 
+<!-- ══ FOTO BANNER ══ -->
+<div class="photo-banner">
+  <!-- Bild 1: Glückliche Familie / Eigenheim -->
+  <div class="photo-banner-item">
+    <img src="https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?w=600&q=80"
+         alt="Glückliche Familie vor ihrem Eigenheim"
+         loading="lazy"
+         onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2535,#0e1720)';this.style.display='none'">
+    <div class="photo-banner-overlay"></div>
+    <div class="photo-banner-label">Eigenheim & Familie</div>
+  </div>
+  <!-- Bild 2: Graz Uhrturm — dein echtes Foto -->
+  <div class="photo-banner-item">
+    <img src="graz-uhrturm.jpg"
+         alt="Graz Uhrturm Steiermark bei Sonnenuntergang"
+         loading="lazy">
+    <div class="photo-banner-overlay"></div>
+    <div class="photo-banner-label">Graz · Steiermark</div>
+  </div>
+  <!-- Bild 3: Beratung / Finanzen -->
+  <div class="photo-banner-item">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
+         alt="Persönliche Finanzberatung"
+         loading="lazy"
+         onerror="this.parentElement.style.background='linear-gradient(135deg,#0e1720,#131a24)';this.style.display='none'">
+    <div class="photo-banner-overlay"></div>
+    <div class="photo-banner-label">Persönliche Beratung</div>
+  </div>
+</div>
+
 <!-- ══ UPLOAD – So einfach geht Finanzberatung heute ══ -->
 <section class="upload-section" id="leistungen" style="position:relative;overflow:hidden">
 
@@ -2659,6 +2758,16 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
   </div>
 </section>
 
+<!-- Foto: Beratungssituation -->
+<div class="section-photo">
+  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80"
+       alt="Persönliche Finanzberatung in Graz – Mario Friedl im Gespräch mit Kunden"
+       loading="lazy"
+       style="object-position:center 20%"
+       onerror="this.parentElement.style.background='linear-gradient(135deg,#131a24,#0e1720)';this.style.display='none'">
+  <div class="section-photo-caption">So sieht ein Erstgespräch aus — entspannt, auf Augenhöhe, ohne Fachjargon.</div>
+</div>
+
 <!-- ══ PROCESS ══ -->
 <section class="process-section" id="prozess">
   <div class="page-wrap">
@@ -2773,20 +2882,26 @@ footer{background:var(--ink);padding:56px 28px 28px;color:rgba(255,255,255,.35)}
       <div class="testi-card anim-up">
         <div class="testi-stars">★★★★★</div>
         <div class="testi-text">Endlich jemand, der mir ehrlich sagt, was ich brauche und was nicht. Die Kostenersparnis bei meiner Immobilienfinanzierung hat sich sofort ausgezahlt.</div>
-        <div class="testi-author">Familie M.</div>
-        <div class="testi-role">Immobilienfinanzierung</div>
+        <div class="testi-author-row">
+          <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=88&q=80" alt="" class="testi-avatar" loading="lazy" onerror="this.style.display='none'">
+          <div><div class="testi-author">Familie M.</div><div class="testi-role">Immobilienfinanzierung</div></div>
+        </div>
       </div>
       <div class="testi-card anim-up d1">
         <div class="testi-stars">★★★★★</div>
         <div class="testi-text">Der Unterschied zur Bankberatung ist wie Tag und Nacht. Mario hat mir gezeigt, wie viel ich bei meiner Altersvorsorge an Kosten spare. Endlich Klarheit!</div>
-        <div class="testi-author">Thomas K.</div>
-        <div class="testi-role">Vermögensaufbau</div>
+        <div class="testi-author-row">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&q=80" alt="" class="testi-avatar" loading="lazy" onerror="this.style.display='none'">
+          <div><div class="testi-author">Thomas K.</div><div class="testi-role">Vermögensaufbau</div></div>
+        </div>
       </div>
       <div class="testi-card anim-up d2">
         <div class="testi-stars">★★★★★</div>
         <div class="testi-text">Transparente Beratung ohne Verkaufsdruck. Mario nimmt sich Zeit, erklärt verständlich und findet wirklich die beste Lösung. Absolute Empfehlung!</div>
-        <div class="testi-author">Sarah L.</div>
-        <div class="testi-role">Ganzheitliche Finanzplanung</div>
+        <div class="testi-author-row">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=88&q=80" alt="" class="testi-avatar" loading="lazy" onerror="this.style.display='none'">
+          <div><div class="testi-author">Sarah L.</div><div class="testi-role">Ganzheitliche Finanzplanung</div></div>
+        </div>
       </div>
     </div>
   </div>
