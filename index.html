@@ -235,12 +235,13 @@ a { text-decoration: none; }
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 56px 80px 80px;
   position: relative; z-index: 2;
+  min-width: 0; max-width: 100%;
 }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: .72rem; font-weight: 700; letter-spacing: 3px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-size: .72rem; font-weight: 700; letter-spacing: 2px;
   text-transform: uppercase; color: var(--gold);
-  margin-bottom: 24px;
+  margin-bottom: 24px; max-width: 100%;
 }
 .hero-eyebrow-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -310,10 +311,12 @@ a { text-decoration: none; }
 .hero-right {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 56px 40px;
   overflow: visible;
+  min-width: 0; max-width: 100%;
 }
 .hero-photo-frame {
   position: relative;
@@ -339,7 +342,7 @@ a { text-decoration: none; }
 .hero-right-overlay { display: none; }
 .hero-right-card {
   position: relative;
-  width: 100%; max-width: 300px;
+  width: 100%; max-width: 360px;
   background: rgba(14,23,32,.9);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(200,151,59,.3);
@@ -349,28 +352,28 @@ a { text-decoration: none; }
   margin-top: -48px;
 }
 .hrc-quote {
-  font-family: 'Playfair Display', serif;
-  font-style: italic; font-size: .95rem; color: var(--white);
-  line-height: 1.5; margin-bottom: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500; font-size: .95rem; color: var(--white);
+  line-height: 1.5; margin-bottom: 14px;
 }
 .hrc-stats {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
 }
-.hrc-stats > div { text-align: center; }
+.hrc-stats > div { text-align: center; flex: 1; }
 .hrc-stat-num {
-  font-size: 1.4rem; font-weight: 800; color: var(--gold);
-  line-height: 1;
+  font-size: 1.2rem; font-weight: 800; color: var(--gold);
+  line-height: 1; white-space: nowrap;
 }
 .hrc-stat-lbl {
-  font-size: .64rem; color: rgba(255,255,255,.38);
-  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+  font-size: .58rem; color: rgba(255,255,255,.4);
+  text-transform: uppercase; letter-spacing: .3px; margin-top: 4px; line-height: 1.3;
 }
 
 @media(max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 60px 24px 48px; }
   .hero-right { height: auto; padding: 8px 24px 56px; }
-  .hero-photo-frame { width: 280px; }
+  .hero-photo-frame { width: 100%; max-width: 360px; }
   .hero-right-photo { height: 360px; }
 }
 
@@ -1316,9 +1319,9 @@ a { text-decoration: none; }
   border-radius: 2px; align-self: stretch; min-height: 60px;
 }
 .pension-quote p {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-style: italic;
-  color: var(--ink); line-height: 1.65; margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem; font-weight: 500;
+  color: var(--ink); line-height: 1.6; margin-bottom: 10px;
 }
 .pq-author { display: flex; align-items: center; gap: 10px; font-size: .76rem; color: var(--muted); font-weight: 600; }
 .pq-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--gold); }
@@ -1557,9 +1560,9 @@ a { text-decoration: none; }
   <div class="hero-photo">
     <img src="graz-uhrturm.jpg" alt="Graz – Uhrturm und Altstadt bei Sonnenuntergang">
     <div class="hero-photo-overlay"></div>
-    <div style="position:absolute; right:clamp(32px, 18vw, 242px); left:auto; top:50%; transform:translateY(-50%); max-width:600px; text-align:right; z-index:2; color:#fff; font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(1.8rem, 5.2vw, 3.3rem); line-height:1.16; text-shadow:0 2px 24px rgba(0,0,0,.6);">
-      Vermögen ist <span style="color:var(--gold2);">planbar.</span>
-      <div style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(.85rem, 2vw, 1.1rem); line-height:1.5; margin-top:16px; text-shadow:0 2px 16px rgba(0,0,0,.6);">Egal, wo du startest – entscheidend ist, dass du startest.</div>
+    <div style="position:absolute; right:clamp(32px, 18vw, 242px); left:auto; top:50%; transform:translateY(-50%); max-width:640px; text-align:right; z-index:2; color:#fff; font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(2.2rem, 6.5vw, 4rem); line-height:1.12; text-shadow:0 2px 24px rgba(0,0,0,.6);">
+      Vermögen ist <span style="color:var(--gold2);">PLANBAR.</span>
+      <div style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(.9rem, 2vw, 1.15rem); line-height:1.45; margin-top:6px; text-shadow:0 2px 16px rgba(0,0,0,.6);">Egal, wo du startest – entscheidend ist, dass du startest.</div>
     </div>
     <div class="hero-photo-badge">📍 Graz · Steiermark · Österreich</div>
   </div>
@@ -1605,16 +1608,16 @@ a { text-decoration: none; }
           <p class="hrc-quote">„Ich zeige dir den Unterschied zwischen sparen und investieren – und wie du anfängst."</p>
           <div class="hrc-stats">
             <div>
-              <div class="hrc-stat-num">200+</div>
-              <div class="hrc-stat-lbl">Kunden</div>
+              <div class="hrc-stat-num">10+</div>
+              <div class="hrc-stat-lbl">Jahre Erfahrung</div>
             </div>
             <div>
-              <div class="hrc-stat-num">€&nbsp;0</div>
-              <div class="hrc-stat-lbl">Beratung</div>
+              <div class="hrc-stat-num">79%</div>
+              <div class="hrc-stat-lbl">Gesamtrendite seit 2021</div>
             </div>
             <div>
-              <div class="hrc-stat-num">15+</div>
-              <div class="hrc-stat-lbl">Banken</div>
+              <div class="hrc-stat-num">14,47%</div>
+              <div class="hrc-stat-lbl">Ø Jahresrendite p.a.</div>
             </div>
           </div>
         </div>
@@ -1684,10 +1687,8 @@ a { text-decoration: none; }
 
     <p class="dream-message">
       „Geld gibt dir nicht alles. Aber es gibt dir die Freiheit zu wählen –<br>
-      <strong>was wirklich wichtig ist.</strong>"
-    </p>
-    <p style="text-align:center; max-width:640px; margin:36px auto 0; font-size:1.1rem; line-height:1.7; color:var(--ink); opacity:.82;">
-      Der Weg dorthin ist kein Geheimnis. Du brauchst nur jemanden an deiner Seite, der ihn schon gegangen ist – und genau weiß, welche Bausteine zu dir passen.
+      <strong>was wirklich wichtig ist.</strong>"<br><br>
+      <span style="font-style:normal; font-family:'Outfit',sans-serif; font-size:1.05rem; color:rgba(255,255,255,.72);">Der Weg dorthin ist kein Geheimnis – du brauchst nur jemanden an deiner Seite, der ihn schon gegangen ist und weiß, welche Bausteine zu dir passen.</span>
     </p>
   </div>
 </section>
@@ -1825,7 +1826,7 @@ a { text-decoration: none; }
       </p>
       <a href="finanzwissen-test.html" class="btn-gold">🧭 Finanzwissen testen →</a>
     </div>
-    <p style="font-size:1.2rem; line-height:1.6; color:var(--gold2); font-family:'Playfair Display',serif; font-style:italic; margin-bottom:24px;">
+    <p style="font-size:1.2rem; line-height:1.6; color:var(--gold2); font-family:'Outfit',sans-serif; font-weight:600; margin-bottom:24px;">
       Jeder Euro, der dir heute verloren geht, fehlt dir später in der Pension. Und genau da wird aus dem Ärger ein echtes Problem.
     </p>
     <p style="font-size:.82rem; line-height:1.5; opacity:.6;">
