@@ -220,9 +220,10 @@ a { text-decoration: none; }
    HERO — SPLIT: TEXT LEFT / PHOTO RIGHT
 ═══════════════════════════════════════ */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   background: var(--ink);
   padding-top: 64px;
+  padding-bottom: 40px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -345,7 +346,7 @@ a { text-decoration: none; }
   border-radius: var(--r);
   padding: 18px 20px;
   z-index: 2;
-  margin-top: 40px;
+  margin-top: -48px;
 }
 .hrc-quote {
   font-family: 'Playfair Display', serif;
@@ -631,6 +632,7 @@ a { text-decoration: none; }
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 6px;
+  white-space: nowrap;
 }
 .impact-lbl { font-size: .78rem; color: var(--muted); font-weight: 600; }
 
@@ -1600,30 +1602,34 @@ a { text-decoration: none; }
       <div class="hero-photo-frame">
         <img src="mario-friedl-hero.jpg" alt="Mario Friedl – Finanzberater Graz" class="hero-right-photo">
         <div class="hero-right-card">
-        <div class="hrc-stats">
-          <div>
-            <div class="hrc-stat-num">5</div>
-            <div class="hrc-stat-lbl">Jahre Erfahrung</div>
-          </div>
-          <div>
-            <div class="hrc-stat-num">200+</div>
-            <div class="hrc-stat-lbl">Kunden</div>
-          </div>
-          <div>
-            <div class="hrc-stat-num">24h</div>
-            <div class="hrc-stat-lbl">Antwort</div>
+          <p class="hrc-quote">„Ich zeige dir den Unterschied zwischen sparen und investieren – und wie du anfängst."</p>
+          <div class="hrc-stats">
+            <div>
+              <div class="hrc-stat-num">200+</div>
+              <div class="hrc-stat-lbl">Kunden</div>
+            </div>
+            <div>
+              <div class="hrc-stat-num">€&nbsp;0</div>
+              <div class="hrc-stat-lbl">Beratung</div>
+            </div>
+            <div>
+              <div class="hrc-stat-num">15+</div>
+              <div class="hrc-stat-lbl">Banken</div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div style="background:rgba(200,151,59,.08); border:1px solid rgba(200,151,59,.2); border-radius:12px; padding:20px; margin-top:24px;">
-        <p style="font-size:.9rem; line-height:1.6; color:rgba(255,255,255,.9); margin-bottom:12px; font-style:italic;">
+      </div><!-- /hero-photo-frame -->
+
+      <div style="width:100%; max-width:330px; background:rgba(200,151,59,.08); border:1px solid rgba(200,151,59,.2); border-radius:12px; padding:18px 20px; margin-top:16px;">
+        <div style="color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:8px;">★★★★★</div>
+        <p style="font-size:.9rem; line-height:1.6; color:rgba(255,255,255,.92); margin-bottom:12px; font-style:italic;">
           „Dank Mario weiß ich jetzt, dass sparen nicht gleich sparen ist. Nach 5 Jahren bin ich sehr froh, dass ich mir damals eine Stunde Zeit genommen habe. Besser eine Stunde investieren als noch weitere Jahre verlieren."
         </p>
         <p style="font-size:.8rem; color:rgba(255,255,255,.7); font-weight:600;">
           — Thomas G., Feldkirchen bei Graz
         </p>
       </div>
+    </div><!-- /hero-right -->
 
   </div><!-- /hero-content -->
 
@@ -1724,7 +1730,7 @@ a { text-decoration: none; }
         Jeden Monat dasselbe: Arbeiten, sparen, hoffen – trotzdem reicht es nie. Dann stellte mir jemand eine Frage, die ich nicht beantworten konnte.
       </p>
       <p class="story-p">
-        <em>„Wie lange brauchst du, bis sich dein Geld verdoppelt?"</em> Meine Antwort: <strong>70 Jahre.</strong> Mit meinen Versicherungen, meinem Bausparer, meinem Bank-Fonds – 90 Jahre alt, bevor sich mein Geld auch nur verdoppelt hat.
+        <em>„Wie lange brauchst du, bis sich dein Geld verdoppelt?"</em> Meine Antwort damals: <strong>10 Jahre.</strong> Die Wahrheit sah anders aus: Mit meinen Versicherungen, meinem Bausparer, meinem Bank-Fonds hätte ich <strong>90 werden müssen</strong>, bevor sich mein Geld auch nur verdoppelt.
       </p>
       <p class="story-p">
         In dem Moment war mir klar: Es war nicht falsch zu sparen. Es war falsch, <em>wie</em> ich sparte. Eine Woche später hab ich alles gekündigt und neu aufgestellt.
@@ -1733,7 +1739,7 @@ a { text-decoration: none; }
         Heute bin ich 40. Mein Geld hat sich vervielfacht. Das Wichtigste ist aber nicht mein Erfolg – das Wichtigste ist: Ich treffe ständig Menschen wie dich, die fragen: <em>„Es muss doch einen besseren Weg geben?"</em> Ja. Es gibt einen.
       </p>
       <p class="story-p" style="margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(0,0,0,.06);">
-        <strong>Vielleicht fragst auch du: Wird das jemals was?</strong> Hier ist die Wahrheit: Wenn du jetzt nichts änderst, ändert sich in den nächsten 30 Jahren nichts. Die einzige Frage ist: <em>Wie lange brauchst mein Geld, bis es sich verdoppelt?</em> Wenn die Antwort über 20 Jahren liegt – musst du was ändern. <strong>Aber wie merkst du, ob du richtig sparst? Indem du dir die richtigen Fragen stellst – die zeigen, was dich falsches Sparen in 30 Jahren kostet.</strong>
+        <strong>Vielleicht fragst du dich: Wird das jemals was?</strong> Ehrliche Antwort: Wenn du jetzt nichts änderst, ändert sich in 20 Jahren nichts. Die einzige Frage, die zählt: <em>Wie lange braucht mein Geld, bis es sich verdoppelt?</em> Über 20 Jahre? Dann läuft etwas falsch. <strong>Wie du das herausfindest? Mit den richtigen Fragen – die dir zeigen, was dich falsches Sparen in 20 Jahren wirklich kostet.</strong>
       </p>
 
       <div class="story-cta">
@@ -1741,6 +1747,52 @@ a { text-decoration: none; }
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testi-section">
+  <div class="container">
+    <div class="section-header anim-up">
+      <div class="eyebrow">Was andere sagen</div>
+      <h2 class="h-display">Echte Menschen. <em>Echte Veränderungen.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card anim-up d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">„Ich hatte jahrelang dasselbe Gefühl – es reicht irgendwie nie. Mario hat mir gezeigt, dass ich <strong>gar nicht so weit weg von meinen Zielen bin</strong>. Jetzt habe ich zum ersten Mal einen echten Plan."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Sandra K.</div>
+            <div class="testi-meta">Angestellte, Graz · Pensionsvorsorge &amp; Geldanlage</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card anim-up d2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">„Bei der Bank hab ich immer das Gefühl gehabt, dass mir jemand etwas verkaufen will. Bei Mario war das <strong>komplett anders</strong>. Er hat erklärt, verglichen und nichts aufgezwungen."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">TM</div>
+          <div>
+            <div class="testi-name">Thomas M.</div>
+            <div class="testi-meta">Handwerksmeister, Steiermark · Immobilienfinanzierung</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card anim-up d3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">„Das kostenlose Erstgespräch war kein Trick. Wirklich kein Druck. Und am Ende hab ich endlich <strong>verstanden, was mit meinem Geld passiert</strong>."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">LP</div>
+          <div>
+            <div class="testi-name">Lisa P.</div>
+            <div class="testi-meta">Lehrerin, Graz · Versicherungscheck &amp; Vorsorge</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1923,7 +1975,7 @@ a { text-decoration: none; }
     <div class="seminar-photo">
       <img src="erstgespraech.jpg" alt="Termin für ein Erstgespräch – Mario Friedl" loading="lazy">
       <div class="seminar-photo-label">Termin für ein Erstgespräch</div>
-      <a href="erstgespraech.html" class="seminar-photo-btn">Zum Erstgespräch →</a>
+      <a href="#kontakt" class="seminar-photo-btn">Zum Erstgespräch →</a>
     </div>
   </div>
   <div class="seminar-text-wrap anim-up d1">
@@ -1948,7 +2000,7 @@ a { text-decoration: none; }
         <div class="impact-lbl">Betreute Kunden</div>
       </div>
       <div class="impact-item">
-        <div class="impact-num">€ 170 Mio</div>
+        <div class="impact-num">€&nbsp;170<span style="font-size:.5em; font-weight:700; letter-spacing:.5px;">&nbsp;Mio</span></div>
         <div class="impact-lbl">Investmentvermögen</div>
       </div>
       <div class="impact-item">
@@ -2087,51 +2139,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-
-<!-- ══ TESTIMONIALS ══ -->
-<section class="testi-section">
-  <div class="container">
-    <div class="section-header anim-up">
-      <div class="eyebrow">Was andere sagen</div>
-      <h2 class="h-display">Echte Menschen. <em>Echte Veränderungen.</em></h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card anim-up d1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Ich hatte jahrelang dasselbe Gefühl – es reicht irgendwie nie. Mario hat mir gezeigt, dass ich <strong>gar nicht so weit weg von meinen Zielen bin</strong>. Jetzt habe ich zum ersten Mal einen echten Plan."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SK</div>
-          <div>
-            <div class="testi-name">Sandra K.</div>
-            <div class="testi-meta">Angestellte, Graz · Pensionsvorsorge &amp; Geldanlage</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card anim-up d2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Bei der Bank hab ich immer das Gefühl gehabt, dass mir jemand etwas verkaufen will. Bei Mario war das <strong>komplett anders</strong>. Er hat erklärt, verglichen und nichts aufgezwungen."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">TM</div>
-          <div>
-            <div class="testi-name">Thomas M.</div>
-            <div class="testi-meta">Handwerksmeister, Steiermark · Immobilienfinanzierung</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card anim-up d3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">„Das kostenlose Erstgespräch war kein Trick. Wirklich kein Druck. Und am Ende hab ich endlich <strong>verstanden, was mit meinem Geld passiert</strong>."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">LP</div>
-          <div>
-            <div class="testi-name">Lisa P.</div>
-            <div class="testi-meta">Lehrerin, Graz · Versicherungscheck &amp; Vorsorge</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ══ KONTAKT ══ -->
