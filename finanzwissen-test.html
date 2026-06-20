@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Finanzwissen-Test – Sitzt du im richtigen Boot? | Mario Friedl Graz</title>
-<meta name="description" content="6 ehrliche Fragen. 2 Minuten. Finde heraus, ob dein Geld wirklich für dich arbeitet – oder ob du es falsch anfasst. Kostenlos von Mario Friedl, Finanzberater Graz.">
+<meta name="description" content="6 ehrliche Fragen. 5 Minuten. Finde heraus, ob dein Geld wirklich für dich arbeitet – oder ob du es falsch anfasst. Kostenlos von Mario Friedl, Finanzberater Graz.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@ main::before{
 .result-text{color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:32px;text-align:left}
 .result-insight{
   background:rgba(200,151,59,.1);border-left:3px solid var(--gold);padding:20px;margin:32px 0;
-  text-align:left;border-radius:8px;
+  text-align:left;border-radius:8px;color:rgba(255,255,255,.88);line-height:1.6;
 }
 .result-insight-title{color:var(--gold);font-weight:700;margin-bottom:8px}
 .result-cta{color:rgba(255,255,255,.8);font-size:.95rem;margin-top:32px}
@@ -198,7 +198,7 @@ main::before{
           Das ist normal. Die meisten machen das so. Aber – und jetzt kommt's – die meisten verlieren dabei jeden Monat Geld, ohne es zu merken.
         </p>
         <p style="color:var(--gold);font-weight:600">
-          Das kann sich ändern. Mit 6 einfachen Fragen.
+          Das kann sich ändern. Mit vier einfachen Fragen.
         </p>
       </div>
 
@@ -522,8 +522,22 @@ function submitForm(e) {
   // Show result
   showResult(firstName, email, phone);
   
-  // Here you would normally send data to your backend/email service
-  console.log({firstName, email, phone, type: userType, scores: scores, totalScore});
+  // Daten per Formspree an Mario senden (E-Mail bei jedem Ausfüllen)
+  fetch('https://formspree.io/f/mdagqzag', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      Vorname: firstName,
+      email: email,
+      _replyto: email,
+      Telefon: phone,
+      'Ergebnis-Typ': (types[userType] ? types[userType].name : userType),
+      'Punkte': totalScore + ' / ' + maxScore,
+      'Antworten (Index je Frage)': scores.join(', '),
+      Quelle: 'Finanzwissen-Test',
+      _subject: 'Neuer Finanzwissen-Test: ' + firstName
+    })
+  }).catch(function (err) { console.error('Formspree-Fehler:', err); });
 }
 
 function showResult(firstName, email, phone) {
@@ -538,8 +552,8 @@ function showResult(firstName, email, phone) {
 }
 
 function openContact() {
-  // Redirect to booking or email
-  window.location.href = 'mailto:kontakt@finanzberater-friedl.info?subject=Ich%20m%C3%B6chte%20einen%20Termin%20vereinbaren';
+  // Zur Hauptseite, direkt zum Kontaktformular
+  window.location.href = 'index.html#kontakt';
 }
 
 function showSection(sectionId) {
