@@ -2504,5 +2504,100 @@ function resetQuiz() {
 }
 </script>
 
+<!-- DATENSCHUTZ-BANNER -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(14, 23, 32, 0.95);
+  color: #fff;
+  padding: 20px 24px;
+  z-index: 999;
+  border-top: 1px solid rgba(248, 180, 60, 0.2);
+  font-family: 'Outfit', sans-serif;
+  display: none;
+">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;">
+    
+    <!-- TEXT -->
+    <div style="flex: 1; min-width: 250px; font-size: 14px; line-height: 1.6;">
+      <strong>Datenschutz:</strong> Diese Website nutzt Cookies und externe Inhalte. 
+      <a href="/datenschutz" style="color: #F8B43C; text-decoration: none; font-weight: 600;">Mehr erfahren →</a>
+    </div>
+    
+    <!-- BUTTONS -->
+    <div style="display: flex; gap: 12px;">
+      <button onclick="cookieBannerAccept()" style="
+        background: #F8B43C;
+        color: #0e1720;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+      " onmouseover="this.style.background='#e5a82e'" onmouseout="this.style.background='#F8B43C'">
+        Akzeptieren
+      </button>
+      <button onclick="cookieBannerClose()" style="
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(248, 180, 60, 0.4);
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s;
+      " onmouseover="this.style.borderColor='#F8B43C'; this.style.color='#F8B43C'" onmouseout="this.style.borderColor='rgba(248, 180, 60, 0.4)'; this.style.color='#fff'">
+        Ablehnen
+      </button>
+    </div>
+    
+    <!-- CLOSE BUTTON -->
+    <button onclick="cookieBannerClose()" style="
+      background: none;
+      border: none;
+      color: #F8B43C;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+      ✕
+    </button>
+  </div>
+</div>
+
+<!-- COOKIE BANNER JAVASCRIPT -->
+<script>
+// Cookie Banner anzeigen (wenn nicht akzeptiert)
+function showCookieBanner() {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+}
+
+// Cookie akzeptieren
+function cookieBannerAccept() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Banner schließen (ohne akzeptieren)
+function cookieBannerClose() {
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Banner beim Laden anzeigen
+document.addEventListener('DOMContentLoaded', showCookieBanner);
+</script>
+
 </body>
 </html>
