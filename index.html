@@ -2352,7 +2352,7 @@ a { text-decoration: none; }
         </div>
         <div class="form-privacy">
           <input type="checkbox" id="kontaktPrivacy" required>
-          <label for="kontaktPrivacy">Ich akzeptiere die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>. Meine Daten werden vertraulich behandelt und nicht weitergegeben.</label>
+          <label for="kontaktPrivacy">Ich akzeptiere die <a href="javascript:openDatenschutzModal()" style="color: #F8B43C; font-weight: 600; cursor: pointer;">Datenschutzerklärung</a>. Meine Daten werden vertraulich behandelt und nicht weitergegeben.</label>
         </div>
         <button type="submit" class="form-submit">📅 Kostenloses Erstgespräch anfragen →</button>
         <div class="form-trust">🔒 Verschlüsselt · Kostenlos · Kein Druck</div>
@@ -2389,7 +2389,7 @@ a { text-decoration: none; }
     <div class="footer-col">
       <h4>Rechtliches</h4>
       <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="javascript:openDatenschutzModal()" style="cursor: pointer;">Datenschutz</a>
       <a href="https://www.fma.gv.at/finanzdienstleister/wertpapierdienstleister/abfrage-vgv-und-wpv/" target="_blank" rel="noopener">FMA-Eintrag ↗</a>
     </div>
   </div>
@@ -2598,99 +2598,317 @@ function resetQuiz() {
 }
 </script>
 
-<!-- DATENSCHUTZ-BANNER -->
-<div id="cookie-banner" style="
+<!-- COOKIE CONSENT MODAL (BOTTOM STICKY) -->
+<div id="cookie-consent-modal" style="
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(14, 23, 32, 0.95);
-  color: #fff;
-  padding: 20px 24px;
-  z-index: 999;
-  border-top: 1px solid rgba(248, 180, 60, 0.2);
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   font-family: 'Outfit', sans-serif;
-  display: none;
 ">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;">
-    
-    <!-- TEXT -->
-    <div style="flex: 1; min-width: 250px; font-size: 14px; line-height: 1.6;">
-      <strong>Datenschutz:</strong> Diese Website nutzt Cookies und externe Inhalte. 
-      <a href="/datenschutz" style="color: #F8B43C; text-decoration: none; font-weight: 600;">Mehr erfahren →</a>
+  <div style="
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    max-width: 1000px;
+    width: 100%;
+    padding: 32px 40px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  ">
+    <!-- LEFT: CONTENT -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        margin: 0 0 12px 0;
+        color: #0e1720;
+      ">
+        🍪 Cookies & Datenschutz
+      </h3>
+      
+      <p style="
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+      ">
+        Diese Website nutzt Cookies und externe Inhalte. Deine Daten werden <strong>nicht an Dritte weitergegeben</strong>.
+        <a href="javascript:openDatenschutzModal()" style="color: #F8B43C; font-weight: 600; text-decoration: none; cursor: pointer;">Datenschutz lesen →</a>
+      </p>
     </div>
-    
-    <!-- BUTTONS -->
-    <div style="display: flex; gap: 12px;">
-      <button onclick="cookieBannerAccept()" style="
+
+    <!-- RIGHT: BUTTONS -->
+    <div style="
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    ">
+      <button onclick="acceptAllCookies()" style="
         background: #F8B43C;
         color: #0e1720;
         border: none;
-        padding: 10px 24px;
+        padding: 12px 32px;
         border-radius: 6px;
-        font-weight: 600;
-        font-size: 14px;
-        cursor: pointer;
-        transition: background 0.3s;
-      " onmouseover="this.style.background='#e5a82e'" onmouseout="this.style.background='#F8B43C'">
-        Akzeptieren
-      </button>
-      <button onclick="cookieBannerClose()" style="
-        background: transparent;
-        color: #fff;
-        border: 1px solid rgba(248, 180, 60, 0.4);
-        padding: 10px 24px;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 700;
+        font-size: 0.95rem;
         cursor: pointer;
         transition: all 0.3s;
-      " onmouseover="this.style.borderColor='#F8B43C'; this.style.color='#F8B43C'" onmouseout="this.style.borderColor='rgba(248, 180, 60, 0.4)'; this.style.color='#fff'">
-        Ablehnen
+        white-space: nowrap;
+      " onmouseover="this.style.background='#e5a82e'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#F8B43C'; this.style.transform='translateY(0)'">
+        ✓ Akzeptieren
+      </button>
+      
+      <button onclick="rejectAllCookies()" style="
+        background: transparent;
+        color: #0e1720;
+        border: 2px solid #0e1720;
+        padding: 10px 30px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+      " onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">
+        ✕ Ablehnen
       </button>
     </div>
-    
-    <!-- CLOSE BUTTON -->
-    <button onclick="cookieBannerClose()" style="
+  </div>
+</div>
+
+<!-- COOKIE CONSENT JAVASCRIPT -->
+<script>
+// Blocking Cookie Modal anzeigen (wenn nicht akzeptiert)
+function showCookieConsentModal() {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-consent-modal').style.display = 'flex';
+  } else {
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  }
+}
+
+// All Cookies akzeptieren
+function acceptAllCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookie-consent-modal').style.display = 'none';
+}
+
+// Alle Cookies ablehnen
+function rejectAllCookies() {
+  localStorage.setItem('cookiesAccepted', 'false');
+  document.getElementById('cookie-consent-modal').style.display = 'none';
+}
+
+// Modal beim Laden anzeigen
+document.addEventListener('DOMContentLoaded', showCookieConsentModal);
+</script>
+
+<!-- DATENSCHUTZ MODAL -->
+<div id="datenschutzModal" style="
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+  overflow-y: auto;
+  padding: 20px;
+">
+  <div style="
+    background: #fff;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    color: #0e1720;
+  ">
+    <!-- Close Button -->
+    <button onclick="closeDatenschutzModal()" style="
+      position: absolute;
+      top: 20px;
+      right: 20px;
       background: none;
       border: none;
-      color: #F8B43C;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
-      padding: 0;
-      width: 30px;
-      height: 30px;
+      color: #F8B43C;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-    ">
-      ✕
+    ">✕</button>
+
+    <!-- Content -->
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 30px; color: #0e1720;">
+      Datenschutz & Impressum
+    </h2>
+
+    <!-- DATENSCHUTZERKLÄRUNG -->
+    <h3 style="font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; color: #F8B43C;">Datenschutzerklärung</h3>
+    
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Verantwortlicher:</strong> Mario Friedl, Herrgottwiesgasse 119/1, 8020 Graz, Österreich
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Datenschutzkontakt:</strong><br>
+      📧 mario.friedl@equality-co.at<br>
+      📞 +43 660 5256328
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">1. Erfassung von Daten</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Diese Website erfasst folgende Daten:
+      <ul style="margin: 10px 0 15px 20px; line-height: 1.8;">
+        <li>Kontaktinformationen aus dem Formular (Name, Email, Telefon)</li>
+        <li>Cookies für Website-Funktion und Nutzer-Erlaubnis</li>
+        <li>Automatische Daten (IP-Adresse, Browser, Zugriffszeit) via Google Analytics (optional)</li>
+      </ul>
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">2. Verwendung der Daten</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Deine Daten werden verwendet für:
+      <ul style="margin: 10px 0 15px 20px; line-height: 1.8;">
+        <li>Beantwortung von Anfragen (Kontaktformular)</li>
+        <li>Versand von Erstkontakt-Information</li>
+        <li>Website-Optimierung und Fehlersuche</li>
+      </ul>
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">3. Datenschutz & Weitergabe</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Deine Daten werden <strong>NICHT an Dritte weitergegeben</strong>. Sie werden ausschließlich zur Beantwortung deiner Anfrage verwendet und nach 12 Monaten gelöscht (sofern keine vertragliche Beziehung besteht).
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">4. Deine Rechte</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Du hast das Recht:
+      <ul style="margin: 10px 0 15px 20px; line-height: 1.8;">
+        <li>Deine Daten zu sehen, zu korrigieren oder zu löschen</li>
+        <li>Der Verarbeitung zu widersprechen</li>
+        <li>Eine Beschwerde bei der Datenschutzbehörde einzureichen</li>
+      </ul>
+      Schreib einfach eine Email an mario.friedl@equality-co.at
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">5. Cookies</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Diese Website nutzt Cookies nur für:
+      <ul style="margin: 10px 0 15px 20px; line-height: 1.8;">
+        <li>Deine Datenschutz-Akzeptanz zu speichern</li>
+        <li>Mobile Menu-Status zu speichern</li>
+      </ul>
+      Keine Tracking-Cookies ohne deine Erlaubnis.
+    </p>
+
+    <h4 style="margin-top: 20px; margin-bottom: 10px; font-weight: 700;">6. SSL-Verschlüsselung</h4>
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      Diese Website nutzt SSL-Verschlüsselung (https://). Alle Formulardaten sind verschlüsselt.
+    </p>
+
+    <!-- IMPRESSUM -->
+    <h3 style="font-size: 1.3rem; margin-top: 40px; margin-bottom: 15px; color: #F8B43C;">Impressum</h3>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Unternehmensname:</strong><br>
+      EQUALITY EH GmbH
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Geschäftsführer:</strong><br>
+      Mario Friedl
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Adresse:</strong><br>
+      Herrgottwiesgasse 119/1<br>
+      8020 Graz<br>
+      Österreich
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Kontakt:</strong><br>
+      📧 mario.friedl@equality-co.at<br>
+      📞 +43 660 5256328<br>
+      🌐 https://finanzberater-friedl.info
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>FMA-Registrierung:</strong><br>
+      GISA: 35679738<br>
+      Reguliert durch die FMA (Finanzmarktaufsichtsbehörde Österreich)
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Firmennummer:</strong><br>
+      FN 462897 g
+    </p>
+
+    <p style="line-height: 1.8; margin-bottom: 15px;">
+      <strong>Haftungsdach:</strong><br>
+      TopTen GmbH / FiNUM.Private Finance AG
+    </p>
+
+    <!-- Close Button -->
+    <button onclick="closeDatenschutzModal()" style="
+      background: #F8B43C;
+      color: #0e1720;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s;
+    " onmouseover="this.style.background='#e5a82e'" onmouseout="this.style.background='#F8B43C'">
+      ✕ Schließen
     </button>
   </div>
 </div>
 
-<!-- COOKIE BANNER JAVASCRIPT -->
+<!-- DATENSCHUTZ MODAL JAVASCRIPT -->
 <script>
-// Cookie Banner anzeigen (wenn nicht akzeptiert)
-function showCookieBanner() {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-banner').style.display = 'flex';
+function openDatenschutzModal() {
+  document.getElementById('datenschutzModal').style.display = 'flex';
+  document.getElementById('datenschutzModal').style.alignItems = 'flex-start';
+  document.getElementById('datenschutzModal').style.justifyContent = 'center';
+}
+
+function closeDatenschutzModal() {
+  document.getElementById('datenschutzModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+  var modal = document.getElementById('datenschutzModal');
+  if (event.target === modal) {
+    closeDatenschutzModal();
   }
-}
+});
 
-// Cookie akzeptieren
-function cookieBannerAccept() {
-  localStorage.setItem('cookiesAccepted', 'true');
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-
-// Banner schließen (ohne akzeptieren)
-function cookieBannerClose() {
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-
-// Banner beim Laden anzeigen
-document.addEventListener('DOMContentLoaded', showCookieBanner);
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeDatenschutzModal();
+  }
+});
 </script>
 
 </body>
