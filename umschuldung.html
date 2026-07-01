@@ -610,15 +610,19 @@
                 Keine Verpflichtung. Nur: Erzähl mir deine Situation – den Rest klären wir.
             </p>
 
-            <form class="space-y-6 max-w-2xl mx-auto mb-16 animate-slide-up" style="animation-delay: 0.2s">
+            <form id="contactForm" action="https://formspree.io/f/mdagqzag" method="POST" class="space-y-6 max-w-2xl mx-auto mb-16 animate-slide-up" style="animation-delay: 0.2s">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Dein Name *" class="input-dark" required>
-                    <input type="email" placeholder="Deine E-Mail *" class="input-dark" required>
+                    <input type="text" name="name" placeholder="Dein Name *" class="input-dark" required>
+                    <input type="email" name="email" placeholder="Deine E-Mail *" class="input-dark" required>
                 </div>
-                <input type="tel" placeholder="Telefon (optional)" class="w-full input-dark">
-                <textarea placeholder="Deine Situation: Wie viele Schulden? Wann gekauft? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
+                <input type="tel" name="telefon" placeholder="Telefon (optional)" class="w-full input-dark">
+                <textarea name="nachricht" placeholder="Deine Situation: Wie viele Schulden? Wann gekauft? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
                 
-                <button type="submit" class="w-full px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                <!-- Versteckte Felder für Formspree -->
+                <input type="hidden" name="_subject" value="Neue Anfrage: Umschuldung – finanzberater-friedl.info">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" id="submitBtn" class="w-full px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
                     Anfrage absenden
                 </button>
                 
@@ -628,6 +632,29 @@
                     ✓ Deine Daten sind sicher
                 </p>
             </form>
+
+            <!-- Erfolgs-Meldung (versteckt, wird nach Submit angezeigt) -->
+            <div id="successMessage" style="display: none;" class="max-w-2xl mx-auto mb-16 p-8 rounded-2xl text-center animate-slide-up" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981;">
+                <div style="font-size: 64px; margin-bottom: 16px;">✓</div>
+                <h3 class="text-2xl font-bold accent-green mb-4">Danke für deine Anfrage!</h3>
+                <p class="text-lg text-slate-200 mb-4">
+                    Ich melde mich innerhalb von 24 Stunden bei dir.
+                </p>
+                <p class="text-slate-400">
+                    Wenn's dringend ist – ruf einfach an: <a href="tel:+436605256328" class="accent-green font-semibold hover:underline">+43 660 5256328</a>
+                </p>
+            </div>
+
+            <!-- Fehler-Meldung (versteckt, wird bei Fehler angezeigt) -->
+            <div id="errorMessage" style="display: none;" class="max-w-2xl mx-auto mb-16 p-6 rounded-2xl text-center" style="background: rgba(220, 38, 38, 0.1); border: 2px solid rgba(220, 38, 38, 0.4);">
+                <p class="text-lg text-white mb-3">
+                    Da ist leider was schief gelaufen.
+                </p>
+                <p class="text-slate-300">
+                    Bitte ruf mich direkt an: <a href="tel:+436605256328" class="accent-green font-semibold hover:underline">+43 660 5256328</a><br>
+                    Oder schreib mir: <a href="mailto:mario.friedl@equality-co.at" class="accent-green font-semibold hover:underline">mario.friedl@equality-co.at</a>
+                </p>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center border-t border-slate-800 pt-16">
                 <div>
@@ -752,11 +779,53 @@
         
         calculateSavings();
         
-        // === FORMULAR ===
-        document.querySelector('form').addEventListener('submit', (e) => {
+        // === FORMULAR MIT FORMSPREE ===
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Danke für deine Anfrage!\n\nIch melde mich innerhalb von 24h bei dir.\n\nOder ruf gleich an: +43 660 5256328');
-            e.target.reset();
+            
+            // Button-State: Sending
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Wird gesendet...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+            
+            // Fehler-Meldung ausblenden falls sichtbar
+            errorMessage.style.display = 'none';
+            
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Erfolg: Formular ausblenden, Success-Meldung zeigen
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    // Zur Erfolgsmeldung scrollen
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Formspree-Fehler');
+                }
+            } catch (error) {
+                // Fehler: Fehler-Meldung anzeigen, Button zurücksetzen
+                errorMessage.style.display = 'block';
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         });
     </script>
 </body>
