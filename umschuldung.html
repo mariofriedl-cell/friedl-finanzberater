@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umschuldung Graz – Mario Friedl | Dein Haus. Deine Zahlen. Eine Lösung.</title>
+    <meta name="description" content="Dein Haus ist dein Traum. Die Schulden sind Lärm. Umschuldung mit interaktivem Rechner. Kostenlos, ehrlich, unabhängig.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+        }
+
+        @keyframes fadeInSlow {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-slow {
+            animation: fadeInSlow 1s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .accent-green {
+            color: #10b981;
+        }
+
+        .accent-green-bg {
+            background: #10b981;
+        }
+
+        .nav-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .button-secondary {
+            border: 2px solid #10b981;
+            color: #10b981;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .button-secondary:hover {
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-dark {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .card-dark:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .img-placeholder {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 14px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .input-dark {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-dark:focus {
+            outline: none;
+            border-color: #10b981;
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .input-dark::placeholder {
+            color: #94a3b8;
+        }
+
+        .stat-block {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid #10b981;
+            padding: 20px 24px;
+            border-radius: 8px;
+        }
+
+        .text-gradient-green {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-spacing {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-spacing {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 nav-dark">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="https://finanzberater-friedl.info" class="font-bold text-white text-lg hover:text-green-400 transition-colors flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Mario Friedl
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="https://finanzberater-friedl.info" class="hidden sm:inline-block text-sm text-slate-300 hover:text-green-400 transition-colors font-medium">
+                    Hauptseite
+                </a>
+                <button onclick="document.getElementById('calculator').scrollIntoView()" class="px-6 py-2.5 rounded-lg button-primary text-white font-semibold text-sm">
+                    Rechner starten
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO Section -->
+    <section class="hero-section section-spacing">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Hero Text (centered) -->
+            <div class="hero-content text-center max-w-4xl mx-auto mb-20">
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+                    Dein Haus ist dein Traum.
+                    <span class="text-gradient-green block mt-4">Die Schulden sind Lärm.</span>
+                </h1>
+
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
+                    Das Haus war geplant. Mit Schweiß, mit Liebe, mit vielen Wochenenden in Eigenleistung. Aber dann kamen die anderen Sachen: Auto, Küche, die kleine Renovierung. Und plötzlich sind es vier Schulden statt eine. Vier Zinssätze, vier Raten, vier Telefonnummern, die monatlich anrufen.
+                </p>
+
+                <p class="text-2xl text-white mb-12 leading-relaxed font-semibold">
+                    Es kann einfacher gehen.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('calculator').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                        Rechner starten
+                    </button>
+                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-secondary font-bold text-lg">
+                        Kostenloses Gespräch
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vorher / Nachher Vergleich -->
+            <div class="hero-content">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center max-w-6xl mx-auto">
+                    
+                    <!-- VORHER -->
+                    <div class="card-dark animate-fade-slow" style="background: linear-gradient(135deg, rgba(127, 29, 29, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(220, 38, 38, 0.3);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4" style="color: #f87171;">Heute</p>
+                        
+                        <!-- Image Vorher -->
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(220, 38, 38, 0.2);">
+                            <img src="paar-vorher.jpg" alt="Paar verzweifelt vor Rechnungen am Küchentisch" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Vier Verträge, vier Schulden</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Hauskredit-Rate</span>
+                                <span class="font-semibold text-white">1.350 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Kredit 1 + 2</span>
+                                <span class="font-semibold text-white">500 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Auto-Leasing</span>
+                                <span class="font-semibold text-white">300 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Gesamtbelastung</span>
+                                <span class="font-bold" style="color: #f87171;">2.150 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex md:flex-col items-center justify-center py-4 md:py-0">
+                        <div class="hidden md:flex flex-col items-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                            <p class="text-xs font-bold uppercase tracking-wider mt-2" style="color: #10b981;">Umschulden</p>
+                        </div>
+                        <div class="md:hidden flex items-center">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- NACHHER -->
+                    <div class="card-dark animate-fade-slow" style="animation-delay: 0.3s; background: linear-gradient(135deg, rgba(6, 78, 59, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(16, 185, 129, 0.4);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4 accent-green">Nach der Umschuldung</p>
+                        
+                        <!-- Image Nachher -->
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <img src="paar-nachher.jpg" alt="Glückliches Paar mit Kaffee, erleichtert" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Ein Vertrag, eine Rate</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Alle Kredite gebündelt</span>
+                                <span class="font-semibold text-white">✓</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Ein Ansprechpartner</span>
+                                <span class="font-semibold text-white">✓</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Neue Gesamtrate</span>
+                                <span class="font-semibold text-white">1.650 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Du sparst monatlich</span>
+                                <span class="font-bold accent-green">500 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-slate-500 text-center mt-8 italic">
+                    Beispielrechnung mit aktuellen Marktkonditionen. Individuelle Zahlen können abweichen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR Section (Interactive) -->
+    <section id="calculator" class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Interaktiver Rechner</p>
+                <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                    Wie viel sparst du?
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    Gib deine monatlichen Belastungen ein. Du siehst sofort, was möglich ist.
+                </p>
+            </div>
+
+            <div class="card-dark animate-slide-up" style="animation-delay: 0.2s">
+                <p class="text-sm font-semibold text-slate-300 mb-6">Deine monatlichen Raten</p>
+
+                <!-- Inputs -->
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-2">Hauskredit-Rate</label>
+                        <div class="flex items-center gap-3">
+                            <input type="number" class="rate-input input-dark flex-1" value="1350" placeholder="z.B. 1350">
+                            <span class="text-slate-500 font-semibold">€/Monat</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-2">Auto-Leasing / Kredit</label>
+                        <div class="flex items-center gap-3">
+                            <input type="number" class="rate-input input-dark flex-1" value="300" placeholder="z.B. 300">
+                            <span class="text-slate-500 font-semibold">€/Monat</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-2">Kredit 1 (z.B. Möbel, Küche)</label>
+                        <div class="flex items-center gap-3">
+                            <input type="number" class="rate-input input-dark flex-1" value="250" placeholder="z.B. 250">
+                            <span class="text-slate-500 font-semibold">€/Monat</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-2">Kredit 2 (z.B. Renovierung)</label>
+                        <div class="flex items-center gap-3">
+                            <input type="number" class="rate-input input-dark flex-1" value="250" placeholder="z.B. 250">
+                            <span class="text-slate-500 font-semibold">€/Monat</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic additional credits -->
+                    <div id="additional_credits"></div>
+
+                    <button type="button" id="add_credit_btn" class="text-sm font-semibold accent-green hover:text-green-300 transition-colors flex items-center gap-2 mt-2">
+                        <span style="font-size: 18px;">+</span> Weiteren Kredit hinzufügen
+                    </button>
+                </div>
+
+                <!-- Zinssatz -->
+                <div class="border-t border-slate-700 pt-6 mb-8">
+                    <label class="block text-sm font-semibold text-slate-300 mb-3">Angenommener Zinssatz nach Umschuldung</label>
+                    <div class="flex items-center gap-3">
+                        <input type="number" id="new_zins" class="input-dark flex-1 max-w-[200px]" value="4.5" step="0.1">
+                        <span class="text-slate-500 font-semibold">%</span>
+                        <span class="text-xs text-slate-500 ml-2">(typischer Marktwert)</span>
+                    </div>
+                </div>
+
+                <!-- Output: Total + New Rate -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
+                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Aktuelle Gesamtbelastung</p>
+                        <p class="text-3xl md:text-4xl font-bold text-white" id="total_current">2.150 €</p>
+                        <p class="text-xs text-slate-500 mt-1">pro Monat</p>
+                    </div>
+
+                    <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
+                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Nach Umschuldung</p>
+                        <p class="text-3xl md:text-4xl font-bold accent-green" id="new_total_rate">1.650 €</p>
+                        <p class="text-xs text-slate-500 mt-1">pro Monat</p>
+                    </div>
+                </div>
+
+                <!-- Savings Highlight -->
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 32px; text-align: center;">
+                    <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Du sparst jeden Monat</p>
+                    <p class="text-6xl md:text-7xl font-bold text-gradient-green mb-2">
+                        <span id="savings">500 €</span>
+                    </p>
+                    <p class="text-slate-400 text-sm">Im Jahr: <span id="savings_year" class="font-bold text-white">6.000 €</span></p>
+                </div>
+
+                <!-- Spar-Empfehlung -->
+                <div class="mt-8 p-6 rounded-xl" style="background: rgba(30, 41, 59, 0.5); border-left: 4px solid #10b981;">
+                    <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">Mein Tipp</p>
+                    <p class="text-lg text-slate-200 leading-relaxed mb-3">
+                        Lege <span id="spar_betrag" class="font-bold text-white">200 €</span> davon jeden Monat zur Seite – als Notgroschen für unerwartete Ausgaben.
+                    </p>
+                    <p class="text-base text-slate-400 leading-relaxed">
+                        Wenn das Auto kaputt geht, die Waschmaschine streikt oder eine Reparatur ansteht: Du hast Reserven. Statt wieder einen Kredit aufzunehmen, zahlst du aus der eigenen Tasche. So kommst du nie wieder in die Situation, in der du jetzt bist.
+                    </p>
+                    <p class="text-base text-slate-300 leading-relaxed mt-3">
+                        Die restlichen <span id="rest_betrag" class="font-bold text-white">300 €</span> bleiben dir frei – für Urlaub, für die Familie, für das, was wirklich zählt.
+                    </p>
+                </div>
+
+                <p class="text-xs text-slate-500 mt-8 text-center italic">
+                    Beispielrechnung. Der angenommene Zinssatz ist ein typischer Marktwert, kein garantierter Zinssatz. Die tatsächliche Ersparnis hängt von Laufzeit, Bonität und individuellen Konditionen ab.
+                </p>
+
+                <!-- CTA after calculator -->
+                <div class="mt-10 text-center">
+                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                        Deine echten Zahlen besprechen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE REALITY Section -->
+    <section class="section-spacing">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image: Mario -->
+                <div class="order-2 lg:order-1">
+                    <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+                        <img src="mario-profil.png" alt="Mario Friedl - unabhängiger Finanzberater in Graz" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                    </div>
+                </div>
+
+                <!-- Text: Who I Am -->
+                <div class="order-1 lg:order-2 animate-slide-up">
+                    <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Wer ich bin</p>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        Du kannst mit mir reden.
+                    </h2>
+
+                    <div class="space-y-6 text-lg text-slate-300">
+                        <p>
+                            Über Geld zu sprechen ist unangenehm. Über Schulden noch mehr. Bei der Bank sitzt du dem Anzugmenschen gegenüber, hoffst dass er nett ist – und fürchtest die Antwort.
+                        </p>
+
+                        <p>
+                            Bei mir ist das anders. Wir sitzen am Tisch, mit einem Kaffee. Du erzählst, wie es wirklich ist – nicht wie es aussehen sollte. Keine Wertung, keine erhobenen Augenbrauen.
+                        </p>
+
+                        <p>
+                            Dann schau ich mir deine Situation an. Und ich rede Klartext: Was geht. Was nicht. Welcher Weg für dich der richtige ist. Wenn eine Umschuldung passt, sag ich's. Wenn nicht, auch.
+                        </p>
+
+                        <div class="space-y-4 pt-6 border-t border-slate-700">
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>Vergleich mit 15+ Banken – nicht vier</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>Keine versteckte Provision – überall gleich</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>3–4 Wochen von Anfrage bis Auszahlung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE RESULT Section -->
+    <section class="section-spacing bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text: What Changes -->
+                <div class="animate-slide-up">
+                    <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Das Resultat</p>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        Weniger Lärm.
+                        <span class="text-gradient-green">Mehr Luft.</span>
+                    </h2>
+
+                    <div class="space-y-8 text-lg text-slate-300 mb-12">
+                        <div>
+                            <p class="text-3xl font-bold accent-green mb-2">Eine Rate</p>
+                            <p class="text-slate-400">Statt vier Zahlungen. Eine Bank. Ein Termin im Monat.</p>
+                        </div>
+
+                        <div>
+                            <p class="text-3xl font-bold accent-green mb-2">300–500 € weniger</p>
+                            <p class="text-slate-400">Jeden Monat. Das ist nicht verdient – das ist nicht verschwendet.</p>
+                        </div>
+
+                        <div>
+                            <p class="text-3xl font-bold accent-green mb-2">Klarheit</p>
+                            <p class="text-slate-400">Du weißt, wo dein Geld ist. Und dass du nicht fünf Menschen dafür zahlst, dass sie es halten.</p>
+                        </div>
+                    </div>
+
+                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                        Mein kostenloses Gespräch buchen
+                    </button>
+                </div>
+
+                <!-- Image: Happy Result -->
+                <div>
+                    <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="animation-delay: 0.2s; border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+                        <img src="paar-erfolg.jpg" alt="Glückliches Paar entspannt zu Hause nach der Umschuldung" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Minimal) -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-20 animate-slide-up">
+                Die Fragen,<br>die du stellst
+            </h2>
+
+            <div class="space-y-6">
+                <div class="card-dark animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">Kostet das was?</h3>
+                    <p class="text-lg text-slate-300">
+                        Das erste Gespräch kostet keinen Cent. Wenn du dich für eine Umschuldung entscheidest: Transparente Aufstellung, keine Überraschungen.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.1s">
+                    <h3 class="text-2xl font-bold mb-4">Warum nicht selbst anrufen?</h3>
+                    <p class="text-lg text-slate-300">
+                        Du kannst. Aber dann reden vier Banken mit dir, die ihre Quote im Kopf haben. Ich höre nur auf dich.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.2s">
+                    <h3 class="text-2xl font-bold mb-4">Wie lange dauert das?</h3>
+                    <p class="text-lg text-slate-300">
+                        3–4 Wochen von Anfrage bis Auszahlung. Ich mache das regelmäßig, fahre einen schlanken Prozess.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.3s">
+                    <h3 class="text-2xl font-bold mb-4">Was, wenn es nicht passt?</h3>
+                    <p class="text-lg text-slate-300">
+                        Ich sag's dir ehrlich. Dann überlegen wir zusammen: Gibt es andere Optionen? Du brauchst nur die beste Lösung für dich.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-spacing bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8 animate-slide-up leading-tight">
+                Es geht nicht<br>um Zinssätze.
+                <span class="text-gradient-green block mt-4">Es geht um wieder atmen.</span>
+            </h2>
+            
+            <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto animate-slide-up leading-relaxed" style="animation-delay: 0.1s">
+                Um den Sonntagabend ohne Magengrummeln. Um den Kontoauszug, der dich nicht mehr verkrampfen lässt. Um die Familie, die wieder Urlaubspläne macht.
+            </p>
+
+            <div id="kontakt" class="scroll-mt-20"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-spacing bg-slate-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 animate-slide-up">Dein kostenloses Gespräch</h2>
+            <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.1s">
+                Keine Verpflichtung. Nur: Erzähl mir deine Situation – den Rest klären wir.
+            </p>
+
+            <form class="space-y-6 max-w-2xl mx-auto mb-16 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Dein Name *" class="input-dark" required>
+                    <input type="email" placeholder="Deine E-Mail *" class="input-dark" required>
+                </div>
+                <input type="tel" placeholder="Telefon (optional)" class="w-full input-dark">
+                <textarea placeholder="Deine Situation: Wie viele Schulden? Wann gekauft? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
+                
+                <button type="submit" class="w-full px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                    Anfrage absenden
+                </button>
+                
+                <p class="text-sm text-slate-500 text-center">
+                    ✓ Ich melde mich innerhalb von 24h <br>
+                    ✓ Kostenlos und unverbindlich <br>
+                    ✓ Deine Daten sind sicher
+                </p>
+            </form>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center border-t border-slate-800 pt-16">
+                <div>
+                    <p class="accent-green font-semibold mb-2">📍 Graz, Steiermark</p>
+                    <p class="text-slate-400 text-sm">Herrgottwiesgasse 119/1, 8020 Graz</p>
+                </div>
+                <div>
+                    <p class="accent-green font-semibold mb-2">📞 Anrufen</p>
+                    <p class="text-slate-400 text-sm"><a href="tel:+436605256328" class="hover:accent-green">+43 660 5256328</a></p>
+                </div>
+                <div>
+                    <p class="accent-green font-semibold mb-2">✉️ E-Mail</p>
+                    <p class="text-slate-400 text-sm"><a href="mailto:mario.friedl@equality-co.at" class="hover:accent-green">mario.friedl@equality-co.at</a></p>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-12 border-t border-slate-800 text-center text-sm text-slate-500">
+                <p>🏛️ FMA-registriert · GISA 35679738 · EQUALITY EH GmbH</p>
+                <p class="mt-2">
+                    <a href="https://finanzberater-friedl.info/datenschutz.html" class="hover:text-slate-400">Datenschutz</a> · 
+                    <a href="https://finanzberater-friedl.info/impressum.html" class="hover:text-slate-400">Impressum</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-500">
+            <div class="mb-6">
+                <a href="https://finanzberater-friedl.info" class="inline-flex items-center gap-2 text-slate-300 hover:accent-green transition-colors font-semibold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                    Zurück zur Hauptseite
+                </a>
+            </div>
+            <p>© 2025 Mario Friedl · EQUALITY EH GmbH · FMA-registriert</p>
+        </div>
+    </footer>
+
+    <script>
+        // === RECHNER-LOGIK ===
+        // Annahme: Bei einer typischen Umschuldung (Mix aus Hypothek 5-5.5%, Leasing 6-7%, Konsumkrediten 7-9%)
+        // ergibt eine Bündelung unter neuer Hypothek bei 4.5% eine durchschnittliche monatliche Ersparnis
+        // von ca. 20-25% der bisherigen Gesamtbelastung (verlängerte Laufzeit + niedrigere Zinsen).
+        // Faktor variiert leicht je nach Zinssatz.
+
+        function calculateSavings() {
+            // Alle aktuellen Raten zusammenrechnen
+            const rateInputs = document.querySelectorAll('.rate-input');
+            let total_current = 0;
+            rateInputs.forEach(input => {
+                total_current += parseFloat(input.value) || 0;
+            });
+
+            // Neuer Zinssatz
+            const new_zins = parseFloat(document.getElementById('new_zins').value) || 4.5;
+            
+            // Ersparnis-Faktor: Bei 4.5% Annahme ca. 23% Ersparnis als Faustregel
+            // Linear: Niedrigerer Zinssatz = höhere Ersparnis
+            // Bei 4.0%: ~26%, bei 4.5%: ~23%, bei 5.0%: ~20%, bei 5.5%: ~17%
+            const ersparnis_faktor = Math.max(0.10, Math.min(0.30, 0.23 + (4.5 - new_zins) * 0.06));
+            
+            const savings = total_current * ersparnis_faktor;
+            const new_total = total_current - savings;
+            const savings_year = savings * 12;
+            
+            // Spar-Empfehlung: ~40% der Ersparnis als Notgroschen, 60% frei
+            const spar_betrag = Math.round(savings * 0.40 / 10) * 10; // gerundet auf 10er
+            const rest_betrag = Math.round(savings) - spar_betrag;
+            
+            // Helper: Euro formatting
+            const formatEuro = (val) => Math.round(val).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+            
+            document.getElementById('total_current').textContent = formatEuro(total_current);
+            document.getElementById('new_total_rate').textContent = formatEuro(new_total);
+            document.getElementById('savings').textContent = formatEuro(savings);
+            document.getElementById('savings_year').textContent = formatEuro(savings_year);
+            document.getElementById('spar_betrag').textContent = formatEuro(spar_betrag);
+            document.getElementById('rest_betrag').textContent = formatEuro(rest_betrag);
+        }
+
+        // Add credit button
+        let credit_counter = 3;
+        document.getElementById('add_credit_btn').addEventListener('click', () => {
+            credit_counter++;
+            const container = document.getElementById('additional_credits');
+            const wrapper = document.createElement('div');
+            wrapper.style.cssText = 'display: flex; align-items: flex-end; gap: 8px;';
+            wrapper.innerHTML = `
+                <div style="flex: 1;">
+                    <label class="block text-xs text-slate-400 mb-2">Kredit ${credit_counter}</label>
+                    <div class="flex items-center gap-3">
+                        <input type="number" class="rate-input input-dark flex-1" value="" placeholder="z.B. 200">
+                        <span class="text-slate-500 font-semibold">€/Monat</span>
+                    </div>
+                </div>
+                <button type="button" class="remove-btn px-3 py-3 text-slate-400 hover:text-red-400 transition-colors" title="Entfernen">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/></svg>
+                </button>
+            `;
+            container.appendChild(wrapper);
+            
+            // Re-bind listeners
+            const newInput = wrapper.querySelector('.rate-input');
+            newInput.addEventListener('input', calculateSavings);
+            
+            wrapper.querySelector('.remove-btn').addEventListener('click', () => {
+                wrapper.remove();
+                calculateSavings();
+            });
+            
+            calculateSavings();
+        });
+
+        // Bind all inputs
+        document.querySelectorAll('.rate-input').forEach(input => {
+            input.addEventListener('input', calculateSavings);
+        });
+        document.getElementById('new_zins').addEventListener('input', calculateSavings);
+        
+        calculateSavings();
+        
+        // === FORMULAR ===
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Danke für deine Anfrage!\n\nIch melde mich innerhalb von 24h bei dir.\n\nOder ruf gleich an: +43 660 5256328');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
