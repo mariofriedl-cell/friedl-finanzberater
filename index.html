@@ -77,20 +77,20 @@
    TOKENS
 ═══════════════════════════════════════ */
 :root {
-  --gold:    #C8973B;
-  --gold2:   #E8B84B;
-  --ink:     #0e1720;
-  --ink2:    #162030;
+  --gold:    #D4AF37;
+  --gold2:   #E8C547;
+  --ink:     #1a3555;
+  --ink2:    #2a4a70;
   --cream:   #f0ede8;
   --off:     #f8f6f3;
   --white:   #ffffff;
-  --muted:   #5a6672;
-  --border:  rgba(14,23,32,.1);
+  --muted:   #6b7d95;
+  --border:  rgba(26, 53, 85, .12);
   --green:   #0cac6a;
   --r:       16px;
   --rsm:     8px;
-  --shadow:  0 4px 20px rgba(14,23,32,.08);
-  --shadow2: 0 12px 48px rgba(14,23,32,.14);
+  --shadow:  0 4px 20px rgba(26, 53, 85, .08);
+  --shadow2: 0 12px 48px rgba(26, 53, 85, .12);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -115,7 +115,7 @@ a { text-decoration: none; }
 ═══════════════════════════════════════ */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  background: rgba(14,23,32,.92);
+  background: rgba(26, 53, 85, .92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(200,151,59,.15);
@@ -252,11 +252,11 @@ a { text-decoration: none; }
 }
 .hero-photo-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(14,23,32,.15) 0%, rgba(14,23,32,.55) 100%);
+  background: linear-gradient(to bottom, rgba(26, 53, 85, .15) 0%, rgba(26, 53, 85, .55) 100%);
 }
 .hero-photo-badge {
   position: absolute; bottom: 20px; left: 28px;
-  background: rgba(14,23,32,.75);
+  background: rgba(26, 53, 85, .75);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(200,151,59,.4);
   border-radius: 20px; padding: 7px 16px;
@@ -392,14 +392,14 @@ a { text-decoration: none; }
   content: "";
   position: absolute; left: 0; right: 0; bottom: 0; height: 45%;
   border-radius: 0 0 18px 18px;
-  background: linear-gradient(to top, rgba(14,23,32,.85) 0%, rgba(14,23,32,.25) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(26, 53, 85, .85) 0%, rgba(26, 53, 85, .25) 55%, transparent 100%);
   pointer-events: none;
 }
 .hero-right-overlay { display: none; }
 .hero-right-card {
   position: relative;
   width: 100%; max-width: 360px;
-  background: rgba(14,23,32,.9);
+  background: rgba(26, 53, 85, .9);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(200,151,59,.3);
   border-radius: var(--r);
@@ -493,7 +493,7 @@ a { text-decoration: none; }
   font-size: 1.8rem; font-weight: 900; color: var(--ink); line-height: 1;
 }
 .sb-lbl {
-  font-size: .65rem; font-weight: 700; color: rgba(14,23,32,.6);
+  font-size: .65rem; font-weight: 700; color: rgba(26, 53, 85, .6);
   text-transform: uppercase; letter-spacing: 1px; margin-top: 3px;
 }
 
@@ -588,7 +588,7 @@ a { text-decoration: none; }
 }
 .dream-card-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(14,23,32,.9) 0%, rgba(14,23,32,.2) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(26, 53, 85, .9) 0%, rgba(26, 53, 85, .2) 55%, transparent 100%);
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 24px 22px;
 }
@@ -641,7 +641,7 @@ a { text-decoration: none; }
 .seminar-photo:hover img { transform: scale(1.04); }
 .seminar-photo-label {
   position: absolute; bottom: 60px; left: 16px;
-  background: rgba(14,23,32,.8);
+  background: rgba(26, 53, 85, .8);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(200,151,59,.3);
   border-radius: var(--rsm);
@@ -1395,7 +1395,7 @@ a { text-decoration: none; }
 .pension-compare {
   background: var(--white); border: 1px solid var(--border);
   border-radius: 20px; overflow: hidden;
-  box-shadow: 0 4px 24px rgba(14,23,32,.08); margin-bottom: 16px;
+  box-shadow: 0 4px 24px rgba(26, 53, 85, .08); margin-bottom: 16px;
 }
 .pc-header {
   background: var(--ink); padding: 14px 24px;
@@ -1410,7 +1410,7 @@ a { text-decoration: none; }
 .pc-icon {
   font-size: 1.3rem; flex-shrink: 0; margin-top: 2px;
   width: 36px; height: 36px;
-  background: rgba(14,23,32,.05); border-radius: 10px;
+  background: rgba(26, 53, 85, .05); border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
 }
 .pc-title { font-size: .9rem; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
@@ -1498,7 +1498,7 @@ a { text-decoration: none; }
 ═══════════════════════════════════════ */
 .sticky-cta {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 990;
-  background: rgba(14,23,32,.95);
+  background: rgba(26, 53, 85, .95);
   backdrop-filter: blur(12px);
   border-top: 1px solid rgba(200,151,59,.2);
   padding: 14px 20px;
@@ -1664,7 +1664,7 @@ a { text-decoration: none; }
     <!-- RIGHT: Mario Foto -->
     <div class="hero-right">
       <div class="hero-photo-frame">
-        <img src="mario-friedl-hero.jpg" alt="Mario Friedl – Finanzberater Graz" class="hero-right-photo">
+        <img src="mario-friedl-equality-portrait.jpg" alt="Mario Friedl – Finanzberater Graz" class="hero-right-photo">
         <div class="hero-right-card">
           <p class="hrc-quote">„Ich zeige dir den Unterschied zwischen sparen und investieren – und wie du anfängst."</p>
           <div class="hrc-stats">
@@ -1845,6 +1845,17 @@ a { text-decoration: none; }
       <div class="eyebrow">Was andere sagen</div>
       <h2 class="h-display">Echte Menschen. <em>Echte Veränderungen.</em></h2>
     </div>
+    
+    <!-- Kununu Social Proof -->
+    <div style="background: var(--off); border: 1px solid var(--border); border-radius: 18px; padding: 28px 24px; margin-bottom: 48px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+        <span style="font-size: 1.3rem; color: var(--gold);">★★★★★</span>
+        <span style="font-size: .95rem; font-weight: 700; color: var(--ink);">4.8 | 17 Bewertungen</span>
+      </div>
+      <p style="font-size: .88rem; color: var(--muted); margin-bottom: 14px; line-height: 1.6;">Bewertet von echten Menschen auf Kununu – unabhängig und verifiziert.</p>
+      <a href="https://www.kununu.com/at/equality1/kommentare" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-weight: 700; font-size: .85rem; padding: 10px 20px; border-radius: var(--rsm); transition: all .2s; text-decoration: none;">Alle Bewertungen auf Kununu →</a>
+    </div>
+
     <div class="testi-grid">
       <div class="testi-card anim-up d1">
         <div class="testi-stars">★★★★★</div>
@@ -1967,7 +1978,7 @@ a { text-decoration: none; }
         <div class="pq-bar"></div>
         <p>„Ich bin 40 und kümmere mich längst darum. Nicht, weil's drängt – sondern weil's mit jedem Jahr leichter wird, je früher man anfängt."</p>
         <div class="pq-author">
-          <img src="mario-friedl-hero.jpg" alt="Mario Friedl">
+          <img src="mario-friedl-equality-portrait.jpg" alt="Mario Friedl">
           <span>Mario Friedl · Unabhängiger Finanzberater Graz</span>
         </div>
       </div>
@@ -2115,7 +2126,7 @@ a { text-decoration: none; }
 <section class="seminar-section" id="seminare">
   <div class="seminar-grid anim-up">
     <div class="seminar-photo">
-      <img src="erstgespraech.jpg" alt="Termin für ein Erstgespräch – Mario Friedl" loading="lazy">
+      <img src="mario-friedl-gespraech.jpg" alt="Termin für ein Erstgespräch – Mario Friedl" loading="lazy">
       <div class="seminar-photo-label">Termin für ein Erstgespräch</div>
       <a href="#kontakt" class="seminar-photo-btn">📅 Kostenloses Erstgespräch →</a>
     </div>
@@ -2281,7 +2292,42 @@ a { text-decoration: none; }
   </div>
 </section>
 
+<!-- ══ FAQ ══ -->
+<section style="padding: 100px 24px; background: var(--white);">
+  <div class="container" style="max-width: 800px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2 class="h-display">Wie funktioniert das <em>konkret?</em></h2>
+    </div>
 
+    <div style="display: grid; gap: 20px;">
+      <div style="background: var(--off); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: all .2s;">
+        <h3 style="font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">🎯 Wie viel kostet eine Beratung?</h3>
+        <p style="font-size: .9rem; color: var(--muted); line-height: 1.7;">Das Erstgespräch (ca. 1-1,5 Stunden) ist komplett kostenlos – kein Trick, keine versteckten Gebühren. Danach arbeitest du mit mir auf Provisionsgebunden-Basis: Wenn wir gemeinsam einen Plan umsetzen (Geldanlage, Finanzierung, Versicherung), bekommst du von mir volle Transparenz über die Kosten und Provisionen. Keine Überraschungen.</p>
+      </div>
+
+      <div style="background: var(--off); border: 1px solid var(--border); border-radius: 16px; padding: 24px;">
+        <h3 style="font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">⏱️ Wie lange dauert der Prozess?</h3>
+        <p style="font-size: .9rem; color: var(--muted); line-height: 1.7;">Erstes Gespräch: 60–90 Minuten. Dann analysiere ich deine Situation und entwickle einen Plan (2–3 Wochen). Umsetzung? Das geht so schnell, wie du möchtest. Ich dränge nicht – du bestimmst das Tempo.</p>
+      </div>
+
+      <div style="background: var(--off); border: 1px solid var(--border); border-radius: 16px; padding: 24px;">
+        <h3 style="font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">🤝 Bin ich danach allein gelassen?</h3>
+        <p style="font-size: .9rem; color: var(--muted); line-height: 1.7;">Nein. Ich bleibe dein Ansprechpartner – bei Fragen, bei Marktveränderungen, bei neuen Zielen. Das ist langfristig, nicht nur beim Verkauf.</p>
+      </div>
+
+      <div style="background: var(--off); border: 1px solid var(--border); border-radius: 16px; padding: 24px;">
+        <h3 style="font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px;">📍 Muss ich in dein Büro kommen?</h3>
+        <p style="font-size: .9rem; color: var(--muted); line-height: 1.7;">Nein. Das erste Gespräch kann telefonisch, per Video oder face-to-face sein – wie es sich für dich richtig anfühlt. Die meisten machen gerne Telefon oder Zoom.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <p style="font-size: .9rem; color: var(--muted); margin-bottom: 16px;">Deine Frage ist nicht dabei? Schreib mir.</p>
+      <a href="#kontakt" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-weight: 700; font-size: .9rem; padding: 12px 24px; border-radius: var(--rsm); text-decoration: none; transition: all .2s;">📧 Direkt fragen</a>
+    </div>
+  </div>
+</section>
 
 <!-- ══ KONTAKT ══ -->
 <section class="kontakt-section" id="kontakt">
