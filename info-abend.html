@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Der Info-Abend 🍷 – Mario Friedl | Graz · Kostenlos · Jeden Monat</title>
-<meta name="description" content="Ein Abend, der dein Denken über Geld für immer verändert. Kostenlos. Persönlich. Mit Wein, Brötchen & echten Antworten. Regelmäßig in Graz.">
+<title>Wein & Finanzen 🍷 – Der Info-Abend | Mario Friedl, Graz</title>
+<meta name="description" content="Ein Abend. Zwei Leidenschaften. Exklusive Weine treffen auf smarte Finanzstrategien – kostenlos, verständlich, in kleiner Runde. Jetzt Termin sichern.">
 
 <!-- Cookie Consent + GA Guard -->
 <script>
@@ -149,207 +149,11 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
-/* ── INVITATION CARD (right side) ── */
-.inv-card{position:relative;animation:fadeIn 1.2s .4s ease both}
-.ic-outer{background:linear-gradient(160deg,rgba(200,151,59,.12),rgba(200,151,59,.04));border:1px solid rgba(200,151,59,.25);border-radius:20px;padding:40px 36px;position:relative;overflow:hidden;animation:goldPulse 4s ease-in-out infinite}
-.ic-outer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2),var(--gold))}
-.ic-outer::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.4),transparent)}
-
-.ic-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);text-align:center;margin-bottom:6px;line-height:1.2}
-.ic-subtitle{text-align:center;font-size:.75rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
-
-.ic-divider{display:flex;align-items:center;gap:12px;margin:20px 0}
-.ic-divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.3))}
-.ic-divider-line.r{background:linear-gradient(90deg,rgba(200,151,59,.3),transparent)}
-.ic-divider-gem{font-size:.9rem}
-
-.ic-details{display:flex;flex-direction:column;gap:0}
-.icd-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.icd-row:last-child{border-bottom:none}
-.icd-icon{width:38px;height:38px;border-radius:10px;background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.icd-label{font-size:.67rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:3px}
-.icd-value{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.85)}
-.icd-value.free{color:#4cd4a0;font-size:1rem}
-.icd-value.wine-val{color:rgba(245,208,211,.8)}
-
-.ic-seats{margin-top:22px;background:rgba(255,255,255,.04);border-radius:12px;padding:16px}
-.ic-seats-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.ic-seats-label{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.45)}
-.ic-seats-count{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold);line-height:1}
-.ic-seats-sub{font-size:.68rem;color:rgba(255,255,255,.25);margin-top:-2px;text-align:right}
-.ic-track{height:8px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden}
-.ic-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--wine),var(--gold));transition:width 1.5s cubic-bezier(.16,1,.3,1);width:0}
-
-.ic-cta{margin-top:20px;width:100%;padding:16px;background:linear-gradient(135deg,var(--wine),var(--wine2));color:var(--white);border:none;border-radius:10px;font-family:'Lato',sans-serif;font-size:1rem;font-weight:900;letter-spacing:.5px;cursor:pointer;transition:all .3s;box-shadow:0 8px 30px rgba(107,26,42,.4);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px}
-.ic-cta:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(107,26,42,.55);filter:brightness(1.08)}
-
 /* ═══ TICKER ═══ */
 .ticker{background:rgba(200,151,59,.06);border-top:1px solid rgba(200,151,59,.12);border-bottom:1px solid rgba(200,151,59,.12);overflow:hidden;padding:12px 0}
 .ticker-inner{display:flex;width:max-content;animation:ticker 38s linear infinite}
 .t-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 38px;font-size:.7rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.28)}
 .t-gem{font-size:.75rem}
-
-/* ═══════════════════════
-   STORY SECTION – Marios persönliche Geschichte
-═══════════════════════ */
-.story-section{padding:110px 0;background:linear-gradient(180deg,var(--ink) 0%,var(--warm) 100%);position:relative;overflow:hidden}
-.story-section::before{content:'';position:absolute;left:0;top:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.25),transparent)}
-.story-inner{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
-
-.story-left{}
-.story-left .eyebrow{display:inline-block;font-size:.67rem;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.story-left h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:28px;letter-spacing:-.025em}
-.story-left h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.story-pull{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.62);line-height:1.65;border-left:3px solid var(--gold);padding:16px 0 16px 24px;margin:28px 0}
-.story-left p{font-size:.96rem;color:rgba(255,255,255,.48);line-height:1.9;margin-bottom:16px}
-.story-left p strong{color:rgba(255,255,255,.85)}
-.story-left p em{color:var(--gold2);font-style:italic}
-
-/* Timeline */
-.story-timeline{display:flex;flex-direction:column;gap:0}
-.st-item{display:flex;gap:20px;padding:22px 0;position:relative}
-.st-item+.st-item::before{content:'';position:absolute;top:0;left:19px;width:1px;height:22px;background:linear-gradient(180deg,transparent,rgba(200,151,59,.3))}
-.st-dot{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;border:1.5px solid}
-.st-dot.past{background:rgba(255,60,60,.08);border-color:rgba(255,80,80,.25)}
-.st-dot.turn{background:rgba(200,151,59,.1);border-color:rgba(200,151,59,.3)}
-.st-dot.now{background:rgba(12,172,106,.1);border-color:rgba(12,172,106,.3)}
-.st-content{}
-.st-year{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:rgba(255,255,255,.28);margin-bottom:3px;line-height:1}
-.st-dot.turn+div .st-year,.st-item.turn .st-year{color:var(--gold)}
-.st-item.now .st-year{color:var(--green)}
-.st-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.02rem;color:var(--white);margin-bottom:5px;line-height:1.2}
-.st-text{font-size:.84rem;color:rgba(255,255,255,.42);line-height:1.65}
-
-/* ═══════════════════════
-   WARUM DIESER ABEND – Die Geschichte des Info-Abends
-═══════════════════════ */
-.why-section{padding:110px 0;background:var(--warm);position:relative}
-.why-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.2),transparent)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.1);border-radius:20px;overflow:hidden;margin-top:0}
-.why-card{padding:44px 32px;background:rgba(0,0,0,.35);position:relative;overflow:hidden;transition:background .3s;cursor:default}
-.why-card:hover{background:rgba(200,151,59,.05)}
-.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--wine),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.why-card:hover::after{transform:scaleX(1)}
-.wc-icon{font-size:2.2rem;margin-bottom:18px;display:block;animation:float 4s ease-in-out infinite}
-.wc-num{position:absolute;top:16px;right:20px;font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(200,151,59,.06);line-height:1}
-.wc-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.2}
-.wc-text{font-size:.88rem;color:rgba(255,255,255,.42);line-height:1.8}
-.wc-text strong{color:rgba(255,255,255,.75)}
-
-/* ═══════════════════════
-   WAS DICH ERWARTET – Abendprogramm
-═══════════════════════ */
-.evening-section{padding:110px 0;background:linear-gradient(180deg,var(--warm) 0%,var(--ink) 100%);position:relative;overflow:hidden}
-.evening-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(200,151,59,.04),transparent 65%);pointer-events:none}
-
-.evening-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative;z-index:1}
-.evening-left h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:22px;letter-spacing:-.025em}
-.evening-left h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.evening-pull{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;border-left:3px solid var(--wine2);padding:14px 0 14px 22px;margin:24px 0}
-.evening-left p{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:14px}
-.evening-left p strong{color:rgba(255,255,255,.82)}
-
-/* Program steps */
-.program-steps{display:flex;flex-direction:column;gap:0}
-.ps-item{display:flex;gap:18px;padding:22px 20px;border-radius:14px;transition:background .3s;cursor:default;position:relative}
-.ps-item:hover{background:rgba(200,151,59,.05)}
-.ps-time-col{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;width:60px}
-.ps-time{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--gold);line-height:1;text-align:center}
-.ps-line{flex:1;width:1px;background:linear-gradient(180deg,rgba(200,151,59,.3),rgba(200,151,59,.05));margin-top:8px;min-height:24px}
-.ps-content{}
-.ps-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.2}
-.ps-text{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.65}
-.ps-text strong{color:rgba(255,255,255,.7)}
-.ps-tag{display:inline-block;margin-top:7px;background:rgba(107,26,42,.2);border:1px solid rgba(107,26,42,.35);border-radius:20px;padding:3px 12px;font-size:.68rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(245,208,211,.7)}
-.ps-tag.gold-tag{background:rgba(200,151,59,.12);border-color:rgba(200,151,59,.25);color:var(--gold2)}
-
-/* ═══════════════════════
-   THEMEN die behandelt werden
-═══════════════════════ */
-.themen-section{padding:100px 0;background:var(--ink);position:relative}
-.themen-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.2),transparent)}
-.themen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:0}
-.thema-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:30px 26px;transition:all .35s;position:relative;overflow:hidden;display:flex;gap:18px;align-items:flex-start}
-.thema-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--wine),var(--gold));opacity:0;transition:opacity .3s}
-.thema-card:hover{background:rgba(200,151,59,.05);border-color:rgba(200,151,59,.15);transform:translateY(-4px)}
-.thema-card:hover::before{opacity:1}
-.tc-icon{width:52px;height:52px;border-radius:12px;background:rgba(200,151,59,.08);border:1px solid rgba(200,151,59,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.tc-body{}
-.tc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.2}
-.tc-text{font-size:.87rem;color:rgba(255,255,255,.4);line-height:1.75}
-.tc-text strong{color:rgba(255,255,255,.75)}
-.tc-aha{display:inline-block;margin-top:10px;font-size:.68rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,151,59,.3);padding-bottom:2px}
-
-/* ═══════════════════════
-   STIMMEN – Testimonials
-═══════════════════════ */
-.voices-section{padding:100px 0;background:linear-gradient(180deg,var(--ink) 0%,var(--warm) 100%)}
-.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
-.voice-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 26px;transition:all .3s;position:relative;overflow:hidden}
-.voice-card:hover{transform:translateY(-6px);border-color:rgba(200,151,59,.2);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.voice-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:7rem;color:rgba(200,151,59,.08);position:absolute;top:-10px;left:16px;line-height:1;pointer-events:none}
-.vc-stars{display:flex;gap:3px;margin-bottom:18px}
-.vc-star{width:14px;height:14px;background:var(--gold);clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)}
-.vc-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.62);line-height:1.75;margin-bottom:20px}
-.vc-text strong{color:rgba(255,255,255,.85);font-style:normal;font-weight:600}
-.vc-author{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.7)}
-.vc-role{font-size:.75rem;color:rgba(255,255,255,.3)}
-
-/* Counter strip */
-.counter-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.12);border-radius:16px;overflow:hidden;margin-top:60px}
-.cs-item{padding:28px 20px;text-align:center;border-right:1px solid rgba(200,151,59,.1)}
-.cs-item:last-child{border-right:none}
-.cs-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;background:linear-gradient(135deg,var(--wine2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;margin-bottom:4px}
-.cs-label{font-size:.77rem;color:rgba(255,255,255,.4);line-height:1.4}
-.cs-label strong{color:rgba(255,255,255,.7);display:block}
-
-/* ═══════════════════════
-   DETAILS + MAP SECTION
-═══════════════════════ */
-.details-section{padding:100px 0;background:var(--warm);position:relative}
-.details-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.25),transparent)}
-.details-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
-
-.detail-card{background:rgba(0,0,0,.35);border:1px solid rgba(200,151,59,.15);border-radius:20px;overflow:hidden;position:relative}
-.detail-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2))}
-.detail-rows{padding:8px 0}
-.dr-row{display:flex;align-items:flex-start;gap:16px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s}
-.dr-row:last-child{border-bottom:none}
-.dr-row:hover{background:rgba(200,151,59,.04)}
-.dr-icon{width:42px;height:42px;border-radius:10px;background:rgba(200,151,59,.08);border:1px solid rgba(200,151,59,.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.dr-label{font-size:.65rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:4px}
-.dr-value{font-size:.93rem;font-weight:700;color:rgba(255,255,255,.82)}
-.dr-value.highlight{color:#4cd4a0}
-.dr-value.wine-col{color:rgba(245,208,211,.75)}
-
-/* Map box */
-.map-box{border-radius:20px;overflow:hidden;border:1px solid rgba(200,151,59,.15)}
-.map-embed{width:100%;height:280px;border:none;filter:grayscale(.7) brightness(.7) sepia(.3);transition:filter .3s}
-.map-embed:hover{filter:grayscale(.3) brightness(.85) sepia(.2)}
-.map-address{background:rgba(0,0,0,.4);padding:18px 22px;display:flex;gap:12px;align-items:center}
-.ma-icon{font-size:1.3rem}
-.ma-name{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;color:var(--white);margin-bottom:2px}
-.ma-addr{font-size:.82rem;color:rgba(255,255,255,.42)}
-
-/* ═══════════════════════
-   URGENCY
-═══════════════════════ */
-.urgency-section{padding:90px 0;background:linear-gradient(160deg,var(--warm) 0%,#0f0b0d 100%);text-align:center;position:relative;overflow:hidden}
-.urgency-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(107,26,42,.12),transparent 65%);pointer-events:none}
-.urg-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:0 20px}
-.urg-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,26,42,.2);border:1px solid rgba(107,26,42,.4);border-radius:4px;padding:7px 20px;font-size:.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(245,208,211,.8);margin-bottom:28px}
-.urg-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,8vw,3.8rem);font-weight:900;color:var(--white);line-height:1.02;margin-bottom:20px;letter-spacing:-.02em}
-.urg-h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.urg-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:32px;font-weight:300}
-
-.seats-visual{margin:0 auto 36px;max-width:420px}
-.sv-top{display:flex;justify-content:space-between;margin-bottom:10px;font-size:.8rem;font-weight:700}
-.sv-taken{color:rgba(255,255,255,.45)}
-.sv-free{color:var(--gold)}
-.sv-track{height:10px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
-.sv-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--wine2),var(--gold));transition:width 1.6s cubic-bezier(.16,1,.3,1);width:0}
-.sv-count{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:12px}
-.sv-label{font-size:.88rem;color:rgba(255,255,255,.4);margin-top:4px}
 
 /* ═══════════════════════
    FORM SECTION
@@ -416,7 +220,7 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 .faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s}
 .faq-item.open .faq-icon{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
-.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-item.open .faq-a{max-height:260px;padding-bottom:20px}
 .faq-a p{font-size:.93rem;color:rgba(255,255,255,.45);line-height:1.8}
 .faq-a p strong{color:rgba(255,255,255,.75)}
 
@@ -453,100 +257,8 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 .sh h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sh p{font-size:1.02rem;color:rgba(255,255,255,.42);max-width:560px;margin:0 auto;line-height:1.8}
 
-/* ═══════════════════════
-   GAME CHANGER – Regel 72
-═══════════════════════ */
-.gamechanger-section{padding:110px 0;background:linear-gradient(180deg,var(--ink) 0%,#0c0a14 50%,var(--ink) 100%);position:relative;overflow:hidden}
-.gamechanger-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(200,151,59,.07) 0%,transparent 65%);pointer-events:none}
-.gamechanger-section::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.3),transparent)}
-.gc-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
-
-.gc-kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,151,59,.25);border-radius:4px;padding:7px 20px;font-size:.68rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:48px;background:rgba(200,151,59,.06)}
-.gc-kicker-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:glowDot 1.5s ease-in-out infinite}
-
-/* The big question */
-.gc-question-wrap{margin-bottom:44px}
-.gc-question-label{font-size:.75rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
-.gc-question{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-.025em}
-.gc-question em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.gc-rate{color:var(--wine2);font-style:normal}
-
-/* Reveal button */
-.gc-reveal-wrap{margin-bottom:0}
-.gc-reveal-teaser{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:24px}
-.gc-reveal-teaser span{display:block;font-size:1rem;color:rgba(255,255,255,.3);margin-top:4px}
-.gc-reveal-btn{background:linear-gradient(135deg,rgba(200,151,59,.12),rgba(200,151,59,.06));border:1.5px solid rgba(200,151,59,.35);color:var(--gold2);font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;padding:16px 44px;border-radius:8px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
-.gc-reveal-btn:hover{background:rgba(200,151,59,.18);border-color:var(--gold);transform:translateY(-2px)}
-
-/* Answer reveal */
-.gc-answer{display:none;margin-top:48px;animation:fadeUp .7s ease both}
-.gc-answer.show{display:block}
-.gc-answer-inner{background:linear-gradient(135deg,rgba(232,93,42,.08),rgba(107,26,42,.06));border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:44px 36px;margin-bottom:36px;position:relative;overflow:hidden}
-.gc-answer-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--ember),var(--gold))}
-.gc-answer-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(7rem,18vw,12rem);line-height:.85;background:linear-gradient(135deg,var(--ember) 0%,var(--gold2) 60%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;animation:counterUp .8s .1s ease both}
-.gc-answer-unit{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,.6);font-style:italic;margin-top:-8px;margin-bottom:12px}
-.gc-answer-rule{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 20px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.gc-impact{background:rgba(232,93,42,.06);border-left:3px solid var(--ember);border-radius:0 12px 12px 0;padding:18px 22px;text-align:left;margin-bottom:32px}
-.gc-impact-text{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.75}
-.gc-impact-text strong{color:var(--white);font-size:1.05rem}
-
-/* Compare table */
-.gc-compare{margin-bottom:36px;text-align:left}
-.gc-compare-title{font-size:.7rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px;text-align:center}
-.gc-compare-grid{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden}
-.gc-cg-head{display:grid;grid-template-columns:100px 1fr 1fr;gap:0;background:rgba(255,255,255,.05);padding:10px 18px;font-size:.66rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28)}
-.gc-cg-row{display:grid;grid-template-columns:100px 1fr 1fr;gap:0;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);align-items:center;transition:background .2s}
-.gc-cg-row:last-child{border-bottom:none}
-.gc-cg-row:hover{background:rgba(255,255,255,.03)}
-.gc-cg-row.bad{background:rgba(255,40,40,.03)}
-.gc-cg-row.mid{background:rgba(255,180,0,.03)}
-.gc-cg-row.good{background:rgba(12,172,106,.04)}
-.gc-cg-row.best{background:rgba(12,172,106,.07)}
-.gcr-rate{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:rgba(255,255,255,.55)}
-.gcr-years span{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:rgba(255,255,255,.4)}
-.gc-cg-row.bad .gcr-years span{color:rgba(255,80,80,.7)}
-.gc-cg-row.good .gcr-years span,.good-years span{color:var(--green)!important}
-.gc-cg-row.best .gcr-years span,.best-years span{color:#4cd4a0!important;font-size:1.6rem!important}
-.gc-cg-row.best .gcr-rate{color:var(--gold)}
-.gcr-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.5px}
-.bad-tag{background:rgba(255,80,80,.1);color:rgba(255,120,120,.7);border:1px solid rgba(255,80,80,.15)}
-.mid-tag{background:rgba(255,180,0,.1);color:rgba(255,200,80,.7);border:1px solid rgba(255,180,0,.15)}
-.good-tag{background:rgba(12,172,106,.1);color:#4cd4a0;border:1px solid rgba(12,172,106,.2)}
-.best-tag{background:rgba(12,172,106,.15);color:#4cd4a0;border:1px solid rgba(12,172,106,.3)}
-
-/* Mario's personal moment */
-.gc-mario-moment{background:linear-gradient(135deg,rgba(200,151,59,.07),rgba(107,26,42,.05));border:1px solid rgba(200,151,59,.18);border-radius:18px;padding:36px 32px;margin-bottom:32px;position:relative;overflow:hidden;text-align:left}
-.gc-mario-moment::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2))}
-.gcm-quote-mark{font-family:'Cormorant Garamond',serif;font-size:6rem;color:rgba(200,151,59,.15);line-height:.7;margin-bottom:10px}
-.gcm-content p{font-size:.97rem;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:14px}
-.gcm-content p:last-child{margin-bottom:0}
-.gcm-content p strong{color:rgba(255,255,255,.88)}
-.gcm-content p em{color:var(--gold2);font-style:italic}
-.gcm-author{font-size:.82rem;font-weight:700;color:var(--gold);margin-top:18px;letter-spacing:1px}
-
-.gc-bottom-cta{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px;display:flex;flex-direction:column;align-items:center}
-.gc-bottom-text{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.75;text-align:center}
-.gc-bottom-text strong{color:rgba(255,255,255,.82)}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .gc-question{font-size:2.4rem}
-  .gc-answer-num{font-size:7rem}
-  .gc-cg-head,.gc-cg-row{grid-template-columns:70px 1fr 1fr;font-size:.78rem}
-  .gc-mario-moment{padding:24px 20px}
-}
-
-
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
-  .inv-card{max-width:480px;margin:0 auto}
-  .story-inner{grid-template-columns:1fr;gap:52px}
-  .why-grid{grid-template-columns:1fr}
-  .evening-grid{grid-template-columns:1fr;gap:52px}
-  .themen-grid{grid-template-columns:1fr}
-  .voices-grid{grid-template-columns:1fr 1fr}
-  .counter-strip{grid-template-columns:1fr 1fr}
-  .details-inner{grid-template-columns:1fr;gap:36px}
   .form-inner{grid-template-columns:1fr;gap:48px}
 }
 @media(max-width:768px){
@@ -557,17 +269,84 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   .hero h1{font-size:2.9rem}
   .hero-detail-pills{gap:8px}
   .hdp{font-size:.78rem;padding:8px 14px}
-  .voices-grid{grid-template-columns:1fr}
-  .counter-strip{grid-template-columns:1fr 1fr}
-  .ic-outer{padding:28px 22px}
   .form-card-head,.form-body{padding:24px 22px}
   .fg-row{grid-template-columns:1fr}
   .sticky-bar{flex-direction:column;text-align:center;gap:8px}
   .cc-details{gap:14px;flex-direction:column;align-items:center}
-  .cc-two-path{grid-template-columns:1fr!important}
+  .pain-grid{grid-template-columns:1fr}
+  .expect-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .date-grid{grid-template-columns:1fr}
+  .photo-duo{grid-template-columns:1fr}
+  .photo-item img{height:240px}
+  .wf-hero-frame img{max-height:380px}
+  .pain-cta-box{padding:26px 22px}
+  .pain-cta-box p{font-size:1.15rem}
 }
+@media(max-width:480px){
+  .expect-grid{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════
+   WEIN & FINANZEN – Hero visual
+═══════════════════════ */
+.wf-hero-visual{position:relative;animation:fadeIn 1.2s .4s ease both}
+.wf-hero-frame{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(200,151,59,.3);box-shadow:0 30px 80px rgba(0,0,0,.55);animation:goldPulse 4s ease-in-out infinite}
+.wf-hero-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2),var(--gold));z-index:2}
+.wf-hero-frame img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover}
+.wf-hero-caption{position:absolute;bottom:0;left:0;right:0;padding:22px 24px 18px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);display:flex;align-items:center;gap:10px;z-index:2}
+.wf-hero-caption span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.85)}
+
+/* ═══════════════════════
+   PAIN POINTS
+═══════════════════════ */
+.pain-section{padding:100px 0;background:linear-gradient(180deg,var(--warm) 0%,var(--ink) 100%);position:relative}
+.pain-section::before{content:'';position:absolute;left:0;top:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,151,59,.25),transparent)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.pain-card{background:rgba(255,255,255,.03);border:1px solid rgba(232,93,42,.18);border-radius:16px;padding:32px 26px;position:relative;overflow:hidden}
+.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--wine),var(--ember))}
+.pc-icon{font-size:1.8rem;margin-bottom:16px;display:block}
+.pc-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3}
+.pc-text{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8}
+.pc-text strong{color:rgba(255,255,255,.85)}
+.pain-cta-box{margin-top:44px;text-align:center;background:linear-gradient(135deg,rgba(200,151,59,.1),rgba(107,26,42,.08));border:1px solid rgba(200,151,59,.25);border-radius:18px;padding:34px 30px}
+.pain-cta-box p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:22px}
+.pain-cta-box p strong{color:var(--gold2);font-style:normal}
+
+/* ═══════════════════════
+   WAS DICH ERWARTET (4 cards)
+═══════════════════════ */
+.expect-section{padding:100px 0}
+.expect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+.ex-card{background:rgba(255,255,255,.03);border:1px solid rgba(200,151,59,.16);border-radius:16px;padding:30px 22px;text-align:center;transition:all .3s}
+.ex-card:hover{border-color:rgba(200,151,59,.4);transform:translateY(-4px)}
+.ex-icon{font-size:2.1rem;margin-bottom:16px;display:block}
+.ex-title{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3}
+.ex-text{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.7}
+
+/* ═══════════════════════
+   PHOTO DUO – Eindrücke
+═══════════════════════ */
+.photo-section{padding:100px 0;background:linear-gradient(180deg,var(--ink) 0%,var(--warm) 100%)}
+.photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
+.photo-item{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(200,151,59,.18)}
+.photo-item img{display:block;width:100%;height:340px;object-fit:cover;transition:transform .5s}
+.photo-item:hover img{transform:scale(1.04)}
+.photo-item-cap{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);font-size:.82rem;font-weight:700;color:rgba(255,255,255,.85)}
+
+/* ═══════════════════════
+   TERMINE – Date selection
+═══════════════════════ */
+.termine-section{padding:100px 0}
+.date-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.date-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:28px 22px;text-align:center;cursor:pointer;transition:all .25s;position:relative}
+.date-card:hover{border-color:rgba(200,151,59,.4)}
+.date-card.selected{border-color:var(--gold);background:rgba(200,151,59,.08);box-shadow:0 0 0 1px var(--gold),0 12px 40px rgba(200,151,59,.15)}
+.date-card.selected::after{content:'✓ Ausgewählt';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font-size:.66rem;font-weight:900;letter-spacing:1px;padding:4px 14px;border-radius:20px}
+.dc-weekday{font-size:.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.dc-date{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--white);line-height:1}
+.dc-month{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:2px;margin-bottom:14px}
+.dc-time{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);padding:6px 14px;border-radius:20px}
 </style>
-</head>
 <body>
 
 <!-- NAV -->
@@ -581,7 +360,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="historischer-inflationsrechner.html">Inflationsrechner</a></li>
+      <li><a href="#termine">Termine</a></li>
       <li><a href="#anmelden" class="nav-wine">🍷 Platz sichern</a></li>
     </ul>
     <button class="mob-btn" id="mobBtn">☰</button>
@@ -592,8 +371,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   <a href="index.html">Home</a>
   <a href="index.html#leistungen">Leistungen</a>
   <a href="business-seminar.html">Business Seminar</a>
-  <a href="historischer-inflationsrechner.html">📉 Inflationsrechner</a>
-  <a href="karriere-check.html">📋 Karriere-Check</a>
+  <a href="#termine">📅 Termine</a>
   <a href="#anmelden" class="mob-wine">🍷 Kostenlos anmelden</a>
 </div>
 
@@ -608,90 +386,32 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="hero-left">
       <div class="h-kicker">
         <span class="h-kicker-dot"></span>
-        Regelmäßig in Graz · Kostenlos
+        Ein Abend. Zwei Leidenschaften.
       </div>
       <h1>
-        <span class="h1-wine">Du arbeitest.</span>
-        <span class="h1-wine">Du sparst.</span>
-        <span class="h1-italic">Warum reicht es nicht?</span>
+        <span class="h1-wine">Wein &amp;</span>
+        <span class="h1-italic">Finanzen.</span>
       </h1>
       <p class="hero-statement">
-        Dieses Gefühl kennen viele – aber kaum jemand spricht es aus. An diesem Abend tun wir genau das. <strong>Ehrlich. Offen. Mit einem Glas Sekt zum Empfang.</strong>
+        Ein Glas Wein in der Hand, dein Handy in der Tasche – und zum ersten Mal seit Langem <strong>begreifst du auf einen Blick, was mit deinem Geld eigentlich passiert.</strong> Ohne Tabellen, die du dreimal lesen musst.
       </p>
       <div class="hero-detail-pills">
         <div class="hdp free-pill"><span>✓</span> 100% kostenlos</div>
-        <div class="hdp wine-pill"><span>🍷</span> Wein &amp; Brötchen inklusive</div>
-        <div class="hdp gold-pill"><span>👥</span> Max. 25 Personen</div>
-        <div class="hdp"><span>📍</span> Graz · Herrgottwiesgasse</div>
+        <div class="hdp wine-pill"><span>🍷</span> Exklusive Weinauswahl</div>
+        <div class="hdp gold-pill"><span>👥</span> Begrenzte Teilnehmerzahl</div>
+        <div class="hdp"><span>📍</span> Graz · Exclusive Location</div>
       </div>
       <div class="hero-ctas">
-        <a href="#anmelden" class="btn-wine">🍷 Meinen Platz sichern →</a>
-        <a href="#was-erwartet-mich" class="btn-ghost">Was erwartet mich?</a>
+        <a href="#termine" class="btn-wine">🍷 Termin wählen &amp; sichern →</a>
+        <a href="#erwartet" class="btn-ghost">Was erwartet mich?</a>
       </div>
     </div>
 
-    <!-- Invitation card -->
-    <div class="inv-card">
-      <div class="ic-outer">
-        <div class="ic-title">Der Info-Abend</div>
-        <div class="ic-subtitle">🍷 · Einladung · Juni 2026 · 🍷</div>
-
-        <div class="ic-divider">
-          <div class="ic-divider-line"></div>
-          <span class="ic-divider-gem">✦</span>
-          <div class="ic-divider-line r"></div>
-        </div>
-
-        <div class="ic-details">
-          <div class="icd-row">
-            <div class="icd-icon">📅</div>
-            <div>
-              <div class="icd-label">Nächster Termin</div>
-              <div class="icd-value">Donnerstag, 25. Juni 2026</div>
-            </div>
-          </div>
-          <div class="icd-row">
-            <div class="icd-icon">⏰</div>
-            <div>
-              <div class="icd-label">Uhrzeit</div>
-              <div class="icd-value">18:30 – 20:00 Uhr · Einlass ab 18:00</div>
-            </div>
-          </div>
-          <div class="icd-row">
-            <div class="icd-icon">📍</div>
-            <div>
-              <div class="icd-label">Ort</div>
-              <div class="icd-value">EQUALITY EH GmbH<br><span style="font-size:.83rem;font-weight:400;color:rgba(255,255,255,.45)">Herrgottwiesgasse 119/1 · 8020 Graz</span></div>
-            </div>
-          </div>
-          <div class="icd-row">
-            <div class="icd-icon">🍷</div>
-            <div>
-              <div class="icd-label">Verpflegung</div>
-              <div class="icd-value wine-val">Wein · Brötchen · Alkoholfrei · Inklusive</div>
-            </div>
-          </div>
-          <div class="icd-row">
-            <div class="icd-icon">💶</div>
-            <div>
-              <div class="icd-label">Eintritt</div>
-              <div class="icd-value free">€ 0,00 · Vollständig kostenlos</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ic-seats">
-          <div class="ic-seats-top">
-            <span class="ic-seats-label">Verfügbare Plätze</span>
-            <div>
-              <div class="ic-seats-count" id="seatCount">14</div>
-              <div class="ic-seats-sub">von 25 Plätzen · 14 noch frei</div>
-            </div>
-          </div>
-          <div class="ic-track"><div class="ic-fill" id="seatFill"></div></div>
-        </div>
-
-        <a href="#anmelden" class="ic-cta">🍷 Kostenlos anmelden →</a>
+    <!-- Hero visual -->
+    <div class="wf-hero-visual">
+      <div class="wf-hero-frame">
+        <img src="wein-finanzen-bulle-baer.jpg" alt="Wein & Finanzen – Weinglas zwischen Bulle und Bär">
+        <div class="wf-hero-caption"><span>Wissen. Austausch. Genuss.</span></div>
       </div>
     </div>
   </div>
@@ -700,507 +420,130 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <div class="t-item"><span class="t-gem">✦</span> KOSTENLOS · REGELMÄSSIG IN GRAZ</div>
-    <div class="t-item"><span class="t-gem">🍷</span> WEIN UND BRÖTCHEN INKLUSIVE · KEINE VERKAUFSVERANSTALTUNG</div>
-    <div class="t-item"><span class="t-gem">✦</span> MAX. 25 PERSONEN · INTIM · EHRLICH · PERSÖNLICH</div>
-    <div class="t-item"><span class="t-gem">🏛️</span> SEIT 2 JAHREN · ÜBER 500 TEILNEHMER · GRAZ</div>
-    <div class="t-item"><span class="t-gem">✦</span> KOSTENLOS · REGELMÄSSIG IN GRAZ</div>
-    <div class="t-item"><span class="t-gem">🍷</span> WEIN UND BRÖTCHEN INKLUSIVE · KEINE VERKAUFSVERANSTALTUNG</div>
-    <div class="t-item"><span class="t-gem">✦</span> MAX. 25 PERSONEN · INTIM · EHRLICH · PERSÖNLICH</div>
-    <div class="t-item"><span class="t-gem">🏛️</span> SEIT 2 JAHREN · ÜBER 500 TEILNEHMER · GRAZ</div>
+    <div class="t-item"><span class="t-gem">✦</span> Exklusive Weinauswahl</div>
+    <div class="t-item"><span class="t-gem">✦</span> Spannende Vorträge</div>
+    <div class="t-item"><span class="t-gem">✦</span> Markt. Chancen. Zukunft.</div>
+    <div class="t-item"><span class="t-gem">✦</span> Networking mit Mehrwert</div>
+    <div class="t-item"><span class="t-gem">✦</span> Exklusive Weinauswahl</div>
+    <div class="t-item"><span class="t-gem">✦</span> Spannende Vorträge</div>
+    <div class="t-item"><span class="t-gem">✦</span> Markt. Chancen. Zukunft.</div>
+    <div class="t-item"><span class="t-gem">✦</span> Networking mit Mehrwert</div>
   </div>
 </div>
 
-<!-- MARIO'S STORY -->
-<section class="story-section">
-  <div class="wrap">
-    <div class="story-inner">
-      <div class="story-left anim-left">
-        <span class="eyebrow">Warum dieser Abend existiert</span>
-        <h2>
-          Kennst du dieses<br>
-          <em>leise Unbehagen?</em>
-        </h2>
-        <div class="story-pull">
-          „Du tust, was alle tun. Sparst, was du kannst. Und fragst dich trotzdem – warum wird es nicht mehr?"
-        </div>
-        <p>
-          Vielleicht kennst du dieses Gefühl. Nicht weil du falsch liegst – sondern weil Finanzwissen einfach nie wirklich weitergegeben wird. In der Schule nicht. Oft auch im Umfeld nicht. <strong>Und wer nicht fragt, erfährt es nie.</strong>
-        </p>
-        <p>
-          Ich kenne das aus eigener Erfahrung. Mit 22 Jahren und <strong>€ 30.000 Schulden</strong> saß ich zum ersten Mal einem Finanzberater gegenüber – und verstand, was mir bis dahin gefehlt hatte. Nicht Disziplin. Nicht Fleiß. Sondern <em>das richtige Wissen zur richtigen Zeit.</em> Dieser Abend hat mein Leben verändert.
-        </p>
-        <p>
-          <strong>Genau dieses Wissen gebe ich jetzt weiter.</strong> An jeden, der bereit ist zuzuhören – egal wo er gerade steht.
-        </p>
-      </div>
-
-      <div class="story-timeline anim-right">
-        <div class="st-item past">
-          <div class="st-dot past">😰</div>
-          <div class="st-content">
-            <div class="st-year">FRÜHER</div>
-            <div class="st-title">Aufgewachsen ohne Finanzwissen</div>
-            <div class="st-text">Geld war immer ein Thema – aber nie ein Lehrthema. Die Familie sparte, was sie konnte. Und fragte sich trotzdem, warum es nie reichte.</div>
-          </div>
-        </div>
-        <div class="st-item turn">
-          <div class="st-dot turn">💡</div>
-          <div class="st-content">
-            <div class="st-year">DIE WENDE</div>
-            <div class="st-title">Ein Gespräch, das alles veränderte</div>
-            <div class="st-text">2008 saß ich zum ersten Mal einem Finanzberater gegenüber. Die Zahlen lagen auf dem Tisch. Vieles wurde auf einmal klar. Der erste Schritt war gemacht.</div>
-          </div>
-        </div>
-        <div class="st-item turn">
-          <div class="st-dot turn">🌱</div>
-          <div class="st-content">
-            <div class="st-year">2023 · DER ANFANG</div>
-            <div class="st-title">5 Menschen. Ein Abend. Eine Idee.</div>
-            <div class="st-text">Im kleinen Kreis begann der Info-Abend. Keine große Bühne. Keine Werbung. Nur das Wissen, weitergegeben – an Menschen, die es brauchen.</div>
-          </div>
-        </div>
-        <div class="st-item now">
-          <div class="st-dot now">🔥</div>
-          <div class="st-content">
-            <div class="st-year">HEUTE</div>
-            <div class="st-title">25+ Teilnehmer jeden Monat</div>
-            <div class="st-text">Aus 5 wurden 10, aus 10 wurden 25. Regelmäßig in Graz. Wein, Gespräche, Klarheit. Und jedes Mal jemand, der sagt: <em>"Das hätte ich früher wissen wollen."</em></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WARUM DIESER ABEND -->
-<section class="why-section">
+<!-- SCHMERZPUNKTE -->
+<section class="pain-section">
   <div class="wrap">
     <div class="sh anim">
-      <span class="eyebrow-tag">Was ihn besonders macht</span>
-      <h2>Ein Abend, nach dem<br><em>du anders auf Geld schaust.</em></h2>
-      <p>60 Minuten, die dir mehr erklären als Jahre des Hörensagens.</p>
+      <span class="eyebrow-tag">Warum jetzt?</span>
+      <h2>Warten kostet mehr,<br><em>als du denkst.</em></h2>
+      <p>Die wenigsten setzen sich aktiv mit ihren Finanzen auseinander – meistens erst dann, wenn es eng wird. Genau das wollen wir ändern.</p>
     </div>
-    <div class="why-grid">
-      <div class="why-card anim">
-        <span class="wc-icon">💡</span>
-        <span class="wc-num">01</span>
-        <div class="wc-title">Du gehst mit echtem Wissen nach Hause</div>
-        <div class="wc-text">Was gerade an den Märkten passiert. Wo Geld heute sinnvoll arbeitet. Was Inflation still mit deinen Ersparnissen macht. <strong>Konkret, verständlich, auf den Punkt</strong> – kein Fachjargon, keine Theorie.</div>
+    <div class="pain-grid">
+      <div class="pain-card anim">
+        <span class="pc-icon">🔥</span>
+        <div class="pc-title">Inflation frisst dein Erspartes – leise</div>
+        <div class="pc-text">Der Kaffee, der heute 4 € kostet, wird in zehn Jahren mehr kosten. Dein Sparbuch bekommt davon nichts mit. <strong>Was du heute zur Seite legst, kauft dir morgen weniger</strong> – ohne dass am Kontoauszug irgendetwas darauf hinweist.</div>
       </div>
-      <div class="why-card anim d1">
-        <span class="wc-icon">🔥</span>
-        <span class="wc-num">02</span>
-        <div class="wc-title">Themen, über die sonst keiner redet</div>
-        <div class="wc-text">Pensionslücke, Edelmetalle, Fondsrenditen über 50 Jahre – <strong>Themen, die jeden betreffen, aber selten offen angesprochen werden.</strong> Hier schon. Mit echten österreichischen Zahlen und klaren Antworten.</div>
+      <div class="pain-card anim d1">
+        <span class="pc-icon">📉</span>
+        <div class="pc-title">Die Pensionslücke wächst</div>
+        <div class="pc-text">Stell dir den Ersten des Monats vor – und plötzlich fehlen dir mehrere hundert Euro, die bisher einfach da waren. <strong>Genau das erwartet viele, die sich erst kurz vor der Pension damit beschäftigen</strong> – wenn Nachholen nicht mehr möglich ist.</div>
       </div>
-      <div class="why-card anim d2">
-        <span class="wc-icon">🤝</span>
-        <span class="wc-num">03</span>
-        <div class="wc-title">Deine Fragen. Persönliche Antworten.</div>
-        <div class="wc-text">Max. 25 Personen – bewusst klein gehalten. <strong>Du kannst wirklich fragen</strong>, was dich beschäftigt. Auch die Dinge, die du dich bisher nirgendwo getraut hast zu fragen. Hier ist Platz dafür.</div>
+      <div class="pain-card anim d2">
+        <span class="pc-icon">⏳</span>
+        <div class="pc-title">Verpasste Zeit lässt sich nicht zurückkaufen</div>
+        <div class="pc-text">Zinseszins braucht vor allem eines: Zeit zum Wachsen. <strong>Ein Jahr, das du mit der Entscheidung wartest, holst du später nicht mit mehr Geld wieder auf</strong> – sondern nur mit noch mehr Zeit, die du dann nicht mehr hast.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- DER ABEND – PROGRAMM -->
-<section class="evening-section" id="was-erwartet-mich">
-  <div class="wrap">
-    <div class="evening-grid">
-      <div class="evening-left anim-left">
-        <span class="eyebrow-tag" style="display:inline-block;font-size:.67rem;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px">Der Abend</span>
-        <h2>Was dich<br>an diesem<br><em>Abend erwartet.</em></h2>
-        <div class="evening-pull">
-          „Mit Themen, über die sonst niemand offen redet. Wirtschaft, Märkte, Pension, Edelmetalle – endlich erklärt von jemandem, der es wirklich kennt."
-        </div>
-        <p>
-          Stell dir vor, du gehst nach Hause und denkst: <strong>„Das hätte ich früher wissen wollen."</strong> Genau dieses Gefühl entsteht an diesem Abend.
-        </p>
-        <p>
-          Du brauchst keine Vorkenntnisse, kein Wissen, keine Vorbereitung. Komm einfach. <strong>Der Abend trägt dich</strong> – vom ersten Glas Sekt bis zum letzten Gespräch bei Wein und Brötchen.
-        </p>
-        <div style="margin-top:28px">
-          <a href="#anmelden" class="btn-wine">🍷 Jetzt anmelden →</a>
-        </div>
-      </div>
-
-      <div class="program-steps anim-right">
-        <div class="ps-item">
-          <div class="ps-time-col">
-            <div class="ps-time">18:00</div>
-            <div class="ps-line"></div>
-          </div>
-          <div class="ps-content">
-            <div class="ps-title">Sekt-Empfang & Ankommen</div>
-            <div class="ps-text">Du kommst rein – und wirst direkt mit einem Glas Sekt empfangen. Kein steifes Warten, kein förmlicher Beginn. <strong>Einfach ankommen, durchatmen, ins Gespräch kommen.</strong></div>
-            <span class="ps-tag">🥂 Einlass ab 18:00 Uhr</span>
-          </div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-time-col">
-            <div class="ps-time">18:30</div>
-            <div class="ps-line"></div>
-          </div>
-          <div class="ps-content">
-            <div class="ps-title">Der Vortrag – knapp 60 Minuten</div>
-            <div class="ps-text">Lebhaft, direkt, ohne Umwege. Du erfährst, <strong>was gerade an den Märkten passiert</strong>, wie sich Fonds über die letzten 50 Jahre entwickelt haben, warum Edelmetalle heute mehr denn je relevant sind – und was deine Pensionslücke wirklich bedeutet.</div>
-            <span class="ps-tag gold-tag">📊 Aktuelle Wirtschaft · Fonds · Edelmetalle · Pension</span>
-          </div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-time-col">
-            <div class="ps-time">19:15</div>
-            <div class="ps-line"></div>
-          </div>
-          <div class="ps-content">
-            <div class="ps-title">Sparbuch vs. Fonds – der direkte Vergleich</div>
-            <div class="ps-text">Zahlen auf den Tisch. Schwarz auf weiß. <strong>Was passiert mit € 200 monatlich über 20 Jahre – auf dem Sparbuch vs. in einem Fonds?</strong> Diese eine Grafik verändert die Art, wie du über Sparen denkst.</div>
-            <span class="ps-tag gold-tag">💡 Der Moment, der alles klarer macht</span>
-            <span style="font-size:.73rem;color:#888;display:block;margin-top:6px;line-height:1.5">* Dargestellt anhand historischer Durchschnittswerte. Keine Garantie für zukünftige Erträge.</span>
-          </div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-time-col">
-            <div class="ps-time">19:30</div>
-            <div class="ps-line"></div>
-          </div>
-          <div class="ps-content">
-            <div class="ps-title">Wein, Brötchen & deine Fragen</div>
-            <div class="ps-text">Der Vortrag endet – der Abend nicht. Wein und Brötchen stehen bereit. <strong>Jetzt ist Zeit für deine persönlichen Fragen</strong> – unter vier Augen, ohne Agenda, so lange du möchtest.</div>
-            <span class="ps-tag">🍷 Keine Zeitbegrenzung danach</span>
-          </div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-time-col">
-            <div class="ps-time">20:00</div>
-            <div class="ps-line" style="display:none"></div>
-          </div>
-          <div class="ps-content">
-            <div class="ps-title">Offizielles Ende – wer mag, bleibt</div>
-            <div class="ps-text">Kein Hinausdrängen, kein Programm mehr. <strong>Manche der ehrlichsten Gespräche entstehen beim letzten Glas</strong> – entspannt, ohne Uhr, ganz nach deinem Tempo.</div>
-            <span class="ps-tag">🍷 Wer mag, bleibt gerne länger</span>
-          </div>
-        </div>
-      </div>
+    <div class="pain-cta-box anim">
+      <p>Die gute Nachricht: <strong>Du musst dir das nicht allein zusammensuchen.</strong> Setz dich zu uns, ein Glas Wein in der Hand – und wir gehen deine Fragen gemeinsam durch.</p>
+      <a href="#termine" class="btn-gold">🍷 Jetzt Termin sichern →</a>
     </div>
   </div>
 </section>
 
-<!-- THEMEN -->
-<section class="themen-section">
+<!-- WAS SIE ERWARTET -->
+<section class="expect-section" id="erwartet">
   <div class="wrap">
     <div class="sh anim">
-      <span class="eyebrow-tag">Die Inhalte</span>
-      <h2>60 Minuten.<br><em>Fünf Themen, die zählen.</em></h2>
-      <p>Kein akademischer Vortrag. Jedes Thema trifft dich direkt – und gibt dir etwas mit, das du am nächsten Tag schon anwenden kannst.</p>
+      <span class="eyebrow-tag">Was dich erwartet</span>
+      <h2>Wissen, das bleibt.<br><em>Genuss, der verbindet.</em></h2>
+      <p>Ein Abend, der Kopf und Gaumen gleichermaßen anspricht.</p>
     </div>
-    <div class="themen-grid">
-      <div class="thema-card anim">
-        <div class="tc-icon">🌍</div>
-        <div class="tc-body">
-          <div class="tc-title">Aktuelle Wirtschaftslage – was gerade wirklich passiert</div>
-          <div class="tc-text">Krisen, Zinsen, Inflation – die Nachrichten jagen dir Angst ein, aber keiner erklärt dir, <strong>was das konkret für dein Geld bedeutet.</strong> An diesem Abend bekommst du Klarheit: Was passiert gerade an den Märkten – und was bedeutet das für dich?</div>
-          <span class="tc-aha">KLARHEIT STATT PANIK</span>
-        </div>
+    <div class="expect-grid">
+      <div class="ex-card anim">
+        <span class="ex-icon">🍷</span>
+        <div class="ex-title">Exklusive Weinauswahl</div>
+        <div class="ex-text">Ein Glas in der Hand, sorgfältig ausgesucht – Genuss, der den Abend trägt.</div>
       </div>
-      <div class="thema-card anim d1">
-        <div class="tc-icon">📈</div>
-        <div class="tc-body">
-          <div class="tc-title">50 Jahre Fondsentwicklung – was die Geschichte zeigt</div>
-          <div class="tc-text">Crashs kamen. Crashs gingen. Wer investiert blieb, hat gewonnen. <strong>Was die letzten 50 Jahre über Fonds, Geduld und Rendite lehren</strong> – anhand historischer Daten, ohne Schönfärberei. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft.</div>
-          <span class="tc-aha">50 JAHRE DATEN AUF EINEN BLICK</span>
-        </div>
+      <div class="ex-card anim d1">
+        <span class="ex-icon">🎤</span>
+        <div class="ex-title">Spannende Vorträge</div>
+        <div class="ex-text">Praxisnahes Wissen rund um Vermögen, Finanzen und Absicherung – zum Mitschreiben, nicht zum Durchblättern.</div>
       </div>
-      <div class="thema-card anim d2">
-        <div class="tc-icon">🥇</div>
-        <div class="tc-body">
-          <div class="tc-title">Edelmetalle – warum Gold und Silber wieder relevant sind</div>
-          <div class="tc-text">Gold auf Rekordhoch. Silber holt auf. Aber <strong>wann macht Edelmetall Sinn – und wann nicht?</strong> Was steckt hinter den aktuellen Entwicklungen, und welche Rolle spielen Edelmetalle in einem ausgewogenen Portfolio heute?</div>
-          <span class="tc-aha">HEISSES THEMA · KLARE ANTWORTEN</span>
-        </div>
+      <div class="ex-card anim d2">
+        <span class="ex-icon">📊</span>
+        <div class="ex-title">Markt. Chancen. Zukunft.</div>
+        <div class="ex-text">Verstehen, was die Märkte gerade bewegt – in Sätzen, die du am nächsten Tag noch erklären könntest.</div>
       </div>
-      <div class="thema-card anim d3">
-        <div class="tc-icon">🏛️</div>
-        <div class="tc-body">
-          <div class="tc-title">Pensionslücke – deine echten Zahlen</div>
-          <div class="tc-text">Die staatliche Pension reicht für die meisten nicht. <strong>Die Ø Lücke in Österreich: über € 700 pro Monat.</strong> Wir schauen gemeinsam, was das für dich persönlich bedeutet – und was du heute noch tun kannst, bevor es zu spät ist.</div>
-          <span class="tc-aha">PERSÖNLICHE BERECHNUNG</span>
-        </div>
-      </div>
-      <div class="thema-card anim d4">
-        <div class="tc-icon">⚖️</div>
-        <div class="tc-body">
-          <div class="tc-title">Sparbuch vs. Fonds – der direkte Vergleich</div>
-          <div class="tc-text">Gleicher Betrag. Gleiche Laufzeit. Komplett anderes Ergebnis. <strong>€ 200 monatlich über 25 Jahre: Sparbuch vs. Fonds.</strong> Diese eine Gegenüberstellung verändert die Art, wie du über Sparen denkst – für immer.</div>
-          <span class="tc-aha">DER MOMENT DES UMDENKENS</span>
-        </div>
+      <div class="ex-card anim d3">
+        <span class="ex-icon">🤝</span>
+        <div class="ex-title">Networking mit Mehrwert</div>
+        <div class="ex-text">Gespräche über den Tellerrand hinaus – mit Menschen, die dieselben Fragen mitbringen wie du.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GAME CHANGER – REGEL 72 -->
-<section class="gamechanger-section">
-  <div class="wrap">
-    <div class="gc-inner anim">
-
-      <div class="gc-kicker">
-        <span class="gc-kicker-dot"></span>
-        Der Moment, der alles verändert hat
-      </div>
-
-      <div class="gc-question-wrap">
-        <div class="gc-question-label">Eine einzige Frage.</div>
-        <div class="gc-question">
-          Wie lange braucht es,<br>bis aus <em>1 Euro</em> –<br>bei <span class="gc-rate">1 % Zinsen</span> –<br><em>2 Euro</em> werden?
-        </div>
-      </div>
-
-      <div class="gc-reveal-wrap">
-        <div class="gc-reveal-teaser">Weißt du die Antwort?<br><span>Die meisten Menschen tippen falsch. Sehr falsch.</span></div>
-        <button class="gc-reveal-btn" id="gcBtn" onclick="revealAnswer()">
-          <span id="gcBtnText">🔍 Antwort aufdecken</span>
-        </button>
-      </div>
-
-      <div class="gc-answer" id="gcAnswer">
-        <div class="gc-answer-inner">
-          <div class="gc-answer-num" id="gcNum">72</div>
-          <div class="gc-answer-unit">Jahre</div>
-          <div class="gc-answer-rule">Die Regel 72: 72 ÷ 1% = 72 Jahre</div>
-        </div>
-
-        <div class="gc-impact">
-          <div class="gc-impact-text">
-            <strong>72 Jahre.</strong> Fast ein ganzes Leben. Das ist die Mathematik hinter deinem Sparbuch mit 1 % Zinsen.
-          </div>
-        </div>
-
-        <!-- Compare table -->
-        <div class="gc-compare">
-          <div class="gc-compare-title">Was die Regel 72 über dein Geld verrät</div>
-          <div class="gc-compare-grid">
-            <div class="gc-cg-head">
-              <div>Zinssatz</div>
-              <div>Verdopplung in</div>
-              <div>Bewertung</div>
-            </div>
-            <div class="gc-cg-row bad">
-              <div class="gcr-rate">0,1 %</div>
-              <div class="gcr-years"><span>720 Jahre</span></div>
-              <div class="gcr-tag bad-tag">Sparbuch Österreich heute</div>
-            </div>
-            <div class="gc-cg-row bad">
-              <div class="gcr-rate">1 %</div>
-              <div class="gcr-years"><span>72 Jahre</span></div>
-              <div class="gcr-tag bad-tag">Bausparvertrag Ø</div>
-            </div>
-            <div class="gc-cg-row mid">
-              <div class="gcr-rate">3 %</div>
-              <div class="gcr-years"><span>24 Jahre</span></div>
-              <div class="gcr-tag mid-tag">Lebensversicherung Ø nach Kosten</div>
-            </div>
-            <div class="gc-cg-row good">
-              <div class="gcr-rate">7 %</div>
-              <div class="gcr-years good-years"><span>~10 Jahre</span></div>
-              <div class="gcr-tag good-tag">Investmentfonds hist. Ø*</div>
-            </div>
-            <div class="gc-cg-row best">
-              <div class="gcr-rate">10 %</div>
-              <div class="gcr-years best-years"><span>~7 Jahre</span></div>
-              <div class="gcr-tag best-tag">Globale Aktienindizes langfristig</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mario's story tied to this moment -->
-        <div class="gc-mario-moment">
-          <div class="gcm-quote-mark">"</div>
-          <div class="gcm-content">
-            <p>Vor 18 Jahren saß ich in einem Seminar. Jemand stellte genau diese Frage. Ich dachte: vielleicht 20, 30 Jahre? Dann kam die Antwort. <strong>72 Jahre.</strong></p>
-            <p>Ich fuhr nach Hause, öffnete alle meine Unterlagen – Sparbuch, Bausparvertrag, Lebensversicherung, Bankfonds – und rechnete nach. Was ich sah, hat mich erschüttert. Und dann hat es mich befreit.</p>
-            <p><strong>Nicht weil ich wütend war. Sondern weil ich zum ersten Mal <em>verstanden</em> habe, wie das System wirklich funktioniert. Und dass ich es ändern kann.</strong></p>
-            <p>Diesen Moment will ich dir geben. An diesem Abend. Mit deinen eigenen Zahlen.</p>
-          </div>
-          <div class="gcm-author">— Mario Friedl</div>
-        </div>
-
-        <div class="gc-bottom-cta">
-          <div class="gc-bottom-text">Was ergibt die Regel-72 für dein Sparbuch, deinen Bausparvertrag, deine Lebensversicherung?<br><strong>Rechnest du es an diesem Abend selbst durch – kostenlos, persönlich, in Graz.</strong></div>
-          <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:12px 18px;margin:16px 0;font-size:.8rem;color:#5a3e10;line-height:1.65">
-            <strong style="color:#7a4e0a">* Wichtiger Hinweis (MiFID II / WAG 2018 § 46):</strong> Die dargestellten Renditeangaben (z.B. 7 % p.a. Investmentfonds) basieren auf historischen Durchschnittswerten und stellen keine Garantie für zukünftige Erträge dar. Veranlagungen in Finanzinstrumente sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen.
-          </div>
-          <a href="#anmelden" class="btn-wine" style="margin-top:20px">🍷 Meinen Platz sichern →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- STIMMEN -->
-<section class="voices-section">
+<!-- EINDRÜCKE -->
+<section class="photo-section">
   <div class="wrap">
     <div class="sh anim">
-      <span class="eyebrow-tag">Was Teilnehmer sagen</span>
-      <h2>Nach diesem Abend<br><em>denkt man anders.</em></h2>
+      <span class="eyebrow-tag">Einblicke</span>
+      <h2>Eindrücke<br><em>vergangener Abende.</em></h2>
     </div>
-    <div class="voices-grid">
-      <div class="voice-card anim">
-        <div class="vc-stars"><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div></div>
-        <div class="vc-text">"Ich hatte erwartet, dass mir irgendetwas verkauft wird. Stattdessen habe ich den <strong>ersten ehrlichen Überblick über meine Finanzen</strong> bekommen. Und Wein dazu. Seither komme ich jeden Monat."</div>
-        <div class="vc-author">Martina K.</div>
-        <div class="vc-role">Lehrerin, Graz</div>
+    <div class="photo-duo">
+      <div class="photo-item anim-left">
+        <img src="info-abend-vortrag-1.jpg" alt="Vortrag beim Info-Abend – Finanzierung clever, flexibel, sicher">
+        <div class="photo-item-cap">Praxisnahe Vorträge in kleiner Runde</div>
       </div>
-      <div class="voice-card anim d1">
-        <div class="vc-stars"><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div></div>
-        <div class="vc-text">"Ich habe meinen Mann mitgenommen – der wollte eigentlich nicht kommen. Nach einer Stunde hat er selbst gefragt, ob wir uns für das Business Seminar anmelden. <strong>So gut war es.</strong>"</div>
-        <div class="vc-author">Sandra &amp; Thomas M.</div>
-        <div class="vc-role">Graz-Umgebung</div>
-      </div>
-      <div class="voice-card anim d2">
-        <div class="vc-stars"><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div><div class="vc-star"></div></div>
-        <div class="vc-text">"Was Mario in anderthalb Stunden erklärt, <strong>hat mir mehr gebracht als 10 Jahre Bankgespräche zusammen.</strong> Die Zahlen haben mich erschreckt – aber auch befreit. Ich weiß endlich, wo ich stehe."</div>
-        <div class="vc-author">Andreas R.</div>
-        <div class="vc-role">Unternehmer, Steiermark</div>
-      </div>
-    </div>
-
-    <div class="counter-strip anim d2" style="margin-top:52px">
-      <div class="cs-item">
-        <div class="cs-num">2+</div>
-        <div class="cs-label"><strong>Jahre</strong>regelmäßiger Info-Abend</div>
-      </div>
-      <div class="cs-item">
-        <div class="cs-num">500+</div>
-        <div class="cs-label"><strong>Teilnehmer</strong>insgesamt seit dem Start</div>
-      </div>
-      <div class="cs-item">
-        <div class="cs-num">25</div>
-        <div class="cs-label"><strong>Personen max.</strong>pro Abend – intim &amp; persönlich</div>
-      </div>
-      <div class="cs-item">
-        <div class="cs-num">0€</div>
-        <div class="cs-label"><strong>Eintritt</strong>immer, für jeden</div>
+      <div class="photo-item anim-right">
+        <img src="info-abend-vortrag-2.jpg" alt="Mario Friedl beim Vortrag über finanzielle Strategie">
+        <div class="photo-item-cap">Erfolg. Sicherheit. Zukunft.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DETAILS -->
-<section class="details-section">
+<!-- TERMINE -->
+<section class="termine-section" id="termine">
   <div class="wrap">
     <div class="sh anim">
-      <span class="eyebrow-tag">Alle Details</span>
-      <h2>Was du wissen<br><em>musst.</em></h2>
+      <span class="eyebrow-tag">Vortragsabend Wein &amp; Finanzen</span>
+      <h2>Wähle deinen<br><em>Termin.</em></h2>
+      <p>Drei Abende, ein Thema, ein Glas Wein, das schon auf dich wartet. Wähle den Termin, der in deine Woche passt – Beginn ist jeweils um 19:00 Uhr.</p>
     </div>
-    <div class="details-inner">
-      <div class="detail-card anim-left">
-        <div class="detail-rows">
-          <div class="dr-row">
-            <div class="dr-icon">📅</div>
-            <div>
-              <div class="dr-label">Nächster Termin</div>
-              <div class="dr-value">Donnerstag, 25. Juni 2026<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Nächste Termine auf Anfrage</span></div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">⏰</div>
-            <div>
-              <div class="dr-label">Uhrzeit</div>
-              <div class="dr-value">18:30 – 20:00 Uhr<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Einlass &amp; Networking ab 18:00 Uhr</span></div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">📍</div>
-            <div>
-              <div class="dr-label">Ort</div>
-              <div class="dr-value">EQUALITY EH GmbH<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Herrgottwiesgasse 119/1 · 8020 Graz</span></div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">🍷</div>
-            <div>
-              <div class="dr-label">Verpflegung</div>
-              <div class="dr-value wine-col">Wein · Alkoholfreies · Brötchen<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.3)">Alles inklusive – kein Verzehrzwang</span></div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">💶</div>
-            <div>
-              <div class="dr-label">Eintritt</div>
-              <div class="dr-value highlight">€ 0,00 · Vollständig kostenlos</div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">👥</div>
-            <div>
-              <div class="dr-label">Teilnehmerzahl</div>
-              <div class="dr-value">Max. 25 Personen<br><span style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.35)">Bring gerne Freunde &amp; Familie mit</span></div>
-            </div>
-          </div>
-          <div class="dr-row">
-            <div class="dr-icon">👔</div>
-            <div>
-              <div class="dr-label">Dresscode</div>
-              <div class="dr-value">Smart Casual · Komm wie du bist</div>
-            </div>
-          </div>
-        </div>
+    <div class="date-grid">
+      <div class="date-card" data-value="21-08-2026" data-label="Freitag, 21. August 2026" onclick="selectDate(this)">
+        <div class="dc-weekday">Freitag</div>
+        <div class="dc-date">21.08.</div>
+        <div class="dc-month">2026</div>
+        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
       </div>
-
-      <div class="anim-right">
-        <div class="map-box" style="margin-bottom:24px">
-          <iframe
-            class="map-embed"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2716.5!2d15.4395!3d47.0707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476e35b6e0a1e5d3%3A0x0!2sHerrgottwiesgasse+119%2F1%2C+8020+Graz!5e0!3m2!1sde!2sat!4v1700000000000"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-          <div class="map-address">
-            <div class="ma-icon">📍</div>
-            <div>
-              <div class="ma-name">EQUALITY EH GmbH</div>
-              <div class="ma-addr">Herrgottwiesgasse 119/1 · 8020 Graz</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:rgba(200,151,59,.07);border:1px solid rgba(200,151,59,.18);border-radius:16px;padding:24px">
-          <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px">🚗 Anreise & Parken</div>
-          <div style="font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75">
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;color:rgba(255,255,255,.7)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">✓</span><span><strong style="color:rgba(255,255,255,.9)">Parken direkt vor dem Haus möglich</strong></span></div>
-            Straßenbahn: <strong>Linie 5</strong><br>
-            Fahrrad: Abstellmöglichkeiten direkt vor Ort
-          </div>
-        </div>
+      <div class="date-card" data-value="17-09-2026" data-label="Donnerstag, 17. September 2026" onclick="selectDate(this)">
+        <div class="dc-weekday">Donnerstag</div>
+        <div class="dc-date">17.09.</div>
+        <div class="dc-month">2026</div>
+        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
+      </div>
+      <div class="date-card" data-value="16-10-2026" data-label="Freitag, 16. Oktober 2026" onclick="selectDate(this)">
+        <div class="dc-weekday">Freitag</div>
+        <div class="dc-date">16.10.</div>
+        <div class="dc-month">2026</div>
+        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- URGENCY -->
-<section class="urgency-section">
-  <div class="urg-inner anim">
-    <div class="urg-badge">⏳ Begrenzte Plätze</div>
-    <h2 class="urg-h2">
-      Noch <em>14 Plätze</em> frei.<br>Für den 25. Juni.
-    </h2>
-    <p class="urg-text">
-      Wir begrenzen jeden Abend auf 25 Personen – damit jeder wirklich zu Wort kommt. Damit die Gespräche persönlich bleiben. Das ist kein Marketing-Trick. Das ist der Grund, warum dieser Abend funktioniert.
-    </p>
-
-    <div class="seats-visual">
-      <div class="sv-top">
-        <span class="sv-taken">11 Plätze belegt</span>
-        <span class="sv-free">14 noch frei</span>
-      </div>
-      <div class="sv-track"><div class="sv-fill" id="urgFill"></div></div>
-      <div class="sv-count">14</div>
-      <div class="sv-label">freie Plätze für den 25. Juni 2026</div>
-    </div>
-
-    <a href="#anmelden" class="btn-gold" style="font-size:1.1rem;padding:20px 52px">🍷 Jetzt meinen Platz sichern →</a>
   </div>
 </section>
 
@@ -1215,41 +558,31 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <em>30 Sekunden. Fertig.</em>
         </h2>
         <div class="form-pull">
-          "Anmelden dauert 30 Sekunden. Was du an diesem Abend mitnimmst – das bleibt für immer."
+          „Neugierig? Dann sei dabei. Wissen, das bleibt – Genuss, der verbindet."
         </div>
         <p>
-          Einfach Name, E-Mail und Telefonnummer eintragen. Du erhältst sofort eine Bestätigung mit allen Details. <strong>Kein Vorauszahlen. Kein Vertrag. Kein Druck.</strong>
-        </p>
-        <p>
-          Und wenn du mit Freunden oder Familie kommen möchtest – sehr gerne. Einfach Anzahl angeben. <em>Der Abend ist für alle kostenlos.</em>
+          Wähle oben deinen Wunschtermin, trage Name, E-Mail und Telefonnummer ein. Du erhältst sofort eine Bestätigung mit allen Details. <strong>Du trägst dich ein, wir reservieren deinen Platz – mehr passiert nicht.</strong>
         </p>
 
         <div class="fl-perks">
           <div class="flp-item"><div class="flp-icon">✓</div><div><strong>Sofortige Bestätigung</strong> per E-Mail mit allen Details</div></div>
-          <div class="flp-item"><div class="flp-icon">🍷</div><div><strong>Wein &amp; Brötchen</strong> inklusive – nichts zuzahlen</div></div>
-          <div class="flp-item"><div class="flp-icon">👥</div><div><strong>Freunde mitbringen</strong> – kostenlos für alle</div></div>
-          <div class="flp-item"><div class="flp-icon">🔒</div><div><strong>Keine Weitergabe</strong> deiner Daten</div></div>
-          <div class="flp-item"><div class="flp-icon">❌</div><div><strong>Nichts verkauft</strong> – versprochen.</div></div>
-        </div>
-
-        <div style="margin-top:32px;background:rgba(200,151,59,.07);border:1px solid rgba(200,151,59,.18);border-radius:14px;padding:22px">
-          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px">💬 Darf ich noch etwas sagen?</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300">
-            "Ich hätte diesen Abend mit 20 gebraucht. Wenn du hier bist – hast du ihn. Nutze ihn."
-          </div>
-          <div style="font-size:.8rem;color:rgba(200,151,59,.6);margin-top:8px;font-weight:700">— Mario Friedl</div>
+          <div class="flp-item"><div class="flp-icon">🍷</div><div><strong>Weine, die du nicht im Supermarktregal findest</strong> – für dich eingeschenkt</div></div>
+          <div class="flp-item"><div class="flp-icon">👥</div><div><strong>Kleine Runde</strong> – deine Frage geht hier nicht im Lärm unter</div></div>
+          <div class="flp-item"><div class="flp-icon">🔒</div><div><strong>Deine Daten bleiben bei uns</strong> – für nichts anderes als deine Anmeldung</div></div>
+          <div class="flp-item"><div class="flp-icon">🎒</div><div><strong>Du gehst mit Wissen nach Hause</strong> – nicht mit einem Vertrag in der Tasche</div></div>
         </div>
       </div>
 
       <div class="form-card anim-right">
         <div class="form-card-head">
           <div class="fch-title">🍷 Kostenlos anmelden</div>
-          <div class="fch-sub">25. Juni 2026 · 18:30 – 20:00 Uhr · Graz · Wein &amp; Brötchen inklusive</div>
+          <div class="fch-sub" id="fchSub">Bitte wähle oben deinen Termin · Graz · Wein &amp; exklusive Vorträge inklusive</div>
         </div>
         <div class="form-body">
-          <form id="infoForm" action="https://formspree.io/f/mdagqzag" method="POST" onsubmit="handleFormSubmit(event)">
-            <input type="hidden" name="_subject" value="Neue Anmeldung: Info-Abend">
-            <input type="hidden" name="formular" value="Info-Abend Anmeldung">
+          <form id="infoForm" action="https://formspree.io/f/mdagqzag" method="POST" onsubmit="return handleFormSubmit(event)">
+            <input type="hidden" name="_subject" value="Neue Anmeldung: Wein & Finanzen">
+            <input type="hidden" name="formular" value="Wein & Finanzen Anmeldung">
+            <input type="hidden" name="termin" id="terminInput" value="">
 
             <div class="fg-row">
               <div class="fg">
@@ -1270,13 +603,14 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
               <input type="tel" name="telefon" placeholder="+43 ..." required>
             </div>
             <div class="fg">
-              <label>Gewünschter Termin</label>
-              <select name="wunschtermin">
-                <option value="">Nächster verfügbarer Termin (25. Juni)</option>
-                <option value="juni-2026">25. Juni 2026</option>
-                
-                <option value="juli-2026">Juli 2026</option>
+              <label>Gewünschter Termin *</label>
+              <select name="wunschtermin" id="terminSelect" required onchange="syncDateFromSelect(this)">
+                <option value="">Bitte wählen</option>
+                <option value="21-08-2026">Freitag, 21. August 2026</option>
+                <option value="17-09-2026">Donnerstag, 17. September 2026</option>
+                <option value="16-10-2026">Freitag, 16. Oktober 2026</option>
               </select>
+              <div class="fg-hint">Tipp: Du kannst deinen Termin auch oben per Klick auswählen.</div>
             </div>
             <div class="fg">
               <label>Begleitpersonen</label>
@@ -1286,18 +620,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
                 <option value="2">+ 2 Personen (wir sind zu dritt)</option>
                 <option value="3">+ 3 Personen (wir sind zu viert)</option>
               </select>
-              <div class="fg-hint">Bring Familie oder Freunde mit – alle herzlich willkommen!</div>
-            </div>
-            <div class="fg">
-              <label>Was interessiert dich am meisten?</label>
-              <select name="hauptinteresse">
-                <option value="">Optional – bitte wählen</option>
-                <option value="pension">Pensionsvorsorge &amp; Pensionslücke</option>
-                <option value="investmentfonds">Investmentfonds &amp; Vermögensaufbau</option>
-                <option value="immobilien">Eigenheim &amp; Finanzierung</option>
-                <option value="inflation">Inflation &amp; Kaufkraft</option>
-                <option value="alles">Alles – ich starte bei null</option>
-              </select>
+              <div class="fg-hint">Bring gerne Freunde oder Familie mit!</div>
             </div>
             <div class="fg">
               <label>Hast du schon eine Frage?</label>
@@ -1309,14 +632,14 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             </div>
             <button type="submit" class="btn-submit">🍷 Kostenlos anmelden – Platz sichern →</button>
             <div class="form-note">
-              Sofortige Bestätigung per E-Mail · Keine Werbung · Jederzeit abmeldbar<br>
+              Sofortige Bestätigung per E-Mail · Danach hörst du nur von uns, wenn du willst · Jederzeit abmeldbar<br>
               <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>
             </div>
           </form>
           <div class="form-success" id="formSuccess">
             <div class="fs-icon">🎉</div>
             <div class="fs-title">Anmeldung bestätigt!</div>
-            <div class="fs-text">Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt sofort per E-Mail.<br><br><strong>25. Juni 2026 · 18:30 – 20:00 Uhr</strong><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Komm einfach vorbei. Ein Glas Wein wartet auf dich. 🍷</div>
+            <div class="fs-text">Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt sofort per E-Mail.<br><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Ein Glas Wein steht schon für dich bereit. 🍷</div>
           </div>
         </div>
       </div>
@@ -1337,28 +660,28 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="faq-q-text">Wirklich kostenlos – oder gibt es einen Haken?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Wirklich kostenlos. Kein Haken. Kein Produkt, das am Ende verkauft wird. Keine versteckte Gebühr. <strong>Der Abend existiert, weil Mario Friedl selbst gerne früher ein solches Angebot gehabt hätte.</strong> Wer danach ein persönliches Gespräch möchte, kann das anfragen – muss aber absolut nicht. Hinweis: Mario Friedl erhält bei einem späteren Produktabschluss eine Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Der Abend selbst ist und bleibt kostenlos.</p></div>
+        <div class="faq-a"><p>Wirklich kostenlos. Du hörst zu, stellst deine Fragen und gehst am Ende, wann du willst – <strong>ohne dass dir jemand ein Angebot auf den Tisch legt.</strong> Wer danach ein persönliches Gespräch möchte, kann das anfragen. Hinweis: Bei einem späteren Produktabschluss erhalte ich als Vermittler eine Provision vom Produktgeber (Zuwendung gem. WAG 2018 § 39). Der Abend selbst ist und bleibt kostenlos.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Muss ich Vorkenntnisse mitbringen?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Nein. Der Abend ist bewusst für Menschen gestaltet, die <strong>keine Finanzausbildung haben</strong>. Keine Fachbegriffe ohne Erklärung. Keine Voraussetzungen. Nur Offenheit, zu hören.</p></div>
+        <div class="faq-a"><p>Nein. Der Abend ist bewusst für Menschen gestaltet, die <strong>keine Finanzausbildung haben</strong>. Keine Fachbegriffe ohne Erklärung, keine Voraussetzungen – nur Offenheit, zuzuhören.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Kann ich Freunde oder Familie mitbringen?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Ja, sehr gerne! <strong>Gib einfach bei der Anmeldung die Anzahl der Begleitpersonen an</strong> – der Abend ist für alle kostenlos. Bitte beachte nur die Platzbegrenzung von 25 Personen pro Abend.</p></div>
+        <div class="faq-a"><p>Ja, sehr gerne! <strong>Gib einfach bei der Anmeldung die Anzahl der Begleitpersonen an</strong> – der Abend ist für alle kostenlos. Bitte beachte die begrenzte Teilnehmerzahl pro Abend.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">Was ist der Unterschied zum Business Seminar?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Der Info-Abend ist der <strong>erste Schritt</strong> – kostenlos, ungezwungen, 90 Minuten. Das Business Seminar ist ein intensives 2-Tages-Programm in einem Premium-Hotel mit 6 Referenten und echten Strategien. Viele Teilnehmer des Info-Abends entscheiden sich danach für das Seminar – weil sie verstanden haben, warum es wichtig ist.</p></div>
+        <div class="faq-a"><p>„Wein &amp; Finanzen" ist der <strong>erste Schritt</strong> – kostenlos, ungezwungen, rund 90 Minuten. Das Business Seminar ist ein intensives 2-Tages-Programm in einem Premium-Hotel mit mehreren Referenten und echten Strategien. Viele Teilnehmer entscheiden sich danach für das Seminar – weil sie verstanden haben, warum es wichtig ist.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -1375,56 +698,21 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <section class="close-cta">
   <div class="cc-inner anim">
     <h2 class="cc-h2">
-      Du hast es bis hierher gelesen.<br>
-      <em>Das ist kein Zufall.</em>
+      Neugierig?<br>
+      <em>Dann sei dabei.</em>
     </h2>
-    <p class="cc-sub">Irgendwas in dir weiß: Es ist Zeit. Zeit für Klarheit. Zeit für den ersten Schritt. Dieser Abend kostet nichts außer zwei Stunden – und kann alles verändern.</p>
+    <p class="cc-sub">Setz dich zu uns – mit einem Glas Wein in der Hand hört sich sogar Zinseszins gut an. Keine Tabellen ohne Erklärung, keine Fachbegriffe ohne Übersetzung. Nur du, ein paar andere Neugierige und Antworten, die du sofort verstehst.</p>
 
     <div class="cc-details">
-      <div class="cd-item"><span>📅</span><strong>25. Juni 2026</strong></div>
-      <div class="cd-item"><span>⏰</span><strong>18:30 – 20:00 Uhr</strong></div>
-      <div class="cd-item"><span>📍</span><strong>Graz · Herrgottwiesgasse</strong></div>
+      <div class="cd-item"><span>📅</span><strong>21.8. · 17.9. · 16.10.2026</strong></div>
+      <div class="cd-item"><span>⏰</span><strong>Beginn 19:00 Uhr</strong></div>
+      <div class="cd-item"><span>📍</span><strong>Graz · Exclusive Location</strong></div>
       <div class="cd-item"><span>💶</span><strong>€ 0,00 · Kostenlos</strong></div>
     </div>
 
     <div class="cc-btns">
-      <a href="#anmelden" class="btn-wine" style="font-size:1.1rem;padding:20px 52px">🍷 Ich bin dabei – Platz sichern →</a>
+      <a href="#termine" class="btn-wine" style="font-size:1.1rem;padding:20px 52px">🍷 Jetzt Platz sichern →</a>
     </div>
-
-    <!-- Zwei Wege -->
-    <div class="cc-two-path" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;text-align:left">
-
-      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(200,151,59,.2);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))"></div>
-        <div style="font-size:1.6rem;margin-bottom:12px">🏡</div>
-        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Als Kunde</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:10px;line-height:1.3">Du willst deine Finanzen endlich in Ordnung bringen.</h3>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:18px">Eigenheim, Pension, Vermögensaufbau – du hast Ziele. Lass uns gemeinsam herausfinden, wie du sie erreichst.</p>
-        <a href="index.html#kontakt" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),#c8820a);color:var(--ink);font-weight:900;font-size:.88rem;padding:12px 18px;border-radius:12px;text-decoration:none">💬 Kostenloses Erstgespräch →</a>
-      </div>
-
-      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(200,151,59,.3);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--wine),var(--gold))"></div>
-        <div style="font-size:1.6rem;margin-bottom:12px">🚀</div>
-        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Als Partner</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:10px;line-height:1.3">Du willst selbst dieser Mensch sein.</h3>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:18px">Du hörst Mario und denkst: „Das könnte ich auch." Dieses Feuer ist der Anfang. In 5 Minuten weißt du, ob du das Profil mitbringst.</p>
-        <a href="karriere-check.html" style="display:block;text-align:center;background:transparent;border:2px solid rgba(200,151,59,.45);color:var(--gold);font-weight:900;font-size:.88rem;padding:12px 18px;border-radius:12px;text-decoration:none">📋 Karriere-Check starten →</a>
-      </div>
-
-    </div>
-
-    <!-- Business Seminar -->
-    <div style="margin-top:20px;background:rgba(200,151,59,.07);border:1px solid rgba(200,151,59,.2);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;text-align:left">
-      <div>
-        <div style="font-size:.65rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">🎓 Nächster Schritt nach dem Info-Abend</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:6px">Business Seminar · Nächste Termine auf Anfrage</h3>
-        <p style="font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.7">Zwei Tage. Premium Hotel. Echter Plan. Für Kunden und zukünftige Partner. Viele Teilnehmer des Info-Abends sind danach direkt dabei.</p>
-      </div>
-      <a href="business-seminar.html" style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#c8820a);color:var(--ink);font-weight:900;font-size:.88rem;padding:13px 22px;border-radius:12px;text-decoration:none;white-space:nowrap">Zum Seminar →</a>
-    </div>
-
-    <p style="margin-top:32px;font-size:.83rem;color:rgba(255,255,255,.28);font-style:italic">„Der beste Zeitpunkt wäre vor einem Jahr gewesen. Der zweitbeste ist jetzt." – Mario Friedl</p>
   </div>
 </section>
 
@@ -1442,29 +730,20 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   <div class="footer-copy">
     © 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz<br>
     <span style="font-size:.7rem;display:block;margin-top:6px;line-height:1.75;color:rgba(255,255,255,.45)">Im FMA-Register eingetragen als vertraglich gebundener Vermittler · tätig im Namen der TopTen, Zweigniederlassung der FiNUM.Private Finance AG · Haftung gem. § 1313a ABGB beim Rechtsträger.</span>
-    <span style="font-size:.7rem;display:block;margin-top:6px;line-height:1.75;color:rgba(255,255,255,.45)"><strong style="color:rgba(255,255,255,.6)">Risikohinweis:</strong> Die Inhalte dieses Abends dienen der allgemeinen Finanzbildung und stellen keine individuelle Anlageberatung dar. Veranlagungen sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen. Historische Renditeangaben (z.B. 7 % Fonds-Ø) sind kein verlässlicher Indikator für die Zukunft.</span>
+    <span style="font-size:.7rem;display:block;margin-top:6px;line-height:1.75;color:rgba(255,255,255,.45)"><strong style="color:rgba(255,255,255,.6)">Risikohinweis:</strong> Die Inhalte dieses Abends dienen der allgemeinen Finanzbildung und stellen keine individuelle Anlageberatung dar. Veranlagungen sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen.</span>
   </div>
 </footer>
 
 <!-- STICKY -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sb-left">
-    <strong>🍷 Der Info-Abend · 25. Juni 2026 · Kostenlos</strong>
-    <div class="sb-detail">Noch 14 Plätze · Graz · Wein &amp; Brötchen inklusive</div>
+    <strong>🍷 Wein &amp; Finanzen · Nächste Termine: 21.8. · 17.9. · 16.10.2026</strong>
+    <div class="sb-detail">Beginn 19:00 Uhr · Graz · Kostenlos</div>
   </div>
-  <a href="#anmelden" class="btn-wine" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
+  <a href="#termine" class="btn-wine" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
 </div>
 
 <script>
-/* GAME CHANGER REVEAL */
-function revealAnswer(){
-  const answer=document.getElementById('gcAnswer');
-  const btn=document.getElementById('gcBtn');
-  answer.classList.add('show');
-  btn.parentElement.parentElement.querySelector('.gc-reveal-wrap').style.display='none';
-  answer.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
 /* NAV */
 window.addEventListener('scroll',()=>{
   document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
@@ -1488,22 +767,6 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
 }),{threshold:.1});
 document.querySelectorAll('.anim,.anim-left,.anim-right').forEach(el=>obs.observe(el));
 
-/* SEAT FILL ANIMATION */
-const seatObs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting){
-    setTimeout(()=>{
-      const f=document.getElementById('seatFill');
-      if(f)f.style.width='44%'; // 11/25 belegt = 44%
-      const uf=document.getElementById('urgFill');
-      if(uf)uf.style.width='44%';
-    },400);
-    seatObs.unobserve(e.target);
-  }
-}),{threshold:.3});
-[document.querySelector('.ic-seats'),document.querySelector('.sv-track')].forEach(el=>{
-  if(el)seatObs.observe(el);
-});
-
 /* SMOKE PARTICLES */
 function spawnSmoke(){
   const w=document.getElementById('smokeWrap');if(!w)return;
@@ -1523,10 +786,35 @@ function toggleFaq(el){
   if(!isOpen)item.classList.add('open');
 }
 
+/* DATE SELECTION */
+function selectDate(card){
+  document.querySelectorAll('.date-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  const val=card.getAttribute('data-value');
+  const label=card.getAttribute('data-label');
+  document.getElementById('terminInput').value=val;
+  document.getElementById('terminSelect').value=val;
+  document.getElementById('fchSub').textContent=label+' · 19:00 Uhr · Graz · Wein & exklusive Vorträge inklusive';
+  document.getElementById('termine').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function syncDateFromSelect(sel){
+  const val=sel.value;
+  document.getElementById('terminInput').value=val;
+  document.querySelectorAll('.date-card').forEach(c=>{
+    c.classList.toggle('selected',c.getAttribute('data-value')===val);
+  });
+  const card=document.querySelector('.date-card[data-value="'+val+'"]');
+  if(card)document.getElementById('fchSub').textContent=card.getAttribute('data-label')+' · 19:00 Uhr · Graz · Wein & exklusive Vorträge inklusive';
+}
+
 /* FORM SUBMIT */
 async function handleFormSubmit(e){
   e.preventDefault();
   const form=document.getElementById('infoForm');
+  if(!document.getElementById('terminInput').value){
+    alert('Bitte wähle zuerst deinen Wunschtermin aus.');
+    return false;
+  }
   const btn=form.querySelector('.btn-submit');
   btn.textContent='Wird gesendet...';
   btn.disabled=true;
@@ -1543,6 +831,7 @@ async function handleFormSubmit(e){
     btn.textContent='🍷 Kostenlos anmelden – Platz sichern →';
     btn.disabled=false;
   }
+  return false;
 }
 </script>
 </body>
