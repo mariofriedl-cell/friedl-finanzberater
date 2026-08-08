@@ -227,7 +227,7 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 /* ═══ CLOSING CTA ═══ */
 .close-cta{padding:110px 0;background:linear-gradient(160deg,var(--ink) 0%,#12080e 100%);text-align:center;position:relative;overflow:hidden}
 .close-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(107,26,42,.1),transparent 65%)}
-.cc-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.cc-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px}
 .cc-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:900;color:var(--white);line-height:.95;margin-bottom:24px;letter-spacing:-.03em}
 .cc-h2 em{display:block;font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .cc-sub{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:40px}
@@ -256,35 +256,6 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 .sh h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:14px;letter-spacing:-.025em}
 .sh h2 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sh p{font-size:1.02rem;color:rgba(255,255,255,.42);max-width:560px;margin:0 auto;line-height:1.8}
-
-@media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:48px}
-  .form-inner{grid-template-columns:1fr;gap:48px}
-}
-@media(max-width:768px){
-  nav{height:62px}
-  .nav-links{display:none}
-  .mob-btn{display:block}
-  .hero{padding:90px 0 52px}
-  .hero h1{font-size:2.9rem}
-  .hero-detail-pills{gap:8px}
-  .hdp{font-size:.78rem;padding:8px 14px}
-  .form-card-head,.form-body{padding:24px 22px}
-  .fg-row{grid-template-columns:1fr}
-  .sticky-bar{flex-direction:column;text-align:center;gap:8px}
-  .cc-details{gap:14px;flex-direction:column;align-items:center}
-  .pain-grid{grid-template-columns:1fr}
-  .expect-grid{grid-template-columns:1fr 1fr;gap:16px}
-  .date-grid{grid-template-columns:1fr}
-  .photo-duo{grid-template-columns:1fr}
-  .photo-item img{height:240px}
-  .wf-hero-frame img{max-height:380px}
-  .pain-cta-box{padding:26px 22px}
-  .pain-cta-box p{font-size:1.15rem}
-}
-@media(max-width:480px){
-  .expect-grid{grid-template-columns:1fr}
-}
 
 /* ═══════════════════════
    WEIN & FINANZEN – Hero visual
@@ -346,6 +317,53 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 .dc-date{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--white);line-height:1}
 .dc-month{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:2px;margin-bottom:14px}
 .dc-time{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);padding:6px 14px;border-radius:20px}
+
+/* ═══════════════════════
+   ORT & ANREISE
+═══════════════════════ */
+.location-section{padding:100px 0;background:linear-gradient(180deg,var(--warm) 0%,var(--ink) 100%)}
+.location-inner{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:52px}
+.loc-info{background:rgba(255,255,255,.03);border:1px solid rgba(200,151,59,.16);border-radius:16px;padding:8px 0;overflow:hidden}
+.loc-row{display:flex;align-items:flex-start;gap:16px;padding:20px 26px;border-bottom:1px solid rgba(255,255,255,.06)}
+.loc-row:last-child{border-bottom:none}
+.loc-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.loc-label{font-size:.67rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px}
+.loc-value{font-size:.97rem;font-weight:700;color:rgba(255,255,255,.85);line-height:1.6}
+.loc-map{border-radius:16px;overflow:hidden;border:1px solid rgba(200,151,59,.16);height:100%;min-height:260px}
+.loc-map iframe{width:100%;height:100%;min-height:260px;border:none;display:block;filter:grayscale(.6) brightness(.75) sepia(.25);transition:filter .3s}
+.loc-map iframe:hover{filter:grayscale(.2) brightness(.9) sepia(.15)}
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .form-inner{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:768px){
+  nav{height:62px}
+  .nav-links{display:none}
+  .mob-btn{display:block}
+  .hero{padding:90px 0 52px}
+  .hero h1{font-size:2.9rem}
+  .hero-detail-pills{gap:8px}
+  .hdp{font-size:.78rem;padding:8px 14px}
+  .form-card-head,.form-body{padding:24px 22px}
+  .fg-row{grid-template-columns:1fr}
+  .sticky-bar{flex-direction:column;text-align:center;gap:8px}
+  .cc-details{gap:14px;flex-direction:column;align-items:center}
+  .pain-grid{grid-template-columns:1fr}
+  .expect-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .date-grid{grid-template-columns:1fr}
+  .photo-duo{grid-template-columns:1fr}
+  .photo-item img{height:240px}
+  .wf-hero-frame img{max-height:380px}
+  .pain-cta-box{padding:26px 22px}
+  .pain-cta-box p{font-size:1.15rem}
+  .location-inner{grid-template-columns:1fr}
+  .loc-map{min-height:220px}
+  .loc-map iframe{min-height:220px}
+}
+@media(max-width:480px){
+  .expect-grid{grid-template-columns:1fr}
+}
+
 </style>
 <body>
 
@@ -542,6 +560,38 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         <div class="dc-date">16.10.</div>
         <div class="dc-month">2026</div>
         <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORT & ANREISE -->
+<section class="location-section">
+  <div class="wrap">
+    <div class="sh anim">
+      <span class="eyebrow-tag">Ort &amp; Anreise</span>
+      <h2>Wo wir<br><em>uns treffen.</em></h2>
+      <p>Mitten in Graz, mit Parkplatz direkt vor der Tür.</p>
+    </div>
+    <div class="location-inner">
+      <div class="loc-info anim-left">
+        <div class="loc-row">
+          <span class="loc-icon">📍</span>
+          <div>
+            <div class="loc-label">Adresse</div>
+            <div class="loc-value">EQUALITY EH GmbH<br>Herrgottwiesgasse 119<br>8020 Graz</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <span class="loc-icon">🚗</span>
+          <div>
+            <div class="loc-label">Parken</div>
+            <div class="loc-value">Parkplätze direkt vor Ort vorhanden</div>
+          </div>
+        </div>
+      </div>
+      <div class="loc-map anim-right">
+        <iframe src="https://www.google.com/maps?q=Herrgottwiesgasse+119,+8020+Graz,+Austria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort Herrgottwiesgasse 119, 8020 Graz"></iframe>
       </div>
     </div>
   </div>
