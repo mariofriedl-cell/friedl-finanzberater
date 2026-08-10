@@ -3,12 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Karriere-Check – Mario Friedl | Finanzberater werden</title>
-<meta name="description" content="Brennst du für Wirtschaft, Börse und Finanzen? Mario Friedl zeigt dir den Weg vom Job zur Berufung. Mach den kostenlosen Karriere-Check.">
+<title>Karriere-Check 🎯 – Mario Friedl | Finanzberater werden</title>
+<meta name="description" content="5 Fragen. 3 Minuten. Eine ehrliche Einschätzung: Passt eine Karriere in der Finanzberatung zu dir? Mach den kostenlosen Karriere-Check.">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-Q5N5F85YTW');</script>
+<!-- Cookie Consent + GA Guard -->
+<script>
+(function(){
+  var KEY='mf_cookie_consent';
+  function loadGA(){
+    if(document.getElementById('ga-s'))return;
+    var s=document.createElement('script');s.id='ga-s';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
+    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
+  }
+  window.mfAccept=function(){localStorage.setItem(KEY,'accepted');document.getElementById('mfCookieBar').style.display='none';loadGA();};
+  window.mfDecline=function(){localStorage.setItem(KEY,'declined');document.getElementById('mfCookieBar').style.display='none';};
+  document.addEventListener('DOMContentLoaded',function(){
+    var bar=document.getElementById('mfCookieBar');if(!bar)return;
+    var v=localStorage.getItem(KEY);
+    if(v==='accepted'){bar.style.display='none';loadGA();}
+    else if(v==='declined'){bar.style.display='none';}
+    else{bar.style.display='flex';}
+  });
+})();
+</script>
+<div id="mfCookieBar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)">
+  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
+    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
+  </div>
+</div>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -271,88 +299,10 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.4)}
 }
 .ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
 
-/* ═══════════════════════════════════════════
-   STORY SECTION
-═══════════════════════════════════════════ */
-.story-section{
-  padding:120px 0;
-  background:linear-gradient(180deg,var(--ink) 0%,#0a1520 100%);
-  position:relative;
-}
-.story-section::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(200,151,59,.2),transparent);
-}
-.story-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:100px;align-items:center;
-}
-.story-timeline{
-  position:relative;
-  padding-left:36px;
-}
-.story-timeline::before{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;width:2px;
-  background:linear-gradient(to bottom,var(--gold),rgba(200,151,59,.1));
-}
-.story-moment{
-  position:relative;margin-bottom:44px;
-}
-.story-moment:last-child{margin-bottom:0}
-.story-moment::before{
-  content:'';position:absolute;left:-43px;top:4px;
-  width:14px;height:14px;border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 0 4px rgba(200,151,59,.15);
-}
-.story-moment-year{
-  font-size:.7rem;font-weight:700;letter-spacing:3px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
-}
-.story-moment h3{
-  font-family:'Playfair Display',serif;font-size:1.35rem;
-  font-weight:700;color:var(--white);margin-bottom:10px;
-  line-height:1.3;
-}
-.story-moment p{
-  font-size:.92rem;color:rgba(255,255,255,.52);line-height:1.8;
-}
-
-.story-text{}
-.story-text h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3.2rem);font-weight:900;
-  color:var(--white);line-height:1.15;margin-bottom:32px;
-}
-.story-text h2 em{color:var(--gold);font-style:italic}
-.story-pull{
-  font-family:'EB Garamond',serif;
-  font-size:1.6rem;font-style:italic;
-  color:rgba(255,255,255,.7);line-height:1.6;
-  border-left:3px solid var(--gold);
-  padding:20px 0 20px 28px;margin:32px 0;
-}
-.story-text p{
-  font-size:.98rem;color:rgba(255,255,255,.55);
-  line-height:1.9;margin-bottom:18px;
-}
-.story-text p strong{color:rgba(255,255,255,.88)}
-.story-text p em{color:var(--gold);font-style:italic}
 
 /* ═══════════════════════════════════════════
-   "KENNEN SIE DAS?" SECTION
+   SECTION HEAD (shared utility)
 ═══════════════════════════════════════════ */
-.pain-section{
-  padding:100px 0;
-  background:#0a1520;
-  position:relative;overflow:hidden;
-}
-.pain-section::before{
-  content:'';position:absolute;
-  top:-200px;right:-100px;width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(200,151,59,.06),transparent 65%);
-}
 .section-head{text-align:center;margin-bottom:72px}
 .section-head h2{
   font-family:'Playfair Display',serif;
@@ -363,149 +313,51 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.4)}
   font-size:1.05rem;color:rgba(255,255,255,.5);
   max-width:560px;margin:0 auto;line-height:1.8;
 }
-.pain-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
-  background:rgba(255,255,255,.05);border-radius:20px;overflow:hidden;
-}
-.pain-card{
-  background:rgba(255,255,255,.03);
-  padding:44px 32px;
-  transition:background .3s,transform .3s;
-  cursor:default;position:relative;
-}
-.pain-card::after{
-  content:'';position:absolute;bottom:0;left:32px;right:32px;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
-  transform:scaleX(0);transform-origin:left;transition:transform .35s;
-}
-.pain-card:hover{background:rgba(200,151,59,.06)}
-.pain-card:hover::after{transform:scaleX(1)}
-.pain-icon-wrap{
-  width:52px;height:52px;border-radius:12px;
-  background:rgba(200,151,59,.1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;margin-bottom:20px;
-}
-.pain-card h3{
-  font-family:'Playfair Display',serif;font-size:1.2rem;
-  font-weight:700;color:var(--white);margin-bottom:12px;
-}
-.pain-card p{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.8}
 
 /* ═══════════════════════════════════════════
-   TRANSFORM – Was möglich wird
+   HERO PHOTO CARD (replaces quote card)
 ═══════════════════════════════════════════ */
-.transform-section{
-  padding:120px 0;
-  background:linear-gradient(160deg,var(--ink) 0%,#0c1a10 100%);
-  position:relative;overflow:hidden;
-}
-.transform-section::before{
-  content:'';position:absolute;
-  top:-150px;left:-100px;width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(12,172,106,.04),transparent 65%);
-}
-.transform-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  margin-top:0;
-}
-.transform-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:20px;padding:36px 28px;
-  transition:all .35s;position:relative;overflow:hidden;
-}
-.transform-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--green),#2dd4a0);
-  opacity:0;transition:opacity .3s;
-}
-.transform-card:hover{
-  background:rgba(12,172,106,.06);
-  border-color:rgba(12,172,106,.2);
-  transform:translateY(-6px);
-}
-.transform-card:hover::before{opacity:1}
-.tc-icon{font-size:2rem;margin-bottom:20px;display:block}
-.tc-title{
-  font-family:'Playfair Display',serif;font-size:1.2rem;
-  font-weight:700;color:var(--white);margin-bottom:10px;
-}
-.tc-text{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.8}
+.hero-card{padding:0;overflow:hidden}
+.hero-card-photo{width:100%;height:260px;object-fit:cover;object-position:center 25%;display:block}
+.hero-card-body{padding:24px 28px 28px}
+.hero-card-cap{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:20px}
 
 /* ═══════════════════════════════════════════
-   PROCESS STEPS
+   PERSONAL LINE
 ═══════════════════════════════════════════ */
-.steps-section{
-  padding:120px 0;
-  background:#0a1520;
+.personal-line{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.2);
+  border-radius:14px;padding:18px 22px;margin-bottom:32px;
+  animation:fadeUp .9s .32s ease both;
 }
-.steps-timeline{
-  max-width:780px;margin:64px auto 0;
-  position:relative;
-}
-.steps-timeline::before{
-  content:'';position:absolute;left:35px;top:0;bottom:0;width:2px;
-  background:linear-gradient(to bottom,var(--gold),rgba(200,151,59,.1));
-}
-.step-item{
-  display:flex;gap:40px;padding-bottom:56px;position:relative;
-}
-.step-item:last-child{padding-bottom:0}
-.step-dot{
-  width:72px;height:72px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;
-  color:var(--ink);box-shadow:0 8px 28px rgba(200,151,59,.35);
-  position:relative;z-index:1;
-}
-.step-body{padding-top:14px}
-.step-body h3{
-  font-family:'Playfair Display',serif;font-size:1.3rem;
-  font-weight:700;color:var(--white);margin-bottom:8px;
-}
-.step-body p{font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.8;margin-bottom:10px}
-.step-tag{
-  display:inline-block;padding:4px 12px;
-  border-radius:20px;font-size:.72rem;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;
-}
-.step-tag.gold{background:rgba(200,151,59,.15);color:var(--gold);border:1px solid rgba(200,151,59,.3)}
-.step-tag.green{background:rgba(12,172,106,.12);color:var(--green);border:1px solid rgba(12,172,106,.25)}
-.step-tag.grey{background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1)}
+.personal-line span.pl-icon{font-size:1.3rem;flex-shrink:0}
+.personal-line p{font-size:.92rem;color:rgba(255,255,255,.68);line-height:1.6}
+.personal-line p strong{color:var(--gold2)}
 
 /* ═══════════════════════════════════════════
-   TESTIMONIALS
+   PARTNER GRID (Vertrauen / Wachstum / Wertschätzung)
 ═══════════════════════════════════════════ */
-.testi-section{
-  padding:100px 0;
-  background:var(--ink);
+.partner-section{padding:100px 0;background:#0a1520}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.pg-card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(200,151,59,.15);
+  border-radius:18px;padding:36px 28px;text-align:center;
+  transition:all .3s;
 }
-.testi-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  margin-top:0;
-}
-.testi-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:20px;padding:36px 28px;
-  transition:transform .3s;
-}
-.testi-card:hover{transform:translateY(-4px)}
-.testi-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:16px}
-.testi-text{
-  font-family:'EB Garamond',serif;font-size:1.05rem;
-  font-style:italic;color:rgba(255,255,255,.7);
-  line-height:1.75;margin-bottom:20px;
-}
-.testi-text::before{
-  content:'"';color:var(--gold);font-size:2.5rem;
-  line-height:.4;display:block;margin-bottom:12px;
-  font-family:'Playfair Display',serif;
-}
-.testi-author{font-weight:700;color:var(--white);font-size:.88rem}
-.testi-role{font-size:.78rem;color:var(--gold);margin-top:2px}
+.pg-card:hover{border-color:rgba(200,151,59,.4);transform:translateY(-4px)}
+.pg-icon{font-size:2.2rem;margin-bottom:18px;display:block}
+.pg-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:10px}
+.pg-text{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.75}
+
+/* ═══════════════════════════════════════════
+   STORY BRIDGE (above the quiz)
+═══════════════════════════════════════════ */
+.story-bridge{padding:80px 0 20px;background:#0a1520}
+.sb-inner{max-width:680px;margin:0 auto;padding:0 24px;text-align:center}
+.sb-inner p{font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,.62);line-height:1.85;margin-bottom:22px}
+.sb-inner p strong{color:rgba(255,255,255,.88);font-style:normal}
+.sb-bridge{font-family:'Lato',sans-serif!important;font-style:normal!important;font-size:1rem!important;color:var(--gold2)!important;font-weight:700;margin-top:30px!important}
 
 /* ═══════════════════════════════════════════
    QUIZ / FORM SECTION
@@ -540,7 +392,37 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.4)}
 }
 .quiz-wrap .quiz-sub{
   text-align:center;color:rgba(255,255,255,.5);
-  font-size:.98rem;margin-bottom:44px;line-height:1.7;
+  font-size:.98rem;margin-bottom:28px;line-height:1.7;
+}
+
+/* Outcome teaser */
+.outcome-teaser{
+  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.ot-item{
+  background:rgba(200,151,59,.08);border:1px solid rgba(200,151,59,.22);
+  border-radius:20px;padding:8px 16px;font-size:.82rem;font-weight:700;
+  color:rgba(255,255,255,.7);
+}
+.ot-caption{
+  text-align:center;font-size:.84rem;color:rgba(255,255,255,.4);
+  font-style:italic;margin-bottom:36px;
+}
+
+/* Progress bar + step label */
+.quiz-progress{
+  height:6px;background:rgba(255,255,255,.08);border-radius:6px;
+  overflow:hidden;margin-bottom:12px;
+}
+.quiz-progress-bar{
+  height:100%;width:14.3%;border-radius:6px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transition:width .4s ease;
+}
+.quiz-step-label{
+  text-align:center;font-size:.72rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:32px;
 }
 
 /* Quiz contact fields */
@@ -617,6 +499,42 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.4)}
   background-color:rgba(255,255,255,.08);
   box-shadow:0 0 0 4px rgba(200,151,59,.08);
 }
+
+/* Radio-card answer options (step wizard) */
+.q-options{display:flex;flex-direction:column;gap:10px}
+.q-option{display:block;cursor:pointer;margin:0}
+.q-option input{position:absolute;opacity:0;width:0;height:0}
+.q-option-label{
+  display:block;padding:16px 20px;border-radius:12px;
+  border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);
+  font-size:.95rem;color:rgba(255,255,255,.72);line-height:1.5;
+  transition:all .2s;
+}
+.q-option-label:hover{border-color:rgba(200,151,59,.4)}
+.q-option input:checked + .q-option-label{
+  border-color:var(--gold);background:rgba(200,151,59,.12);
+  color:var(--white);font-weight:600;
+}
+.q-option input:focus-visible + .q-option-label{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Step wizard nav */
+.qz-nav{display:flex;justify-content:space-between;gap:14px;margin-top:28px}
+.qz-nav-single{justify-content:flex-end}
+.qz-nav-single-back{justify-content:flex-start}
+.btn-next{
+  background:linear-gradient(135deg,var(--gold),#e8a830);color:var(--ink);
+  border:none;border-radius:12px;padding:14px 28px;font-family:'Lato',sans-serif;
+  font-size:.95rem;font-weight:700;cursor:pointer;transition:all .25s;
+}
+.btn-next:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(200,151,59,.4)}
+.btn-back{
+  background:transparent;border:1.5px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);
+  border-radius:12px;padding:14px 24px;font-family:'Lato',sans-serif;
+  font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.btn-back:hover{border-color:rgba(255,255,255,.35);color:var(--white)}
+.qz-step{animation:fadeIn .35s ease both}
+
 .privacy-row{
   display:flex;align-items:flex-start;gap:10px;
   margin:28px 0;
@@ -643,77 +561,6 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.4)}
 }
 .btn-submit:hover::before{transform:translateX(100%)}
 .btn-submit:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(200,151,59,.45)}
-
-/* ═══════════════════════════════════════════
-   MEISTERTITEL BLOCK
-═══════════════════════════════════════════ */
-.meister-section{
-  padding:100px 0;
-  background:#090e18;
-  position:relative;overflow:hidden;
-}
-.meister-section::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,151,59,.07),transparent 70%);
-}
-.meister-inner{
-  position:relative;z-index:1;text-align:center;
-  max-width:820px;margin:0 auto;
-}
-.meister-crown{
-  font-size:4rem;margin-bottom:24px;display:block;
-  animation:float 4s ease-in-out infinite;
-}
-.meister-inner h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;
-  color:var(--white);line-height:1.1;margin-bottom:24px;
-}
-.meister-inner h2 em{
-  color:transparent;
-  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));
-  -webkit-background-clip:text;background-clip:text;
-  font-style:italic;
-}
-.meister-inner p{
-  font-size:1.05rem;color:rgba(255,255,255,.55);
-  line-height:1.9;margin-bottom:24px;max-width:680px;margin-left:auto;margin-right:auto;
-}
-.meister-inner p strong{color:rgba(255,255,255,.88)}
-.meister-doors{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-  margin:44px 0;
-}
-.door-item{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(200,151,59,.15);
-  border-radius:16px;padding:24px 16px;
-  text-align:center;transition:all .3s;
-}
-.door-item:hover{
-  background:rgba(200,151,59,.08);
-  border-color:rgba(200,151,59,.35);
-  transform:translateY(-4px);
-}
-.door-item .door-icon{font-size:1.8rem;margin-bottom:10px;display:block}
-.door-item .door-label{
-  font-size:.78rem;font-weight:700;color:rgba(255,255,255,.6);
-  letter-spacing:.5px;
-}
-.meister-highlight{
-  background:rgba(200,151,59,.08);
-  border:1px solid rgba(200,151,59,.2);
-  border-radius:16px;padding:28px 32px;
-  display:flex;align-items:center;gap:20px;
-  text-align:left;margin-top:16px;
-}
-.meister-highlight .mh-icon{font-size:2rem;flex-shrink:0}
-.meister-highlight p{
-  font-size:.92rem;color:rgba(255,255,255,.6);
-  line-height:1.7;margin:0;
-}
-.meister-highlight p strong{color:var(--gold)}
 
 /* ═══════════════════════════════════════════
    CTA CLOSING
@@ -871,39 +718,29 @@ footer a:hover{color:var(--gold)}
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media(max-width:1024px){
-  .hero-content{grid-template-columns:1fr;max-width:700px}
-  .hero-card{display:none}
-  .story-grid{grid-template-columns:1fr;gap:56px}
-  .pain-grid{grid-template-columns:repeat(2,1fr)}
-  .transform-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-grid{grid-template-columns:repeat(2,1fr)}
-  .meister-doors{grid-template-columns:repeat(2,1fr)}
+  .hero-content{grid-template-columns:1fr;max-width:640px}
+  .partner-grid{grid-template-columns:1fr;gap:16px}
 }
 @media(max-width:768px){
   nav{height:60px}
   .nav-links{display:none}
   .mobile-btn{display:block}
   .hero{padding:90px 0 60px}
-  .hero h1{font-size:2.4rem}
+  .hero h1{font-size:2.3rem}
   .hero-ctas{flex-direction:column}
   .btn-gold,.btn-outline{width:100%;justify-content:center}
-  .pain-grid{grid-template-columns:1fr;gap:0}
-  .transform-grid{grid-template-columns:1fr;gap:12px}
-  .testi-grid{grid-template-columns:1fr}
-  .meister-doors{grid-template-columns:1fr 1fr;gap:10px}
-  .door-item{padding:18px 12px}
-  .quiz-wrap{padding:36px 24px}
+  .hero-card-photo{height:200px}
+  .quiz-wrap{padding:36px 22px}
   .contact-fields{grid-template-columns:1fr}
   .result-box{padding:36px 24px}
   .result-title{font-size:1.6rem}
-  .meister-highlight{flex-direction:column;gap:12px}
   .sticky-bar{flex-direction:column;gap:8px;text-align:center}
-  .steps-timeline::before{left:28px}
-  .step-dot{width:56px;height:56px;font-size:1.2rem}
-  .step-item{gap:24px}
-  .story-timeline{padding-left:28px}
-  .story-timeline::before{left:-4px}
-  .story-moment::before{left:-35px}
+  .personal-line{flex-direction:column;align-items:flex-start;gap:8px}
+  .sb-inner p{font-size:1.05rem}
+  .outcome-teaser{gap:8px}
+  .ot-item{font-size:.76rem;padding:7px 12px}
+  .qz-nav{flex-direction:column-reverse}
+  .btn-back,.btn-next{width:100%;justify-content:center;text-align:center}
 }
 </style>
 </head>
@@ -913,71 +750,50 @@ footer a:hover{color:var(--gold)}
 <nav id="mainNav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="Mario Friedl Logo">
-      Mario <span>Friedl</span>
+      <img src="mario-friedl-logo.jpg" alt="Mario Friedl Logo">
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="info-abend.html">🍷 Info-Abend</a></li>
-      <li><a href="#karriere-check" class="nav-cta">Karriere-Check →</a></li>
+      <li><a href="#karriere-check" class="nav-cta">Mein Ergebnis →</a></li>
     </ul>
     <button class="mobile-btn" id="mobileBtn">☰</button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
   <a href="index.html#leistungen">Leistungen</a>
   <a href="business-seminar.html">Business Seminar</a>
-  <a href="info-abend.html">🍷 Info-Abend</a>
-  <a href="#karriere-check" class="m-cta">Karriere-Check starten →</a>
+  <a href="#karriere-check" class="m-cta">Mein Ergebnis ansehen →</a>
 </div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-
   <div class="hero-content">
-    <!-- Left -->
     <div>
-      <div class="hero-badge">🎯 Kostenloser Karriere-Check</div>
-      <h1>
-        Kennst du dieses<br>Gefühl –
-        <em>„Da steckt mehr in mir."</em>
-      </h1>
+      <div class="hero-badge">🎯 Karriere-Check · 5 Fragen · 3 Minuten</div>
+      <h1>Ein paar hundert Euro mehr.<br><em>Was würde sich ändern?</em></h1>
       <p class="hero-sub">
-        Du hast einen Job. Er läuft. Aber da ist dieser leise, beharrliche Gedanke, der einfach nicht verschwindet. Abends. Montag früh. Jedes Mal wenn du Börsennews liest und denkst: <strong>„Das ist eigentlich mein Thema."</strong>
+        Mit 16 begann ich die Ausbildung zum Großhandelskaufmann. 2021 stellte mir jemand eine Frage: Wie würde es sich anfühlen, im Monat ein paar hundert Euro zu meinem Job dazuzuverdienen? <strong>Meine Antwort kam schneller, als ich erwartet hätte – die liest du gleich.</strong>
       </p>
       <div class="hero-ctas">
-        <a href="#kennst-du-das" class="btn-gold">Ja – das kenne ich →</a>
-        <a href="#karriere-check" class="btn-outline">Direkt zum Check</a>
+        <a href="#karriere-check" class="btn-gold">Zeig mir mein Ergebnis →</a>
+        <a href="#partner" class="btn-outline">Was dich erwartet</a>
       </div>
     </div>
 
-    <!-- Right: Quote Card -->
     <div class="hero-card">
-      <img src="mario-profilbild.jpg" alt="Mario Friedl" class="hero-card-img">
-      <blockquote>
-        Ich habe 13 Jahre gewartet. Du musst nicht so lange warten.
-      </blockquote>
-      <div class="hero-card-name">Mario Friedl</div>
-      <div class="hero-card-role">Vom Logistiker zum FMA-konzessionierten Finanzberater</div>
-      <div class="hero-stats">
-        <div class="hs-item">
-          <div class="hs-num">13</div>
-          <div class="hs-lbl">Jahre Logistik</div>
-        </div>
-        <div class="hs-item">
-          <div class="hs-num">5+</div>
-          <div class="hs-lbl">Jahre Beratung</div>
-        </div>
-        <div class="hs-item">
-          <div class="hs-num">100+</div>
-          <div class="hs-lbl">Karrieren begleitet</div>
+      <img class="hero-card-photo" src="karriere-check-gespraech.jpg" alt="Perspektivgespräch mit Mario Friedl">
+      <div class="hero-card-body">
+        <p class="hero-card-cap">Vom ersten Gespräch bis zum eigenen Standbein.</p>
+        <div class="hero-stats">
+          <div class="hs-item"><div class="hs-num">150+</div><div class="hs-lbl">Berater</div></div>
+          <div class="hs-item"><div class="hs-num">15+</div><div class="hs-lbl">Partnerbanken</div></div>
+          <div class="hs-item"><div class="hs-num">5 Min</div><div class="hs-lbl">Der Check</div></div>
         </div>
       </div>
     </div>
@@ -987,451 +803,204 @@ footer a:hover{color:var(--gold)}
 <!-- ══ TICKER ══ -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
-    <div class="ticker-item"><div class="ticker-dot"></div> WKO Meisterprüfung zum Vermögensberater</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> FMA-konzessioniert · Österreich</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Kein Studium erforderlich</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> 150+ Berater im Netzwerk</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Finanzberatung · Immobilien · Unternehmensberatung</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Persönliches Mentoring durch Mario Friedl</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Von 0 auf Meistertitel in 6–12 Monaten</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> WKO Meisterprüfung zum Vermögensberater</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> FMA-konzessioniert · Österreich</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Kein Studium erforderlich</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> 150+ Berater im Netzwerk</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Finanzberatung · Immobilien · Unternehmensberatung</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Persönliches Mentoring durch Mario Friedl</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Von 0 auf Meistertitel in 6–12 Monaten</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Vertrauen</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Wachstum</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Wertschätzung</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Nebenberuflich starten</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Vertrauen</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Wachstum</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Wertschätzung</div>
+    <div class="ticker-item"><span class="ticker-dot"></span> Nebenberuflich starten</div>
   </div>
 </div>
 
-<!-- ══ KENNST DU DAS? ══ -->
-<section class="pain-section" id="kennst-du-das">
+<!-- ══ WAS DICH ERWARTET ══ -->
+<section class="partner-section" id="partner">
   <div class="wrap">
-    <div class="section-head anim">
-      <span class="eyebrow">Erkennst du dich?</span>
-      <h2>Du bist zufrieden.<br><em class="gold">Aber nicht erfüllt.</em></h2>
-      <p>Es gibt einen Unterschied. Und du kennst ihn. Genau deshalb bist du hier.</p>
+    <div class="section-head anim" style="text-align:center;margin-bottom:0">
+      <span class="eyebrow">Werde Geschäftspartner</span>
+      <h2 style="color:var(--white)">Vertrauen. Wachstum.<br><em class="gold">Wertschätzung.</em></h2>
+      <p>Kein Konzern-Fließband. Eine Partnerschaft, die mitwächst.</p>
     </div>
-
-    <div class="pain-grid">
-      <div class="pain-card anim">
-        <div class="pain-icon-wrap">📈</div>
-        <h3>Du verfolgst Märkte – privat</h3>
-        <p>Andere schauen Serien. Du liest Wirtschaftsnachrichten. Andere reden über das Wetter. Du redest über ETFs, Zinsen, Kursentwicklungen. Das ist kein Zufall – das ist ein Signal.</p>
+    <div class="partner-grid">
+      <div class="pg-card anim">
+        <span class="pg-icon">🤝</span>
+        <div class="pg-title">Vertrauen</div>
+        <div class="pg-text">Auf ehrliche Zusammenarbeit gebaut – von Anfang an.</div>
       </div>
-      <div class="pain-card anim d1">
-        <div class="pain-icon-wrap">🔥</div>
-        <h3>Das Feuer brennt seit Jahren</h3>
-        <p>Nicht seit gestern. Schon lange. Du weißt mehr über Investments als die meisten deiner Kollegen zusammen. Nur der Weg, dieses Wissen zum Beruf zu machen – der hat gefehlt.</p>
+      <div class="pg-card anim d1">
+        <span class="pg-icon">📈</span>
+        <div class="pg-title">Wachstum</div>
+        <div class="pg-text">Gemeinsam neue Potenziale erschließen, Schritt für Schritt.</div>
       </div>
-      <div class="pain-card anim d2">
-        <div class="pain-icon-wrap">⏳</div>
-        <h3>Jeden Monat vergeht Zeit</h3>
-        <p>Du schiebst den Gedanken weg. „Irgendwann." „Wenn die Zeit reif ist." Aber innen weißt du: Es gibt keinen richtigen Zeitpunkt. Nur den Moment, wo du aufhörst zu warten.</p>
-      </div>
-      <div class="pain-card anim d3">
-        <div class="pain-icon-wrap">🏆</div>
-        <h3>Du willst einen Titel, der zählt</h3>
-        <p>Nicht irgendein Zertifikat. Etwas, worauf du wirklich stolz bist. Einen anerkannten Meistertitel, der Türen öffnet – und zeigt: Ich habe es ernst genommen.</p>
-      </div>
-      <div class="pain-card anim d4">
-        <div class="pain-icon-wrap">🧠</div>
-        <h3>„Das wäre eigentlich mein Ding"</h3>
-        <p>Menschen beraten, Vermögen aufbauen helfen, komplexe Zusammenhänge verständlich machen – du kannst dir das vorstellen. Nicht vage. Konkret. Schon lange.</p>
-      </div>
-      <div class="pain-card anim d5">
-        <div class="pain-icon-wrap">🤝</div>
-        <h3>Du brauchst jemanden, der es kennt</h3>
-        <p>Keinen Motivationsredner. Jemanden der selbst diesen Weg gegangen ist – aus einem anderen Beruf, ohne Studium, mit denselben Zweifeln. Der dich begleitet. Schritt für Schritt.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:56px">
-      <p style="font-family:'EB Garamond',serif;font-size:1.4rem;font-style:italic;color:rgba(255,255,255,.65);margin-bottom:28px;line-height:1.7">
-        Wenn dich zwei oder mehr davon erwischt haben –<br>dann lies weiter. Ich kenne dieses Gefühl. Aus eigener Erfahrung.
-      </p>
-      <a href="#marios-geschichte" class="btn-outline">Meine Geschichte →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ MEINE GESCHICHTE ══ -->
-<section class="story-section" id="marios-geschichte">
-  <div class="wrap">
-    <div class="story-grid">
-
-      <!-- Timeline left -->
-      <div class="story-timeline anim">
-        <div class="story-moment">
-          <div class="story-moment-year">Mit 22 Jahren</div>
-          <h3>€ 30.000 Schulden.<br>Und eine Begegnung.</h3>
-          <p>Zum ersten Mal saß ich einem echten Finanzberater gegenüber. Was er mir zeigte, ließ mich nicht mehr los: Es gibt andere Wege. Man muss sie nur kennen.</p>
-        </div>
-        <div class="story-moment">
-          <div class="story-moment-year">Die Faszination</div>
-          <h3>Märkte. Wertpapiere. Trading.<br>Ein Feuer, das nie erlosch.</h3>
-          <p>Von diesem Moment an war ich fasziniert. Ich beobachtete Kurse, las alles über Wirtschaft, verstand Zusammenhänge – als Leidenschaft, nicht als Pflicht.</p>
-        </div>
-        <div class="story-moment">
-          <div class="story-moment-year">13 Jahre</div>
-          <h3>Der Drang nach mehr.<br>Aber kein Weg in Sicht.</h3>
-          <p>Das Feuer war da. Immer. Aber ich wusste nicht, wie ich es zum Beruf machen sollte. Bis mich jemand an der Hand nahm und sagte: <em style="color:var(--gold)">"Es geht."</em></p>
-        </div>
-        <div class="story-moment">
-          <div class="story-moment-year">Die Entscheidung</div>
-          <h3>Job gekündigt. Ausbildung gemacht.<br>Alles verändert.</h3>
-          <p>Meisterausbildung zum Vermögensberater über die Wirtschaftskammer. Mit Zweifeln. Aber mit den richtigen Menschen an meiner Seite. Das hat den Unterschied gemacht.</p>
-        </div>
-      </div>
-
-      <!-- Story text right -->
-      <div class="story-text anim d2">
-        <span class="eyebrow">Meine Geschichte</span>
-        <h2>
-          Mit 22 Jahren.<br>
-          <em>€ 30.000 Schulden. Und eine Begegnung, die alles veränderte.</em>
-        </h2>
-
-        <div class="story-pull">
-          „Ich sah zum ersten Mal, wie Märkte wirklich funktionieren. Wie Geld arbeiten kann. Ich konnte nicht mehr aufhören."
-        </div>
-
-        <p>Bis dahin hatte ich getan, was alle tun: Bausparvertrag, Sparbuch, Lebensversicherung. Jeden Monat gespart – und trotzdem wurde es nicht mehr. Das System hat gegen mich gearbeitet, nicht für mich.</p>
-
-        <p>Dann vergingen <strong>13 Jahre.</strong> Das Feuer war immer da. Märkte, Wertpapiere, Wirtschaft – ich verstand Zusammenhänge, während ich in einem anderen Beruf stand. Der Drang nach mehr war real. Aber ich wusste nicht, wie.</p>
-
-        <p>Bis mich jemand an der Hand nahm und sagte: <em style="color:var(--gold2)">"Es geht."</em> Ich kündigte meinen Job. Machte die <strong>Meisterausbildung zum Vermögensberater</strong> über die Wirtschaftskammer. Mit Zweifeln – aber mit den richtigen Menschen an meiner Seite.</p>
-
-        <p style="font-size:1.05rem;color:rgba(255,255,255,.88);border-left:3px solid var(--gold);padding-left:18px;margin:24px 0">Der Finanzberater-Beruf ist nicht mein Traum geworden.<br>Er ist <strong style="color:var(--gold2)">mehr als das.</strong></p>
-
-        <p>Vielleicht kennst du dieses Gefühl. Dieses leise Unbehagen morgens. Den Gedanken, der immer wieder kommt – und den du immer wieder wegschiebst. Ich habe lange gebraucht, um darauf zu hören. <strong>Du musst nicht so lange warten.</strong></p>
-
-        <p>Ich weiß, wie es sich anfühlt – dieses Feuer in sich zu tragen und nicht zu wissen, wie man es entzündet. <em>Den Weg zeige ich dir.</em></p>
-
-        <a href="#karriere-check" class="btn-gold" style="margin-top:28px;display:inline-flex">Jetzt meinen Weg finden →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ WAS MÖGLICH WIRD ══ -->
-<section class="transform-section">
-  <div class="wrap">
-    <div class="section-head anim">
-      <span class="eyebrow">Was möglich wird</span>
-      <h2>Stell dir vor,<br><em class="gold">das hier ist dein Alltag.</em></h2>
-      <p>Kein Blaupausen-Versprechen. Das ist die Realität von Menschen, die diesen Schritt gemacht haben.</p>
-    </div>
-    <div class="transform-grid" style="margin-top:56px">
-      <div class="transform-card anim">
-        <span class="tc-icon">💰</span>
-        <div class="tc-title">Einkommen ohne Deckel</div>
-        <p class="tc-text">Dein Verdienst wächst mit deiner Leistung. Kein "Das ist das Maximum" – je mehr du aufbaust, desto mehr bleibt für dich.</p>
-      </div>
-      <div class="transform-card anim d1">
-        <span class="tc-icon">🌍</span>
-        <div class="tc-title">Märkte als Beruf</div>
-        <p class="tc-text">Was dich seit Jahren fasziniert – Investments, Wirtschaft, Vermögensaufbau – ist jeden Tag Inhalt deiner Arbeit. Nicht Hobby. Beruf.</p>
-      </div>
-      <div class="transform-card anim d2">
-        <span class="tc-icon">🎓</span>
-        <div class="tc-title">Der Meistertitel</div>
-        <p class="tc-text">Die WKO-Meisterprüfung zum Vermögensberater. Ein Titel, auf den du wirklich stolz bist. Öffnet Türen in der gesamten Finanzbranche.</p>
-      </div>
-      <div class="transform-card anim d3">
-        <span class="tc-icon">❤️</span>
-        <div class="tc-title">Sinn, der sich zeigt</div>
-        <p class="tc-text">Wenn die Anspannung aus dem Gesicht eines Kunden weicht. Wenn du siehst, wie sich das Leben eines Menschen verändert. Das ist kein Job. Das ist Berufung.</p>
-      </div>
-      <div class="transform-card anim d4">
-        <span class="tc-icon">⏰</span>
-        <div class="tc-title">Deine Zeit, deine Regeln</div>
-        <p class="tc-text">Home-Office. Flexible Termine. Urlaub wann du willst. Dein Leben richtet sich nicht mehr nach dem Job – der Job richtet sich nach deinem Leben.</p>
-      </div>
-      <div class="transform-card anim d5">
-        <span class="tc-icon">🚀</span>
-        <div class="tc-title">Ein eigenes Team aufbauen</div>
-        <p class="tc-text">Du bist nicht nur Berater – du wirst Leader. Baue dein Team auf, begleite andere auf ihrem Weg. Passives Einkommen inklusive.</p>
+      <div class="pg-card anim d2">
+        <span class="pg-icon">💎</span>
+        <div class="pg-title">Wertschätzung</div>
+        <div class="pg-text">Partnerschaft auf Augenhöhe – langfristig und fair.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ MEISTERTITEL ══ -->
-<section class="meister-section">
-  <div class="wrap">
-    <div class="meister-inner anim">
-      <span class="meister-crown">🏆</span>
-      <h2>Der Meistertitel.<br><em>Ein Titel, der Türen öffnet.</em></h2>
-      <p>Die <strong>WKO-Meisterprüfung zum Vermögensberater</strong> ist nicht irgendein Zertifikat. Sie ist das Fundament, auf dem eine echte Karriere in der Finanzwelt steht. Kein Studium erforderlich. Nur Ehrgeiz und die richtige Begleitung.</p>
-
-      <div class="meister-doors">
-        <div class="door-item">
-          <span class="door-icon">🏦</span>
-          <div class="door-label">Finanzberatung</div>
-        </div>
-        <div class="door-item">
-          <span class="door-icon">🏠</span>
-          <div class="door-label">Immobilien</div>
-        </div>
-        <div class="door-item">
-          <span class="door-icon">📊</span>
-          <div class="door-label">Unternehmens­beratung</div>
-        </div>
-        <div class="door-item">
-          <span class="door-icon">🌐</span>
-          <div class="door-label">Internationale Märkte</div>
-        </div>
-      </div>
-
-      <div class="meister-highlight">
-        <span class="mh-icon">💡</span>
-        <p>Viele unserer erfolgreichsten Berater kamen aus der Logistik, Gastronomie, dem Handel. <strong>Kein einziger hatte ein Finanzstudium.</strong> Was sie hatten: Leidenschaft für das Thema – und den Mut zum ersten Schritt.</p>
-      </div>
-
-      <a href="https://www.wko.at/oe/information-consulting/finanzdienstleister/berufsbild-gewerbliche-vermoegensberatung" target="_blank" style="display:inline-block;margin-top:32px;padding:12px 28px;border:1.5px solid rgba(200,151,59,.3);border-radius:50px;color:var(--gold);font-size:.85rem;font-weight:700;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(200,151,59,.1)'" onmouseout="this.style.background='transparent'">📋 WKO Berufsbild ansehen →</a>
-    </div>
+<!-- ══ STORY BRIDGE ══ -->
+<section class="story-bridge">
+  <div class="sb-inner anim">
+    <span class="eyebrow">Meine Antwort darauf</span>
+    <p><strong>Mehr Freizeit. Meine eigene Zeiteinteilung. Öfter mal Urlaub.</strong> Und beim Einkaufen nicht mehr zuerst auf das Preisschild schauen. Von da an änderte sich alles.</p>
+    <p>Am Anfang wusste ich nicht, ob ich der Typ dafür bin. Aber ein Karriere-Check – genau wie der hier – hat mir gezeigt: <strong>etwas musste sich ändern.</strong> Für Finanzen habe ich mich schon immer interessiert. Mir ging es nie ums schnelle Geld, sondern darum, mich mit Geld auszukennen.</p>
+    <p>Also fing ich als Tippgeber an. Neben meinem 40-Stunden-Job. Langsam aufgebaut. Irgendwann waren es nur noch 20 Stunden. <strong>Heute, mehr als 5 Jahre später, stehe ich hier – selbstständig.</strong></p>
+    <p class="sb-bridge">Der gleiche Check, der mir damals die Richtung gezeigt hat, wartet jetzt auf deine Antworten. ↓</p>
   </div>
 </section>
 
-<!-- ══ PROZESS ══ -->
-<section class="steps-section">
-  <div class="wrap">
-    <div class="section-head anim">
-      <span class="eyebrow">Dein Weg</span>
-      <h2>Von heute bis zum<br><em class="gold">Meistertitel.</em></h2>
-      <p>Transparent, begleitet, machbar. In 4 klaren Schritten.</p>
-    </div>
-
-    <div class="steps-timeline">
-      <div class="step-item anim">
-        <div class="step-dot">1</div>
-        <div class="step-body">
-          <h3>Karriere-Check</h3>
-          <p>10 ehrliche Fragen, 5 Minuten. Ich zeige dir direkt, ob du das Profil mitbringst – und was das für deinen nächsten Schritt bedeutet.</p>
-          <span class="step-tag gold">Kostenlos &amp; unverbindlich</span>
-        </div>
-      </div>
-      <div class="step-item anim d1">
-        <div class="step-dot">2</div>
-        <div class="step-body">
-          <h3>Persönliches Gespräch (30 Min)</h3>
-          <p>Kein Verkaufsgespräch. Keine Überredung. Nur du, ich und die Frage: Passt das zu dir? Ich sage ehrlich, was Sache ist.</p>
-          <span class="step-tag gold">Telefon, Video oder vor Ort</span>
-        </div>
-      </div>
-      <div class="step-item anim d2">
-        <div class="step-dot">3</div>
-        <div class="step-body">
-          <h3>Schnuppertag <span style="font-size:.78rem;color:rgba(255,255,255,.35);font-weight:400">(optional)</span></h3>
-          <p>Begleite mich einen Tag. Erlebe live, wie Beratungsgespräche wirklich aussehen – kein Marketing, pure Realität. Danach weißt du es.</p>
-          <span class="step-tag grey">Freiwillig · Nur wenn du willst</span>
-        </div>
-      </div>
-      <div class="step-item anim d3">
-        <div class="step-dot">4</div>
-        <div class="step-body">
-          <h3>Meisterprüfung &amp; Konzession</h3>
-          <p>In 6–12 Monaten absolvierst du die WKO-Meisterprüfung zum Vermögensberater, gefolgt von der FMA-Konzession. Ich begleite dich – jeden Schritt. Genau so wie es damals jemand bei mir getan hat.</p>
-          <span class="step-tag green">Meistertitel · Neues Leben beginnt</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ TESTIMONIALS ══ -->
-<section class="testi-section">
-  <div class="wrap">
-    <div class="section-head anim">
-      <span class="eyebrow">Erfolgsgeschichten</span>
-      <h2>Menschen, die den Schritt<br><em class="gold">gewagt haben.</em></h2>
-      <p>Echte Karrierewechsel. Kein Marketing.</p>
-    </div>
-
-    <div class="testi-grid" style="margin-top:56px">
-      <div class="testi-card anim">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">15 Jahre Gastronomie – ausgebrannt, ständig am Wochenende, keine Zeit für Familie. Die Meisterprüfung war intensiv, aber Mario hat mich begleitet. Heute: doppeltes Einkommen, Home-Office, endlich Zeit für meine Kinder.</p>
-        <div class="testi-author">Markus H.</div>
-        <div class="testi-role">Vom Koch zum Finanzberater</div>
-      </div>
-      <div class="testi-card anim d1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Kein BWL-Studium nötig – nur Ehrgeiz und Lernbereitschaft! Nach 8 Monaten Meisterprüfung berate ich heute Unternehmer bei Investitionen. Der Meistertitel hat mir Türen geöffnet, von denen ich nie zu träumen gewagt hätte.</p>
-        <div class="testi-author">Andreas G.</div>
-        <div class="testi-role">Vom Staplerfahrer zum Vermögensberater</div>
-      </div>
-      <div class="testi-card anim d2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Jahrelang im Einzelhandel unterbezahlt. Heute spezialisiere ich mich auf Immobilienfinanzierungen und helfe Familien zum Eigenheim. In einem Monat verdiene ich mehr als früher in einem halben Jahr.</p>
-        <div class="testi-author">Sonja U.</div>
-        <div class="testi-role">Von der Verkäuferin zur Immobilienfinanzierung</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ KARRIERE-CHECK FORM ══ -->
+<!-- ══ QUIZ / FORM SECTION ══ -->
 <section class="quiz-section" id="karriere-check">
   <div class="wrap">
     <div class="section-head anim" style="margin-bottom:56px">
       <span class="eyebrow">Dein erster Schritt</span>
       <h2 style="color:var(--white)">Der Karriere-Check.</h2>
-      <p>10 ehrliche Fragen. 5 Minuten. Eine klare Einschätzung.</p>
+      <p>5 Fragen. 3 Minuten. Eine ehrliche Einschätzung.</p>
     </div>
 
     <div class="quiz-wrap anim d1">
       <h2>Ist Finanzberatung<br><em class="gold">deine Berufung?</em></h2>
-      <p class="quiz-sub">Beantworte alle Fragen ehrlich – am Ende siehst du schwarz auf weiß, wo du stehst. Und ich melde mich persönlich bei dir.</p>
+      <p class="quiz-sub">Beantworte die Fragen ehrlich – am Ende siehst du sofort, wo du stehst. Und ich melde mich persönlich bei dir.</p>
 
-      <form action="https://formspree.io/f/xlgnrven" method="POST" onsubmit="evaluateCareerCheck(event)">
+      <div class="outcome-teaser">
+        <span class="ot-item">🔥 Du bist bereit.</span>
+        <span class="ot-item">⚡ Du hast das Feuer.</span>
+        <span class="ot-item">🌱 Ein guter erster Schritt.</span>
+      </div>
+      <p class="ot-caption">Welches wird deins? Du erfährst es sofort nach der letzten Frage.</p>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="quizProgressBar"></div>
+      </div>
+      <div class="quiz-step-label" id="quizStepLabel">Deine Kontaktdaten</div>
+
+      <form id="careerForm" action="https://formspree.io/f/xlgnrven" method="POST" onsubmit="return evaluateCareerCheck(event)">
         <input type="hidden" name="_subject" value="Neuer Karriere-Check ausgefüllt">
 
-        <!-- Kontaktfelder -->
-        <div class="contact-fields">
-          <div class="cf-group">
-            <label>Vorname *</label>
-            <input type="text" name="vorname" placeholder="Dein Vorname" required>
+        <!-- STEP 1: Kontaktfelder -->
+        <div class="qz-step" data-step="1">
+          <div class="contact-fields">
+            <div class="cf-group">
+              <label>Vorname *</label>
+              <input type="text" name="vorname" placeholder="Dein Vorname" required>
+            </div>
+            <div class="cf-group">
+              <label>Nachname *</label>
+              <input type="text" name="nachname" placeholder="Dein Nachname" required>
+            </div>
+            <div class="cf-group">
+              <label>E-Mail *</label>
+              <input type="email" name="email" placeholder="deine@email.at" required>
+            </div>
+            <div class="cf-group">
+              <label>Telefon</label>
+              <input type="tel" name="telefon" placeholder="+43 ...">
+            </div>
+            <div class="cf-group cf-full">
+              <label>Aktueller Beruf / Branche</label>
+              <input type="text" name="beruf" placeholder="z.B. Logistik, Gastronomie, Vertrieb ...">
+            </div>
           </div>
-          <div class="cf-group">
-            <label>Nachname *</label>
-            <input type="text" name="nachname" placeholder="Dein Nachname" required>
-          </div>
-          <div class="cf-group">
-            <label>E-Mail *</label>
-            <input type="email" name="email" placeholder="deine@email.at" required>
-          </div>
-          <div class="cf-group">
-            <label>Telefon</label>
-            <input type="tel" name="telefon" placeholder="+43 ...">
-          </div>
-          <div class="cf-group cf-full">
-            <label>Aktueller Beruf / Branche</label>
-            <input type="text" name="beruf" placeholder="z.B. Logistik, Gastronomie, Vertrieb ...">
+          <div class="qz-nav qz-nav-single">
+            <button type="button" class="btn-next" onclick="qzNext()">Weiter →</button>
           </div>
         </div>
 
-        <hr class="quiz-divider">
-        <span class="quiz-questions-label">Die 10 Fragen</span>
-
-        <div class="q-item">
-          <label><span class="q-num">1</span> Wie lange beschäftigst du dich schon mit Themen wie Börse, Investments oder Wirtschaft?</label>
-          <select class="q-select" name="frage_1_erfahrung" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Seit Jahren – es ist eine echte Leidenschaft</option>
-            <option value="3">Seit ein, zwei Jahren – ich lese und informiere mich aktiv</option>
-            <option value="2">Seit ein paar Monaten – ich fange gerade an</option>
-            <option value="1">Noch kaum – aber ich möchte das ändern</option>
-          </select>
+        <!-- STEP 2: Frage 1 -->
+        <div class="qz-step" data-step="2" style="display:none">
+          <div class="q-item">
+            <label><span class="q-num">1</span> Wie oft denkst du bei der Arbeit: „Da ist mehr in mir"?</label>
+            <div class="q-options">
+              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="4" required><span class="q-option-label">Fast täglich</span></label>
+              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="3"><span class="q-option-label">Regelmäßig</span></label>
+              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="2"><span class="q-option-label">Ab und zu</span></label>
+              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="1"><span class="q-option-label">Eher selten</span></label>
+            </div>
+          </div>
+          <div class="qz-nav qz-nav-single-back">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+          </div>
         </div>
 
-        <div class="q-item">
-          <label><span class="q-num">2</span> Wie wichtig ist dir finanzielle Unabhängigkeit?</label>
-          <select class="q-select" name="frage_2_finanzielle_freiheit" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Sehr – ich will raus aus dem Hamsterrad</option>
-            <option value="3">Wichtig – ich will definitiv mehr verdienen</option>
-            <option value="2">Mittel – ich bin grundsätzlich zufrieden</option>
-            <option value="1">Wenig – Sicherheit ist mir wichtiger</option>
-          </select>
+        <!-- STEP 3: Frage 2 -->
+        <div class="qz-step" data-step="3" style="display:none">
+          <div class="q-item">
+            <label><span class="q-num">2</span> Wenn du ein paar hundert Euro zu deinem jetzigen Job dazuverdienen könntest – was würde sich für dich ändern?</label>
+            <div class="q-options">
+              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="4" required><span class="q-option-label">Einiges – mehr Freiheit, weniger Sorgen ums Geld</span></label>
+              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="3"><span class="q-option-label">Spürbar etwas – ich könnte mir mehr leisten</span></label>
+              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="2"><span class="q-option-label">Ein bisschen – aber ich komme auch so klar</span></label>
+              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="1"><span class="q-option-label">Nicht viel – Geld ist für mich zweitrangig</span></label>
+            </div>
+          </div>
+          <div class="qz-nav qz-nav-single-back">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+          </div>
         </div>
 
-        <div class="q-item">
-          <label><span class="q-num">3</span> Wie gehst du mit Menschen um – in Gesprächen, beim Erklären, beim Überzeugen?</label>
-          <select class="q-select" name="frage_3_kommunikation" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Ich liebe es – Gespräche sind mein Element</option>
-            <option value="3">Gut – ich komme mit Menschen zurecht</option>
-            <option value="2">Okay – mit Übung wird es besser</option>
-            <option value="1">Eher ungern – ich arbeite lieber allein</option>
-          </select>
+        <!-- STEP 4: Frage 3 -->
+        <div class="qz-step" data-step="4" style="display:none">
+          <div class="q-item">
+            <label><span class="q-num">3</span> Wünschst du dir am Montag auch schon den Freitag herbei?</label>
+            <div class="q-options">
+              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="4" required><span class="q-option-label">Fast jede Woche – ich zähle die Tage</span></label>
+              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="3"><span class="q-option-label">Öfter, als mir lieb ist</span></label>
+              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="2"><span class="q-option-label">Manchmal – aber nicht ständig</span></label>
+              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="1"><span class="q-option-label">Selten – ich mag meinen Job</span></label>
+            </div>
+          </div>
+          <div class="qz-nav qz-nav-single-back">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+          </div>
         </div>
 
-        <div class="q-item">
-          <label><span class="q-num">4</span> Kannst du dir vorstellen, selbstständig zu arbeiten?</label>
-          <select class="q-select" name="frage_4_selbststaendig" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Ja, das ist mein Ziel!</option>
-            <option value="3">Ja, wenn die Rahmenbedingungen stimmen</option>
-            <option value="2">Vielleicht – ich bin unentschlossen</option>
-            <option value="1">Nein, ich brauche feste Anstellung</option>
-          </select>
+        <!-- STEP 5: Frage 4 -->
+        <div class="qz-step" data-step="5" style="display:none">
+          <div class="q-item">
+            <label><span class="q-num">4</span> Was wiegt für dich schwerer: das sichere Gehalt am Monatsende oder die Chance auf mehr?</label>
+            <div class="q-options">
+              <label class="q-option"><input type="radio" name="frage_4_risiko" value="4" required><span class="q-option-label">Die Chance – ich will nach oben</span></label>
+              <label class="q-option"><input type="radio" name="frage_4_risiko" value="3"><span class="q-option-label">Beides, aber die Chance zieht mich mehr</span></label>
+              <label class="q-option"><input type="radio" name="frage_4_risiko" value="2"><span class="q-option-label">Kommt drauf an, wie groß das Risiko ist</span></label>
+              <label class="q-option"><input type="radio" name="frage_4_risiko" value="1"><span class="q-option-label">Das sichere Gehalt – Sicherheit geht vor</span></label>
+            </div>
+          </div>
+          <div class="qz-nav qz-nav-single-back">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+          </div>
         </div>
 
-        <div class="q-item">
-          <label><span class="q-num">5</span> Wie lernbereit bist du – auch wenn es anspruchsvoll wird?</label>
-          <select class="q-select" name="frage_5_lernbereitschaft" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Sehr – ich liebe Weiterentwicklung</option>
-            <option value="3">Gut – wenn ich weiß warum, ziehe ich durch</option>
-            <option value="2">Mittel – wenn es sein muss</option>
-            <option value="1">Wenig – ich bleibe lieber in der Komfortzone</option>
-          </select>
+        <!-- STEP 6: Frage 5 -->
+        <div class="qz-step" data-step="6" style="display:none">
+          <div class="q-item">
+            <label><span class="q-num">5</span> Wie lange trägst du den Gedanken „Ich will beruflich etwas verändern" schon mit dir?</label>
+            <div class="q-options">
+              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="4" required><span class="q-option-label">Mehr als 2 Jahre – es wird Zeit</span></label>
+              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="3"><span class="q-option-label">1–2 Jahre – der Druck wächst</span></label>
+              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="2"><span class="q-option-label">Ein paar Monate – ich bin dabei aufzuwachen</span></label>
+              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="1"><span class="q-option-label">Noch nicht lang – ich taste mich ran</span></label>
+            </div>
+          </div>
+          <div class="qz-nav qz-nav-single-back">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+          </div>
         </div>
 
-        <div class="q-item">
-          <label><span class="q-num">6</span> Hast du das Gefühl, dass dein aktueller Job nicht dein "echtes Potenzial" ausschöpft?</label>
-          <select class="q-select" name="frage_6_potenzial" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Absolut – ich weiß, da ist mehr in mir</option>
-            <option value="3">Ja, meistens schon</option>
-            <option value="2">Manchmal – es kommt drauf an</option>
-            <option value="1">Eher nicht – ich bin zufrieden</option>
-          </select>
+        <!-- STEP 7: Datenschutz + Absenden -->
+        <div class="qz-step" data-step="7" style="display:none">
+          <div class="privacy-row">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und bin damit einverstanden, dass Mario Friedl sich bei mir meldet. *</label>
+          </div>
+          <div class="qz-nav">
+            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
+            <button type="submit" class="btn-submit">Ergebnis anzeigen →</button>
+          </div>
         </div>
-
-        <div class="q-item">
-          <label><span class="q-num">7</span> Wie stehst du zu schwankendem Einkommen am Anfang?</label>
-          <select class="q-select" name="frage_7_risiko" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Ich habe Rücklagen und bin bereit</option>
-            <option value="3">Mit Unterstützung am Anfang wäre es machbar</option>
-            <option value="2">Schwierig – aber mit Plan vielleicht</option>
-            <option value="1">Nein – ich brauche fixes Gehalt</option>
-          </select>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">8</span> Was bedeutet dir sinnvolle Arbeit – wirklich anderen zu helfen?</label>
-          <select class="q-select" name="frage_8_sinn" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Sehr viel – das ist mir das Wichtigste</option>
-            <option value="3">Viel – aber Einkommen ist auch wichtig</option>
-            <option value="2">Mittel – ich trenne Job und Sinn</option>
-            <option value="1">Wenig – Hauptsache es zahlt</option>
-          </select>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">9</span> Wie ist dein Netzwerk – oder deine Bereitschaft, eines aufzubauen?</label>
-          <select class="q-select" name="frage_9_netzwerk" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Ich kenne viele Menschen und bin gut vernetzt</option>
-            <option value="3">Geht so, aber ich kann und will Netzwerken lernen</option>
-            <option value="2">Klein – aber ich bin offen dafür</option>
-            <option value="1">Eher nicht mein Ding</option>
-          </select>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">10</span> Wie lange trägst du den Gedanken "Ich will mich beruflich verändern" schon mit dir?</label>
-          <select class="q-select" name="frage_10_veraenderungswille" required>
-            <option value="">Bitte wählen...</option>
-            <option value="4">Mehr als 2 Jahre – es wird Zeit</option>
-            <option value="3">1–2 Jahre – der Druck wächst</option>
-            <option value="2">Einige Monate – ich bin dabei aufzuwachen</option>
-            <option value="1">Noch nicht lang – ich taste mich ran</option>
-          </select>
-        </div>
-
-        <div class="privacy-row">
-          <input type="checkbox" id="datenschutz" name="datenschutz" required>
-          <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und bin damit einverstanden, dass Mario Friedl sich bei mir meldet. *</label>
-        </div>
-
-        <button type="submit" class="btn-submit">Karriere-Check abschicken – ich melde mich →</button>
       </form>
     </div>
   </div>
@@ -1439,13 +1008,10 @@ footer a:hover{color:var(--gold)}
 
 <!-- ══ CLOSING CTA ══ -->
 <section class="cta-section">
-  <div class="cta-inner">
-    <div class="anim">
-      <span class="eyebrow">Der erste Schritt</span>
-      <h2>Nicht mit einem perfekten Plan.<br><em>Nur mit dem leisen Gedanken:</em></h2>
-      <p>"Was wäre, wenn?"</p>
-      <a href="#karriere-check" class="btn-gold">Jetzt herausfinden →</a>
-    </div>
+  <div class="cta-inner anim">
+    <h2>Der richtige Moment<br><em>ist heute – nicht irgendwann.</em></h2>
+    <p>Fünf Fragen zeigen dir mehr, als ein Jahr des Abwartens es je könnte.</p>
+    <a href="#karriere-check" class="btn-gold">Bin ich der Typ dafür? →</a>
   </div>
 </section>
 
@@ -1454,9 +1020,8 @@ footer a:hover{color:var(--gold)}
   <span class="footer-logo">Mario Friedl</span>
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="index.html#leistungen">Leistungen</a>
-    <a href="info-abend.html">Info-Abend</a>
     <a href="business-seminar.html">Business Seminar</a>
+    <a href="indo-abend.html">Wein &amp; Finanzen</a>
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
   </div>
@@ -1468,10 +1033,10 @@ footer a:hover{color:var(--gold)}
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar" id="stickyBar">
-  <div class="sticky-text"><strong>Karriere-Check</strong> – Kostenlos, unverbindlich, ehrlich</div>
+  <div class="sticky-text"><strong>Karriere-Check</strong> – 5 Fragen, 3 Minuten</div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center">
     <span style="background:rgba(200,151,59,.15);border:1px solid rgba(200,151,59,.3);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:700;color:var(--gold)">FMA-konzessioniert</span>
-    <a href="#karriere-check" class="btn-gold" style="font-size:.88rem;padding:10px 22px">Jetzt starten →</a>
+    <a href="#karriere-check" class="btn-gold" style="font-size:.88rem;padding:10px 22px">Ergebnis ansehen →</a>
   </div>
 </div>
 
@@ -1482,11 +1047,10 @@ footer a:hover{color:var(--gold)}
     <span class="result-emoji" id="resultEmoji">🎯</span>
     <h2 class="result-title" id="resultTitle"></h2>
     <div class="result-body" id="resultBody"></div>
-    <button class="result-cta" onclick="closeResult()">Verstanden – Ich freue mich auf das Gespräch!</button>
+    <button class="result-cta" onclick="closeResult()">Verstanden</button>
   </div>
 </div>
 
-<!-- ══ JAVASCRIPT ══ -->
 <script>
 /* ── Nav scroll ── */
 window.addEventListener('scroll',()=>{
@@ -1511,96 +1075,151 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
 
-/* ── Career check evaluation ── */
+/* ── Career-Check step wizard ── */
+const qzTotalSteps=7;
+let qzCurrentStep=1;
+const qzStepLabels={
+  1:'Deine Kontaktdaten',
+  2:'Frage 1 von 5',
+  3:'Frage 2 von 5',
+  4:'Frage 3 von 5',
+  5:'Frage 4 von 5',
+  6:'Frage 5 von 5',
+  7:'Fast geschafft'
+};
+
+function qzGoTo(step,scroll){
+  document.querySelectorAll('.qz-step').forEach(s=>{s.style.display='none'});
+  const target=document.querySelector('.qz-step[data-step="'+step+'"]');
+  if(target)target.style.display='block';
+  const pct=Math.round((step/qzTotalSteps)*100);
+  document.getElementById('quizProgressBar').style.width=pct+'%';
+  document.getElementById('quizStepLabel').textContent=qzStepLabels[step]||'';
+  qzCurrentStep=step;
+  if(scroll!==false)target.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function qzValidateStep(step){
+  const el=document.querySelector('.qz-step[data-step="'+step+'"]');
+  const requiredInputs=el.querySelectorAll('[required]');
+  for(const inp of requiredInputs){
+    if(inp.type==='radio'){
+      const group=el.querySelectorAll('input[name="'+inp.name+'"]');
+      const checked=Array.from(group).some(r=>r.checked);
+      if(!checked){alert('Bitte wähle eine Antwort aus.');return false}
+    } else if(inp.type==='checkbox'){
+      if(!inp.checked){alert('Bitte akzeptiere die Datenschutzerklärung.');return false}
+    } else {
+      if(!inp.value.trim()){inp.focus();alert('Bitte fülle alle Pflichtfelder aus.');return false}
+      if(inp.type==='email' && !inp.validity.valid){inp.focus();alert('Bitte gib eine gültige E-Mail-Adresse ein.');return false}
+    }
+  }
+  return true;
+}
+
+function qzNext(){
+  if(!qzValidateStep(qzCurrentStep))return;
+  if(qzCurrentStep<qzTotalSteps)qzGoTo(qzCurrentStep+1);
+}
+function qzPrev(){
+  if(qzCurrentStep>1)qzGoTo(qzCurrentStep-1);
+}
+
+/* Auto-advance when a question option is picked */
+document.querySelectorAll('.qz-step[data-step="2"] input, .qz-step[data-step="3"] input, .qz-step[data-step="4"] input, .qz-step[data-step="5"] input, .qz-step[data-step="6"] input').forEach(r=>{
+  r.addEventListener('change',()=>{
+    setTimeout(()=>{qzNext()},350);
+  });
+});
+
+qzGoTo(1,false);
+
+/* ── Career check evaluation (5 questions, max 20 points) ── */
 function evaluateCareerCheck(e){
   e.preventDefault();
+  if(!qzValidateStep(7))return false;
   const form=e.target;
   const fd=new FormData(form);
 
-  const questionKeys=['frage_1_erfahrung','frage_2_finanzielle_freiheit','frage_3_kommunikation',
-    'frage_4_selbststaendig','frage_5_lernbereitschaft','frage_6_potenzial',
-    'frage_7_risiko','frage_8_sinn','frage_9_netzwerk','frage_10_veraenderungswille'];
+  const questionKeys=['frage_1_potenzial','frage_2_mehrverdienst','frage_3_montag_freitag',
+    'frage_4_risiko','frage_5_veraenderungswille'];
 
   let points=0;
   questionKeys.forEach(k=>{points+=parseInt(fd.get(k)||0)});
 
-  // Submit to formspree async
   fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
     .catch(err=>console.log(err));
 
   const name=fd.get('vorname')||'';
   showResult(points,name);
+  return false;
 }
 
 function showResult(points,name){
-  const pct=Math.round((points/40)*100);
+  const pct=Math.round((points/20)*100);
   let emoji,title,color,body;
 
-  if(points>=34){
+  if(points>=17){
     emoji='🔥';
     title='Du bist bereit.';
     color='var(--gold)';
     body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/40 Punkten (${pct}%)</strong></p>
+      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
       <p style="margin:12px 0;padding:16px;background:rgba(200,151,59,.1);border-radius:10px;border-left:3px solid var(--gold)">
-        Deine Antworten zeigen: Du trägst dieses Feuer schon lange. Du weißt, was du willst. Du hast nur noch keinen klaren Weg gehabt.
-        <strong> Den gebe ich dir.</strong>
+        Deine Antworten lesen sich wie bei jemandem, der schon lange weiß, was er will. Nur der Weg hat noch gefehlt.
       </p>
       <h4>Was jetzt passiert:</h4>
       <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Ich melde mich persönlich bei dir</strong> – innerhalb von 48 Stunden. Nicht ein Assistent. Ich.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>30 Minuten Gespräch</strong> – kein Verkaufsdruck, nur ehrliche Einschätzung und dein konkreter nächster Schritt.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Optional: Schnuppertag</strong> – erlebe einen echten Tag in der Finanzberatung. Dann weißt du es mit Sicherheit.</div></div>
+        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Ich melde mich persönlich</strong> – innerhalb von 48 Stunden. Nicht per Assistent.</div></div>
+        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>30 Minuten am Telefon</strong> – deine Fragen, meine ehrlichen Antworten.</div></div>
+        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Optional: ein Schnuppertag</strong> – du erlebst selbst, wie ein echter Beratungstag aussieht.</div></div>
       </div>
       <div class="result-confirm">
         <div class="rc-item">Deine Daten wurden übermittelt</div>
         <div class="rc-item">Meldung innerhalb von 48 Stunden</div>
-        <div class="rc-item">Kein Druck. Keine Verpflichtung. Nur Klarheit.</div>
       </div>
     `;
-  } else if(points>=24){
+  } else if(points>=12){
     emoji='⚡';
     title='Stark – du hast das Feuer.';
     color='var(--gold2)';
     body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/40 Punkten (${pct}%)</strong></p>
+      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
       <p style="margin:12px 0;padding:16px;background:rgba(200,151,59,.08);border-radius:10px;border-left:3px solid var(--gold)">
-        Deine Antworten zeigen echte Substanz. Du bist interessiert, motiviert – und bereit, mehr zu erfahren. Genau da beginne ich.
+        Deine Antworten zeigen echte Substanz. Du bist interessiert, motiviert – und bereit, mehr zu erfahren.
       </p>
       <h4>Was jetzt passiert:</h4>
       <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch</strong> – 30 Minuten, keine Verkaufspräsentation. Ich beantworte alle deine Fragen ehrlich.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Einblick hinter die Kulissen</strong> – Optional kannst du mich begleiten und selbst erleben, was dieser Beruf wirklich bedeutet.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Dann entscheidest du</strong> – ohne Druck, ohne Fristen. Nur wenn du es wirklich willst.</div></div>
+        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch</strong> – 30 Minuten, ich beantworte alle deine Fragen ehrlich.</div></div>
+        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Einblick hinter die Kulissen</strong> – begleite mich und erlebe selbst, was dieser Beruf bedeutet.</div></div>
+        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Dann entscheidest du</strong> – in deinem Tempo.</div></div>
       </div>
       <div class="result-confirm">
         <div class="rc-item">Deine Daten wurden übermittelt</div>
         <div class="rc-item">Ich melde mich innerhalb von 48 Stunden</div>
-        <div class="rc-item">Keine Verpflichtung – nur Klarheit</div>
       </div>
     `;
   } else {
     emoji='🌱';
-    title='Ein interessanter Start.';
+    title='Ein guter erster Schritt.';
     color='rgba(255,255,255,.8)';
     body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/40 Punkten (${pct}%)</strong></p>
+      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
       <p style="margin:12px 0;padding:16px;background:rgba(255,255,255,.05);border-radius:10px;border-left:3px solid rgba(255,255,255,.2)">
-        Deine Ehrlichkeit ist bereits ein gutes Zeichen. Die größten Fehler machen Menschen, die sich überschätzen. Du willst erst verstehen – das ist klug.
+        Du willst erst verstehen, bevor du entscheidest – das ist klug, nicht zögerlich.
       </p>
-      <h4>Mein ehrlicher Rat:</h4>
+      <h4>Mein Vorschlag:</h4>
       <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch (30 Min)</strong> – keine Überredung, nur echte Einblicke. Ich sage dir ehrlich, ob ich glaube, dass es passt.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Info-Abend</strong> – komm zu einem kostenlosen Abend und erlebe, worum es wirklich geht. Ohne Druck.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Dann siehst du klarer</strong> – manche sagen danach Nein. Das ist in Ordnung. Andere sagen Ja – und bereuen keine Sekunde.</div></div>
+        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch (30 Min)</strong> – ich sage dir ehrlich, ob ich glaube, dass es passt.</div></div>
+        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Info-Abend besuchen</strong> – komm zu einem Abend und erlebe, worum es wirklich geht.</div></div>
+        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Danach entscheidest du</strong> – manche sagen Nein, andere Ja. Beides ist in Ordnung.</div></div>
       </div>
       <div class="result-confirm">
         <div class="rc-item">Deine Daten wurden übermittelt</div>
         <div class="rc-item">Meldung innerhalb von 48 Stunden</div>
-        <div class="rc-item">Kein Druck – wirklich nicht</div>
       </div>
       <p style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:16px;font-style:italic">
-        PS: Viele unserer erfolgreichsten Berater hatten anfangs genau dieselben Zweifel. Der Unterschied: Sie haben sich getraut, einen Blick hinter die Kulissen zu werfen.
+        PS: Viele unserer Berater hatten anfangs genau dieselben Zweifel. Der Unterschied: Sie haben einen Blick hinter die Kulissen gewagt.
       </p>
     `;
   }
@@ -1621,11 +1240,6 @@ document.getElementById('resultOverlay').addEventListener('click',function(e){
   if(e.target===this)closeResult();
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResult()});
-
-// Keyboard animations
-const style=document.createElement('style');
-style.textContent='@keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}';
-document.head.appendChild(style);
 </script>
 </body>
 </html>
