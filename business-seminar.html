@@ -430,8 +430,8 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
 /* ════════════════════════════
    STORY + COST SECTION
 ════════════════════════════ */
-.story-cost-section{padding:120px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
-.story-cost-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(232,93,42,.04),transparent 65%);pointer-events:none}
+.cost-section{padding:120px 0;background:linear-gradient(180deg,#090d12 0%,var(--ink) 100%);position:relative;overflow:hidden}
+.cost-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(232,93,42,.04),transparent 65%);pointer-events:none}
 
 /* Story block */
 .story-block{margin-bottom:0}
@@ -584,7 +584,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   .cc-row{grid-template-columns:1fr 1fr}.cc-col-what{display:none}
   .story-pill-row{padding:14px}
   .cost-nothing .cn-head{flex-direction:column;gap:10px}
-  .story-cost-section{padding:72px 0}
+  .cost-section{padding:72px 0}
   .btn-termine-toggle{width:100%;justify-content:center;font-size:.92rem;padding:14px 20px}
 }
 </style>
@@ -698,11 +698,12 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="truth-inner">
       <div class="truth-left anim-left">
         <span class="eyebrow">Die unbequeme Wahrheit</span>
-        <h2>Dein Geld verliert<br><em>jeden Monat an Wert.</em></h2>
-        <div class="truth-pull">"Während du arbeitest, schläft dein Geld – und verliert dabei real an Kaufkraft."</div>
-        <p>Österreich spart fleißig. Auf Sparbüchern, die 0,1 % Zinsen abwerfen – während die Inflation seit Jahren über 3 % liegt. <strong>Das bedeutet: Du sparst, und wirst trotzdem ärmer.</strong></p>
-        <p>Gleichzeitig weiß die Mehrheit nicht, wie echte Vermögensbildung funktioniert. Nicht weil sie zu dumm wären. Sondern weil <em>niemand es ihnen erklärt hat.</em></p>
-        <p><strong>An diesem Wochenende ändert sich das.</strong> Keine Theorie. Nur echte Zahlen, echte Beispiele, echte Strategien – von Referenten, die selbst Jahrzehnte Erfahrung mitbringen.</p>
+        <h2>Du stehst jeden Morgen<br>für Geld auf. <em>Beim Sparen<br>schaust du weg.</em></h2>
+        <div class="truth-pull">"Miete, Auto, Strom – dafür stehst du jeden Tag auf. Für dein Erspartes schaut die Hälfte weg."</div>
+        <p>Miete. Auto. Strom. Dafür gehst du arbeiten, Monat für Monat, ohne zu zögern. Aber sobald es um dein Erspartes geht, wird es leise. Ein Blick aufs Sparbuch reicht – Hauptsache, es fühlt sich sicher an.</p>
+        <p>Das Problem: Genau da verlierst du am meisten. Österreich spart fleißig – auf Sparbüchern mit 0,1 % Zinsen, während die Inflation seit Jahren über 3 % liegt. <strong>Du sparst. Und wirst trotzdem ärmer.</strong></p>
+        <p>Nicht weil du zu dumm dafür wärst. Sondern weil dir nie jemand gezeigt hat, wie Geld für dich arbeitet – <strong>statt umgekehrt.</strong></p>
+        <p><strong>An diesem Wochenende ändert sich das.</strong> Echte Zahlen, echte Strategien – von Referenten, die selbst Jahrzehnte Erfahrung mitbringen.</p>
         <a href="#anmeldung" class="btn-fire" style="margin-top:28px;display:inline-flex">Ich will dabei sein →</a>
       </div>
       <div class="truth-stats anim-right">
@@ -730,95 +731,12 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   </div>
 </section>
 
-<!-- MARIOS GESCHICHTE + KOSTENVERGLEICH -->
-<section class="story-cost-section">
+<!-- WAS FINANZSEMINARE KOSTEN -->
+<section class="cost-section">
   <div class="wrap">
 
-    <!-- Mario's Story -->
-    <div class="story-block anim">
-      <div class="story-eyebrow-wrap">
-        <span class="eyebrow">Marios Geschichte</span>
-      </div>
-      <h2 class="story-h2">
-        Mit 20 Jahren. <em>€ 30.000 Schulden.</em><br>
-        Und fleißig am Sparen.
-      </h2>
-
-      <div class="story-text-grid">
-        <div class="story-left">
-          <p class="story-intro">
-            2008 saß ich das erste Mal auf einem Business Seminar. Ich wusste nicht, was mich erwartet. Ich wusste nur: <strong>irgendetwas stimmt nicht.</strong>
-          </p>
-
-          <p>
-            Mit 20 hatte ich € 30.000 Schulden. Kein Erbe. Kein großes Einkommen. Aber ich habe getan, was alle sagten: fleißig sparen. Bausparvertrag. Lebensversicherung. Sparbuch. Fonds bei der Bank.
-          </p>
-
-          <p>
-            Das Problem? <strong>Meine Schulden wurden jedes Jahr größer. Mein Erspartes – das genaue Gegenteil.</strong> Ich habe gespart wie ein Profi. Und wurde trotzdem ärmer. Jeden Monat ein bisschen mehr.
-          </p>
-
-          <div class="story-pill-row">
-            <div class="sp-pill bad"><span>📉</span> Schulden wuchsen trotz Sparen</div>
-            <div class="sp-pill bad"><span>💸</span> Bausparvertrag: kaum Rendite</div>
-            <div class="sp-pill bad"><span>😶</span> Lebensversicherung: Gebühren fraßen alles</div>
-            <div class="sp-pill bad"><span>🏦</span> Bankfonds: Kosten vs. Ertrag – Bankgewinn</div>
-          </div>
-
-          <p>
-            Dann saß ich auf diesem Seminar. Und jemand legte die Zahlen auf den Tisch. <em>Meine</em> Zahlen. Und ich habe zum ersten Mal verstanden, warum.
-          </p>
-
-          <div class="story-quote">
-            <p>"Es war nicht Pech. Es war kein fehlendes Glück. Es war fehlendes <strong>Wissen.</strong> Das hat mir niemand beigebracht – weder Schule, noch Eltern, noch Bank."</p>
-          </div>
-
-          <p>
-            <strong>Ich habe nach diesem Seminar alles geändert.</strong> Schritt für Schritt. Nicht über Nacht – aber mit einem Plan, den ich vorher nicht hatte.
-          </p>
-          <p>
-            Heute, 18 Jahre später: schuldenfrei. <strong>Ein Vermögen aufgebaut.</strong> Nicht durch Glück. Durch dieses Wissen – das ich an diesem Wochenende an dich weitergebe.
-          </p>
-        </div>
-
-        <div class="story-right">
-          <div class="story-timeline-visual">
-            <div class="stv-item stv-bad">
-              <div class="stv-year">2008</div>
-              <div class="stv-content">
-                <div class="stv-title">Der Tiefpunkt</div>
-                <div class="stv-text">€ 30.000 Schulden · Bausparvertrag · Lebensversicherung · Sparbuch · Bankfonds – fleißig gespart, trotzdem ärmer</div>
-              </div>
-            </div>
-            <div class="stv-connector">⬇</div>
-            <div class="stv-item stv-turn">
-              <div class="stv-year">2008</div>
-              <div class="stv-content">
-                <div class="stv-title">Das Seminar</div>
-                <div class="stv-text">Erstes Business Seminar. Die Zahlen lagen auf dem Tisch. Das Wissen öffnete die Augen. Der erste Schritt.</div>
-              </div>
-            </div>
-            <div class="stv-connector">⬇</div>
-            <div class="stv-item stv-good">
-              <div class="stv-year">2026</div>
-              <div class="stv-content">
-                <div class="stv-title">Heute – 18 Jahre später</div>
-                <div class="stv-text">Schuldenfrei ✓ · Vermögen aufgebaut ✓ · Hunderte Menschen begleitet ✓ · FMA-konzessioniert ✓</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="story-cta-box">
-            <p class="scb-text">Ich hätte dieses Wissen gerne mit 20 gehabt.</p>
-            <p class="scb-sub">Jetzt gebe ich es an dich weiter – in zwei Tagen.</p>
-            <a href="#anmeldung" class="btn-fire" style="width:100%;justify-content:center;margin-top:14px">🔥 Meinen Platz sichern →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Kostenvergleich -->
-    <div class="cost-block anim" style="margin-top:80px">
+    <div class="cost-block anim">
       <div class="sh" style="margin-bottom:48px">
         <span class="eyebrow">Was Finanzseminare wirklich kosten</span>
         <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em">
@@ -896,7 +814,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:10px 16px;margin-top:12px;font-size:.78rem;color:#5a3e10;line-height:1.6"><strong style="color:#7a4e0a">Hinweis:</strong> Alle Berechnungen basieren auf historischen Durchschnittswerten und vereinfachten Modellrechnungen. Keine Garantie für zukünftige Erträge. Keine individuelle Anlageberatung.</div>
           </p>
           <p style="margin-top:12px">
-            Das Seminar kostet ab <strong>€ 139,40</strong>. Die Unwissenheit kostet dich <strong>ein Vermögen.</strong>
+            Das Seminar kostet ab <strong>€ 139,40</strong>. Die Unwissenheit kostet dich <strong>ein Vermögen.</strong> Zwei Tage – und dein Geld beginnt, für dich zu arbeiten. Nicht umgekehrt.
           </p>
         </div>
       </div>
@@ -905,7 +823,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   </div>
 </section>
 
-<!-- REFERENTEN – motivierter Text, keine Cards -->
+<!-- REFERENTEN -->
 <section class="ref-section">
   <div class="wrap">
     <div class="sh anim">
@@ -922,13 +840,6 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <div class="ref-pull">
           "Die Menschen, die dir an diesem Wochenende gegenüber sitzen, haben zusammen über 20 Jahre Finanzpraxis – und jeder von ihnen hat eine Geschichte, die dir unter die Haut geht."
         </div>
-
-        <p>
-          Du wirst hören, wie jemand mit einem Schuldenberg angefangen hat, der sich unmöglich anfühlte – und heute schuldenfrei ist, mit einem Vermögen im Rücken. Du wirst hören, wie jemand jahrelang fleißig gespart hat: Bausparvertrag, Lebensversicherung, Sparbuch, Bankfonds – und am Ende festgestellt hat, dass er <strong>trotz Fleiß ärmer geworden war</strong>. Du wirst hören, wie eine einzige Information alles verändert hat.
-        </p>
-        <p>
-          Diese Referenten erzählen nicht aus Büchern. <strong>Sie erzählen aus ihrem Leben.</strong> Mit echten Zahlen. Konkreten Beispielen. Und der Offenheit, die du in keiner Bank und keinem Bankgespräch je bekommst.
-        </p>
 
         <div class="ref-features">
           <div class="rf-item"><span class="rfi">🔥</span><div><strong>Persönliche Lebensgeschichten</strong><span>Echte Rückschläge, echte Wendepunkte, echte Lösungen</span></div></div>
@@ -959,42 +870,42 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <span class="ai-num">01</span>
         <div class="ai-icon">🧨</div>
         <div class="ai-title">Die Inflation-Entlarve</div>
-        <p class="ai-text">Was Inflation wirklich mit deinem Geld macht – anhand deiner eigenen Zahlen. Du wirst erschrecken. Und dann handeln wollen.</p>
+        <p class="ai-text">Was Inflation wirklich mit deinem Geld macht – anhand deiner eigenen Zahlen.</p>
         <span class="ai-highlight">Live-Berechnung deiner Kaufkraft</span>
       </div>
       <div class="agenda-item anim d1">
         <span class="ai-num">02</span>
         <div class="ai-icon">📊</div>
         <div class="ai-title">Sparbuch vs. Investmentfonds</div>
-        <p class="ai-text">Ein Direktvergleich über 10, 20, 30 Jahre – mit echten Zahlen, nicht Marketing-Grafiken. Wie viel kostet dich Nichtstun wirklich?</p>
+        <p class="ai-text">Ein Direktvergleich über 10, 20, 30 Jahre – mit echten Zahlen, nicht Marketing-Grafiken.</p>
         <span class="ai-highlight">Der echte Preis der Untätigkeit</span>
       </div>
       <div class="agenda-item anim d2">
         <span class="ai-num">03</span>
         <div class="ai-icon">🏗️</div>
         <div class="ai-title">Vermögensaufbau – Step by Step</div>
-        <p class="ai-text">Wie ein einfacher Sparplan mit Investmentfonds aussieht, was er kostet, was er bringt – und wie du ihn ohne Vorkenntnisse selbst verstehst.</p>
+        <p class="ai-text">Wie ein einfacher Sparplan aussieht, was er kostet, was er bringt.</p>
         <span class="ai-highlight">Konkret, nicht abstrakt</span>
       </div>
       <div class="agenda-item anim d3">
         <span class="ai-num">04</span>
         <div class="ai-icon">🏡</div>
         <div class="ai-title">Eigentum – Traum oder Falle?</div>
-        <p class="ai-text">Kaufen oder mieten? Tilgungskredit oder tilgungsfreie Finanzierung mit parallelem Sparplan? Du bekommst eine ehrliche, mathematische Antwort.</p>
+        <p class="ai-text">Kaufen oder mieten? Eine ehrliche, mathematische Antwort ohne Bankinteressen.</p>
         <span class="ai-highlight">Ohne Bankinteressen erklärt</span>
       </div>
       <div class="agenda-item anim d4">
         <span class="ai-num">05</span>
         <div class="ai-icon">🛡️</div>
         <div class="ai-title">Die Pensionslücke – Deine Zahlen</div>
-        <p class="ai-text">Wir berechnen gemeinsam, was dir wirklich fehlen wird. Nicht als Angstmacherei – damit du weißt, welchen Spielraum du hast.</p>
+        <p class="ai-text">Wir berechnen gemeinsam, was dir wirklich fehlen wird.</p>
         <span class="ai-highlight">Persönliche Pensionsanalyse live</span>
       </div>
       <div class="agenda-item anim d5">
         <span class="ai-num">06</span>
         <div class="ai-icon">🤝</div>
         <div class="ai-title">Persönlicher Austausch mit den Referenten</div>
-        <p class="ai-text">Am Ende des Seminars stehen die Referenten persönlich für dich zur Verfügung – im Einzelgespräch, ganz ohne Druck und ohne Publikum. Deine Fragen, deine Situation, deine Antworten.</p>
+        <p class="ai-text">Im Einzelgespräch, ganz ohne Druck und ohne Publikum.</p>
         <span class="ai-highlight">Vertraulich · Persönlich · Unter vier Augen</span>
       </div>
     </div>
@@ -1029,23 +940,6 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <div class="vs-item good-item"><span class="vi">✅</span> 2 Tage inkl. 3×-Gang-Menüs & Übernachtung</div>
       </div>
     </div>
-    <div class="diff-cards">
-      <div class="diff-card anim">
-        <span class="dc-icon">🎯</span>
-        <div class="dc-title">Radikal ehrlich</div>
-        <p class="dc-text">Kein Provisionsmodell, das den Rat beeinflusst. Du bekommst, was die Referenten wirklich denken – nicht was sie verkaufen wollen.</p>
-      </div>
-      <div class="diff-card anim d1">
-        <span class="dc-icon">🔬</span>
-        <div class="dc-title">Konkret &amp; berechenbar</div>
-        <p class="dc-text">Alles was gezeigt wird, ist durchgerechnet. Du verlässt das Wochenende nicht mit Fragen, sondern mit Zahlen und einem nächsten Schritt.</p>
-      </div>
-      <div class="diff-card anim d2">
-        <span class="dc-icon">🏨</span>
-        <div class="dc-title">Premium-Erlebnis</div>
-        <p class="dc-text">Zwei Tage in erstklassigen Hotels. Vitale Mahlzeiten, Networking am Abend, komfortable Übernachtung – Lernen in bester Atmosphäre.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1055,7 +949,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="mario-inner">
       <div class="mario-img-wrap anim-left">
         <div class="mario-img-bg"></div>
-        <img src="mario-profilbild.jpg" alt="Mario Friedl" class="mario-img">
+        <img src="mario-vortrag-buehne.jpg" alt="Mario Friedl auf der Bühne" class="mario-img">
         <div class="mario-badge"><span>🏆 FMA-konzessioniert · WIFI Meisterprüfung</span></div>
       </div>
       <div class="mario-text anim-right">
@@ -1181,39 +1075,6 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
       </div>
     </div>
 
-    <!-- Inklusive details -->
-    <div class="inkl-section">
-      <div class="inkl-grid">
-        <div class="inkl-card anim">
-          <span class="inkl-icon">🥐</span>
-          <div class="inkl-title">Vitale Seminarpausen</div>
-          <ul class="inkl-items">
-            <li>Pikante Häppchen für einen schwungvollen Start</li>
-            <li>Süße Leckereien für eine genussvolle Pause</li>
-            <li>Obstkörbe &amp; Müsliriegel</li>
-            <li>Kaffee, Wasser &amp; Fruchtsäfte ganztägig</li>
-          </ul>
-        </div>
-        <div class="inkl-card anim d1">
-          <span class="inkl-icon">🍽️</span>
-          <div class="inkl-title">Genussvolle Mahlzeiten</div>
-          <ul class="inkl-items">
-            <li>Reichhaltiges Frühstück mit lokalen Spezialitäten</li>
-            <li>3-Gänge Vital-Mittagsmenü</li>
-            <li>3-Gänge Abendmenü zum perfekten Tagesausklang</li>
-          </ul>
-        </div>
-        <div class="inkl-card anim d2">
-          <span class="inkl-icon">🛏️</span>
-          <div class="inkl-title">Komfortable Übernachtung</div>
-          <ul class="inkl-items">
-            <li>Moderne, gemütliche Zimmer mit allem Komfort</li>
-            <li>Ruhige Lage für erholsamen Schlaf</li>
-            <li>Perfekt für Networking am Abend</li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
