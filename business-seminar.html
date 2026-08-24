@@ -251,8 +251,8 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5);border-bottom-color:rgba(200,1
 .mario-section{padding:120px 0;background:#090d12;position:relative;overflow:hidden}
 .mario-inner{display:grid;grid-template-columns:380px 1fr;gap:80px;align-items:center}
 .mario-img-wrap{position:relative}
-.mario-img-bg{position:absolute;inset:-20px;background:radial-gradient(ellipse,rgba(232,93,42,.12),transparent 65%);border-radius:50%;animation:firePulse 3s ease-in-out infinite}
-.mario-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 10%;border-radius:20px;border:2px solid rgba(232,93,42,.25);position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.mario-img-bg{position:absolute;inset:-16px;background:radial-gradient(ellipse,rgba(232,93,42,.12),transparent 65%);border-radius:24px;animation:firePulse 3s ease-in-out infinite}
+.mario-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:20px;border:2px solid rgba(232,93,42,.25);position:relative;z-index:1;box-shadow:0 24px 80px rgba(0,0,0,.5)}
 .mario-badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--ember),var(--flame));border-radius:10px;padding:10px 22px;white-space:nowrap;z-index:2;box-shadow:0 8px 30px rgba(232,93,42,.4)}
 .mario-badge span{font-size:.78rem;font-weight:700;color:var(--white);letter-spacing:.5px}
 .mario-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:22px}
@@ -325,6 +325,7 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.5);border-bottom-color:rgba(200,1
 .tc-hotel.linz{background:rgba(42,163,200,.08);color:#2aa3c8;border:1px solid rgba(42,163,200,.2)}
 .tc-date{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--white);margin-bottom:4px;line-height:1.2}
 .tc-location{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:0}
+.tc-seats{display:inline-block;margin-top:8px;font-size:.68rem;font-weight:800;letter-spacing:.5px;color:var(--ember);background:rgba(232,93,42,.12);border:1px solid rgba(232,93,42,.25);border-radius:6px;padding:3px 9px}
 
 /* ════════════════════════════
    TESTIMONIALS
@@ -636,7 +637,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         und ein Wochenende, das dein Denken dauerhaft verändert.
       </p>
       <div class="hero-event-bar">
-        <div class="event-pill hot"><span>🔥</span> Nächster Termin: 04.–05. Juli 2026</div>
+        <div class="event-pill hot"><span>🔥</span> Nächster Termin: 29.–30. August · 45 von 70 Plätzen reserviert</div>
         <div class="event-pill"><span>📍</span> 2 Premium-Locations · AT</div>
         <div class="event-pill"><span>👥</span> Max. 70 Teilnehmer</div>
         <div class="event-pill"><span>🏨</span> Inkl. Übernachtung möglich</div>
@@ -681,14 +682,14 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="t-item"><span class="t-flame">📈</span> Echte Vermögensbildung verstehen</div>
     <div class="t-item"><span class="t-flame">🔥</span> Die Pensionslücke: Deine Zahlen, keine Statistiken</div>
     <div class="t-item"><span class="t-flame">⚡</span> Max. 70 Teilnehmer · Premium-Hotels · Österreich</div>
-    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick, Kirchschlag</div>
+    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick, Linz</div>
     <div class="t-item"><span class="t-flame">🔥</span> Warum dein Sparbuch dich arm macht</div>
     <div class="t-item"><span class="t-flame">⚡</span> Inflation: Die stille Enteignung</div>
     <div class="t-item"><span class="t-flame">🔥</span> Investmentfonds – was wirklich stimmt</div>
     <div class="t-item"><span class="t-flame">📈</span> Echte Vermögensbildung verstehen</div>
     <div class="t-item"><span class="t-flame">🔥</span> Die Pensionslücke: Deine Zahlen, keine Statistiken</div>
     <div class="t-item"><span class="t-flame">⚡</span> Max. 70 Teilnehmer · Premium-Hotels · Österreich</div>
-    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick, Kirchschlag</div>
+    <div class="t-item"><span class="t-flame">🏨</span> Genusshotel Riegersburg & Hotel Alpenblick, Linz</div>
   </div>
 </div>
 
@@ -724,9 +725,6 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="stat-num">25 J.</span>
           <div class="stat-label"><strong>€ 10.000 auf dem Sparbuch</strong>werden real zu ~€ 8.100 — dieselbe Summe in Investmentfonds: ~€ 43.000</div>
         </div>
-      </div>
-      <div style="background:#fff8ee;border:1px solid #e8a830;border-left:4px solid #C8973B;border-radius:0 10px 10px 0;padding:12px 18px;margin:20px 28px 0;font-size:.8rem;color:#5a3e10;line-height:1.65">
-        <strong style="color:#7a4e0a">* Wichtiger Hinweis (WAG 2018 § 46 / MiFID II):</strong> Alle dargestellten Renditeangaben (7–8 % p.a.) sind historische Durchschnittswerte. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen in Finanzinstrumente können zum Verlust des eingesetzten Kapitals führen. Diese Informationen ersetzen keine individuelle Anlageberatung.
       </div>
     </div>
   </div>
@@ -1032,7 +1030,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
       <div class="hotel-card h-linz anim d1">
         <div class="hotel-head">
           <div class="h-badge">🏔️ Oberösterreich</div>
-          <h3>Hotel Alpenblick, Kirchschlag</h3>
+          <h3>Hotel Alpenblick, Linz</h3>
           <div class="h-address">📍 Rohrbach 8, 4202 Kirchschlag bei Linz</div>
           <div class="h-time">⏰ Samstag, 10:00 Uhr · 2 Tage</div>
         </div>
@@ -1095,7 +1093,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
         <span id="termineToggleText">Alle Termine anzeigen</span>
         <span id="termineArrow" style="font-size:.9rem;transition:transform .3s;display:inline-block">▼</span>
       </button>
-      <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:10px">Nächster Termin: <strong style="color:var(--ember)">04.–05. Juli 2026 · Genusshotel Riegersburg</strong></p>
+      <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:10px">Nächster Termin: <strong style="color:var(--ember)">29.–30. August 2026 · Hotel Alpenblick, Linz</strong> · bereits 45 von 70 Plätzen reserviert</p>
     </div>
 
     <!-- Hidden termine grid -->
@@ -1106,30 +1104,31 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="tc-date">07.–08. März 2026</div>
           <div class="tc-location">Genusshotel Riegersburg</div>
         </div>
-        <div class="termin-card" onclick="selectTermin(this,'11.–12. April 2026','Hotel Alpenblick, Kirchschlag')">
+        <div class="termin-card" onclick="selectTermin(this,'11.–12. April 2026','Hotel Alpenblick, Linz')">
           <div class="tc-hotel linz">🏔️ Linz</div>
           <div class="tc-date">11.–12. April 2026</div>
-          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+          <div class="tc-location">Hotel Alpenblick, Linz</div>
         </div>
         <div class="termin-card" onclick="selectTermin(this,'09.–10. Mai 2026','Genusshotel Riegersburg')">
           <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
           <div class="tc-date">09.–10. Mai 2026</div>
           <div class="tc-location">Genusshotel Riegersburg</div>
         </div>
-        <div class="termin-card" onclick="selectTermin(this,'06.–07. Juni 2026','Hotel Alpenblick, Kirchschlag')">
+        <div class="termin-card" onclick="selectTermin(this,'06.–07. Juni 2026','Hotel Alpenblick, Linz')">
           <div class="tc-hotel linz">🏔️ Linz</div>
           <div class="tc-date">06.–07. Juni 2026</div>
-          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+          <div class="tc-location">Hotel Alpenblick, Linz</div>
         </div>
         <div class="termin-card" onclick="selectTermin(this,'04.–05. Juli 2026','Genusshotel Riegersburg')">
           <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
           <div class="tc-date">04.–05. Juli 2026</div>
           <div class="tc-location">Genusshotel Riegersburg</div>
         </div>
-        <div class="termin-card" onclick="selectTermin(this,'29.–30. August 2026','Hotel Alpenblick, Kirchschlag')">
+        <div class="termin-card" onclick="selectTermin(this,'29.–30. August 2026','Hotel Alpenblick, Linz')">
           <div class="tc-hotel linz">🏔️ Linz</div>
           <div class="tc-date">29.–30. August 2026</div>
-          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+          <div class="tc-location">Hotel Alpenblick, Linz</div>
+          <div class="tc-seats">🔥 45/70 Plätze reserviert</div>
         </div>
         <div class="termin-card" onclick="selectTermin(this,'03.–04. Oktober 2026','Genusshotel Riegersburg')">
           <div class="tc-hotel riegersburg">🌄 Riegersburg</div>
@@ -1141,10 +1140,10 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
           <div class="tc-date">31. Oktober – 01. November 2026</div>
           <div class="tc-location">Genusshotel Riegersburg</div>
         </div>
-        <div class="termin-card" onclick="selectTermin(this,'05.–06. Dezember 2026','Hotel Alpenblick, Kirchschlag')">
+        <div class="termin-card" onclick="selectTermin(this,'05.–06. Dezember 2026','Hotel Alpenblick, Linz')">
           <div class="tc-hotel linz">🏔️ Linz</div>
           <div class="tc-date">05.–06. Dezember 2026</div>
-          <div class="tc-location">Hotel Alpenblick, Kirchschlag</div>
+          <div class="tc-location">Hotel Alpenblick, Linz</div>
         </div>
       </div>
     </div>
@@ -1226,14 +1225,14 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
           <select name="termin" id="terminSelect" required>
             <option value="">Bitte Termin wählen...</option>
             <option value="07.-08. März 2026 · Genusshotel Riegersburg">07.–08. März 2026 · Genusshotel Riegersburg</option>
-            <option value="11.-12. April 2026 · Hotel Alpenblick, Kirchschlag">11.–12. April 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="11.-12. April 2026 · Hotel Alpenblick, Linz">11.–12. April 2026 · Hotel Alpenblick, Linz</option>
             <option value="09.-10. Mai 2026 · Genusshotel Riegersburg">09.–10. Mai 2026 · Genusshotel Riegersburg</option>
-            <option value="06.-07. Juni 2026 · Hotel Alpenblick, Kirchschlag">06.–07. Juni 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="06.-07. Juni 2026 · Hotel Alpenblick, Linz">06.–07. Juni 2026 · Hotel Alpenblick, Linz</option>
             <option value="04.-05. Juli 2026 · Genusshotel Riegersburg">04.–05. Juli 2026 · Genusshotel Riegersburg</option>
-            <option value="29.-30. August 2026 · Hotel Alpenblick, Kirchschlag">29.–30. August 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="29.-30. August 2026 · Hotel Alpenblick, Linz">29.–30. August 2026 · Hotel Alpenblick, Linz</option>
             <option value="03.-04. Oktober 2026 · Genusshotel Riegersburg">03.–04. Oktober 2026 · Genusshotel Riegersburg</option>
             <option value="31. Oktober - 01. November 2026 · Genusshotel Riegersburg">31. Oktober – 01. November 2026 · Genusshotel Riegersburg</option>
-            <option value="05.-06. Dezember 2026 · Hotel Alpenblick, Kirchschlag">05.–06. Dezember 2026 · Hotel Alpenblick, Kirchschlag</option>
+            <option value="05.-06. Dezember 2026 · Hotel Alpenblick, Linz">05.–06. Dezember 2026 · Hotel Alpenblick, Linz</option>
           </select>
         </div>
 
@@ -1290,7 +1289,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">Was kostet das Seminar genau?<span class="faq-arrow">+</span></div>
-        <div class="faq-a">Die Kosten umfassen die gesamte Seminar-Pauschale inkl. Übernachtung, Mahlzeiten und Getränke. <strong>Genusshotel Riegersburg:</strong> EZ € 202,– / DZ € 187,– / Tagesgast € 94,50 p.P. <strong>Hotel Alpenblick, Kirchschlag:</strong> EZ € 176,40 / DZ € 139,40 / Tagesgast € 89,– p.P. – jeweils inkl. Ortstaxe, Seminarpausen, Vital-Mahlzeiten und Getränke.</div>
+        <div class="faq-a">Die Kosten umfassen die gesamte Seminar-Pauschale inkl. Übernachtung, Mahlzeiten und Getränke. <strong>Genusshotel Riegersburg:</strong> EZ € 202,– / DZ € 187,– / Tagesgast € 94,50 p.P. <strong>Hotel Alpenblick, Linz:</strong> EZ € 176,40 / DZ € 139,40 / Tagesgast € 89,– p.P. – jeweils inkl. Ortstaxe, Seminarpausen, Vital-Mahlzeiten und Getränke.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Wann muss ich zahlen?<span class="faq-arrow">+</span></div>
@@ -1350,7 +1349,7 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
 <div class="sticky" id="stickyBar">
   <div class="sticky-left">
     <strong>🔥 Business Seminar 2026</strong> – Max. 70 Plätze · 9 Termine
-    <span class="sl-urgent">⚡ Nächster Termin: 06.–07. Juni · Alpenblick</span>
+    <span class="sl-urgent">⚡ Nächster Termin: 29.–30. August · Linz · nur noch 25 Plätze frei</span>
   </div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center">
     <span style="background:rgba(232,93,42,.1);border:1px solid rgba(232,93,42,.25);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:700;color:var(--flame)">FMA-konzessioniert</span>
