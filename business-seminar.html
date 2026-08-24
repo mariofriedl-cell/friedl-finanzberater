@@ -540,6 +540,20 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
 }
 .btn-termine-toggle:hover{background:rgba(232,93,42,.1);border-color:rgba(232,93,42,.6);color:var(--gold2)}
 .btn-termine-toggle.open{background:rgba(232,93,42,.1);border-color:var(--ember)}
+
+/* TOP BANNER */
+.top-banner{position:relative;width:100%;height:480px;overflow:hidden;background:var(--ink)}
+.top-banner img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 22%}
+.top-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,16,.15) 0%,rgba(8,12,16,.55) 70%,var(--ink) 100%)}
+.top-banner-badge{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(8,12,16,.7);backdrop-filter:blur(8px);
+  border:1px solid rgba(232,93,42,.35);border-radius:30px;
+  padding:10px 24px;font-size:.78rem;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold2);white-space:nowrap;
+}
+
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;max-width:680px}
   .hero-right{display:none}
@@ -576,6 +590,8 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   .reg-card{padding:34px 22px}
   .form-row-2{grid-template-columns:1fr}
   .success-box{padding:34px 22px}
+  .top-banner{height:240px}
+  .top-banner-badge{font-size:.68rem;padding:8px 16px;white-space:normal;text-align:center;bottom:16px}
   .mario-inner{gap:44px}
   .mario-creds{justify-content:center}
   .mario-text{text-align:center}
@@ -616,6 +632,12 @@ footer{background:#050810;padding:46px 28px 26px;text-align:center;border-top:1p
   <a href="karriere-check.html">Karriere-Check</a>
   <a href="info-abend.html">Info-Abend 🍷</a>
   <a href="#anmeldung" class="mob-fire">🔥 Jetzt Platz sichern</a>
+</div>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  <img src="gfb-bulle-baer.jpg" alt="Bulle und Bär – Markt trifft Finanzstrategie">
+  <div class="top-banner-badge">🔥 Business Seminar · 29.–30. August 2026</div>
 </div>
 
 <!-- HERO -->
