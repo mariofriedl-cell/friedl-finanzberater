@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umschuldung Graz – Mario Friedl | Dein Haus. Deine Zahlen. Eine Lösung.</title>
-    <meta name="description" content="Dein Haus ist dein Traum. Die Schulden sind Lärm. Umschuldung mit interaktivem Rechner. Kostenlos, ehrlich, unabhängig.">
+    <title>Umschuldung &amp; Immobilienfinanzierung Graz – Mario Friedl | Ein Prinzip, zwei Wege</title>
+    <meta name="description" content="Ob Umschuldung oder Hauskauf – das Prinzip bleibt gleich: tilgungsfrei finanzieren, mehr Spielraum behalten. Kostenlos, ehrlich, unabhängig.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             scroll-behavior: smooth;
@@ -190,6 +191,151 @@
                 padding: 60px 0;
             }
         }
+
+        .mode-toggle {
+            display: inline-flex;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 999px;
+            padding: 5px;
+            gap: 4px;
+        }
+        .mode-btn {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #94a3b8;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .mode-btn.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        }
+        [data-mode-content] { display: none; }
+        [data-mode-content].mode-visible { display: block; }
+
+        /* ═══ Rechner (portiert von finanzierung-mit-plan.at) ═══ */
+        .rcard{background:#fff;border-radius:24px;box-shadow:0 24px 70px rgba(11,29,53,.18);overflow:hidden;color:#0b1d35}
+        .steps-bar{display:flex;background:#0b1d35;flex-wrap:wrap}
+        .stab{flex:1;min-width:70px;padding:14px 8px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.06)}
+        .stab:last-child{border-right:none}
+        .stab .sn{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:rgba(255,255,255,.12);margin-bottom:2px}
+        .stab.on{color:#f0c060;background:rgba(200,151,59,.1)}
+        .stab.on .sn{color:#f0c060}
+        .rbody{padding:36px 38px 32px;font-family:'DM Sans',sans-serif}
+        @media(max-width:580px){ .rbody{padding:20px 16px} }
+        .ib{margin-bottom:24px}
+        .ib>label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;color:#1e4b8c;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+        .ib>label em{font-style:normal;font-size:11px;color:#6b7a93;font-weight:400;text-transform:none;letter-spacing:0}
+        .sw{position:relative;height:6px;border-radius:3px;background:#e4e9f0;margin:12px 0 10px}
+        .sf{position:absolute;height:100%;border-radius:3px;background:linear-gradient(90deg,#2d6be4,#1e4b8c);pointer-events:none}
+        .rcard input[type=range]{position:absolute;top:50%;left:0;width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:0;transform:translateY(-50%);cursor:pointer;margin:0;padding:0;outline:none}
+        .rcard input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #2d6be4;box-shadow:0 2px 10px rgba(45,107,228,.35);cursor:pointer}
+        .sr{display:flex;justify-content:space-between;align-items:center;gap:10px}
+        .vbadge{background:#1e4b8c;color:#fff;font-size:14px;font-weight:700;padding:5px 14px;border-radius:8px;font-family:'Fraunces',serif;min-width:100px;text-align:center}
+        .vhint{font-size:11px;color:#6b7a93}
+        .rcard input[type=number],.rcard select{padding:12px 14px;border:2px solid #e4e9f0;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;color:#0b1d35;outline:none;box-sizing:border-box}
+        .rcard input[type=number]{width:120px;text-align:right}
+        .rcard select{width:100%;max-width:100%;min-width:0}
+        .pbox{background:linear-gradient(135deg,#eff6ff,#e0f2fe);border:2px solid #bfdbfe;border-radius:16px;padding:20px 22px;margin:4px 0 24px;display:grid;grid-template-columns:repeat(3,1fr)}
+        @media(max-width:520px){.pbox{grid-template-columns:1fr}}
+        .pc{text-align:center;padding:8px 10px}
+        .pc:not(:last-child){border-right:1px solid #bfdbfe}
+        .plbl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#2d6be4;margin-bottom:6px}
+        .pval{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#1e4b8c}
+        .pval.g{color:#0cac6a}
+        .phint{font-size:11px;color:#6b7a93;margin-top:3px}
+        .perkl{background:#fff;border-radius:10px;padding:12px 14px;margin-top:12px;font-size:13px;color:#6b7a93;line-height:1.6;grid-column:1/-1;border-left:3px solid #2d6be4}
+        .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        .vari{border:2px solid #e4e9f0;border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .22s;background:#fff}
+        .vari:hover{border-color:#2d6be4}
+        .vari.sel{border-color:#1e4b8c;background:linear-gradient(135deg,#eff6ff,#dbeafe);box-shadow:0 4px 18px rgba(30,75,140,.15)}
+        .vj{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#1e4b8c}
+        .vari.sel .vj{color:#2d6be4}
+        .vl{font-size:11px;color:#6b7a93;text-transform:uppercase;letter-spacing:.8px;margin:2px 0}
+        .vspar{font-size:13px;font-weight:700;color:#0cac6a;margin-top:6px;min-height:18px}
+        .fbox{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:14px;padding:20px 22px;margin-bottom:24px}
+        .ftitle{font-size:13px;font-weight:700;color:#0cac6a;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+        .frow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+        .finfo{font-size:13px;color:#6b7a93;flex:1;min-width:180px;line-height:1.5}
+        .finfo strong{color:#0b1d35}
+        input.finp{width:130px;padding:11px 14px;border:2px solid #86efac;border-radius:9px;font-size:15px;font-family:'Fraunces',serif;font-weight:700;text-align:center;color:#0cac6a;background:#fff;outline:none}
+        .erg-dark{background:linear-gradient(160deg,#0b1d35,#0e2a50);border-radius:20px;padding:30px;margin-bottom:20px;position:relative;overflow:hidden}
+        .etag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
+        .dt{background:rgba(255,255,255,.05);border-radius:12px;overflow:hidden}
+        .dtr{display:grid;grid-template-columns:1fr auto;align-items:center;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.06);gap:10px}
+        .dtr:last-child{border:none;background:rgba(200,151,59,.15)}
+        .dtk{color:rgba(255,255,255,.6);line-height:1.4;flex:1}
+        .dtv{font-weight:700;color:#fff;font-family:'Fraunces',serif;font-size:15px;flex-shrink:0;text-align:right;white-space:nowrap}
+        .dtv.g{color:#6effc4}
+        .dtv.gold{color:#f0c060;font-size:20px}
+        @media(max-width:600px){ .dtr{padding:9px 12px;gap:6px} .dtk{font-size:11px} .dtv{font-size:13px} .dtv.gold{font-size:17px} .erg-dark{padding:16px 14px} }
+        .cc{background:#fff;border-radius:16px;padding:22px;margin-bottom:20px;box-shadow:0 8px 40px rgba(11,29,53,.10)}
+        .ch4{font-family:'Fraunces',serif;font-size:17px;font-weight:700;margin-bottom:4px;color:#0b1d35}
+        .chp{font-size:12px;color:#6b7a93;margin-bottom:12px}
+        .rcard canvas{display:block;width:100%!important;max-height:none}
+        .cms{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fffbeb;border:2px solid #fde68a;border-radius:10px;padding:11px 14px;margin-top:12px;font-size:14px;color:#0b1d35}
+        .cms strong{color:#92400e}
+        .vgl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+        @media(max-width:560px){ .vgl-grid{grid-template-columns:1fr;gap:10px} }
+        .vgl-box{border-radius:16px;padding:22px}
+        .vgl-box.k{background:linear-gradient(135deg,#fff5f5,#ffe4e6);border:2px solid #fecaca}
+        .vgl-box.t{background:linear-gradient(135deg,#f0fdf4,#d1fae5);border:2px solid #86efac}
+        .vgl-kopf{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:12px}
+        .vgl-kopf.kk{color:#e03e3e}
+        .vgl-kopf.tk{color:#0cac6a}
+        .vgl-z{display:grid;grid-template-columns:1fr auto;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);gap:8px}
+        .vgl-z:last-child{border:none}
+        .vgl-k{color:#6b7a93;font-size:12px;line-height:1.3}
+        .vgl-v{font-weight:700;font-size:13px;white-space:nowrap;text-align:right}
+        .vgl-v.r{color:#e03e3e}
+        .vgl-v.g{color:#0cac6a}
+        .vgl-faz-neg{margin-top:10px;padding:11px 13px;background:rgba(220,38,38,.06);border-radius:8px;font-size:13px;color:#7f1d1d;line-height:1.6;border-left:3px solid #e03e3e}
+        .vgl-faz-pos{margin-top:10px;padding:11px 13px;background:rgba(5,150,105,.06);border-radius:8px;font-size:13px;color:#14532d;line-height:1.6;border-left:3px solid #0cac6a}
+        .rcard .cta-btn{width:100%;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:800;font-size:17px;padding:18px;border:none;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 8px 30px rgba(200,151,59,.4)}
+
+        /* ═══ Szenarien "Was, wenn...?" (an dunkles Theme angepasst) ═══ */
+        .sz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+        .sz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+        .szp{display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.7) 100%);border-radius:18px;padding:26px 24px;border:1px solid rgba(148, 163, 184, 0.15);transition:all .3s ease}
+        .szp:hover{border-color:rgba(16, 185, 129, 0.4);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+        .szp-head{display:flex;align-items:center;gap:14px}
+        .szico{font-size:26px;flex-shrink:0;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(16, 185, 129, 0.1);border:1px solid rgba(16, 185, 129, 0.25);border-radius:14px}
+        .szc h4{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:#fff;margin:0}
+        .szc p{font-size:13px;color:#94a3b8;line-height:1.6;margin:0}
+        .szcmp{display:flex;flex-direction:column;gap:8px}
+        .szneg,.szpos{display:flex;align-items:flex-start;gap:8px;border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.5}
+        .szneg{background:rgba(220,38,38,.08);border:1px solid rgba(248,113,113,.2);color:#fca5a5}
+        .szpos{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);color:#6ee7b7}
+        .szneg::before{content:'✕';flex-shrink:0;font-weight:800;color:#f87171}
+        .szpos::before{content:'✓';flex-shrink:0;font-weight:800;color:#10b981}
+
+        /* ═══ Pension Mini-Rechner ═══ */
+        .pmini{background:linear-gradient(135deg,#0b1d35,#0e2a50);border-radius:20px;padding:30px 32px;color:white;display:grid;grid-template-columns:1fr 1.6fr;gap:26px;box-shadow:0 24px 70px rgba(11,29,53,.18);overflow:hidden;font-family:'DM Sans',sans-serif}
+        @media(max-width:660px){.pmini{grid-template-columns:1fr}}
+        .pml h3{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#f0c060;margin-bottom:7px}
+        .pml p{font-size:13px;opacity:.6;line-height:1.6}
+        .pmi{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:12px}
+        @media(max-width:460px){.pmi{grid-template-columns:1fr}}
+        .pmf label{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:5px}
+        .pmf input{width:100%;padding:11px 12px;border:2px solid rgba(255,255,255,.15);border-radius:9px;font-size:15px;font-family:'DM Sans',sans-serif;color:white;background:rgba(255,255,255,.08);outline:none}
+        .pmbtn{padding:11px 18px;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:700;font-size:14px;border:none;border-radius:9px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+        .pme{display:none;width:100%;box-sizing:border-box}
+        .pme.show{display:block}
+        .pmer{display:flex;align-items:center;gap:4px;flex-wrap:nowrap;margin-bottom:10px;width:100%;box-sizing:border-box}
+        .pee{text-align:center;background:rgba(255,255,255,.07);border-radius:10px;padding:8px 6px;flex:1;min-width:0;overflow:hidden;box-sizing:border-box}
+        .par{color:rgba(255,255,255,.3);font-size:12px;font-weight:700;flex-shrink:0}
+        .pev{font-family:'Fraunces',serif;font-size:16px;font-weight:800}
+        .pev.g{color:#6effc4}
+        .pev.r{color:#ff9a9a}
+        .pel{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+        .ptxt{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.65;background:rgba(255,255,255,.05);border-radius:10px;padding:12px 14px}
     </style>
 </head>
 <body>
@@ -206,9 +352,9 @@
                 <a href="https://finanzberater-friedl.info" class="hidden sm:inline-block text-sm text-slate-300 hover:text-green-400 transition-colors font-medium">
                     Hauptseite
                 </a>
-                <button onclick="document.getElementById('calculator').scrollIntoView()" class="px-6 py-2.5 rounded-lg button-primary text-white font-semibold text-sm">
-                    Rechner starten
-                </button>
+                <a href="rechner.html" target="_blank" class="px-6 py-2.5 rounded-lg button-primary text-white font-semibold text-sm inline-block">
+                    Rechner öffnen ↗
+                </a>
             </div>
         </div>
     </nav>
@@ -217,24 +363,43 @@
     <section class="hero-section section-spacing">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Hero Text (centered) -->
-            <div class="hero-content text-center max-w-4xl mx-auto mb-20">
-                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
-                    Dein Haus ist dein Traum.
-                    <span class="text-gradient-green block mt-4">Die Schulden sind Lärm.</span>
-                </h1>
+            <div class="hero-content text-center max-w-4xl mx-auto mb-12">
 
-                <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
-                    Das Haus war geplant. Mit Schweiß, mit Liebe, mit vielen Wochenenden in Eigenleistung. Aber dann kamen die anderen Sachen: Auto, Küche, die kleine Renovierung. Und plötzlich sind es vier Schulden statt eine. Vier Zinssätze, vier Raten, vier Telefonnummern, die monatlich anrufen.
-                </p>
+                <div class="flex justify-center mb-10">
+                    <div class="mode-toggle" role="tablist">
+                        <button type="button" class="mode-btn active" data-mode-btn="umschuldung" onclick="setMode('umschuldung')">🏠 Ich möchte umschulden</button>
+                        <button type="button" class="mode-btn" data-mode-btn="kauf" onclick="setMode('kauf')">🔑 Ich will eine Immobilie kaufen</button>
+                    </div>
+                </div>
+
+                <div data-mode-content="umschuldung" class="mode-visible">
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+                        Dein Haus ist dein Traum.
+                        <span class="text-gradient-green block mt-4">Die Schulden sind Lärm.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
+                        Das Haus war geplant. Mit Schweiß, mit Liebe, mit vielen Wochenenden in Eigenleistung. Aber dann kamen die anderen Sachen: Auto, Küche, die kleine Renovierung. Und plötzlich sind es vier Schulden statt eine. Vier Zinssätze, vier Raten, vier Telefonnummern, die monatlich anrufen.
+                    </p>
+                </div>
+
+                <div data-mode-content="kauf">
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+                        Deine erste Immobilie.
+                        <span class="text-gradient-green block mt-4">Ohne dich zu verplanen.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
+                        Du hast das Grundstück, die Pläne, vielleicht schon den Baustart im Kopf. Aber die klassische Finanzierung frisst jeden Monat einen großen Teil deines Einkommens – Jahre, bevor du überhaupt eingezogen bist. Es geht auch anders.
+                    </p>
+                </div>
 
                 <p class="text-2xl text-white mb-12 leading-relaxed font-semibold">
                     Es kann einfacher gehen.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="document.getElementById('calculator').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
-                        Rechner starten
-                    </button>
+                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
+                        Interaktiven Rechner öffnen ↗
+                    </a>
                     <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-secondary font-bold text-lg">
                         Kostenloses Gespräch
                     </button>
@@ -243,6 +408,7 @@
 
             <!-- Vorher / Nachher Vergleich -->
             <div class="hero-content">
+                <div data-mode-content="umschuldung" class="mode-visible">
                 <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center max-w-6xl mx-auto">
                     
                     <!-- VORHER -->
@@ -324,6 +490,81 @@
                         </div>
                     </div>
                 </div>
+                </div>
+
+                <div data-mode-content="kauf">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center max-w-6xl mx-auto">
+
+                    <!-- KLASSISCH -->
+                    <div class="card-dark animate-fade-slow" style="background: linear-gradient(135deg, rgba(127, 29, 29, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(220, 38, 38, 0.3);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4" style="color: #f87171;">Klassische Finanzierung</p>
+
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(220, 38, 38, 0.2);">
+                            <img src="paar-vorher.jpg" alt="Paar beim Durchrechnen der klassischen Finanzierung" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Zins + Tilgung ab Tag 1</h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Zinsanteil</span>
+                                <span class="font-semibold text-white">1.184 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Tilgungsanteil</span>
+                                <span class="font-semibold text-white">400 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Monatliche Rate</span>
+                                <span class="font-bold" style="color: #f87171;">1.584 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex md:flex-col items-center justify-center py-4 md:py-0">
+                        <div class="hidden md:flex flex-col items-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                            <p class="text-xs font-bold uppercase tracking-wider mt-2" style="color: #10b981;">Tilgungsfrei</p>
+                        </div>
+                        <div class="md:hidden flex items-center">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- TILGUNGSFREI -->
+                    <div class="card-dark animate-fade-slow" style="animation-delay: 0.3s; background: linear-gradient(135deg, rgba(6, 78, 59, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(16, 185, 129, 0.4);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4 accent-green">Mit tilgungsfreier Finanzierung</p>
+
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <img src="paar-nachher.jpg" alt="Glückliches Paar vor dem neuen Haus" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Nur Zinsen an die Bank</h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Zinsanteil (deine Rate an die Bank)</span>
+                                <span class="font-semibold text-white">1.184 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Frei gewordener Betrag – für den Fonds</span>
+                                <span class="font-semibold accent-green">400 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Deine Rate an die Bank</span>
+                                <span class="font-bold accent-green">1.184 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
 
                 <p class="text-xs text-slate-500 text-center mt-8 italic">
                     Beispielrechnung mit aktuellen Marktkonditionen. Individuelle Zahlen können abweichen.
@@ -332,122 +573,246 @@
         </div>
     </section>
 
-    <!-- CALCULATOR Section (Interactive) -->
-    <section id="calculator" class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950 scroll-mt-20">
+    <!-- BEISPIELRECHNUNG (statisch) -->
+    <section id="beispiel" class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950 scroll-mt-20">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16 animate-slide-up">
-                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Interaktiver Rechner</p>
-                <h2 class="text-5xl md:text-6xl font-bold mb-6">
-                    Was bleibt am Monatsende?
+            <div class="text-center mb-14 animate-slide-up">
+                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Beispielrechnung</p>
+
+                <div data-mode-content="umschuldung" class="mode-visible">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">So könnte deine Umschuldung aussehen</h2>
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto">Ein typisches Beispiel – deine eigenen Zahlen können abweichen.</p>
+                </div>
+                <div data-mode-content="kauf">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">So könnte deine Finanzierung aussehen</h2>
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto">Klassisch vs. tilgungsfrei, an einem typischen Beispiel.</p>
+                </div>
+            </div>
+
+            <div data-mode-content="umschuldung" class="mode-visible">
+                <div class="card-dark">
+                    <p class="text-sm font-semibold text-slate-300 mb-6">Beispiel: 300.000 € Hauskredit + 3 weitere Kredite</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Aktuelle Gesamtbelastung</p>
+                            <p class="text-3xl md:text-4xl font-bold text-white">2.150 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · 4 Kredite</p>
+                        </div>
+                        <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Nach Umschuldung</p>
+                            <p class="text-3xl md:text-4xl font-bold accent-green">1.650 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · 1 Kredit</p>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center;">
+                        <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Ersparnis pro Monat</p>
+                        <p class="text-5xl md:text-6xl font-bold text-gradient-green mb-2">500 €</p>
+                        <p class="text-slate-400 text-sm">Im Jahr: <span class="font-bold text-white">6.000 €</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-mode-content="kauf">
+                <div class="card-dark">
+                    <p class="text-sm font-semibold text-slate-300 mb-6">Beispiel: 300.000 € Darlehen, 4,6 % Zins, 30 Jahre Laufzeit</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Klassische Rate</p>
+                            <p class="text-3xl md:text-4xl font-bold text-white">1.584 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · Zins (1.184 €) + Tilgung (400 €)</p>
+                        </div>
+                        <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Tilgungsfrei (erste 3 Jahre)</p>
+                            <p class="text-3xl md:text-4xl font-bold accent-green">1.184 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · nur Zinsen an die Bank</p>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center;">
+                        <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Die 400 € Unterschied</p>
+                        <p style="font-size: 1.4rem; line-height: 1.6; color: #e2e8f0; max-width: 480px; margin: 0 auto 6px;">
+                            Was, wenn du diese <strong class="text-white">400 €</strong> jeden Monat stattdessen in einen Fonds legst – 30 Jahre lang?
+                        </p>
+                        <p class="text-slate-400 text-sm mt-4">Rechne es mit deinen eigenen Zahlen im Rechner nach.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500 text-center mt-8 italic">
+                Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
+            </p>
+
+            <div class="mt-10 text-center">
+                <div data-mode-content="umschuldung" class="mode-visible">
+                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
+                        🧮 Kredit-Rechner mit deinen eigenen Krediten öffnen ↗
+                    </a>
+                </div>
+                <div data-mode-content="kauf">
+                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
+                        🧮 Tilgungsfrei-Rechner mit deinen Zahlen öffnen ↗
+                    </a>
+                </div>
+                <p class="text-xs text-slate-500 mt-3">Zeigt dir, was du bei deinem Kredit sparen kannst. Öffnet in einem neuen Tab.</p>
+            </div>
+
+            <!-- MEIN TIPP: Bridge zum Investment-Rechner (separates Thema!) -->
+            <div class="mt-16 pt-12" style="border-top: 1px solid rgba(148, 163, 184, 0.15)">
+                <div class="p-6 md:p-8 rounded-xl" style="background: rgba(30, 41, 59, 0.5); border-left: 4px solid #10b981;">
+                    <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">💡 Mein Tipp</p>
+
+                    <div data-mode-content="umschuldung" class="mode-visible">
+                        <p class="text-lg text-slate-200 leading-relaxed mb-3">
+                            Lege einen Teil der Ersparnis jeden Monat zur Seite – als Notgroschen oder um Vermögen aufzubauen.
+                        </p>
+                        <p class="text-base text-slate-400 leading-relaxed">
+                            Neugierig, was aus 200 € oder 300 € im Monat nach 10 oder 20 Jahren werden könnte? Das ist eine andere Frage als die Umschuldung selbst – dafür gibt es einen eigenen, einfachen Rechner.
+                        </p>
+                    </div>
+
+                    <div data-mode-content="kauf">
+                        <p class="text-lg text-slate-200 leading-relaxed mb-3">
+                            Die freigewordenen 400 € sind eine Chance – unabhängig davon, wie viel du dir durch die tilgungsfreie Finanzierung selbst sparst.
+                        </p>
+                        <p class="text-base text-slate-400 leading-relaxed">
+                            Was wird aus 400 € im Monat bei 1 %, 3 % oder 7 % Rendite über 10, 20 oder 30 Jahre? Das ist eine reine Investment-Frage – dafür gibt es einen eigenen, einfachen Rechner.
+                        </p>
+                    </div>
+
+                    <div class="mt-6">
+                        <a href="investmentrechner.html" target="_blank" class="px-6 py-3 rounded-lg font-bold text-sm inline-block" style="background: linear-gradient(135deg, #c8973b, #f0c060); color: #0b1d35;">
+                            📈 Investment-Rechner öffnen ↗
+                        </a>
+                        <p class="text-xs text-slate-500 mt-3">Reine Zinseszins-Frage, unabhängig vom Kredit. Öffnet in einem neuen Tab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PRINZIP Section (Tilgungsfrei erklärt) -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Das Prinzip dahinter</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                Ein Weg. Zwei Ausgangslagen.
+            </h2>
+            <p class="text-lg text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+                Egal ob du bestehende Kredite bündelst oder eine Immobilie neu finanzierst – das Prinzip ist dasselbe: <strong class="text-white">tilgungsfrei statt klassisch.</strong>
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="card-dark">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-3" style="color: #f87171;">Klassisch</p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Jeden Monat zahlst du Zinsen <strong class="text-white">und</strong> einen Teil der Kreditsumme zurück. Die Rate ist hoch, weil sie beides auf einmal leisten muss.
+                    </p>
+                </div>
+                <div class="card-dark" style="border-color: rgba(16, 185, 129, 0.4);">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-3 accent-green">Tilgungsfrei</p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Du zahlst nur die Zinsen. Das Geld, das sonst zur Tilgung ginge, fließt stattdessen in einen Fonds – der bis zum Laufzeitende wächst und die Kreditsumme am Ende ablöst.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-500 mt-8 italic max-w-2xl mx-auto">
+                Wichtig: Der Fonds unterliegt Marktschwankungen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft. Wir besprechen gemeinsam, ob dieser Weg zu deiner Situation passt.
+            </p>
+        </div>
+    </section>
+
+    <!-- SCHMERZPUNKTE Section (portiert von finanzierung-mit-plan.at) -->
+    <section class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Wir denken weiter als die Bank</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Was, wenn's anders kommt?
                 </h2>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
-                    Gib deine monatlichen Belastungen ein. Du siehst sofort, was möglich ist.
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                    Ein Kredit läuft 20, 25, manchmal 30 Jahre. In dieser Zeit passiert viel – das Leben ist unvorhersehbar.
                 </p>
             </div>
 
-            <div class="card-dark animate-slide-up" style="animation-delay: 0.2s">
-                <p class="text-sm font-semibold text-slate-300 mb-6">Deine monatlichen Raten</p>
+            <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;font-size:13px;font-weight:600">
+                <span style="color:#fca5a5">✕ Standard-Kredit</span>
+                <span style="color:#6ee7b7">✓ Mit tilgungsfreier Finanzierung</span>
+            </div>
 
-                <!-- Inputs -->
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-2">Hauskredit-Rate</label>
-                        <div class="flex items-center gap-3">
-                            <input type="number" class="rate-input input-dark flex-1" value="1350" placeholder="z.B. 1350">
-                            <span class="text-slate-500 font-semibold">€/Monat</span>
-                        </div>
+            <div class="sz-grid">
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">💔</div>
+                        <div class="szc"><h4>Jobverlust</h4></div>
                     </div>
-
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-2">Auto-Leasing / Kredit</label>
-                        <div class="flex items-center gap-3">
-                            <input type="number" class="rate-input input-dark flex-1" value="300" placeholder="z.B. 300">
-                            <span class="text-slate-500 font-semibold">€/Monat</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-2">Kredit 1 (z.B. Möbel, Küche)</label>
-                        <div class="flex items-center gap-3">
-                            <input type="number" class="rate-input input-dark flex-1" value="250" placeholder="z.B. 250">
-                            <span class="text-slate-500 font-semibold">€/Monat</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-2">Kredit 2 (z.B. Renovierung)</label>
-                        <div class="flex items-center gap-3">
-                            <input type="number" class="rate-input input-dark flex-1" value="250" placeholder="z.B. 250">
-                            <span class="text-slate-500 font-semibold">€/Monat</span>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic additional credits -->
-                    <div id="additional_credits"></div>
-
-                    <button type="button" id="add_credit_btn" class="text-sm font-semibold accent-green hover:text-green-300 transition-colors flex items-center gap-2 mt-2">
-                        <span style="font-size: 18px;">+</span> Weiteren Kredit hinzufügen
-                    </button>
-                </div>
-
-                <!-- Zinssatz -->
-                <div class="border-t border-slate-700 pt-6 mb-8">
-                    <label class="block text-sm font-semibold text-slate-300 mb-3">Angenommener Zinssatz nach Umschuldung</label>
-                    <div class="flex items-center gap-3">
-                        <input type="number" id="new_zins" class="input-dark flex-1 max-w-[200px]" value="4.5" step="0.1">
-                        <span class="text-slate-500 font-semibold">%</span>
-                        <span class="text-xs text-slate-500 ml-2">(typischer Marktwert)</span>
+                    <p>Plötzlich kein Einkommen. Die Kreditrate muss trotzdem bezahlt werden – jeden Monat.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Sofortiger Zahlungsverzug – Bank kann den Kredit kündigen</div>
+                        <div class="szpos">Fondsvermögen als Puffer – du überbrückst Monate problemlos</div>
                     </div>
                 </div>
-
-                <!-- Output: Total + New Rate -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
-                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Aktuelle Gesamtbelastung</p>
-                        <p class="text-3xl md:text-4xl font-bold text-white" id="total_current">2.150 €</p>
-                        <p class="text-xs text-slate-500 mt-1">pro Monat</p>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">🏥</div>
+                        <div class="szc"><h4>Krankheit / Unfall</h4></div>
                     </div>
-
-                    <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
-                        <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Nach Umschuldung</p>
-                        <p class="text-3xl md:text-4xl font-bold accent-green" id="new_total_rate">1.650 €</p>
-                        <p class="text-xs text-slate-500 mt-1">pro Monat</p>
+                    <p>Längerer Ausfall, Einnahmen brechen ein – passiert schneller als man denkt.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Kein Polster – Zahlungsprobleme entstehen sofort</div>
+                        <div class="szpos">Fondsvermögen federt den Engpass ab – du bleibst stabil</div>
                     </div>
                 </div>
-
-                <!-- Savings Highlight -->
-                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 32px; text-align: center;">
-                    <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Du sparst jeden Monat</p>
-                    <p class="text-6xl md:text-7xl font-bold text-gradient-green mb-2">
-                        <span id="savings">500 €</span>
-                    </p>
-                    <p class="text-slate-400 text-sm">Im Jahr: <span id="savings_year" class="font-bold text-white">6.000 €</span></p>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">🔧</div>
+                        <div class="szc"><h4>Renovierung nötig</h4></div>
+                    </div>
+                    <p>Heizung kaputt, Dach undicht, Küche – das kommt bei jedem Haus irgendwann.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Neuer Kredit nötig – wenn die Bank überhaupt mitmacht</div>
+                        <div class="szpos">Fondsvermögen deckt Renovierungen ab – keine neue Verschuldung</div>
+                    </div>
                 </div>
-
-                <!-- Spar-Empfehlung -->
-                <div class="mt-8 p-6 rounded-xl" style="background: rgba(30, 41, 59, 0.5); border-left: 4px solid #10b981;">
-                    <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">Mein Tipp</p>
-                    <p class="text-lg text-slate-200 leading-relaxed mb-3">
-                        Lege <span id="spar_betrag" class="font-bold text-white">200 €</span> davon jeden Monat zur Seite – als Notgroschen für unerwartete Ausgaben.
-                    </p>
-                    <p class="text-base text-slate-400 leading-relaxed">
-                        Wenn das Auto kaputt geht, die Waschmaschine streikt oder eine Reparatur ansteht: Du hast Reserven. Statt wieder einen Kredit aufzunehmen, zahlst du aus der eigenen Tasche. So kommst du nie wieder in die Situation, in der du jetzt bist.
-                    </p>
-                    <p class="text-base text-slate-300 leading-relaxed mt-3">
-                        Die restlichen <span id="rest_betrag" class="font-bold text-white">300 €</span> bleiben dir frei – für Urlaub, für die Familie, für das, was wirklich zählt.
-                    </p>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">👴</div>
+                        <div class="szc"><h4>Pensionslücke</h4></div>
+                    </div>
+                    <p>Die staatliche Pension reicht nicht. Ø fehlen € 700 / Monat in Österreich.</p>
+                    <div class="szcmp">
+                        <div class="szneg">30 Jahre gezahlt – kein Zusatzvermögen für die Pension</div>
+                        <div class="szpos">Fondsvermögen = private Altersvorsorge bereits inklusive</div>
+                    </div>
                 </div>
-
-                <p class="text-xs text-slate-500 mt-8 text-center italic">
-                    Beispielrechnung. Der angenommene Zinssatz ist ein typischer Marktwert, kein garantierter Zinssatz. Die tatsächliche Ersparnis hängt von Laufzeit, Bonität und individuellen Konditionen ab.
-                </p>
-
-                <!-- CTA after calculator -->
-                <div class="mt-10 text-center">
-                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
-                        Deine echten Zahlen besprechen
-                    </button>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">👨‍👩‍👧</div>
+                        <div class="szc"><h4>Karenz / Teilzeit</h4></div>
+                    </div>
+                    <p>Weniger Einkommen durch Familienplanung – das Budget wird enger.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Volle Rate auch bei halbem Einkommen – keine Flexibilität</div>
+                        <div class="szpos">Fondsvermögen gibt dir Flexibilität – Lebensqualität bleibt</div>
+                    </div>
                 </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">📈</div>
+                        <div class="szc"><h4>Chancen nutzen – Geld ist da</h4></div>
+                    </div>
+                    <p>Zweite Immobilie, Investition, Urlaub – dein Fondsvermögen ist kein gesperrtes Kapital.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Alles gebunden – kein freies Kapital, keine Flexibilität</div>
+                        <div class="szpos">Jederzeit Zugriff – kein Vertrag, keine Bindung, kein Antrag nötig</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hinweis auf interaktiven Pensionslücken-Rechner -->
+            <div style="margin-top:40px;text-align:center;background:linear-gradient(135deg,rgba(200,151,59,.1),rgba(200,151,59,.05));border:2px solid rgba(200,151,59,.25);border-radius:16px;padding:28px 24px">
+                <p style="font-size:15px;color:#e2e8f0;margin-bottom:14px">💡 Ø fehlen <strong>700 € / Monat</strong> in der österreichischen Pension. Wie groß deine persönliche Lücke ist, rechnest du im interaktiven Rechner in 30 Sekunden aus.</p>
+                <a href="rechner.html" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:800;font-size:15px;padding:14px 32px;border-radius:50px;text-decoration:none">Rechner öffnen ↗</a>
             </div>
         </div>
     </section>
@@ -459,7 +824,7 @@
                 <!-- Image: Mario -->
                 <div class="order-2 lg:order-1">
                     <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
-                        <img src="mario-profil.png" alt="Mario Friedl - unabhängiger Finanzberater in Graz" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                        <img src="mario-profil-umschuldung.jpg" alt="Mario Friedl - unabhängiger Finanzberater in Graz" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                     </div>
                 </div>
 
@@ -480,7 +845,7 @@
                         </p>
 
                         <p>
-                            Dann schau ich mir deine Situation an. Und ich rede Klartext: Was geht. Was nicht. Welcher Weg für dich der richtige ist. Wenn eine Umschuldung passt, sag ich's. Wenn nicht, auch.
+                            Dann schau ich mir deine Situation an. Und ich rede Klartext: Was geht. Was nicht. Welcher Weg für dich der richtige ist – ob Umschuldung oder Neufinanzierung. Wenn tilgungsfrei passt, sag ich's. Wenn nicht, auch.
                         </p>
 
                         <div class="space-y-4 pt-6 border-t border-slate-700">
@@ -510,25 +875,52 @@
                 <!-- Text: What Changes -->
                 <div class="animate-slide-up">
                     <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Das Resultat</p>
-                    <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-                        Weniger Lärm.
-                        <span class="text-gradient-green">Mehr Luft.</span>
-                    </h2>
 
-                    <div class="space-y-8 text-lg text-slate-300 mb-12">
-                        <div>
-                            <p class="text-3xl font-bold accent-green mb-2">Eine Rate</p>
-                            <p class="text-slate-400">Ein Ansprechpartner. Eine Überweisung im Monat. Kein Jonglieren mehr zwischen vier Fälligkeitsterminen.</p>
+                    <div data-mode-content="umschuldung" class="mode-visible">
+                        <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                            Weniger Lärm.
+                            <span class="text-gradient-green">Mehr Luft.</span>
+                        </h2>
+
+                        <div class="space-y-8 text-lg text-slate-300 mb-12">
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Eine Rate</p>
+                                <p class="text-slate-400">Ein Ansprechpartner. Eine Überweisung im Monat. Kein Jonglieren mehr zwischen vier Fälligkeitsterminen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">300–500 € mehr im Monat</p>
+                                <p class="text-slate-400">Nicht auf dem Papier – auf deinem Konto. Für den Familienurlaub. Für die Winterreifen. Für den Kindergeburtstag ohne schlechtes Gewissen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Kein Rechnen mehr am Sonntagabend</p>
+                                <p class="text-slate-400">Kein mulmiges Gefühl beim Kontoauszug. Kein Streit am Küchentisch. Der Kopf wird frei – für das, was wirklich zählt.</p>
+                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                            <p class="text-3xl font-bold accent-green mb-2">300–500 € mehr im Monat</p>
-                            <p class="text-slate-400">Nicht auf dem Papier – auf deinem Konto. Für den Familienurlaub. Für die Winterreifen. Für den Kindergeburtstag ohne schlechtes Gewissen.</p>
-                        </div>
+                    <div data-mode-content="kauf">
+                        <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                            Weniger Fixlast.
+                            <span class="text-gradient-green">Mehr Kapital.</span>
+                        </h2>
 
-                        <div>
-                            <p class="text-3xl font-bold accent-green mb-2">Kein Rechnen mehr am Sonntagabend</p>
-                            <p class="text-slate-400">Kein mulmiges Gefühl beim Kontoauszug. Kein Streit am Küchentisch. Der Kopf wird frei – für das, was wirklich zählt.</p>
+                        <div class="space-y-8 text-lg text-slate-300 mb-12">
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Niedrigere Einstiegsrate</p>
+                                <p class="text-slate-400">Gerade in den ersten Jahren, wenn Umzug, Möbel und Einrichtung ohnehin Geld kosten, bleibt mehr Luft im Budget.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Ein Fonds statt reiner Tilgung</p>
+                                <p class="text-slate-400">Dein Geld arbeitet parallel zum Wohnen – statt nur die Kreditsumme stumpf abzubauen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Klarheit statt Bauchgefühl</p>
+                                <p class="text-slate-400">Du weißt genau, was klassisch und was tilgungsfrei bedeutet – und triffst die Entscheidung mit echten Zahlen, nicht aus dem Bauch heraus.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -540,7 +932,7 @@
                 <!-- Image: Happy Result -->
                 <div>
                     <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="animation-delay: 0.2s; border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
-                        <img src="paar-erfolg.jpg" alt="Glückliches Paar entspannt zu Hause nach der Umschuldung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="paar-erfolg.jpg" alt="Glückliches Paar entspannt zu Hause" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -558,21 +950,21 @@
                 <div class="card-dark animate-slide-up">
                     <h3 class="text-2xl font-bold mb-4">Kostet das was?</h3>
                     <p class="text-lg text-slate-300">
-                        Das erste Gespräch kostet keinen Cent. Wenn du dich für eine Umschuldung entscheidest: Transparente Aufstellung, keine Überraschungen.
+                        Das erste Gespräch kostet keinen Cent. Wenn du dich für eine Umschuldung oder neue Finanzierung entscheidest: Transparente Aufstellung, keine Überraschungen.
                     </p>
                 </div>
 
                 <div class="card-dark animate-slide-up" style="animation-delay: 0.1s">
-                    <h3 class="text-2xl font-bold mb-4">Warum nicht selbst anrufen?</h3>
+                    <h3 class="text-2xl font-bold mb-4">Warum nicht selbst zur Bank?</h3>
                     <p class="text-lg text-slate-300">
-                        Du kannst. Aber dann reden vier Banken mit dir, die ihre Quote im Kopf haben. Ich höre nur auf dich.
+                        Kannst du. Aber dann redet eine einzelne Bank mit dir, die ihre eigene Quote im Kopf hat. Ich vergleiche für dich mit 15+ Banken und höre nur auf dich.
                     </p>
                 </div>
 
                 <div class="card-dark animate-slide-up" style="animation-delay: 0.2s">
                     <h3 class="text-2xl font-bold mb-4">Wie lange dauert das?</h3>
                     <p class="text-lg text-slate-300">
-                        3–4 Wochen von Anfrage bis Auszahlung. Ich mache das regelmäßig, fahre einen schlanken Prozess.
+                        Bei einer Umschuldung meist 3–4 Wochen von Anfrage bis Auszahlung. Bei einer neuen Immobilienfinanzierung hängt es vom Kaufprozess ab – ich sag dir gleich im Erstgespräch, womit du realistisch rechnen kannst.
                     </p>
                 </div>
 
@@ -580,6 +972,13 @@
                     <h3 class="text-2xl font-bold mb-4">Was, wenn es nicht passt?</h3>
                     <p class="text-lg text-slate-300">
                         Ich sag's dir ehrlich. Dann überlegen wir zusammen: Gibt es andere Optionen? Du brauchst nur die beste Lösung für dich.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.4s">
+                    <h3 class="text-2xl font-bold mb-4">Ich habe noch keine Schulden – ich will nur ein Haus kaufen. Passt das trotzdem?</h3>
+                    <p class="text-lg text-slate-300">
+                        Ja. Ob du bestehende Kredite bündelst oder eine Immobilie neu finanzierst – das Prinzip der tilgungsfreien Finanzierung funktioniert für beides. Wir schauen uns einfach deine konkrete Situation an.
                     </p>
                 </div>
             </div>
@@ -616,10 +1015,10 @@
                     <input type="email" name="email" placeholder="Deine E-Mail *" class="input-dark" required>
                 </div>
                 <input type="tel" name="telefon" placeholder="Telefon (optional)" class="w-full input-dark">
-                <textarea name="nachricht" placeholder="Deine Situation: Wie viele Schulden? Wann gekauft? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
+                <textarea name="nachricht" placeholder="Deine Situation: Umschuldung oder Neukauf? Wie viele Kredite / welches Vorhaben? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
                 
                 <!-- Versteckte Felder für Formspree -->
-                <input type="hidden" name="_subject" value="Neue Anfrage: Umschuldung – finanzberater-friedl.info">
+                <input type="hidden" name="_subject" value="Neue Anfrage: Umschuldung/Immobilienfinanzierung – finanzberater-friedl.info">
                 <input type="text" name="_gotcha" style="display:none">
                 
                 <button type="submit" id="submitBtn" class="w-full px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
@@ -697,88 +1096,16 @@
     </footer>
 
     <script>
-        // === RECHNER-LOGIK ===
-        // Annahme: Bei einer typischen Umschuldung (Mix aus Hypothek 5-5.5%, Leasing 6-7%, Konsumkrediten 7-9%)
-        // ergibt eine Bündelung unter neuer Hypothek bei 4.5% eine durchschnittliche monatliche Ersparnis
-        // von ca. 20-25% der bisherigen Gesamtbelastung (verlängerte Laufzeit + niedrigere Zinsen).
-        // Faktor variiert leicht je nach Zinssatz.
-
-        function calculateSavings() {
-            // Alle aktuellen Raten zusammenrechnen
-            const rateInputs = document.querySelectorAll('.rate-input');
-            let total_current = 0;
-            rateInputs.forEach(input => {
-                total_current += parseFloat(input.value) || 0;
+        // === MODUS-UMSCHALTER (Umschuldung vs. Kauf) ===
+        function setMode(mode) {
+            document.querySelectorAll('[data-mode-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-mode-btn') === mode);
             });
-
-            // Neuer Zinssatz
-            const new_zins = parseFloat(document.getElementById('new_zins').value) || 4.5;
-            
-            // Ersparnis-Faktor: Bei 4.5% Annahme ca. 23% Ersparnis als Faustregel
-            // Linear: Niedrigerer Zinssatz = höhere Ersparnis
-            // Bei 4.0%: ~26%, bei 4.5%: ~23%, bei 5.0%: ~20%, bei 5.5%: ~17%
-            const ersparnis_faktor = Math.max(0.10, Math.min(0.30, 0.23 + (4.5 - new_zins) * 0.06));
-            
-            const savings = total_current * ersparnis_faktor;
-            const new_total = total_current - savings;
-            const savings_year = savings * 12;
-            
-            // Spar-Empfehlung: ~40% der Ersparnis als Notgroschen, 60% frei
-            const spar_betrag = Math.round(savings * 0.40 / 10) * 10; // gerundet auf 10er
-            const rest_betrag = Math.round(savings) - spar_betrag;
-            
-            // Helper: Euro formatting
-            const formatEuro = (val) => Math.round(val).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
-            
-            document.getElementById('total_current').textContent = formatEuro(total_current);
-            document.getElementById('new_total_rate').textContent = formatEuro(new_total);
-            document.getElementById('savings').textContent = formatEuro(savings);
-            document.getElementById('savings_year').textContent = formatEuro(savings_year);
-            document.getElementById('spar_betrag').textContent = formatEuro(spar_betrag);
-            document.getElementById('rest_betrag').textContent = formatEuro(rest_betrag);
+            document.querySelectorAll('[data-mode-content]').forEach(el => {
+                el.classList.toggle('mode-visible', el.getAttribute('data-mode-content') === mode);
+            });
         }
 
-        // Add credit button
-        let credit_counter = 3;
-        document.getElementById('add_credit_btn').addEventListener('click', () => {
-            credit_counter++;
-            const container = document.getElementById('additional_credits');
-            const wrapper = document.createElement('div');
-            wrapper.style.cssText = 'display: flex; align-items: flex-end; gap: 8px;';
-            wrapper.innerHTML = `
-                <div style="flex: 1;">
-                    <label class="block text-xs text-slate-400 mb-2">Kredit ${credit_counter}</label>
-                    <div class="flex items-center gap-3">
-                        <input type="number" class="rate-input input-dark flex-1" value="" placeholder="z.B. 200">
-                        <span class="text-slate-500 font-semibold">€/Monat</span>
-                    </div>
-                </div>
-                <button type="button" class="remove-btn px-3 py-3 text-slate-400 hover:text-red-400 transition-colors" title="Entfernen">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/></svg>
-                </button>
-            `;
-            container.appendChild(wrapper);
-            
-            // Re-bind listeners
-            const newInput = wrapper.querySelector('.rate-input');
-            newInput.addEventListener('input', calculateSavings);
-            
-            wrapper.querySelector('.remove-btn').addEventListener('click', () => {
-                wrapper.remove();
-                calculateSavings();
-            });
-            
-            calculateSavings();
-        });
-
-        // Bind all inputs
-        document.querySelectorAll('.rate-input').forEach(input => {
-            input.addEventListener('input', calculateSavings);
-        });
-        document.getElementById('new_zins').addEventListener('input', calculateSavings);
-        
-        calculateSavings();
-        
         // === FORMULAR MIT FORMSPREE ===
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
