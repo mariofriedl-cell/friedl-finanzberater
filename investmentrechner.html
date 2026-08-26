@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment-Rechner – Was wird aus deiner Sparrate? – Mario Friedl</title>
+    <meta name="description" content="Was wird aus 200 €, 300 € oder 500 € im Monat nach 10, 20 oder 30 Jahren? Einfacher Investment-Rechner mit Zinseszins.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+        }
+
+        @keyframes fadeInSlow {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-slow {
+            animation: fadeInSlow 1s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .accent-green {
+            color: #10b981;
+        }
+
+        .accent-green-bg {
+            background: #10b981;
+        }
+
+        .nav-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .button-secondary {
+            border: 2px solid #10b981;
+            color: #10b981;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .button-secondary:hover {
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-dark {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .card-dark:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .img-placeholder {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 14px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .input-dark {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-dark:focus {
+            outline: none;
+            border-color: #10b981;
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .input-dark::placeholder {
+            color: #94a3b8;
+        }
+
+        .stat-block {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-left: 4px solid #10b981;
+            padding: 20px 24px;
+            border-radius: 8px;
+        }
+
+        .text-gradient-green {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-spacing {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-spacing {
+                padding: 60px 0;
+            }
+        }
+
+        .mode-toggle {
+            display: inline-flex;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 999px;
+            padding: 5px;
+            gap: 4px;
+        }
+        .mode-btn {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #94a3b8;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .mode-btn.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        }
+        [data-mode-content] { display: none; }
+        [data-mode-content].mode-visible { display: block; }
+
+        /* ═══ Rechner (portiert von finanzierung-mit-plan.at) ═══ */
+        .rcard{background:#fff;border-radius:24px;box-shadow:0 24px 70px rgba(11,29,53,.18);overflow:hidden;color:#0b1d35}
+        .steps-bar{display:flex;background:#0b1d35;flex-wrap:wrap}
+        .stab{flex:1;min-width:70px;padding:14px 8px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.06)}
+        .stab:last-child{border-right:none}
+        .stab .sn{display:block;font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:rgba(255,255,255,.12);margin-bottom:2px}
+        .stab.on{color:#f0c060;background:rgba(200,151,59,.1)}
+        .stab.on .sn{color:#f0c060}
+        .rbody{padding:36px 38px 32px;font-family:'DM Sans',sans-serif}
+        @media(max-width:580px){ .rbody{padding:20px 16px} }
+        .ib{margin-bottom:24px}
+        .ib>label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;color:#1e4b8c;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+        .ib>label em{font-style:normal;font-size:11px;color:#6b7a93;font-weight:400;text-transform:none;letter-spacing:0}
+        .sw{position:relative;height:6px;border-radius:3px;background:#e4e9f0;margin:12px 0 10px}
+        .sf{position:absolute;height:100%;border-radius:3px;background:linear-gradient(90deg,#2d6be4,#1e4b8c);pointer-events:none}
+        .rcard input[type=range]{position:absolute;top:50%;left:0;width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:0;transform:translateY(-50%);cursor:pointer;margin:0;padding:0;outline:none}
+        .rcard input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #2d6be4;box-shadow:0 2px 10px rgba(45,107,228,.35);cursor:pointer}
+        .sr{display:flex;justify-content:space-between;align-items:center;gap:10px}
+        .vbadge{background:#1e4b8c;color:#fff;font-size:14px;font-weight:700;padding:5px 14px;border-radius:8px;font-family:'Fraunces',serif;min-width:100px;text-align:center}
+        .vhint{font-size:11px;color:#6b7a93}
+        .rcard input[type=number],.rcard select{padding:12px 14px;border:2px solid #e4e9f0;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;color:#0b1d35;outline:none;box-sizing:border-box}
+        .rcard input[type=number]{width:120px;text-align:right}
+        .rcard select{width:100%;max-width:100%;min-width:0}
+        .pbox{background:linear-gradient(135deg,#eff6ff,#e0f2fe);border:2px solid #bfdbfe;border-radius:16px;padding:20px 22px;margin:4px 0 24px;display:grid;grid-template-columns:repeat(3,1fr)}
+        @media(max-width:520px){.pbox{grid-template-columns:1fr}}
+        .pc{text-align:center;padding:8px 10px}
+        .pc:not(:last-child){border-right:1px solid #bfdbfe}
+        .plbl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#2d6be4;margin-bottom:6px}
+        .pval{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#1e4b8c}
+        .pval.g{color:#0cac6a}
+        .phint{font-size:11px;color:#6b7a93;margin-top:3px}
+        .perkl{background:#fff;border-radius:10px;padding:12px 14px;margin-top:12px;font-size:13px;color:#6b7a93;line-height:1.6;grid-column:1/-1;border-left:3px solid #2d6be4}
+        .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        .vari{border:2px solid #e4e9f0;border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .22s;background:#fff}
+        .vari:hover{border-color:#2d6be4}
+        .vari.sel{border-color:#1e4b8c;background:linear-gradient(135deg,#eff6ff,#dbeafe);box-shadow:0 4px 18px rgba(30,75,140,.15)}
+        .vj{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#1e4b8c}
+        .vari.sel .vj{color:#2d6be4}
+        .vl{font-size:11px;color:#6b7a93;text-transform:uppercase;letter-spacing:.8px;margin:2px 0}
+        .vspar{font-size:13px;font-weight:700;color:#0cac6a;margin-top:6px;min-height:18px}
+        .fbox{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #86efac;border-radius:14px;padding:20px 22px;margin-bottom:24px}
+        .ftitle{font-size:13px;font-weight:700;color:#0cac6a;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+        .frow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+        .finfo{font-size:13px;color:#6b7a93;flex:1;min-width:180px;line-height:1.5}
+        .finfo strong{color:#0b1d35}
+        input.finp{width:130px;padding:11px 14px;border:2px solid #86efac;border-radius:9px;font-size:15px;font-family:'Fraunces',serif;font-weight:700;text-align:center;color:#0cac6a;background:#fff;outline:none}
+        .erg-dark{background:linear-gradient(160deg,#0b1d35,#0e2a50);border-radius:20px;padding:30px;margin-bottom:20px;position:relative;overflow:hidden}
+        .etag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
+        .dt{background:rgba(255,255,255,.05);border-radius:12px;overflow:hidden}
+        .dtr{display:grid;grid-template-columns:1fr auto;align-items:center;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.06);gap:10px}
+        .dtr:last-child{border:none;background:rgba(200,151,59,.15)}
+        .dtk{color:rgba(255,255,255,.6);line-height:1.4;flex:1}
+        .dtv{font-weight:700;color:#fff;font-family:'Fraunces',serif;font-size:15px;flex-shrink:0;text-align:right;white-space:nowrap}
+        .dtv.g{color:#6effc4}
+        .dtv.gold{color:#f0c060;font-size:20px}
+        @media(max-width:600px){ .dtr{padding:9px 12px;gap:6px} .dtk{font-size:11px} .dtv{font-size:13px} .dtv.gold{font-size:17px} .erg-dark{padding:16px 14px} }
+        .cc{background:#fff;border-radius:16px;padding:22px;margin-bottom:20px;box-shadow:0 8px 40px rgba(11,29,53,.10)}
+        .ch4{font-family:'Fraunces',serif;font-size:17px;font-weight:700;margin-bottom:4px;color:#0b1d35}
+        .chp{font-size:12px;color:#6b7a93;margin-bottom:12px}
+        .rcard canvas{display:block;width:100%!important;max-height:none}
+        .cms{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fffbeb;border:2px solid #fde68a;border-radius:10px;padding:11px 14px;margin-top:12px;font-size:14px;color:#0b1d35}
+        .cms strong{color:#92400e}
+        .vgl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+        @media(max-width:560px){ .vgl-grid{grid-template-columns:1fr;gap:10px} }
+        .vgl-box{border-radius:16px;padding:22px}
+        .vgl-box.k{background:linear-gradient(135deg,#fff5f5,#ffe4e6);border:2px solid #fecaca}
+        .vgl-box.t{background:linear-gradient(135deg,#f0fdf4,#d1fae5);border:2px solid #86efac}
+        .vgl-kopf{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:12px}
+        .vgl-kopf.kk{color:#e03e3e}
+        .vgl-kopf.tk{color:#0cac6a}
+        .vgl-z{display:grid;grid-template-columns:1fr auto;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);gap:8px}
+        .vgl-z:last-child{border:none}
+        .vgl-k{color:#6b7a93;font-size:12px;line-height:1.3}
+        .vgl-v{font-weight:700;font-size:13px;white-space:nowrap;text-align:right}
+        .vgl-v.r{color:#e03e3e}
+        .vgl-v.g{color:#0cac6a}
+        .vgl-faz-neg{margin-top:10px;padding:11px 13px;background:rgba(220,38,38,.06);border-radius:8px;font-size:13px;color:#7f1d1d;line-height:1.6;border-left:3px solid #e03e3e}
+        .vgl-faz-pos{margin-top:10px;padding:11px 13px;background:rgba(5,150,105,.06);border-radius:8px;font-size:13px;color:#14532d;line-height:1.6;border-left:3px solid #0cac6a}
+        .rcard .cta-btn{width:100%;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:800;font-size:17px;padding:18px;border:none;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 8px 30px rgba(200,151,59,.4)}
+
+        /* ═══ Szenarien "Was, wenn...?" (an dunkles Theme angepasst) ═══ */
+        .sz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+        .szp{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);border-radius:16px;padding:18px 16px;border:1px solid rgba(16, 185, 129, 0.2)}
+        .szico{font-size:24px;flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border-radius:11px}
+        .szc h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:5px}
+        .szc p{font-size:12.5px;color:#94a3b8;line-height:1.5;margin-bottom:9px}
+        .szcmp{display:flex;flex-direction:column;gap:5px}
+        .szneg{background:rgba(220,38,38,.1);border-left:3px solid #f87171;border-radius:0 5px 5px 0;padding:6px 9px;font-size:12px;color:#fca5a5;line-height:1.4}
+        .szpos{background:rgba(16,185,129,.1);border-left:3px solid #10b981;border-radius:0 5px 5px 0;padding:6px 9px;font-size:12px;color:#6ee7b7;line-height:1.4}
+
+        /* ═══ Pension Mini-Rechner ═══ */
+        .pmini{background:linear-gradient(135deg,#0b1d35,#0e2a50);border-radius:20px;padding:30px 32px;color:white;display:grid;grid-template-columns:1fr 1.6fr;gap:26px;box-shadow:0 24px 70px rgba(11,29,53,.18);overflow:hidden;font-family:'DM Sans',sans-serif}
+        @media(max-width:660px){.pmini{grid-template-columns:1fr}}
+        .pml h3{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#f0c060;margin-bottom:7px}
+        .pml p{font-size:13px;opacity:.6;line-height:1.6}
+        .pmi{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:12px}
+        @media(max-width:460px){.pmi{grid-template-columns:1fr}}
+        .pmf label{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:5px}
+        .pmf input{width:100%;padding:11px 12px;border:2px solid rgba(255,255,255,.15);border-radius:9px;font-size:15px;font-family:'DM Sans',sans-serif;color:white;background:rgba(255,255,255,.08);outline:none}
+        .pmbtn{padding:11px 18px;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:700;font-size:14px;border:none;border-radius:9px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+        .pme{display:none;width:100%;box-sizing:border-box}
+        .pme.show{display:block}
+        .pmer{display:flex;align-items:center;gap:4px;flex-wrap:nowrap;margin-bottom:10px;width:100%;box-sizing:border-box}
+        .pee{text-align:center;background:rgba(255,255,255,.07);border-radius:10px;padding:8px 6px;flex:1;min-width:0;overflow:hidden;box-sizing:border-box}
+        .par{color:rgba(255,255,255,.3);font-size:12px;font-weight:700;flex-shrink:0}
+        .pev{font-family:'Fraunces',serif;font-size:16px;font-weight:800}
+        .pev.g{color:#6effc4}
+        .pev.r{color:#ff9a9a}
+        .pel{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+        .ptxt{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.65;background:rgba(255,255,255,.05);border-radius:10px;padding:12px 14px}
+
+        .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+        .chip{padding:8px 16px;border-radius:999px;border:1.5px solid #e4e9f0;background:#fff;font-size:13px;font-weight:700;color:#6b7a93;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+        .chip:hover{border-color:#2d6be4}
+        .chip.sel{background:linear-gradient(135deg,#2d6be4,#1e4b8c);border-color:#1e4b8c;color:#fff}
+    </style>
+<body>
+
+<!-- Simple Nav -->
+<nav class="sticky top-0 z-50 nav-dark">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="https://finanzberater-friedl.info" class="font-bold text-white text-lg hover:text-green-400 transition-colors flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Mario Friedl
+        </a>
+        <a href="umschuldung.html" class="text-sm text-slate-300 hover:text-green-400 transition-colors font-medium">
+            ← Zurück zur Übersicht
+        </a>
+    </div>
+</nav>
+
+<div class="section-spacing" style="padding-top:40px">
+<div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-10">
+        <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Investment-Rechner</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Was wird aus deiner Sparrate?</h1>
+        <p class="text-lg text-slate-400 max-w-xl mx-auto mb-2">Egal ob 200 €, 400 € oder 500 € im Monat – finde heraus, was daraus werden kann.</p>
+        <p class="text-sm text-slate-500 max-w-xl mx-auto">Reiner Investment-Rechner, unabhängig von einem Kredit. Für die Frage "Was spare ich mir bei einer Umschuldung oder tilgungsfreien Finanzierung?" nutze den <a href="rechner.html" target="_blank" class="accent-green underline">Kredit-Rechner</a>.</p>
+    </div>
+
+    <div class="rcard animate-slide-up">
+        <div class="rbody">
+            <div class="ib">
+                <label>① Monatliche Sparrate <em>Was legst du jeden Monat zur Seite?</em></label>
+                <div class="sw"><div class="sf" id="fill_sp"></div><input type="range" id="sl_sp" min="50" max="2000" step="10" value="300" oninput="syncInv('sp')"></div>
+                <div class="sr"><span class="vbadge" id="disp_sp">€ 300</span><input type="number" id="inp_sp" value="300" step="10" oninput="syncInvN('sp')"><span class="vhint">€ 50 – € 2.000</span></div>
+            </div>
+
+            <div class="ib">
+                <label>② Angenommene Rendite <em>p.a., historischer Durchschnittswert</em></label>
+                <div class="sw"><div class="sf" id="fill_r"></div><input type="range" id="sl_r" min="1" max="10" step="0.5" value="5" oninput="syncInv('r')"></div>
+                <div class="sr"><span class="vbadge" id="disp_r">5,0 %</span><input type="number" id="inp_r" value="5" step="0.5" min="1" max="10" oninput="syncInvN('r')"><span class="vhint">1 % – 10 %</span></div>
+                <div class="chip-row">
+                    <button type="button" class="chip" onclick="setRate(1, this)">1 %</button>
+                    <button type="button" class="chip" onclick="setRate(2, this)">2 %</button>
+                    <button type="button" class="chip" onclick="setRate(3, this)">3 %</button>
+                    <button type="button" class="chip sel" onclick="setRate(5, this)">5 %</button>
+                    <button type="button" class="chip" onclick="setRate(7, this)">7 %</button>
+                    <button type="button" class="chip" onclick="setRate(10, this)">10 %</button>
+                </div>
+            </div>
+
+            <div class="ib">
+                <label>③ Anlagedauer <em>Wie lange bleibt das Geld investiert?</em></label>
+                <div class="sw"><div class="sf" id="fill_lz"></div><input type="range" id="sl_lz" min="1" max="40" step="1" value="20" oninput="syncInv('lz')"></div>
+                <div class="sr"><span class="vbadge" id="disp_lz">20 Jahre</span><input type="number" id="inp_lz" value="20" step="1" min="1" max="40" oninput="syncInvN('lz')"><span class="vhint">1 – 40 Jahre</span></div>
+                <div class="chip-row">
+                    <button type="button" class="chip" onclick="setLz(5, this)">5 Jahre</button>
+                    <button type="button" class="chip" onclick="setLz(10, this)">10 Jahre</button>
+                    <button type="button" class="chip sel" onclick="setLz(20, this)">20 Jahre</button>
+                    <button type="button" class="chip" onclick="setLz(30, this)">30 Jahre</button>
+                </div>
+            </div>
+
+            <!-- ERGEBNIS -->
+            <div class="erg-dark">
+                <div class="etag">📊 Dein Ergebnis</div>
+                <div class="dt">
+                    <div class="dtr"><span class="dtk">Eingezahlt über <span id="dt_lzlabel">20 Jahre</span></span><span class="dtv" id="dt_ein">–</span></div>
+                    <div class="dtr"><span class="dtk">Wertzuwachs durch Zinseszins</span><span class="dtv g" id="dt_ertrag">–</span></div>
+                    <div class="dtr"><span class="dtk">🏆 Endkapital</span><span class="dtv gold" id="dt_end">–</span></div>
+                </div>
+            </div>
+
+            <p style="font-size:12px;color:#6b7a93;text-align:center;font-style:italic;margin-bottom:20px">
+                Vereinfachte Beispielrechnung, keine Anlageberatung. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Kapitalanlagen sind mit Risiken verbunden und können zum Verlust des eingesetzten Kapitals führen.
+            </p>
+
+            <button class="cta-btn" onclick="window.location.href='umschuldung.html#kontakt'">🗓 Meine Sparstrategie besprechen →</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12 mt-10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-500">
+        <div class="mb-6">
+            <a href="umschuldung.html" class="inline-flex items-center gap-2 text-slate-300 hover:accent-green transition-colors font-semibold">
+                ← Zurück zur Übersicht
+            </a>
+        </div>
+        <p>© 2026 Mario Friedl · EQUALITY EH GmbH · FMA-registriert</p>
+        <p class="mt-2">
+            <a href="https://finanzberater-friedl.info/datenschutz.html" class="hover:text-slate-400">Datenschutz</a> ·
+            <a href="https://finanzberater-friedl.info/impressum.html" class="hover:text-slate-400">Impressum</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    function fmtE(n) { return '€ ' + Math.round(n).toLocaleString('de-AT'); }
+
+    function updDispInv(id, v) {
+        if (id === 'sp') document.getElementById('disp_sp').textContent = '€ ' + Math.round(v).toLocaleString('de-AT');
+        if (id === 'r')  document.getElementById('disp_r').textContent = v.toFixed(1).replace('.', ',') + ' %';
+        if (id === 'lz') document.getElementById('disp_lz').textContent = Math.round(v) + ' Jahre';
+    }
+    function updFillInv(id) {
+        var sl = document.getElementById('sl_' + id);
+        var p = (sl.value - sl.min) / (sl.max - sl.min) * 100;
+        document.getElementById('fill_' + id).style.width = p + '%';
+    }
+    function syncInv(id) {
+        var v = parseFloat(document.getElementById('sl_' + id).value) || 0;
+        document.getElementById('inp_' + id).value = v;
+        updDispInv(id, v); updFillInv(id);
+        if (id === 'r') unsel('.chip-row:nth-of-type(1)');
+        calcInvest();
+    }
+    function syncInvN(id) {
+        var v = parseFloat(document.getElementById('inp_' + id).value) || 0;
+        document.getElementById('sl_' + id).value = v;
+        updDispInv(id, v); updFillInv(id);
+        calcInvest();
+    }
+    function setRate(v, el) {
+        document.getElementById('sl_r').value = v;
+        document.getElementById('inp_r').value = v;
+        updDispInv('r', v); updFillInv('r');
+        el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('sel'));
+        el.classList.add('sel');
+        calcInvest();
+    }
+    function setLz(v, el) {
+        document.getElementById('sl_lz').value = v;
+        document.getElementById('inp_lz').value = v;
+        updDispInv('lz', v); updFillInv('lz');
+        el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('sel'));
+        el.classList.add('sel');
+        calcInvest();
+    }
+
+    function calcInvest() {
+        var sp = parseFloat(document.getElementById('sl_sp').value) || 0;
+        var r  = parseFloat(document.getElementById('sl_r').value) || 0;
+        var lz = parseFloat(document.getElementById('sl_lz').value) || 1;
+
+        var monate = lz * 12;
+        var mr = r / 100 / 12;
+        var endkapital;
+        if (mr > 0) {
+            endkapital = sp * ((Math.pow(1 + mr, monate) - 1) / mr);
+        } else {
+            endkapital = sp * monate;
+        }
+        var eingezahlt = sp * monate;
+        var ertrag = endkapital - eingezahlt;
+
+        document.getElementById('dt_lzlabel').textContent = lz + (lz === 1 ? ' Jahr' : ' Jahre');
+        document.getElementById('dt_ein').textContent = fmtE(eingezahlt);
+        document.getElementById('dt_ertrag').textContent = fmtE(ertrag);
+        document.getElementById('dt_end').textContent = fmtE(endkapital);
+    }
+
+    updFillInv('sp'); updFillInv('r'); updFillInv('lz');
+    calcInvest();
+</script>
+</body>
+</html>
