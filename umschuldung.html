@@ -17,6 +17,7 @@
             font-family: 'Inter', sans-serif;
             background: #0f172a;
             color: #e2e8f0;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -336,6 +337,25 @@
         .pev.r{color:#ff9a9a}
         .pel{font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
         .ptxt{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.65;background:rgba(255,255,255,.05);border-radius:10px;padding:12px 14px}
+
+        /* Mobile-Fix: Modus-Umschalter läuft sonst über den Bildschirmrand hinaus */
+        @media (max-width: 640px) {
+            .mode-toggle {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .mode-btn {
+                flex: 1 1 auto;
+                min-width: 0;
+                white-space: normal;
+                font-size: 12.5px;
+                padding: 12px 14px;
+                line-height: 1.4;
+            }
+        }
     </style>
 </head>
 <body>
@@ -604,12 +624,43 @@
                             <p class="text-xs text-slate-500 mt-1">pro Monat · 1 Kredit</p>
                         </div>
                     </div>
-                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center;">
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 28px;">
                         <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Ersparnis pro Monat</p>
                         <p class="text-5xl md:text-6xl font-bold text-gradient-green mb-2">500 €</p>
                         <p class="text-slate-400 text-sm">Im Jahr: <span class="font-bold text-white">6.000 €</span></p>
                     </div>
+
+                    <!-- Mein Tipp: direkt im selben Kasten, damit er nicht übersehen wird -->
+                    <div class="p-5 md:p-6 rounded-xl" style="background: rgba(200, 151, 59, 0.08); border: 1px solid rgba(200, 151, 59, 0.3);">
+                        <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: #f0c060;">💡 Und dann? Mein Tipp</p>
+                        <p class="text-base text-slate-200 leading-relaxed mb-2">
+                            Lege einen Teil der 500 € Ersparnis jeden Monat zur Seite – als Notgroschen oder um Vermögen aufzubauen.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Neugierig, was aus 200 € oder 300 € im Monat nach 10 oder 20 Jahren werden könnte?
+                        </p>
+                    </div>
+
+                    <!-- Beide Rechner nebeneinander – damit keiner übersehen wird -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="text-center">
+                            <a href="rechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg button-primary text-white font-bold text-base inline-block">
+                                🧮 Kredit-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was du bei deinem Kredit sparst</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="investmentrechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg font-bold text-base inline-block" style="background: linear-gradient(135deg, #c8973b, #f0c060); color: #0b1d35;">
+                                📈 Investment-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was aus deiner Ersparnis werden kann</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 text-center mt-4">Beide Rechner öffnen in einem neuen Tab.</p>
                 </div>
+                <p class="text-xs text-slate-500 text-center mt-6 italic">
+                    Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
+                </p>
             </div>
 
             <div data-mode-content="kauf">
@@ -627,64 +678,44 @@
                             <p class="text-xs text-slate-500 mt-1">pro Monat · nur Zinsen an die Bank</p>
                         </div>
                     </div>
-                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center;">
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 28px;">
                         <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Die 400 € Unterschied</p>
-                        <p style="font-size: 1.4rem; line-height: 1.6; color: #e2e8f0; max-width: 480px; margin: 0 auto 6px;">
+                        <p style="font-size: 1.3rem; line-height: 1.6; color: #e2e8f0; max-width: 480px; margin: 0 auto;">
                             Was, wenn du diese <strong class="text-white">400 €</strong> jeden Monat stattdessen in einen Fonds legst – 30 Jahre lang?
                         </p>
-                        <p class="text-slate-400 text-sm mt-4">Rechne es mit deinen eigenen Zahlen im Rechner nach.</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="text-xs text-slate-500 text-center mt-8 italic">
-                Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
-            </p>
-
-            <div class="mt-10 text-center">
-                <div data-mode-content="umschuldung" class="mode-visible">
-                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
-                        🧮 Kredit-Rechner mit deinen eigenen Krediten öffnen ↗
-                    </a>
-                </div>
-                <div data-mode-content="kauf">
-                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
-                        🧮 Tilgungsfrei-Rechner mit deinen Zahlen öffnen ↗
-                    </a>
-                </div>
-                <p class="text-xs text-slate-500 mt-3">Zeigt dir, was du bei deinem Kredit sparen kannst. Öffnet in einem neuen Tab.</p>
-            </div>
-
-            <!-- MEIN TIPP: Bridge zum Investment-Rechner (separates Thema!) -->
-            <div class="mt-16 pt-12" style="border-top: 1px solid rgba(148, 163, 184, 0.15)">
-                <div class="p-6 md:p-8 rounded-xl" style="background: rgba(30, 41, 59, 0.5); border-left: 4px solid #10b981;">
-                    <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">💡 Mein Tipp</p>
-
-                    <div data-mode-content="umschuldung" class="mode-visible">
-                        <p class="text-lg text-slate-200 leading-relaxed mb-3">
-                            Lege einen Teil der Ersparnis jeden Monat zur Seite – als Notgroschen oder um Vermögen aufzubauen.
-                        </p>
-                        <p class="text-base text-slate-400 leading-relaxed">
-                            Neugierig, was aus 200 € oder 300 € im Monat nach 10 oder 20 Jahren werden könnte? Das ist eine andere Frage als die Umschuldung selbst – dafür gibt es einen eigenen, einfachen Rechner.
-                        </p>
                     </div>
 
-                    <div data-mode-content="kauf">
-                        <p class="text-lg text-slate-200 leading-relaxed mb-3">
+                    <!-- Mein Tipp: direkt im selben Kasten, damit er nicht übersehen wird -->
+                    <div class="p-5 md:p-6 rounded-xl" style="background: rgba(200, 151, 59, 0.08); border: 1px solid rgba(200, 151, 59, 0.3);">
+                        <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: #f0c060;">💡 Und dann? Mein Tipp</p>
+                        <p class="text-base text-slate-200 leading-relaxed mb-2">
                             Die freigewordenen 400 € sind eine Chance – unabhängig davon, wie viel du dir durch die tilgungsfreie Finanzierung selbst sparst.
                         </p>
-                        <p class="text-base text-slate-400 leading-relaxed">
-                            Was wird aus 400 € im Monat bei 1 %, 3 % oder 7 % Rendite über 10, 20 oder 30 Jahre? Das ist eine reine Investment-Frage – dafür gibt es einen eigenen, einfachen Rechner.
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Was wird aus 400 € im Monat bei 1 %, 3 % oder 7 % Rendite über 10, 20 oder 30 Jahre?
                         </p>
                     </div>
 
-                    <div class="mt-6">
-                        <a href="investmentrechner.html" target="_blank" class="px-6 py-3 rounded-lg font-bold text-sm inline-block" style="background: linear-gradient(135deg, #c8973b, #f0c060); color: #0b1d35;">
-                            📈 Investment-Rechner öffnen ↗
-                        </a>
-                        <p class="text-xs text-slate-500 mt-3">Reine Zinseszins-Frage, unabhängig vom Kredit. Öffnet in einem neuen Tab.</p>
+                    <!-- Beide Rechner nebeneinander – damit keiner übersehen wird -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="text-center">
+                            <a href="rechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg button-primary text-white font-bold text-base inline-block">
+                                🧮 Tilgungsfrei-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was du bei deiner Finanzierung sparst</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="investmentrechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg font-bold text-base inline-block" style="background: linear-gradient(135deg, #c8973b, #f0c060); color: #0b1d35;">
+                                📈 Investment-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was aus den 400 € werden kann</p>
+                        </div>
                     </div>
+                    <p class="text-xs text-slate-500 text-center mt-4">Beide Rechner öffnen in einem neuen Tab.</p>
                 </div>
+                <p class="text-xs text-slate-500 text-center mt-6 italic">
+                    Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
+                </p>
             </div>
         </div>
     </section>
@@ -807,12 +838,6 @@
                         <div class="szpos">Jederzeit Zugriff – kein Vertrag, keine Bindung, kein Antrag nötig</div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Hinweis auf interaktiven Pensionslücken-Rechner -->
-            <div style="margin-top:40px;text-align:center;background:linear-gradient(135deg,rgba(200,151,59,.1),rgba(200,151,59,.05));border:2px solid rgba(200,151,59,.25);border-radius:16px;padding:28px 24px">
-                <p style="font-size:15px;color:#e2e8f0;margin-bottom:14px">💡 Ø fehlen <strong>700 € / Monat</strong> in der österreichischen Pension. Wie groß deine persönliche Lücke ist, rechnest du im interaktiven Rechner in 30 Sekunden aus.</p>
-                <a href="rechner.html" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8973b,#f0c060);color:#0b1d35;font-weight:800;font-size:15px;padding:14px 32px;border-radius:50px;text-decoration:none">Rechner öffnen ↗</a>
             </div>
         </div>
     </section>
