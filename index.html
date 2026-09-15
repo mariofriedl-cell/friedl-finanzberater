@@ -582,13 +582,6 @@ a { text-decoration: none; }
   display: block;
 }
 .dream-card:hover img { transform: scale(1.06); }
-.dream-card-featured {
-  grid-row: auto;
-  min-height: 400px;
-}
-.dream-card-featured img {
-  height: 320px;
-}
 .dream-card-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(26, 53, 85, .9) 0%, rgba(26, 53, 85, .2) 55%, transparent 100%);
@@ -602,8 +595,9 @@ a { text-decoration: none; }
 }
 .dco-sub {
   font-size: .78rem; color: rgba(255,255,255,.5); line-height: 1.5;
+  min-height: 3em;
+  display: flex; align-items: flex-start;
 }
-.dream-card-featured img { height: 400px; }
 
 .dream-message {
   max-width: 720px; margin: 48px auto 0;
@@ -617,7 +611,7 @@ a { text-decoration: none; }
 
 @media(max-width: 768px) {
   .dream-grid { grid-template-columns: 1fr; }
-  .dream-card img, .dream-card-featured img { height: 280px; }
+  .dream-card img { height: 280px; }
 }
 
 /* ═══════════════════════════════════════
@@ -981,8 +975,7 @@ a { text-decoration: none; }
 /* Dream grid mobile */
 @media(max-width: 768px) {
   .dream-grid { grid-template-columns: 1fr; }
-  .dream-card-featured { grid-row: auto; }
-  .dream-card img, .dream-card-featured img { height: 240px; min-height: unset; }
+  .dream-card img { height: 240px; min-height: unset; }
 }
 .leistungen-section {
   padding: 100px 24px;
@@ -1936,7 +1929,7 @@ a { text-decoration: none; }
 
     <div class="dream-grid anim-up">
       <!-- Traumurlaub / Strand -->
-      <div class="dream-card dream-card-featured">
+      <div class="dream-card">
         <img src="traumurlaub.jpg" alt="Dein Traumurlaub" loading="lazy">
         <div class="dream-card-overlay">
           <div class="dco-label">Dein Traumurlaub</div>
