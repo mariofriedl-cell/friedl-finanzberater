@@ -1,916 +1,1124 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Immobilienfinanzierung Graz | Kredit vergleichen – Mario Friedl, FMA-konzessioniert</title>
-<meta name="description" content="Immobilienfinanzierung Graz – bankunabhängig, 15+ Banken im Vergleich, FMA-konzessioniert. Mario Friedl findet den besten Kredit für dein Eigenheim – kostenlos, ohne Bürotermin.">
-<meta name="keywords" content="Immobilienfinanzierung Graz, Kredit Graz, Eigenheim finanzieren Graz, Baufinanzierung Steiermark, Hypothek Graz, bankunabhängig Finanzberater">
-<link rel="canonical" href="https://finanzberater-friedl.info/immobilienfinanzierung-graz.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umschuldung &amp; Immobilienfinanzierung Graz – Mario Friedl | Ein Prinzip, zwei Wege</title>
+    <meta name="description" content="Ob Umschuldung oder Hauskauf – das Prinzip bleibt gleich: tilgungsfrei finanzieren, mehr Spielraum behalten. Kostenlos, ehrlich, unabhängig.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Slate-Palette auf die Navy-Markenfarbe (finanzberater-friedl.info) umgemappt,
+        // damit alle bg-slate-*/text-slate-*/border-slate-* Klassen im Dokument mitziehen.
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            50:  '#f4f6f9',
+                            100: '#e8edf5',
+                            200: '#c7d3e3',
+                            300: '#a3b4cc',
+                            400: '#7f93b3',
+                            500: '#5c7397',
+                            600: '#465e80',
+                            700: '#324b6b',
+                            800: '#213c5c',
+                            900: '#1a3555',
+                            950: '#142a44',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
 
-<!-- Open Graph -->
-<meta property="og:title" content="Immobilienfinanzierung Graz | Mario Friedl – 15+ Banken im Vergleich">
-<meta property="og:description" content="Bankunabhängiger Kreditvergleich für dein Eigenheim in Graz. Kostenlos, kein Bürotermin, Antwort in 24h.">
-<meta property="og:url" content="https://finanzberater-friedl.info/immobilienfinanzierung-graz.html">
-<meta property="og:type" content="website">
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #1a3555;
+            color: #e8edf5;
+            overflow-x: hidden;
+        }
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
 
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FinancialService",
-  "name": "Mario Friedl – Immobilienfinanzierung Graz",
-  "description": "Bankunabhängige Immobilienfinanzierung und Kreditvergleich in Graz. FMA-konzessioniert, 15+ Partnerbanken, kostenlose Beratung.",
-  "url": "https://finanzberater-friedl.info/immobilienfinanzierung-graz.html",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Herrgottwiesgasse 119/1",
-    "addressLocality": "Graz",
-    "postalCode": "8020",
-    "addressCountry": "AT"
-  },
-  "areaServed": ["Graz", "Steiermark", "Österreich"],
-  "serviceType": "Immobilienfinanzierung, Kreditvergleich, Baufinanzierung"
-}
-</script>
+        @keyframes fadeInSlow {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-<style>
-  :root {
-    --ink:    #0f1923;
-    --navy:   #0f1923;
-    --gold:   #c8973b;
-    --gold2:  #e8b84b;
-    --warm:   #1e1008;
-    --cream:  #faf8f4;
-    --white:  #ffffff;
-    --muted:  #6b7a8d;
-    --border: #e8e2d8;
-    --green:  #0cac6a;
-    --shadow: 0 20px 60px rgba(15,25,35,.12);
-  }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .animate-fade-slow {
+            animation: fadeInSlow 1s ease-out forwards;
+        }
 
-  html { scroll-behavior: smooth; }
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+        }
 
-  body {
-    font-family: 'Lato', sans-serif;
-    color: var(--ink);
-    background: var(--cream);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+        .accent-green {
+            color: #E8C547;
+        }
 
-  /* ── NAV ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(250,248,244,.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--ink);
-    font-weight: 600;
-  }
-  .nav-logo img { width: 36px; height: 36px; border-radius: 6px; }
-  .nav-cta {
-    background: linear-gradient(135deg, var(--gold), #e8a830);
-    color: var(--ink);
-    font-weight: 700;
-    padding: .6rem 1.4rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: .9rem;
-    white-space: nowrap;
-    transition: opacity .2s;
-  }
-  .nav-cta:hover { opacity: .88; }
-  .nav-back {
-    font-size: .85rem;
-    color: var(--muted);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: .3rem;
-  }
-  .nav-back:hover { color: var(--gold); }
+        .accent-green-bg {
+            background: #D4AF37;
+        }
 
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(160deg, var(--warm) 0%, #1a1005 100%);
-    color: var(--white);
-    padding: 5rem 1.5rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -40%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(200,151,59,.15), transparent 70%);
-    pointer-events: none;
-  }
-  .hero-label {
-    display: inline-block;
-    font-size: .75rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    font-weight: 700;
-    line-height: 1.18;
-    margin-bottom: 1.2rem;
-    color: var(--white);
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-  .hero-sub {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,.75);
-    max-width: 560px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
-  }
-  .hero-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .6rem;
-    justify-content: center;
-    margin-bottom: 2.5rem;
-  }
-  .badge {
-    background: rgba(200,151,59,.12);
-    border: 1px solid rgba(200,151,59,.3);
-    color: var(--gold);
-    font-size: .8rem;
-    padding: .35rem .85rem;
-    border-radius: 20px;
-    font-weight: 700;
-  }
-  .hero-cta-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .9rem;
-    justify-content: center;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--gold), #e8a830);
-    color: var(--ink);
-    font-weight: 700;
-    padding: .9rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    transition: opacity .2s, transform .15s;
-  }
-  .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent;
-    border: 1.5px solid rgba(255,255,255,.25);
-    color: rgba(255,255,255,.85);
-    font-size: .95rem;
-    padding: .9rem 1.8rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: border-color .2s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .accent-positive {
+            color: #0cac6a;
+        }
 
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem 3rem;
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    font-size: .85rem;
-    color: var(--ink);
-    font-weight: 700;
-  }
-  .trust-item span { color: var(--green); font-size: 1rem; }
+        .nav-dark {
+            background: rgba(26, 53, 85, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
 
-  /* ── SECTIONS ── */
-  section { padding: 4rem 1.5rem; }
-  .container { max-width: 960px; margin: 0 auto; }
-  .section-label {
-    font-size: .72rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: .8rem;
-    display: block;
-  }
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.25;
-    margin-bottom: .75rem;
-  }
-  h2 em { font-style: italic; color: var(--gold); }
-  .section-intro {
-    font-size: 1rem;
-    color: var(--muted);
-    max-width: 580px;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-  }
+        .button-primary {
+            background: linear-gradient(135deg, #D4AF37 0%, #C8973B 100%);
+            color: #1a3555;
+            transition: all 0.3s ease;
+        }
 
-  /* ── PROBLEM SECTION ── */
-  .problem { background: var(--white); }
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  .problem-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.2rem 1.3rem;
-  }
-  .problem-card .icon { font-size: 1.5rem; margin-bottom: .6rem; display: block; }
-  .problem-card h3 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
-  .problem-card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+        .button-primary:hover {
+            background: linear-gradient(135deg, #E8C547 0%, #D4AF37 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+        }
 
-  /* ── COMPARISON TABLE ── */
-  .comparison { background: var(--cream); }
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-    font-size: .9rem;
-  }
-  .compare-table thead tr {
-    background: linear-gradient(160deg, var(--warm), #1a1005);
-    color: var(--white);
-  }
-  .compare-table thead th {
-    padding: 1rem 1.2rem;
-    text-align: left;
-    font-weight: 700;
-    font-size: .85rem;
-  }
-  .compare-table thead th:first-child { width: 40%; }
-  .compare-table thead .th-gold { color: var(--gold); }
-  .compare-table tbody tr { border-bottom: 1px solid var(--border); }
-  .compare-table tbody tr:last-child { border-bottom: none; }
-  .compare-table tbody tr:nth-child(even) { background: rgba(200,151,59,.04); }
-  .compare-table tbody td { padding: .85rem 1.2rem; color: var(--ink); vertical-align: middle; }
-  .compare-table tbody td:first-child { font-weight: 600; color: var(--muted); font-size: .85rem; }
-  .td-bad { color: #c0392b; font-size: .85rem; }
-  .td-good { color: var(--green); font-weight: 700; font-size: .85rem; }
-  .td-badge {
-    display: inline-block;
-    background: rgba(200,151,59,.12);
-    border: 1px solid rgba(200,151,59,.3);
-    color: var(--gold);
-    font-size: .75rem;
-    padding: .2rem .65rem;
-    border-radius: 20px;
-    font-weight: 700;
-  }
+        .button-secondary {
+            border: 2px solid #D4AF37;
+            color: #E8C547;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
 
-  /* ── HOW IT WORKS ── */
-  .how { background: var(--white); }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .step-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.4rem 1.2rem;
-    position: relative;
-  }
-  .step-num {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--gold), #e8a830);
-    color: var(--ink);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: .85rem;
-    margin-bottom: .8rem;
-  }
-  .step-card h3 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
-  .step-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+        .button-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
 
-  /* ── LEISTUNGEN ── */
-  .leistungen { background: var(--cream); }
-  .leistungen-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .leistung-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.4rem;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .leistung-card:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(200,151,59,.1); }
-  .leistung-card .lc-icon { font-size: 1.6rem; margin-bottom: .7rem; display: block; }
-  .leistung-card h3 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
-  .leistung-card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+        .card-dark {
+            background: linear-gradient(135deg, rgba(42, 74, 112, 0.55) 0%, rgba(26, 53, 85, 0.75) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
 
-  /* ── MARIO SECTION ── */
-  .mario-section { background: linear-gradient(160deg, var(--warm) 0%, #1a1005 100%); color: var(--white); }
-  .mario-inner {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-  .mario-photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--gold);
-    flex-shrink: 0;
-  }
-  .mario-text h2 { color: var(--white); margin-bottom: .6rem; }
-  .mario-text p { color: rgba(255,255,255,.75); line-height: 1.75; margin-bottom: 1rem; font-size: .95rem; }
-  .mario-facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    margin-top: .5rem;
-  }
-  .mario-fact {
-    background: rgba(200,151,59,.12);
-    border: 1px solid rgba(200,151,59,.3);
-    color: var(--gold);
-    font-size: .8rem;
-    padding: .3rem .8rem;
-    border-radius: 20px;
-  }
-  @media(max-width: 480px) {
-    .mario-inner { grid-template-columns: 1fr; }
-    .mario-photo { width: 80px; height: 80px; }
-  }
+        .card-dark:hover {
+            border-color: rgba(212, 175, 55, 0.45);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.12);
+            transform: translateY(-4px);
+        }
 
-  /* ── FAQ ── */
-  .faq { background: var(--white); }
-  .faq-list { display: flex; flex-direction: column; gap: .75rem; }
-  details {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  details[open] { border-color: rgba(200,151,59,.4); }
-  summary {
-    padding: 1.1rem 1.3rem;
-    font-weight: 700;
-    font-size: .95rem;
-    color: var(--ink);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    gap: 1rem;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary::after {
-    content: '+';
-    color: var(--gold);
-    font-size: 1.3rem;
-    font-weight: 300;
-    flex-shrink: 0;
-    transition: transform .2s;
-  }
-  details[open] summary::after { transform: rotate(45deg); }
-  .faq-answer {
-    padding: 0 1.3rem 1.1rem;
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.7;
-  }
+        .img-placeholder {
+            background: linear-gradient(135deg, #2a4a70 0%, #1a3555 100%);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 14px;
+            text-align: center;
+            padding: 40px;
+        }
 
-  /* ── CONTACT ── */
-  .contact { background: var(--cream); }
-  .contact-box {
-    background: linear-gradient(160deg, var(--warm) 0%, #1a1005 100%);
-    border-radius: 16px;
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-box::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(200,151,59,.12), transparent 70%);
-    pointer-events: none;
-  }
-  .contact-box h2 { color: var(--white); margin-bottom: .6rem; }
-  .contact-box p { color: rgba(255,255,255,.7); margin-bottom: 2rem; font-size: .95rem; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .contact-form {
-    max-width: 520px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: .85rem;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
-  @media(max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea {
-    width: 100%;
-    padding: .85rem 1rem;
-    border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.06);
-    color: var(--white);
-    font-family: 'Lato', sans-serif;
-    font-size: .9rem;
-    outline: none;
-    transition: border-color .2s;
-  }
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder { color: rgba(255,255,255,.35); }
-  .contact-form select { color: rgba(255,255,255,.7); }
-  .contact-form select option { background: var(--warm); color: var(--white); }
-  .contact-form input:focus,
-  .contact-form select:focus,
-  .contact-form textarea:focus { border-color: var(--gold); }
-  .contact-form textarea { resize: vertical; min-height: 90px; }
-  .form-submit {
-    background: linear-gradient(135deg, var(--gold), #e8a830);
-    color: var(--ink);
-    font-weight: 700;
-    padding: .95rem;
-    border-radius: 8px;
-    border: none;
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: opacity .2s;
-    width: 100%;
-  }
-  .form-submit:hover { opacity: .88; }
-  .form-note {
-    font-size: .78rem;
-    color: rgba(255,255,255,.4);
-    max-width: 400px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+        .input-dark {
+            background: rgba(42, 74, 112, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #e8edf5;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--warm);
-    color: rgba(255,255,255,.45);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    font-size: .8rem;
-    line-height: 1.8;
-  }
-  footer a { color: var(--gold); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-  .footer-inner { max-width: 700px; margin: 0 auto; }
-  .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: center; margin-bottom: .75rem; }
+        .input-dark:focus {
+            outline: none;
+            border-color: #D4AF37;
+            background: rgba(42, 74, 112, 0.7);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+        }
 
-  /* ── STICKY BOTTOM BAR ── */
-  .sticky-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(15,25,35,.97);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(200,151,59,.2);
-    padding: .75rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    z-index: 99;
-  }
-  .sticky-bar-text { font-size: .85rem; color: rgba(255,255,255,.7); flex: 1; }
-  .sticky-bar-text strong { color: var(--white); display: block; font-size: .9rem; }
-  .sticky-bar a {
-    background: linear-gradient(135deg, var(--gold), #e8a830);
-    color: var(--ink);
-    font-weight: 700;
-    padding: .65rem 1.4rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: .88rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  @media(max-width: 400px) {
-    .sticky-bar-text { display: none; }
-  }
+        .input-dark::placeholder {
+            color: #94a3b8;
+        }
 
-  /* ── UTILS ── */
-  .text-gold { color: var(--gold); }
-  .check-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-  .check-list li { display: flex; gap: .6rem; align-items: flex-start; font-size: .9rem; color: var(--muted); }
-  .check-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
-  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
-</style>
+        .stat-block {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-left: 4px solid #D4AF37;
+            padding: 20px 24px;
+            border-radius: 8px;
+        }
+
+        .text-gradient-green {
+            background: linear-gradient(135deg, #D4AF37 0%, #E8C547 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a3555 0%, #2a4a70 50%, #1a3555 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-spacing {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-spacing {
+                padding: 60px 0;
+            }
+        }
+
+        .mode-toggle {
+            display: inline-flex;
+            background: rgba(42, 74, 112, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 999px;
+            padding: 5px;
+            gap: 4px;
+        }
+        .mode-btn {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #b8c4d6;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .mode-btn.active {
+            background: linear-gradient(135deg, #D4AF37 0%, #C8973B 100%);
+            color: #1a3555;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+        }
+        [data-mode-content] { display: none; }
+        [data-mode-content].mode-visible { display: block; }
+        /* ═══ Szenarien "Was, wenn...?" (an dunkles Theme angepasst) ═══ */
+        .sz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+        .szp{display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg, rgba(42, 74, 112, 0.5) 0%, rgba(26, 53, 85, 0.7) 100%);border-radius:18px;padding:26px 24px;border:1px solid rgba(212, 175, 55, 0.15);transition:all .3s ease}
+        .szp:hover{border-color:rgba(212, 175, 55, 0.45);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+        .szp-head{display:flex;align-items:center;gap:14px}
+        .szico{font-size:26px;flex-shrink:0;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(212, 175, 55, 0.1);border:1px solid rgba(212, 175, 55, 0.25);border-radius:14px}
+        .szc h4{font-size:17px;font-weight:700;color:#fff;margin:0}
+        .szc p{font-size:13px;color:#94a3b8;line-height:1.6;margin:0}
+        .szcmp{display:flex;flex-direction:column;gap:8px}
+        .szneg,.szpos{display:flex;align-items:flex-start;gap:8px;border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.5}
+        .szneg{background:rgba(220,38,38,.08);border:1px solid rgba(248,113,113,.2);color:#fca5a5}
+        .szpos{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);color:#6ee7b7}
+        .szneg::before{content:'✕';flex-shrink:0;font-weight:800;color:#f87171}
+        .szpos::before{content:'✓';flex-shrink:0;font-weight:800;color:#10b981}
+
+        /* Mobile-Fix: Modus-Umschalter läuft sonst über den Bildschirmrand hinaus */
+        @media (max-width: 640px) {
+            .mode-toggle {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .mode-btn {
+                flex: 1 1 auto;
+                min-width: 0;
+                white-space: normal;
+                font-size: 12.5px;
+                padding: 12px 14px;
+                line-height: 1.4;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="https://finanzberater-friedl.info/" class="nav-logo">
-    <img src="https://finanzberater-friedl.info/logo.png" alt="Mario Friedl Logo">
-    Mario Friedl
-  </a>
-  <a href="https://finanzberater-friedl.info/" class="nav-back">← Zur Startseite</a>
-  <a href="#anfrage" class="nav-cta">Jetzt anfragen →</a>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <span class="hero-label">🏡 Immobilienfinanzierung · Graz · Steiermark</span>
-  <h1>Dein Eigenheim.<br><em>Ohne Banktermin.</em></h1>
-  <p class="hero-sub">Ich vergleiche 15+ Banken für dich — kostenlos, bankunabhängig, FMA-konzessioniert. Du bekommst die beste Kondition. Nicht die, die einer Bank am meisten bringt.</p>
-  <div class="hero-badges">
-    <span class="badge">✓ 15+ Banken im Vergleich</span>
-    <span class="badge">✓ Kostenlos für dich</span>
-    <span class="badge">✓ FMA-konzessioniert</span>
-    <span class="badge">✓ Antwort in 24h</span>
-    <span class="badge">✓ Kein Bürotermin nötig</span>
-  </div>
-  <div class="hero-cta-group">
-    <a href="#anfrage" class="btn-primary">📋 Kostenlose Anfrage starten →</a>
-    <a href="#vergleich" class="btn-secondary">Was ein Vergleich bringt</a>
-  </div>
-</header>
-
-<!-- TRUST BAR -->
-<div class="trust-bar" role="complementary" aria-label="Vertrauenssignale">
-  <div class="trust-item"><span>✓</span> FMA-konzessioniert · GISA 35679738</div>
-  <div class="trust-item"><span>✓</span> 100% bankunabhängig</div>
-  <div class="trust-item"><span>✓</span> 200+ zufriedene Kunden</div>
-  <div class="trust-item"><span>✓</span> Kein Agio · Kein Verkaufsdruck</div>
-</div>
-
-<!-- PROBLEM -->
-<section class="problem">
-  <div class="container">
-    <span class="section-label">Das Problem</span>
-    <h2>Was passiert, wenn du<br><em>nur zur Bank gehst</em></h2>
-    <p class="section-intro">Die meisten gehen zu ihrer Hausbank — und nehmen das erste Angebot. Das kostet sie über die Laufzeit oft mehr als ein neues Auto.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <span class="icon">🏦</span>
-        <h3>Eine Bank, ein Angebot</h3>
-        <p>Deine Hausbank zeigt dir nur ihre eigenen Produkte — nicht das Beste am Markt. Das nennt sich Interessenkonflikt.</p>
-      </div>
-      <div class="problem-card">
-        <span class="icon">💸</span>
-        <h3>Bis zu €30.000 Unterschied</h3>
-        <p>Bei einem 250.000€ Kredit über 25 Jahre kann der Unterschied zwischen bestem und schlechtestem Angebot über €30.000 betragen.</p>
-      </div>
-      <div class="problem-card">
-        <span class="icon">⏰</span>
-        <h3>Zeitaufwand und Stress</h3>
-        <p>Selbst 5 Banken anrufen, Termine vereinbaren, Angebote vergleichen — wer hat dafür Zeit neben Job und Familie?</p>
-      </div>
-      <div class="problem-card">
-        <span class="icon">📄</span>
-        <h3>Unverständliche Konditionen</h3>
-        <p>Effektivzinssatz, Bearbeitungsgebühren, Tilgungsplan — die meisten wissen nicht, worauf sie wirklich achten müssen.</p>
-      </div>
-    </div>
-    <div class="hl-teal" style="background:rgba(12,172,106,.07);border:1px solid rgba(12,172,106,.2);border-radius:10px;padding:1.2rem 1.4rem;font-size:.95rem;color:var(--ink);">
-      <strong style="color:var(--green);">Die Lösung:</strong> Ich mache das für dich — kostenlos, mit Zugang zu 15+ Banken und ohne dass du selbst anrufen musst.
-    </div>
-  </div>
-</section>
-
-<!-- VERGLEICH -->
-<section class="comparison" id="vergleich">
-  <div class="container">
-    <span class="section-label">Der Unterschied</span>
-    <h2>Bank direkt vs.<br><em>bankunabhängiger Vergleich</em></h2>
-    <p class="section-intro">Hier siehst du konkret, warum ein unabhängiger Vergleich für dich fast immer besser ist.</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Direkt zur Bank</th>
-          <th class="th-gold">Mario Friedl · Unabhängig</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Anzahl verglichener Banken</td>
-          <td class="td-bad">1 (deine Hausbank)</td>
-          <td class="td-good">15+ Partnerbanken ✓</td>
-        </tr>
-        <tr>
-          <td>Interessenkonflikt</td>
-          <td class="td-bad">Ja — Bank optimiert für sich</td>
-          <td class="td-good">Nein — ich optimiere für dich ✓</td>
-        </tr>
-        <tr>
-          <td>Kosten für dich</td>
-          <td>Kostenlos</td>
-          <td class="td-good">Kostenlos ✓</td>
-        </tr>
-        <tr>
-          <td>Zeitaufwand</td>
-          <td class="td-bad">Bürotermin(e) nötig</td>
-          <td class="td-good">Online · Kein Bürotermin ✓</td>
-        </tr>
-        <tr>
-          <td>Konditionen-Transparenz</td>
-          <td class="td-bad">Nur eigene Produkte</td>
-          <td class="td-good">Marktweiter Vergleich ✓</td>
-        </tr>
-        <tr>
-          <td>Potenzielle Ersparnis</td>
-          <td class="td-bad">—</td>
-          <td class="td-good"><span class="td-badge">bis zu €30.000+</span></td>
-        </tr>
-        <tr>
-          <td>FMA-Beaufsichtigung</td>
-          <td>Ja</td>
-          <td class="td-good">Ja · GISA 35679738 ✓</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how">
-  <div class="container">
-    <span class="section-label">So einfach geht's</span>
-    <h2>Vom Formular zum<br><em>besten Kredit</em></h2>
-    <p class="section-intro">Kein Bürotermin. Kein Papierstapel. Alles bequem von zuhause.</p>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>📋 Formular ausfüllen</h3>
-        <p>Kurze Anfrage unten — 3 Minuten. Deine Situation, dein Wunsch, deine Zahlen. Kein Stress.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>🔍 Ich analysiere</h3>
-        <p>Ich vergleiche 15+ Banken für deine Situation und finde die beste Kondition am Markt.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>📞 Rückmeldung in 24h</h3>
-        <p>Du bekommst ein konkretes Ergebnis — mit echten Zahlen und einer klaren Empfehlung.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <h3>✅ Du entscheidest</h3>
-        <p>Kein Druck. Du entscheidest selbst ob und mit welcher Bank du weitergehst. Ich begleite dich bis zur Unterschrift.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LEISTUNGEN -->
-<section class="leistungen">
-  <div class="container">
-    <span class="section-label">Was ich für dich mache</span>
-    <h2>Alle Leistungen rund um<br><em>Immobilienfinanzierung</em></h2>
-    <p class="section-intro">Von der ersten Idee bis zur Unterschrift — ich begleite dich durch den gesamten Prozess.</p>
-    <div class="leistungen-grid">
-      <div class="leistung-card">
-        <span class="lc-icon">🏡</span>
-        <h3>Eigenheim & Baufinanzierung</h3>
-        <p>Du willst kaufen oder bauen? Ich finde den besten Kredit für dein Eigenheim — mit Fixzins oder variabel, je nach deiner Situation.</p>
-      </div>
-      <div class="leistung-card">
-        <span class="lc-icon">🔄</span>
-        <h3>Umschuldung</h3>
-        <p>Du hast bereits einen Kredit? Ich prüfe ob eine Umschuldung zu besseren Konditionen möglich ist — oft spart das tausende Euro.</p>
-      </div>
-      <div class="leistung-card">
-        <span class="lc-icon">📊</span>
-        <h3>Bestehenden Kredit prüfen</h3>
-        <p>Ich analysiere deinen aktuellen Vertrag auf versteckte Kosten, überhöhte Zinsen und Verbesserungspotenzial. Kostenlos.</p>
-      </div>
-      <div class="leistung-card">
-        <span class="lc-icon">💰</span>
-        <h3>Konsumkredit & Sanierung</h3>
-        <p>Renovierung, Sanierung, größere Anschaffung — ich finde auch für kleinere Finanzierungsvorhaben den besten Zinssatz.</p>
-      </div>
-    </div>
-    <ul class="check-list" style="margin-bottom:2rem">
-      <li>Eigenheimfinanzierung · Baufinanzierung · Grundstückkauf</li>
-      <li>Fix- und Variabelzins · Mischformen</li>
-      <li>Wohnbauförderung Steiermark prüfen</li>
-      <li>Eigenkapital-Optimierung</li>
-      <li>Unterlagen optional vorab hochladen</li>
-    </ul>
-  </div>
-</section>
-
-<!-- MARIO -->
-<section class="mario-section">
-  <div class="container">
-    <div class="mario-inner">
-      <img src="https://finanzberater-friedl.info/mario-profilbild.jpg" alt="Mario Friedl Finanzberater Graz" class="mario-photo">
-      <div class="mario-text">
-        <span class="section-label" style="color:var(--gold)">Wer ich bin</span>
-        <h2 style="color:var(--white)">Mario Friedl —<br><em>auf deiner Seite</em></h2>
-        <p>Ich war nicht immer Finanzberater. Mit 22 hatte ich €30.000 Schulden — und keine Ahnung wie Geld wirklich funktioniert. Was mich verändert hat, war ein einziges Gespräch mit dem richtigen Menschen.</p>
-        <p>Heute bin ich FMA-konzessionierter, bankunabhängiger Finanzberater in Graz. Ich arbeite nicht für eine Bank — ich arbeite für dich. Das bedeutet: ich finde die Lösung die für dich am besten ist, nicht die die einer Bank den größten Gewinn bringt.</p>
-        <div class="mario-facts">
-          <span class="mario-fact">FMA · GISA 35679738</span>
-          <span class="mario-fact">200+ Kunden</span>
-          <span class="mario-fact">15+ Partnerbanken</span>
-          <span class="mario-fact">100% bankunabhängig</span>
-          <span class="mario-fact">Graz · Steiermark</span>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 nav-dark">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="https://finanzberater-friedl.info" class="font-bold text-white text-lg hover:text-[#E8C547] transition-colors flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Mario Friedl
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="https://finanzberater-friedl.info" class="hidden sm:inline-block text-sm text-slate-300 hover:text-[#E8C547] transition-colors font-medium">
+                    Hauptseite
+                </a>
+                <a href="rechner.html" target="_blank" class="px-6 py-2.5 rounded-lg button-primary text-white font-semibold text-sm inline-block">
+                    Rechner öffnen ↗
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <span class="section-label">Häufige Fragen</span>
-    <h2>Was du wissen<br><em>möchtest</em></h2>
-    <div class="faq-list">
-      <details>
-        <summary>Was kostet mich die Beratung?</summary>
-        <div class="faq-answer">Gar nichts. Meine Vergütung kommt ausschließlich vom Produktgeber bei einem erfolgreichen Abschluss — ähnlich wie ein Makler. Für dich entstehen keinerlei Beratungskosten, egal ob du abschließt oder nicht.</div>
-      </details>
-      <details>
-        <summary>Warum kann ich bei dir 15+ Banken vergleichen?</summary>
-        <div class="faq-answer">Als FMA-konzessionierter, bankunabhängiger Berater bin ich an keine Bank gebunden. Ich habe Zugang zu den Angeboten von 15+ Partnerbanken und suche für dich die beste Kondition — objektiv, ohne Interessenkonflikt.</div>
-      </details>
-      <details>
-        <summary>Wie viel Eigenkapital brauche ich wirklich?</summary>
-        <div class="faq-answer">Die Faustregel lautet 20% Eigenkapital plus Kaufnebenkosten (ca. 10%). In der Praxis gibt es aber Spielraum — abhängig von deinem Einkommen, deiner Bonität und der Immobilie. Ich berechne das für dich konkret, ohne Standardantworten.</div>
-      </details>
-      <details>
-        <summary>Fix- oder Variabelzins — was ist besser?</summary>
-        <div class="faq-answer">Das hängt von deiner Situation ab. Fixzins bietet Planungssicherheit, Variabelzins kann günstiger sein wenn die Zinsen sinken. Ich erkläre dir beide Optionen ehrlich und finde das für dich passende Modell — ohne Verkaufsdruck.</div>
-      </details>
-      <details>
-        <summary>Kann ich auch bestehende Kredite prüfen lassen?</summary>
-        <div class="faq-answer">Ja, das ist einer der häufigsten Wünsche. Viele Kunden zahlen seit Jahren zu hohe Zinsen ohne es zu wissen. Ich analysiere deinen bestehenden Kredit kostenlos und zeige dir ob eine Umschuldung sinnvoll ist.</div>
-      </details>
-      <details>
-        <summary>Muss ich nach Graz kommen für ein Gespräch?</summary>
-        <div class="faq-answer">Nein. Alles läuft online oder per Telefon. Du füllst das Formular aus, ich melde mich innerhalb von 24 Stunden. Kein Bürotermin nötig — du entscheidest wann und wie wir sprechen.</div>
-      </details>
-    </div>
-  </div>
-</section>
+    <!-- HERO Section -->
+    <section class="hero-section section-spacing">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Hero Text (centered) -->
+            <div class="hero-content text-center max-w-4xl mx-auto mb-12">
 
-<!-- CONTACT -->
-<section class="contact" id="anfrage">
-  <div class="container">
-    <div class="contact-box">
-      <span class="section-label" style="color:var(--gold)">Jetzt anfragen</span>
-      <h2 style="color:var(--white);margin-bottom:.6rem">Kostenloses Erstgespräch —<br><em>Antwort in 24 Stunden</em></h2>
-      <p>Kein Bürotermin. Kein Verkaufsgespräch. Kein Druck.<br>Einfach Formular ausfüllen — ich melde mich persönlich.</p>
-      <form class="contact-form" action="https://finanzberater-friedl.info/kontakt.html" method="GET" onsubmit="handleForm(event)">
-        <div class="form-row">
-          <input type="text" name="vorname" placeholder="Vorname *" required>
-          <input type="text" name="nachname" placeholder="Nachname">
+                <div class="flex justify-center mb-10">
+                    <div class="mode-toggle" role="tablist">
+                        <button type="button" class="mode-btn active" data-mode-btn="umschuldung" onclick="setMode('umschuldung')">🏠 Ich möchte umschulden</button>
+                        <button type="button" class="mode-btn" data-mode-btn="kauf" onclick="setMode('kauf')">🔑 Ich will eine Immobilie kaufen</button>
+                    </div>
+                </div>
+
+                <div data-mode-content="umschuldung" class="mode-visible">
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+                        Dein Haus ist dein Traum.
+                        <span class="text-gradient-green block mt-4">Die Schulden sind Lärm.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
+                        Das Haus war geplant. Mit Schweiß, mit Liebe, mit vielen Wochenenden in Eigenleistung. Aber dann kamen die anderen Sachen: Auto, Küche, die kleine Renovierung. Und plötzlich sind es vier Schulden statt eine. Vier Zinssätze, vier Raten, vier Telefonnummern, die monatlich anrufen.
+                    </p>
+                </div>
+
+                <div data-mode-content="kauf">
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+                        Deine erste Immobilie.
+                        <span class="text-gradient-green block mt-4">Ohne dich zu verplanen.</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto font-light">
+                        Du hast das Grundstück, die Pläne, vielleicht schon den Baustart im Kopf. Aber die klassische Finanzierung frisst jeden Monat einen großen Teil deines Einkommens – Jahre, bevor du überhaupt eingezogen bist. Es geht auch anders.
+                    </p>
+                </div>
+
+                <p class="text-2xl text-white mb-12 leading-relaxed font-semibold">
+                    Es kann einfacher gehen.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="rechner.html" target="_blank" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg inline-block">
+                        Interaktiven Rechner öffnen ↗
+                    </a>
+                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-secondary font-bold text-lg">
+                        Kostenloses Gespräch
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vorher / Nachher Vergleich -->
+            <div class="hero-content">
+                <div data-mode-content="umschuldung" class="mode-visible">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center max-w-6xl mx-auto">
+                    
+                    <!-- VORHER -->
+                    <div class="card-dark animate-fade-slow" style="background: linear-gradient(135deg, rgba(127, 29, 29, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(220, 38, 38, 0.3);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4" style="color: #f87171;">Heute</p>
+                        
+                        <!-- Image Vorher -->
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(220, 38, 38, 0.2);">
+                            <img src="paar-vorher.jpg" alt="Paar verzweifelt vor Rechnungen am Küchentisch" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Vier Verträge, vier Schulden</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Hauskredit-Rate</span>
+                                <span class="font-semibold text-white">1.350 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Kredit 1 + 2</span>
+                                <span class="font-semibold text-white">500 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Auto-Leasing</span>
+                                <span class="font-semibold text-white">300 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Gesamtbelastung</span>
+                                <span class="font-bold" style="color: #f87171;">2.150 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex md:flex-col items-center justify-center py-4 md:py-0">
+                        <div class="hidden md:flex flex-col items-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                            <p class="text-xs font-bold uppercase tracking-wider mt-2" style="color: #10b981;">Umschulden</p>
+                        </div>
+                        <div class="md:hidden flex items-center">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- NACHHER -->
+                    <div class="card-dark animate-fade-slow" style="animation-delay: 0.3s; background: linear-gradient(135deg, rgba(6, 78, 59, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(16, 185, 129, 0.4);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4 accent-positive">Nach der Umschuldung</p>
+                        
+                        <!-- Image Nachher -->
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <img src="paar-nachher.jpg" alt="Glückliches Paar mit Kaffee, erleichtert" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Ein Vertrag, eine Rate</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Alle Kredite gebündelt</span>
+                                <span class="font-semibold text-white">✓</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Ein Ansprechpartner</span>
+                                <span class="font-semibold text-white">✓</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Neue Gesamtrate</span>
+                                <span class="font-semibold text-white">1.650 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Du sparst monatlich</span>
+                                <span class="font-bold accent-positive">500 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div data-mode-content="kauf">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center max-w-6xl mx-auto">
+
+                    <!-- KLASSISCH -->
+                    <div class="card-dark animate-fade-slow" style="background: linear-gradient(135deg, rgba(127, 29, 29, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(220, 38, 38, 0.3);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4" style="color: #f87171;">Klassische Finanzierung</p>
+
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(220, 38, 38, 0.2);">
+                            <img src="paar-vorher.jpg" alt="Paar beim Durchrechnen der klassischen Finanzierung" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Zins + Tilgung ab Tag 1</h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Zinsanteil</span>
+                                <span class="font-semibold text-white">1.184 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Tilgungsanteil</span>
+                                <span class="font-semibold text-white">400 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Monatliche Rate</span>
+                                <span class="font-bold" style="color: #f87171;">1.584 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARROW -->
+                    <div class="flex md:flex-col items-center justify-center py-4 md:py-0">
+                        <div class="hidden md:flex flex-col items-center">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                            <p class="text-xs font-bold uppercase tracking-wider mt-2" style="color: #10b981;">Tilgungsfrei</p>
+                        </div>
+                        <div class="md:hidden flex items-center">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(90deg);">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- TILGUNGSFREI -->
+                    <div class="card-dark animate-fade-slow" style="animation-delay: 0.3s; background: linear-gradient(135deg, rgba(6, 78, 59, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%); border-color: rgba(16, 185, 129, 0.4);">
+                        <p class="text-xs font-bold uppercase tracking-wider mb-4 accent-positive">Mit tilgungsfreier Finanzierung</p>
+
+                        <div class="rounded-xl mb-6 h-56 md:h-64 overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <img src="paar-nachher.jpg" alt="Glückliches Paar vor dem neuen Haus" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-4">Nur Zinsen an die Bank</h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Zinsanteil (deine Rate an die Bank)</span>
+                                <span class="font-semibold text-white">1.184 €</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300 pb-3 border-b border-slate-700">
+                                <span>Frei gewordener Betrag – für den Fonds</span>
+                                <span class="font-semibold accent-positive">400 €</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-lg">
+                                <span class="font-bold text-white">Deine Rate an die Bank</span>
+                                <span class="font-bold accent-positive">1.184 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <p class="text-xs text-slate-500 text-center mt-8 italic">
+                    Beispielrechnung mit aktuellen Marktkonditionen. Individuelle Zahlen können abweichen.
+                </p>
+            </div>
         </div>
-        <input type="tel" name="telefon" placeholder="Telefonnummer * (für Rückruf in 24h)" required>
-        <input type="email" name="email" placeholder="Email-Adresse">
-        <select name="anliegen">
-          <option value="" disabled selected>Was interessiert dich? *</option>
-          <option value="eigenheim">Eigenheim kaufen / finanzieren</option>
-          <option value="umschuldung">Bestehenden Kredit umschulden</option>
-          <option value="kredit-pruefen">Aktuellen Kredit prüfen lassen</option>
-          <option value="sanierung">Sanierung / Renovierung finanzieren</option>
-          <option value="sonstiges">Sonstiges / Weiß noch nicht</option>
-        </select>
-        <input type="number" name="betrag" placeholder="Ungefähre Kreditsumme in € (optional)">
-        <textarea name="nachricht" placeholder="Kurze Nachricht (optional) — z.B. Zeitraum, besondere Situation..."></textarea>
-        <button type="submit" class="form-submit">📅 Jetzt kostenlos anfragen →</button>
-      </form>
-      <p class="form-note">
-        ✓ Kostenlos &amp; unverbindlich &nbsp;·&nbsp; ✓ Kein Verkaufsgespräch &nbsp;·&nbsp; ✓ DSGVO-konform<br>
-        Im FMA-Register eingetragen · GISA 35679738 · WAG 2018
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-links">
-      <a href="https://finanzberater-friedl.info/">Startseite</a>
-      <a href="https://finanzberater-friedl.info/datenschutz.html">Datenschutz</a>
-      <a href="https://finanzberater-friedl.info/impressum.html">Impressum</a>
-      <a href="https://finanzberater-friedl.info/#kontakt">Kontakt</a>
-    </div>
-    <p>Mario Friedl · Herrgottwiesgasse 119/1 · 8020 Graz · Österreich</p>
-    <p>FMA-konzessioniert · GISA 35679738 · WAG 2018 · 100% bankunabhängig</p>
-    <p style="margin-top:.5rem;font-size:.75rem">Historische Wertentwicklungen sind kein verlässlicher Indikator für zukünftige Erträge. Veranlagungen können zum Verlust des eingesetzten Kapitals führen (WAG 2018 § 46).</p>
-  </div>
-</footer>
+    <!-- PRINZIP Section (Tilgungsfrei erklärt) -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Das Prinzip dahinter</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                Ein Weg. Zwei Ausgangslagen.
+            </h2>
+            <p class="text-lg text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+                Egal ob du bestehende Kredite bündelst oder eine Immobilie neu finanzierst – das Prinzip ist dasselbe: <strong class="text-white">tilgungsfrei statt klassisch.</strong>
+            </p>
 
-<!-- STICKY BAR -->
-<div class="sticky-bar">
-  <div class="sticky-bar-text">
-    <strong>Immobilienfinanzierung Graz</strong>
-    Kostenloser Kreditvergleich · 15+ Banken · Antwort in 24h
-  </div>
-  <a href="#anfrage">Jetzt anfragen →</a>
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="card-dark">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-3" style="color: #f87171;">Klassisch</p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Jeden Monat zahlst du Zinsen <strong class="text-white">und</strong> einen Teil der Kreditsumme zurück. Die Rate ist hoch, weil sie beides auf einmal leisten muss.
+                    </p>
+                </div>
+                <div class="card-dark" style="border-color: rgba(16, 185, 129, 0.4);">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-3 accent-positive">Tilgungsfrei</p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Du zahlst nur die Zinsen. Das Geld, das sonst zur Tilgung ginge, fließt stattdessen in einen Fonds – der bis zum Laufzeitende wächst und die Kreditsumme am Ende ablöst.
+                    </p>
+                </div>
+            </div>
 
-<script>
-function handleForm(e) {
-  e.preventDefault();
-  const form = e.target;
-  const vorname = form.vorname.value.trim();
-  const telefon = form.telefon.value.trim();
-  const anliegen = form.anliegen.value;
-  // Redirect to contact page with params
-  const params = new URLSearchParams({
-    quelle: 'immobilienfinanzierung-graz',
-    vorname,
-    telefon,
-    anliegen
-  });
-  window.location.href = 'https://finanzberater-friedl.info/#kontakt?' + params.toString();
-}
+            <p class="text-sm text-slate-500 mt-8 italic max-w-2xl mx-auto">
+                Wichtig: Der Fonds unterliegt Marktschwankungen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für die Zukunft. Wir besprechen gemeinsam, ob dieser Weg zu deiner Situation passt.
+            </p>
+        </div>
+    </section>
 
-// Hide sticky bar when contact section is visible
-const contactSection = document.getElementById('anfrage');
-const stickyBar = document.querySelector('.sticky-bar');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    stickyBar.style.opacity = entry.isIntersecting ? '0' : '1';
-    stickyBar.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-  });
-}, { threshold: 0.2 });
-if (contactSection) observer.observe(contactSection);
-</script>
 
+
+    <!-- BEISPIELRECHNUNG (statisch) -->
+    <section id="beispiel" class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-14 animate-slide-up">
+                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Beispielrechnung</p>
+
+                <div data-mode-content="umschuldung" class="mode-visible">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">So könnte deine Umschuldung aussehen</h2>
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto">Ein typisches Beispiel – deine eigenen Zahlen können abweichen.</p>
+                </div>
+                <div data-mode-content="kauf">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">So könnte deine Finanzierung aussehen</h2>
+                    <p class="text-lg text-slate-400 max-w-2xl mx-auto">Klassisch vs. tilgungsfrei, an einem typischen Beispiel.</p>
+                </div>
+            </div>
+
+            <div data-mode-content="umschuldung" class="mode-visible">
+                <div class="card-dark">
+                    <p class="text-sm font-semibold text-slate-300 mb-6">Beispiel: 300.000 € Hauskredit + 3 weitere Kredite</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Aktuelle Gesamtbelastung</p>
+                            <p class="text-3xl md:text-4xl font-bold text-white">2.150 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · 4 Kredite</p>
+                        </div>
+                        <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Nach Umschuldung</p>
+                            <p class="text-3xl md:text-4xl font-bold accent-positive">1.650 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · 1 Kredit</p>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 28px;">
+                        <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Ersparnis pro Monat</p>
+                        <p class="text-5xl md:text-6xl font-bold text-gradient-green mb-2">500 €</p>
+                        <p class="text-slate-400 text-sm">Im Jahr: <span class="font-bold text-white">6.000 €</span></p>
+                    </div>
+
+                    <!-- Trenner: mehr Luft zwischen Zahlen und Tipp -->
+                    <div class="flex items-center gap-3 my-2" style="opacity: 0.4;">
+                        <div class="flex-1" style="height: 1px; background: rgba(148, 163, 184, 0.25);"></div>
+                        <span class="text-xs text-slate-400">✦</span>
+                        <div class="flex-1" style="height: 1px; background: rgba(148, 163, 184, 0.25);"></div>
+                    </div>
+
+                    <!-- Mein Tipp: direkt im selben Kasten, damit er nicht übersehen wird -->
+                    <div class="p-5 md:p-6 mt-4 rounded-xl" style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25);">
+                        <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">💡 Und dann? Mein Tipp</p>
+                        <p class="text-base text-slate-200 leading-relaxed mb-2">
+                            Lege einen Teil der 500 € Ersparnis jeden Monat zur Seite – als Notgroschen oder um Vermögen aufzubauen.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Neugierig, was aus 200 € oder 300 € im Monat nach 10 oder 20 Jahren werden könnte?
+                        </p>
+                    </div>
+
+                    <!-- Beide Rechner nebeneinander – damit keiner übersehen wird -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="text-center">
+                            <a href="rechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg button-primary text-white font-bold text-base inline-block">
+                                🧮 Kredit-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was du bei deinem Kredit sparst</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="investmentrechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg font-bold text-base inline-block" style="background: transparent; border: 2px solid #D4AF37; color: #E8C547;">
+                                📈 Investment-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was aus deiner Ersparnis werden kann</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 text-center mt-4">Beide Rechner öffnen in einem neuen Tab.</p>
+                </div>
+                <p class="text-xs text-slate-500 text-center mt-6 italic">
+                    Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
+                </p>
+            </div>
+
+            <div data-mode-content="kauf">
+                <div class="card-dark">
+                    <p class="text-sm font-semibold text-slate-300 mb-6">Beispiel: 300.000 € Darlehen, 4,6 % Zins, 30 Jahre Laufzeit</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="stat-block" style="border-left-color: #f87171; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Klassische Rate</p>
+                            <p class="text-3xl md:text-4xl font-bold text-white">1.584 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · Zins (1.184 €) + Tilgung (400 €)</p>
+                        </div>
+                        <div class="stat-block" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.02) 100%);">
+                            <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider">Tilgungsfrei (erste 3 Jahre)</p>
+                            <p class="text-3xl md:text-4xl font-bold accent-positive">1.184 €</p>
+                            <p class="text-xs text-slate-500 mt-1">pro Monat · nur Zinsen an die Bank</p>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 28px; text-align: center; margin-bottom: 28px;">
+                        <p class="text-slate-400 mb-2 uppercase tracking-wider text-sm font-semibold">Die 400 € Unterschied</p>
+                        <p style="font-size: 1.3rem; line-height: 1.6; color: #e2e8f0; max-width: 480px; margin: 0 auto;">
+                            Was, wenn du diese <strong class="text-white">400 €</strong> jeden Monat stattdessen in einen Fonds legst – 30 Jahre lang?
+                        </p>
+                    </div>
+
+                    <!-- Trenner: mehr Luft zwischen Zahlen und Tipp -->
+                    <div class="flex items-center gap-3 my-2" style="opacity: 0.4;">
+                        <div class="flex-1" style="height: 1px; background: rgba(148, 163, 184, 0.25);"></div>
+                        <span class="text-xs text-slate-400">✦</span>
+                        <div class="flex-1" style="height: 1px; background: rgba(148, 163, 184, 0.25);"></div>
+                    </div>
+
+                    <!-- Mein Tipp: direkt im selben Kasten, damit er nicht übersehen wird -->
+                    <div class="p-5 md:p-6 mt-4 rounded-xl" style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25);">
+                        <p class="text-sm font-semibold accent-green uppercase tracking-wider mb-3">💡 Und dann? Mein Tipp</p>
+                        <p class="text-base text-slate-200 leading-relaxed mb-2">
+                            Die freigewordenen 400 € sind eine Chance – unabhängig davon, wie viel du dir durch die tilgungsfreie Finanzierung selbst sparst.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Was wird aus 400 € im Monat bei 1 %, 3 % oder 7 % Rendite über 10, 20 oder 30 Jahre?
+                        </p>
+                    </div>
+
+                    <!-- Beide Rechner nebeneinander – damit keiner übersehen wird -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="text-center">
+                            <a href="rechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg button-primary text-white font-bold text-base inline-block">
+                                🧮 Tilgungsfrei-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was du bei deiner Finanzierung sparst</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="investmentrechner.html" target="_blank" class="w-full px-6 py-4 rounded-lg font-bold text-base inline-block" style="background: transparent; border: 2px solid #D4AF37; color: #E8C547;">
+                                📈 Investment-Rechner öffnen ↗
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">Was aus den 400 € werden kann</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 text-center mt-4">Beide Rechner öffnen in einem neuen Tab.</p>
+                </div>
+                <p class="text-xs text-slate-500 text-center mt-6 italic">
+                    Vereinfachtes Beispiel mit angenommenen Marktkonditionen. Wertentwicklungen der Vergangenheit sind kein verlässlicher Indikator für künftige Erträge. Individuelle Zahlen können abweichen.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- SCHMERZPUNKTE Section (portiert von finanzierung-mit-plan.at) -->
+    <section class="section-spacing bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Wir denken weiter als die Bank</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Was, wenn's anders kommt?
+                </h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                    Ein Kredit läuft 20, 25, manchmal 30 Jahre. In dieser Zeit passiert viel – das Leben ist unvorhersehbar.
+                </p>
+            </div>
+
+            <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;font-size:13px;font-weight:600">
+                <span style="color:#fca5a5">✕ Standard-Kredit</span>
+                <span style="color:#6ee7b7">✓ Mit tilgungsfreier Finanzierung</span>
+            </div>
+
+            <div class="sz-grid">
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">💔</div>
+                        <div class="szc"><h4>Jobverlust</h4></div>
+                    </div>
+                    <p>Plötzlich kein Einkommen. Die Kreditrate muss trotzdem bezahlt werden – jeden Monat.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Sofortiger Zahlungsverzug – Bank kann den Kredit kündigen</div>
+                        <div class="szpos">Fondsvermögen als Puffer – du überbrückst Monate problemlos</div>
+                    </div>
+                </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">🏥</div>
+                        <div class="szc"><h4>Krankheit / Unfall</h4></div>
+                    </div>
+                    <p>Längerer Ausfall, Einnahmen brechen ein – passiert schneller als man denkt.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Kein Polster – Zahlungsprobleme entstehen sofort</div>
+                        <div class="szpos">Fondsvermögen federt den Engpass ab – du bleibst stabil</div>
+                    </div>
+                </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">🔧</div>
+                        <div class="szc"><h4>Renovierung nötig</h4></div>
+                    </div>
+                    <p>Heizung kaputt, Dach undicht, Küche – das kommt bei jedem Haus irgendwann.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Neuer Kredit nötig – wenn die Bank überhaupt mitmacht</div>
+                        <div class="szpos">Fondsvermögen deckt Renovierungen ab – keine neue Verschuldung</div>
+                    </div>
+                </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">👴</div>
+                        <div class="szc"><h4>Pensionslücke</h4></div>
+                    </div>
+                    <p>Die staatliche Pension reicht nicht. Ø fehlen € 700 / Monat in Österreich.</p>
+                    <div class="szcmp">
+                        <div class="szneg">30 Jahre gezahlt – kein Zusatzvermögen für die Pension</div>
+                        <div class="szpos">Fondsvermögen = private Altersvorsorge bereits inklusive</div>
+                    </div>
+                </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">👨‍👩‍👧</div>
+                        <div class="szc"><h4>Karenz / Teilzeit</h4></div>
+                    </div>
+                    <p>Weniger Einkommen durch Familienplanung – das Budget wird enger.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Volle Rate auch bei halbem Einkommen – keine Flexibilität</div>
+                        <div class="szpos">Fondsvermögen gibt dir Flexibilität – Lebensqualität bleibt</div>
+                    </div>
+                </div>
+                <div class="szp">
+                    <div class="szp-head">
+                        <div class="szico">📈</div>
+                        <div class="szc"><h4>Chancen nutzen – Geld ist da</h4></div>
+                    </div>
+                    <p>Zweite Immobilie, Investition, Urlaub – dein Fondsvermögen ist kein gesperrtes Kapital.</p>
+                    <div class="szcmp">
+                        <div class="szneg">Alles gebunden – kein freies Kapital, keine Flexibilität</div>
+                        <div class="szpos">Jederzeit Zugriff – kein Vertrag, keine Bindung, kein Antrag nötig</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE REALITY Section -->
+    <section class="section-spacing">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image: Mario -->
+                <div class="order-2 lg:order-1">
+                    <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+                        <img src="mario-profil-umschuldung.jpg" alt="Mario Friedl - unabhängiger Finanzberater in Graz" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+                    </div>
+                </div>
+
+                <!-- Text: Who I Am -->
+                <div class="order-1 lg:order-2 animate-slide-up">
+                    <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Wer ich bin</p>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        Du kannst mit mir reden.
+                    </h2>
+
+                    <div class="space-y-6 text-lg text-slate-300">
+                        <p>
+                            Über Geld zu sprechen ist unangenehm. Über Schulden noch mehr. Bei der Bank sitzt du dem Anzugmenschen gegenüber, hoffst dass er nett ist – und fürchtest die Antwort.
+                        </p>
+
+                        <p>
+                            Bei mir ist das anders. Wir sitzen am Tisch, mit einem Kaffee. Du erzählst, wie es wirklich ist – nicht wie es aussehen sollte. Keine Wertung, keine erhobenen Augenbrauen.
+                        </p>
+
+                        <p>
+                            Dann schau ich mir deine Situation an. Und ich rede Klartext: Was geht. Was nicht. Welcher Weg für dich der richtige ist – ob Umschuldung oder Neufinanzierung. Wenn tilgungsfrei passt, sag ich's. Wenn nicht, auch.
+                        </p>
+
+                        <div class="space-y-4 pt-6 border-t border-slate-700">
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>Vergleich mit 15+ Banken – nicht vier</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>Keine versteckte Provision – überall gleich</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="accent-green text-2xl flex-shrink-0">✓</span>
+                                <p>3–4 Wochen von Anfrage bis Auszahlung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE RESULT Section -->
+    <section class="section-spacing bg-gradient-to-b from-slate-950 to-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text: What Changes -->
+                <div class="animate-slide-up">
+                    <p class="text-sm accent-green font-bold uppercase tracking-wider mb-4">Das Resultat</p>
+
+                    <div data-mode-content="umschuldung" class="mode-visible">
+                        <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                            Weniger Lärm.
+                            <span class="text-gradient-green">Mehr Luft.</span>
+                        </h2>
+
+                        <div class="space-y-8 text-lg text-slate-300 mb-12">
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Eine Rate</p>
+                                <p class="text-slate-400">Ein Ansprechpartner. Eine Überweisung im Monat. Kein Jonglieren mehr zwischen vier Fälligkeitsterminen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">300–500 € mehr im Monat</p>
+                                <p class="text-slate-400">Nicht auf dem Papier – auf deinem Konto. Für den Familienurlaub. Für die Winterreifen. Für den Kindergeburtstag ohne schlechtes Gewissen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Kein Rechnen mehr am Sonntagabend</p>
+                                <p class="text-slate-400">Kein mulmiges Gefühl beim Kontoauszug. Kein Streit am Küchentisch. Der Kopf wird frei – für das, was wirklich zählt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-mode-content="kauf">
+                        <h2 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                            Weniger Fixlast.
+                            <span class="text-gradient-green">Mehr Kapital.</span>
+                        </h2>
+
+                        <div class="space-y-8 text-lg text-slate-300 mb-12">
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Niedrigere Einstiegsrate</p>
+                                <p class="text-slate-400">Gerade in den ersten Jahren, wenn Umzug, Möbel und Einrichtung ohnehin Geld kosten, bleibt mehr Luft im Budget.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Ein Fonds statt reiner Tilgung</p>
+                                <p class="text-slate-400">Dein Geld arbeitet parallel zum Wohnen – statt nur die Kreditsumme stumpf abzubauen.</p>
+                            </div>
+
+                            <div>
+                                <p class="text-3xl font-bold accent-green mb-2">Klarheit statt Bauchgefühl</p>
+                                <p class="text-slate-400">Du weißt genau, was klassisch und was tilgungsfrei bedeutet – und triffst die Entscheidung mit echten Zahlen, nicht aus dem Bauch heraus.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="document.getElementById('kontakt').scrollIntoView()" class="px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                        Mein kostenloses Gespräch buchen
+                    </button>
+                </div>
+
+                <!-- Image: Happy Result -->
+                <div>
+                    <div class="h-96 md:h-[500px] w-full animate-slide-up rounded-2xl overflow-hidden" style="animation-delay: 0.2s; border: 1px solid rgba(16, 185, 129, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+                        <img src="paar-erfolg.jpg" alt="Glückliches Paar entspannt zu Hause" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Minimal) -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-center mb-20 animate-slide-up">
+                Die Fragen,<br>die du stellst
+            </h2>
+
+            <div class="space-y-6">
+                <div class="card-dark animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">Kostet das was?</h3>
+                    <p class="text-lg text-slate-300">
+                        Das erste Gespräch kostet keinen Cent. Wenn du dich für eine Umschuldung oder neue Finanzierung entscheidest: Transparente Aufstellung, keine Überraschungen.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.1s">
+                    <h3 class="text-2xl font-bold mb-4">Warum nicht selbst zur Bank?</h3>
+                    <p class="text-lg text-slate-300">
+                        Kannst du. Aber dann redet eine einzelne Bank mit dir, die ihre eigene Quote im Kopf hat. Ich vergleiche für dich mit 15+ Banken und höre nur auf dich.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.2s">
+                    <h3 class="text-2xl font-bold mb-4">Wie lange dauert das?</h3>
+                    <p class="text-lg text-slate-300">
+                        Bei einer Umschuldung meist 3–4 Wochen von Anfrage bis Auszahlung. Bei einer neuen Immobilienfinanzierung hängt es vom Kaufprozess ab – ich sag dir gleich im Erstgespräch, womit du realistisch rechnen kannst.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.3s">
+                    <h3 class="text-2xl font-bold mb-4">Was, wenn es nicht passt?</h3>
+                    <p class="text-lg text-slate-300">
+                        Ich sag's dir ehrlich. Dann überlegen wir zusammen: Gibt es andere Optionen? Du brauchst nur die beste Lösung für dich.
+                    </p>
+                </div>
+
+                <div class="card-dark animate-slide-up" style="animation-delay: 0.4s">
+                    <h3 class="text-2xl font-bold mb-4">Ich habe noch keine Schulden – ich will nur ein Haus kaufen. Passt das trotzdem?</h3>
+                    <p class="text-lg text-slate-300">
+                        Ja. Ob du bestehende Kredite bündelst oder eine Immobilie neu finanzierst – das Prinzip der tilgungsfreien Finanzierung funktioniert für beides. Wir schauen uns einfach deine konkrete Situation an.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-spacing bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-bold mb-8 animate-slide-up leading-tight">
+                Es geht nicht<br>um Zinssätze.
+                <span class="text-gradient-green block mt-4">Es geht um wieder atmen.</span>
+            </h2>
+            
+            <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto animate-slide-up leading-relaxed" style="animation-delay: 0.1s">
+                Um den Sonntagabend ohne Magengrummeln. Um den Kontoauszug, der dich nicht mehr verkrampfen lässt. Um die Familie, die wieder Urlaubspläne macht.
+            </p>
+
+            <div id="kontakt" class="scroll-mt-20"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-spacing bg-slate-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 animate-slide-up">Dein kostenloses Gespräch</h2>
+            <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.1s">
+                Keine Verpflichtung. Nur: Erzähl mir deine Situation – den Rest klären wir.
+            </p>
+
+            <form id="contactForm" action="https://formspree.io/f/mdagqzag" method="POST" class="space-y-6 max-w-2xl mx-auto mb-16 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Dein Name *" class="input-dark" required>
+                    <input type="email" name="email" placeholder="Deine E-Mail *" class="input-dark" required>
+                </div>
+                <input type="tel" name="telefon" placeholder="Telefon (optional)" class="w-full input-dark">
+                <textarea name="nachricht" placeholder="Deine Situation: Umschuldung oder Neukauf? Wie viele Kredite / welches Vorhaben? Was belastet dich?" rows="5" class="w-full input-dark"></textarea>
+                
+                <!-- Versteckte Felder für Formspree -->
+                <input type="hidden" name="_subject" value="Neue Anfrage: Umschuldung/Immobilienfinanzierung – finanzberater-friedl.info">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" id="submitBtn" class="w-full px-8 py-4 rounded-lg button-primary text-white font-bold text-lg">
+                    Anfrage absenden
+                </button>
+                
+                <p class="text-sm text-slate-500 text-center">
+                    ✓ Ich melde mich innerhalb von 24h <br>
+                    ✓ Kostenlos und unverbindlich <br>
+                    ✓ Deine Daten sind sicher
+                </p>
+            </form>
+
+            <!-- Erfolgs-Meldung (versteckt, wird nach Submit angezeigt) -->
+            <div id="successMessage" style="display: none;" class="max-w-2xl mx-auto mb-16 p-8 rounded-2xl text-center animate-slide-up" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); border: 2px solid #D4AF37;">
+                <div style="font-size: 64px; margin-bottom: 16px;">✓</div>
+                <h3 class="text-2xl font-bold accent-green mb-4">Danke für deine Anfrage!</h3>
+                <p class="text-lg text-slate-200 mb-4">
+                    Ich melde mich innerhalb von 24 Stunden bei dir.
+                </p>
+                <p class="text-slate-400">
+                    Wenn's dringend ist – ruf einfach an: <a href="tel:+436605256328" class="accent-green font-semibold hover:underline">+43 660 5256328</a>
+                </p>
+            </div>
+
+            <!-- Fehler-Meldung (versteckt, wird bei Fehler angezeigt) -->
+            <div id="errorMessage" style="display: none;" class="max-w-2xl mx-auto mb-16 p-6 rounded-2xl text-center" style="background: rgba(220, 38, 38, 0.1); border: 2px solid rgba(220, 38, 38, 0.4);">
+                <p class="text-lg text-white mb-3">
+                    Da ist leider was schief gelaufen.
+                </p>
+                <p class="text-slate-300">
+                    Bitte ruf mich direkt an: <a href="tel:+436605256328" class="accent-green font-semibold hover:underline">+43 660 5256328</a><br>
+                    Oder schreib mir: <a href="mailto:mario.friedl@equality-co.at" class="accent-green font-semibold hover:underline">mario.friedl@equality-co.at</a>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center border-t border-slate-800 pt-16">
+                <div>
+                    <p class="accent-green font-semibold mb-2">📍 Graz, Steiermark</p>
+                    <p class="text-slate-400 text-sm">Herrgottwiesgasse 119/1, 8020 Graz</p>
+                </div>
+                <div>
+                    <p class="accent-green font-semibold mb-2">📞 Anrufen</p>
+                    <p class="text-slate-400 text-sm"><a href="tel:+436605256328" class="hover:text-[#E8C547]">+43 660 5256328</a></p>
+                </div>
+                <div>
+                    <p class="accent-green font-semibold mb-2">✉️ E-Mail</p>
+                    <p class="text-slate-400 text-sm"><a href="mailto:mario.friedl@equality-co.at" class="hover:text-[#E8C547]">mario.friedl@equality-co.at</a></p>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-12 border-t border-slate-800 text-center text-sm text-slate-500">
+                <p>🏛️ FMA-registriert · GISA 35679738 · EQUALITY EH GmbH</p>
+                <p class="mt-2">
+                    <a href="https://finanzberater-friedl.info/datenschutz.html" class="hover:text-slate-400">Datenschutz</a> · 
+                    <a href="https://finanzberater-friedl.info/impressum.html" class="hover:text-slate-400">Impressum</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-500">
+            <div class="mb-6">
+                <a href="https://finanzberater-friedl.info" class="inline-flex items-center gap-2 text-slate-300 hover:text-[#E8C547] transition-colors font-semibold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                    Zurück zur Hauptseite
+                </a>
+            </div>
+            <p>© 2025 Mario Friedl · EQUALITY EH GmbH · FMA-registriert</p>
+        </div>
+    </footer>
+
+    <script>
+        // === MODUS-UMSCHALTER (Umschuldung vs. Kauf) ===
+        function setMode(mode) {
+            document.querySelectorAll('[data-mode-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-mode-btn') === mode);
+            });
+            document.querySelectorAll('[data-mode-content]').forEach(el => {
+                el.classList.toggle('mode-visible', el.getAttribute('data-mode-content') === mode);
+            });
+        }
+
+        // === FORMULAR MIT FORMSPREE ===
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Button-State: Sending
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Wird gesendet...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+            
+            // Fehler-Meldung ausblenden falls sichtbar
+            errorMessage.style.display = 'none';
+            
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Erfolg: Formular ausblenden, Success-Meldung zeigen
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    // Zur Erfolgsmeldung scrollen
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Formspree-Fehler');
+                }
+            } catch (error) {
+                // Fehler: Fehler-Meldung anzeigen, Button zurücksetzen
+                errorMessage.style.display = 'block';
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    </script>
 </body>
 </html>
