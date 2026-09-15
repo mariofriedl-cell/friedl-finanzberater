@@ -188,7 +188,8 @@ a { text-decoration: none; }
   min-width: 210px;
   box-shadow: 0 16px 40px rgba(0,0,0,.4);
   z-index: 1000;
-  margin-top: 6px;
+  margin-top: 0;
+  padding-top: 8px;
 }
 .nav-dropdown:hover .nav-drop-menu { display: block; }
 .nav-drop-menu a {
@@ -922,35 +923,6 @@ a { text-decoration: none; }
 }
 
 /* Nav Dropdown */
-.nav-dropdown { position: relative; }
-.nav-drop-btn {
-  color: rgba(255,255,255,.7); font-size: .88rem; font-weight: 600;
-  padding: 7px 12px; border-radius: var(--rsm);
-  transition: color .2s, background .2s; cursor: pointer;
-  display: block;
-}
-.nav-drop-btn:hover { color: var(--white); background: rgba(255,255,255,.06); }
-.nav-drop-menu {
-  display: none;
-  position: absolute; top: calc(100% + 8px); left: 0;
-  background: var(--ink2);
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 12px;
-  min-width: 200px;
-  padding: 8px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.4);
-  z-index: 99;
-}
-.nav-dropdown:hover .nav-drop-menu { display: block; }
-.nav-drop-menu a {
-  display: block; padding: 10px 14px;
-  font-size: .86rem; font-weight: 600;
-  color: rgba(255,255,255,.65);
-  border-radius: var(--rsm);
-  transition: all .15s;
-}
-.nav-drop-menu a:hover { background: rgba(200,151,59,.1); color: var(--gold); }
-
 /* Seminar photo button */
 .seminar-photo-btn {
   position: absolute; bottom: 16px; right: 16px;
