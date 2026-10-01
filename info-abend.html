@@ -112,7 +112,6 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
    HERO – Warm, dunkel, einladend
 ═══════════════════════ */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:100px 0 70px}
-/* Rich layered dark background with wine & gold atmosphere */
 .hero-bg{position:absolute;inset:0;
   background:
     radial-gradient(ellipse 90% 70% at 20% 100%,rgba(107,26,42,.22) 0%,transparent 55%),
@@ -123,14 +122,12 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 .hero-grain{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");pointer-events:none}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,151,59,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,151,59,.025) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at center,black 20%,transparent 100%)}
 
-/* Candle particles */
 .smoke-wrap{position:absolute;bottom:0;left:0;right:0;height:300px;pointer-events:none;overflow:hidden}
 .smoke-p{position:absolute;bottom:0;width:4px;height:4px;border-radius:50%;background:rgba(200,151,59,.4);opacity:0;animation:riseSmoke linear infinite}
 
 .hero-inner{position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:center}
 .hero-left{animation:fadeUp .9s .1s ease both}
 
-/* Kicker pill */
 .h-kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,151,59,.3);border-radius:4px;padding:7px 20px;font-size:.68rem;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;background:rgba(200,151,59,.06);animation:borderWine 4s ease-in-out infinite}
 .h-kicker-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:glowDot 1.5s ease-in-out infinite}
 
@@ -173,7 +170,6 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 .flp-icon{width:34px;height:34px;border-radius:8px;background:rgba(200,151,59,.1);border:1px solid rgba(200,151,59,.2);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
 .flp-item strong{color:rgba(255,255,255,.85)}
 
-/* Form card */
 .form-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,151,59,.2);border-radius:22px;overflow:hidden;position:relative;animation:goldPulse 5s ease-in-out infinite}
 .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2))}
 .form-card-head{padding:32px 32px 24px;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -201,7 +197,6 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 .form-note{text-align:center;margin-top:14px;font-size:.78rem;color:rgba(255,255,255,.25);line-height:1.55}
 .form-note a{color:rgba(200,151,59,.5);text-decoration:none}
 
-/* Success */
 .form-success{display:none;text-align:center;padding:48px 32px}
 .form-success.show{display:block;animation:fadeUp .6s ease both}
 .fs-icon{font-size:3rem;margin-bottom:16px}
@@ -539,7 +534,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <div class="sh anim">
       <span class="eyebrow-tag">Vortragsabend Wein &amp; Finanzen</span>
       <h2>Wähle deinen<br><em>Termin.</em></h2>
-      <p>Drei Abende, ein Thema, ein Glas Wein, das schon auf dich wartet. Wähle den Termin, der in deine Woche passt – Beginn ist jeweils um 19:00 Uhr.</p>
+      <p>Fünf Abende, ein Thema, ein Glas Wein, das schon auf dich wartet. Wähle den Termin, der in deine Woche passt – Beginn ist jeweils um 19:00 Uhr.</p>
     </div>
     <div class="date-grid">
       <div class="date-card" data-value="21-08-2026" data-label="Freitag, 21. August 2026" onclick="selectDate(this)">
@@ -557,6 +552,18 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
       <div class="date-card" data-value="16-10-2026" data-label="Freitag, 16. Oktober 2026" onclick="selectDate(this)">
         <div class="dc-weekday">Freitag</div>
         <div class="dc-date">16.10.</div>
+        <div class="dc-month">2026</div>
+        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
+      </div>
+      <div class="date-card" data-value="05-11-2026" data-label="Donnerstag, 5. November 2026" onclick="selectDate(this)">
+        <div class="dc-weekday">Donnerstag</div>
+        <div class="dc-date">05.11.</div>
+        <div class="dc-month">2026</div>
+        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
+      </div>
+      <div class="date-card" data-value="03-12-2026" data-label="Donnerstag, 3. Dezember 2026" onclick="selectDate(this)">
+        <div class="dc-weekday">Donnerstag</div>
+        <div class="dc-date">03.12.</div>
         <div class="dc-month">2026</div>
         <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
       </div>
@@ -658,6 +665,8 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
                 <option value="21-08-2026">Freitag, 21. August 2026</option>
                 <option value="17-09-2026">Donnerstag, 17. September 2026</option>
                 <option value="16-10-2026">Freitag, 16. Oktober 2026</option>
+                <option value="05-11-2026">Donnerstag, 5. November 2026</option>
+                <option value="03-12-2026">Donnerstag, 3. Dezember 2026</option>
               </select>
               <div class="fg-hint">Tipp: Du kannst deinen Termin auch oben per Klick auswählen.</div>
             </div>
@@ -753,7 +762,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <p class="cc-sub">Setz dich zu uns – mit einem Glas Wein in der Hand hört sich sogar Zinseszins gut an. Keine Tabellen ohne Erklärung, keine Fachbegriffe ohne Übersetzung. Nur du, ein paar andere Neugierige und Antworten, die du sofort verstehst.</p>
 
     <div class="cc-details">
-      <div class="cd-item"><span>📅</span><strong>21.8. · 17.9. · 16.10.2026</strong></div>
+      <div class="cd-item"><span>📅</span><strong>21.8. · 17.9. · 16.10. · 5.11. · 3.12.2026</strong></div>
       <div class="cd-item"><span>⏰</span><strong>Beginn 19:00 Uhr</strong></div>
       <div class="cd-item"><span>📍</span><strong>Graz · Exclusive Location</strong></div>
       <div class="cd-item"><span>💶</span><strong>€ 0,00 · Kostenlos</strong></div>
@@ -786,7 +795,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <!-- STICKY -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sb-left">
-    <strong>🍷 Wein &amp; Finanzen · Nächste Termine: 21.8. · 17.9. · 16.10.2026</strong>
+    <strong>🍷 Wein &amp; Finanzen · Nächste Termine: 21.8. · 17.9. · 16.10. · 5.11. · 3.12.2026</strong>
     <div class="sb-detail">Beginn 19:00 Uhr · Graz · Kostenlos</div>
   </div>
   <a href="#termine" class="btn-wine" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
