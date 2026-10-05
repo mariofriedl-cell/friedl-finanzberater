@@ -176,6 +176,8 @@ nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.6);border-bottom-color:rgba(200,1
 .fch-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:4px}
 .fch-sub{font-size:.83rem;color:rgba(255,255,255,.4)}
 .form-body{padding:28px 32px 32px}
+#formCard{scroll-margin-top:90px}
+.fs-text a{color:var(--gold2);text-decoration:underline}
 
 .fg{margin-bottom:18px}
 .fg label{display:block;font-size:.67rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px}
@@ -629,7 +631,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
       </div>
 
-      <div class="form-card anim-right">
+      <div class="form-card anim-right" id="formCard">
         <div class="form-card-head">
           <div class="fch-title">🍷 Kostenlos anmelden</div>
           <div class="fch-sub" id="fchSub">Bitte wähle oben deinen Termin · Graz · Wein &amp; exklusive Vorträge inklusive</div>
@@ -853,7 +855,7 @@ function selectDate(card){
   document.getElementById('terminInput').value=val;
   document.getElementById('terminSelect').value=val;
   document.getElementById('fchSub').textContent=label+' · 19:00 Uhr · Graz · Wein & exklusive Vorträge inklusive';
-  document.getElementById('termine').scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function syncDateFromSelect(sel){
   const val=sel.value;
@@ -865,11 +867,69 @@ function syncDateFromSelect(sel){
   if(card)document.getElementById('fchSub').textContent=card.getAttribute('data-label')+' · 19:00 Uhr · Graz · Wein & exklusive Vorträge inklusive';
 }
 
+/* ═══ BESTÄTIGUNGS-MAIL (EmailJS) ═══
+   Trage hier die drei Werte aus deinem EmailJS-Konto ein.
+   Solange eines leer ist, wird keine Mail verschickt (Formular funktioniert trotzdem). */
+const EMAILJS_CFG={publicKey:'',serviceId:'',templateId:''};
+const BRAU_URL='https://www.google.com/maps/place//data=!4m2!3m1!1s0x476fb5e561d0e94b:0x7cd9ef4e0e479566?sa=X&ved=1t:8290&ictx=111';
+const BRAU_HREF=BRAU_URL.replace(/&/g,'&amp;');
+function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+function confirmationHtml(val,vorname,label){
+  const hi='Hallo '+esc(vorname)+',<br><br>';
+  const bye='<br><br>Wir freuen uns auf dich!<br>Mario Friedl';
+  if(val==='16-10-2026'){
+    return hi+'wir freuen uns über deine Anmeldung zum Info-Abend „Wein &amp; Finanzen“ am <strong>'+esc(label)+'</strong> um 19:00 Uhr.<br><br>'
+      +'Aufgrund der hohen Nachfrage findet die Veranstaltung an einem anderen Ort statt:<br>'
+      +'<strong><a href="'+BRAU_HREF+'">Brauquartier 11/Top 1, 8055 Graz</a></strong>'+bye;
+  }
+  return hi+'wir freuen uns über deine Anmeldung zum Info-Abend „Wein &amp; Finanzen“ am <strong>'+esc(label)+'</strong> um 19:00 Uhr.<br><br>'
+    +'Ort: EQUALITY EH GmbH, Herrgottwiesgasse 119, 8020 Graz (Parkplätze direkt vor Ort).'+bye;
+}
+
+function loadEmailJS(){
+  return new Promise((resolve,reject)=>{
+    if(window.emailjs)return resolve();
+    const s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload=resolve;s.onerror=reject;document.head.appendChild(s);
+  });
+}
+
+async function sendConfirmation(form,val){
+  const c=EMAILJS_CFG;
+  if(!c.publicKey||!c.serviceId||!c.templateId)return;
+  const opt=document.querySelector('#terminSelect option[value="'+val+'"]');
+  const label=opt?opt.textContent:val;
+  const vorname=form.vorname.value.trim();
+  await loadEmailJS();
+  await emailjs.send(c.serviceId,c.templateId,{
+    to_email:form.email.value.trim(),
+    to_name:vorname,
+    termin:label,
+    subject:'Deine Anmeldung: Wein & Finanzen – '+label,
+    bestaetigung_html:confirmationHtml(val,vorname,label)
+  },{publicKey:c.publicKey});
+}
+
+function showSuccess(val){
+  const t=document.querySelector('#formSuccess .fs-text');
+  if(val==='16-10-2026'){
+    t.innerHTML='Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt per E-Mail.<br><br>'
+      +'<strong>Wichtig – Veranstaltungsort:</strong> Aufgrund der hohen Nachfrage findet der Abend am 16.10. im<br>'
+      +'<a href="'+BRAU_HREF+'" target="_blank" rel="noopener">Brauquartier 11/Top 1, 8055 Graz</a> statt.<br><br>'
+      +'Ein Glas Wein steht schon für dich bereit. 🍷';
+  }
+  document.getElementById('infoForm').style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+}
+
 /* FORM SUBMIT */
 async function handleFormSubmit(e){
   e.preventDefault();
   const form=document.getElementById('infoForm');
-  if(!document.getElementById('terminInput').value){
+  const val=document.getElementById('terminInput').value;
+  if(!val){
     alert('Bitte wähle zuerst deinen Wunschtermin aus.');
     return false;
   }
@@ -879,8 +939,8 @@ async function handleFormSubmit(e){
   try{
     const resp=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
     if(resp.ok){
-      form.style.display='none';
-      document.getElementById('formSuccess').classList.add('show');
+      sendConfirmation(form,val).catch(err=>console.warn('Bestätigungs-Mail nicht gesendet:',err));
+      showSuccess(val);
     } else {
       btn.textContent='Fehler – bitte erneut versuchen';
       btn.disabled=false;
