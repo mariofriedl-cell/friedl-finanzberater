@@ -2684,30 +2684,48 @@ function resetQuiz() {
   </div>
 </div>
 
-<!-- COOKIE CONSENT JAVASCRIPT -->
+<!-- COOKIE CONSENT JAVASCRIPT + GA4 (lädt erst nach Zustimmung) -->
 <script>
-// Blocking Cookie Modal anzeigen (wenn nicht akzeptiert)
+var GA_ID = 'G-Q5N5F85YTW';
+
+function loadGA() {
+  if (document.getElementById('ga-s')) return;
+  var s = document.createElement('script');
+  s.id = 'ga-s';
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_ID, { anonymize_ip: true });
+}
+
 function showCookieConsentModal() {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-consent-modal').style.display = 'flex';
+  var modal = document.getElementById('cookie-consent-modal');
+  var v = null;
+  try { v = localStorage.getItem('cookiesAccepted'); } catch (e) {}
+  if (v === 'true') {
+    modal.style.display = 'none';
+    loadGA();
+  } else if (v === 'false') {
+    modal.style.display = 'none';
   } else {
-    document.getElementById('cookie-consent-modal').style.display = 'none';
+    modal.style.display = 'flex';
   }
 }
 
-// All Cookies akzeptieren
 function acceptAllCookies() {
-  localStorage.setItem('cookiesAccepted', 'true');
+  try { localStorage.setItem('cookiesAccepted', 'true'); } catch (e) {}
   document.getElementById('cookie-consent-modal').style.display = 'none';
+  loadGA();
 }
 
-// Alle Cookies ablehnen
 function rejectAllCookies() {
-  localStorage.setItem('cookiesAccepted', 'false');
+  try { localStorage.setItem('cookiesAccepted', 'false'); } catch (e) {}
   document.getElementById('cookie-consent-modal').style.display = 'none';
 }
 
-// Modal beim Laden anzeigen
 document.addEventListener('DOMContentLoaded', showCookieConsentModal);
 </script>
 
