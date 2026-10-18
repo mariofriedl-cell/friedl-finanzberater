@@ -3,7 +3,7 @@
  *
  * Einbindung auf JEDER Seite (im <head>, VOR allen anderen Skripten):
  *   <script src="/consent.js" defer></script>
- * Footer-Link zum Ändern/Widerrufen (auf jeder Seite):
+ * Footer-Link zum Ändern/Widerrufen (auf jeder Seite; jeder Link mit href="#cookie-einstellungen" funktioniert ebenfalls):
  *   <a href="#cookie-einstellungen" data-mf-cookie-settings>Cookie-Einstellungen ändern</a>
  *
  * Verhalten:
@@ -210,16 +210,21 @@
 
   /* ───────────── Klicks (Footer-Link, Datenschutz-Link) ───────────── */
   document.addEventListener('click', function (e) {
-    var t = e.target && e.target.closest ? e.target.closest('[data-mf-cookie-settings],[data-mf-privacy]') : null;
+    var t = e.target && e.target.closest
+      ? e.target.closest('[data-mf-cookie-settings],a[href$="#cookie-einstellungen"]')
+      : null;
     if (!t) return;
-    if (t.hasAttribute('data-mf-cookie-settings')) {
-      e.preventDefault();
-      openBanner();
-    } else if (t.hasAttribute('data-mf-privacy') && false) {
-      e.preventDefault();
-      window.openDatenschutzModal();
-    }
+    e.preventDefault();
+    openBanner();
   });
+
+  /* Auch Aufrufe über die Adresse mit Anker (z. B. datenschutz.html#cookie-einstellungen) öffnen die Einstellungen. */
+  function openFromHash() {
+    if (window.location.hash !== '#cookie-einstellungen') return;
+    openBanner();
+    try { window.history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { /* ignorieren */ }
+  }
+  window.addEventListener('hashchange', openFromHash);
 
   /* Entscheidung in einem anderen Tab geändert -> hier nachziehen */
   window.addEventListener('storage', function (e) {
@@ -239,6 +244,7 @@
     } else {
       openBanner();          // keine gültige Entscheidung -> fragen, nichts laden
     }
+    openFromHash();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
