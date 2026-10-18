@@ -250,6 +250,18 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
-  /* Kleine, bewusst öffentliche Schnittstelle (z. B. für Tests in der Konsole) */
-  window.mfConsent = { open: openBanner, get: readChoice, version: CONSENT_VERSION };
+  /* Ereignis an GA4 senden – nur bei gültiger Statistik-Einwilligung und geladenem GA.
+     Ohne Einwilligung (oder nach Widerruf) wird nichts gesendet und nichts zwischengespeichert. */
+  function track(name, params) {
+    try {
+      var c = readChoice();
+      if (!c || c.analytics !== true) return false;
+      if (!gaLoaded || window['ga-disable-' + GA_ID] === true || typeof window.gtag !== 'function') return false;
+      window.gtag('event', name, params || {});
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* Kleine, bewusst öffentliche Schnittstelle (z. B. für Tests in der Konsole und Ereignismessung) */
+  window.mfConsent = { open: openBanner, get: readChoice, version: CONSENT_VERSION, track: track };
 })();
