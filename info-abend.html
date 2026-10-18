@@ -6,39 +6,13 @@
 <title>Wein & Finanzen 🍷 – Der Info-Abend | Mario Friedl, Graz</title>
 <meta name="description" content="Ein Abend. Zwei Leidenschaften. Exklusive Weine treffen auf smarte Finanzstrategien – kostenlos, verständlich, in kleiner Runde. Jetzt Termin sichern.">
 
-<!-- Cookie Consent + GA Guard -->
-<script>
-(function(){
-  var KEY='mf_cookie_consent';
-  function loadGA(){
-    if(document.getElementById('ga-s'))return;
-    var s=document.createElement('script');s.id='ga-s';s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
-    document.head.appendChild(s);
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
-    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
-  }
-  window.mfAccept=function(){localStorage.setItem(KEY,'accepted');document.getElementById('mfCookieBar').style.display='none';loadGA();};
-  window.mfDecline=function(){localStorage.setItem(KEY,'declined');document.getElementById('mfCookieBar').style.display='none';};
-  document.addEventListener('DOMContentLoaded',function(){
-    var bar=document.getElementById('mfCookieBar');if(!bar)return;
-    var v=localStorage.getItem(KEY);
-    if(v==='accepted'){bar.style.display='none';loadGA();}
-    else if(v==='declined'){bar.style.display='none';}
-    else{bar.style.display='flex';}
-  });
-})();
-</script>
-<div id="mfCookieBar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)">
-  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
-  <div style="display:flex;gap:10px;flex-shrink:0">
-    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
-    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
-  </div>
-</div>
+<!-- Einwilligung: muss vor allen anderen Skripten stehen -->
+<script src="/consent.js" defer></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<!-- Lokal gehostete Schriften (keine Verbindung zu Google) -->
+<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 
 <style>
 :root{
@@ -362,6 +336,17 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 }
 
 </style>
+<style id="mf-map-style">
+.map-consent{height:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;background:var(--warm);color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6}
+.map-consent p{max-width:380px;margin:0}
+.map-consent a{color:var(--gold)}
+.mc-icon{font-size:1.8rem}
+.mc-btn{padding:12px 26px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font-family:inherit;font-weight:900;font-size:.9rem;cursor:pointer}
+.mc-btn:hover{filter:brightness(1.08)}
+.mc-link{font-size:.8rem}
+@media(max-width:900px){.map-consent{min-height:220px}}
+</style>
+</head>
 <body>
 
 <!-- NAV -->
@@ -599,7 +584,12 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         </div>
       </div>
       <div class="loc-map anim-right">
-        <iframe src="https://www.google.com/maps?q=Herrgottwiesgasse+119,+8020+Graz,+Austria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort Herrgottwiesgasse 119, 8020 Graz"></iframe>
+        <div class="map-consent" id="mapConsent">
+          <div class="mc-icon">📍</div>
+          <p>Die Karte wird von Google Maps bereitgestellt. Erst nach Klick werden Daten (z. B. deine IP-Adresse) an Google übertragen, auch in die USA. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+          <button type="button" class="mc-btn" id="mapLoadBtn">Karte laden</button>
+          <a class="mc-link" href="https://www.google.com/maps?q=Herrgottwiesgasse+119,+8020+Graz,+Austria" target="_blank" rel="noopener">Oder direkt in Google Maps öffnen</a>
+        </div>
       </div>
     </div>
   </div>
@@ -693,6 +683,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             <button type="submit" class="btn-submit">🍷 Kostenlos anmelden – Platz sichern →</button>
             <div class="form-note">
               Sofortige Bestätigung per E-Mail · Danach hörst du nur von uns, wenn du willst · Jederzeit abmeldbar<br>
+              Die Anmeldung wird über den Dienstleister Formspree (USA) übermittelt.<br>
               <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>
             </div>
           </form>
@@ -748,7 +739,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="faq-q-text">Was passiert mit meinen Daten?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Deine Daten werden ausschließlich für die Anmeldebestätigung und eventuelle Erinnerungen verwendet. <strong>Keine Weitergabe an Dritte. Keine Werbemails.</strong> Jederzeit abmeldbar. Details in der Datenschutzerklärung.</p></div>
+        <div class="faq-a"><p>Deine Daten werden für die Anmeldebestätigung und eventuelle Erinnerungen verwendet. Die Anmeldung wird über den Dienstleister Formspree (USA) übermittelt, die Website wird über GitHub bereitgestellt. <strong>Keine Werbemails.</strong> Jederzeit abmeldbar. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p></div>
       </div>
     </div>
   </div>
@@ -786,6 +777,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <a href="karriere-check.html">Karriere-Check</a>
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-mf-cookie-settings>Cookie-Einstellungen ändern</a>
   </div>
   <div class="footer-copy">
     © 2026 Mario Friedl · EQUALITY EH GmbH · FN 462897 g · Herrgottwiesgasse 119/1 · 8020 Graz<br>
@@ -951,6 +943,20 @@ async function handleFormSubmit(e){
   }
   return false;
 }
+</script>
+<script>
+/* GOOGLE-KARTE: wird erst nach Klick geladen */
+(function(){
+  var btn=document.getElementById('mapLoadBtn'); if(!btn) return;
+  btn.addEventListener('click',function(){
+    var box=document.getElementById('mapConsent');
+    var f=document.createElement('iframe');
+    f.src='https://www.google.com/maps?q=Herrgottwiesgasse+119,+8020+Graz,+Austria&output=embed';
+    f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
+    f.title='Standort Herrgottwiesgasse 119, 8020 Graz';
+    box.replaceWith(f);
+  });
+})();
 </script>
 </body>
 </html>
