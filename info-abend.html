@@ -401,7 +401,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
         <div class="hdp"><span>📍</span> Graz · Exclusive Location</div>
       </div>
       <div class="hero-ctas">
-        <a href="#termine" class="btn-wine">🍷 Termin wählen &amp; sichern →</a>
+        <a href="#termine" class="btn-wine" data-ga="select_appointment">🍷 Termin wählen &amp; sichern →</a>
         <a href="#erwartet" class="btn-ghost">Was erwartet mich?</a>
       </div>
     </div>
@@ -933,6 +933,7 @@ async function handleFormSubmit(e){
     if(resp.ok){
       sendConfirmation(form,val).catch(err=>console.warn('Bestätigungs-Mail nicht gesendet:',err));
       showSuccess(val);
+      if(!window.__mfLeadSent){window.__mfLeadSent=true;mfTrack('generate_lead',{veranstaltung:'wein_und_finanzen',formular:'info_abend_anmeldung'});}
     } else {
       btn.textContent='Fehler – bitte erneut versuchen';
       btn.disabled=false;
@@ -955,6 +956,21 @@ async function handleFormSubmit(e){
     f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
     f.title='Standort Herrgottwiesgasse 119, 8020 Graz';
     box.replaceWith(f);
+  });
+})();
+</script>
+<script>
+/* GA4-ERFOLGSMESSUNG
+   Sendet nur nach Statistik-Einwilligung (zentrale Steuerung in consent.js) und ohne personenbezogene Angaben. */
+function mfTrack(name,params){
+  try{return !!(window.mfConsent&&window.mfConsent.track&&window.mfConsent.track(name,params));}catch(e){return false;}
+}
+(function(){
+  var btn=document.querySelector('[data-ga="select_appointment"]'); if(!btn) return;
+  var last=0;
+  btn.addEventListener('click',function(){
+    var now=Date.now(); if(now-last<1500) return; last=now;   /* Doppelklicks nicht mehrfach zählen */
+    mfTrack('select_appointment',{veranstaltung:'wein_und_finanzen',button:'termin_waehlen_sichern'});
   });
 })();
 </script>
