@@ -1529,6 +1529,38 @@ a { text-decoration: none; }
   background: none; border: none; font-size: 1.4rem;
   cursor: pointer; color: var(--muted);
 }
+
+/* ═══ Veranstaltungsübersicht + Hinweisleiste ═══ */
+.event-notice{background:var(--ink2);border-bottom:1px solid rgba(212,175,55,.3);padding:10px 20px;text-align:center}
+.event-notice p{margin:0;font-size:.88rem;line-height:1.55;color:rgba(255,255,255,.9)}
+.event-notice strong{color:#fff}
+.event-notice a{color:var(--gold2);font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.event-notice a:hover{color:#fff}
+@media(max-width:640px){.event-notice .en-more{display:none}}
+
+.events-section{padding:100px 24px;background:var(--cream);scroll-margin-top:64px}
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:0 auto}
+.ev-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:18px;padding:32px 30px 30px;box-shadow:var(--shadow)}
+.ev-top{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.ev-date{flex:none;width:78px;height:78px;border-radius:14px;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.ev-day{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold2)}
+.ev-mon{font-size:.66rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-top:5px;color:rgba(255,255,255,.85)}
+.ev-label{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ev-datetext{font-weight:700;color:var(--ink);font-size:1.02rem;line-height:1.35}
+.ev-time{color:var(--muted);font-size:.92rem}
+.ev-title{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:6px}
+.ev-sub{font-size:.95rem;font-weight:700;color:var(--ink2);margin-bottom:12px}
+.ev-text{font-size:.97rem;color:var(--muted);line-height:1.75;margin-bottom:20px;flex:1}
+.ev-meta{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 24px;padding:0;font-size:.88rem;font-weight:600;color:var(--ink)}
+.ev-meta li::before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
+.ev-btn{align-self:flex-start}
+.event-notice a:focus-visible,.ev-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:768px){
+  .events-section{padding:72px 20px}
+  .ev-grid{grid-template-columns:1fr}
+  .ev-card{padding:26px 22px 24px}
+  .ev-btn{align-self:stretch;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -1542,10 +1574,11 @@ a { text-decoration: none; }
     <li><a href="#story">Meine Geschichte</a></li>
     <li><a href="#leistungen">Leistungen</a></li>
     <li class="nav-dropdown">
-      <a href="#seminare" class="nav-drop-btn">Events ▾</a>
+      <a href="#veranstaltungen" class="nav-drop-btn">Events ▾</a>
       <div class="nav-drop-menu">
         <a href="business-seminar.html">🎯 Business Seminar</a>
-        <a href="info-abend.html">🍷 Info-Abend</a>
+        <a href="info-abend.html">🍷 Wein &amp; Finanzen</a>
+        <a href="finanz-infoabend.html">📊 Finanz-Infoabend</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -1573,7 +1606,8 @@ a { text-decoration: none; }
   <a href="#story">Meine Geschichte</a>
   <a href="#leistungen">Leistungen</a>
   <a href="business-seminar.html">🎯 Business Seminar</a>
-  <a href="info-abend.html">🍷 Info-Abend</a>
+  <a href="info-abend.html">🍷 Wein &amp; Finanzen</a>
+  <a href="finanz-infoabend.html">📊 Finanz-Infoabend</a>
   <a href="pensionsluecke.html">🔒 Pensionslücke</a>
   <a href="karriere-check.html">📋 Karriere-Check</a>
   <a href="gold-sparplan.html">🥇 Gold Sparplan</a>
@@ -1585,6 +1619,11 @@ a { text-decoration: none; }
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="top">
+
+  <!-- HINWEIS auf den Finanz-Infoabend (schmale Leiste unter der Navigation) -->
+  <div class="event-notice">
+    <p><strong>Finanz-Infoabend</strong> · Donnerstag, 3. Dezember 2026, 18:30 Uhr<span class="en-more"> · Graz – Kosten und Risiken verstehen.</span> <a href="finanz-infoabend.html">Zur Veranstaltung →</a></p>
+  </div>
 
   <!-- VOLLBREITES GRAZ-FOTO — gesamte Breite -->
   <div class="hero-photo">
@@ -2025,6 +2064,49 @@ a { text-decoration: none; }
     </div>
 </section>
 
+<!-- ══ VERANSTALTUNGEN ══ -->
+<section class="events-section" id="veranstaltungen">
+  <div class="section-header anim-up">
+    <div class="eyebrow">Veranstaltungen</div>
+    <h2 class="h-display">Die nächsten <em>Termine.</em></h2>
+    <p class="section-sub">Zwei kostenlose Abende in Graz – wähle den, der zu deinen Fragen passt.</p>
+  </div>
+  <div class="ev-grid">
+
+    <article class="ev-card anim-up d1">
+      <div class="ev-top">
+        <div class="ev-date" aria-hidden="true"><span class="ev-day">5</span><span class="ev-mon">Nov 2026</span></div>
+        <div>
+          <div class="ev-label">Veranstaltung</div>
+          <div class="ev-datetext">Donnerstag, 5. November 2026</div>
+          <div class="ev-time">19:00 Uhr · Graz</div>
+        </div>
+      </div>
+      <h3 class="ev-title">Wein &amp; Finanzen</h3>
+      <p class="ev-text">Finanzthemen in entspannter Atmosphäre kennenlernen.</p>
+      <ul class="ev-meta"><li>Kostenlose Teilnahme</li></ul>
+      <a href="info-abend.html" class="btn-gold ev-btn" aria-label="Mehr erfahren &amp; anmelden: Wein &amp; Finanzen am 5. November 2026">Mehr erfahren &amp; anmelden</a>
+    </article>
+
+    <article class="ev-card anim-up d2">
+      <div class="ev-top">
+        <div class="ev-date" aria-hidden="true"><span class="ev-day">3</span><span class="ev-mon">Dez 2026</span></div>
+        <div>
+          <div class="ev-label">Veranstaltung</div>
+          <div class="ev-datetext">Donnerstag, 3. Dezember 2026</div>
+          <div class="ev-time">18:30 Uhr · Graz</div>
+        </div>
+      </div>
+      <h3 class="ev-title">Finanz-Infoabend</h3>
+      <p class="ev-sub">Kosten und Risiken verstehen</p>
+      <p class="ev-text">Finanzprodukte verstehen – Klarheit über Geld, Kosten und Risiken.</p>
+      <ul class="ev-meta"><li>Kostenlose Teilnahme</li></ul>
+      <a href="finanz-infoabend.html" class="btn-gold ev-btn" aria-label="Mehr erfahren &amp; anmelden: Finanz-Infoabend am 3. Dezember 2026">Mehr erfahren &amp; anmelden</a>
+    </article>
+
+  </div>
+</section>
+
 <!-- ══ SEMINARE / CREDIBILITY ══ -->
 <section class="seminar-section" id="seminare">
   <div class="seminar-grid anim-up">
@@ -2386,7 +2468,8 @@ a { text-decoration: none; }
       <a href="business-seminar.html">Business Seminar</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="gold-sparplan.html">Gold Sparplan</a>
-      <a href="info-abend.html">Info-Abend</a>
+      <a href="info-abend.html">Wein &amp; Finanzen</a>
+      <a href="finanz-infoabend.html">Finanz-Infoabend</a>
     </div>
     <div class="footer-col">
       <h4>Rechtliches</h4>
