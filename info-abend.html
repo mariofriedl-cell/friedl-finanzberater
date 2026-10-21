@@ -345,6 +345,9 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 .mc-btn:hover{filter:brightness(1.08)}
 .mc-link{font-size:.8rem}
 @media(max-width:900px){.map-consent{min-height:220px}}
+.date-grid-single{grid-template-columns:minmax(0,340px);justify-content:center}
+.fg-hint.fg-hint-note{color:rgba(255,255,255,.65);font-size:.83rem}
+.flp-item a{color:var(--gold2);text-decoration:underline}
 </style>
 </head>
 <body>
@@ -359,7 +362,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="#termine">Termine</a></li>
+      <li><a href="#termine">Termin</a></li>
       <li><a href="#anmelden" class="nav-wine">🍷 Platz sichern</a></li>
     </ul>
     <button class="mob-btn" id="mobBtn">☰</button>
@@ -370,7 +373,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   <a href="index.html">Home</a>
   <a href="index.html#leistungen">Leistungen</a>
   <a href="business-seminar.html">Business Seminar</a>
-  <a href="#termine">📅 Termine</a>
+  <a href="#termine">📅 Termin</a>
   <a href="#anmelden" class="mob-wine">🍷 Kostenlos anmelden</a>
 </div>
 
@@ -520,37 +523,13 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
   <div class="wrap">
     <div class="sh anim">
       <span class="eyebrow-tag">Vortragsabend Wein &amp; Finanzen</span>
-      <h2>Wähle deinen<br><em>Termin.</em></h2>
-      <p>Fünf Abende, ein Thema, ein Glas Wein, das schon auf dich wartet. Wähle den Termin, der in deine Woche passt – Beginn ist jeweils um 19:00 Uhr.</p>
+      <h2>Dein<br><em>Termin.</em></h2>
+      <p>Ein Abend, ein Thema, ein Glas Wein, das schon auf dich wartet. Beginn ist um 19:00 Uhr. Klicke auf den Termin, um ihn für deine Anmeldung zu übernehmen.</p>
     </div>
-    <div class="date-grid">
-      <div class="date-card" data-value="21-08-2026" data-label="Freitag, 21. August 2026" onclick="selectDate(this)">
-        <div class="dc-weekday">Freitag</div>
-        <div class="dc-date">21.08.</div>
-        <div class="dc-month">2026</div>
-        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
-      </div>
-      <div class="date-card" data-value="17-09-2026" data-label="Donnerstag, 17. September 2026" onclick="selectDate(this)">
-        <div class="dc-weekday">Donnerstag</div>
-        <div class="dc-date">17.09.</div>
-        <div class="dc-month">2026</div>
-        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
-      </div>
-      <div class="date-card" data-value="16-10-2026" data-label="Freitag, 16. Oktober 2026" onclick="selectDate(this)">
-        <div class="dc-weekday">Freitag</div>
-        <div class="dc-date">16.10.</div>
-        <div class="dc-month">2026</div>
-        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
-      </div>
+    <div class="date-grid date-grid-single">
       <div class="date-card" data-value="05-11-2026" data-label="Donnerstag, 5. November 2026" onclick="selectDate(this)">
         <div class="dc-weekday">Donnerstag</div>
         <div class="dc-date">05.11.</div>
-        <div class="dc-month">2026</div>
-        <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
-      </div>
-      <div class="date-card" data-value="03-12-2026" data-label="Donnerstag, 3. Dezember 2026" onclick="selectDate(this)">
-        <div class="dc-weekday">Donnerstag</div>
-        <div class="dc-date">03.12.</div>
         <div class="dc-month">2026</div>
         <div class="dc-time">🕖 Beginn 19:00 Uhr</div>
       </div>
@@ -609,14 +588,14 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           „Neugierig? Dann sei dabei. Wissen, das bleibt – Genuss, der verbindet."
         </div>
         <p>
-          Wähle oben deinen Wunschtermin, trage Name, E-Mail und Telefonnummer ein. Du erhältst sofort eine Bestätigung mit allen Details. <strong>Du trägst dich ein, wir reservieren deinen Platz – mehr passiert nicht.</strong>
+          Wähle oben deinen Wunschtermin, trage Name, E-Mail und Telefonnummer ein. <strong>Melde dich kostenlos an. Wir melden uns, falls Rückfragen entstehen oder keine Plätze mehr verfügbar sind.</strong>
         </p>
 
         <div class="fl-perks">
-          <div class="flp-item"><div class="flp-icon">✓</div><div><strong>Sofortige Bestätigung</strong> per E-Mail mit allen Details</div></div>
+          <div class="flp-item"><div class="flp-icon">✓</div><div><strong>Kostenlose Teilnahme</strong> – bei begrenzter Teilnehmerzahl</div></div>
           <div class="flp-item"><div class="flp-icon">🍷</div><div><strong>Weine, die du nicht im Supermarktregal findest</strong> – für dich eingeschenkt</div></div>
           <div class="flp-item"><div class="flp-icon">👥</div><div><strong>Kleine Runde</strong> – deine Frage geht hier nicht im Lärm unter</div></div>
-          <div class="flp-item"><div class="flp-icon">🔒</div><div><strong>Deine Daten bleiben bei uns</strong> – für nichts anderes als deine Anmeldung</div></div>
+          <div class="flp-item"><div class="flp-icon">🔒</div><div><strong>Deine Daten verwenden wir zur Bearbeitung deiner Anmeldung.</strong> Weitere Informationen findest du in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</div></div>
           <div class="flp-item"><div class="flp-icon">🎒</div><div><strong>Du gehst mit Wissen nach Hause</strong> – nicht mit einem Vertrag in der Tasche</div></div>
         </div>
       </div>
@@ -654,11 +633,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
               <label>Gewünschter Termin *</label>
               <select name="wunschtermin" id="terminSelect" required onchange="syncDateFromSelect(this)">
                 <option value="">Bitte wählen</option>
-                <option value="21-08-2026">Freitag, 21. August 2026</option>
-                <option value="17-09-2026">Donnerstag, 17. September 2026</option>
-                <option value="16-10-2026">Freitag, 16. Oktober 2026</option>
                 <option value="05-11-2026">Donnerstag, 5. November 2026</option>
-                <option value="03-12-2026">Donnerstag, 3. Dezember 2026</option>
               </select>
               <div class="fg-hint">Tipp: Du kannst deinen Termin auch oben per Klick auswählen.</div>
             </div>
@@ -674,23 +649,24 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
             </div>
             <div class="fg">
               <label>Hast du schon eine Frage?</label>
-              <textarea name="frage" rows="3" placeholder="Optional – stelle deine Frage schon hier..."></textarea>
+              <textarea name="frage" rows="3" placeholder="Optional – stelle deine Frage schon hier..." aria-describedby="frageHinweis"></textarea>
+              <div class="fg-hint fg-hint-note" id="frageHinweis">Bitte keine sensiblen persönlichen Finanz- oder Gesundheitsdaten eingeben.</div>
             </div>
             <div class="fg-check">
               <input type="checkbox" id="datenschutz" name="datenschutz" required>
-              <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und stimme zu, eine Bestätigungs-E-Mail zu erhalten. *</label>
+              <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a>. *</label>
             </div>
             <button type="submit" class="btn-submit">🍷 Kostenlos anmelden – Platz sichern →</button>
             <div class="form-note">
-              Sofortige Bestätigung per E-Mail · Danach hörst du nur von uns, wenn du willst · Jederzeit abmeldbar<br>
+              Danach hörst du nur von uns, wenn du willst · Jederzeit abmeldbar<br>
               Die Anmeldung wird über den Dienstleister Formspree (USA) übermittelt.<br>
               <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>
             </div>
           </form>
           <div class="form-success" id="formSuccess">
             <div class="fs-icon">🎉</div>
-            <div class="fs-title">Anmeldung bestätigt!</div>
-            <div class="fs-text">Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt sofort per E-Mail.<br><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Ein Glas Wein steht schon für dich bereit. 🍷</div>
+            <div class="fs-title">Anmeldung eingegangen!</div>
+            <div class="fs-text">Wir freuen uns auf dich! Deine Anmeldung ist bei uns eingegangen. Bei Rückfragen melden wir uns unter der von dir angegebenen E-Mail-Adresse.<br><br>EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br><br>Ein Glas Wein steht schon für dich bereit. 🍷</div>
           </div>
         </div>
       </div>
@@ -725,7 +701,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="faq-q-text">Kann ich Freunde oder Familie mitbringen?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Ja, sehr gerne! <strong>Gib einfach bei der Anmeldung die Anzahl der Begleitpersonen an</strong> – der Abend ist für alle kostenlos. Bitte beachte die begrenzte Teilnehmerzahl pro Abend.</p></div>
+        <div class="faq-a"><p>Ja, sehr gerne! <strong>Gib einfach bei der Anmeldung die Anzahl der Begleitpersonen an</strong> – der Abend ist für alle kostenlos. Bitte beachte die begrenzte Teilnehmerzahl.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -739,7 +715,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
           <span class="faq-q-text">Was passiert mit meinen Daten?</span>
           <span class="faq-icon">+</span>
         </div>
-        <div class="faq-a"><p>Deine Daten werden für die Anmeldebestätigung und eventuelle Erinnerungen verwendet. Die Anmeldung wird über den Dienstleister Formspree (USA) übermittelt, die Website wird über GitHub bereitgestellt. <strong>Keine Werbemails.</strong> Jederzeit abmeldbar. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p></div>
+        <div class="faq-a"><p>Deine Daten werden zur Bearbeitung deiner Anmeldung und für Rückfragen zur Veranstaltung verwendet. Die Anmeldung wird über den Dienstleister Formspree (USA) übermittelt, die Website wird über GitHub bereitgestellt. <strong>Keine Werbemails.</strong> Jederzeit abmeldbar. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p></div>
       </div>
     </div>
   </div>
@@ -755,7 +731,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
     <p class="cc-sub">Setz dich zu uns – mit einem Glas Wein in der Hand hört sich sogar Zinseszins gut an. Keine Tabellen ohne Erklärung, keine Fachbegriffe ohne Übersetzung. Nur du, ein paar andere Neugierige und Antworten, die du sofort verstehst.</p>
 
     <div class="cc-details">
-      <div class="cd-item"><span>📅</span><strong>21.8. · 17.9. · 16.10. · 5.11. · 3.12.2026</strong></div>
+      <div class="cd-item"><span>📅</span><strong>Donnerstag, 5.11.2026</strong></div>
       <div class="cd-item"><span>⏰</span><strong>Beginn 19:00 Uhr</strong></div>
       <div class="cd-item"><span>📍</span><strong>Graz · Exclusive Location</strong></div>
       <div class="cd-item"><span>💶</span><strong>€ 0,00 · Kostenlos</strong></div>
@@ -789,7 +765,7 @@ footer{background:#050503;padding:46px 28px 26px;text-align:center;border-top:1p
 <!-- STICKY -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sb-left">
-    <strong>🍷 Wein &amp; Finanzen · Nächste Termine: 21.8. · 17.9. · 16.10. · 5.11. · 3.12.2026</strong>
+    <strong>🍷 Wein &amp; Finanzen · Nächster Termin: 5.11.2026</strong>
     <div class="sb-detail">Beginn 19:00 Uhr · Graz · Kostenlos</div>
   </div>
   <a href="#termine" class="btn-wine" style="font-size:.88rem;padding:10px 24px;white-space:nowrap">Platz sichern →</a>
@@ -861,20 +837,14 @@ function syncDateFromSelect(sel){
 
 /* ═══ BESTÄTIGUNGS-MAIL (EmailJS) ═══
    Trage hier die drei Werte aus deinem EmailJS-Konto ein.
-   Solange eines leer ist, wird keine Mail verschickt (Formular funktioniert trotzdem). */
+   Solange eines leer ist, wird keine Mail verschickt (Formular funktioniert trotzdem).
+   WICHTIG: Die Texte der Seite versprechen KEINE automatische Bestätigungs-E-Mail. Erst nach Einrichtung und erfolgreichem Test von EmailJS darf sie wieder erwähnt werden. */
 const EMAILJS_CFG={publicKey:'',serviceId:'',templateId:''};
-const BRAU_URL='https://www.google.com/maps/place//data=!4m2!3m1!1s0x476fb5e561d0e94b:0x7cd9ef4e0e479566?sa=X&ved=1t:8290&ictx=111';
-const BRAU_HREF=BRAU_URL.replace(/&/g,'&amp;');
 function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 function confirmationHtml(val,vorname,label){
   const hi='Hallo '+esc(vorname)+',<br><br>';
   const bye='<br><br>Wir freuen uns auf dich!<br>Mario Friedl';
-  if(val==='16-10-2026'){
-    return hi+'wir freuen uns über deine Anmeldung zum Info-Abend „Wein &amp; Finanzen“ am <strong>'+esc(label)+'</strong> um 19:00 Uhr.<br><br>'
-      +'Aufgrund der hohen Nachfrage findet die Veranstaltung an einem anderen Ort statt:<br>'
-      +'<strong><a href="'+BRAU_HREF+'">Brauquartier 11/Top 1, 8055 Graz</a></strong>'+bye;
-  }
   return hi+'wir freuen uns über deine Anmeldung zum Info-Abend „Wein &amp; Finanzen“ am <strong>'+esc(label)+'</strong> um 19:00 Uhr.<br><br>'
     +'Ort: EQUALITY EH GmbH, Herrgottwiesgasse 119, 8020 Graz (Parkplätze direkt vor Ort).'+bye;
 }
@@ -905,13 +875,6 @@ async function sendConfirmation(form,val){
 }
 
 function showSuccess(val){
-  const t=document.querySelector('#formSuccess .fs-text');
-  if(val==='16-10-2026'){
-    t.innerHTML='Wir freuen uns auf dich! Eine Bestätigung mit allen Details kommt per E-Mail.<br><br>'
-      +'<strong>Wichtig – Veranstaltungsort:</strong> Aufgrund der hohen Nachfrage findet der Abend am 16.10. im<br>'
-      +'<a href="'+BRAU_HREF+'" target="_blank" rel="noopener">Brauquartier 11/Top 1, 8055 Graz</a> statt.<br><br>'
-      +'Ein Glas Wein steht schon für dich bereit. 🍷';
-  }
   document.getElementById('infoForm').style.display='none';
   document.getElementById('formSuccess').classList.add('show');
 }
