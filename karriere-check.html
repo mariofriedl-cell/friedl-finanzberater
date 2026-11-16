@@ -792,6 +792,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero-paths .btn-gold{animation:none}
 
 .hero-card-photo{aspect-ratio:1179/782;object-position:center}
+
+.opt-card.single{max-width:620px;margin:0 auto;padding:32px 28px;text-align:center;align-items:center}
+.opt-card.single h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white);margin:0}
+.opt-card.single p{flex:none;font-size:1rem;color:rgba(255,255,255,.7);max-width:520px}
+.opt-card.single .btn-gold{width:100%;max-width:420px}
+.ns-link{display:block;margin:20px auto 0;background:none;border:0;padding:6px 4px;color:var(--gold);font-family:'Lato',sans-serif;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.ns-link:hover{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -968,21 +975,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 
       <!-- Nach dem Check: zwei Optionen, noch ohne Kontaktdaten -->
       <div class="next-steps" id="nextSteps" hidden>
-        <h3>Deine nächsten Schritte</h3>
-        <p class="ns-sub">Wähle, wie es weitergehen soll. Erst dort gibst du Kontaktdaten an.</p>
-        <div class="opt-grid">
-          <div class="opt-card">
-            <h4>Persönliches Infogespräch</h4>
-            <p>Erzähl mir, was du beruflich verändern möchtest. Wir besprechen, welche Aufgaben dich interessieren und was du für einen Einstieg neben deinem Hauptberuf noch klären möchtest.</p>
-            <a href="#anfrage" class="btn-gold" data-open-form="infogespraech" data-from-check="1">Persönliches Infogespräch anfragen</a>
-          </div>
-          <div class="opt-card">
-            <h4>Infoabend zum Einstieg in die Finanzberatung in Graz</h4>
-            <p>Lerne die Tätigkeit und die Zusammenarbeit im Team kennen. Bring die Fragen mit, die beim Karriere-Check für dich aufgekommen sind.</p>
-            <a href="#anfrage" class="btn-gold" data-open-form="infoabend" data-from-check="1">Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz anfragen</a>
-          </div>
+        <div class="opt-card single">
+          <h3 id="nsTitle" tabindex="-1">Dein nächster Schritt</h3>
+          <p>Du hast dir Gedanken gemacht, was du beruflich verändern möchtest. Im persönlichen Infogespräch besprechen wir, was dich an der Finanzberatung interessiert und welche Fragen du zu einem Einstieg neben deinem Hauptberuf hast.</p>
+          <a href="#anfrage" class="btn-gold" data-open-form="infogespraech" data-from-check="1">Persönliches Infogespräch anfragen</a>
         </div>
-        <button type="button" class="btn-back ns-back" id="nsBack">← Antworten ansehen oder ändern</button>
+        <button type="button" class="ns-link" id="nsBack">Antworten ansehen oder ändern</button>
       </div>
     </div>
   </div>
@@ -1043,8 +1041,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 
       <div id="msgSuccess" class="success-box" role="status" tabindex="-1" hidden>
         <div class="big" aria-hidden="true">✓</div>
-        <h3>Danke für deine Anfrage</h3>
-        <p id="successText">Deine Anfrage ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.</p>
+        <p id="successText">Danke für deine Anfrage. Ich melde mich bei dir, damit wir einen Termin für dein persönliches Infogespräch vereinbaren können.</p>
       </div>
 
       <noscript><p style="color:rgba(255,255,255,.7);text-align:center">Ohne JavaScript funktioniert das Formular nicht. Schreib mir bitte direkt an <a href="mailto:mario.friedl@equality-co.at" style="color:var(--gold)">mario.friedl@equality-co.at</a>.</p></noscript>
@@ -1060,7 +1057,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="business-seminar.html">Business Seminar</a>
-    <a href="finanz-infoabend.html">Finanz-Infoabend</a>
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
     <a href="#cookie-einstellungen" data-mf-cookie-settings>Cookie-Einstellungen ändern</a>
@@ -1150,7 +1146,7 @@ function finishCheck(){
   document.getElementById('checkArea').hidden=true;
   var ns=document.getElementById('nextSteps');
   ns.hidden=false;
-  var h=ns.querySelector('h3');h.setAttribute('tabindex','-1');h.focus();
+  document.getElementById('nsTitle').focus({preventScroll:true});
   ns.scrollIntoView({behavior:'smooth',block:'start'});
 }
 document.getElementById('nsBack').addEventListener('click',function(){
@@ -1168,14 +1164,7 @@ var WEGE={
     sub:'Erzähl mir kurz, wer du bist. Ich melde mich bei dir per E-Mail oder, wenn du eine Nummer angibst, telefonisch.',
     betreff:'Recruiting-Anfrage: Persönliches Infogespräch',
     art:'Persönliches Infogespräch',
-    danke:'Deine Anfrage für ein persönliches Infogespräch ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.'
-  },
-  infoabend:{
-    titel:'Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz anfragen',
-    sub:'Erzähl mir kurz, wer du bist. Ich melde mich mit Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz bei dir per E-Mail oder, wenn du eine Nummer angibst, telefonisch.',
-    betreff:'Recruiting-Anfrage: Infos Infoabend zum Einstieg in die Finanzberatung in Graz',
-    art:'Infos Infoabend zum Einstieg in die Finanzberatung in Graz',
-    danke:'Deine Anfrage nach Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.'
+    danke:'Danke für deine Anfrage. Ich melde mich bei dir, damit wir einen Termin für dein persönliches Infogespräch vereinbaren können.'
   }
 };
 var currentWeg='infogespraech';
