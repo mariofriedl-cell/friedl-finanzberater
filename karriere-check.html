@@ -799,6 +799,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .opt-card.single .btn-gold{width:100%;max-width:420px}
 .ns-link{display:block;margin:20px auto 0;background:none;border:0;padding:6px 4px;color:var(--gold);font-family:'Lato',sans-serif;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .ns-link:hover{color:var(--gold2)}
+/* Footer nicht von der fixen Leiste verdecken */
+footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+@media(max-width:768px){footer{padding-bottom:calc(190px + env(safe-area-inset-bottom,0px))}}
 </style>
 </head>
 <body>
