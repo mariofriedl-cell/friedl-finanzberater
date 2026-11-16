@@ -1103,6 +1103,16 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.anim').forEach(function(el){el.classList.add('in')});
 }
 
+/* ── Statistik: nur über window.mfConsent.track(), nur mit Einwilligung, nichts wird gepuffert oder nachgesendet ── */
+var evStart=false,evComplete=false;   /* höchstens einmal pro Seitenaufruf */
+function mfTrack(name,params){
+  try{
+    if(window.mfConsent&&typeof window.mfConsent.track==='function'){
+      if(params)window.mfConsent.track(name,params);else window.mfConsent.track(name);
+    }
+  }catch(e){}
+}
+
 /* ── Karriere-Check: läuft nur im Browser, keine Kontaktdaten, keine Übertragung ── */
 var CHECK_TOTAL=5;
 var checkStep=1;
@@ -1136,6 +1146,7 @@ qNext.addEventListener('click',function(){
   var v=chosen(checkStep);
   if(!v){qError.textContent='Bitte wähle eine Antwort aus.';return}
   checkAnswers['c'+checkStep]=v;
+  if(checkStep===1&&!evStart){evStart=true;mfTrack('career_check_start')}
   if(checkStep<CHECK_TOTAL){renderStep(checkStep+1,true)}
   else{finishCheck()}
 });
@@ -1151,6 +1162,7 @@ function finishCheck(){
   ns.hidden=false;
   document.getElementById('nsTitle').focus({preventScroll:true});
   ns.scrollIntoView({behavior:'smooth',block:'start'});
+  if(!evComplete){evComplete=true;mfTrack('career_check_complete')}
 }
 document.getElementById('nsBack').addEventListener('click',function(){
   document.getElementById('nextSteps').hidden=true;
@@ -1171,6 +1183,7 @@ var WEGE={
   }
 };
 var currentWeg='infogespraech';
+var currentEntry='direct';   /* direct | after_check */
 var formSubmitting=false,formDone=false;
 var panel=document.getElementById('formPanel');
 var form=document.getElementById('anfrageForm');
@@ -1200,6 +1213,7 @@ function openForm(weg,fromCheck){
   document.getElementById('fSubject').value=w.betreff;
   document.getElementById('fArt').value=w.art;
   var hasCheck=!!(fromCheck&&checkDone);
+  currentEntry=hasCheck?'after_check':'direct';
   document.getElementById('fQuelle').value=hasCheck?'nach Karriere-Check':'direkt';
   var row=document.getElementById('sendAnswersRow');
   row.hidden=!hasCheck;
@@ -1239,6 +1253,7 @@ form.addEventListener('submit',async function(e){
     var resp=await fetch(form.getAttribute('action'),{method:'POST',body:fd,headers:{'Accept':'application/json'}});
     if(resp.ok){
       formDone=true;form.hidden=true;
+      mfTrack('recruiting_inquiry_success',{entry_path:currentEntry});
       document.getElementById('successText').textContent=WEGE[currentWeg].danke;
       msgOk.hidden=false;msgOk.focus();
     }else{
