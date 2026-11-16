@@ -3,42 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Karriere-Check 🎯 – Mario Friedl | Finanzberater werden</title>
-<meta name="description" content="5 Fragen. 3 Minuten. Eine ehrliche Einschätzung: Passt eine Karriere in der Finanzberatung zu dir? Mach den kostenlosen Karriere-Check.">
+<title>Finanzberatung neben dem Hauptberuf kennenlernen – Karriere-Check | Mario Friedl</title>
+<meta name="description" content="Du willst beruflich etwas verändern und deinen Hauptjob vorerst behalten? Finde im Karriere-Check heraus, ob Finanzberatung zu dir passt, und frag ein persönliches Infogespräch an.">
 
-<!-- Cookie Consent + GA Guard -->
-<script>
-(function(){
-  var KEY='mf_cookie_consent';
-  function loadGA(){
-    if(document.getElementById('ga-s'))return;
-    var s=document.createElement('script');s.id='ga-s';s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id=G-Q5N5F85YTW';
-    document.head.appendChild(s);
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments)}window.gtag=gtag;
-    gtag('js',new Date());gtag('config','G-Q5N5F85YTW',{anonymize_ip:true});
-  }
-  window.mfAccept=function(){localStorage.setItem(KEY,'accepted');document.getElementById('mfCookieBar').style.display='none';loadGA();};
-  window.mfDecline=function(){localStorage.setItem(KEY,'declined');document.getElementById('mfCookieBar').style.display='none';};
-  document.addEventListener('DOMContentLoaded',function(){
-    var bar=document.getElementById('mfCookieBar');if(!bar)return;
-    var v=localStorage.getItem(KEY);
-    if(v==='accepted'){bar.style.display='none';loadGA();}
-    else if(v==='declined'){bar.style.display='none';}
-    else{bar.style.display='flex';}
-  });
-})();
-</script>
-<div id="mfCookieBar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f1923;border-top:2px solid #C8973B;padding:14px 24px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.5)">
-  <p style="font-size:.84rem;color:rgba(255,255,255,.92);line-height:1.6;max-width:560px;margin:0">🍪 Diese Website verwendet Google Analytics (nur mit deiner Zustimmung). <a href="datenschutz.html" style="color:#C8973B">Datenschutzerklärung</a></p>
-  <div style="display:flex;gap:10px;flex-shrink:0">
-    <button onclick="mfDecline()" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.65);font-size:.82rem;cursor:pointer;font-family:inherit">Ablehnen</button>
-    <button onclick="mfAccept()" style="padding:9px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,#C8973B,#E8B84B);color:#0f1923;font-size:.82rem;font-weight:700;cursor:pointer;font-family:inherit">Akzeptieren ✓</button>
-  </div>
-</div>
+<!-- Einwilligung: muss vor allen anderen Skripten stehen (gemeinsame Steuerung für alle Seiten) -->
+<script src="/consent.js" defer></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<!-- Lokal gehostete Schriften (keine Verbindung zu Google) -->
+<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 
 <style>
 /* ═══════════════════════════════════════════
@@ -742,9 +716,86 @@ footer a:hover{color:var(--gold)}
   .qz-nav{flex-direction:column-reverse}
   .btn-back,.btn-next{width:100%;justify-content:center;text-align:center}
 }
+
+/* ═══════════════════════════════════════════
+   NEU: Infogespräch, Check ohne Kontaktdaten, Optionen, Formular
+═══════════════════════════════════════════ */
+.hero-note{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.7;margin-top:22px;max-width:520px;animation:fadeUp .9s .5s ease both}
+.cta-pair{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.cta-section .cta-inner p.cta-lead{font-size:1.15rem}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--ink);padding:10px 16px;z-index:100001;font-weight:700}
+.skip-link:focus{left:12px;top:12px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,.q-option input:focus-visible + .q-option-label{outline:3px solid var(--gold2);outline-offset:2px}
+
+.check-note{text-align:center;color:rgba(255,255,255,.5);font-size:.86rem;line-height:1.7;margin:-8px 0 28px}
+.q-error{color:#ff9a9a;font-size:.88rem;margin-top:12px;min-height:1.2em}
+.btn-next[disabled]{opacity:.5;cursor:not-allowed}
+
+.next-steps{margin-top:8px}
+.next-steps[hidden],.form-panel[hidden],#anfrageForm[hidden],.hp[hidden],#sendAnswersRow[hidden],.msg[hidden],.success-box[hidden]{display:none}
+.next-steps h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white);text-align:center;margin-bottom:8px}
+.next-steps .ns-sub{text-align:center;color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:28px;line-height:1.7}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.opt-card{background:rgba(255,255,255,.03);border:1px solid rgba(200,151,59,.2);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:12px}
+.opt-card h4{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--white)}
+.opt-card p{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.75;flex:1}
+.opt-card .btn-gold{animation:none;justify-content:center;text-align:center;font-size:.92rem;padding:13px 20px;border-radius:14px}
+.ns-back{display:block;margin:22px auto 0}
+
+.form-panel{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.form-panel h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:10px;text-align:center}
+.form-panel .fp-sub{text-align:center;color:rgba(255,255,255,.55);font-size:.98rem;line-height:1.7;margin-bottom:28px}
+.cf-group textarea{width:100%;min-height:110px;resize:vertical;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:.85rem 1rem;font-family:'Lato',sans-serif;font-size:.95rem;color:var(--white);transition:all .2s}
+.cf-group textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.08);box-shadow:0 0 0 4px rgba(200,151,59,.08)}
+.cf-group .opt{font-weight:400;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.35)}
+.cf-group .hint{font-size:.8rem;color:rgba(255,255,255,.45);margin:-2px 0 8px;line-height:1.5}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.send-answers{background:rgba(200,151,59,.06);border:1px solid rgba(200,151,59,.2);border-radius:12px;padding:16px 18px;margin:4px 0 20px}
+.send-answers .privacy-row{margin:0}
+.send-answers label{color:rgba(255,255,255,.75)!important}
+.answer-preview{list-style:none;margin:12px 0 0 28px;font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6}
+.answer-preview li{margin-bottom:4px}
+.form-privacy{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;margin:4px 0 20px}
+.form-privacy a{color:var(--gold)}
+.msg{border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:.92rem;line-height:1.6}
+.msg.err{background:rgba(224,62,62,.12);border:1px solid rgba(224,62,62,.45);color:#ffb3b3}
+.success-box{text-align:center;padding:30px 12px}
+.success-box .big{font-size:2.6rem;color:var(--green);margin-bottom:10px}
+.success-box h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white);margin-bottom:10px}
+.success-box p{color:rgba(255,255,255,.65);line-height:1.8}
+.form-close{display:block;margin:20px auto 0}
+.form-section{padding:20px 0 110px;background:linear-gradient(160deg,var(--ink) 0%,#0a1520 100%)}
+.form-section .quiz-wrap{margin-top:0}
+.field-error-note{color:#ffb3b3;font-size:.82rem;margin-top:6px}
+@media(max-width:768px){.opt-grid{grid-template-columns:1fr}.cta-pair .btn-gold,.cta-pair .btn-outline{width:100%;justify-content:center}.form-section{padding-bottom:90px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.anim{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+.q-item legend{display:block;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.78);margin-bottom:12px;line-height:1.5}
+.q-item legend .q-num{display:inline-block;width:24px;height:24px;border-radius:50%;background:rgba(200,151,59,.2);border:1px solid rgba(200,151,59,.3);font-size:.7rem;font-weight:700;color:var(--gold);text-align:center;line-height:24px;margin-right:10px;vertical-align:middle}
+.qz-step[hidden]{display:none}
+.hero h1{font-size:clamp(2.1rem,4vw,3.3rem);line-height:1.12}
+@media(max-width:768px){.hero h1{font-size:1.95rem}}
+.form-panel,.next-steps,#checkBox,#anfrage,#karriere-check{scroll-margin-top:84px}
+
+.hero-paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;animation:fadeUp .9s .4s ease both}
+.hp-item{display:flex;flex-direction:column;gap:12px}
+.hp-item .btn-gold,.hp-item .btn-outline{justify-content:center;text-align:center;width:100%;padding:15px 18px;font-size:.95rem}
+.hp-item .btn-gold{animation:none}
+.hp-item p{font-size:.88rem;color:rgba(255,255,255,.58);line-height:1.65}
+.hero-card-photo{height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 58%}
+.hero-card-cap{font-style:normal;font-family:'Lato',sans-serif;font-size:.9rem;font-weight:700;color:rgba(255,255,255,.82);text-align:center}
+@media(max-width:1024px){.hero-card{max-width:440px;width:100%;margin:0 auto}}
+@media(max-width:640px){.hero-paths{grid-template-columns:1fr}.hero-card{max-width:none}}
+
+.hero-sub-1{margin-bottom:14px}
+.hero-paths .btn-gold,.hero-paths .btn-outline{justify-content:center;text-align:center;width:100%;padding:15px 18px;font-size:.95rem}
+.hero-paths .btn-gold{animation:none}
+
+.hero-card-photo{aspect-ratio:1179/782;object-position:center}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
 <!-- ══ NAV ══ -->
 <nav id="mainNav">
@@ -756,9 +807,9 @@ footer a:hover{color:var(--gold)}
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="business-seminar.html">Business Seminar</a></li>
-      <li><a href="#karriere-check" class="nav-cta">Mein Ergebnis →</a></li>
+      <li><a href="#anfrage" class="nav-cta" data-open-form="infogespraech">Infogespräch anfragen</a></li>
     </ul>
-    <button class="mobile-btn" id="mobileBtn">☰</button>
+    <button class="mobile-btn" id="mobileBtn" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">☰</button>
   </div>
 </nav>
 
@@ -766,8 +817,10 @@ footer a:hover{color:var(--gold)}
   <a href="index.html">Home</a>
   <a href="index.html#leistungen">Leistungen</a>
   <a href="business-seminar.html">Business Seminar</a>
-  <a href="#karriere-check" class="m-cta">Mein Ergebnis ansehen →</a>
+  <a href="#anfrage" class="m-cta" data-open-form="infogespraech">Infogespräch anfragen</a>
 </div>
+
+<main id="inhalt">
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -775,245 +828,231 @@ footer a:hover{color:var(--gold)}
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div>
-      <div class="hero-badge">🎯 Karriere-Check · 5 Fragen · 3 Minuten</div>
-      <h1>Ein paar hundert Euro mehr.<br><em>Was würde sich ändern?</em></h1>
-      <p class="hero-sub">
-        Mit 16 begann ich die Ausbildung zum Großhandelskaufmann. 2021 stellte mir jemand eine Frage: Wie würde es sich anfühlen, im Monat ein paar hundert Euro zu meinem Job dazuzuverdienen? <strong>Meine Antwort kam schneller, als ich erwartet hätte – die liest du gleich.</strong>
-      </p>
-      <div class="hero-ctas">
-        <a href="#karriere-check" class="btn-gold">Zeig mir mein Ergebnis →</a>
-        <a href="#partner" class="btn-outline">Was dich erwartet</a>
+      <div class="hero-badge">Für Berufstätige aus Graz und der Steiermark</div>
+      <h1>Du willst beruflich etwas verändern?<em>Finde heraus, ob Finanzberatung zu dir passt.</em></h1>
+      <p class="hero-sub hero-sub-1">Willst du mal raus aus der Routine und beruflich etwas Neues ausprobieren? Oder würdest du dir neben deinem Job gern etwas dazuverdienen?</p>
+      <p class="hero-sub">Ich habe selbst neben meinem 40-Stunden-Job als Tippgeber angefangen. Heute bin ich seit vier Jahren in der Finanzbranche selbstständig. Im persönlichen Infogespräch erzähle ich dir, wie die selbstständige Zusammenarbeit im Equality-Netzwerk aussieht und wie ein Einstieg neben deinem Hauptberuf ablaufen kann.</p>
+      <div class="hero-paths">
+        <a href="#anfrage" class="btn-gold" data-open-form="infogespraech">Persönliches Infogespräch anfragen</a>
+        <a href="#karriere-check" class="btn-outline">Karriere-Check starten</a>
       </div>
     </div>
 
     <div class="hero-card">
-      <img class="hero-card-photo" src="karriere-check-gespraech.jpg" alt="Perspektivgespräch mit Mario Friedl">
+      <img class="hero-card-photo" src="mario-friedl-beratung.jpg" width="1179" height="782" alt="Mario Friedl im Beratungsgespräch am Schreibtisch.">
       <div class="hero-card-body">
-        <p class="hero-card-cap">Vom ersten Gespräch bis zum eigenen Standbein.</p>
-        <div class="hero-stats">
-          <div class="hs-item"><div class="hs-num">150+</div><div class="hs-lbl">Berater</div></div>
-          <div class="hs-item"><div class="hs-num">15+</div><div class="hs-lbl">Partnerbanken</div></div>
-          <div class="hs-item"><div class="hs-num">5 Min</div><div class="hs-lbl">Der Check</div></div>
-        </div>
+        <p class="hero-card-cap" style="margin-bottom:0">Mario Friedl · Dein Ansprechpartner für den Einstieg</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ TICKER ══ -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    <div class="ticker-item"><span class="ticker-dot"></span> Vertrauen</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Wachstum</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Wertschätzung</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Nebenberuflich starten</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Vertrauen</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Wachstum</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Wertschätzung</div>
-    <div class="ticker-item"><span class="ticker-dot"></span> Nebenberuflich starten</div>
+<!-- ══ SO HABE ICH ANGEFANGEN ══ -->
+<section class="story-bridge">
+  <div class="sb-inner anim">
+    <span class="eyebrow">So habe ich angefangen</span>
+    <p>Ich bin als Tippgeber eingestiegen, damals neben meinem 40-Stunden-Job. So konnte ich mir Schritt für Schritt ein Bild von der Branche machen. <strong>Im Gespräch erzähle ich dir, was ich am Anfang konkret gemacht habe und wie mein Einstieg neben dem Beruf ausgesehen hat.</strong></p>
   </div>
-</div>
+</section>
 
-<!-- ══ WAS DICH ERWARTET ══ -->
+<!-- ══ WAS DU IM GESPRÄCH KLÄREN KANNST ══ -->
 <section class="partner-section" id="partner">
   <div class="wrap">
     <div class="section-head anim" style="text-align:center;margin-bottom:0">
-      <span class="eyebrow">Werde Geschäftspartner</span>
-      <h2 style="color:var(--white)">Vertrauen. Wachstum.<br><em class="gold">Wertschätzung.</em></h2>
-      <p>Kein Konzern-Fließband. Eine Partnerschaft, die mitwächst.</p>
+      <span class="eyebrow">Das Infogespräch</span>
+      <h2 style="color:var(--white)">Was du im Gespräch <em class="gold">klären kannst</em></h2>
     </div>
     <div class="partner-grid">
       <div class="pg-card anim">
-        <span class="pg-icon">🤝</span>
-        <div class="pg-title">Vertrauen</div>
-        <div class="pg-text">Auf ehrliche Zusammenarbeit gebaut – von Anfang an.</div>
+        <div class="pg-title">Deine ersten Aufgaben</div>
+        <div class="pg-text">Was machst du zu Beginn, wie entstehen erste Kundenkontakte und wie lässt sich der Einstieg mit deinem Hauptberuf vereinbaren?</div>
       </div>
       <div class="pg-card anim d1">
-        <span class="pg-icon">📈</span>
-        <div class="pg-title">Wachstum</div>
-        <div class="pg-text">Gemeinsam neue Potenziale erschließen, Schritt für Schritt.</div>
+        <div class="pg-title">Deine Begleitung im Team</div>
+        <div class="pg-text">Wer ist bei den ersten Schritten an deiner Seite, und wie laufen Schulungen und fachlicher Austausch ab?</div>
       </div>
       <div class="pg-card anim d2">
-        <span class="pg-icon">💎</span>
-        <div class="pg-title">Wertschätzung</div>
-        <div class="pg-text">Partnerschaft auf Augenhöhe – langfristig und fair.</div>
+        <div class="pg-title">Die Beratung in der Praxis</div>
+        <div class="pg-text">Wie gehen wir vom Bedarf eines Kunden aus, und welche Lösungen aus unserem verfügbaren Angebot können wir dafür vergleichen?</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ STORY BRIDGE ══ -->
-<section class="story-bridge">
-  <div class="sb-inner anim">
-    <span class="eyebrow">Meine Antwort darauf</span>
-    <p><strong>Mehr Freizeit. Meine eigene Zeiteinteilung. Öfter mal Urlaub.</strong> Und beim Einkaufen nicht mehr zuerst auf das Preisschild schauen. Von da an änderte sich alles.</p>
-    <p>Am Anfang wusste ich nicht, ob ich der Typ dafür bin. Aber ein Karriere-Check – genau wie der hier – hat mir gezeigt: <strong>etwas musste sich ändern.</strong> Für Finanzen habe ich mich schon immer interessiert. Mir ging es nie ums schnelle Geld, sondern darum, mich mit Geld auszukennen.</p>
-    <p>Also fing ich als Tippgeber an. Neben meinem 40-Stunden-Job. Langsam aufgebaut. Irgendwann waren es nur noch 20 Stunden. <strong>Heute, mehr als 5 Jahre später, stehe ich hier – selbstständig.</strong></p>
-    <p class="sb-bridge">Der gleiche Check, der mir damals die Richtung gezeigt hat, wartet jetzt auf deine Antworten. ↓</p>
-  </div>
-</section>
-
-<!-- ══ QUIZ / FORM SECTION ══ -->
-<section class="quiz-section" id="karriere-check">
-  <div class="wrap">
-    <div class="section-head anim" style="margin-bottom:56px">
-      <span class="eyebrow">Dein erster Schritt</span>
-      <h2 style="color:var(--white)">Der Karriere-Check.</h2>
-      <p>5 Fragen. 3 Minuten. Eine ehrliche Einschätzung.</p>
-    </div>
-
-    <div class="quiz-wrap anim d1">
-      <h2>Ist Finanzberatung<br><em class="gold">deine Berufung?</em></h2>
-      <p class="quiz-sub">Beantworte die Fragen ehrlich – am Ende siehst du sofort, wo du stehst. Und ich melde mich persönlich bei dir.</p>
-
-      <div class="outcome-teaser">
-        <span class="ot-item">🔥 Du bist bereit.</span>
-        <span class="ot-item">⚡ Du hast das Feuer.</span>
-        <span class="ot-item">🌱 Ein guter erster Schritt.</span>
-      </div>
-      <p class="ot-caption">Welches wird deins? Du erfährst es sofort nach der letzten Frage.</p>
-
-      <div class="quiz-progress">
-        <div class="quiz-progress-bar" id="quizProgressBar"></div>
-      </div>
-      <div class="quiz-step-label" id="quizStepLabel">Deine Kontaktdaten</div>
-
-      <form id="careerForm" action="https://formspree.io/f/xlgnrven" method="POST" onsubmit="return evaluateCareerCheck(event)">
-        <input type="hidden" name="_subject" value="Neuer Karriere-Check ausgefüllt">
-
-        <!-- STEP 1: Kontaktfelder -->
-        <div class="qz-step" data-step="1">
-          <div class="contact-fields">
-            <div class="cf-group">
-              <label>Vorname *</label>
-              <input type="text" name="vorname" placeholder="Dein Vorname" required>
-            </div>
-            <div class="cf-group">
-              <label>Nachname *</label>
-              <input type="text" name="nachname" placeholder="Dein Nachname" required>
-            </div>
-            <div class="cf-group">
-              <label>E-Mail *</label>
-              <input type="email" name="email" placeholder="deine@email.at" required>
-            </div>
-            <div class="cf-group">
-              <label>Telefon</label>
-              <input type="tel" name="telefon" placeholder="+43 ...">
-            </div>
-            <div class="cf-group cf-full">
-              <label>Aktueller Beruf / Branche</label>
-              <input type="text" name="beruf" placeholder="z.B. Logistik, Gastronomie, Vertrieb ...">
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single">
-            <button type="button" class="btn-next" onclick="qzNext()">Weiter →</button>
-          </div>
-        </div>
-
-        <!-- STEP 2: Frage 1 -->
-        <div class="qz-step" data-step="2" style="display:none">
-          <div class="q-item">
-            <label><span class="q-num">1</span> Wie oft denkst du bei der Arbeit: „Da ist mehr in mir"?</label>
-            <div class="q-options">
-              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="4" required><span class="q-option-label">Fast täglich</span></label>
-              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="3"><span class="q-option-label">Regelmäßig</span></label>
-              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="2"><span class="q-option-label">Ab und zu</span></label>
-              <label class="q-option"><input type="radio" name="frage_1_potenzial" value="1"><span class="q-option-label">Eher selten</span></label>
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single-back">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-          </div>
-        </div>
-
-        <!-- STEP 3: Frage 2 -->
-        <div class="qz-step" data-step="3" style="display:none">
-          <div class="q-item">
-            <label><span class="q-num">2</span> Wenn du ein paar hundert Euro zu deinem jetzigen Job dazuverdienen könntest – was würde sich für dich ändern?</label>
-            <div class="q-options">
-              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="4" required><span class="q-option-label">Einiges – mehr Freiheit, weniger Sorgen ums Geld</span></label>
-              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="3"><span class="q-option-label">Spürbar etwas – ich könnte mir mehr leisten</span></label>
-              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="2"><span class="q-option-label">Ein bisschen – aber ich komme auch so klar</span></label>
-              <label class="q-option"><input type="radio" name="frage_2_mehrverdienst" value="1"><span class="q-option-label">Nicht viel – Geld ist für mich zweitrangig</span></label>
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single-back">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-          </div>
-        </div>
-
-        <!-- STEP 4: Frage 3 -->
-        <div class="qz-step" data-step="4" style="display:none">
-          <div class="q-item">
-            <label><span class="q-num">3</span> Wünschst du dir am Montag auch schon den Freitag herbei?</label>
-            <div class="q-options">
-              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="4" required><span class="q-option-label">Fast jede Woche – ich zähle die Tage</span></label>
-              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="3"><span class="q-option-label">Öfter, als mir lieb ist</span></label>
-              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="2"><span class="q-option-label">Manchmal – aber nicht ständig</span></label>
-              <label class="q-option"><input type="radio" name="frage_3_montag_freitag" value="1"><span class="q-option-label">Selten – ich mag meinen Job</span></label>
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single-back">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-          </div>
-        </div>
-
-        <!-- STEP 5: Frage 4 -->
-        <div class="qz-step" data-step="5" style="display:none">
-          <div class="q-item">
-            <label><span class="q-num">4</span> Was wiegt für dich schwerer: das sichere Gehalt am Monatsende oder die Chance auf mehr?</label>
-            <div class="q-options">
-              <label class="q-option"><input type="radio" name="frage_4_risiko" value="4" required><span class="q-option-label">Die Chance – ich will nach oben</span></label>
-              <label class="q-option"><input type="radio" name="frage_4_risiko" value="3"><span class="q-option-label">Beides, aber die Chance zieht mich mehr</span></label>
-              <label class="q-option"><input type="radio" name="frage_4_risiko" value="2"><span class="q-option-label">Kommt drauf an, wie groß das Risiko ist</span></label>
-              <label class="q-option"><input type="radio" name="frage_4_risiko" value="1"><span class="q-option-label">Das sichere Gehalt – Sicherheit geht vor</span></label>
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single-back">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-          </div>
-        </div>
-
-        <!-- STEP 6: Frage 5 -->
-        <div class="qz-step" data-step="6" style="display:none">
-          <div class="q-item">
-            <label><span class="q-num">5</span> Wie lange trägst du den Gedanken „Ich will beruflich etwas verändern" schon mit dir?</label>
-            <div class="q-options">
-              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="4" required><span class="q-option-label">Mehr als 2 Jahre – es wird Zeit</span></label>
-              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="3"><span class="q-option-label">1–2 Jahre – der Druck wächst</span></label>
-              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="2"><span class="q-option-label">Ein paar Monate – ich bin dabei aufzuwachen</span></label>
-              <label class="q-option"><input type="radio" name="frage_5_veraenderungswille" value="1"><span class="q-option-label">Noch nicht lang – ich taste mich ran</span></label>
-            </div>
-          </div>
-          <div class="qz-nav qz-nav-single-back">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-          </div>
-        </div>
-
-        <!-- STEP 7: Datenschutz + Absenden -->
-        <div class="qz-step" data-step="7" style="display:none">
-          <div class="privacy-row">
-            <input type="checkbox" id="datenschutz" name="datenschutz" required>
-            <label for="datenschutz">Ich akzeptiere die <a href="datenschutz.html">Datenschutzerklärung</a> und bin damit einverstanden, dass Mario Friedl sich bei mir meldet. *</label>
-          </div>
-          <div class="qz-nav">
-            <button type="button" class="btn-back" onclick="qzPrev()">← Zurück</button>
-            <button type="submit" class="btn-submit">Ergebnis anzeigen →</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CLOSING CTA ══ -->
+<!-- ══ MITTE: ZWEITER AUFRUF ══ -->
 <section class="cta-section">
   <div class="cta-inner anim">
-    <h2>Der richtige Moment<br><em>ist heute – nicht irgendwann.</em></h2>
-    <p>Fünf Fragen zeigen dir mehr, als ein Jahr des Abwartens es je könnte.</p>
-    <a href="#karriere-check" class="btn-gold">Bin ich der Typ dafür? →</a>
+    <h2>Lass uns über deinen<br><em>möglichen Einstieg sprechen</em></h2>
+    <p class="cta-lead">Was möchtest du beruflich verändern? Im persönlichen Infogespräch schauen wir gemeinsam, ob dich die Aufgaben interessieren und welche Fragen du für deine Entscheidung noch klären möchtest.</p>
+    <div class="cta-pair">
+      <a href="#anfrage" class="btn-gold" data-open-form="infogespraech">Persönliches Infogespräch anfragen</a>
+      <a href="#karriere-check" class="btn-outline">Karriere-Check starten</a>
+    </div>
   </div>
 </section>
+
+<!-- ══ KARRIERE-CHECK ══ -->
+<section class="quiz-section" id="karriere-check">
+  <div class="wrap">
+    <div class="quiz-wrap anim d1" id="checkBox">
+      <h2>Passt Finanzberatung<br><em class="gold">zu dir?</em></h2>
+      <p class="quiz-sub">Fünf kurze Fragen helfen dir herauszufinden, was dich beruflich reizt und was du über einen möglichen Einstieg wissen möchtest.</p>
+      <p class="check-note">Der Check braucht keine Kontaktdaten und läuft in deinem Browser. Deine Antworten werden nur gesendet, wenn du es später beim Absenden einer Anfrage ausdrücklich auswählst.</p>
+
+      <div id="checkArea">
+        <div class="quiz-progress" role="progressbar" aria-label="Fortschritt im Karriere-Check" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="quizProgress">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <div class="quiz-step-label" id="quizStepLabel" aria-live="polite">Frage 1 von 5</div>
+
+        <form id="checkForm" novalidate onsubmit="return false">
+          <fieldset class="qz-step q-item" data-step="1" style="border:0;padding:0;margin:0;min-width:0">
+                          <legend style="padding:0;display:block;width:100%"><span class="q-num">1</span> Was fehlt dir gerade in deinem Berufsalltag?</legend>
+              <div class="q-options">
+                <label class="q-option"><input type="radio" name="c1" value="Mehr Abwechslung im Arbeitsalltag"><span class="q-option-label">Mehr Abwechslung im Arbeitsalltag</span></label>
+                <label class="q-option"><input type="radio" name="c1" value="Eine Aufgabe, auf die ich mich wieder freue"><span class="q-option-label">Eine Aufgabe, auf die ich mich wieder freue</span></label>
+                <label class="q-option"><input type="radio" name="c1" value="Die Möglichkeit, mir nebenbei etwas dazuzuverdienen"><span class="q-option-label">Die Möglichkeit, mir nebenbei etwas dazuzuverdienen</span></label>
+                <label class="q-option"><input type="radio" name="c1" value="Das kann ich noch nicht genau sagen"><span class="q-option-label">Das kann ich noch nicht genau sagen</span></label>
+              </div>
+          </fieldset>
+
+          <fieldset class="qz-step q-item" data-step="2" style="border:0;padding:0;margin:0;min-width:0" hidden>
+                          <legend style="padding:0;display:block;width:100%"><span class="q-num">2</span> Stell dir vor, du blickst in einem Jahr zurück. Worüber würdest du dich freuen?</legend>
+              <div class="q-options">
+                <label class="q-option"><input type="radio" name="c2" value="Ich habe neben meinem Job etwas Neues ausprobiert."><span class="q-option-label">Ich habe neben meinem Job etwas Neues ausprobiert.</span></label>
+                <label class="q-option"><input type="radio" name="c2" value="Ich habe mir ein zweites Standbein aufgebaut."><span class="q-option-label">Ich habe mir ein zweites Standbein aufgebaut.</span></label>
+                <label class="q-option"><input type="radio" name="c2" value="Ich habe einen beruflichen Weg gefunden, den ich weiterverfolgen möchte."><span class="q-option-label">Ich habe einen beruflichen Weg gefunden, den ich weiterverfolgen möchte.</span></label>
+                <label class="q-option"><input type="radio" name="c2" value="Ich weiß besser, was mir beruflich liegt."><span class="q-option-label">Ich weiß besser, was mir beruflich liegt.</span></label>
+              </div>
+          </fieldset>
+
+          <fieldset class="qz-step q-item" data-step="3" style="border:0;padding:0;margin:0;min-width:0" hidden>
+                          <legend style="padding:0;display:block;width:100%"><span class="q-num">3</span> Was macht dich an der Finanzbranche neugierig?</legend>
+              <div class="q-options">
+                <label class="q-option"><input type="radio" name="c3" value="Selbst mehr über Geld und Finanzen lernen"><span class="q-option-label">Selbst mehr über Geld und Finanzen lernen</span></label>
+                <label class="q-option"><input type="radio" name="c3" value="Verstehen, wie Menschen finanzielle Entscheidungen treffen"><span class="q-option-label">Verstehen, wie Menschen finanzielle Entscheidungen treffen</span></label>
+                <label class="q-option"><input type="radio" name="c3" value="Herausfinden, wie die Arbeit in der Branche im Alltag aussieht"><span class="q-option-label">Herausfinden, wie die Arbeit in der Branche im Alltag aussieht</span></label>
+                <label class="q-option"><input type="radio" name="c3" value="Erfahrungen von Leuten hören, die aus einem anderen Beruf gekommen sind"><span class="q-option-label">Erfahrungen von Leuten hören, die aus einem anderen Beruf gekommen sind</span></label>
+                <label class="q-option"><input type="radio" name="c3" value="Ich möchte mir erst einmal einen Überblick verschaffen."><span class="q-option-label">Ich möchte mir erst einmal einen Überblick verschaffen.</span></label>
+              </div>
+          </fieldset>
+
+          <fieldset class="qz-step q-item" data-step="4" style="border:0;padding:0;margin:0;min-width:0" hidden>
+                          <legend style="padding:0;display:block;width:100%"><span class="q-num">4</span> Was würde dir helfen, einen ersten Schritt neben deinem Hauptberuf zu machen?</legend>
+              <div class="q-options">
+                <label class="q-option"><input type="radio" name="c4" value="Wissen, wie viel Zeit ich dafür einplanen müsste"><span class="q-option-label">Wissen, wie viel Zeit ich dafür einplanen müsste</span></label>
+                <label class="q-option"><input type="radio" name="c4" value="Verstehen, was ich am Anfang konkret machen würde"><span class="q-option-label">Verstehen, was ich am Anfang konkret machen würde</span></label>
+                <label class="q-option"><input type="radio" name="c4" value="Wissen, wer mich bei den ersten Schritten begleitet"><span class="q-option-label">Wissen, wer mich bei den ersten Schritten begleitet</span></label>
+                <label class="q-option"><input type="radio" name="c4" value="Erst einmal meine Fragen in Ruhe besprechen"><span class="q-option-label">Erst einmal meine Fragen in Ruhe besprechen</span></label>
+              </div>
+          </fieldset>
+
+          <fieldset class="qz-step q-item" data-step="5" style="border:0;padding:0;margin:0;min-width:0" hidden>
+                          <legend style="padding:0;display:block;width:100%"><span class="q-num">5</span> Was möchtest du im Infogespräch zuerst klären?</legend>
+              <div class="q-options">
+                <label class="q-option"><input type="radio" name="c5" value="Wie die selbstständige Zusammenarbeit abläuft"><span class="q-option-label">Wie die selbstständige Zusammenarbeit abläuft</span></label>
+                <label class="q-option"><input type="radio" name="c5" value="Wie erste Kundenkontakte entstehen und welche Rolle mein privates Umfeld dabei spielt"><span class="q-option-label">Wie erste Kundenkontakte entstehen und welche Rolle mein privates Umfeld dabei spielt</span></label>
+                <label class="q-option"><input type="radio" name="c5" value="Wie Vertrag, Vergütung und mögliche Einstiegskosten geregelt sind"><span class="q-option-label">Wie Vertrag, Vergütung und mögliche Einstiegskosten geregelt sind</span></label>
+                <label class="q-option"><input type="radio" name="c5" value="Welche Voraussetzungen ich für den Einstieg erfüllen müsste"><span class="q-option-label">Welche Voraussetzungen ich für den Einstieg erfüllen müsste</span></label>
+                <label class="q-option"><input type="radio" name="c5" value="Ich habe noch keine konkrete Frage."><span class="q-option-label">Ich habe noch keine konkrete Frage.</span></label>
+              </div>
+          </fieldset>
+
+          <p class="q-error" id="qError" role="alert"></p>
+          <div class="qz-nav">
+            <button type="button" class="btn-back" id="qBack" style="visibility:hidden">← Zurück</button>
+            <button type="button" class="btn-next" id="qNext">Weiter →</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Nach dem Check: zwei Optionen, noch ohne Kontaktdaten -->
+      <div class="next-steps" id="nextSteps" hidden>
+        <h3>Deine nächsten Schritte</h3>
+        <p class="ns-sub">Wähle, wie es weitergehen soll. Erst dort gibst du Kontaktdaten an.</p>
+        <div class="opt-grid">
+          <div class="opt-card">
+            <h4>Persönliches Infogespräch</h4>
+            <p>Erzähl mir, was du beruflich verändern möchtest. Wir besprechen, welche Aufgaben dich interessieren und was du für einen Einstieg neben deinem Hauptberuf noch klären möchtest.</p>
+            <a href="#anfrage" class="btn-gold" data-open-form="infogespraech" data-from-check="1">Persönliches Infogespräch anfragen</a>
+          </div>
+          <div class="opt-card">
+            <h4>Infoabend zum Einstieg in die Finanzberatung in Graz</h4>
+            <p>Lerne die Tätigkeit und die Zusammenarbeit im Team kennen. Bring die Fragen mit, die beim Karriere-Check für dich aufgekommen sind.</p>
+            <a href="#anfrage" class="btn-gold" data-open-form="infoabend" data-from-check="1">Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz anfragen</a>
+          </div>
+        </div>
+        <button type="button" class="btn-back ns-back" id="nsBack">← Antworten ansehen oder ändern</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANFRAGE (ein Formular für beide Wege) ══ -->
+<section class="form-section" id="anfrage" aria-label="Anfrage">
+  <div class="wrap">
+    <div class="quiz-wrap form-panel" id="formPanel" hidden tabindex="-1">
+      <h2 id="fpTitle" tabindex="-1">Persönliches Infogespräch anfragen</h2>
+      <p class="fp-sub" id="fpSub">Erzähl mir kurz, wer du bist. Ich melde mich bei dir per E-Mail oder, wenn du eine Nummer angibst, telefonisch.</p>
+
+      <div id="msgError" class="msg err" role="alert" hidden></div>
+
+      <form id="anfrageForm" action="https://formspree.io/f/mdagqzag" method="POST">
+        <div class="contact-fields" style="margin-bottom:20px">
+          <div class="cf-group">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" name="vorname" autocomplete="given-name" required>
+          </div>
+          <div class="cf-group">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" name="nachname" autocomplete="family-name" required>
+          </div>
+          <div class="cf-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="cf-group">
+            <label for="telefon">Telefon <span class="opt">(freiwillig)</span></label>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel">
+          </div>
+          <div class="cf-group cf-full">
+            <label for="nachricht">Was möchtest du beruflich verändern? <span class="opt">(freiwillig)</span></label>
+            <p class="hint" id="nachricht-hinweis">Bitte keine sensiblen persönlichen Finanz- oder Gesundheitsdaten eingeben.</p>
+            <textarea id="nachricht" name="nachricht" aria-describedby="nachricht-hinweis"></textarea>
+          </div>
+        </div>
+
+        <div class="send-answers" id="sendAnswersRow" hidden>
+          <div class="privacy-row">
+            <input type="checkbox" id="sendAnswers" name="check_antworten_mitsenden" value="ja">
+            <label for="sendAnswers">Meine Antworten aus dem Karriere-Check mitsenden, damit wir im Gespräch darauf eingehen können. <span style="color:rgba(255,255,255,.45)">(freiwillig, ohne Haken wird nichts davon gesendet)</span></label>
+          </div>
+          <ul class="answer-preview" id="answerPreview" aria-label="Antworten, die mitgesendet würden"></ul>
+        </div>
+
+        <input type="hidden" name="_subject" id="fSubject" value="Recruiting-Anfrage: Persönliches Infogespräch">
+        <input type="hidden" name="anfrage_art" id="fArt" value="Persönliches Infogespräch">
+        <input type="hidden" name="quelle" id="fQuelle" value="direkt">
+        <input type="hidden" name="seite" value="karriere-check">
+        <div class="hp" aria-hidden="true"><label>Dieses Feld bitte leer lassen <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+        <p class="form-privacy">Pflichtfelder sind mit * gekennzeichnet. Deine Daten verwenden wir, um deine Anfrage zu bearbeiten und dich zu kontaktieren. Das Formular wird über den Dienstleister Formspree (USA) übermittelt, und ich erhalte es per E-Mail. Werbung oder Newsletter sind damit nicht verbunden. Mehr dazu in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Wer die Seite betreibt, steht im <a href="impressum.html" target="_blank" rel="noopener">Impressum</a>.</p>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Anfrage senden</button>
+      </form>
+
+      <div id="msgSuccess" class="success-box" role="status" tabindex="-1" hidden>
+        <div class="big" aria-hidden="true">✓</div>
+        <h3>Danke für deine Anfrage</h3>
+        <p id="successText">Deine Anfrage ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.</p>
+      </div>
+
+      <noscript><p style="color:rgba(255,255,255,.7);text-align:center">Ohne JavaScript funktioniert das Formular nicht. Schreib mir bitte direkt an <a href="mailto:mario.friedl@equality-co.at" style="color:var(--gold)">mario.friedl@equality-co.at</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -1021,9 +1060,10 @@ footer a:hover{color:var(--gold)}
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="business-seminar.html">Business Seminar</a>
-    <a href="indo-abend.html">Wein &amp; Finanzen</a>
+    <a href="finanz-infoabend.html">Finanz-Infoabend</a>
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-mf-cookie-settings>Cookie-Einstellungen ändern</a>
   </div>
   <div class="footer-bottom">
     © 2026 Mario Friedl · EQUALITY EH GmbH · Herrgottwiesgasse 119/1 · 8020 Graz<br>
@@ -1033,213 +1073,192 @@ footer a:hover{color:var(--gold)}
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar" id="stickyBar">
-  <div class="sticky-text"><strong>Karriere-Check</strong> – 5 Fragen, 3 Minuten</div>
+  <div class="sticky-text"><strong>Persönliches Infogespräch</strong> – unverbindlich anfragen</div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center">
-    <span style="background:rgba(200,151,59,.15);border:1px solid rgba(200,151,59,.3);border-radius:20px;padding:5px 14px;font-size:.72rem;font-weight:700;color:var(--gold)">FMA-konzessioniert</span>
-    <a href="#karriere-check" class="btn-gold" style="font-size:.88rem;padding:10px 22px">Ergebnis ansehen →</a>
+    <a href="#anfrage" class="btn-gold" data-open-form="infogespraech" style="font-size:.88rem;padding:10px 22px;animation:none">Anfragen</a>
   </div>
 </div>
-
-<!-- ══ RESULT MODAL ══ -->
-<div id="resultOverlay" class="result-overlay">
-  <div class="result-box" id="resultBox">
-    <button class="result-close" onclick="closeResult()">×</button>
-    <span class="result-emoji" id="resultEmoji">🎯</span>
-    <h2 class="result-title" id="resultTitle"></h2>
-    <div class="result-body" id="resultBody"></div>
-    <button class="result-cta" onclick="closeResult()">Verstanden</button>
-  </div>
-</div>
-
 <script>
-/* ── Nav scroll ── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20);
-  document.getElementById('stickyBar').classList.toggle('show',scrollY>500);
+/* ── Nav ── */
+window.addEventListener('scroll',function(){
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);
+  document.getElementById('stickyBar').classList.toggle('show',window.scrollY>500);
 });
+var mobileBtn=document.getElementById('mobileBtn'),mobileMenu=document.getElementById('mobileMenu');
+function setMenu(open){
+  mobileMenu.classList.toggle('open',open);
+  mobileBtn.textContent=open?'✕':'☰';
+  mobileBtn.setAttribute('aria-expanded',open?'true':'false');
+  mobileBtn.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');
+}
+mobileBtn.addEventListener('click',function(){setMenu(!mobileMenu.classList.contains('open'))});
+mobileMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
 
-/* ── Mobile menu ── */
-document.getElementById('mobileBtn').addEventListener('click',()=>{
-  const m=document.getElementById('mobileMenu');
-  m.classList.toggle('open');
-  document.getElementById('mobileBtn').textContent=m.classList.contains('open')?'✕':'☰';
-});
-document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.getElementById('mobileBtn').textContent='☰';
-}));
+/* ── Scroll-Animationen ── */
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')});
+  },{threshold:.12});
+  document.querySelectorAll('.anim').forEach(function(el){obs.observe(el)});
+}else{
+  document.querySelectorAll('.anim').forEach(function(el){el.classList.add('in')});
+}
 
-/* ── Scroll animations ── */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-},{threshold:.12});
-document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
-
-/* ── Career-Check step wizard ── */
-const qzTotalSteps=7;
-let qzCurrentStep=1;
-const qzStepLabels={
-  1:'Deine Kontaktdaten',
-  2:'Frage 1 von 5',
-  3:'Frage 2 von 5',
-  4:'Frage 3 von 5',
-  5:'Frage 4 von 5',
-  6:'Frage 5 von 5',
-  7:'Fast geschafft'
+/* ── Karriere-Check: läuft nur im Browser, keine Kontaktdaten, keine Übertragung ── */
+var CHECK_TOTAL=5;
+var checkStep=1;
+var checkDone=false;           /* true, sobald die Optionen angezeigt wurden */
+var checkAnswers={};           /* nur im Arbeitsspeicher dieser Seite */
+var CHECK_LABELS={
+  c1:'Was fehlt dir gerade in deinem Berufsalltag?',
+  c2:'Stell dir vor, du blickst in einem Jahr zurück. Worüber würdest du dich freuen?',
+  c3:'Was macht dich an der Finanzbranche neugierig?',
+  c4:'Was würde dir helfen, einen ersten Schritt neben deinem Hauptberuf zu machen?',
+  c5:'Was möchtest du im Infogespräch zuerst klären?'
 };
+var qNext=document.getElementById('qNext'),qBack=document.getElementById('qBack'),qError=document.getElementById('qError');
 
-function qzGoTo(step,scroll){
-  document.querySelectorAll('.qz-step').forEach(s=>{s.style.display='none'});
-  const target=document.querySelector('.qz-step[data-step="'+step+'"]');
-  if(target)target.style.display='block';
-  const pct=Math.round((step/qzTotalSteps)*100);
-  document.getElementById('quizProgressBar').style.width=pct+'%';
-  document.getElementById('quizStepLabel').textContent=qzStepLabels[step]||'';
-  qzCurrentStep=step;
-  if(scroll!==false)target.scrollIntoView({behavior:'smooth',block:'center'});
+function stepEl(n){return document.querySelector('.qz-step[data-step="'+n+'"]')}
+function chosen(n){var r=stepEl(n).querySelector('input:checked');return r?r.value:null}
+
+function renderStep(n,focus){
+  document.querySelectorAll('.qz-step').forEach(function(s){s.hidden=true});
+  stepEl(n).hidden=false;
+  checkStep=n;
+  document.getElementById('quizProgressBar').style.width=Math.round(n/CHECK_TOTAL*100)+'%';
+  document.getElementById('quizProgress').setAttribute('aria-valuenow',n);
+  document.getElementById('quizStepLabel').textContent='Frage '+n+' von '+CHECK_TOTAL;
+  qBack.style.visibility=n>1?'visible':'hidden';
+  qNext.textContent=n<CHECK_TOTAL?'Weiter →':'Nächste Schritte ansehen';
+  qError.textContent='';
+  if(focus){var f=stepEl(n).querySelector('input');if(f&&f.focus)f.focus()}
 }
+qNext.addEventListener('click',function(){
+  var v=chosen(checkStep);
+  if(!v){qError.textContent='Bitte wähle eine Antwort aus.';return}
+  checkAnswers['c'+checkStep]=v;
+  if(checkStep<CHECK_TOTAL){renderStep(checkStep+1,true)}
+  else{finishCheck()}
+});
+qBack.addEventListener('click',function(){if(checkStep>1)renderStep(checkStep-1,true)});
+document.querySelectorAll('#checkForm input[type=radio]').forEach(function(r){
+  r.addEventListener('change',function(){qError.textContent=''});
+});
 
-function qzValidateStep(step){
-  const el=document.querySelector('.qz-step[data-step="'+step+'"]');
-  const requiredInputs=el.querySelectorAll('[required]');
-  for(const inp of requiredInputs){
-    if(inp.type==='radio'){
-      const group=el.querySelectorAll('input[name="'+inp.name+'"]');
-      const checked=Array.from(group).some(r=>r.checked);
-      if(!checked){alert('Bitte wähle eine Antwort aus.');return false}
-    } else if(inp.type==='checkbox'){
-      if(!inp.checked){alert('Bitte akzeptiere die Datenschutzerklärung.');return false}
-    } else {
-      if(!inp.value.trim()){inp.focus();alert('Bitte fülle alle Pflichtfelder aus.');return false}
-      if(inp.type==='email' && !inp.validity.valid){inp.focus();alert('Bitte gib eine gültige E-Mail-Adresse ein.');return false}
-    }
+function finishCheck(){
+  checkDone=true;
+  document.getElementById('checkArea').hidden=true;
+  var ns=document.getElementById('nextSteps');
+  ns.hidden=false;
+  var h=ns.querySelector('h3');h.setAttribute('tabindex','-1');h.focus();
+  ns.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('nsBack').addEventListener('click',function(){
+  document.getElementById('nextSteps').hidden=true;
+  document.getElementById('checkArea').hidden=false;
+  checkDone=false;
+  renderStep(CHECK_TOTAL,true);
+});
+renderStep(1,false);
+
+/* ── Anfrage: ein Formular für beide Wege ── */
+var WEGE={
+  infogespraech:{
+    titel:'Persönliches Infogespräch anfragen',
+    sub:'Erzähl mir kurz, wer du bist. Ich melde mich bei dir per E-Mail oder, wenn du eine Nummer angibst, telefonisch.',
+    betreff:'Recruiting-Anfrage: Persönliches Infogespräch',
+    art:'Persönliches Infogespräch',
+    danke:'Deine Anfrage für ein persönliches Infogespräch ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.'
+  },
+  infoabend:{
+    titel:'Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz anfragen',
+    sub:'Erzähl mir kurz, wer du bist. Ich melde mich mit Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz bei dir per E-Mail oder, wenn du eine Nummer angibst, telefonisch.',
+    betreff:'Recruiting-Anfrage: Infos Infoabend zum Einstieg in die Finanzberatung in Graz',
+    art:'Infos Infoabend zum Einstieg in die Finanzberatung in Graz',
+    danke:'Deine Anfrage nach Infos zum Infoabend zum Einstieg in die Finanzberatung in Graz ist bei mir eingegangen. Ich melde mich unter der E-Mail-Adresse, die du angegeben hast.'
   }
-  return true;
+};
+var currentWeg='infogespraech';
+var formSubmitting=false,formDone=false;
+var panel=document.getElementById('formPanel');
+var form=document.getElementById('anfrageForm');
+var msgErr=document.getElementById('msgError'),msgOk=document.getElementById('msgSuccess');
+
+function renderAnswerPreview(){
+  var ul=document.getElementById('answerPreview');
+  ul.innerHTML='';
+  Object.keys(CHECK_LABELS).forEach(function(k){
+    if(!checkAnswers[k])return;
+    var li=document.createElement('li');
+    var b=document.createElement('strong');b.style.color='rgba(255,255,255,.7)';b.textContent=CHECK_LABELS[k]+' ';
+    li.appendChild(b);li.appendChild(document.createTextNode(checkAnswers[k]));
+    ul.appendChild(li);
+  });
 }
 
-function qzNext(){
-  if(!qzValidateStep(qzCurrentStep))return;
-  if(qzCurrentStep<qzTotalSteps)qzGoTo(qzCurrentStep+1);
-}
-function qzPrev(){
-  if(qzCurrentStep>1)qzGoTo(qzCurrentStep-1);
+function openForm(weg,fromCheck){
+  if(!WEGE[weg])weg='infogespraech';
+  var w=WEGE[weg];
+  currentWeg=weg;
+  if(formDone){ /* nach erfolgreichem Absenden: neue Anfrage erlauben */
+    formDone=false;form.reset();form.hidden=false;msgOk.hidden=true;
+  }
+  document.getElementById('fpTitle').textContent=w.titel;
+  document.getElementById('fpSub').textContent=w.sub;
+  document.getElementById('fSubject').value=w.betreff;
+  document.getElementById('fArt').value=w.art;
+  var hasCheck=!!(fromCheck&&checkDone);
+  document.getElementById('fQuelle').value=hasCheck?'nach Karriere-Check':'direkt';
+  var row=document.getElementById('sendAnswersRow');
+  row.hidden=!hasCheck;
+  document.getElementById('sendAnswers').checked=false;
+  if(hasCheck)renderAnswerPreview();
+  msgErr.hidden=true;
+  panel.hidden=false;
+  panel.scrollIntoView({behavior:'smooth',block:'start'});
+  var t=document.getElementById('fpTitle');t.focus({preventScroll:true});
 }
 
-/* Auto-advance when a question option is picked */
-document.querySelectorAll('.qz-step[data-step="2"] input, .qz-step[data-step="3"] input, .qz-step[data-step="4"] input, .qz-step[data-step="5"] input, .qz-step[data-step="6"] input').forEach(r=>{
-  r.addEventListener('change',()=>{
-    setTimeout(()=>{qzNext()},350);
+document.querySelectorAll('[data-open-form]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    if(mobileMenu.classList.contains('open'))setMenu(false);
+    openForm(a.getAttribute('data-open-form'),a.getAttribute('data-from-check')==='1');
   });
 });
+if(window.location.hash==='#anfrage'){openForm('infogespraech',false)}
 
-qzGoTo(1,false);
+function showErr(t){msgErr.textContent=t;msgErr.hidden=false;if(msgErr.scrollIntoView)msgErr.scrollIntoView({block:'nearest'})}
 
-/* ── Career check evaluation (5 questions, max 20 points) ── */
-function evaluateCareerCheck(e){
+form.addEventListener('submit',async function(e){
   e.preventDefault();
-  if(!qzValidateStep(7))return false;
-  const form=e.target;
-  const fd=new FormData(form);
-
-  const questionKeys=['frage_1_potenzial','frage_2_mehrverdienst','frage_3_montag_freitag',
-    'frage_4_risiko','frage_5_veraenderungswille'];
-
-  let points=0;
-  questionKeys.forEach(k=>{points+=parseInt(fd.get(k)||0)});
-
-  fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-    .catch(err=>console.log(err));
-
-  const name=fd.get('vorname')||'';
-  showResult(points,name);
-  return false;
-}
-
-function showResult(points,name){
-  const pct=Math.round((points/20)*100);
-  let emoji,title,color,body;
-
-  if(points>=17){
-    emoji='🔥';
-    title='Du bist bereit.';
-    color='var(--gold)';
-    body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
-      <p style="margin:12px 0;padding:16px;background:rgba(200,151,59,.1);border-radius:10px;border-left:3px solid var(--gold)">
-        Deine Antworten lesen sich wie bei jemandem, der schon lange weiß, was er will. Nur der Weg hat noch gefehlt.
-      </p>
-      <h4>Was jetzt passiert:</h4>
-      <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Ich melde mich persönlich</strong> – innerhalb von 48 Stunden. Nicht per Assistent.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>30 Minuten am Telefon</strong> – deine Fragen, meine ehrlichen Antworten.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Optional: ein Schnuppertag</strong> – du erlebst selbst, wie ein echter Beratungstag aussieht.</div></div>
-      </div>
-      <div class="result-confirm">
-        <div class="rc-item">Deine Daten wurden übermittelt</div>
-        <div class="rc-item">Meldung innerhalb von 48 Stunden</div>
-      </div>
-    `;
-  } else if(points>=12){
-    emoji='⚡';
-    title='Stark – du hast das Feuer.';
-    color='var(--gold2)';
-    body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
-      <p style="margin:12px 0;padding:16px;background:rgba(200,151,59,.08);border-radius:10px;border-left:3px solid var(--gold)">
-        Deine Antworten zeigen echte Substanz. Du bist interessiert, motiviert – und bereit, mehr zu erfahren.
-      </p>
-      <h4>Was jetzt passiert:</h4>
-      <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch</strong> – 30 Minuten, ich beantworte alle deine Fragen ehrlich.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Einblick hinter die Kulissen</strong> – begleite mich und erlebe selbst, was dieser Beruf bedeutet.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Dann entscheidest du</strong> – in deinem Tempo.</div></div>
-      </div>
-      <div class="result-confirm">
-        <div class="rc-item">Deine Daten wurden übermittelt</div>
-        <div class="rc-item">Ich melde mich innerhalb von 48 Stunden</div>
-      </div>
-    `;
-  } else {
-    emoji='🌱';
-    title='Ein guter erster Schritt.';
-    color='rgba(255,255,255,.8)';
-    body=`
-      <p><strong>${name?name+', dein':' Dein'} Ergebnis: ${points}/20 Punkten (${pct}%)</strong></p>
-      <p style="margin:12px 0;padding:16px;background:rgba(255,255,255,.05);border-radius:10px;border-left:3px solid rgba(255,255,255,.2)">
-        Du willst erst verstehen, bevor du entscheidest – das ist klug, nicht zögerlich.
-      </p>
-      <h4>Mein Vorschlag:</h4>
-      <div class="result-steps">
-        <div class="result-step"><div class="rs-num">1</div><div class="rs-text"><strong>Offenes Gespräch (30 Min)</strong> – ich sage dir ehrlich, ob ich glaube, dass es passt.</div></div>
-        <div class="result-step"><div class="rs-num">2</div><div class="rs-text"><strong>Info-Abend besuchen</strong> – komm zu einem Abend und erlebe, worum es wirklich geht.</div></div>
-        <div class="result-step"><div class="rs-num">3</div><div class="rs-text"><strong>Danach entscheidest du</strong> – manche sagen Nein, andere Ja. Beides ist in Ordnung.</div></div>
-      </div>
-      <div class="result-confirm">
-        <div class="rc-item">Deine Daten wurden übermittelt</div>
-        <div class="rc-item">Meldung innerhalb von 48 Stunden</div>
-      </div>
-      <p style="font-size:.82rem;color:rgba(255,255,255,.35);margin-top:16px;font-style:italic">
-        PS: Viele unserer Berater hatten anfangs genau dieselben Zweifel. Der Unterschied: Sie haben einen Blick hinter die Kulissen gewagt.
-      </p>
-    `;
+  if(formSubmitting||formDone)return;
+  if(!form.reportValidity())return;
+  var btn=document.getElementById('submitBtn'),label=btn.textContent;
+  formSubmitting=true;btn.disabled=true;btn.textContent='Wird gesendet …';msgErr.hidden=true;
+  try{
+    var fd=new FormData(form);
+    /* Check-Antworten nur, wenn der Haken aktiv gesetzt wurde */
+    if(document.getElementById('sendAnswers').checked&&checkDone){
+      Object.keys(CHECK_LABELS).forEach(function(k){if(checkAnswers[k])fd.append('check_'+k.slice(1)+'_'+CHECK_LABELS[k],checkAnswers[k])});
+    }else{
+      fd.delete('check_antworten_mitsenden');
+    }
+    var resp=await fetch(form.getAttribute('action'),{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    if(resp.ok){
+      formDone=true;form.hidden=true;
+      document.getElementById('successText').textContent=WEGE[currentWeg].danke;
+      msgOk.hidden=false;msgOk.focus();
+    }else{
+      showErr('Die Anfrage konnte nicht übermittelt werden. Bitte versuche es erneut oder schreib mir an mario.friedl@equality-co.at.');
+    }
+  }catch(err){
+    showErr('Die Verbindung ist fehlgeschlagen. Bitte prüfe deine Internetverbindung und versuche es erneut oder schreib mir an mario.friedl@equality-co.at.');
+  }finally{
+    formSubmitting=false;
+    if(!formDone){btn.disabled=false;btn.textContent=label}
   }
-
-  document.getElementById('resultEmoji').textContent=emoji;
-  document.getElementById('resultTitle').style.color=color;
-  document.getElementById('resultTitle').textContent=title;
-  document.getElementById('resultBody').innerHTML=body;
-  document.getElementById('resultOverlay').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-
-function closeResult(){
-  document.getElementById('resultOverlay').classList.remove('active');
-  document.body.style.overflow='';
-}
-document.getElementById('resultOverlay').addEventListener('click',function(e){
-  if(e.target===this)closeResult();
 });
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeResult()});
 </script>
 </body>
 </html>
