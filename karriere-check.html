@@ -802,6 +802,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 /* Footer nicht von der fixen Leiste verdecken */
 footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 @media(max-width:768px){footer{padding-bottom:calc(190px + env(safe-area-inset-bottom,0px))}}
+
+.hero-model{font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.9);border-left:3px solid var(--gold);background:rgba(200,151,59,.08);border-radius:0 10px 10px 0;padding:12px 16px;margin:6px 0 24px;max-width:560px;animation:fadeUp .9s .35s ease both}
+@media(max-width:640px){.hero-model{font-size:1rem;padding:12px 14px;margin-bottom:20px}}
 </style>
 </head>
 <body>
@@ -841,7 +844,8 @@ footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
       <div class="hero-badge">Für Berufstätige aus Graz und der Steiermark</div>
       <h1>Du willst beruflich etwas verändern?<em>Finde heraus, ob Finanzberatung zu dir passt.</em></h1>
       <p class="hero-sub hero-sub-1">Willst du mal raus aus der Routine und beruflich etwas Neues ausprobieren? Oder würdest du dir neben deinem Job gern etwas dazuverdienen?</p>
-      <p class="hero-sub">Ich habe selbst neben meinem 40-Stunden-Job als Tippgeber angefangen. Heute bin ich seit vier Jahren in der Finanzbranche selbstständig. Im persönlichen Infogespräch erzähle ich dir, wie die selbstständige Zusammenarbeit im Equality-Netzwerk aussieht und wie ein Einstieg neben deinem Hauptberuf ablaufen kann.</p>
+      <p class="hero-sub">Ich habe selbst neben meinem 40-Stunden-Job als Tippgeber angefangen. Heute bin ich seit vier Jahren in der Finanzbranche selbstständig. Im persönlichen Infogespräch erzähle ich dir von meinem Einstieg. Gemeinsam schauen wir, wie ein erster Schritt neben deinem Hauptberuf aussehen könnte.</p>
+      <p class="hero-model">Bei Equality geht es um eine selbstständige Zusammenarbeit auf Provisionsbasis in einem mehrstufigen Vertriebsmodell.</p>
       <div class="hero-paths">
         <a href="#anfrage" class="btn-gold" data-open-form="infogespraech">Persönliches Infogespräch anfragen</a>
         <a href="#karriere-check" class="btn-outline">Karriere-Check starten</a>
@@ -857,33 +861,24 @@ footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- ══ SO HABE ICH ANGEFANGEN ══ -->
-<section class="story-bridge">
-  <div class="sb-inner anim">
-    <span class="eyebrow">So habe ich angefangen</span>
-    <p>Ich bin als Tippgeber eingestiegen, damals neben meinem 40-Stunden-Job. So konnte ich mir Schritt für Schritt ein Bild von der Branche machen. <strong>Im Gespräch erzähle ich dir, was ich am Anfang konkret gemacht habe und wie mein Einstieg neben dem Beruf ausgesehen hat.</strong></p>
-  </div>
-</section>
-
 <!-- ══ WAS DU IM GESPRÄCH KLÄREN KANNST ══ -->
 <section class="partner-section" id="partner">
   <div class="wrap">
     <div class="section-head anim" style="text-align:center;margin-bottom:0">
-      <span class="eyebrow">Das Infogespräch</span>
       <h2 style="color:var(--white)">Was du im Gespräch <em class="gold">klären kannst</em></h2>
     </div>
     <div class="partner-grid">
       <div class="pg-card anim">
-        <div class="pg-title">Deine ersten Aufgaben</div>
-        <div class="pg-text">Was machst du zu Beginn, wie entstehen erste Kundenkontakte und wie lässt sich der Einstieg mit deinem Hauptberuf vereinbaren?</div>
+        <div class="pg-title">Deine ersten Schritte</div>
+        <div class="pg-text">Wir besprechen, welche Aufgaben für dich am Anfang infrage kommen, wie erste Kundenkontakte entstehen und was sich mit deinem Hauptberuf vereinbaren lässt.</div>
       </div>
       <div class="pg-card anim d1">
-        <div class="pg-title">Deine Begleitung im Team</div>
-        <div class="pg-text">Wer ist bei den ersten Schritten an deiner Seite, und wie laufen Schulungen und fachlicher Austausch ab?</div>
+        <div class="pg-title">Die Zusammenarbeit im Team</div>
+        <div class="pg-text">Frag mich, wie die Begleitung im Team aussieht, wie du dich fachlich einarbeiten kannst und was das mehrstufige Vertriebsmodell für deine Rolle bedeutet.</div>
       </div>
       <div class="pg-card anim d2">
         <div class="pg-title">Die Beratung in der Praxis</div>
-        <div class="pg-text">Wie gehen wir vom Bedarf eines Kunden aus, und welche Lösungen aus unserem verfügbaren Angebot können wir dafür vergleichen?</div>
+        <div class="pg-text">Wenn dich die Beratungsarbeit interessiert, sprechen wir darüber, wie wir den Bedarf eines Kunden klären und welche Lösungen wir aus dem verfügbaren Angebot vergleichen können.</div>
       </div>
     </div>
   </div>
@@ -906,7 +901,7 @@ footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <div class="quiz-wrap anim d1" id="checkBox">
       <h2>Passt Finanzberatung<br><em class="gold">zu dir?</em></h2>
-      <p class="quiz-sub">Fünf kurze Fragen helfen dir herauszufinden, was dich beruflich reizt und was du über einen möglichen Einstieg wissen möchtest.</p>
+      <p class="quiz-sub">Fünf Fragen helfen dir herauszufinden, was du beruflich suchst und was du vor einem Einstieg klären möchtest.</p>
       <p class="check-note">Der Check braucht keine Kontaktdaten und läuft in deinem Browser. Deine Antworten werden nur gesendet, wenn du es später beim Absenden einer Anfrage ausdrücklich auswählst.</p>
 
       <div id="checkArea">
@@ -979,8 +974,8 @@ footer{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
       <!-- Nach dem Check: zwei Optionen, noch ohne Kontaktdaten -->
       <div class="next-steps" id="nextSteps" hidden>
         <div class="opt-card single">
-          <h3 id="nsTitle" tabindex="-1">Dein nächster Schritt</h3>
-          <p>Du hast dir Gedanken gemacht, was du beruflich verändern möchtest. Im persönlichen Infogespräch besprechen wir, was dich an der Finanzberatung interessiert und welche Fragen du zu einem Einstieg neben deinem Hauptberuf hast.</p>
+          <h3 id="nsTitle" tabindex="-1">Möchtest du mehr über den Einstieg erfahren?</h3>
+          <p>Bring die Frage mit, die dich am meisten beschäftigt. Im persönlichen Infogespräch schauen wir gemeinsam, ob die Tätigkeit zu dir passt und wie ein erster Schritt neben deinem Hauptberuf aussehen könnte.</p>
           <a href="#anfrage" class="btn-gold" data-open-form="infogespraech" data-from-check="1">Persönliches Infogespräch anfragen</a>
         </div>
         <button type="button" class="ns-link" id="nsBack">Antworten ansehen oder ändern</button>
